@@ -11,3 +11,6 @@ data/cache/
 
 # 临时试验脚本
 _tmp*.py
+
+# IDE 配置
+.idea/
