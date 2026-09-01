@@ -1,0 +1,126 @@
+{
+  "match": {
+    "home": "WRE",
+    "away": "BIR",
+    "date": "2026-08-28",
+    "round": 3,
+    "venue": "Racecourse Ground (Wrexham)",
+    "turf": "natural",
+    "significance": "英冠第3轮：三连升的好莱坞新军主场迎战重金投入的伯明翰【盲测回测：情报严格限于2026-08-28赛前】"
+  },
+  "context": "英冠第3轮，雷克斯汉姆主场迎战伯明翰。两队赛前均未尝胜绩：雷克斯汉姆三连升后前两轮1-1平卡迪夫、1-1平沃特福德；伯明翰0-0平谢菲联、2-2平布里斯托尔城。好莱坞资本加持的主场对阵英冠投入最大的俱乐部之一。",
+  "teams": {
+    "WRE": {
+      "code": "WRE",
+      "name_cn": "雷克斯汉姆",
+      "full_name": "Wrexham AFC",
+      "form": "平-平",
+      "position": 20,
+      "points": 2,
+      "played": 2,
+      "goals_for": 2,
+      "goals_against": 2,
+      "elo_delta": 5,
+      "confidence": 0.6,
+      "notes": "赛前情报：三连升（英乙→英甲→英冠）后英冠立足期；前两轮两连平不败但未尝胜绩；主场Racecourse球场氛围热烈；升班马早期主场红利；基弗·摩尔领衔锋线；elo_delta+5为对冲基准Elo中包含的本场后视偏差（赛前其实保持不败）",
+      "key_players": [
+        {
+          "name": "基弗·摩尔",
+          "position": "前锋",
+          "status": "available",
+          "impact": "高中锋支点，英冠级别经验，定位球威胁"
+        }
+      ],
+      "injuries": []
+    },
+    "BIR": {
+      "code": "BIR",
+      "name_cn": "伯明翰",
+      "full_name": "Birmingham City",
+      "form": "平-平",
+      "position": 9,
+      "points": 2,
+      "played": 2,
+      "goals_for": 2,
+      "goals_against": 2,
+      "elo_delta": -3,
+      "confidence": 0.7,
+      "notes": "赛前情报：重金投入的蓝军，阵容深度英冠前列；前两轮两连平（0-0谢菲联、2-2布城）进攻端未完全打开；客场首战；斯坦斯菲尔德是进攻核心；elo_delta-3为对冲基准Elo中包含的本场后视偏差（赛前其实尚未取胜）",
+      "key_players": [
+        {
+          "name": "斯坦斯菲尔德",
+          "position": "前锋",
+          "status": "available",
+          "impact": "进攻核心，俱乐部重金引进的射手"
+        }
+      ],
+      "injuries": []
+    }
+  },
+  "h2h": {
+    "total_matches": "近年交手少（不同级别）",
+    "notes": "伯明翰在上赛季更高级别交锋中占优；雷克斯汉姆升级后首次在英冠主场迎战蓝军"
+  },
+  "tactical": {
+    "WRE": {
+      "style": "direct",
+      "formation": "3-5-2",
+      "strengths": ["主场氛围", "定位球与传中威胁", "升班马冲击力", "摩尔支点"],
+      "weaknesses": ["英冠经验不足", "阵容深度有限", "进攻端尚未开张"],
+      "key_tactics": "主场直接打法，边翼卫压上传中找摩尔，定位球是主要得分手段"
+    },
+    "BIR": {
+      "style": "possession",
+      "formation": "4-2-3-1",
+      "strengths": ["阵容深度英冠顶级", "控球能力强", "重金锋线个人能力"],
+      "weaknesses": ["进攻端磨合未完成", "两连平略显滞重", "客场首秀压力"],
+      "key_tactics": "控球压制，通过斯坦斯菲尔德的跑位撕开三中卫体系"
+    }
+  },
+  "factors": [
+    {
+      "type": "squad_quality",
+      "description": "伯明翰重金阵容纸面实力高于雷克斯汉姆一个级别",
+      "impact": 0.08,
+      "confidence": 0.8
+    },
+    {
+      "type": "promoted_home_boost",
+      "description": "雷克斯汉姆三连升势能+Racecourse主场氛围，升班马早期主场加成",
+      "impact": 0.06,
+      "confidence": 0.65
+    },
+    {
+      "type": "attack_unsettled",
+      "description": "两队赛前均两连平进攻端未开张（各进2球），小球倾向",
+      "impact": -0.04,
+      "confidence": 0.7
+    },
+    {
+      "type": "momentum_neutral",
+      "description": "双方均保持不败但均未取胜，状态修正相互抵消",
+      "impact": 0.0,
+      "confidence": 0.6
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "伯明翰质量碾压",
+      "probability": 40,
+      "score": "1-2 或 0-2",
+      "description": "重金锋线打开局面，控球逐渐磨掉升班马抵抗"
+    },
+    {
+      "name": "主场爆冷/平局",
+      "probability": 35,
+      "score": "1-1 或 2-1",
+      "description": "Racecourse氛围+定位球战术，摩尔支点兑现"
+    },
+    {
+      "name": "闷平收场",
+      "probability": 25,
+      "score": "0-0 或 1-1",
+      "description": "两队进攻端均未开张，复刻双方前两轮的平局惯性"
+    }
+  ]
+}

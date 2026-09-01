@@ -1,0 +1,1522 @@
+[
+  {
+    "home": "MCI",
+    "away": "HUL"
+  },
+  {
+    "home": "LIV",
+    "away": "IPS"
+  },
+  {
+    "home": "ARS",
+    "away": "COV"
+  },
+  {
+    "home": "TOT",
+    "away": "EVE"
+  },
+  {
+    "home": "MUN",
+    "away": "BRE"
+  },
+  {
+    "home": "CHE",
+    "away": "CRY"
+  },
+  {
+    "home": "NEW",
+    "away": "SUN"
+  },
+  {
+    "home": "AVL",
+    "away": "FUL"
+  },
+  {
+    "home": "BHA",
+    "away": "BOU"
+  },
+  {
+    "home": "NFO",
+    "away": "LEE"
+  },
+  {
+    "home": "IPS",
+    "away": "MCI"
+  },
+  {
+    "home": "COV",
+    "away": "HUL"
+  },
+  {
+    "home": "EVE",
+    "away": "LIV"
+  },
+  {
+    "home": "BRE",
+    "away": "ARS"
+  },
+  {
+    "home": "CRY",
+    "away": "TOT"
+  },
+  {
+    "home": "SUN",
+    "away": "MUN"
+  },
+  {
+    "home": "FUL",
+    "away": "CHE"
+  },
+  {
+    "home": "BOU",
+    "away": "NEW"
+  },
+  {
+    "home": "LEE",
+    "away": "AVL"
+  },
+  {
+    "home": "NFO",
+    "away": "BHA"
+  },
+  {
+    "home": "MCI",
+    "away": "COV"
+  },
+  {
+    "home": "IPS",
+    "away": "EVE"
+  },
+  {
+    "home": "HUL",
+    "away": "BRE"
+  },
+  {
+    "home": "LIV",
+    "away": "CRY"
+  },
+  {
+    "home": "ARS",
+    "away": "SUN"
+  },
+  {
+    "home": "TOT",
+    "away": "FUL"
+  },
+  {
+    "home": "MUN",
+    "away": "BOU"
+  },
+  {
+    "home": "CHE",
+    "away": "LEE"
+  },
+  {
+    "home": "NEW",
+    "away": "NFO"
+  },
+  {
+    "home": "AVL",
+    "away": "BHA"
+  },
+  {
+    "home": "EVE",
+    "away": "MCI"
+  },
+  {
+    "home": "BRE",
+    "away": "COV"
+  },
+  {
+    "home": "CRY",
+    "away": "IPS"
+  },
+  {
+    "home": "SUN",
+    "away": "HUL"
+  },
+  {
+    "home": "FUL",
+    "away": "LIV"
+  },
+  {
+    "home": "BOU",
+    "away": "ARS"
+  },
+  {
+    "home": "LEE",
+    "away": "TOT"
+  },
+  {
+    "home": "NFO",
+    "away": "MUN"
+  },
+  {
+    "home": "BHA",
+    "away": "CHE"
+  },
+  {
+    "home": "AVL",
+    "away": "NEW"
+  },
+  {
+    "home": "MCI",
+    "away": "BRE"
+  },
+  {
+    "home": "EVE",
+    "away": "CRY"
+  },
+  {
+    "home": "COV",
+    "away": "SUN"
+  },
+  {
+    "home": "IPS",
+    "away": "FUL"
+  },
+  {
+    "home": "HUL",
+    "away": "BOU"
+  },
+  {
+    "home": "LIV",
+    "away": "LEE"
+  },
+  {
+    "home": "ARS",
+    "away": "NFO"
+  },
+  {
+    "home": "TOT",
+    "away": "BHA"
+  },
+  {
+    "home": "MUN",
+    "away": "AVL"
+  },
+  {
+    "home": "CHE",
+    "away": "NEW"
+  },
+  {
+    "home": "CRY",
+    "away": "MCI"
+  },
+  {
+    "home": "SUN",
+    "away": "BRE"
+  },
+  {
+    "home": "FUL",
+    "away": "EVE"
+  },
+  {
+    "home": "BOU",
+    "away": "COV"
+  },
+  {
+    "home": "LEE",
+    "away": "IPS"
+  },
+  {
+    "home": "NFO",
+    "away": "HUL"
+  },
+  {
+    "home": "BHA",
+    "away": "LIV"
+  },
+  {
+    "home": "AVL",
+    "away": "ARS"
+  },
+  {
+    "home": "NEW",
+    "away": "TOT"
+  },
+  {
+    "home": "CHE",
+    "away": "MUN"
+  },
+  {
+    "home": "MCI",
+    "away": "SUN"
+  },
+  {
+    "home": "CRY",
+    "away": "FUL"
+  },
+  {
+    "home": "BRE",
+    "away": "BOU"
+  },
+  {
+    "home": "EVE",
+    "away": "LEE"
+  },
+  {
+    "home": "COV",
+    "away": "NFO"
+  },
+  {
+    "home": "IPS",
+    "away": "BHA"
+  },
+  {
+    "home": "HUL",
+    "away": "AVL"
+  },
+  {
+    "home": "LIV",
+    "away": "NEW"
+  },
+  {
+    "home": "ARS",
+    "away": "CHE"
+  },
+  {
+    "home": "TOT",
+    "away": "MUN"
+  },
+  {
+    "home": "FUL",
+    "away": "MCI"
+  },
+  {
+    "home": "BOU",
+    "away": "SUN"
+  },
+  {
+    "home": "LEE",
+    "away": "CRY"
+  },
+  {
+    "home": "NFO",
+    "away": "BRE"
+  },
+  {
+    "home": "BHA",
+    "away": "EVE"
+  },
+  {
+    "home": "AVL",
+    "away": "COV"
+  },
+  {
+    "home": "NEW",
+    "away": "IPS"
+  },
+  {
+    "home": "CHE",
+    "away": "HUL"
+  },
+  {
+    "home": "MUN",
+    "away": "LIV"
+  },
+  {
+    "home": "TOT",
+    "away": "ARS"
+  },
+  {
+    "home": "MCI",
+    "away": "BOU"
+  },
+  {
+    "home": "FUL",
+    "away": "LEE"
+  },
+  {
+    "home": "SUN",
+    "away": "NFO"
+  },
+  {
+    "home": "CRY",
+    "away": "BHA"
+  },
+  {
+    "home": "BRE",
+    "away": "AVL"
+  },
+  {
+    "home": "EVE",
+    "away": "NEW"
+  },
+  {
+    "home": "COV",
+    "away": "CHE"
+  },
+  {
+    "home": "IPS",
+    "away": "MUN"
+  },
+  {
+    "home": "HUL",
+    "away": "TOT"
+  },
+  {
+    "home": "LIV",
+    "away": "ARS"
+  },
+  {
+    "home": "LEE",
+    "away": "MCI"
+  },
+  {
+    "home": "NFO",
+    "away": "BOU"
+  },
+  {
+    "home": "BHA",
+    "away": "FUL"
+  },
+  {
+    "home": "AVL",
+    "away": "SUN"
+  },
+  {
+    "home": "NEW",
+    "away": "CRY"
+  },
+  {
+    "home": "CHE",
+    "away": "BRE"
+  },
+  {
+    "home": "MUN",
+    "away": "EVE"
+  },
+  {
+    "home": "TOT",
+    "away": "COV"
+  },
+  {
+    "home": "ARS",
+    "away": "IPS"
+  },
+  {
+    "home": "LIV",
+    "away": "HUL"
+  },
+  {
+    "home": "MCI",
+    "away": "NFO"
+  },
+  {
+    "home": "LEE",
+    "away": "BHA"
+  },
+  {
+    "home": "BOU",
+    "away": "AVL"
+  },
+  {
+    "home": "FUL",
+    "away": "NEW"
+  },
+  {
+    "home": "SUN",
+    "away": "CHE"
+  },
+  {
+    "home": "CRY",
+    "away": "MUN"
+  },
+  {
+    "home": "BRE",
+    "away": "TOT"
+  },
+  {
+    "home": "EVE",
+    "away": "ARS"
+  },
+  {
+    "home": "COV",
+    "away": "LIV"
+  },
+  {
+    "home": "IPS",
+    "away": "HUL"
+  },
+  {
+    "home": "BHA",
+    "away": "MCI"
+  },
+  {
+    "home": "AVL",
+    "away": "NFO"
+  },
+  {
+    "home": "NEW",
+    "away": "LEE"
+  },
+  {
+    "home": "CHE",
+    "away": "BOU"
+  },
+  {
+    "home": "MUN",
+    "away": "FUL"
+  },
+  {
+    "home": "TOT",
+    "away": "SUN"
+  },
+  {
+    "home": "ARS",
+    "away": "CRY"
+  },
+  {
+    "home": "LIV",
+    "away": "BRE"
+  },
+  {
+    "home": "HUL",
+    "away": "EVE"
+  },
+  {
+    "home": "IPS",
+    "away": "COV"
+  },
+  {
+    "home": "MCI",
+    "away": "AVL"
+  },
+  {
+    "home": "BHA",
+    "away": "NEW"
+  },
+  {
+    "home": "NFO",
+    "away": "CHE"
+  },
+  {
+    "home": "LEE",
+    "away": "MUN"
+  },
+  {
+    "home": "BOU",
+    "away": "TOT"
+  },
+  {
+    "home": "FUL",
+    "away": "ARS"
+  },
+  {
+    "home": "SUN",
+    "away": "LIV"
+  },
+  {
+    "home": "CRY",
+    "away": "HUL"
+  },
+  {
+    "home": "BRE",
+    "away": "IPS"
+  },
+  {
+    "home": "EVE",
+    "away": "COV"
+  },
+  {
+    "home": "NEW",
+    "away": "MCI"
+  },
+  {
+    "home": "CHE",
+    "away": "AVL"
+  },
+  {
+    "home": "MUN",
+    "away": "BHA"
+  },
+  {
+    "home": "TOT",
+    "away": "NFO"
+  },
+  {
+    "home": "ARS",
+    "away": "LEE"
+  },
+  {
+    "home": "LIV",
+    "away": "BOU"
+  },
+  {
+    "home": "HUL",
+    "away": "FUL"
+  },
+  {
+    "home": "IPS",
+    "away": "SUN"
+  },
+  {
+    "home": "COV",
+    "away": "CRY"
+  },
+  {
+    "home": "EVE",
+    "away": "BRE"
+  },
+  {
+    "home": "MCI",
+    "away": "CHE"
+  },
+  {
+    "home": "NEW",
+    "away": "MUN"
+  },
+  {
+    "home": "AVL",
+    "away": "TOT"
+  },
+  {
+    "home": "BHA",
+    "away": "ARS"
+  },
+  {
+    "home": "NFO",
+    "away": "LIV"
+  },
+  {
+    "home": "LEE",
+    "away": "HUL"
+  },
+  {
+    "home": "BOU",
+    "away": "IPS"
+  },
+  {
+    "home": "FUL",
+    "away": "COV"
+  },
+  {
+    "home": "SUN",
+    "away": "EVE"
+  },
+  {
+    "home": "CRY",
+    "away": "BRE"
+  },
+  {
+    "home": "MUN",
+    "away": "MCI"
+  },
+  {
+    "home": "TOT",
+    "away": "CHE"
+  },
+  {
+    "home": "ARS",
+    "away": "NEW"
+  },
+  {
+    "home": "LIV",
+    "away": "AVL"
+  },
+  {
+    "home": "HUL",
+    "away": "BHA"
+  },
+  {
+    "home": "IPS",
+    "away": "NFO"
+  },
+  {
+    "home": "COV",
+    "away": "LEE"
+  },
+  {
+    "home": "EVE",
+    "away": "BOU"
+  },
+  {
+    "home": "BRE",
+    "away": "FUL"
+  },
+  {
+    "home": "CRY",
+    "away": "SUN"
+  },
+  {
+    "home": "MCI",
+    "away": "TOT"
+  },
+  {
+    "home": "MUN",
+    "away": "ARS"
+  },
+  {
+    "home": "CHE",
+    "away": "LIV"
+  },
+  {
+    "home": "NEW",
+    "away": "HUL"
+  },
+  {
+    "home": "AVL",
+    "away": "IPS"
+  },
+  {
+    "home": "BHA",
+    "away": "COV"
+  },
+  {
+    "home": "NFO",
+    "away": "EVE"
+  },
+  {
+    "home": "LEE",
+    "away": "BRE"
+  },
+  {
+    "home": "BOU",
+    "away": "CRY"
+  },
+  {
+    "home": "FUL",
+    "away": "SUN"
+  },
+  {
+    "home": "ARS",
+    "away": "MCI"
+  },
+  {
+    "home": "LIV",
+    "away": "TOT"
+  },
+  {
+    "home": "HUL",
+    "away": "MUN"
+  },
+  {
+    "home": "IPS",
+    "away": "CHE"
+  },
+  {
+    "home": "COV",
+    "away": "NEW"
+  },
+  {
+    "home": "EVE",
+    "away": "AVL"
+  },
+  {
+    "home": "BRE",
+    "away": "BHA"
+  },
+  {
+    "home": "CRY",
+    "away": "NFO"
+  },
+  {
+    "home": "SUN",
+    "away": "LEE"
+  },
+  {
+    "home": "FUL",
+    "away": "BOU"
+  },
+  {
+    "home": "MCI",
+    "away": "LIV"
+  },
+  {
+    "home": "ARS",
+    "away": "HUL"
+  },
+  {
+    "home": "TOT",
+    "away": "IPS"
+  },
+  {
+    "home": "MUN",
+    "away": "COV"
+  },
+  {
+    "home": "CHE",
+    "away": "EVE"
+  },
+  {
+    "home": "NEW",
+    "away": "BRE"
+  },
+  {
+    "home": "AVL",
+    "away": "CRY"
+  },
+  {
+    "home": "BHA",
+    "away": "SUN"
+  },
+  {
+    "home": "NFO",
+    "away": "FUL"
+  },
+  {
+    "home": "LEE",
+    "away": "BOU"
+  },
+  {
+    "home": "HUL",
+    "away": "MCI"
+  },
+  {
+    "home": "IPS",
+    "away": "LIV"
+  },
+  {
+    "home": "COV",
+    "away": "ARS"
+  },
+  {
+    "home": "EVE",
+    "away": "TOT"
+  },
+  {
+    "home": "BRE",
+    "away": "MUN"
+  },
+  {
+    "home": "CRY",
+    "away": "CHE"
+  },
+  {
+    "home": "SUN",
+    "away": "NEW"
+  },
+  {
+    "home": "FUL",
+    "away": "AVL"
+  },
+  {
+    "home": "BOU",
+    "away": "BHA"
+  },
+  {
+    "home": "LEE",
+    "away": "NFO"
+  },
+  {
+    "home": "MCI",
+    "away": "IPS"
+  },
+  {
+    "home": "HUL",
+    "away": "COV"
+  },
+  {
+    "home": "LIV",
+    "away": "EVE"
+  },
+  {
+    "home": "ARS",
+    "away": "BRE"
+  },
+  {
+    "home": "TOT",
+    "away": "CRY"
+  },
+  {
+    "home": "MUN",
+    "away": "SUN"
+  },
+  {
+    "home": "CHE",
+    "away": "FUL"
+  },
+  {
+    "home": "NEW",
+    "away": "BOU"
+  },
+  {
+    "home": "AVL",
+    "away": "LEE"
+  },
+  {
+    "home": "BHA",
+    "away": "NFO"
+  },
+  {
+    "home": "COV",
+    "away": "MCI"
+  },
+  {
+    "home": "EVE",
+    "away": "IPS"
+  },
+  {
+    "home": "BRE",
+    "away": "HUL"
+  },
+  {
+    "home": "CRY",
+    "away": "LIV"
+  },
+  {
+    "home": "SUN",
+    "away": "ARS"
+  },
+  {
+    "home": "FUL",
+    "away": "TOT"
+  },
+  {
+    "home": "BOU",
+    "away": "MUN"
+  },
+  {
+    "home": "LEE",
+    "away": "CHE"
+  },
+  {
+    "home": "NFO",
+    "away": "NEW"
+  },
+  {
+    "home": "BHA",
+    "away": "AVL"
+  },
+  {
+    "home": "MCI",
+    "away": "EVE"
+  },
+  {
+    "home": "COV",
+    "away": "BRE"
+  },
+  {
+    "home": "IPS",
+    "away": "CRY"
+  },
+  {
+    "home": "HUL",
+    "away": "SUN"
+  },
+  {
+    "home": "LIV",
+    "away": "FUL"
+  },
+  {
+    "home": "ARS",
+    "away": "BOU"
+  },
+  {
+    "home": "TOT",
+    "away": "LEE"
+  },
+  {
+    "home": "MUN",
+    "away": "NFO"
+  },
+  {
+    "home": "CHE",
+    "away": "BHA"
+  },
+  {
+    "home": "NEW",
+    "away": "AVL"
+  },
+  {
+    "home": "BRE",
+    "away": "MCI"
+  },
+  {
+    "home": "CRY",
+    "away": "EVE"
+  },
+  {
+    "home": "SUN",
+    "away": "COV"
+  },
+  {
+    "home": "FUL",
+    "away": "IPS"
+  },
+  {
+    "home": "BOU",
+    "away": "HUL"
+  },
+  {
+    "home": "LEE",
+    "away": "LIV"
+  },
+  {
+    "home": "NFO",
+    "away": "ARS"
+  },
+  {
+    "home": "BHA",
+    "away": "TOT"
+  },
+  {
+    "home": "AVL",
+    "away": "MUN"
+  },
+  {
+    "home": "NEW",
+    "away": "CHE"
+  },
+  {
+    "home": "MCI",
+    "away": "CRY"
+  },
+  {
+    "home": "BRE",
+    "away": "SUN"
+  },
+  {
+    "home": "EVE",
+    "away": "FUL"
+  },
+  {
+    "home": "COV",
+    "away": "BOU"
+  },
+  {
+    "home": "IPS",
+    "away": "LEE"
+  },
+  {
+    "home": "HUL",
+    "away": "NFO"
+  },
+  {
+    "home": "LIV",
+    "away": "BHA"
+  },
+  {
+    "home": "ARS",
+    "away": "AVL"
+  },
+  {
+    "home": "TOT",
+    "away": "NEW"
+  },
+  {
+    "home": "MUN",
+    "away": "CHE"
+  },
+  {
+    "home": "SUN",
+    "away": "MCI"
+  },
+  {
+    "home": "FUL",
+    "away": "CRY"
+  },
+  {
+    "home": "BOU",
+    "away": "BRE"
+  },
+  {
+    "home": "LEE",
+    "away": "EVE"
+  },
+  {
+    "home": "NFO",
+    "away": "COV"
+  },
+  {
+    "home": "BHA",
+    "away": "IPS"
+  },
+  {
+    "home": "AVL",
+    "away": "HUL"
+  },
+  {
+    "home": "NEW",
+    "away": "LIV"
+  },
+  {
+    "home": "CHE",
+    "away": "ARS"
+  },
+  {
+    "home": "MUN",
+    "away": "TOT"
+  },
+  {
+    "home": "MCI",
+    "away": "FUL"
+  },
+  {
+    "home": "SUN",
+    "away": "BOU"
+  },
+  {
+    "home": "CRY",
+    "away": "LEE"
+  },
+  {
+    "home": "BRE",
+    "away": "NFO"
+  },
+  {
+    "home": "EVE",
+    "away": "BHA"
+  },
+  {
+    "home": "COV",
+    "away": "AVL"
+  },
+  {
+    "home": "IPS",
+    "away": "NEW"
+  },
+  {
+    "home": "HUL",
+    "away": "CHE"
+  },
+  {
+    "home": "LIV",
+    "away": "MUN"
+  },
+  {
+    "home": "ARS",
+    "away": "TOT"
+  },
+  {
+    "home": "BOU",
+    "away": "MCI"
+  },
+  {
+    "home": "LEE",
+    "away": "FUL"
+  },
+  {
+    "home": "NFO",
+    "away": "SUN"
+  },
+  {
+    "home": "BHA",
+    "away": "CRY"
+  },
+  {
+    "home": "AVL",
+    "away": "BRE"
+  },
+  {
+    "home": "NEW",
+    "away": "EVE"
+  },
+  {
+    "home": "CHE",
+    "away": "COV"
+  },
+  {
+    "home": "MUN",
+    "away": "IPS"
+  },
+  {
+    "home": "TOT",
+    "away": "HUL"
+  },
+  {
+    "home": "ARS",
+    "away": "LIV"
+  },
+  {
+    "home": "MCI",
+    "away": "LEE"
+  },
+  {
+    "home": "BOU",
+    "away": "NFO"
+  },
+  {
+    "home": "FUL",
+    "away": "BHA"
+  },
+  {
+    "home": "SUN",
+    "away": "AVL"
+  },
+  {
+    "home": "CRY",
+    "away": "NEW"
+  },
+  {
+    "home": "BRE",
+    "away": "CHE"
+  },
+  {
+    "home": "EVE",
+    "away": "MUN"
+  },
+  {
+    "home": "COV",
+    "away": "TOT"
+  },
+  {
+    "home": "IPS",
+    "away": "ARS"
+  },
+  {
+    "home": "HUL",
+    "away": "LIV"
+  },
+  {
+    "home": "NFO",
+    "away": "MCI"
+  },
+  {
+    "home": "BHA",
+    "away": "LEE"
+  },
+  {
+    "home": "AVL",
+    "away": "BOU"
+  },
+  {
+    "home": "NEW",
+    "away": "FUL"
+  },
+  {
+    "home": "CHE",
+    "away": "SUN"
+  },
+  {
+    "home": "MUN",
+    "away": "CRY"
+  },
+  {
+    "home": "TOT",
+    "away": "BRE"
+  },
+  {
+    "home": "ARS",
+    "away": "EVE"
+  },
+  {
+    "home": "LIV",
+    "away": "COV"
+  },
+  {
+    "home": "HUL",
+    "away": "IPS"
+  },
+  {
+    "home": "MCI",
+    "away": "BHA"
+  },
+  {
+    "home": "NFO",
+    "away": "AVL"
+  },
+  {
+    "home": "LEE",
+    "away": "NEW"
+  },
+  {
+    "home": "BOU",
+    "away": "CHE"
+  },
+  {
+    "home": "FUL",
+    "away": "MUN"
+  },
+  {
+    "home": "SUN",
+    "away": "TOT"
+  },
+  {
+    "home": "CRY",
+    "away": "ARS"
+  },
+  {
+    "home": "BRE",
+    "away": "LIV"
+  },
+  {
+    "home": "EVE",
+    "away": "HUL"
+  },
+  {
+    "home": "COV",
+    "away": "IPS"
+  },
+  {
+    "home": "AVL",
+    "away": "MCI"
+  },
+  {
+    "home": "NEW",
+    "away": "BHA"
+  },
+  {
+    "home": "CHE",
+    "away": "NFO"
+  },
+  {
+    "home": "MUN",
+    "away": "LEE"
+  },
+  {
+    "home": "TOT",
+    "away": "BOU"
+  },
+  {
+    "home": "ARS",
+    "away": "FUL"
+  },
+  {
+    "home": "LIV",
+    "away": "SUN"
+  },
+  {
+    "home": "HUL",
+    "away": "CRY"
+  },
+  {
+    "home": "IPS",
+    "away": "BRE"
+  },
+  {
+    "home": "COV",
+    "away": "EVE"
+  },
+  {
+    "home": "MCI",
+    "away": "NEW"
+  },
+  {
+    "home": "AVL",
+    "away": "CHE"
+  },
+  {
+    "home": "BHA",
+    "away": "MUN"
+  },
+  {
+    "home": "NFO",
+    "away": "TOT"
+  },
+  {
+    "home": "LEE",
+    "away": "ARS"
+  },
+  {
+    "home": "BOU",
+    "away": "LIV"
+  },
+  {
+    "home": "FUL",
+    "away": "HUL"
+  },
+  {
+    "home": "SUN",
+    "away": "IPS"
+  },
+  {
+    "home": "CRY",
+    "away": "COV"
+  },
+  {
+    "home": "BRE",
+    "away": "EVE"
+  },
+  {
+    "home": "CHE",
+    "away": "MCI"
+  },
+  {
+    "home": "MUN",
+    "away": "NEW"
+  },
+  {
+    "home": "TOT",
+    "away": "AVL"
+  },
+  {
+    "home": "ARS",
+    "away": "BHA"
+  },
+  {
+    "home": "LIV",
+    "away": "NFO"
+  },
+  {
+    "home": "HUL",
+    "away": "LEE"
+  },
+  {
+    "home": "IPS",
+    "away": "BOU"
+  },
+  {
+    "home": "COV",
+    "away": "FUL"
+  },
+  {
+    "home": "EVE",
+    "away": "SUN"
+  },
+  {
+    "home": "BRE",
+    "away": "CRY"
+  },
+  {
+    "home": "MCI",
+    "away": "MUN"
+  },
+  {
+    "home": "CHE",
+    "away": "TOT"
+  },
+  {
+    "home": "NEW",
+    "away": "ARS"
+  },
+  {
+    "home": "AVL",
+    "away": "LIV"
+  },
+  {
+    "home": "BHA",
+    "away": "HUL"
+  },
+  {
+    "home": "NFO",
+    "away": "IPS"
+  },
+  {
+    "home": "LEE",
+    "away": "COV"
+  },
+  {
+    "home": "BOU",
+    "away": "EVE"
+  },
+  {
+    "home": "FUL",
+    "away": "BRE"
+  },
+  {
+    "home": "SUN",
+    "away": "CRY"
+  },
+  {
+    "home": "TOT",
+    "away": "MCI"
+  },
+  {
+    "home": "ARS",
+    "away": "MUN"
+  },
+  {
+    "home": "LIV",
+    "away": "CHE"
+  },
+  {
+    "home": "HUL",
+    "away": "NEW"
+  },
+  {
+    "home": "IPS",
+    "away": "AVL"
+  },
+  {
+    "home": "COV",
+    "away": "BHA"
+  },
+  {
+    "home": "EVE",
+    "away": "NFO"
+  },
+  {
+    "home": "BRE",
+    "away": "LEE"
+  },
+  {
+    "home": "CRY",
+    "away": "BOU"
+  },
+  {
+    "home": "SUN",
+    "away": "FUL"
+  },
+  {
+    "home": "MCI",
+    "away": "ARS"
+  },
+  {
+    "home": "TOT",
+    "away": "LIV"
+  },
+  {
+    "home": "MUN",
+    "away": "HUL"
+  },
+  {
+    "home": "CHE",
+    "away": "IPS"
+  },
+  {
+    "home": "NEW",
+    "away": "COV"
+  },
+  {
+    "home": "AVL",
+    "away": "EVE"
+  },
+  {
+    "home": "BHA",
+    "away": "BRE"
+  },
+  {
+    "home": "NFO",
+    "away": "CRY"
+  },
+  {
+    "home": "LEE",
+    "away": "SUN"
+  },
+  {
+    "home": "BOU",
+    "away": "FUL"
+  },
+  {
+    "home": "LIV",
+    "away": "MCI"
+  },
+  {
+    "home": "HUL",
+    "away": "ARS"
+  },
+  {
+    "home": "IPS",
+    "away": "TOT"
+  },
+  {
+    "home": "COV",
+    "away": "MUN"
+  },
+  {
+    "home": "EVE",
+    "away": "CHE"
+  },
+  {
+    "home": "BRE",
+    "away": "NEW"
+  },
+  {
+    "home": "CRY",
+    "away": "AVL"
+  },
+  {
+    "home": "SUN",
+    "away": "BHA"
+  },
+  {
+    "home": "FUL",
+    "away": "NFO"
+  },
+  {
+    "home": "BOU",
+    "away": "LEE"
+  }
+]

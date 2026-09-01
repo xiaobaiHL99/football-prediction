@@ -1,0 +1,379 @@
+{
+  "teams": {
+    "KRT": {
+      "elo_delta": -31,
+      "confidence": 0.85,
+      "form": "胜-胜-胜-胜-胜-胜",
+      "position": 1,
+      "points": 45,
+      "notes": "哈萨超榜首45分；6连胜；队长Jorginho ACL赛季报销(核心损失)；Satpayev转会切尔西；前锋终结能力差(首回合17射0中)"
+    },
+    "OMO": {
+      "elo_delta": -37,
+      "confidence": 0.80,
+      "form": "胜-平-胜-胜-胜",
+      "notes": "塞浦路斯冠军；后防4人缺阵：Nego红牌停赛/Kitsos ACL/ Odubajo伤缺/Fabiano背伤赛季报销/Agouzoul脚趾骨折；首回合1-0胜"
+    },
+    "LPZ": {
+      "elo_delta": -18,
+      "confidence": 0.90,
+      "form": "胜-胜-胜-平-胜",
+      "notes": "波甲冠军；Super Cup 3-1胜；联赛首轮0-0平；首回合4-1胜；Gholizadeh ACL赛季报销"
+    },
+    "AGF": {
+      "elo_delta": -24,
+      "confidence": 0.85,
+      "form": "平-平-胜-胜-负",
+      "notes": "丹超冠军(40年首冠)；门将Hansen红牌停赛；Poulsen/Callo/Gyamfi/Molgaard伤缺；欧战经验不足"
+    },
+    "BEN": {
+      "elo_delta": -80,
+      "confidence": 0.85,
+      "notes": "6名世界杯国脚休假+Barreiro呼吸道感染+Prestianni欧战停赛，合计8人缺阵"
+    },
+    "STG": {
+      "elo_delta": 0,
+      "confidence": 1.0,
+      "notes": "阵容基本齐整，主场作战士气高涨"
+    },
+    "KUP": {
+      "elo_delta": -11,
+      "confidence": 0.80,
+      "form": "胜-胜-平-负-胜",
+      "position": 1,
+      "points": 33,
+      "notes": "芬超榜首；中场Salo停赛；Pasanen/Voutilainen长期伤缺；Kabuye出战成疑；主场人工草优势；上周末联赛大轮换5-0胜VPS"
+    },
+    "SAB": {
+      "elo_delta": -24,
+      "confidence": 0.85,
+      "form": "胜-胜-胜-胜-胜",
+      "position": 1,
+      "points": 0,
+      "notes": "阿塞拜疆双冠王；客场20场不败(16胜4平)；三连胜零封；Safranko ACL伤缺；Aliyev跟腱伤；Solvet解禁复出；联赛未开赛体能充沛"
+    },
+    "HAR": {
+      "elo_delta": -16,
+      "confidence": 0.80,
+      "form": "胜-胜-平-负-负",
+      "position": 2,
+      "points": 80,
+      "notes": "苏超亚军；首回合0-4惨败；中卫Halkett跟腱重伤缺阵；Borchgrevink出战成疑；夏窗核心流失；新帅弗兰肯重建中"
+    },
+    "SGZ": {
+      "elo_delta": -25,
+      "confidence": 0.75,
+      "form": "胜-胜-胜-胜-胜",
+      "position": 2,
+      "points": 56,
+      "notes": "奥甲亚军；首回合4-0大胜；预计轮换但替补球员欧冠战意极高；Kiteishvili可能替补待命；Grgic/Camara/Rojzga锋线伤缺；整体战术保守但个人动力充足"
+    }
+  },
+  "matches": [
+    {
+      "teams": ["KRT", "OMO"],
+      "confidence": 0.85,
+      "tactical": {
+        "style_a": "high_press",
+        "style_b": "defensive_deep",
+        "matchup": "高位逼抢 vs 大巴 — 凯拉特主场必须取胜大举进攻；奥莫尼亚后防4人缺阵，死守1-0领先优势",
+        "expected_pattern": "cautious",
+        "ineffective_possession": true,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "context_openness": {
+        "KRT": 0.08,
+        "OMO": -0.05
+      },
+      "factors": [
+        {"summary": "凯拉特需取胜追平总比分(0-1落后)，主场人工草+850m海拔优势"},
+        {"summary": "凯拉特队长Jorginho ACL赛季报销，17岁新星Satpayev转会切尔西，进攻端双损失"},
+        {"summary": "凯拉特近9个主场不败(6胜3平)，哈萨超榜首45分状态出色"},
+        {"summary": "奥莫尼亚后防4人缺阵：Nego红牌停赛/Kitsos ACL/Odubajo伤缺/Fabiano背伤赛季报销"},
+        {"summary": "首回合凯拉特17射14偏，终结能力极差，多打1人60分钟未进球"},
+        {"summary": "奥莫尼亚首回合1-0胜，次回合只需平局即可晋级"},
+        {"summary": "凯拉特历史3次对阵奥莫尼亚0胜(2平1负)，从未击败过对手"}
+      ],
+      "notes": [
+        "首回合奥莫尼亚13分钟Andreou进球，Nego 33分钟红牌，凯拉特11打10仍0进球",
+        "凯拉特主帅Henning Berg赛前:'我们必须进球，主场球迷会帮助我们'",
+        "比赛时间：2026-07-29 20:00(当地时间) Almaty Central Stadium"
+      ]
+    },
+    {
+      "teams": ["HAM", "AND"],
+      "confidence": 0.90,
+      "goal_delta": {
+        "HAM": 0.18,
+        "AND": -0.20
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "HAM": 0.10,
+          "AND": 0.0
+        }
+      },
+      "context_openness": {
+        "HAM": 0.05,
+        "AND": 0.08
+      },
+      "factors": [
+        {"summary": "哈马比4连胜状态火热，瑞超排名第2，赛季中竞技状态巅峰"},
+        {"summary": "安德莱赫特伤兵满营：Sardella/Camara/Hey/Hatenboer/Vertonghen全缺阵"},
+        {"summary": "Stroeykens大腿伤出战成疑，进攻核心Hazard和De Cat已转会离队"},
+        {"summary": "新帅Vitor Bruno仅执教20天，多名新援Biancone/Pétrot/Ambros迎首秀"},
+        {"summary": "安德莱赫特本场是赛季首场正式比赛，比甲尚未开赛"},
+        {"summary": "哈马比人工草皮主场+3万球迷，历史主场胜率70%"}
+      ],
+      "notes": [
+        "哈马比后卫Eriksson累积黄牌停赛，中场Kone膝伤缺阵但影响有限",
+        "Pär Zetterberg预测五五开，称哈马比比去年淘汰安德莱赫特的Häcken更强",
+        "Anderlecht CEO Bornauw: '欧洲足球在我们DNA中'",
+        "次回合7月30日布鲁塞尔Lotto Park",
+        "安德莱赫特如果出局将降入欧协联第三轮资格赛"
+      ]
+    },
+    {
+      "teams": ["STG", "BEN"],
+      "confidence": 0.90,
+      "goal_delta": {
+        "STG": 0.05,
+        "BEN": -0.25
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "STG": 0.06,
+          "BEN": 0.0
+        }
+      },
+      "context_openness": {
+        "STG": 0.05,
+        "BEN": 0.05
+      },
+      "factors": [
+        {"summary": "本菲卡6名世界杯国脚休假缺阵：Ríos/Lukébakio/Aursnes/Schjelderup/Araújo/Dedíc"},
+        {"summary": "本菲卡中场Barreiro呼吸道感染缺席，Prestianni欧战停赛"},
+        {"summary": "新帅Marco Silva首场正式比赛，新援Lenglet/Kaminski首秀"},
+        {"summary": "圣加伦瑞士超亚军+杯赛冠军，1969年来首冠，士气高涨"},
+        {"summary": "圣加伦多名伤病：Ambrosius/Weibel十字韧带断裂，May/Efekele伤缺"}
+      ],
+      "notes": [
+        "本菲卡上季葡超不败(23胜11平)仍仅列第3，实力底蕴仍在",
+        "Marco Silva赛前强调'严肃对待比赛'，阵容大幅轮换",
+        "Jhon Durán未注册首回合，次回合可出战",
+        "胜者将面对Sturm Graz或Hearts的欧冠淘汰队"
+      ]
+    },
+    {
+      "teams": ["BJK", "MID"],
+      "confidence": 0.85,
+      "goal_delta": {
+        "BJK": -0.08,
+        "MID": 0.05
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "BJK": 0.05,
+          "MID": 0.0
+        }
+      },
+      "context_openness": {
+        "BJK": 0.05,
+        "MID": 0.05
+      },
+      "factors": [
+        {"summary": "贝西克塔斯新帅Italiano首场正式比赛，阵容磨合期"},
+        {"summary": "贝西克塔斯3名主力缺阵：Trossard未注册/Uduokhai红牌停赛/Ndidi脚踝伤"},
+        {"summary": "新援Nübel/Özcan/Ouattara首秀，后防线全新组合"},
+        {"summary": "中日德兰上季欧联联赛阶段第3名，爆冷淘汰罗马杀入16强"},
+        {"summary": "中日德兰前锋Franculino Dju（55球）伤愈复出，热身赛连续进球"},
+        {"summary": "中日德兰队长Bech Sørensen伤缺，Gogorza/Brumado同样缺阵"}
+      ],
+      "notes": [
+        "两队历史首次交锋",
+        "贝西克塔斯时隔1年重返欧战，主场伊斯坦布尔气氛狂热",
+        "中日德兰上季欧联客场曾逼平曼联、击败费内巴切",
+        "次回合7月30日丹麦MCH Arena",
+        "胜者将面对Tromsø或Hradec Kralove"
+      ]
+    },
+    {
+      "teams": ["TWE", "FTC"],
+      "confidence": 0.85,
+      "goal_delta": {
+        "TWE": 0.05,
+        "FTC": -0.08
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "TWE": 0.05,
+          "FTC": 0.0
+        }
+      },
+      "context_openness": {
+        "TWE": 0.05,
+        "FTC": 0.05
+      },
+      "factors": [
+        {"summary": "特温特上季荷甲第4名，主场De Grolsch Veste战斗力强劲"},
+        {"summary": "新援Weghorst（前曼联）加盟首秀，热身赛替补登场即进球"},
+        {"summary": "特温特门将Unnerstall腹部伤缺阵，中卫Hilgers十字韧带重伤"},
+        {"summary": "弗伦茨新帅Borbély首场正式比赛，6月1日才上任"},
+        {"summary": "弗伦茨边锋Arzani腿筋伤缺阵，Naby Keita领衔中场"},
+        {"summary": "弗伦茨匈牙利冠军三连冠，欧战经验丰富"}
+      ],
+      "notes": [
+        "Sports Mole预测1-1平局，两队实力接近",
+        "特温特自2025年10月以来主场仅输2场",
+        "弗伦茨热身赛3连胜，包括1-0击败Qarabag",
+        "次回合7月30日布达佩斯Groupama Aréna"
+      ]
+    },
+    {
+      "teams": ["HAJ", "PAF"],
+      "confidence": 0.85,
+      "goal_delta": {
+        "HAJ": 0.08,
+        "PAF": -0.05
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "HAJ": 0.05,
+          "PAF": 0.0
+        }
+      },
+      "context_openness": {
+        "HAJ": 0.05,
+        "PAF": 0.05
+      },
+      "factors": [
+        {"summary": "哈伊杜克上轮淘汰日利纳(3-2)，主场2-0取胜奠定基础"},
+        {"summary": "哈伊杜克核心Livaja仍可能替补，主帅Garcia保持胜利阵容"},
+        {"summary": "哈伊杜克时隔多年冲击欧联小组赛，Poljud球场3.5万球迷助威"},
+        {"summary": "帕福斯拥有39岁巴西传奇中卫David Luiz，上季参加欧冠联赛阶段"},
+        {"summary": "帕福斯夏窗热身赛仅1胜4负状态不佳，3-2输布拉迪斯拉发"},
+        {"summary": "帕福斯前锋Jaja和新援Oršić是主要进攻威胁"}
+      ],
+      "notes": [
+        "两队首次交锋",
+        "帕福斯是通过塞浦路斯杯冠军获得欧联资格",
+        "哈伊杜克主帅Garcia：'帕福斯不是比我们更热门的球队'",
+        "胜者将面对萨尔茨堡红牛（欧冠淘汰队）"
+      ]
+    },
+    {
+      "teams": ["KUP", "SAB"],
+      "tactical": {
+        "style_a": "possession",
+        "style_b": "counter_attack",
+        "matchup": "传控 vs 防守反击 — Sabah反击打法克制KuPS传控",
+        "expected_pattern": "balanced",
+        "ineffective_possession": true,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "factors": [
+        {"summary": "KuPS需净胜2球直接晋级或净胜1球进加时，开场必将主动进攻"},
+        {"summary": "Sabah手握一球优势，安心收缩防守打快速反击"},
+        {"summary": "KuPS中场核心Salo停赛，进攻组织能力下降"},
+        {"summary": "Sabah客场20场不败(16胜4平)，稳守反击能力极强"},
+        {"summary": "Väre Areena人工草皮对Sabah客队有不适影响"},
+        {"summary": "KuPS双线作战体能消耗大，Sabah联赛未开赛体能储备充足"},
+        {"summary": "首回合Sabah射门18-5全面压制，Simic补时阶段绝杀"}
+      ],
+      "notes": [
+        "KuPS主帅Miika Nuutinen：'首回合后我们更了解对手，相信主场能翻盘'",
+        "Sabah主帅Valdas Dambrauskas：'我们尊重对手但目标就是晋级'",
+        "胜者晋级欧冠第三轮资格赛，负者降入欧联第三轮资格赛",
+        "比赛时间：2026-07-28 23:00 (北京时间)"
+      ]
+    },
+    {
+      "teams": ["LPZ", "AGF"],
+      "tactical": {
+        "style_a": "possession",
+        "style_b": "possession",
+        "matchup": "传控 vs 传控 — 双方均以控球为主，无直接战术克制",
+        "expected_pattern": "open",
+        "ineffective_possession": false,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "LPZ": -0.05,
+          "AGF": 0.10
+        }
+      },
+      "context_openness": {
+        "LPZ": 0.05,
+        "AGF": 0.10
+      },
+      "factors": [
+        {"summary": "波兹南首回合客场4-1大胜，三球优势晋级在望"},
+        {"summary": "奥胡斯必须客场净胜至少3球才能翻盘，必将大举进攻"},
+        {"summary": "波兹南主帅Frederiksen确认全主力出击，不会死守"},
+        {"summary": "奥胡斯主力门将Hansen红牌停赛，防线雪上加霜"},
+        {"summary": "波兹南核心边锋Gholizadeh十字韧带撕裂赛季报销"},
+        {"summary": "奥胡斯中后场多名伤停：Poulsen/Callo/Gyamfi/Molgaard缺阵"},
+        {"summary": "波兹南主场Enea Stadion超过4万球迷，气氛热烈"}
+      ],
+      "notes": [
+        "Forebet预测波兹南3-1胜，总比分7-2晋级",
+        "93%投注金额押波兹南获胜，92%押大球(>2.5)",
+        "奥胡斯时隔40年重返欧冠，欧战经验不足",
+        "比赛时间：2026-07-29 19:00 CET"
+      ]
+    },
+    {
+      "teams": ["HAR", "SGZ"],
+      "tactical": {
+        "style_a": "high_press",
+        "style_b": "defensive_deep",
+        "matchup": "高压逼抢 vs 大巴 — 格风暴4球领先势必深度收缩，改为大巴阵",
+        "expected_pattern": "cautious",
+        "ineffective_possession": true,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "goal_delta": {
+        "HAR": 0.05,
+        "SGZ": -0.25
+      },
+      "competition_context": {
+        "type": "decider",
+        "goal_boost": {
+          "HAR": 0.08,
+          "SGZ": -0.10
+        }
+      },
+      "context_openness": {
+        "HAR": 0.05,
+        "SGZ": -0.10
+      },
+      "factors": [
+        {"summary": "哈茨需净胜4球追平，净胜5球翻盘，必将开场全力进攻"},
+        {"summary": "格风暴手握4球优势，总比分领先幅度极大，大概率深层收缩 + 轮换主力"},
+        {"summary": "格风暴锋线Grgic/Camara/Rojzga已伤缺，Kiteishvili等核心可能轮休"},
+        {"summary": "格风暴从反击改为深度防守阵型(5-4-1)，放弃高位压迫减少消耗"},
+        {"summary": "首回合格风暴4-0大胜，次回合只需守住优势即可出线"},
+        {"summary": "哈茨中卫Halkett跟腱重伤，防线组织能力下降"},
+        {"summary": "Tynecastle主场空间狭窄，适合高强度对抗，但面对大巴恐难破局"}
+      ],
+      "notes": [
+        "关键判断：格风暴总比分4-0领先，教练会布置保守战术，但替补球员个人战意极强",
+        "格风暴可能轮换5-6名主力，但轮换球员在欧冠舞台会格外卖力表现",
+        "哈茨主帅Vrancken：'我们需要一个神奇的夜晚'",
+        "比赛形态预计：哈茨控球70%+围攻禁区，格风暴深度防守+个人反击冲动",
+        "比赛时间：2026-07-28 19:45 (英国时间)"
+      ]
+    }
+  ]
+}

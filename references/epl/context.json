@@ -1,0 +1,14 @@
+{
+  "special_factors": {
+    "european_qualification_distraction": {
+      "description": "欧冠/欧联双线作战消耗，英超欧战球队圣诞快车与周中双赛",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_european_match"
+    }
+  },
+  "europe_teams": ["MCI", "LIV", "ARS", "TOT", "MUN", "CHE"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["MCI", "LIV", "ARS", "TOT", "MUN", "CHE", "NEW", "AVL", "BHA", "NFO", "LEE", "BOU", "FUL", "SUN", "CRY", "BRE", "EVE", "COV", "IPS", "HUL"]
+  }
+}

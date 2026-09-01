@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欧冠资格赛附加赛首回合 · 费内巴切 vs 里昂 · 赛前预测</title>
+<style>
+  :root{--bg:#0b1020;--panel:#131a2e;--line:#223055;--txt:#e8eef7;--sub:#9fb0c3;--dim:#6b7a90;
+    --home:#ffd24a;--away:#38bdf8;--draw:#9aa5b5;--accent:#4ade80;--warn:#fbbf24}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.55}
+  .wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:26px;margin:6px 0 2px}
+  h2{font-size:18px;margin:34px 0 12px;padding-left:10px;border-left:4px solid var(--accent);color:#d8e6ff}
+  .sub{color:var(--sub);font-size:13px}
+  .tag{display:inline-block;background:#1b2547;border:1px solid var(--line);color:#b9c8e8;border-radius:20px;padding:2px 12px;font-size:12px;margin-right:6px}
+  .pitch{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);height:280px;margin:18px 0 4px;
+    background:radial-gradient(120% 120% at 50% 0%, #243b2e 0%, #1a2e23 45%, #122218 100%)}
+  .pitch::after{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 2px,transparent 2px 90px),
+               repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 90px);mix-blend-mode:overlay}
+  .mow{position:absolute;inset:0;background:linear-gradient(90deg,transparent 48%,rgba(255,255,255,.05) 49%,transparent 50%)}
+  .mow2{position:absolute;inset:0;background:linear-gradient(0deg,transparent 44%,rgba(255,255,255,.04) 45%,transparent 46%)}
+  .line{position:absolute;border:2px solid rgba(255,255,255,.5)}
+  .line.center{left:50%;top:0;bottom:0;transform:translateX(-50%)}
+  .line.half{left:50%;top:50%;width:90px;height:90px;transform:translate(-50%,-50%);border-radius:50%}
+  .line.box{width:150px;height:190px}
+  .line.box.b1{left:0;top:50%;transform:translateY(-50%);border-left:0;border-radius:0 8px 8px 0}
+  .line.box.b2{right:0;top:50%;transform:translateY(-50%);border-right:0;border-radius:8px 0 0 8px}
+  .line.area{width:70px;height:120px}
+  .line.area.a1{left:0;top:50%;transform:translateY(-50%);border-left:0;border-radius:0 6px 6px 0}
+  .line.area.a2{right:0;top:50%;transform:translateY(-50%);border-right:0;border-radius:6px 0 0 6px}
+  .goal{position:absolute;width:56px;height:16px;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.45)}
+  .goal.g1{left:-2px;top:50%;transform:translateY(-50%);border-left:0}
+  .goal.g2{right:-2px;top:50%;transform:translateY(-50%);border-right:0}
+  .scoreboard{position:relative;z-index:2;background:linear-gradient(180deg,#0d1322,#0a0f1c);border:1px solid #2a3a5c;
+    border-radius:14px;box-shadow:0 12px 34px rgba(0,0,0,.5);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .sb-team{flex:1;min-width:140px;text-align:center}
+  .sb-team .cn{font-size:17px;font-weight:700}
+  .sb-team .en{font-size:11px;color:var(--dim);letter-spacing:.4px}
+  .sb-mid{text-align:center}
+  .sb-score{font-size:44px;font-weight:800;letter-spacing:2px;font-family:"Courier New",monospace;color:#fff;text-shadow:0 0 18px rgba(77,220,120,.45)}
+  .sb-time{font-size:11px;color:var(--warn);letter-spacing:1px;margin-top:2px;background:#2a1f08;border:1px solid #574214;border-radius:4px;padding:1px 8px}
+  .sb-label{font-size:10px;color:var(--dim);margin-top:6px;letter-spacing:1px}
+  .prob-chip{font-size:12px;color:#cfe0ff;margin-top:4px}
+  .home-dot{color:var(--home);font-weight:700}.away-dot{color:var(--away);font-weight:700}.draw-dot{color:var(--draw)}
+  .grid{display:grid;gap:12px;margin-top:14px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card h3{font-size:14px;color:#bcd0f4;margin-bottom:10px}
+  .big{font-size:34px;font-weight:800;color:#fff}.big small{font-size:14px;color:var(--sub);font-weight:400}
+  .num{font-size:20px;font-weight:700}
+  .bar{display:flex;height:26px;border-radius:6px;overflow:hidden;margin:8px 0;font-size:12px;font-weight:700}
+  .bar div{display:flex;align-items:center;justify-content:center;color:#0b1020;min-width:44px}
+  .bar .h{background:var(--home)}.bar .d{background:var(--draw);color:#fff}.bar .a{background:var(--away)}
+  .legend{font-size:12px;color:var(--sub);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #1d2942}
+  th{color:var(--dim);font-weight:600;font-size:12px}
+  td .pct{float:right;color:#cfe0ff;font-weight:600}
+  ul{list-style:none;padding-left:0}
+  li{padding:7px 0 7px 20px;position:relative;font-size:13.5px;color:#d7e2f3;border-bottom:1px dashed #1d2942}
+  li:last-child{border-bottom:none}
+  li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .factor{border-left:3px solid var(--warn);background:#1a1c24;padding:10px 12px;border-radius:0 8px 8px 0;margin:10px 0;font-size:13px;color:#e6ddc2}
+  .kv{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #1d2942;font-size:13px}
+  .kv span{color:var(--sub)}.kv b{color:#e6eefb}
+  .note{font-size:12px;color:var(--sub);margin-top:4px}
+  .badge{display:inline-block;padding:1px 8px;border-radius:4px;font-size:11px;font-weight:700}
+  .b-home{background:#5a4a10;color:var(--home)}.b-away{background:#123c54;color:var(--away)}.b-draw{background:#2a3242;color:var(--draw)}
+  .sources{font-size:12px;color:var(--sub);word-break:break-all}
+  .sources a{color:#7fb3ff;text-decoration:none}
+  .sources li::before{content:"↗";color:#7fb3ff}
+  .disclaimer{background:#161b2c;border:1px solid #2a3450;border-radius:10px;padding:14px;margin-top:26px;font-size:12.5px;color:#aebbd4}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="sub">UEFA Champions League 2026-27 · 资格赛附加赛 · 首回合</div>
+  <h1>费内巴切 <span style="color:var(--dim);font-weight:400">vs</span> 里昂</h1>
+  <div style="margin-top:8px">
+    <span class="tag">理性预测</span>
+    <span class="tag">生成 2026-08-18</span>
+    <span class="tag">场地 伊斯坦布尔·萨拉焦格卢</span>
+    <span class="tag">次回合 08-26 里昂</span>
+  </div>
+
+  <div class="pitch">
+    <div class="mow"></div><div class="mow2"></div>
+    <div class="line center"></div><div class="line half"></div>
+    <div class="line box b1"></div><div class="line box b2"></div>
+    <div class="line area a1"></div><div class="line area a2"></div>
+    <div class="goal g1"></div><div class="goal g2"></div>
+  </div>
+
+  <div class="scoreboard">
+    <div class="sb-team">
+      <div class="cn">费内巴切</div>
+      <div class="en">Fenerbahçe · 土耳其</div>
+      <div class="prob-chip"><span class="home-dot">胜 42.7%</span></div>
+    </div>
+    <div class="sb-mid">
+      <div class="sb-score">2 - 1</div>
+      <div class="sb-time">⚽ 预测比分 · 最高概率赛果:主胜</div>
+      <div class="sb-label">预计于 2026-08-18 21:00 (当地)</div>
+    </div>
+    <div class="sb-team">
+      <div class="cn">里昂</div>
+      <div class="en">Olympique Lyonnais · 法国</div>
+      <div class="prob-chip"><span class="away-dot">胜 27.3%</span></div>
+    </div>
+  </div>
+  <div class="sub" style="text-align:center;margin-top:6px">平局 30.0% · 预期进球 1.95 - 1.45 · 单一最高概率比分 1-1(9.3%)</div>
+
+  <h2>核心结论</h2>
+  <div class="grid g3">
+    <div class="card"><h3>主预测赛果</h3><div class="big">主胜 <small>42.7%</small></div>
+      <div class="note">费内巴切不败(双选1X)合计 72.7%</div></div>
+    <div class="card"><h3>主预测比分</h3><div class="big">2-1 <small>9.1%</small></div>
+      <div class="note">单一最高概率比分 1-1(9.3%),仅作比分参考</div></div>
+    <div class="card"><h3>预期进球</h3><div class="num">1.95 <span style="color:var(--sub)">:</span> 1.45</div>
+      <div class="note">盘口(费内-0.5)模型与市场一致,未做调整</div></div>
+  </div>
+
+  <h2>预测原因</h2>
+  <div class="card">
+    <ul>
+      <li><b>主场魔鬼:</b> 费内巴切主场近 9 场不败,欧冠资格赛 4 场仅失 1 球、双主场零封,防守稳固。</li>
+      <li><b>对手客场软肋:</b> 里昂近 8 个客场仅 1 胜,季前 0-4 惨败贝蒂斯、0-2 负布拉格斯拉维亚,客场场均失球约 2.2。</li>
+      <li><b>伤停此消彼长:</b> 费内塔利斯卡(资格赛 4 场 4 球)伤缺、卢卡库未注册欧冠;里昂塔利亚菲科停赛、苏尔茨伤缺,但尼亚哈特回归+奥蓬达租借增援锋线。</li>
+      <li><b>战术对攻:</b> 双方都打高位逼抢+快速转换(新帅卡尔塔尔 4-2-3-1 vs 丰塞卡 4-3-3),市场大小球 2.5 看大(1.58),模型预期开放格局(+0.20 双方)。</li>
+      <li><b>战意:</b> 费内 18 年冲击欧冠正赛+魔鬼主场,战意高涨(+0.15);里昂客场状态差,虽丰塞卡明言主动进攻但首回合客场或偏保守。</li>
+      <li><b>盘口互证:</b> 市场费内让 0.5、主胜 1.85-1.95,模型让球差 +0.50 与市场一致,诱盘评分 0.6 判定正常盘口、采信权重 0.30(分歧≈0 未触发调整)。</li>
+      <li><b>风险/分歧:</b> 模型平局概率 30% 略高于市场 ~26-27%——两队 Elo 接近(1640 vs 1660),里昂历史交手 4 胜 1 平对费内不败,心理占优,单场被爆冷空间仍存。</li>
+    </ul>
+  </div>
+
+  <h2>详细预测</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="card">
+      <h3>胜 / 平 / 负 概率</h3>
+      <div class="bar">
+        <div class="h" style="width:42.7%">主 42.7%</div>
+        <div class="d" style="width:30.0%">平 30.0%</div>
+        <div class="a" style="width:27.3%">客 27.3%</div>
+      </div>
+      <div class="legend">
+        <span><b class="home-dot">■</b> 费内巴切胜 42.7%</span>
+        <span><b class="draw-dot">■</b> 平局 30.0%</span>
+        <span><b class="away-dot">■</b> 里昂胜 27.3%</span>
+      </div>
+      <div class="kv"><span>模型置信度</span><b>0.82</b></div>
+      <div class="kv"><span>市场对比(主/平/客)</span><b>≈45% / 27% / 27%</b></div>
+    </div>
+    <div class="card">
+      <h3>比分分布 Top 5</h3>
+      <table>
+        <tr><th>比分</th><th>方向</th><th>概率</th></tr>
+        <tr><td><b>1-1</b></td><td><span class="badge b-draw">平</span></td><td class="pct">9.3%</td></tr>
+        <tr><td><b>2-1</b></td><td><span class="badge b-home">主</span></td><td class="pct">9.1%</td></tr>
+        <tr><td><b>1-2</b></td><td><span class="badge b-away">客</span></td><td class="pct">6.8%</td></tr>
+        <tr><td><b>2-2</b></td><td><span class="badge b-draw">平</span></td><td class="pct">6.5%</td></tr>
+        <tr><td><b>1-0</b></td><td><span class="badge b-home">主</span></td><td class="pct">6.5%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>球员可用性 & 状态修正</h3>
+    <div class="kv"><span>费内巴切</span><b>-21 Elo</b><span class="note">塔利斯卡伤缺(4场4球);门将居诺克/奥斯特沃尔德缺阵;阿姆拉巴特/瑟云聚存疑;卢卡库未注册</span></div>
+    <div class="kv"><span>里昂</span><b>-11 Elo</b><span class="note">塔利亚菲科停赛/苏尔茨伤缺/梅拉赫缺阵;尼亚哈特回归,奥蓬达租借增援</span></div>
+    <div class="kv"><span>费内状态</span><b>火热 +0.06</b><span class="note">资格赛 3 胜 1 平不败;上周末土超揭幕轮换 6 主力客场 1-2 负根克勒比利吉</span></div>
+    <div class="kv"><span>里昂状态</span><b>低迷 -0.04</b><span class="note">近 8 客场 1 胜;但 3-0 逆转布拉格斯巴达晋级士气回暖</span></div>
+  </div>
+
+  <h2>情报摘要</h2>
+  <div class="card">
+    <ul>
+      <li><b>战术对位:</b> 费内(高位逼抢/快速转换) vs 里昂(高位逼抢/主动进攻) — 双方同风格互不相克,中场绞杀+快速转换决定胜负,<b>开放格局(+0.20 双方)</b>。</li>
+      <li><b>费内战术:</b> 新帅卡尔塔尔 4-2-3-1,坎特+贡多齐双后腰窒息式高位逼抢,格林伍德内切+阿克蒂尔科卢纵深拉开;弱点是边卫压上留空当、中卫回追慢。</li>
+      <li><b>里昂战术:</b> 丰塞卡 4-3-3,托利索核心+莫顿/泰斯曼控节奏,奥蓬达支点+Nuamah/Fofana 反击速度;丰塞卡明言"不会死守,要踢自己的足球"。</li>
+      <li><b>赛制:</b> 两回合附加赛,胜者进欧冠联赛阶段,败者掉入欧联联赛阶段;费内 18 年、里昂 7 年未踢欧冠正赛。</li>
+      <li><b>历史交锋:</b> 欧战交手 5 次,里昂 4 胜 1 平对费内巴切保持不败(2000s 欧冠双杀+2025 欧联 0-0)。</li>
+      <li><b>数据源:</b> Fussballdaten 费内 47%/平 26%/里昂 26%;Le Ballon Rond 43/29/28;Sports Mole 预测 1-0;中文主流推荐 1-0/2-0/2-1。</li>
+    </ul>
+  </div>
+
+  <h2>场景推演</h2>
+  <div class="card">
+    <div class="factor"><b>🅰 费内正常剧本(~43%):</b> 主场围攻+定位球/转换效率,2-0/2-1 拿下首回合,次回合带净胜球远征里昂。</div>
+    <div class="factor"><b>🅱 胶着平局(~30%):</b> 双方对攻互有攻守但临门一脚欠佳,1-1/2-2,悬念完全留给次回合。这是模型与市场分歧最大的点。</div>
+    <div class="factor"><b>🅲 里昂爆冷(~27%):</b> 奥蓬达/Nuamah 速度打穿费内高位后防身后,里昂客场 1-2/0-2,把费内逼入次回合绝境——历史交锋里昂从未输给费内。</div>
+  </div>
+
+  <h2>结果敏感点</h2>
+  <div class="card">
+    <ul>
+      <li>费内巴切缺少塔利斯卡后的攻坚效率——谁顶替 9 号位、能否打开密集防守。</li>
+      <li>坎特能否出场及状态(土耳其媒体直言"没有坎特体系就崩")。</li>
+      <li>早进球与否 — 费内主场早破门可压垮里昂脆弱客场信心;若被里昂反击先得手则局面逆转。</li>
+      <li>里昂是否真如丰塞卡所说主动进攻——首回合客场若龟缩反而可能拿到更好的客场结果。</li>
+      <li>红牌/点球等意外事件对两回合均势的放大效应。</li>
+    </ul>
+  </div>
+
+  <h2>数据新鲜度 & 来源</h2>
+  <div class="card">
+    <div class="kv"><span>数据快照</span><b>2026-08-18 (比赛日)</b></div>
+    <div class="kv"><span>Elo 来源</span><b>参考快照 FEN=1640 / OL=1660</b></div>
+    <div class="kv"><span>战术/伤停</span><b>基于赛前媒体预览,可信度中高</b></div>
+    <div class="kv"><span>缺失说明</span><b>本联赛无两队历史交锋数据;水位为中性假设(0.90/0.90)</b></div>
+  </div>
+
+  <div class="disclaimer">
+    <b>免责声明:</b> 本预测为娱乐/分析用途,不构成任何投注建议或确定性判断。足球单场随机性很高,42.7% 不等于稳胜。赛前情报为有界修正,非确定性结论。本场模型与市场在平局概率上略有分歧(30% vs ~27%),分歧即不确定性。
+  </div>
+
+  <h2>来源</h2>
+  <div class="card sources">
+    <ul>
+      <li>Sports Mole — <a href="https://www.sportsmole.co.uk/football/fenerbahce/champions-league/preview/fenerbahce-vs-lyon-prediction-team-news-lineups_603100.html">Fenerbahce vs Lyon preview</a></li>
+      <li>Fussballdaten — <a href="https://www.fussballdaten.de/championsleague/qualifikation/2027/play-off/fenerbahce-lyon/">Fenerbahce - Lyon</a></li>
+      <li>Le Ballon Rond — <a href="https://www.leballonrond.fr/match/2026-08-18-fenerbahce-lyon/12378094">Analyse Fenerbahçe vs Lyon</a></li>
+      <li>Soccernews — <a href="https://www.soccernews.com/prediction-fenerbahce-vs-lyon/403411/">Prediction: Fenerbahce vs Lyon</a></li>
+      <li>Sofascore — <a href="https://www.sofascore.com/sr/news/fenerbahce-vs-lyon-ucl-playoff-preview-trends-and-odds">Fenerbahce vs Lyon: UCL playoff preview, odds</a></li>
+      <li>dszuqiu — <a href="https://www.dszuqiu.com/articles/lottery/2098999.html">欧冠费内巴切vs里昂(附比分)</a></li>
+      <li>163 — <a href="https://www.163.com/dy/article/L4J1O64E0556OYI5.html">费内巴切主场迎战里昂,塔利斯卡伤缺</a></li>
+      <li>sohu — <a href="https://m.sohu.com/a/1064409321_122909290">费内巴切魔鬼主场迎残阵里昂</a></li>
+      <li>GoGoal 勁球網 — <a href="https://gogoal.com.tw/archives/83472">盧卡古加盟,費內巴切看好擊退里昂</a></li>
+      <li>Onefootball — <a href="https://onefootball.com/fr/news/fenerbahce-sk-ol-avant-match-et-compos-probables-43294444">Fenerbahçe SK – OL: Avant-match</a></li>
+    </ul>
+    <p style="margin-top:8px">情报采集时间:2026-08-18 · 模型:Elo → 泊松比分 → 概率收缩,叠加战术对位/战意/状态/盘口修正</p>
+  </div>
+
+</div>
+</body>
+</html>

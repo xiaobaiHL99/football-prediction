@@ -1,0 +1,76 @@
+{
+  "matches": [
+    {
+      "home": "ARS",
+      "away": "COV",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "HUL",
+      "away": "MUN",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "EVE",
+      "away": "CRY",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "NFO",
+      "away": "LEE",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "BRE",
+      "away": "TOT",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "MCI",
+      "away": "BOU",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "NEW",
+      "away": "LIV",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "FUL",
+      "away": "CHE",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "home": "CRY",
+      "away": "MCI",
+      "hg": 1,
+      "ag": 4
+    },
+    {
+      "home": "SUN",
+      "away": "FUL",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "LEE",
+      "away": "BRE",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "COV",
+      "away": "HUL",
+      "hg": 0,
+      "ag": 1
+    }
+  ]
+}

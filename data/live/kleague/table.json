@@ -1,0 +1,122 @@
+{
+  "SEO": {
+    "points": 42,
+    "gd": 20,
+    "gf": 34,
+    "ga": 14,
+    "played": 19,
+    "wins": 13,
+    "draws": 3,
+    "losses": 3
+  },
+  "GWN": {
+    "points": 32,
+    "gd": 12,
+    "gf": 24,
+    "ga": 12,
+    "played": 19,
+    "wins": 8,
+    "draws": 8,
+    "losses": 3
+  },
+  "JEO": {
+    "points": 33,
+    "gd": 11,
+    "gf": 27,
+    "ga": 16,
+    "played": 20,
+    "wins": 9,
+    "draws": 6,
+    "losses": 5
+  },
+  "ULS": {
+    "points": 28,
+    "gd": -1,
+    "gf": 27,
+    "ga": 28,
+    "played": 19,
+    "wins": 8,
+    "draws": 4,
+    "losses": 7
+  },
+  "POH": {
+    "points": 28,
+    "gd": -1,
+    "gf": 20,
+    "ga": 21,
+    "played": 20,
+    "wins": 8,
+    "draws": 4,
+    "losses": 8
+  },
+  "ANY": {
+    "points": 27,
+    "gd": 4,
+    "gf": 26,
+    "ga": 22,
+    "played": 19,
+    "wins": 6,
+    "draws": 9,
+    "losses": 4
+  },
+  "ICU": {
+    "points": 27,
+    "gd": 4,
+    "gf": 24,
+    "ga": 20,
+    "played": 19,
+    "wins": 8,
+    "draws": 3,
+    "losses": 8
+  },
+  "JEU": {
+    "points": 24,
+    "gd": -2,
+    "gf": 17,
+    "ga": 19,
+    "played": 19,
+    "wins": 6,
+    "draws": 6,
+    "losses": 7
+  },
+  "DJN": {
+    "points": 20,
+    "gd": 0,
+    "gf": 23,
+    "ga": 23,
+    "played": 20,
+    "wins": 4,
+    "draws": 8,
+    "losses": 8
+  },
+  "BUC": {
+    "points": 19,
+    "gd": -7,
+    "gf": 17,
+    "ga": 24,
+    "played": 19,
+    "wins": 4,
+    "draws": 7,
+    "losses": 8
+  },
+  "GIM": {
+    "points": 20,
+    "gd": -7,
+    "gf": 21,
+    "ga": 28,
+    "played": 20,
+    "wins": 3,
+    "draws": 11,
+    "losses": 6
+  },
+  "GWJ": {
+    "points": 10,
+    "gd": -33,
+    "gf": 10,
+    "ga": 43,
+    "played": 19,
+    "wins": 1,
+    "draws": 7,
+    "losses": 11
+  }
+}

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清水鼓动 vs 柏太阳神 — 日职第4轮预测</title>
+<style>
+:root{--bg:#0a0f1a;--card:#111827;--border:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--accent:#3b82f6;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316;--home:#f97316;--away:#22c55e;--draw:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:16px}
+.pitch-wrap{position:relative;width:100%;max-width:800px;margin:0 auto 24px;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.pitch{position:relative;width:100%;padding-bottom:56%;background:linear-gradient(180deg,#1a7a3a 0%,#15803d 25%,#1a7a3a 50%,#15803d 75%,#1a7a3a 100%);overflow:hidden}
+.pitch::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(255,255,255,.03) 49px,rgba(255,255,255,.03) 50px)}
+.pitch-lines{position:absolute;inset:8%;border:2px solid rgba(255,255,255,.5);border-radius:2px}
+.pitch-center{position:absolute;top:50%;left:50%;width:20%;height:40%;border:2px solid rgba(255,255,255,.5);border-radius:50%;transform:translate(-50%,-50%)}
+.pitch-center-dot{position:absolute;top:50%;left:50%;width:6px;height:6px;background:rgba(255,255,255,.7);border-radius:50%;transform:translate(-50%,-50%)}
+.pitch-center-line{position:absolute;top:8%;left:50%;width:2px;height:84%;background:rgba(255,255,255,.5);transform:translateX(-50%)}
+.pitch-box-l,.pitch-box-r{position:absolute;top:25%;width:15%;height:50%;border:2px solid rgba(255,255,255,.5)}
+.pitch-box-l{left:8%;border-left:none}
+.pitch-box-r{right:8%;border-right:none}
+.pitch-goal-l,.pitch-goal-r{position:absolute;top:38%;width:6%;height:24%;border:2px solid rgba(255,255,255,.5)}
+.pitch-goal-l{left:8%;border-left:none}
+.pitch-goal-r{right:8%;border-right:none}
+.pitch-lights{position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse at 20% 0%,rgba(255,255,200,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 0%,rgba(255,255,200,.08) 0%,transparent 50%);pointer-events:none}
+.stands{position:absolute;bottom:0;left:0;right:0;height:12%;background:linear-gradient(0deg,#1a1a2e 0%,#16213e 60%,transparent 100%)}
+.stands-top{position:absolute;top:0;left:0;right:0;height:10%;background:linear-gradient(180deg,#1a1a2e 0%,#16213e 60%,transparent 100%)}
+.scoreboard{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border:2px solid #334155;border-radius:12px;padding:20px 32px;min-width:420px;box-shadow:0 12px 48px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05)}
+.scoreboard-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.scoreboard-header .tag{background:var(--accent);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700}
+.scoreboard-teams{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px}
+.team-name{font-size:16px;font-weight:700;text-align:center;min-width:100px}
+.team-name.home{color:var(--home)}
+.team-name.away{color:var(--away)}
+.score-main{font-size:48px;font-weight:900;color:#fff;text-shadow:0 0 20px rgba(249,115,22,.5);letter-spacing:4px;font-variant-numeric:tabular-nums}
+.scoreboard-meta{text-align:center;font-size:11px;color:var(--muted)}
+.scoreboard-meta .prob-line{display:flex;justify-content:center;gap:12px;margin-top:6px}
+.prob-pill{padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600}
+.prob-pill.home{background:rgba(249,115,22,.2);color:var(--home)}
+.prob-pill.draw{background:rgba(168,85,247,.2);color:var(--draw)}
+.prob-pill.away{background:rgba(34,197,94,.2);color:var(--away)}
+.section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
+.section-title{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+.prob-bars{margin:16px 0}
+.prob-row{display:flex;align-items:center;margin-bottom:10px;gap:12px}
+.prob-label{width:80px;font-size:14px;font-weight:600;text-align:right}
+.prob-bar-track{flex:1;height:28px;background:#1e293b;border-radius:6px;overflow:hidden}
+.prob-bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:13px;font-weight:700;color:#fff;transition:width 1s ease}
+.prob-bar-fill.home{background:linear-gradient(90deg,#c2410c,#f97316)}
+.prob-bar-fill.draw{background:linear-gradient(90deg,#7c3aed,#a855f7)}
+.prob-bar-fill.away{background:linear-gradient(90deg,#16a34a,#22c55e)}
+.score-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:16px 0}
+.score-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px;text-align:center;position:relative}
+.score-card.top{border-color:var(--accent);box-shadow:0 0 12px rgba(59,130,246,.2)}
+.score-card .sc-score{font-size:24px;font-weight:900;color:#fff}
+.score-card .sc-prob{font-size:13px;color:var(--muted);margin-top:2px}
+.score-card .sc-tag{position:absolute;top:-8px;right:8px;background:var(--accent);color:#fff;font-size:9px;padding:1px 6px;border-radius:4px;font-weight:700}
+.xg-compare{display:flex;align-items:center;justify-content:center;gap:24px;margin:16px 0}
+.xg-team{text-align:center}
+.xg-val{font-size:36px;font-weight:900}
+.xg-val.home{color:var(--home)}
+.xg-val.away{color:var(--away)}
+.xg-name{font-size:13px;color:var(--muted);margin-top:4px}
+.xg-vs{font-size:18px;color:var(--muted);font-weight:700}
+.factor-list{list-style:none}
+.factor-list li{padding:8px 12px;margin-bottom:6px;background:#1e293b;border-radius:6px;font-size:13px;border-left:3px solid var(--accent)}
+.factor-list li .fl-icon{margin-right:6px}
+.tactical-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:16px 0}
+.tac-side{text-align:center;padding:16px;background:#1e293b;border-radius:8px}
+.tac-style{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.tac-desc{font-size:12px;color:var(--muted)}
+.tac-vs{font-size:20px;color:var(--yellow);font-weight:900}
+.scenario{padding:16px;background:#1e293b;border-radius:8px;margin-bottom:12px;border-left:4px solid}
+.scenario.s1{border-color:var(--green)}
+.scenario.s2{border-color:var(--yellow)}
+.scenario.s3{border-color:var(--red)}
+.scenario .sc-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.scenario .sc-body{font-size:13px;color:var(--muted)}
+.scenario .sc-prob{font-size:12px;font-weight:600;margin-top:6px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.form-team{background:#1e293b;border-radius:8px;padding:16px}
+.form-team .ft-name{font-size:15px;font-weight:700;margin-bottom:8px}
+.form-team .ft-name.home{color:var(--home)}
+.form-team .ft-name.away{color:var(--away)}
+.form-badge{display:inline-block;width:24px;height:24px;border-radius:4px;text-align:center;line-height:24px;font-size:11px;font-weight:700;margin-right:3px;color:#fff}
+.form-badge.w{background:var(--green)}
+.form-badge.d{background:var(--yellow);color:#000}
+.form-badge.l{background:var(--red)}
+.ft-stat{font-size:12px;color:var(--muted);margin-top:6px}
+.injury-table{width:100%;border-collapse:collapse;margin:12px 0}
+.injury-table th{text-align:left;font-size:12px;color:var(--muted);padding:8px;border-bottom:1px solid var(--border)}
+.injury-table td{padding:8px;font-size:13px;border-bottom:1px solid #1e293b}
+.injury-status{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.injury-status.out{background:rgba(239,68,68,.2);color:var(--red)}
+.injury-status.back{background:rgba(34,197,94,.2);color:var(--green)}
+.spirit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.spirit-card{background:#1e293b;border-radius:8px;padding:12px;text-align:center}
+.spirit-level{font-size:18px;font-weight:900}
+.spirit-level.high{color:var(--orange)}
+.spirit-level.desperate{color:var(--red)}
+.spirit-note{font-size:12px;color:var(--muted);margin-top:4px}
+.spirit-xg{font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
+.disclaimer{background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.3);border-radius:8px;padding:16px;font-size:12px;color:var(--yellow);margin-top:16px}
+@media(max-width:640px){
+.scoreboard{min-width:300px;padding:16px 20px}
+.score-main{font-size:36px}
+.team-name{font-size:13px;min-width:70px}
+.tactical-grid{grid-template-columns:1fr}
+.tac-vs{display:block;text-align:center}
+.form-grid{grid-template-columns:1fr}
+.spirit-grid{grid-template-columns:1fr}
+.xg-compare{gap:12px}
+.xg-val{font-size:28px}
+.score-cards{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- PITCH + SCOREBOARD -->
+<div class="pitch-wrap">
+<div class="pitch">
+<div class="stands-top"></div>
+<div class="stands"></div>
+<div class="pitch-lights"></div>
+<div class="pitch-lines">
+<div class="pitch-center"></div>
+<div class="pitch-center-dot"></div>
+<div class="pitch-center-line"></div>
+<div class="pitch-box-l"></div>
+<div class="pitch-box-r"></div>
+<div class="pitch-goal-l"></div>
+<div class="pitch-goal-r"></div>
+</div>
+<div class="scoreboard">
+<div class="scoreboard-header">
+<span>J1联赛 第4轮</span>
+<span class="tag">预测比分</span>
+<span>2026-08-29 17:00</span>
+</div>
+<div class="scoreboard-teams">
+<div class="team-name home">清水鼓动</div>
+<div class="score-main">2 - 1</div>
+<div class="team-name away">柏太阳神</div>
+</div>
+<div class="scoreboard-meta">
+概率最高赛果方向：清水鼓动胜 · 主预测比分 2-1 (9.3%)
+<div class="prob-line">
+<span class="prob-pill home">主胜 40.7%</span>
+<span class="prob-pill draw">平局 32.1%</span>
+<span class="prob-pill away">客胜 27.2%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CORE CONCLUSION -->
+<div class="section">
+<div class="section-title"><span class="icon">📊</span>核心结论</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+<div style="background:#1e293b;border-radius:8px;padding:16px;text-align:center;">
+<div style="font-size:12px;color:var(--muted);margin-bottom:4px;">主预测赛果</div>
+<div style="font-size:20px;font-weight:900;color:var(--green);">清水鼓动胜</div>
+</div>
+<div style="background:#1e293b;border-radius:8px;padding:16px;text-align:center;">
+<div style="font-size:12px;color:var(--muted);margin-bottom:4px;">主预测比分</div>
+<div style="font-size:20px;font-weight:900;color:#fff;">2-1 (9.3%)</div>
+</div>
+</div>
+<div class="xg-compare">
+<div class="xg-team">
+<div class="xg-val home">1.70</div>
+<div class="xg-name">清水鼓动 xG</div>
+</div>
+<div class="xg-vs">vs</div>
+<div class="xg-team">
+<div class="xg-val away">1.23</div>
+<div class="xg-name">柏太阳神 xG</div>
+</div>
+</div>
+<div class="prob-bars">
+<div class="prob-row">
+<div class="prob-label" style="color:var(--home)">主胜</div>
+<div class="prob-bar-track"><div class="prob-bar-fill home" style="width:40.7%">40.7%</div></div>
+</div>
+<div class="prob-row">
+<div class="prob-label" style="color:var(--draw)">平局</div>
+<div class="prob-bar-track"><div class="prob-bar-fill draw" style="width:32.1%">32.1%</div></div>
+</div>
+<div class="prob-row">
+<div class="prob-label" style="color:var(--away)">客胜</div>
+<div class="prob-bar-track"><div class="prob-bar-fill away" style="width:27.2%">27.2%</div></div>
+</div>
+</div>
+</div>
+
+<!-- PREDICTION REASONING -->
+<div class="section">
+<div class="section-title"><span class="icon">🔍</span>预测原因</div>
+<ul class="factor-list">
+<li><span class="fl-icon">🔥</span><strong>清水战意背水一战：</strong>两连败零封，进攻哑火，主场必须止血，新帅急需首胜——desperate战意+0.30xG，这是预测中权重最高的因子</li>
+<li><span class="fl-icon">🏥</span><strong>柏太阳神中场灾难：</strong>四名中场全伤（大久保/山田/手塚/渡井），传控体系受重创，中场组织串联能力断崖式下降(-24Elo)</li>
+<li><span class="fl-icon">🔄</span><strong>战术克制：</strong>清水深度防守(大巴)天然应对高位逼抢(+0.10xG)，柏中场残阵逼抢质量下降，清水可压缩空间</li>
+<li><span class="fl-icon">🧤</span><strong>吴世勋复出：</strong>停赛归来是锋线支点关键补充，反击质量有望显著提升</li>
+<li><span class="fl-icon">📉</span><strong>柏连胜含金量存疑：</strong>三连胜进9球亮眼，但中场四人伤缺后体系需重组，客场面对铁桶阵将更难发挥</li>
+<li><span class="fl-icon">🏟️</span><strong>主场加成：</strong>清水近6主场对柏一胜难求，但历史近10次主场5W4D1L，存在主场克制属性</li>
+<li><span class="fl-icon">🎲</span><strong>高平局空间：</strong>32.1%平局概率——清水进攻哑火+柏中场残阵，低比分胶着概率极高</li>
+</ul>
+</div>
+
+<!-- TOP 5 SCORES -->
+<div class="section">
+<div class="section-title"><span class="icon">⚽</span>比分分布 Top 5</div>
+<div class="score-cards">
+<div class="score-card top">
+<div class="sc-tag">最高概率</div>
+<div class="sc-score">1-1</div>
+<div class="sc-prob">10.9%</div>
+</div>
+<div class="score-card">
+<div class="sc-score">2-1</div>
+<div class="sc-prob">9.3%</div>
+</div>
+<div class="score-card">
+<div class="sc-score">1-0</div>
+<div class="sc-prob">9.0%</div>
+</div>
+<div class="score-card">
+<div class="sc-score">2-0</div>
+<div class="sc-prob">7.8%</div>
+</div>
+<div class="score-card">
+<div class="sc-score">1-2</div>
+<div class="sc-prob">6.8%</div>
+</div>
+</div>
+<p style="font-size:12px;color:var(--muted);margin-top:8px;">* 单一最高概率比分为1-1(10.9%)，属平局方向；但综合胜平负概率，主队胜(40.7%)高于平局(32.1%)，故主预测方向为清水鼓动胜，主预测比分2-1。平局概率空间(32.1%)极高，低比分胶着是本场主旋律。</p>
+</div>
+
+<!-- TACTICAL -->
+<div class="section">
+<div class="section-title"><span class="icon">⚔️</span>战术对位</div>
+<div class="tactical-grid">
+<div class="tac-side">
+<div class="tac-style">深度防守/大巴</div>
+<div style="color:var(--home);font-weight:700;font-size:14px;">清水鼓动</div>
+<div class="tac-desc">低位死守压缩空间，吴世勋复出为反击支点<br>新帅吉田孝行务实防反</div>
+</div>
+<div class="tac-vs">VS</div>
+<div class="tac-side">
+<div class="tac-style">高位逼抢</div>
+<div style="color:var(--away);font-weight:700;font-size:14px;">柏太阳神</div>
+<div class="tac-desc">中场四人伤残，传控体系受重创<br>前场仍多点开花（濑川/小泉）</div>
+</div>
+</div>
+<div style="background:#1e293b;border-radius:8px;padding:12px;font-size:13px;margin-top:12px;">
+<strong>克制关系：</strong>大巴应对高位逼抢(+0.10xG)——清水收缩防守可有效压缩柏的进攻空间。柏中场四人伤缺意味着逼抢质量和中场控制力大幅下降，传控体系难以正常运转。清水若能守住前30分钟，反击机会将逐步增多。
+</div>
+</div>
+
+<!-- FIGHTING SPIRIT -->
+<div class="section">
+<div class="section-title"><span class="icon">🔥</span>战意因素</div>
+<div class="spirit-grid">
+<div class="spirit-card">
+<div style="color:var(--home);font-weight:700;margin-bottom:6px;">清水鼓动</div>
+<div class="spirit-level desperate">背水一战</div>
+<div class="spirit-note">两连败零封，进攻哑火，主场必须止血<br>新帅急需首胜证明自己</div>
+<div class="spirit-xg">+0.30 xG</div>
+</div>
+<div class="spirit-card">
+<div style="color:var(--away);font-weight:700;margin-bottom:6px;">柏太阳神</div>
+<div class="spirit-level high">高涨</div>
+<div class="spirit-note">三连胜争冠气势如虹<br>目标四连胜巩固前列</div>
+<div class="spirit-xg">+0.15 xG</div>
+</div>
+</div>
+<p style="font-size:12px;color:var(--muted);">战意差距是本场核心变量：清水desperate(+0.30xG) vs 柏high(+0.15xG)，清水净+0.15xG战意优势。两连败后的反弹欲望+主场球迷推动，构成清水最大的非技术因素加成。</p>
+</div>
+
+<!-- FORM -->
+<div class="section">
+<div class="section-title"><span class="icon">📈</span>近期状态</div>
+<div class="form-grid">
+<div class="form-team">
+<div class="ft-name home">清水鼓动</div>
+<span class="form-badge l">负</span>
+<span class="form-badge l">负</span>
+<span class="form-badge w">胜</span>
+<div class="ft-stat">J1前三轮：1W 0D 2L · 3分 · 暂列第15</div>
+<div class="ft-stat">3轮仅入1球（首轮客场1-0名古屋）</div>
+<div class="ft-stat" style="color:var(--red);">两连败零封 · 进攻端严重哑火</div>
+</div>
+<div class="form-team">
+<div class="ft-name away">柏太阳神</div>
+<span class="form-badge w">胜</span>
+<span class="form-badge w">胜</span>
+<span class="form-badge w">胜</span>
+<div class="ft-stat">J1前三轮：3W 0D 0L · 9分 · 暂列第2</div>
+<div class="ft-stat">进9球冠绝联赛 · 进攻火力全开</div>
+<div class="ft-stat" style="color:var(--green);">三连胜 · 状态火热</div>
+</div>
+</div>
+</div>
+
+<!-- INJURIES -->
+<div class="section">
+<div class="section-title"><span class="icon">🏥</span>伤停与阵容</div>
+<table class="injury-table">
+<tr><th>球队</th><th>球员</th><th>位置</th><th>状态</th><th>影响</th></tr>
+<tr><td style="color:var(--home);">清水</td><td>吴世勋</td><td>前锋</td><td><span class="injury-status back">复出</span></td><td>红牌停赛后归来，锋线支点关键补充</td></tr>
+<tr><td style="color:var(--home);">清水</td><td>高桥祐治</td><td>后卫</td><td><span class="injury-status out">伤缺</span></td><td>防线主力缺阵</td></tr>
+<tr><td style="color:var(--home);">清水</td><td>朴乘煜</td><td>后卫</td><td><span class="injury-status out">停赛</span></td><td>黄牌停赛，防线轮换</td></tr>
+<tr><td style="color:var(--home);">清水</td><td>井上健太</td><td>中场</td><td><span class="injury-status out">伤缺</span></td><td>中场轮转受限</td></tr>
+<tr><td style="color:var(--home);">清水</td><td>千叶宽汰</td><td>前锋</td><td><span class="injury-status out">伤缺</span></td><td>锋线厚度减弱</td></tr>
+<tr><td style="color:var(--away);">柏</td><td>大久保智明</td><td>中场</td><td><span class="injury-status out">伤缺</span></td><td>跟腱伤，中场核心</td></tr>
+<tr><td style="color:var(--away);">柏</td><td>山田雄士</td><td>中场</td><td><span class="injury-status out">伤缺</span></td><td>膝盖伤</td></tr>
+<tr><td style="color:var(--away);">柏</td><td>手塚康平</td><td>中场</td><td><span class="injury-status out">伤缺</span></td><td>十字韧带伤，长期缺阵</td></tr>
+<tr><td style="color:var(--away);">柏</td><td>渡井理己</td><td>中场</td><td><span class="injury-status out">伤缺</span></td><td>十字韧带伤，长期缺阵</td></tr>
+</table>
+<div style="background:#1e293b;border-radius:8px;padding:12px;font-size:13px;margin-top:12px;">
+<strong>Elo修正：</strong>清水 -16 Elo（3名首发+1名轮转缺阵），柏 -24 Elo（4名首发中场缺阵）。柏伤病更严重，但清水吴世勋复出部分弥补锋线缺口。双方均触发"伤病保守"机制。
+</div>
+</div>
+
+<!-- H2H -->
+<div class="section">
+<div class="section-title"><span class="icon">📜</span>历史交锋</div>
+<div style="background:#1e293b;border-radius:8px;padding:16px;">
+<div style="font-size:14px;font-weight:700;margin-bottom:8px;">矛盾信号并存</div>
+<ul style="list-style:none;font-size:13px;">
+<li style="margin-bottom:6px;">🔴 <strong>近期碾压：</strong>柏太阳神近5次对清水全胜且一球未失，上赛季主客场双杀</li>
+<li style="margin-bottom:6px;">🏟️ <strong>清水主场魔咒：</strong>近6个主场对柏一胜难求</li>
+<li style="margin-bottom:6px;">🟢 <strong>主场克制传说：</strong>清水在主场对柏近10次取得5W4D1L，存在主场克制属性</li>
+</ul>
+<p style="font-size:12px;color:var(--muted);margin-top:8px;">两组数据矛盾——近期柏碾压，但清水主场历史占优。中场残阵可能打破柏的碾压惯性，为清水创造难得的反弹窗口。</p>
+</div>
+</div>
+
+<!-- SCENARIOS -->
+<div class="section">
+<div class="section-title"><span class="icon">🎬</span>场景推演</div>
+
+<div class="scenario s1">
+<div class="sc-title" style="color:var(--green);">🟢 场景一：清水背水一战反弹成功（约41%概率空间）</div>
+<div class="sc-body">
+清水新帅吉田孝行摆出铁桶阵，吴世勋复出激活反击。柏中场四人伤缺导致传控体系运转不畅，高位逼抢质量下降。清水利用主场氛围+desperate战意，在下半场抓住柏体能下降的窗口破门。防守端虽有伤停但纪律严明，将比分守到最后。
+</div>
+<div class="sc-prob" style="color:var(--green);">比分区间：1-0 / 2-1 / 2-0 · 概率空间约27%</div>
+</div>
+
+<div class="scenario s2">
+<div class="sc-title" style="color:var(--yellow);">🟡 场景二：低比分胶着平局收场（约32%概率空间）</div>
+<div class="sc-body">
+清水进攻哑火问题未因吴世勋复出而根本解决，柏中场残阵也难以组织有效进攻。双方在中场展开肉搏战，进攻端都缺乏决定性一击。比赛在沉闷的0-0或互交白卷后以1-1收场——清水的"止血"目标达成但未全取三分。
+</div>
+<div class="sc-prob" style="color:var(--yellow);">比分区间：0-0 / 1-1 / 0-1 · 概率空间约32%</div>
+</div>
+
+<div class="scenario s3">
+<div class="sc-title" style="color:var(--red);">🔴 场景三：柏残阵仍碾压（约27%概率空间）</div>
+<div class="sc-body">
+柏虽然中场伤残，但前场濑川祐辅、小泉佳穗等攻击手状态火热，个人能力足以弥补中场缺失。清水三轮仅入1球的进攻端无法抓住柏的弱点，反而在柏的高位压迫下出现失误丢球。柏延续对清水的碾压纪录，客场带走三分。
+</div>
+<div class="sc-prob" style="color:var(--red);">比分区间：0-1 / 0-2 / 1-2 · 概率空间约20%</div>
+</div>
+</div>
+
+<!-- SPECIAL FACTORS -->
+<div class="section">
+<div class="section-title"><span class="icon">🌡️</span>特殊因子</div>
+<ul class="factor-list">
+<li><span class="fl-icon">☀️</span><strong>夏季高温高湿：</strong>8月底静冈高温，比赛节奏下降，体能消耗大 → 双方各-0.04 xG</li>
+<li><span class="fl-icon">🏟️</span><strong>弱弱对话方差放大：</strong>两队Elo均低于1550，比赛随机性更高</li>
+<li><span class="fl-icon">🏥</span><strong>伤病保守效应：</strong>双方均触发伤病保守机制，残阵球队倾向更谨慎打法</li>
+<li><span class="fl-icon">🔄</span><strong>近均衡押主向平局收缩：</strong>Elo差仅20，近均衡局模型自动向平局方向微调</li>
+</ul>
+</div>
+
+<!-- SENSITIVITY -->
+<div class="section">
+<div class="section-title"><span class="icon">🎯</span>结果敏感点</div>
+<ul class="factor-list">
+<li><span class="fl-icon">⏱️</span><strong>前30分钟：</strong>清水能否守住前30分钟是关键——若早早丢球，desperate战意可能转为崩盘</li>
+<li><span class="fl-icon">🧤</span><strong>吴世勋状态：</strong>停赛归来后体能和比赛感觉存疑，若他能激活反击则清水胜算大增</li>
+<li><span class="fl-icon">⚡</span><strong>柏中场衔接：</strong>四名中场缺阵后，替补能否维持传控体系运转是最大未知数</li>
+<li><span class="fl-icon">🔴</span><strong>定位球：</strong>双方进攻端都不算锋利，角球/任意球可能是打破僵局的关键</li>
+<li><span class="fl-icon">🌡️</span><strong>高温下半场：</strong>8月底高温下半场体能下降明显，70分钟后可能出现决定性时刻</li>
+</ul>
+</div>
+
+<!-- UNCERTAINTY -->
+<div class="section disclaimer">
+<div style="font-weight:700;margin-bottom:8px;">⚠️ 不确定性说明</div>
+<ul style="list-style:disc inside;font-size:12px;line-height:1.8;">
+<li>足球单场随机性极高：主胜40.7%意味着近60%概率指向其他结果</li>
+<li>清水三轮仅入1球的进攻哑火是最大风险——即使战意desperate，没有进球能力也无法取胜</li>
+<li>柏中场四人伤缺的实际影响难以精确量化——替补球员可能超水平发挥</li>
+<li>历史交锋矛盾信号（近期柏碾压 vs 清水主场占优）增加了预测不确定性</li>
+<li>32.1%的高平局概率说明低比分胶着是本场最可能的形态</li>
+</ul>
+</div>
+
+<!-- DATA SOURCES -->
+<div class="section">
+<div class="section-title"><span class="icon">📋</span>数据来源</div>
+<ul class="factor-list">
+<li><span class="fl-icon">📊</span><strong>模型数据：</strong>jleague/teams.json (Elo评级) + league_config.json (联赛参数)</li>
+<li><span class="fl-icon">📈</span><strong>赛果数据：</strong>data/live/jleague/results.json (已赛12场)</li>
+<li><span class="fl-icon">🏟️</span><strong>赛前情报：</strong>用户提供（清水近况、柏状态、伤停、历史交锋、预计首发）</li>
+<li><span class="fl-icon">⚙️</span><strong>模型参数：</strong>2026-08-11二次调参后（probability_shrink=0.26, shock_sd=0.38/0.40）</li>
+</ul>
+<p style="font-size:11px;color:var(--muted);margin-top:8px;">预测时间：2026-08-29 · 数据快照：2026-08-29 · 日职第4轮</p>
+</div>
+
+<div style="text-align:center;padding:24px;font-size:12px;color:var(--muted);">
+本预测纯属娱乐分析，不构成投注建议 · 概率不是确定性结论 · 足球的魅力在于不可预测性 ⚽
+</div>
+
+</div>
+</body>
+</html>

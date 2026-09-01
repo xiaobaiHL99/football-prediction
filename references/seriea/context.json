@@ -1,0 +1,19 @@
+{
+  "special_factors": {
+    "summer_heat_penalty": {
+      "description": "8-9月意大利南部高温，比赛节奏偏慢，体能消耗大",
+      "value": -0.04,
+      "apply_when": "month in ['August', 'September']"
+    },
+    "european_qualification_distraction": {
+      "description": "欧冠/欧联/欧协联双线作战消耗",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_european_match"
+    }
+  },
+  "europe_teams": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO", "BOL", "TOR", "UDI", "GEN", "CAG", "SAS", "PAR", "LEC", "VER", "PIS", "CRE", "SPE", "VEN"]
+  }
+}

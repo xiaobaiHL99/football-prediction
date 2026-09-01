@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>布兰 vs 罗森博格 · 单场预测 · 挪超第16轮 2026-08-02</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#141b33; --panel2:#1b2444; --line:#2a3557;
+    --txt:#e8edf7; --muted:#8b98b8; --accent:#4fd1c5;
+    --bgn:#2e86de; --rbs:#e74c3c; --draw:#f5c542; --green:#4fd1c5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(160deg,#0b1020 0%,#0e1730 60%,#0b1020 100%);color:var(--txt);
+       font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.55;}
+  .wrap{max-width:1060px;margin:0 auto;padding:20px 16px 60px;}
+  header{text-align:center;padding:8px 0 14px;}
+  .kick{display:inline-block;font-size:12px;letter-spacing:2px;color:var(--muted);
+        border:1px solid var(--line);border-radius:999px;padding:4px 14px;margin-bottom:10px;}
+  h1{font-size:clamp(22px,4vw,34px);letter-spacing:1px;}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px;}
+
+  /* ---------- 球场 ---------- */
+  .pitch{position:relative;margin:22px auto 8px;border-radius:18px;overflow:hidden;
+         border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.45);}
+  .pitch::before{content:"";position:absolute;inset:0;
+         background:
+           radial-gradient(ellipse 60% 35% at 50% 18%, rgba(255,255,255,.10), transparent 60%),
+           radial-gradient(ellipse 40% 20% at 50% 88%, rgba(79,209,197,.14), transparent 60%),
+           repeating-linear-gradient(0deg, #1d9a54 0 42px, #178a4a 42px 84px);
+         z-index:0;}
+  .pitch svg{display:block;width:100%;height:auto;position:relative;z-index:1;}
+  .pitch .flood{position:absolute;inset:0;z-index:2;pointer-events:none;
+         background:radial-gradient(ellipse 120% 70% at 50% 50%, transparent 40%, rgba(5,8,18,.55) 100%);}
+
+  /* ---------- 比分牌 ---------- */
+  .scoreboard{position:relative;margin:-34px auto 26px;width:min(560px,94%);
+         background:linear-gradient(180deg,#101a30,#0a1122);border:1px solid var(--line);
+         border-radius:16px;box-shadow:0 16px 44px rgba(0,0,0,.55);overflow:hidden;z-index:5;}
+  .sb-top{display:flex;align-items:center;justify-content:space-between;
+         padding:8px 16px;background:#0d1628;color:var(--muted);font-size:11px;letter-spacing:1px;
+         border-bottom:1px solid var(--line);}
+  .sb-top .tag{color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 10px;}
+  .sb-main{display:flex;align-items:center;justify-content:center;gap:6px;padding:14px 10px 8px;}
+  .sb-team{flex:1;text-align:center;}
+  .sb-team .name{font-size:clamp(14px,3vw,19px);font-weight:700;}
+  .sb-team .tny{font-size:11px;color:var(--muted);letter-spacing:1px;}
+  .sb-score{font-family:"Segoe UI",Consolas,monospace;font-size:clamp(34px,7vw,52px);font-weight:800;
+         letter-spacing:2px;color:#fff;text-shadow:0 0 18px rgba(79,209,197,.5);min-width:110px;}
+  .sb-score b{display:inline-block;min-width:1.1em;text-align:center;}
+  .sb-score .sp{opacity:.25;font-weight:400;}
+  .sb-bars{display:flex;height:7px;overflow:hidden;margin:4px 14px 0;}
+  .sb-bars .h{background:var(--bgn);height:100%;}
+  .sb-bars .d{background:var(--draw);height:100%;}
+  .sb-bars .a{background:var(--rbs);height:100%;}
+  .sb-labels{display:flex;justify-content:space-between;padding:5px 16px 10px;font-size:11px;color:var(--muted);}
+  .sb-labels b{color:var(--txt);font-weight:700;}
+  .sb-foot{display:flex;justify-content:center;gap:14px;padding:6px 10px 12px;
+         font-size:11px;color:var(--muted);border-top:1px solid var(--line);}
+  .sb-foot b{color:var(--accent);font-weight:700;}
+
+  /* ---------- 卡片 ---------- */
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+        border-radius:14px;padding:18px 18px 16px;margin:16px 0;}
+  .card h2{font-size:15px;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .card h2::before{content:"";width:4px;height:16px;background:var(--accent);border-radius:2px;}
+  .card h2 .en{color:var(--muted);font-weight:400;font-size:11px;letter-spacing:1px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .metric{background:#101a33;border:1px solid var(--line);border-radius:10px;padding:12px;}
+  .metric .k{font-size:11px;color:var(--muted);letter-spacing:1px;}
+  .metric .v{font-size:20px;font-weight:800;margin-top:2px;}
+  .metric .s{font-size:11px;color:var(--muted);margin-top:2px;}
+
+  .probrow{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .probrow .lbl{width:130px;font-size:13px;text-align:right;flex-shrink:0;}
+  .probrow .track{flex:1;height:22px;background:#0d1628;border-radius:6px;overflow:hidden;position:relative;}
+  .probrow .fill{height:100%;border-radius:6px;}
+  .probrow .pct{width:58px;font-size:14px;font-weight:700;font-family:Consolas,monospace;}
+  .fill.h{background:linear-gradient(90deg,#1f6fc4,#2e86de);}
+  .fill.d{background:linear-gradient(90deg,#c9a227,#f5c542);}
+  .fill.a{background:linear-gradient(90deg,#c0392b,#e74c3c);}
+
+  .scorecards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .scorecard{background:#101a33;border:1px solid var(--line);border-radius:10px;text-align:center;padding:10px 4px;}
+  .scorecard .sc{font-size:16px;font-weight:800;font-family:Consolas,monospace;}
+  .scorecard .pr{font-size:11px;color:var(--accent);margin-top:3px;}
+  .scorecard.best{border-color:var(--accent);box-shadow:0 0 14px rgba(79,209,197,.25);}
+  .scorecard.best .sc{color:var(--accent);}
+  .scorecard.ref{border-color:var(--draw);box-shadow:0 0 12px rgba(245,197,66,.18);}
+  .scorecard.ref .sc{color:var(--draw);}
+  .scorecard .tag2{font-size:9.5px;color:var(--muted);margin-top:3px;letter-spacing:.5px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);}
+  th{color:var(--muted);font-weight:600;font-size:11px;letter-spacing:1px;}
+  td .val{font-weight:700;}
+  .pos{color:var(--green);}
+  .neg{color:#ff7b6b;}
+
+  .chip{display:inline-block;background:#101a33;border:1px solid var(--line);border-radius:999px;
+        padding:3px 12px;font-size:12px;margin:0 6px 6px 0;}
+  .chip.b{background:rgba(46,134,222,.15);border-color:rgba(46,134,222,.4);}
+  .chip.r{background:rgba(231,76,60,.15);border-color:rgba(231,76,60,.4);}
+  .chip.y{background:rgba(245,197,66,.12);border-color:rgba(245,197,66,.4);}
+
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px;border-left:3px solid var(--line);padding-left:10px;}
+  .warn{background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.35);border-radius:10px;
+        padding:12px 14px;font-size:13px;margin-top:12px;color:#ffd8d3;}
+  .ulist{list-style:none;}
+  .ulist li{padding:7px 0 7px 22px;position:relative;font-size:13.5px;border-bottom:1px dashed var(--line);}
+  .ulist li:last-child{border-bottom:none;}
+  .ulist li::before{content:"▸";position:absolute;left:4px;color:var(--accent);}
+  .src{font-size:12px;color:var(--muted);}
+  .src a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  .src li{padding:4px 0;}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line);}
+  .tocx{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0 4px;}
+  @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}.scorecards{grid-template-columns:repeat(3,1fr)}.probrow .lbl{width:86px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kick">NORWEGIAN ELITESERIEN · 2026 · ROUND 16</span>
+  <h1>布兰 vs 罗森博格</h1>
+  <div class="sub">SK Brann · Rosenborg BK · 单场理性预测 · 非完赛比分</div>
+  <div class="tocx">
+    <span class="chip">预测生成：2026-08-02</span>
+    <span class="chip">开球：8月3日 01:15（北京时间）</span>
+    <span class="chip">球场：Brann Stadion · 卑尔根</span>
+    <span class="chip">场地：天然草</span>
+    <span class="chip">数据快照：teams 07-22 / 赛果 112 场</span>
+  </div>
+</header>
+
+<!-- ===== 球场 ===== -->
+<div class="pitch">
+  <svg viewBox="0 0 800 420" role="img" aria-label="足球场示意图">
+    <rect x="20" y="20" width="760" height="380" rx="10" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <line x1="400" y1="20" x2="400" y2="400" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <circle cx="400" cy="210" r="60" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <circle cx="400" cy="210" r="3" fill="rgba(255,255,255,.8)"/>
+    <rect x="20" y="125" width="110" height="170" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="20" y="170" width="50" height="80" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="670" y="125" width="110" height="170" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="730" y="170" width="50" height="80" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <text x="400" y="238" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="14" letter-spacing="3">⚽</text>
+  </svg>
+  <div class="flood"></div>
+</div>
+
+<!-- ===== 比分牌 ===== -->
+<div class="scoreboard">
+  <div class="sb-top">
+    <span>ELITESERIEN · ROUND 16 · 中游卡位战</span>
+    <span class="tag">预测 · PREVIEW</span>
+    <span>2026-08-03 01:15</span>
+  </div>
+  <div class="sb-main">
+    <div class="sb-team">
+      <div class="name">布兰</div>
+      <div class="tny">SK BRANN</div>
+    </div>
+    <div class="sb-score"><b>2</b><span class="sp">–</span><b>1</b></div>
+    <div class="sb-team">
+      <div class="name">罗森博格</div>
+      <div class="tny">ROSENBORG BK</div>
+    </div>
+  </div>
+  <div class="sb-bars"><div class="h" style="width:44.2%"></div><div class="d" style="width:22.8%"></div><div class="a" style="width:33%"></div></div>
+  <div class="sb-labels">
+    <span><b>44.2%</b> 主胜</span>
+    <span><b>22.8%</b> 平局</span>
+    <span><b>33.0%</b> 客胜</span>
+  </div>
+  <div class="sb-foot">
+    <span>预期进球 <b>1.75 – 1.46</b></span>
+    <span>主预测比分 <b>2-1</b> (9.0%)</span>
+  </div>
+</div>
+
+<!-- ===== 核心结论 ===== -->
+<div class="card">
+  <h2>核心结论 <span class="en">CORE VERDICT</span></h2>
+  <div class="grid3">
+    <div class="metric"><div class="k">主预测赛果</div><div class="v" style="color:var(--bgn)">布兰胜</div><div class="s">概率最高方向 44.2%（非稳胜）</div></div>
+    <div class="metric"><div class="k">主预测比分</div><div class="v">2 – 1</div><div class="s">主胜方向最高概率比分 (9.0%)</div></div>
+    <div class="metric"><div class="k">Elo 评级差</div><div class="v">1597 vs 1526</div><div class="s">布兰 +71（含伤停修正后优势收窄）</div></div>
+  </div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="metric"><div class="k">理性模型胜平负</div><div class="v">44.2 / 22.8 / 33.0 <span style="font-size:12px;color:var(--muted)">%</span></div><div class="s">布兰主场略占优，但罗森博格近况形成强对抗</div></div>
+    <div class="metric"><div class="k">市场归一化概率</div><div class="v">47.6 / 24.4 / 28.0 <span style="font-size:12px;color:var(--muted)">%</span></div><div class="s">市场给主胜 ~48%，客胜 ~28%</div></div>
+  </div>
+  <div class="note">模型与市场方向一致（布兰为微热门），但模型对罗森博格（33.0%）比市场（28.0%）高约 5 个百分点。驱动来自：罗森博格换帅后联赛 3 连胜零封的强势近况 + 反击对传控的战术克制 + 布兰防线伤停 3 人且连续 13 场未零封。模型看重的"罗森博格客场疲软 + 布兰历史交锋不败"仍把主胜压到第一，但远非一边倒——这是一场真正的势均力敌卡位战。</div>
+</div>
+
+<!-- ===== 预测原因 ===== -->
+<div class="card">
+  <h2>预测原因 <span class="en">WHY</span></h2>
+  <ul class="ulist">
+    <li><b>主场 + 交锋心理支撑布兰：</b>布兰近 8 次对罗森博格 5 胜 3 平不败，近 4 个主场 2 胜 2 平；霍恩兰执教生涯 9 次对阵罗森博格 6 胜 1 平 2 负，历史心理优势明确。模型据此将布兰列为概率最高方向（44.2%）。</li>
+    <li><b>但防线残阵大幅削弱优势：</b>布兰连续 13 场正式比赛未零封，左后卫 Torsvik（踝）、中卫 Boakye（膝伤赛季报销）、中场 Opsahl（脚）3 人缺阵（Elo 修正 −21），且 7/30 刚踢完欧协联资格赛一周双赛（vs 克卢日大学 3-1），体能和防线完整度双输。</li>
+    <li><b>罗森博格近况是最大变量：</b>新帅亚历山德森（6/17 上任，此前正是布兰主帅，构成"帅位互换"恩怨局）上任后联赛 3 连胜且 3 场零封（3-0 克里斯蒂安松 / 3-0 斯达 / 4-0 腓特烈斯塔，10-0 总比分），模型近况调整（form）明显拉高其胜率。</li>
+    <li><b>战术克制偏向客队反击：</b>布兰传控压上 vs 罗森博格 4-1-4-1 客场收缩打转换，反击克制传控（模型战术修正），专打布兰残阵防线身后；布兰无效控球惩罚也拖低其 xG。</li>
+    <li><b>但罗森博格客场是硬伤：</b>其 3 场胜仗全在主场，客场 1 胜 1 平 4 负、进 3 失 9 联赛垫底档，客场收敛的打法恰被布兰主场进攻 + 交锋优势对冲——这是模型未敢把客胜推高的核心理由。</li>
+    <li><b>单场随机性提示：</b>双方 xG 差距仅 0.29（1.75 vs 1.46），44.2% 的主胜远非稳局；单一最高概率比分是 1-1（10.2%），冷门路径（客胜）占三成。</li>
+  </ul>
+</div>
+
+<!-- ===== 详细预测 ===== -->
+<div class="card">
+  <h2>详细预测 <span class="en">DETAILS</span></h2>
+  <div class="grid2">
+    <div>
+      <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:4px">胜 / 平 / 负 概率</div>
+      <div class="probrow"><div class="lbl">布兰胜</div><div class="track"><div class="fill h" style="width:44.2%"></div></div><div class="pct" style="color:var(--bgn)">44.2%</div></div>
+      <div class="probrow"><div class="lbl">平局</div><div class="track"><div class="fill d" style="width:22.8%"></div></div><div class="pct" style="color:var(--draw)">22.8%</div></div>
+      <div class="probrow"><div class="lbl">罗森博格胜</div><div class="track"><div class="fill a" style="width:33%"></div></div><div class="pct" style="color:var(--rbs)">33.0%</div></div>
+      <div class="grid2" style="margin-top:12px">
+        <div class="metric"><div class="k">布兰 xG</div><div class="v" style="color:var(--bgn)">1.75</div></div>
+        <div class="metric"><div class="k">罗森博格 xG</div><div class="v" style="color:var(--rbs)">1.46</div></div>
+      </div>
+      <div class="note">xG 已含伤停 Elo 修正（布兰 −21 / 罗森博格 −14，模型口径 −18/−12）、近期状态（form）、战术对位（反击克制传控 + 无效控球惩罚）、以及布兰欧战一周双赛的单场修正。</div>
+    </div>
+    <div>
+      <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:4px">比分分布 Top 5</div>
+      <div class="scorecards">
+        <div class="scorecard ref"><div class="sc">1-1</div><div class="pr">10.2%</div><div class="tag2">单一最高 · 比分参考</div></div>
+        <div class="scorecard best"><div class="sc">2-1</div><div class="pr">9.0%</div><div class="tag2">主预测比分</div></div>
+        <div class="scorecard"><div class="sc">1-2</div><div class="pr">7.5%</div><div class="tag2">客胜路径</div></div>
+        <div class="scorecard"><div class="sc">1-0</div><div class="pr">7.1%</div><div class="tag2">低比分主胜</div></div>
+        <div class="scorecard"><div class="sc">2-2</div><div class="pr">6.5%</div><div class="tag2">高比分平局</div></div>
+      </div>
+      <div class="metric" style="margin-top:12px">
+        <div class="k">模型修正摘要</div>
+        <div style="font-size:12.5px;margin-top:6px">
+          <span class="chip b">布兰 −18 Elo · 防线伤停3人</span>
+          <span class="chip r">罗森博格 −12 Elo · 前锋/中场伤缺</span>
+          <span class="chip b">布兰 欧战一周双赛 −0.05</span>
+          <span class="chip r">罗森博格 近况火热 +0.06</span>
+          <span class="chip y">战术: 传控 vs 反击 · 客队克制</span>
+          <span class="chip">情境: 中游卡位战 · 均势</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="warn">本报告为概率预测，不是结果保证。单一最高概率比分 1-1（10.2%）与主预测赛果（布兰胜）方向不同，仅作比分分布参考。主预测比分 2-1 是主胜方向内最高概率，但整体只有 9%。单场足球随机性很高，44.2% 的主胜不代表稳赢。</div>
+</div>
+
+<!-- ===== 情报摘要 ===== -->
+<div class="card">
+  <h2>情报摘要 <span class="en">INTEL</span></h2>
+  <div class="grid2">
+    <div>
+      <table>
+        <tr><th>布兰（主）</th><th></th></tr>
+        <tr><td>联赛排位</td><td class="val">第 9 · 19 分 · 15 轮（6胜1平8负）进30失25</td></tr>
+        <tr><td>阵容/风格</td><td class="val">霍恩兰回归主打传控压上（4-3-3），主场场均进约 2 球（联赛第3多）</td></tr>
+        <tr><td>伤停</td><td class="neg">Torsvik 踝伤 / Boakye 膝伤赛季报销 / Opsahl 脚伤，防线 3 人缺阵</td></tr>
+        <tr><td>体能</td><td class="neg">7/30 欧协联资格赛 3-1 胜克卢日大学，一周双赛消耗</td></tr>
+        <tr><td>隐患</td><td class="neg">连续 13 场正式比赛未零封；主场 3 胜 4 负无平局</td></tr>
+        <tr><td>近期</td><td class="val">近 6 轮 2 胜 4 负：负-负-负-胜-胜-负（上轮 2-3 瓦勒伦加）</td></tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tr><th>罗森博格（客）</th><th></th></tr>
+        <tr><td>联赛排位</td><td class="val">第 10 · 18 分 · 14 轮（5胜3平6负）进19失18</td></tr>
+        <tr><td>阵容/风格</td><td class="val">亚历山德森 4-1-4-1 防守反击转换，上任后攻防质变</td></tr>
+        <tr><td>近况</td><td class="pos">换帅后联赛 3 连胜 3 场零封（3-0 / 3-0 / 4-0，10-0 总比分）</td></tr>
+        <tr><td>伤停</td><td class="neg">前锋 Islamovic 小腿伤 / 中场 Nordli 伤缺，锋线由奇亚卡领衔</td></tr>
+        <tr><td>客场</td><td class="neg">客场 1 胜 1 平 4 负，进 3 失 9，联赛垫底档</td></tr>
+        <tr><td>关键球员</td><td class="val">奇亚卡 6 球近 3 场连进；塞尔纳斯 5 助攻</td></tr>
+      </table>
+    </div>
+  </div>
+  <div style="margin-top:12px">
+    <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:6px">交锋记录（历史 + 本赛季）</div>
+    <ul class="ulist">
+      <li>近 8 次正式交手：布兰 <b>5 胜 3 平保持不败</b>；近 6 次挪超交手布兰 4 胜 2 平。</li>
+      <li>本赛季首回合（第6轮）：罗森博格 1-1 布兰（福萨姆 13' / 罗斯泰因松 19' 扳平）。</li>
+      <li>布兰近 4 个主场对罗森博格 2 胜 2 平；霍恩兰执教生涯对罗森博格 6 胜 1 平 2 负。</li>
+      <li>恩怨背景：亚历山德森 6/17 被布兰解雇后转投罗森博格，霍恩兰 7 月初回归布兰——"帅位互换"焦点战。</li>
+    </ul>
+  </div>
+  <div class="note">数据来源：Sports Mole 赛前首发预测、球迷屋伤停名单（2026-08-03）、多家中文赛前分析（网易/球迷屋/球天下/球探），交叉核对一致。</div>
+</div>
+
+<!-- ===== 场景推演 ===== -->
+<div class="card">
+  <h2>场景推演 <span class="en">SCENARIOS</span></h2>
+  <div class="grid3">
+    <div class="metric"><div class="k" style="color:var(--bgn)">① 布兰主场兑现交锋优势</div>
+      <div class="s" style="font-size:12.5px;margin-top:6px">主场进攻 + 罗森博格客场疲软 + 历史 8 场不败心理 → 2-1 / 1-0 主胜。模型主路径（≈44%），与市场 ~48% 一致。</div></div>
+    <div class="metric"><div class="k" style="color:var(--rbs)">② 罗森博格延续换帅势头（冷门路径）</div>
+      <div class="s" style="font-size:12.5px;margin-top:6px">客场收缩反击专打布兰残阵防线，延续 3 连胜零封状态 → 1-2 / 0-2 客胜。模型给 33%，市场仅 ~28%，是模型比市场更看重的方向。</div></div>
+    <div class="metric"><div class="k" style="color:var(--draw)">③ 低比分胶着（平局）</div>
+      <div class="s" style="font-size:12.5px;margin-top:6px">罗森博格客场保守 + 布兰欧战一周双赛体能下滑 → 1-1（单一最高概率 10.2%）。布兰主场"无平局"与罗森博格"客场爱平"相互抵消，平局仍占 22.8%。</div></div>
+  </div>
+</div>
+
+<!-- ===== 赔率视角 ===== -->
+<div class="card">
+  <h2>赔率视角 <span class="en">ODDS VIEW</span></h2>
+  <table>
+    <tr><th>结果</th><th>赔率</th><th>隐含概率</th><th>市场真实概率</th><th>模型概率</th><th>偏差</th></tr>
+    <tr><td>布兰胜</td><td>2.00</td><td>50.0%</td><td>47.6%</td><td class="val">44.2%</td><td class="neg">−3.4%</td></tr>
+    <tr><td>平局</td><td>3.90</td><td>25.6%</td><td>24.4%</td><td class="val">22.8%</td><td class="neg">−1.6%</td></tr>
+    <tr><td>罗森博格胜</td><td>3.40</td><td>29.4%</td><td>28.0%</td><td class="val">33.0%</td><td class="pos">+5.0%</td></tr>
+  </table>
+  <div style="margin-top:10px;font-size:13px">
+    <span class="chip">庄家抽水 overround：5.1%</span>
+    <span class="chip">欧赔即时：2.00 / 3.90 / 3.40（初盘 1.84 / 4.25 / 3.70，主胜被抬）</span>
+    <span class="chip">亚盘：主让 0.5（布兰 0.84 → 1.00）</span>
+    <span class="chip">大小球：3 / 3.5（偏大）</span>
+    <span class="chip">竞彩：主胜 1.76 / 客胜 3.35，彩民客胜偏热 +9%</span>
+    <span class="chip">预测市场：布兰 49¢ / 平 24¢ / 罗森博格 27¢</span>
+  </div>
+  <div class="note">模型与市场最大分歧在客胜：模型 33.0% vs 市场 28.0%（+5.0%），欧赔 3.40 下 EV ≈ +12.2%，唯一正期望方向。模型认可"罗森博格换帅后 3 连胜零封 + 反击克制残阵"被市场低估，但主胜被市场略微高估（47.6% vs 模型 44.2%）。需注意：竞彩官方与部分中文分析恰好相反——认为主胜被低估、客胜偏热，两套口径分歧明显，反映本场基本面确属胶着。</div>
+  <div class="note">赔率数据仅供概率比较参考，不构成投注建议。</div>
+</div>
+
+<!-- ===== 不确定性说明 ===== -->
+<div class="card">
+  <h2>不确定性说明 <span class="en">UNCERTAINTY</span></h2>
+  <ul class="ulist">
+    <li>技能内沙盘数据（积分榜快照、Elo 评级）基于模拟/历史估计，与本场真实排名（布兰 9th / 罗森博格 10th）存在差距，预测主要依赖赛前实时情报修正。</li>
+    <li>罗森博格换帅后的"质变"样本仅 3 场联赛，样本量小；其客场表现（1胜1平4负）与主场判若两队，客场能否延续新帅体系是最大不确定项。</li>
+    <li>布兰欧战一周双赛的体能影响、罗森博格 3 名中前场伤停的实际损失属定性判断，难以精确量化。</li>
+    <li>比分牌为"预测"而非已完赛结果；主预测比分 2-1（9.0%）与单一最高概率比分 1-1（10.2%）并存，说明本场比分高度分散。</li>
+  </ul>
+</div>
+
+<!-- ===== 来源 ===== -->
+<div class="card">
+  <h2>数据与情报来源 <span class="en">SOURCES</span></h2>
+  <ul class="src ulist">
+    <li><a href="https://www.sportsmole.co.uk/football/sk-brann/preview/brann-vs-rosenborg-prediction-team-news-lineups_602253.html">Sports Mole — Brann vs Rosenborg preview, team news, lineups（2026-08）</a></li>
+    <li><a href="https://www.qiumiwu.com/news/1982575990405">球迷屋 — 挪超第16轮 布兰vs罗森博格 伤病名单最新（2026-08-03）</a></li>
+    <li><a href="https://www.qiumiwu.com/news/1982618700263">球迷屋 — 布兰vs罗森博格预测分析：相差仅1分的卡位战（2026-08）</a></li>
+    <li><a href="https://www.163.com/dy/article/L39SVASR0556OFBY.html">网易 — 挪超第16轮：一场被交锋史压歪的准德比（2026-08）</a></li>
+    <li><a href="https://www.163.com/dy/article/L39UMLL70556OFBR.html">网易 — 帅位互换引爆焦点，布兰防线残阵遇克星（2026-08）</a></li>
+    <li><a href="https://www.dszuqiu.com/articles/lottery/2097015.html">DS足球 — 布兰坐镇主场能否捍卫主场？（2026-08）</a></li>
+    <li><a href="https://www.everpromax.com/news/1069940.html">EverPromax — 霍恩兰德与亚历山德森再相遇（2026-08）</a></li>
+    <li><a href="https://m.titan007.com/Analy/Analysis/2912852.htm">球探 — 2026挪超 布兰 VS 罗森博格 数据分析（2026-08-02）</a></li>
+    <li><a href="https://beta.dongqiudi.com/articles/6111827.html">懂球帝 — 彩民支持率：客胜偏热 +9%（2026-08）</a></li>
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/401843400">ESPN — Brann vs Rosenborg 赛事页（2026-08-02）</a></li>
+    <li><a href="https://www.goal.com/en/match/brann-vs-rosenborg/i55C3KePv-xyggNWZNRii">Goal.com — Brann v Rosenborg（2026-08-02）</a></li>
+    <li><a href="https://robinhood.com/us/en/prediction-markets/soccer/events/brann-vs-rosenborg-aug-02-2026/">Robinhood Prediction Market — Brann vs Rosenborg（2026-08-02）</a></li>
+  </ul>
+</div>
+
+<footer>理性概率模型：Elo → 泊松比分 → 蒙特卡洛 · 仅供娱乐分析，不构成投注建议 · 2026-08-02</footer>
+</div>
+</body>
+</html>

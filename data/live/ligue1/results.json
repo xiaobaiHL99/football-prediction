@@ -1,0 +1,40 @@
+{
+  "matches": [
+    {
+      "home": "MAR",
+      "away": "STR",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "LEN",
+      "away": "AUX",
+      "hg": 5,
+      "ag": 2
+    },
+    {
+      "home": "LIL",
+      "away": "PSG",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "PFC",
+      "away": "NCE",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "STR",
+      "away": "LEN",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "MON",
+      "away": "MAR",
+      "hg": 2,
+      "ag": 0
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "special_factors": {
+    "travel_distance": {
+      "description": "跨东西海岸长途旅行的额外消耗",
+      "value": -0.10,
+      "apply_when": "travel_distance > 2000km"
+    },
+    "artificial_turf_penalty": {
+      "description": "人工草皮对客队技术发挥的影响",
+      "value": -0.10,
+      "apply_when": "home_turf == 'artificial' and away_turf == 'natural'"
+    },
+    "playoff_motivation_boost": {
+      "description": "季后赛冲刺期的战意加成",
+      "value": 0.06,
+      "apply_when": "team_in_playoff_race and match_after_august"
+    },
+    "summer_transfer_boost": {
+      "description": "夏窗新援带来的实力提升",
+      "value": 0.05,
+      "apply_when": "team_signed_high_profile_player"
+    },
+    "international_callup": {
+      "description": "国际比赛日征召导致的减员",
+      "value": -0.06,
+      "apply_when": "team_has_international_callups"
+    }
+  },
+  "conference_map": {
+    "eastern": ["ATL", "CHI", "CLT", "CIN", "CLB", "DCU", "MIA", "MTL", "NSH", "NE", "NYC", "NYRB", "ORL", "PHI", "TOR"],
+    "western": ["AUS", "COL", "DAL", "HOU", "LA", "LAG", "MIN", "POR", "RSL", "SDFC", "SJ", "SEA", "SKC", "STL", "VAN"]
+  },
+  "turf_map": {
+    "artificial": ["ATL", "NE", "POR", "SEA", "VAN"],
+    "natural": ["AUS", "CHI", "CLT", "CIN", "COL", "CLB", "DAL", "DCU", "HOU", "MIA", "LA", "LAG", "MIN", "MTL", "NSH", "NYC", "NYRB", "ORL", "PHI", "RSL", "SDFC", "SJ", "SKC", "STL", "TOR"]
+  },
+  "playoff_format": {
+    "teams_per_conference": 7,
+    "total_playoff_teams": 14,
+    "first_round": "best_of_3",
+    "other_rounds": "single_elimination"
+  }
+}

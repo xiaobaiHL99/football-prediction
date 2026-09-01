@@ -1,0 +1,14 @@
+{
+  "special_factors": {
+    "european_qualification_distraction": {
+      "description": "欧冠/欧联/欧协双线作战消耗，荷甲欧战球队密集赛程",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_european_match"
+    }
+  },
+  "europe_teams": ["PSV", "AJX", "FEY", "NEC", "AZ", "UTR", "TWE"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["PSV", "AJX", "FEY", "AZ", "NEC", "UTR", "TWE", "GRN", "HEE", "GAE", "SPA", "FUT", "PEC", "WIL", "EXC", "TEL", "ADO", "CAM"]
+  }
+}

@@ -1,0 +1,1522 @@
+[
+  {
+    "home": "JUV",
+    "away": "SPE"
+  },
+  {
+    "home": "INTER",
+    "away": "CRE"
+  },
+  {
+    "home": "MIL",
+    "away": "PIS"
+  },
+  {
+    "home": "NAP",
+    "away": "VER"
+  },
+  {
+    "home": "ATA",
+    "away": "LEC"
+  },
+  {
+    "home": "ROM",
+    "away": "PAR"
+  },
+  {
+    "home": "LAZ",
+    "away": "SAS"
+  },
+  {
+    "home": "FIO",
+    "away": "CAG"
+  },
+  {
+    "home": "BOL",
+    "away": "GEN"
+  },
+  {
+    "home": "TOR",
+    "away": "UDI"
+  },
+  {
+    "home": "CRE",
+    "away": "JUV"
+  },
+  {
+    "home": "SPE",
+    "away": "PIS"
+  },
+  {
+    "home": "INTER",
+    "away": "VER"
+  },
+  {
+    "home": "MIL",
+    "away": "LEC"
+  },
+  {
+    "home": "NAP",
+    "away": "PAR"
+  },
+  {
+    "home": "ATA",
+    "away": "SAS"
+  },
+  {
+    "home": "ROM",
+    "away": "CAG"
+  },
+  {
+    "home": "LAZ",
+    "away": "GEN"
+  },
+  {
+    "home": "FIO",
+    "away": "UDI"
+  },
+  {
+    "home": "BOL",
+    "away": "TOR"
+  },
+  {
+    "home": "JUV",
+    "away": "PIS"
+  },
+  {
+    "home": "CRE",
+    "away": "VER"
+  },
+  {
+    "home": "SPE",
+    "away": "LEC"
+  },
+  {
+    "home": "INTER",
+    "away": "PAR"
+  },
+  {
+    "home": "MIL",
+    "away": "SAS"
+  },
+  {
+    "home": "NAP",
+    "away": "CAG"
+  },
+  {
+    "home": "ATA",
+    "away": "GEN"
+  },
+  {
+    "home": "ROM",
+    "away": "UDI"
+  },
+  {
+    "home": "LAZ",
+    "away": "TOR"
+  },
+  {
+    "home": "FIO",
+    "away": "BOL"
+  },
+  {
+    "home": "VER",
+    "away": "JUV"
+  },
+  {
+    "home": "PIS",
+    "away": "LEC"
+  },
+  {
+    "home": "CRE",
+    "away": "PAR"
+  },
+  {
+    "home": "SPE",
+    "away": "SAS"
+  },
+  {
+    "home": "INTER",
+    "away": "CAG"
+  },
+  {
+    "home": "MIL",
+    "away": "GEN"
+  },
+  {
+    "home": "NAP",
+    "away": "UDI"
+  },
+  {
+    "home": "ATA",
+    "away": "TOR"
+  },
+  {
+    "home": "ROM",
+    "away": "BOL"
+  },
+  {
+    "home": "LAZ",
+    "away": "FIO"
+  },
+  {
+    "home": "JUV",
+    "away": "LEC"
+  },
+  {
+    "home": "VER",
+    "away": "PAR"
+  },
+  {
+    "home": "PIS",
+    "away": "SAS"
+  },
+  {
+    "home": "CRE",
+    "away": "CAG"
+  },
+  {
+    "home": "SPE",
+    "away": "GEN"
+  },
+  {
+    "home": "INTER",
+    "away": "UDI"
+  },
+  {
+    "home": "MIL",
+    "away": "TOR"
+  },
+  {
+    "home": "NAP",
+    "away": "BOL"
+  },
+  {
+    "home": "ATA",
+    "away": "FIO"
+  },
+  {
+    "home": "ROM",
+    "away": "LAZ"
+  },
+  {
+    "home": "PAR",
+    "away": "JUV"
+  },
+  {
+    "home": "LEC",
+    "away": "SAS"
+  },
+  {
+    "home": "VER",
+    "away": "CAG"
+  },
+  {
+    "home": "PIS",
+    "away": "GEN"
+  },
+  {
+    "home": "CRE",
+    "away": "UDI"
+  },
+  {
+    "home": "SPE",
+    "away": "TOR"
+  },
+  {
+    "home": "INTER",
+    "away": "BOL"
+  },
+  {
+    "home": "MIL",
+    "away": "FIO"
+  },
+  {
+    "home": "NAP",
+    "away": "LAZ"
+  },
+  {
+    "home": "ATA",
+    "away": "ROM"
+  },
+  {
+    "home": "JUV",
+    "away": "SAS"
+  },
+  {
+    "home": "PAR",
+    "away": "CAG"
+  },
+  {
+    "home": "LEC",
+    "away": "GEN"
+  },
+  {
+    "home": "VER",
+    "away": "UDI"
+  },
+  {
+    "home": "PIS",
+    "away": "TOR"
+  },
+  {
+    "home": "CRE",
+    "away": "BOL"
+  },
+  {
+    "home": "SPE",
+    "away": "FIO"
+  },
+  {
+    "home": "INTER",
+    "away": "LAZ"
+  },
+  {
+    "home": "MIL",
+    "away": "ROM"
+  },
+  {
+    "home": "NAP",
+    "away": "ATA"
+  },
+  {
+    "home": "CAG",
+    "away": "JUV"
+  },
+  {
+    "home": "SAS",
+    "away": "GEN"
+  },
+  {
+    "home": "PAR",
+    "away": "UDI"
+  },
+  {
+    "home": "LEC",
+    "away": "TOR"
+  },
+  {
+    "home": "VER",
+    "away": "BOL"
+  },
+  {
+    "home": "PIS",
+    "away": "FIO"
+  },
+  {
+    "home": "CRE",
+    "away": "LAZ"
+  },
+  {
+    "home": "SPE",
+    "away": "ROM"
+  },
+  {
+    "home": "INTER",
+    "away": "ATA"
+  },
+  {
+    "home": "MIL",
+    "away": "NAP"
+  },
+  {
+    "home": "JUV",
+    "away": "GEN"
+  },
+  {
+    "home": "CAG",
+    "away": "UDI"
+  },
+  {
+    "home": "SAS",
+    "away": "TOR"
+  },
+  {
+    "home": "PAR",
+    "away": "BOL"
+  },
+  {
+    "home": "LEC",
+    "away": "FIO"
+  },
+  {
+    "home": "VER",
+    "away": "LAZ"
+  },
+  {
+    "home": "PIS",
+    "away": "ROM"
+  },
+  {
+    "home": "CRE",
+    "away": "ATA"
+  },
+  {
+    "home": "SPE",
+    "away": "NAP"
+  },
+  {
+    "home": "INTER",
+    "away": "MIL"
+  },
+  {
+    "home": "UDI",
+    "away": "JUV"
+  },
+  {
+    "home": "GEN",
+    "away": "TOR"
+  },
+  {
+    "home": "CAG",
+    "away": "BOL"
+  },
+  {
+    "home": "SAS",
+    "away": "FIO"
+  },
+  {
+    "home": "PAR",
+    "away": "LAZ"
+  },
+  {
+    "home": "LEC",
+    "away": "ROM"
+  },
+  {
+    "home": "VER",
+    "away": "ATA"
+  },
+  {
+    "home": "PIS",
+    "away": "NAP"
+  },
+  {
+    "home": "CRE",
+    "away": "MIL"
+  },
+  {
+    "home": "SPE",
+    "away": "INTER"
+  },
+  {
+    "home": "JUV",
+    "away": "TOR"
+  },
+  {
+    "home": "UDI",
+    "away": "BOL"
+  },
+  {
+    "home": "GEN",
+    "away": "FIO"
+  },
+  {
+    "home": "CAG",
+    "away": "LAZ"
+  },
+  {
+    "home": "SAS",
+    "away": "ROM"
+  },
+  {
+    "home": "PAR",
+    "away": "ATA"
+  },
+  {
+    "home": "LEC",
+    "away": "NAP"
+  },
+  {
+    "home": "VER",
+    "away": "MIL"
+  },
+  {
+    "home": "PIS",
+    "away": "INTER"
+  },
+  {
+    "home": "CRE",
+    "away": "SPE"
+  },
+  {
+    "home": "BOL",
+    "away": "JUV"
+  },
+  {
+    "home": "TOR",
+    "away": "FIO"
+  },
+  {
+    "home": "UDI",
+    "away": "LAZ"
+  },
+  {
+    "home": "GEN",
+    "away": "ROM"
+  },
+  {
+    "home": "CAG",
+    "away": "ATA"
+  },
+  {
+    "home": "SAS",
+    "away": "NAP"
+  },
+  {
+    "home": "PAR",
+    "away": "MIL"
+  },
+  {
+    "home": "LEC",
+    "away": "INTER"
+  },
+  {
+    "home": "VER",
+    "away": "SPE"
+  },
+  {
+    "home": "PIS",
+    "away": "CRE"
+  },
+  {
+    "home": "JUV",
+    "away": "FIO"
+  },
+  {
+    "home": "BOL",
+    "away": "LAZ"
+  },
+  {
+    "home": "TOR",
+    "away": "ROM"
+  },
+  {
+    "home": "UDI",
+    "away": "ATA"
+  },
+  {
+    "home": "GEN",
+    "away": "NAP"
+  },
+  {
+    "home": "CAG",
+    "away": "MIL"
+  },
+  {
+    "home": "SAS",
+    "away": "INTER"
+  },
+  {
+    "home": "PAR",
+    "away": "SPE"
+  },
+  {
+    "home": "LEC",
+    "away": "CRE"
+  },
+  {
+    "home": "VER",
+    "away": "PIS"
+  },
+  {
+    "home": "LAZ",
+    "away": "JUV"
+  },
+  {
+    "home": "FIO",
+    "away": "ROM"
+  },
+  {
+    "home": "BOL",
+    "away": "ATA"
+  },
+  {
+    "home": "TOR",
+    "away": "NAP"
+  },
+  {
+    "home": "UDI",
+    "away": "MIL"
+  },
+  {
+    "home": "GEN",
+    "away": "INTER"
+  },
+  {
+    "home": "CAG",
+    "away": "SPE"
+  },
+  {
+    "home": "SAS",
+    "away": "CRE"
+  },
+  {
+    "home": "PAR",
+    "away": "PIS"
+  },
+  {
+    "home": "LEC",
+    "away": "VER"
+  },
+  {
+    "home": "JUV",
+    "away": "ROM"
+  },
+  {
+    "home": "LAZ",
+    "away": "ATA"
+  },
+  {
+    "home": "FIO",
+    "away": "NAP"
+  },
+  {
+    "home": "BOL",
+    "away": "MIL"
+  },
+  {
+    "home": "TOR",
+    "away": "INTER"
+  },
+  {
+    "home": "UDI",
+    "away": "SPE"
+  },
+  {
+    "home": "GEN",
+    "away": "CRE"
+  },
+  {
+    "home": "CAG",
+    "away": "PIS"
+  },
+  {
+    "home": "SAS",
+    "away": "VER"
+  },
+  {
+    "home": "PAR",
+    "away": "LEC"
+  },
+  {
+    "home": "ATA",
+    "away": "JUV"
+  },
+  {
+    "home": "ROM",
+    "away": "NAP"
+  },
+  {
+    "home": "LAZ",
+    "away": "MIL"
+  },
+  {
+    "home": "FIO",
+    "away": "INTER"
+  },
+  {
+    "home": "BOL",
+    "away": "SPE"
+  },
+  {
+    "home": "TOR",
+    "away": "CRE"
+  },
+  {
+    "home": "UDI",
+    "away": "PIS"
+  },
+  {
+    "home": "GEN",
+    "away": "VER"
+  },
+  {
+    "home": "CAG",
+    "away": "LEC"
+  },
+  {
+    "home": "SAS",
+    "away": "PAR"
+  },
+  {
+    "home": "JUV",
+    "away": "NAP"
+  },
+  {
+    "home": "ATA",
+    "away": "MIL"
+  },
+  {
+    "home": "ROM",
+    "away": "INTER"
+  },
+  {
+    "home": "LAZ",
+    "away": "SPE"
+  },
+  {
+    "home": "FIO",
+    "away": "CRE"
+  },
+  {
+    "home": "BOL",
+    "away": "PIS"
+  },
+  {
+    "home": "TOR",
+    "away": "VER"
+  },
+  {
+    "home": "UDI",
+    "away": "LEC"
+  },
+  {
+    "home": "GEN",
+    "away": "PAR"
+  },
+  {
+    "home": "CAG",
+    "away": "SAS"
+  },
+  {
+    "home": "MIL",
+    "away": "JUV"
+  },
+  {
+    "home": "NAP",
+    "away": "INTER"
+  },
+  {
+    "home": "ATA",
+    "away": "SPE"
+  },
+  {
+    "home": "ROM",
+    "away": "CRE"
+  },
+  {
+    "home": "LAZ",
+    "away": "PIS"
+  },
+  {
+    "home": "FIO",
+    "away": "VER"
+  },
+  {
+    "home": "BOL",
+    "away": "LEC"
+  },
+  {
+    "home": "TOR",
+    "away": "PAR"
+  },
+  {
+    "home": "UDI",
+    "away": "SAS"
+  },
+  {
+    "home": "GEN",
+    "away": "CAG"
+  },
+  {
+    "home": "JUV",
+    "away": "INTER"
+  },
+  {
+    "home": "MIL",
+    "away": "SPE"
+  },
+  {
+    "home": "NAP",
+    "away": "CRE"
+  },
+  {
+    "home": "ATA",
+    "away": "PIS"
+  },
+  {
+    "home": "ROM",
+    "away": "VER"
+  },
+  {
+    "home": "LAZ",
+    "away": "LEC"
+  },
+  {
+    "home": "FIO",
+    "away": "PAR"
+  },
+  {
+    "home": "BOL",
+    "away": "SAS"
+  },
+  {
+    "home": "TOR",
+    "away": "CAG"
+  },
+  {
+    "home": "UDI",
+    "away": "GEN"
+  },
+  {
+    "home": "SPE",
+    "away": "JUV"
+  },
+  {
+    "home": "CRE",
+    "away": "INTER"
+  },
+  {
+    "home": "PIS",
+    "away": "MIL"
+  },
+  {
+    "home": "VER",
+    "away": "NAP"
+  },
+  {
+    "home": "LEC",
+    "away": "ATA"
+  },
+  {
+    "home": "PAR",
+    "away": "ROM"
+  },
+  {
+    "home": "SAS",
+    "away": "LAZ"
+  },
+  {
+    "home": "CAG",
+    "away": "FIO"
+  },
+  {
+    "home": "GEN",
+    "away": "BOL"
+  },
+  {
+    "home": "UDI",
+    "away": "TOR"
+  },
+  {
+    "home": "JUV",
+    "away": "CRE"
+  },
+  {
+    "home": "PIS",
+    "away": "SPE"
+  },
+  {
+    "home": "VER",
+    "away": "INTER"
+  },
+  {
+    "home": "LEC",
+    "away": "MIL"
+  },
+  {
+    "home": "PAR",
+    "away": "NAP"
+  },
+  {
+    "home": "SAS",
+    "away": "ATA"
+  },
+  {
+    "home": "CAG",
+    "away": "ROM"
+  },
+  {
+    "home": "GEN",
+    "away": "LAZ"
+  },
+  {
+    "home": "UDI",
+    "away": "FIO"
+  },
+  {
+    "home": "TOR",
+    "away": "BOL"
+  },
+  {
+    "home": "PIS",
+    "away": "JUV"
+  },
+  {
+    "home": "VER",
+    "away": "CRE"
+  },
+  {
+    "home": "LEC",
+    "away": "SPE"
+  },
+  {
+    "home": "PAR",
+    "away": "INTER"
+  },
+  {
+    "home": "SAS",
+    "away": "MIL"
+  },
+  {
+    "home": "CAG",
+    "away": "NAP"
+  },
+  {
+    "home": "GEN",
+    "away": "ATA"
+  },
+  {
+    "home": "UDI",
+    "away": "ROM"
+  },
+  {
+    "home": "TOR",
+    "away": "LAZ"
+  },
+  {
+    "home": "BOL",
+    "away": "FIO"
+  },
+  {
+    "home": "JUV",
+    "away": "VER"
+  },
+  {
+    "home": "LEC",
+    "away": "PIS"
+  },
+  {
+    "home": "PAR",
+    "away": "CRE"
+  },
+  {
+    "home": "SAS",
+    "away": "SPE"
+  },
+  {
+    "home": "CAG",
+    "away": "INTER"
+  },
+  {
+    "home": "GEN",
+    "away": "MIL"
+  },
+  {
+    "home": "UDI",
+    "away": "NAP"
+  },
+  {
+    "home": "TOR",
+    "away": "ATA"
+  },
+  {
+    "home": "BOL",
+    "away": "ROM"
+  },
+  {
+    "home": "FIO",
+    "away": "LAZ"
+  },
+  {
+    "home": "LEC",
+    "away": "JUV"
+  },
+  {
+    "home": "PAR",
+    "away": "VER"
+  },
+  {
+    "home": "SAS",
+    "away": "PIS"
+  },
+  {
+    "home": "CAG",
+    "away": "CRE"
+  },
+  {
+    "home": "GEN",
+    "away": "SPE"
+  },
+  {
+    "home": "UDI",
+    "away": "INTER"
+  },
+  {
+    "home": "TOR",
+    "away": "MIL"
+  },
+  {
+    "home": "BOL",
+    "away": "NAP"
+  },
+  {
+    "home": "FIO",
+    "away": "ATA"
+  },
+  {
+    "home": "LAZ",
+    "away": "ROM"
+  },
+  {
+    "home": "JUV",
+    "away": "PAR"
+  },
+  {
+    "home": "SAS",
+    "away": "LEC"
+  },
+  {
+    "home": "CAG",
+    "away": "VER"
+  },
+  {
+    "home": "GEN",
+    "away": "PIS"
+  },
+  {
+    "home": "UDI",
+    "away": "CRE"
+  },
+  {
+    "home": "TOR",
+    "away": "SPE"
+  },
+  {
+    "home": "BOL",
+    "away": "INTER"
+  },
+  {
+    "home": "FIO",
+    "away": "MIL"
+  },
+  {
+    "home": "LAZ",
+    "away": "NAP"
+  },
+  {
+    "home": "ROM",
+    "away": "ATA"
+  },
+  {
+    "home": "SAS",
+    "away": "JUV"
+  },
+  {
+    "home": "CAG",
+    "away": "PAR"
+  },
+  {
+    "home": "GEN",
+    "away": "LEC"
+  },
+  {
+    "home": "UDI",
+    "away": "VER"
+  },
+  {
+    "home": "TOR",
+    "away": "PIS"
+  },
+  {
+    "home": "BOL",
+    "away": "CRE"
+  },
+  {
+    "home": "FIO",
+    "away": "SPE"
+  },
+  {
+    "home": "LAZ",
+    "away": "INTER"
+  },
+  {
+    "home": "ROM",
+    "away": "MIL"
+  },
+  {
+    "home": "ATA",
+    "away": "NAP"
+  },
+  {
+    "home": "JUV",
+    "away": "CAG"
+  },
+  {
+    "home": "GEN",
+    "away": "SAS"
+  },
+  {
+    "home": "UDI",
+    "away": "PAR"
+  },
+  {
+    "home": "TOR",
+    "away": "LEC"
+  },
+  {
+    "home": "BOL",
+    "away": "VER"
+  },
+  {
+    "home": "FIO",
+    "away": "PIS"
+  },
+  {
+    "home": "LAZ",
+    "away": "CRE"
+  },
+  {
+    "home": "ROM",
+    "away": "SPE"
+  },
+  {
+    "home": "ATA",
+    "away": "INTER"
+  },
+  {
+    "home": "NAP",
+    "away": "MIL"
+  },
+  {
+    "home": "GEN",
+    "away": "JUV"
+  },
+  {
+    "home": "UDI",
+    "away": "CAG"
+  },
+  {
+    "home": "TOR",
+    "away": "SAS"
+  },
+  {
+    "home": "BOL",
+    "away": "PAR"
+  },
+  {
+    "home": "FIO",
+    "away": "LEC"
+  },
+  {
+    "home": "LAZ",
+    "away": "VER"
+  },
+  {
+    "home": "ROM",
+    "away": "PIS"
+  },
+  {
+    "home": "ATA",
+    "away": "CRE"
+  },
+  {
+    "home": "NAP",
+    "away": "SPE"
+  },
+  {
+    "home": "MIL",
+    "away": "INTER"
+  },
+  {
+    "home": "JUV",
+    "away": "UDI"
+  },
+  {
+    "home": "TOR",
+    "away": "GEN"
+  },
+  {
+    "home": "BOL",
+    "away": "CAG"
+  },
+  {
+    "home": "FIO",
+    "away": "SAS"
+  },
+  {
+    "home": "LAZ",
+    "away": "PAR"
+  },
+  {
+    "home": "ROM",
+    "away": "LEC"
+  },
+  {
+    "home": "ATA",
+    "away": "VER"
+  },
+  {
+    "home": "NAP",
+    "away": "PIS"
+  },
+  {
+    "home": "MIL",
+    "away": "CRE"
+  },
+  {
+    "home": "INTER",
+    "away": "SPE"
+  },
+  {
+    "home": "TOR",
+    "away": "JUV"
+  },
+  {
+    "home": "BOL",
+    "away": "UDI"
+  },
+  {
+    "home": "FIO",
+    "away": "GEN"
+  },
+  {
+    "home": "LAZ",
+    "away": "CAG"
+  },
+  {
+    "home": "ROM",
+    "away": "SAS"
+  },
+  {
+    "home": "ATA",
+    "away": "PAR"
+  },
+  {
+    "home": "NAP",
+    "away": "LEC"
+  },
+  {
+    "home": "MIL",
+    "away": "VER"
+  },
+  {
+    "home": "INTER",
+    "away": "PIS"
+  },
+  {
+    "home": "SPE",
+    "away": "CRE"
+  },
+  {
+    "home": "JUV",
+    "away": "BOL"
+  },
+  {
+    "home": "FIO",
+    "away": "TOR"
+  },
+  {
+    "home": "LAZ",
+    "away": "UDI"
+  },
+  {
+    "home": "ROM",
+    "away": "GEN"
+  },
+  {
+    "home": "ATA",
+    "away": "CAG"
+  },
+  {
+    "home": "NAP",
+    "away": "SAS"
+  },
+  {
+    "home": "MIL",
+    "away": "PAR"
+  },
+  {
+    "home": "INTER",
+    "away": "LEC"
+  },
+  {
+    "home": "SPE",
+    "away": "VER"
+  },
+  {
+    "home": "CRE",
+    "away": "PIS"
+  },
+  {
+    "home": "FIO",
+    "away": "JUV"
+  },
+  {
+    "home": "LAZ",
+    "away": "BOL"
+  },
+  {
+    "home": "ROM",
+    "away": "TOR"
+  },
+  {
+    "home": "ATA",
+    "away": "UDI"
+  },
+  {
+    "home": "NAP",
+    "away": "GEN"
+  },
+  {
+    "home": "MIL",
+    "away": "CAG"
+  },
+  {
+    "home": "INTER",
+    "away": "SAS"
+  },
+  {
+    "home": "SPE",
+    "away": "PAR"
+  },
+  {
+    "home": "CRE",
+    "away": "LEC"
+  },
+  {
+    "home": "PIS",
+    "away": "VER"
+  },
+  {
+    "home": "JUV",
+    "away": "LAZ"
+  },
+  {
+    "home": "ROM",
+    "away": "FIO"
+  },
+  {
+    "home": "ATA",
+    "away": "BOL"
+  },
+  {
+    "home": "NAP",
+    "away": "TOR"
+  },
+  {
+    "home": "MIL",
+    "away": "UDI"
+  },
+  {
+    "home": "INTER",
+    "away": "GEN"
+  },
+  {
+    "home": "SPE",
+    "away": "CAG"
+  },
+  {
+    "home": "CRE",
+    "away": "SAS"
+  },
+  {
+    "home": "PIS",
+    "away": "PAR"
+  },
+  {
+    "home": "VER",
+    "away": "LEC"
+  },
+  {
+    "home": "ROM",
+    "away": "JUV"
+  },
+  {
+    "home": "ATA",
+    "away": "LAZ"
+  },
+  {
+    "home": "NAP",
+    "away": "FIO"
+  },
+  {
+    "home": "MIL",
+    "away": "BOL"
+  },
+  {
+    "home": "INTER",
+    "away": "TOR"
+  },
+  {
+    "home": "SPE",
+    "away": "UDI"
+  },
+  {
+    "home": "CRE",
+    "away": "GEN"
+  },
+  {
+    "home": "PIS",
+    "away": "CAG"
+  },
+  {
+    "home": "VER",
+    "away": "SAS"
+  },
+  {
+    "home": "LEC",
+    "away": "PAR"
+  },
+  {
+    "home": "JUV",
+    "away": "ATA"
+  },
+  {
+    "home": "NAP",
+    "away": "ROM"
+  },
+  {
+    "home": "MIL",
+    "away": "LAZ"
+  },
+  {
+    "home": "INTER",
+    "away": "FIO"
+  },
+  {
+    "home": "SPE",
+    "away": "BOL"
+  },
+  {
+    "home": "CRE",
+    "away": "TOR"
+  },
+  {
+    "home": "PIS",
+    "away": "UDI"
+  },
+  {
+    "home": "VER",
+    "away": "GEN"
+  },
+  {
+    "home": "LEC",
+    "away": "CAG"
+  },
+  {
+    "home": "PAR",
+    "away": "SAS"
+  },
+  {
+    "home": "NAP",
+    "away": "JUV"
+  },
+  {
+    "home": "MIL",
+    "away": "ATA"
+  },
+  {
+    "home": "INTER",
+    "away": "ROM"
+  },
+  {
+    "home": "SPE",
+    "away": "LAZ"
+  },
+  {
+    "home": "CRE",
+    "away": "FIO"
+  },
+  {
+    "home": "PIS",
+    "away": "BOL"
+  },
+  {
+    "home": "VER",
+    "away": "TOR"
+  },
+  {
+    "home": "LEC",
+    "away": "UDI"
+  },
+  {
+    "home": "PAR",
+    "away": "GEN"
+  },
+  {
+    "home": "SAS",
+    "away": "CAG"
+  },
+  {
+    "home": "JUV",
+    "away": "MIL"
+  },
+  {
+    "home": "INTER",
+    "away": "NAP"
+  },
+  {
+    "home": "SPE",
+    "away": "ATA"
+  },
+  {
+    "home": "CRE",
+    "away": "ROM"
+  },
+  {
+    "home": "PIS",
+    "away": "LAZ"
+  },
+  {
+    "home": "VER",
+    "away": "FIO"
+  },
+  {
+    "home": "LEC",
+    "away": "BOL"
+  },
+  {
+    "home": "PAR",
+    "away": "TOR"
+  },
+  {
+    "home": "SAS",
+    "away": "UDI"
+  },
+  {
+    "home": "CAG",
+    "away": "GEN"
+  },
+  {
+    "home": "INTER",
+    "away": "JUV"
+  },
+  {
+    "home": "SPE",
+    "away": "MIL"
+  },
+  {
+    "home": "CRE",
+    "away": "NAP"
+  },
+  {
+    "home": "PIS",
+    "away": "ATA"
+  },
+  {
+    "home": "VER",
+    "away": "ROM"
+  },
+  {
+    "home": "LEC",
+    "away": "LAZ"
+  },
+  {
+    "home": "PAR",
+    "away": "FIO"
+  },
+  {
+    "home": "SAS",
+    "away": "BOL"
+  },
+  {
+    "home": "CAG",
+    "away": "TOR"
+  },
+  {
+    "home": "GEN",
+    "away": "UDI"
+  }
+]

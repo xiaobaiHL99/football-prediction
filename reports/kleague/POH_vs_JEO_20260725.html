@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浦项铁人 vs 全北现代 - 赛前预测报告</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+    border: 1px solid #1e3a5f;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(0,100,255,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(255,100,0,0.06) 0%, transparent 60%);
+  }
+  .match-title { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px; position: relative; }
+  .match-subtitle { font-size: 14px; color: #8899bb; position: relative; }
+  .match-badge { display: inline-block; background: #e94560; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 12px; margin-top: 12px; text-transform: uppercase; letter-spacing: 1px; position: relative; }
+
+  .team-compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .team-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 20px; text-align: center; }
+  .team-card.home { border-color: #e94560; }
+  .team-card.away { border-color: #0f3460; }
+  .team-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .team-name-cn { font-size: 13px; color: #8899bb; margin-bottom: 12px; }
+  .team-stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; border-bottom: 1px solid #1e1e3a; }
+  .team-stat:last-child { border-bottom: none; }
+  .stat-label { color: #8899bb; }
+  .stat-value { color: #fff; font-weight: 500; }
+  .stat-value.bad { color: #e94560; }
+  .stat-value.good { color: #4ecca3; }
+
+  .vs-circle { width: 60px; height: 60px; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: #fff; flex-shrink: 0; }
+
+  .prediction-panel { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .panel-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .prediction-main { text-align: center; padding: 16px; background: rgba(233,69,96,0.08); border-radius: 8px; margin-bottom: 16px; }
+  .prediction-result { font-size: 24px; font-weight: 900; color: #fff; }
+  .prediction-score { font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #e94560, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 8px 0; }
+  .prediction-desc { color: #8899bb; font-size: 14px; }
+  .prediction-xg { display: flex; justify-content: center; gap: 32px; margin-top: 12px; }
+  .xg-item { text-align: center; }
+  .xg-value { font-size: 20px; font-weight: 700; color: #fff; }
+  .xg-label { font-size: 11px; color: #8899bb; text-transform: uppercase; }
+
+  .prob-section { margin-bottom: 20px; }
+  .prob-bar-container { margin-bottom: 8px; }
+  .prob-bar-header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+  .prob-bar-bg { height: 24px; background: #1e1e3a; border-radius: 12px; overflow: hidden; position: relative; }
+  .prob-bar-fill { height: 100%; border-radius: 12px; transition: width 0.5s; position: relative; }
+  .prob-bar-fill.home { background: linear-gradient(90deg, #e94560, #ff6b6b); }
+  .prob-bar-fill.draw { background: linear-gradient(90deg, #f0c27f, #fc5c7d); }
+  .prob-bar-fill.away { background: linear-gradient(90deg, #0f3460, #4ea8de); }
+  .prob-bar-text { position: absolute; left: 4px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .info-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 16px; }
+  .info-card.full { grid-column: 1 / -1; }
+  .info-card h3 { font-size: 14px; font-weight: 700; color: #4ea8de; margin-bottom: 10px; border-bottom: 1px solid #2a2a4a; padding-bottom: 6px; }
+  .info-card ul { list-style: none; padding: 0; }
+  .info-card li { font-size: 13px; padding: 4px 0; color: #c0c0d0; position: relative; padding-left: 16px; }
+  .info-card li::before { content: '•'; position: absolute; left: 0; color: #4ea8de; }
+  .info-card .highlight { color: #ffd700; font-weight: 500; }
+
+  .injury-tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin: 2px; font-weight: 500; }
+  .injury-tag.out { background: #e9456033; color: #ff6b6b; border: 1px solid #e9456055; }
+
+  .odds-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .odds-table th { text-align: left; padding: 8px 12px; background: #1e1e3a; color: #8899bb; font-weight: 500; }
+  .odds-table td { padding: 8px 12px; border-bottom: 1px solid #1e1e3a; }
+  .odds-table .value-cell { color: #4ecca3; font-weight: 700; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; }
+  .score-cell { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 8px; padding: 8px; text-align: center; }
+  .score-cell .score { font-size: 16px; font-weight: 700; color: #fff; }
+  .score-cell .pct { font-size: 12px; color: #4ecca3; }
+
+  .disclaimer { background: rgba(233,69,96,0.06); border: 1px solid #e9456033; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #8899bb; text-align: center; margin-top: 24px; }
+
+  @media (max-width: 640px) {
+    .team-compare { grid-template-columns: 1fr; }
+    .vs-circle { display: none; }
+    .info-grid { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    .match-title { font-size: 22px; }
+    .prediction-score { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="match-title">浦项铁人 vs 全北现代</div>
+    <div class="match-subtitle">韩国K1联赛 · 第20轮 · 2026年7月25日 18:30 · 浦项钢园球场</div>
+    <div class="match-badge">理性预测报告（含伤停修正）</div>
+  </div>
+
+  <div class="team-compare">
+    <div class="team-card home">
+      <div class="team-name">浦项铁人</div>
+      <div class="team-name-cn">Pohang Steelers</div>
+      <div class="team-stat"><span class="stat-label">联赛排名</span><span class="stat-value">第5位</span></div>
+      <div class="team-stat"><span class="stat-label">积分</span><span class="stat-value">28分 (8胜4平7负)</span></div>
+      <div class="team-stat"><span class="stat-label">主场进球</span><span class="stat-value bad">8场仅4球 · 联赛垫底</span></div>
+      <div class="team-stat"><span class="stat-label">近5场</span><span class="stat-value">W-L-W-L-L</span></div>
+      <div class="team-stat"><span class="stat-label">Elo评级</span><span class="stat-value">1620</span></div>
+      <div class="team-stat"><span class="stat-label">Elo修正</span><span class="stat-value bad">-16 (2人伤缺)</span></div>
+    </div>
+    <div class="vs-circle">VS</div>
+    <div class="team-card away">
+      <div class="team-name">全北现代</div>
+      <div class="team-name-cn">Jeonbuk Hyundai Motors</div>
+      <div class="team-stat"><span class="stat-label">联赛排名</span><span class="stat-value">第3位</span></div>
+      <div class="team-stat"><span class="stat-label">积分</span><span class="stat-value">30分 (8胜6平5负)</span></div>
+      <div class="team-stat"><span class="stat-label">客场防守</span><span class="stat-value good">10场仅失6球 · 联赛最佳</span></div>
+      <div class="team-stat"><span class="stat-label">近5场</span><span class="stat-value">W-D-W-L-D</span></div>
+      <div class="team-stat"><span class="stat-label">Elo评级</span><span class="stat-value">1650</span></div>
+      <div class="team-stat"><span class="stat-label">Elo修正</span><span class="stat-value bad">-43 (3前锋伤缺)</span></div>
+    </div>
+  </div>
+
+  <div class="prediction-panel">
+    <div class="panel-title">🎯 模型预测（含伤停修正）</div>
+    <div class="prediction-main">
+      <div class="prediction-result">主预测：浦项铁人主场占优</div>
+      <div class="prediction-score">1 - 0</div>
+      <div class="prediction-desc">预期进球：浦项铁人 1.50 - 1.14 全北现代</div>
+      <div class="prediction-xg">
+        <div class="xg-item"><div class="xg-value" style="color: #e94560;">44.5%</div><div class="xg-label">主胜</div></div>
+        <div class="xg-item"><div class="xg-value" style="color: #f0c27f;">25.7%</div><div class="xg-label">平局</div></div>
+        <div class="xg-item"><div class="xg-value" style="color: #4ea8de;">29.8%</div><div class="xg-label">客胜</div></div>
+      </div>
+    </div>
+
+    <div class="prob-section">
+      <div class="prob-bar-container">
+        <div class="prob-bar-header"><span>浦项铁人胜</span><span>44.5%</span></div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill home" style="width: 44.5%;"></div><div class="prob-bar-text">44.5%</div></div>
+      </div>
+      <div class="prob-bar-container">
+        <div class="prob-bar-header"><span>平局</span><span>25.7%</span></div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill draw" style="width: 25.7%;"></div><div class="prob-bar-text">25.7%</div></div>
+      </div>
+      <div class="prob-bar-container">
+        <div class="prob-bar-header"><span>全北现代胜</span><span>29.8%</span></div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill away" style="width: 29.8%;"></div><div class="prob-bar-text">29.8%</div></div>
+      </div>
+    </div>
+
+    <div class="panel-title" style="margin-top:16px;">📊 比分分布 Top5</div>
+    <div class="score-grid">
+      <div class="score-cell"><div class="score">1-1</div><div class="pct">12.1%</div></div>
+      <div class="score-cell"><div class="score">1-0</div><div class="pct">10.7%</div></div>
+      <div class="score-cell"><div class="score">2-1</div><div class="pct">9.0%</div></div>
+      <div class="score-cell"><div class="score">0-1</div><div class="pct">8.1%</div></div>
+      <div class="score-cell"><div class="score">2-0</div><div class="pct">8.1%</div></div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🚑 伤停情况</h3>
+      <p style="font-size:13px;color:#8899bb;margin-bottom:8px;"><strong style="color:#fff;">浦项铁人</strong></p>
+      <ul>
+        <li><span class="injury-tag out">伤缺</span> Jorge Teles (前锋)</li>
+        <li><span class="injury-tag out">伤缺</span> Juninho Rocha (中场/脚踝)</li>
+      </ul>
+      <p style="font-size:13px;color:#8899bb;margin:8px 0 8px;"><strong style="color:#fff;">全北现代</strong> — 锋线危机</p>
+      <ul>
+        <li><span class="injury-tag out">伤缺</span> Andrea Compagno (前锋/核心)</li>
+        <li><span class="injury-tag out">伤缺</span> Thiago Orobó (前锋)</li>
+        <li><span class="injury-tag out">伤缺</span> 朴主英 Park Ju-young (前锋)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>📊 历史交锋</h3>
+      <ul>
+        <li>近6次交手：<span class="highlight">全北 3胜2平1负</span></li>
+        <li>本赛季首次(2026.04)：全北 3-2 浦项</li>
+        <li>上赛季浦项主场 3-1 胜全北</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>📈 近期状态</h3>
+      <p style="font-size:13px;color:#8899bb;margin-bottom:4px;"><strong style="color:#fff;">浦项铁人</strong> — 两连败</p>
+      <ul>
+        <li>近6场3胜3负，状态起伏大</li>
+        <li>主场场均仅0.5球，攻击力联赛最差</li>
+        <li>李浩宰8球占全队40%+，依赖过重</li>
+      </ul>
+      <p style="font-size:13px;color:#8899bb;margin:8px 0 4px;"><strong style="color:#fff;">全北现代</strong> — 两轮不胜</p>
+      <ul>
+        <li>近6场2胜2平2负</li>
+        <li>客场不败率80% (3胜5平2负)</li>
+        <li>联赛防守最佳：19场仅失16球</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>🔑 关键因素</h3>
+      <ul>
+        <li>🔴 <strong>浦项主场哑火</strong> — 8场主场仅4球</li>
+        <li>🟢 <strong>全北客场防守</strong> — 10客场仅失6球</li>
+        <li>🔴 <strong>全北锋线危机</strong> — 3名前锋伤缺，Elo修正-43</li>
+        <li>🟢 <strong>浦项伤情更轻</strong> — 仅2人缺阵，Elo修正-16</li>
+      </ul>
+    </div>
+    <div class="info-card full">
+      <h3>💰 赔率与价值分析</h3>
+      <table class="odds-table">
+        <tr>
+          <th>结果</th><th>赔率</th><th>隐含概率</th><th>真实概率</th><th>模型概率</th><th>价值</th>
+        </tr>
+        <tr>
+          <td>主胜</td><td class="value-cell">2.89</td><td>34.6%</td><td>32.1%</td><td class="value-cell">44.5%</td><td style="color:#4ecca3;font-weight:700;">✅ EV +28.6%</td>
+        </tr>
+        <tr>
+          <td>平局</td><td>3.10</td><td>32.3%</td><td>30.0%</td><td>25.7%</td><td style="color:#e94560;">❌</td>
+        </tr>
+        <tr>
+          <td>客胜</td><td>2.45</td><td>40.8%</td><td>37.9%</td><td>29.8%</td><td style="color:#e94560;">❌</td>
+        </tr>
+      </table>
+      <p style="font-size:12px;color:#8899bb;margin-top:8px;">※ 皇冠/365综合赔率 · 全北锋线伤病被市场低估，模型看好浦项主场拿分</p>
+    </div>
+  </div>
+
+  <div class="prediction-panel">
+    <div class="panel-title">📝 综合研判</div>
+    <div style="font-size:14px;color:#c0c0d0;line-height:1.8;">
+      <p style="margin-bottom:12px;">本场是<strong style="color:#ffd700;">中上游卡位战</strong> (浦项第5 vs 全北第3)。核心变量是<strong style="color:#e94560;">全北的锋线伤病</strong>：孔帕尼奥、奥罗保、朴主英三名前锋同时缺阵，全北进攻火力大打折扣。</p>
+      <p style="margin-bottom:12px;">模型的<strong style="color:#4ecca3;">泊松分布 + Elo伤停修正</strong>显示浦项主场优势因全北锋线危机而被放大 (xG 1.50 - 1.14)。全北虽然客场防守稳固，但缺少前锋意味着难以将防守转化为胜利。</p>
+      <p style="margin-bottom:12px;">市场赔率 (客胜2.45) 仍倾向全北，但<strong style="color:#4ecca3;">模型认为主胜2.89存在显著价值 (EV +28.6%)</strong>，浦项主场拿分（尤其是主胜）的概率被市场低估。</p>
+      <p style="font-size:13px;color:#8899bb;padding:12px;background:#1a1a2e;border-radius:8px;">
+        ⚠️ <strong>足球偶然性高</strong>，本预测基于泊松分布模型和赛前情报分析，仅供参考娱乐。
+      </p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <p>本报告由足球预测模型自动生成，纯属娱乐分析，不构成任何投注建议。</p>
+    <p>© 2026 足球预测 · 报告生成时间: 2026-07-25</p>
+  </div>
+
+</div>
+</body>
+</html>

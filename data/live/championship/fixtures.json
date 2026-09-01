@@ -1,0 +1,14 @@
+[
+  { "home": "BIR", "away": "MID" },
+  { "home": "BLB", "away": "SOU" },
+  { "home": "BOL", "away": "BUR" },
+  { "home": "BRC", "away": "QPR" },
+  { "home": "CDI", "away": "NOR" },
+  { "home": "CHA", "away": "WAT" },
+  { "home": "DER", "away": "PRE" },
+  { "home": "LIN", "away": "WRE" },
+  { "home": "MIL", "away": "STK" },
+  { "home": "POR", "away": "SWA" },
+  { "home": "SHU", "away": "WBA" },
+  { "home": "WHU", "away": "WOL" }
+]

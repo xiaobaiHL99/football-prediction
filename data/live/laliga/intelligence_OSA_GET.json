@@ -1,0 +1,196 @@
+{
+  "match": {
+    "home": "OSA",
+    "away": "GET",
+    "date": "2026-09-01",
+    "round": 3,
+    "venue": "埃尔萨达尔球场 (Pamplona)",
+    "turf": "natural",
+    "time": "01:30 (北京时间)",
+    "significance": "西甲第3轮，主队开局不败冲击主场首胜，客队锋线瘫痪+欧战四天内第二场"
+  },
+  "context": "西甲第3轮，奥萨苏纳主场迎战赫塔费。主队新帅拉米斯开局1胜1平不败、两场仅失1球，冲击主场首胜；客队1胜1负，周中远征塞尔维亚踢欧协联附加赛四天内第二场，且乌切赛季报销+胡安米长期伤停锋线瘫痪。两队防守硬朗，预计中场绞杀小比分格局。",
+  "teams": {
+    "OSA": {
+      "code": "OSA",
+      "name_cn": "奥萨苏纳",
+      "full_name": "CA Osasuna",
+      "form": "平-胜",
+      "position": 8,
+      "points": 4,
+      "played": 2,
+      "goals_for": 2,
+      "goals_against": 1,
+      "elo_delta": 5,
+      "confidence": 0.85,
+      "notes": "新帅拉米斯开局1胜1平不败；次轮客场少打一人2-1逆转塞尔塔展现韧性；两场仅失1球防守体系运转良好；本轮冲击主场首胜，主帅明确表态全力争胜；阵容齐整仅罗西尔长期伤缺",
+      "key_players": [
+        {
+          "name": "布迪米尔 (Ante Budimir)",
+          "position": "前锋",
+          "status": "available",
+          "impact": "高中锋战术支点，争抢第一落点的核心"
+        },
+        {
+          "name": "奥罗斯",
+          "position": "中场",
+          "status": "available",
+          "impact": "在布迪米尔身后捕捉第二点的关键角色"
+        },
+        {
+          "name": "鲁文·加西亚",
+          "position": "边锋",
+          "status": "available",
+          "impact": "边路冲击主力，主场进攻发起者"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "瓦伦丁·罗西尔",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "长期伤缺，但对框架影响极小，拉米斯确认其余全员可用"
+        }
+      ]
+    },
+    "GET": {
+      "code": "GET",
+      "name_cn": "赫塔费",
+      "full_name": "Getafe CF",
+      "form": "负-胜",
+      "position": 13,
+      "points": 3,
+      "played": 2,
+      "goals_for": 1,
+      "goals_against": 3,
+      "elo_delta": -10,
+      "confidence": 0.80,
+      "notes": "前两轮1胜1负；首轮客场0-3惨败阿拉维斯；周中远征塞尔维亚踢欧协联附加赛，四天内第二场体能明显劣势；乌切膝盖重伤赛季报销+胡安米长期伤停，锋线选择极为有限；费梅尼亚解禁复出是利好；阿布卡尔、马里奥·马丁身体存疑",
+      "key_players": [
+        {
+          "name": "萨特里亚诺",
+          "position": "前锋",
+          "status": "available",
+          "impact": "残阵锋线下的首发中锋，独木难支"
+        },
+        {
+          "name": "于纳尔",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线搭档，需扛进攻重任但支援有限"
+        },
+        {
+          "name": "费梅尼亚",
+          "position": "后卫",
+          "status": "available",
+          "impact": "解禁复出利好，加固防线"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "克里桑图斯·乌切",
+          "position": "前锋",
+          "status": "injured",
+          "impact": "膝盖重伤赛季报销，锋线毁灭性打击"
+        },
+        {
+          "name": "胡安米",
+          "position": "前锋",
+          "status": "injured",
+          "impact": "长期伤停，进攻选择进一步受限"
+        },
+        {
+          "name": "阿布卡尔 / 马里奥·马丁",
+          "position": "中场",
+          "status": "doubtful",
+          "impact": "身体状况存疑，中场轮换深度受影响"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 5,
+    "home_wins": 2,
+    "away_wins": 2,
+    "draws": 1,
+    "recent_5": "双方各2胜1平2负互有胜负",
+    "last_season": "上赛季赫塔费主场1-0小胜奥萨苏纳",
+    "at_home": "奥萨苏纳近4次主场对赫塔费3胜，埃尔萨达尔堪称赫塔费梦魇",
+    "low_scoring": "近6次交手有4次总进球不超过2球",
+    "notes": "整体均势但奥萨苏纳主场压制明显；交锋历史倾向小球"
+  },
+  "tactical": {
+    "OSA": {
+      "style": "physical",
+      "formation": "4-2-3-1",
+      "strengths": ["主场气势火爆", "体能充沛以逸待劳", "防守体系稳固仅失1球", "阵容齐整无轮换压力", "高原主场(海拔425米)额外消耗客队"],
+      "weaknesses": ["进攻端创造力一般", "首轮主场0-0被莱万特闷平的攻坚教训"],
+      "key_tactics": "布迪米尔争第一落点，奥罗斯捕捉第二点；利用主场气势和体能优势持续施压，主场冲击首胜战意十足"
+    },
+    "GET": {
+      "style": "defensive_deep",
+      "formation": "4-4-2",
+      "strengths": ["防守硬朗纪律性强", "中场人数优势绞杀", "费梅尼亚解禁加固防线"],
+      "weaknesses": ["锋线瘫痪乌切报销+胡安米伤停", "四天内第二场体能劣势", "高原客场额外消耗", "进攻端难以形成持续威胁"],
+      "key_tactics": "4-4-2死守+中场绞杀，锋线残阵难有持续反威胁，力争客场偷分或守平"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "埃尔萨达尔主场火爆，近4次主场对赫塔费3胜",
+      "impact": 0.14,
+      "confidence": 0.85
+    },
+    {
+      "type": "injury_impact",
+      "description": "赫塔费锋线毁灭性打击：乌切赛季报销+胡安米长期伤停，进攻选择极为有限",
+      "impact": -0.12,
+      "confidence": 0.9
+    },
+    {
+      "type": "europe_fatigue",
+      "description": "赫塔费周中远征塞尔维亚踢欧协联附加赛，四天内第二场体能明显劣势，且高原客场额外消耗",
+      "impact": -0.10,
+      "confidence": 0.85
+    },
+    {
+      "type": "defensive_strength",
+      "description": "奥萨苏纳两场仅失1球，防守体系运转良好；主帅拉米斯开局不败",
+      "impact": 0.10,
+      "confidence": 0.8
+    },
+    {
+      "type": "head_to_head",
+      "description": "近5次交手互有胜负整体均势，但奥萨苏纳主场压制明显；近6次交手4次总进球≤2球",
+      "impact": 0.05,
+      "confidence": 0.7
+    },
+    {
+      "type": "motivation",
+      "description": "拉米斯明确表态冲击主场首胜，战意十足；赫塔费保平即达标战意稍弱",
+      "impact": 0.04,
+      "confidence": 0.65
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队小胜",
+      "probability": 46,
+      "score": "1-0 或 2-1",
+      "description": "布迪米尔支点作用+体能优势下半场发威，赫塔费残阵锋线无法回应"
+    },
+    {
+      "name": "闷平收场",
+      "probability": 32,
+      "score": "0-0 或 1-1",
+      "description": "中场绞杀互破不了对方防守，复刻首轮0-0剧本，交锋小球传统延续"
+    },
+    {
+      "name": "客队偷分",
+      "probability": 22,
+      "score": "0-1 或 1-2",
+      "description": "赫塔费死守成功+定位球反击偷袭得手，复刻上赛季1-0剧本"
+    }
+  ]
+}

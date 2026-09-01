@@ -1,0 +1,209 @@
+{
+  "_meta": {
+    "league": "Serie A",
+    "season": "2026-27",
+    "updated_at": "2026-08-22T00:00:00Z",
+    "note": "Elo ratings initial calibration aligned with champions_league/europa_league snapshots for shared clubs; promoted sides (SAS/PIS/CRE) at bottom tier. Adjustable via elo_updater."
+  },
+  "teams": {
+    "JUV": {
+      "name": "Juventus",
+      "name_cn": "尤文图斯",
+      "elo": 1900,
+      "city": "Turin",
+      "stadium": "Allianz Stadium",
+      "color": "white",
+      "notes": "意甲传统豪门，防守稳固底蕴深厚，争冠热门"
+    },
+    "INTER": {
+      "name": "Inter Milan",
+      "name_cn": "国际米兰",
+      "elo": 1890,
+      "city": "Milan",
+      "stadium": "San Siro",
+      "color": "blue",
+      "notes": "近年强势复兴，攻守均衡，争冠最大热门"
+    },
+    "MIL": {
+      "name": "AC Milan",
+      "name_cn": "AC米兰",
+      "elo": 1810,
+      "city": "Milan",
+      "stadium": "San Siro",
+      "color": "red",
+      "notes": "传统豪门复兴中，年轻阵容冲击力强"
+    },
+    "NAP": {
+      "name": "Napoli",
+      "name_cn": "那不勒斯",
+      "elo": 1800,
+      "city": "Naples",
+      "stadium": "Diego Armando Maradona",
+      "color": "blue",
+      "notes": "南部劲旅，进攻火力强劲"
+    },
+    "ATA": {
+      "name": "Atalanta",
+      "name_cn": "亚特兰大",
+      "elo": 1780,
+      "city": "Bergamo",
+      "stadium": "Gewiss Stadium",
+      "color": "blue",
+      "notes": "加斯佩里尼体系成熟，高位逼抢进攻华丽"
+    },
+    "ROM": {
+      "name": "AS Roma",
+      "name_cn": "罗马",
+      "elo": 1740,
+      "city": "Rome",
+      "stadium": "Stadio Olimpico",
+      "color": "red",
+      "notes": "首都球队，阵容深度中上"
+    },
+    "LAZ": {
+      "name": "Lazio",
+      "name_cn": "拉齐奥",
+      "elo": 1720,
+      "city": "Rome",
+      "stadium": "Stadio Olimpico",
+      "color": "skyblue",
+      "notes": "罗马同城对手，反击犀利"
+    },
+    "FIO": {
+      "name": "Fiorentina",
+      "name_cn": "佛罗伦萨",
+      "elo": 1700,
+      "city": "Florence",
+      "stadium": "Stadio Artemio Franchi",
+      "color": "purple",
+      "notes": "紫色军团，技术流打法"
+    },
+    "BOL": {
+      "name": "Bologna",
+      "name_cn": "博洛尼亚",
+      "elo": 1670,
+      "city": "Bologna",
+      "stadium": "Stadio Renato Dall'Ara",
+      "color": "red",
+      "notes": "近年进步明显，战术纪律性强"
+    },
+    "TOR": {
+      "name": "Torino",
+      "name_cn": "都灵",
+      "elo": 1640,
+      "city": "Turin",
+      "stadium": "Stadio Olimpico Grande Torino",
+      "color": "red",
+      "notes": "都灵同城球队，中游稳定"
+    },
+    "UDI": {
+      "name": "Udinese",
+      "name_cn": "乌迪内斯",
+      "elo": 1620,
+      "city": "Udine",
+      "stadium": "Stadio Friuli",
+      "color": "black",
+      "notes": "北部球队，青训出色"
+    },
+    "GEN": {
+      "name": "Genoa",
+      "name_cn": "热那亚",
+      "elo": 1610,
+      "city": "Genoa",
+      "stadium": "Stadio Luigi Ferraris",
+      "color": "red",
+      "notes": "历史悠久的港口城市球队"
+    },
+    "CAG": {
+      "name": "Cagliari",
+      "name_cn": "卡利亚里",
+      "elo": 1600,
+      "city": "Cagliari",
+      "stadium": "Unipol Domus",
+      "color": "red",
+      "notes": "撒丁岛代表，主场氛围热烈"
+    },
+    "SAS": {
+      "name": "Sassuolo",
+      "name_cn": "萨索洛",
+      "elo": 1590,
+      "city": "Sassuolo",
+      "stadium": "Mapei Stadium",
+      "color": "green",
+      "notes": "回归意甲，技术流打法"
+    },
+    "PAR": {
+      "name": "Parma",
+      "name_cn": "帕尔马",
+      "elo": 1580,
+      "city": "Parma",
+      "stadium": "Stadio Ennio Tardini",
+      "color": "yellow",
+      "notes": "传统球队回归后稳扎稳打"
+    },
+    "LEC": {
+      "name": "Lecce",
+      "name_cn": "莱切",
+      "elo": 1570,
+      "city": "Lecce",
+      "stadium": "Stadio Via del Mare",
+      "color": "red",
+      "notes": "南部球队，保级为主"
+    },
+    "VER": {
+      "name": "Hellas Verona",
+      "name_cn": "维罗纳",
+      "elo": 1560,
+      "city": "Verona",
+      "stadium": "Stadio Marcantonio Bentegodi",
+      "color": "yellow",
+      "notes": "中北部球队，防守反击为主"
+    },
+    "PIS": {
+      "name": "Pisa",
+      "name_cn": "比萨",
+      "elo": 1520,
+      "city": "Pisa",
+      "stadium": "Arena Garibaldi - Stadio Romeo Anconetani",
+      "color": "black",
+      "notes": "升班马，时隔多年重返意甲"
+    },
+    "CRE": {
+      "name": "Cremonese",
+      "name_cn": "克雷莫纳",
+      "elo": 1510,
+      "city": "Cremona",
+      "stadium": "Stadio Giovanni Zini",
+      "color": "red",
+      "notes": "升班马，防守韧性强"
+    },
+    "SPE": {
+      "name": "Spezia",
+      "name_cn": "斯佩齐亚",
+      "elo": 1500,
+      "city": "La Spezia",
+      "stadium": "Stadio Alberto Picco",
+      "color": "white",
+      "notes": "升班马，利古里亚海岸球队"
+    },
+    "COM": {
+      "name": "Como 1907",
+      "name_cn": "科莫",
+      "elo": 1540
+    },
+    "MON": {
+      "name": "AC Monza",
+      "name_cn": "蒙扎",
+      "elo": 1530
+    },
+    "VEN": {
+      "name": "Venezia FC",
+      "name_cn": "威尼斯",
+      "elo": 1505,
+      "city": "Venice",
+      "stadium": "Stadio Pier Luigi Penzo",
+      "color": "orange",
+      "notes": "上赛季意乙冠军升级，夏窗大换血(14人离队21人加盟)，阵容磨合中"
+    }
+  }
+}

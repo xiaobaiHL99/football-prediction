@@ -1,0 +1,138 @@
+{
+  "match": {
+    "home": "SWA",
+    "away": "WAT",
+    "date": "2026-09-01",
+    "round": 4,
+    "venue": "Swansea.com Stadium (Swansea)",
+    "turf": "natural",
+    "significance": "英冠第4轮：两支不败球队相遇，斯旺西主场冲击连胜，沃特福德携平局大师属性客场挑战"
+  },
+  "context": "英冠第4轮，斯旺西主场迎战沃特福德。主队2胜1平不败高居第3，防守极佳（3轮仅失1球）；客队1胜2平不败排第10，平局偏多但韧性十足。近均衡对话， Elo差仅30。",
+  "teams": {
+    "SWA": {
+      "code": "SWA",
+      "name_cn": "斯旺西",
+      "full_name": "Swansea City",
+      "form": "胜-平-胜",
+      "position": 3,
+      "points": 7,
+      "played": 3,
+      "goals_for": 5,
+      "goals_against": 1,
+      "elo_delta": 5,
+      "confidence": 0.75,
+      "notes": "赛前情报：开局2胜1平不败排第3，防守英冠最佳级别（3轮仅失1球）；天鹅海传控体系成型，主场Swansea.com Stadium稳定输出；库伦领衔锋线渐入佳境；隐患是进攻端尚未大爆发（场均1.67球）",
+      "key_players": [
+        {
+          "name": "库伦",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线主将，青训出品的支点射手"
+        },
+        {
+          "name": "格里姆斯",
+          "position": "中场",
+          "status": "available",
+          "impact": "队长，攻守转换节拍器"
+        }
+      ],
+      "injuries": []
+    },
+    "WAT": {
+      "code": "WAT",
+      "name_cn": "沃特福德",
+      "full_name": "Watford FC",
+      "form": "胜-平-平",
+      "position": 10,
+      "points": 5,
+      "played": 3,
+      "goals_for": 4,
+      "goals_against": 3,
+      "elo_delta": 0,
+      "confidence": 0.7,
+      "notes": "赛前情报：1胜2平不败但平局偏多，韧性强而制胜力不足；巴约领衔锋线有一定火力（场均1.33球）；防线尚可但客场未经过强队检验；黄蜂客场历来起伏",
+      "key_players": [
+        {
+          "name": "巴约",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线核心，反击与抢点的主要威胁"
+        },
+        {
+          "name": "查克维塔泽",
+          "position": "中场",
+          "status": "available",
+          "impact": "创造力源泉，定位球与直塞"
+        }
+      ],
+      "injuries": []
+    }
+  },
+  "h2h": {
+    "total_matches": "近年英冠多次交手",
+    "notes": "近年交手互有胜负，比分普遍偏低；上赛季两次对话均为小比分"
+  },
+  "tactical": {
+    "SWA": {
+      "style": "possession",
+      "formation": "4-2-3-1",
+      "strengths": ["防守英冠最佳级别(3轮1失球)", "主场稳定", "传控体系成型", "全队状态在线"],
+      "weaknesses": ["攻坚爆发力一般", "面对铁桶阵办法不算多"],
+      "key_tactics": "主场控球主导，格里姆斯调度，耐心寻找库伦的支点机会，防守端保持组织性"
+    },
+    "WAT": {
+      "style": "counter_attack",
+      "formation": "4-2-3-1",
+      "strengths": ["不败气势与韧性", "巴约反击威胁", "客场防守组织尚可"],
+      "weaknesses": ["制胜力不足(2平局)", "客场稳定性未经强队检验", "创造力依赖查克维塔泽一人"],
+      "key_tactics": "客场稳守反击，压缩中路空间，靠巴约速度打转换，力争全身而退"
+    }
+  },
+  "factors": [
+    {
+      "type": "defensive_strength",
+      "description": "斯旺西3轮仅失1球的防守体系是联赛顶级",
+      "impact": 0.07,
+      "confidence": 0.8
+    },
+    {
+      "type": "home_advantage",
+      "description": "Swansea.com主场稳定，天鹅海球迷基础扎实",
+      "impact": 0.05,
+      "confidence": 0.75
+    },
+    {
+      "type": "draw_tendency",
+      "description": "沃特福德3轮2平的平局惯性 + 双方不败均谨慎，小球概率高",
+      "impact": -0.03,
+      "confidence": 0.65
+    },
+    {
+      "type": "balanced_matchup",
+      "description": "两队均不败状态接近，Elo差仅30，近均衡对话",
+      "impact": 0.0,
+      "confidence": 0.7
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队小胜",
+      "probability": 38,
+      "score": "1-0 或 2-1",
+      "description": "斯旺西防守稳如磐石，主场耐心渗透由库伦一锤定音"
+    },
+    {
+      "name": "闷平收场",
+      "probability": 30,
+      "score": "1-1 或 0-0",
+      "description": "双方不败且谨慎，复刻沃特福德平局惯性与交锋小球传统"
+    },
+    {
+      "name": "客队偷分",
+      "probability": 32,
+      "score": "0-1 或 2-2",
+      "description": "巴约反击效率制胜，或黄蜂韧性再次逼平对手延续不败"
+    }
+  ]
+}

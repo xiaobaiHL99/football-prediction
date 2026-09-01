@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>预测：米亚尔比 vs 布拉迪斯拉发 · 欧冠资格赛第3轮首回合 · 2026-08-04</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#16203a; --line:#243455;
+    --txt:#e8eefb; --sub:#8fa3c8; --dim:#5c6f94;
+    --home:#ff7a3d; --away:#5db9ff; --draw:#a8b6cf;
+    --gold:#ffd76a; --green:#3ddc97; --red:#ff5f6b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--txt); font-family:"Segoe UI", "Microsoft YaHei", system-ui, sans-serif; line-height:1.55;}
+  .wrap{max-width:1040px; margin:0 auto; padding:28px 18px 60px;}
+  h1{font-size:1.5rem; font-weight:700; letter-spacing:.5px;}
+  .subline{color:var(--sub); font-size:.86rem; margin-top:6px;}
+  .tag{display:inline-block; background:rgba(255,215,106,.12); color:var(--gold); border:1px solid rgba(255,215,106,.35); border-radius:20px; padding:2px 12px; font-size:.76rem; margin-right:8px;}
+
+  /* 球场 */
+  .pitch{position:relative; margin:22px 0; border-radius:16px; overflow:hidden; height:340px;
+    background:radial-gradient(circle at 50% 40%, #1c4a24 0%, #16371d 55%, #0f2a15 100%);}
+  .pitch .mow{position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 38px, transparent 38px 76px);}
+  .pitch .field{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:82%; height:78%;
+    border:2px solid rgba(255,255,255,.75); background:transparent;}
+  .pitch .line{position:absolute; background:rgba(255,255,255,.55);}
+  .pitch .center-c{position:absolute; left:50%; top:50%; width:86px; height:86px; transform:translate(-50%,-50%);
+    border:2px solid rgba(255,255,255,.55); border-radius:50%;}
+  .pitch .mid{width:2px; height:100%; left:50%; top:0;}
+  .pitch .center-dot{position:absolute; left:50%; top:50%; width:8px; height:8px; transform:translate(-50%,-50%);
+    background:rgba(255,255,255,.55); border-radius:50%;}
+  .pitch .box{position:absolute; width:42%; height:26%; border:2px solid rgba(255,255,255,.55);}
+  .pitch .box-left{left:0; top:50%; transform:translateY(-50%); border-left:none;}
+  .pitch .box-right{right:0; top:50%; transform:translateY(-50%); border-right:none;}
+  .pitch .box6{position:absolute; width:16%; height:14%; border:2px solid rgba(255,255,255,.5);}
+  .pitch .box6-left{left:0; top:50%; transform:translateY(-50%); border-left:none;}
+  .pitch .box6-right{right:0; top:50%; transform:translateY(-50%); border-right:none;}
+  .pitch .goal{position:absolute; width:16%; height:7%; background:rgba(255,255,255,.14); border:2px solid rgba(255,255,255,.6);}
+  .pitch .goal-left{left:-2px; top:50%; transform:translateY(-50%);}
+  .pitch .goal-right{right:-2px; top:50%; transform:translateY(-50%);}
+  .pitch .stand{position:absolute; inset:0; background:radial-gradient(ellipse at 50% 100%, rgba(20,40,60,.55), transparent 70%);}
+  .pitch .flood{position:absolute; top:-18px; left:10%; width:80%; height:56px; border-radius:50%;
+    background:radial-gradient(ellipse, rgba(255,255,220,.30), transparent 70%); filter:blur(2px);}
+  .pitch .corner{position:absolute; width:14px; height:14px; border:2px solid rgba(255,255,255,.5); border-radius:50%;}
+  .c1{left:calc(9% - 7px); top:calc(11% - 7px);} .c2{right:calc(9% - 7px); top:calc(11% - 7px);}
+  .c3{left:calc(9% - 7px); bottom:calc(11% - 7px);} .c4{right:calc(9% - 7px); bottom:calc(11% - 7px);}
+  .pitch .plabel{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:rgba(255,255,255,.9); text-shadow:0 2px 8px rgba(0,0,0,.7);}
+  .pitch .plabel .t1{font-size:1.9rem; font-weight:800; letter-spacing:2px;}
+  .pitch .plabel .t2{font-size:1.15rem; margin-top:8px; color:rgba(255,255,255,.85);}
+  .pitch .plabel .cup{font-size:.78rem; margin-top:10px; letter-spacing:3px; color:rgba(255,255,255,.6);}
+
+  /* 比分牌 */
+  .scoreboard{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:18px;
+    background:linear-gradient(135deg,#0e1a30,#101f38); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; box-shadow:0 8px 24px rgba(0,0,0,.35);}
+  .team{flex:1; text-align:center;}
+  .team .nm{font-size:1.05rem; font-weight:700;}
+  .team .elo{font-size:.72rem; color:var(--sub); margin-top:2px;}
+  .team .prob{font-size:.86rem; font-weight:700; margin-top:8px;}
+  .prob-h{color:var(--home);} .prob-a{color:var(--away);}
+  .score{text-align:center; padding:0 6px;}
+  .score .big{font-size:2.5rem; font-weight:800; letter-spacing:2px; font-family:Consolas, monospace;
+    background:linear-gradient(180deg,#ffd76a,#ff9a4d); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .score .lbl{font-size:.68rem; color:var(--gold); letter-spacing:2px; margin-top:2px;}
+  .score .bar{width:100%; margin-top:8px;}
+  .score .bar div{display:flex; gap:3px;}
+  .score .bar span{height:6px; border-radius:3px;}
+  .vs{text-align:center; font-size:.78rem; color:var(--dim);}
+  @media(max-width:600px){ .team .nm{font-size:.85rem;} .score .big{font-size:2rem;} }
+
+  /* 区块 */
+  section{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-top:18px;}
+  h2{font-size:1.02rem; color:var(--gold); margin-bottom:14px; letter-spacing:1px; display:flex; align-items:center; gap:8px;}
+  h2::before{content:""; width:4px; height:16px; background:var(--gold); border-radius:2px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+  .kpi{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:14px;}
+  .kpi .k{font-size:.74rem; color:var(--sub);}
+  .kpi .v{font-size:1.25rem; font-weight:800; margin-top:4px;}
+  .kpi .d{font-size:.76rem; color:var(--dim); margin-top:3px;}
+
+  .bar-row{display:grid; grid-template-columns:70px 1fr 58px; align-items:center; gap:10px; margin:8px 0; font-size:.86rem;}
+  .bar-track{background:#0a1120; border-radius:6px; height:22px; overflow:hidden;}
+  .bar-fill{height:100%; display:flex; align-items:center; padding-left:8px; font-size:.74rem; font-weight:700; color:#fff; border-radius:6px;}
+  .pct{text-align:right; font-weight:700;}
+
+  table{width:100%; border-collapse:collapse; font-size:.86rem;}
+  th,td{padding:8px 10px; text-align:left; border-bottom:1px solid var(--line);}
+  th{color:var(--sub); font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.5px;}
+  .score-card{display:inline-block; background:var(--panel2); border:1px solid var(--line); border-radius:10px;
+    padding:10px 12px; margin:4px; text-align:center; min-width:88px;}
+  .score-card .s{font-size:1.05rem; font-weight:800;}
+  .score-card .p{font-size:.76rem; color:var(--sub);}
+  .top{color:var(--gold); border-color:rgba(255,215,106,.4);}
+  .ref{color:var(--sub); border-color:var(--line); font-size:.7rem;}
+
+  ul.tight{list-style:none;}
+  ul.tight li{position:relative; padding-left:18px; margin:7px 0; font-size:.88rem; color:#dbe6f7;}
+  ul.tight li::before{content:"▸"; position:absolute; left:0; color:var(--gold);}
+
+  .pill{display:inline-block; padding:2px 10px; border-radius:14px; font-size:.74rem; font-weight:600;}
+  .pill.ok{background:rgba(61,220,151,.15); color:var(--green); border:1px solid rgba(61,220,151,.4);}
+  .pill.no{background:rgba(255,95,107,.14); color:var(--red); border:1px solid rgba(255,95,107,.4);}
+  .pill.warn{background:rgba(255,215,106,.13); color:var(--gold); border:1px solid rgba(255,215,106,.4);}
+
+  .scenario{background:var(--panel2); border-left:3px solid var(--gold); border-radius:8px; padding:12px 14px; margin:10px 0;}
+  .scenario .sh{font-weight:700; font-size:.9rem;}
+  .scenario .sp{font-size:.83rem; color:var(--sub); margin-top:4px;}
+
+  .foot{color:var(--dim); font-size:.76rem; text-align:center; margin-top:28px; line-height:1.8;}
+  .disc{color:var(--dim); font-size:.76rem; border-top:1px solid var(--line); margin-top:20px; padding-top:12px; text-align:center;}
+  .val{font-weight:800;}
+  .val.pos{color:var(--green);} .val.neg{color:var(--red);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="tag">理性模型 · Elo→泊松→蒙特卡洛</div>
+  <div class="tag">欧冠资格赛第3轮 · 首回合 · 胜者进附加赛</div>
+  <h1>米亚尔比 MJA vs 布拉迪斯拉发 SLO</h1>
+  <div class="subline">预测时间 2026-08-04 · 地点：斯特兰德瓦伦球场 Strandvallen（瑞典·索尔韦斯堡，约 6500，售罄） · 次回合 8/11 回布拉迪斯拉发</div>
+
+  <!-- 球场 -->
+  <div class="pitch">
+    <div class="mow"></div>
+    <div class="stand"></div>
+    <div class="flood"></div>
+    <div class="field"></div>
+    <div class="line mid"></div>
+    <div class="line box box-left"></div><div class="line box box-right"></div>
+    <div class="line box6 box6-left"></div><div class="line box6 box6-right"></div>
+    <div class="goal goal-left"></div><div class="goal goal-right"></div>
+    <div class="center-c"></div><div class="center-dot"></div>
+    <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+    <div class="plabel">
+      <div class="t1">MJA vs SLO</div>
+      <div class="t2">米亚尔比 vs 布拉迪斯拉发</div>
+      <div class="cup">UEFA CHAMPIONS LEAGUE · Q3 · LEG 1 · STRANDVALLEN · 售罄</div>
+    </div>
+  </div>
+
+  <!-- 比分牌 -->
+  <div class="scoreboard">
+    <div class="team">
+      <div class="nm">米亚尔比</div>
+      <div class="elo">Elo 1535 · 主队 · 联赛低迷但欧战零封</div>
+      <div class="prob prob-h">胜 43.1%</div>
+    </div>
+    <div class="score">
+      <div class="big">1 - 0</div>
+      <div class="lbl">主预测比分 · 米亚尔比胜（预测）</div>
+      <div class="bar"><div><span style="flex:43.1;background:var(--home)"></span><span style="flex:24.4;background:var(--draw)"></span><span style="flex:32.5;background:var(--away)"></span></div></div>
+      <div class="vs">胜 43.1% · 平 24.4% · 负 32.5%</div>
+    </div>
+    <div class="team">
+      <div class="nm">布拉迪斯拉发</div>
+      <div class="elo">Elo 1500 · 客队 · 亚亚·图雷新帅带队4场不败</div>
+      <div class="prob prob-a">胜 32.5%</div>
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <section>
+    <h2>核心结论</h2>
+    <div class="grid2">
+      <div class="kpi"><div class="k">主预测赛果</div><div class="v" style="color:var(--home)">米亚尔比胜</div><div class="d">概率 43.1% · 主预测比分 1-0（9.0%）；单一最高概率比分 1-1（11.5%，比分分布参考）</div></div>
+      <div class="kpi"><div class="k">预期进球 xG</div><div class="v">1.56 - 1.29</div><div class="d">米亚尔比主场战意 + 布拉迪斯新帅防守稳固，双方都有破门机会</div></div>
+      <div class="kpi"><div class="k">冷门空间</div><div class="v" style="color:var(--gold)">56.9%</div><div class="d">平 24.4% + 客胜 32.5%；弱弱对话方差放大，首回合悬念大</div></div>
+      <div class="kpi"><div class="k">赛制语境</div><div class="v" style="color:var(--green)">胜者进欧冠附加赛</div><div class="d">负者降入欧联附加赛路径；首回合主队必须抢分</div></div>
+    </div>
+  </section>
+
+  <!-- 详细预测 -->
+  <section>
+    <h2>详细预测</h2>
+    <h2 style="margin-top:10px;font-size:.92rem;color:var(--sub)">胜 / 平 / 负概率</h2>
+    <div class="bar-row"><div>主胜</div><div class="bar-track"><div class="bar-fill" style="width:43.1%;background:var(--home)">43.1%</div></div><div class="pct" style="color:var(--home)">43.1%</div></div>
+    <div class="bar-row"><div>平局</div><div class="bar-track"><div class="bar-fill" style="width:24.4%;background:var(--draw)">24.4%</div></div><div class="pct">24.4%</div></div>
+    <div class="bar-row"><div>客胜</div><div class="bar-track"><div class="bar-fill" style="width:32.5%;background:var(--away)">32.5%</div></div><div class="pct" style="color:var(--away)">32.5%</div></div>
+
+    <h2 style="margin-top:22px;font-size:.92rem;color:var(--sub)">比分分布 Top 5</h2>
+    <div>
+      <div class="score-card ref"><div class="s">1-1</div><div class="p">11.5% · 最高单一比分（参考）</div></div>
+      <div class="score-card top"><div class="s">1-0</div><div class="p">9.0% · 主预测</div></div>
+      <div class="score-card top"><div class="s">2-1</div><div class="p">9.0% · 主预测</div></div>
+      <div class="score-card"><div class="s">1-2</div><div class="p">7.5%</div></div>
+      <div class="score-card"><div class="s">0-1</div><div class="p">7.4%</div></div>
+    </div>
+    <div class="scenario" style="margin-top:8px">
+      <div class="sh">说明</div>
+      <div class="sp">单一最高概率比分 1-1 是平局，与主预测赛果（主胜）不一致，故只作"比分分布参考"；主预测比分按主胜方向取 1-0（并列 9.0%）。</div>
+    </div>
+
+    <h2 style="margin-top:22px;font-size:.92rem;color:var(--sub)">情报修正量</h2>
+    <table>
+      <tr><th>队伍</th><th>Elo 修正</th><th>近期状态</th><th>主要缺阵</th></tr>
+      <tr><td>米亚尔比</td><td style="color:var(--red)">-6</td><td>平-负-负-负-负（联赛 7 轮不胜）</td><td>斯塔维茨基（中场，背伤）</td></tr>
+      <tr><td>布拉迪斯拉发</td><td style="color:var(--red)">-14</td><td>胜-胜-胜-平（新帅 4 场不败）</td><td>什波拉尔（前锋，伤）</td></tr>
+    </table>
+    <div class="scenario" style="margin-top:14px">
+      <div class="sh">战术对位</div>
+      <div class="sp">米亚尔比传控（possession，3-4-3 高防线）vs 布拉迪斯快速反击（counter_attack）——传控怕反击，布拉迪斯边路速度冲击米亚尔比身后；预期节奏 cautious（首回合双方忌惮先丢球，主队保平局空间大）。</div>
+    </div>
+    <div class="scenario">
+      <div class="sh">战意因素（fighting_spirit，权重最高的人为因子）</div>
+      <div class="sp">米亚尔比 <b>战意高涨（high）</b>：队史首个欧战赛季、主场售罄、首回合必须抢分 → xG +0.15；布拉迪斯 <b>正常（normal）</b>：次回合回主场，首回合可接受平局。</div>
+    </div>
+  </section>
+
+  <!-- 预测原因 -->
+  <section>
+    <h2>预测原因</h2>
+    <ul class="tight">
+      <li><b>评级接近 + 主场优势</b>：MJA Elo 1535 vs SLO 1500（差 +35），斯特兰德瓦伦主场 + 欧战主场氛围，但双方评级差距明显小于典型强队对决，属于弱弱对话。</li>
+      <li><b>战意差是核心变量</b>：米亚尔比队史首次踢欧冠资格赛，主场售罄、背水抢分（high）；布拉迪斯新帅上任求稳，首回合能接受平局（normal）。</li>
+      <li><b>状态反差</b>：米亚尔比联赛 11 场 1 胜、7 轮不胜（-0.09 xG），但欧冠资格赛 2 场零封、主场 3-0 胜林肯红魔；布拉迪斯亚亚·图雷上任后 4 场 3 胜 1 平、进 10 失 1、3 场零封（+0.07 xG），防守端极稳。</li>
+      <li><b>战术对位</b>：布拉迪斯反击克制米亚尔比传控，边路速度冲击 3-4-3 高防线；米亚尔比控球或无效，警惕被反击偷袭。</li>
+      <li><b>赛程体能</b>：布拉迪斯 8/2 刚赛、周中前仅休 2 天（midweek 紧凑赛程 -0.06）；米亚尔比欧战双线亦受消耗，跨区域长途旅行双方均有损耗（-0.08）。</li>
+      <li><b>赛制路径</b>：首回合平局对主队不完全致命（次回合还有客场争胜机会），但对新军是心理压力；胜者进附加赛、负者降欧联，双方都有足够动机争胜。</li>
+      <li><b>主流分析</b>：倾向布拉迪斯或平（X2）+ 小 2.5 球；模型因米亚尔比主场 + 战意略偏主队，但对客队反击和状态延续保持尊重，客胜概率仍有 32.5%。</li>
+    </ul>
+  </section>
+
+  <!-- 情报摘要 -->
+  <section>
+    <h2>情报摘要</h2>
+    <div class="grid2">
+      <div>
+        <h2 style="font-size:.92rem;color:var(--home)">米亚尔比（主）</h2>
+        <ul class="tight">
+          <li>主帅阿克苏姆，3-4-3 传控体系，高防线积极前压</li>
+          <li>队史首个欧战赛季，欧冠资格赛 2 场零封，主场 3-0 林肯红魔</li>
+          <li>联赛低迷：11 场仅 1 胜、7 轮不胜，状态成疑（模型 -0.09 xG）</li>
+          <li>中场斯塔维茨基背伤缺阵（-6 Elo）</li>
+          <li>主场约 6500 座位售罄，欧战氛围拉满</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-size:.92rem;color:var(--away)">布拉迪斯拉发（客）</h2>
+        <ul class="tight">
+          <li>新帅亚亚·图雷上任后 4 场不败：3 胜 1 平，进 10 失 1，3 场零封</li>
+          <li>防守稳固是最大依仗；快速反击 + 边路速度（什波拉尔伤缺削弱支点）</li>
+          <li>前锋什波拉尔伤缺（-14 Elo）</li>
+          <li>周中前仅休 2 天（8/2 刚赛），长途旅行到瑞典（-0.08）</li>
+          <li>欧战常客，心理与经验占优；次回合主场是最大后盾</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 场景推演 -->
+  <section>
+    <h2>场景推演</h2>
+    <div class="scenario">
+      <div class="sh">① 米亚尔比主场兑现战意（主预测路径）</div>
+      <div class="sp">主场售罄氛围 + 高战意下抢开局，凭借欧战零封的防线守住 1-0/2-1，占得首回合先机（主胜 43.1%）。</div>
+    </div>
+    <div class="scenario">
+      <div class="sh">② 亚亚·图雷防反稳平局</div>
+      <div class="sp">布拉迪斯 4 场 3 零封的防线 + 反击偷一个，1-1 或 0-0 结束（平局 24.4%），把悬念留到次回合主场——这符合主流 X2 + 小球的倾向。</div>
+    </div>
+    <div class="scenario">
+      <div class="sh">③ 冷门路径 · 布拉迪斯客场爆冷</div>
+      <div class="sp">米亚尔比传控遇阻 + 联赛低迷信心不足，被布拉迪斯边路速度反击打穿（客胜 32.5%）。米亚尔比若先丢球被迫压上，3-4-3 高防线身后空档会被继续扩大。</div>
+    </div>
+  </section>
+
+  <!-- 不确定性 -->
+  <section>
+    <h2>不确定性说明</h2>
+    <ul class="tight">
+      <li>足球单场随机性很高：主胜 43.1% 不等于稳胜，首回合变数极大，冷门空间高达 56.9%。</li>
+      <li>两队均为欧战新军/中游，参考样本少，Elo 校准精度低于传统强队；弱弱对话方差被放大。</li>
+      <li>米亚尔比联赛 7 轮不胜的真实状态与欧战 2 场零封形成矛盾信号，模型取中间值，临场发挥是关键。</li>
+      <li>布拉迪斯仅休 2 天的体能、什波拉尔缺阵对进攻支点的影响、米亚尔比斯塔维茨基缺阵的中场组织都是临场变数。</li>
+      <li>数据来自赛前公开情报与本地模拟快照，实际首发、天气（斯堪的纳维亚夏季场地）以赛前官方信息为准。</li>
+    </ul>
+  </section>
+
+  <!-- 来源 -->
+  <section>
+    <h2>数据来源</h2>
+    <ul class="tight">
+      <li>球队评级：skill 快照 <code>references/champions_league/teams.json</code>（MJA 1535 / SLO 1500，本模块为新配置）</li>
+      <li>联赛参数：<code>references/league_config.json</code>（欧冠 avg_goals 2.9 / home_adv 0.35 / elo_scale 130 / shock_sd 0.28）</li>
+      <li>特殊因子：<code>references/champions_league/context.json</code>（跨区域旅行 -0.08、周中+周末紧凑赛程 -0.06、南北欧天气 -0.05）</li>
+      <li>赛前情报：2026-08-04 网络检索（对阵、阵容、伤停、状态、亚亚·图雷执教表现、赛制路径），来源可信度中高；实际名单可能变动</li>
+      <li>主流分析倾向：布拉迪斯或平（X2）+ 小 2.5 球；本模型因主场 + 战意略偏主队</li>
+      <li>缺失说明：data/live/champions_league/ 为空快照（新模块），本场按资格赛单场建模，无联赛阶段积分榜数据</li>
+    </ul>
+  </section>
+
+  <div class="foot">本预测由 Elo→泊松比分→蒙特卡洛理性模型生成，仅供娱乐分析，不构成投注建议或确定性判断。</div>
+  <div class="disc">生成时间 2026-08-04 · 数据快照时间 2026-08-04 · 无玄学内容 · 欧冠资格赛第3轮首回合</div>
+</div>
+</body>
+</html>

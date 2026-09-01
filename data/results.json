@@ -1,0 +1,6 @@
+{
+  "_meta": {
+    "note": "锁定已完赛真实比分。各联赛独立结果存储在 data/live/<league>/results.json"
+  },
+  "matches": []
+}

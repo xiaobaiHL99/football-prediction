@@ -1,0 +1,8 @@
+{
+  "special_factors": {},
+  "europe_teams": [],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["NAN", "MET", "MTP", "STE", "RED", "REI", "ROD", "ANN", "GUI", "DNK", "GRE", "CLE", "PAU", "SOC", "LAV", "DIJ", "ETG", "MRT", "NCL", "BOU"]
+  }
+}

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皇家社会 vs 西班牙人 — 西甲预测</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+
+.stadium{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#0d1117 0%,#1a2332 30%,#1a2332 100%);overflow:hidden}
+.pitch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:90%;max-width:900px;height:220px;background:linear-gradient(180deg,#2d7a3a,#1e5c2a);border-radius:4px 4px 0 0;border:2px solid rgba(255,255,255,0.3)}
+.pitch::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,0.3)}
+.pitch::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:2px solid rgba(255,255,255,0.3);border-radius:50%}
+.penalty-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:44%;height:60px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.penalty-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.goal-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18%;height:24px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.goal-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.lights{position:absolute;top:20px;left:10%;right:10%;display:flex;justify-content:space-between}
+.light{width:6px;height:6px;background:#ffd700;border-radius:50%;box-shadow:0 0 12px 4px rgba(255,215,0,0.4)}
+.stands{position:absolute;bottom:220px;left:0;right:0;height:60px;background:linear-gradient(180deg,#1a1a2e,#16213e)}
+
+.scoreboard{position:absolute;top:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);border:1px solid #2a5298;border-radius:12px;padding:20px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.1);min-width:520px;text-align:center}
+.scoreboard .league-tag{font-size:11px;color:#64b5f6;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.scoreboard .match-tag{font-size:10px;color:#ff9800;background:rgba(255,152,0,0.15);display:inline-block;padding:2px 10px;border-radius:10px;margin-bottom:12px}
+.scoreboard .teams{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:10px}
+.scoreboard .team-name{font-size:20px;font-weight:700;color:#fff;min-width:120px}
+.scoreboard .team-name.home{text-align:right}
+.scoreboard .team-name.away{text-align:left}
+.scoreboard .score{font-size:42px;font-weight:900;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.5)}
+.scoreboard .score-label{font-size:10px;color:#aaa;margin-top:4px}
+.scoreboard .probs{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.scoreboard .prob-item{text-align:center}
+.scoreboard .prob-val{font-size:18px;font-weight:700}
+.scoreboard .prob-label{font-size:10px;color:#888;margin-top:2px}
+.prob-home{color:#4caf50}.prob-draw{color:#ff9800}.prob-away{color:#f44336}
+
+.container{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:28px;text-align:center;margin:30px 0 6px;background:linear-gradient(90deg,#1565c0,#b71c1c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#888;font-size:13px;margin-bottom:30px}
+
+.card{background:#141926;border:1px solid #1e2a3a;border-radius:12px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:#64b5f6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2::before{content:'';width:4px;height:18px;background:#2196f3;border-radius:2px}
+
+.prob-bar-wrap{margin:8px 0}
+.prob-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.prob-bar{height:28px;background:#1a2332;border-radius:6px;overflow:hidden;display:flex}
+.prob-bar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.seg-home{background:linear-gradient(90deg,#2e7d32,#4caf50)}.seg-draw{background:linear-gradient(90deg,#e65100,#ff9800)}.seg-away{background:linear-gradient(90deg,#b71c1c,#f44336)}
+
+.scores-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.score-card{background:#1a2332;border:1px solid #253347;border-radius:8px;padding:12px 8px;text-align:center}
+.score-card .sc{font-size:22px;font-weight:800;color:#ffd700}
+.score-card .sp{font-size:12px;color:#aaa;margin-top:4px}
+.score-card.top{border-color:#2a5298;background:linear-gradient(135deg,#1a2332,#0f3460)}
+
+.xg-row{display:flex;align-items:center;justify-content:center;gap:30px;margin:16px 0}
+.xg-item{text-align:center}
+.xg-val{font-size:32px;font-weight:800;color:#4caf50}
+.xg-val.away{color:#f44336}
+.xg-label{font-size:12px;color:#888;margin-top:4px}
+.xg-vs{font-size:18px;color:#555}
+
+.intel-item{display:flex;gap:10px;margin:10px 0;font-size:14px;line-height:1.6}
+.intel-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px}
+.intel-icon.positive{background:#1b5e20;color:#4caf50}
+.intel-icon.neutral{background:#1a2332;color:#64b5f6}
+.intel-icon.negative{background:#4a1414;color:#f44336}
+.intel-icon.warning{background:#3e2723;color:#ff9800}
+.intel-icon.injury{background:#4a1414;color:#ff5722}
+.intel-icon.milestone{background:#0d47a1;color:#ffd700}
+
+.scenario{background:#1a2332;border-left:3px solid #2196f3;padding:14px 18px;border-radius:0 8px 8px 0;margin:10px 0}
+.scenario .sc-title{font-weight:700;color:#64b5f6;font-size:14px;margin-bottom:6px}
+.scenario .sc-desc{font-size:13px;color:#bbb;line-height:1.6}
+.scenario.green{border-left-color:#4caf50}.scenario.green .sc-title{color:#4caf50}
+.scenario.red{border-left-color:#f44336}.scenario.red .sc-title{color:#f44336}
+.scenario.orange{border-left-color:#ff9800}.scenario.orange .sc-title{color:#ff9800}
+.scenario.gold{border-left-color:#ffd700}.scenario.gold .sc-title{color:#ffd700}
+
+.disclaimer{background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:20px;font-size:12px;color:#aaa;line-height:1.7}
+
+.factor-tag{display:inline-block;background:rgba(33,150,243,0.15);color:#64b5f6;padding:3px 10px;border-radius:12px;font-size:11px;margin:3px 2px}
+.factor-tag.positive{background:rgba(76,175,80,0.15);color:#4caf50}
+.factor-tag.negative{background:rgba(244,67,54,0.15);color:#f44336}
+.factor-tag.warning{background:rgba(255,152,0,0.15);color:#ff9800}
+
+.stat-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:12px 0}
+.stat-row{display:contents}
+.stat-cell{padding:8px 12px;font-size:14px;border-bottom:1px solid #0d1117}
+.stat-cell.left{text-align:right}
+.stat-cell.center{text-align:center;color:#555;font-size:12px}
+.stat-cell.right{text-align:left}
+.stat-cell .val{font-size:18px;font-weight:700}
+.stat-cell .val.bad{color:#f44336}
+.stat-cell .val.good{color:#4caf50}
+
+@media(max-width:640px){
+  .scoreboard{min-width:auto;padding:14px 18px}
+  .scoreboard .team-name{font-size:15px;min-width:80px}
+  .scoreboard .score{font-size:32px}
+  .scores-grid{grid-template-columns:repeat(3,1fr)}
+  .stadium{height:340px}
+  .pitch{height:160px}
+  .stands{bottom:160px;height:40px}
+  .scoreboard{top:50px}
+}
+</style>
+</head>
+<body>
+
+<div class="stadium">
+  <div class="stands"></div>
+  <div class="pitch">
+    <div class="penalty-area top"></div>
+    <div class="goal-area top"></div>
+    <div class="penalty-area"></div>
+    <div class="goal-area"></div>
+  </div>
+  <div class="lights"><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div></div>
+  <div class="scoreboard">
+    <div class="league-tag">La Liga · 西班牙足球甲级联赛</div>
+    <div class="match-tag">📅 2026-08-30 · 第3轮 · 垫底反弹 vs 残阵出击 · 预测比分</div>
+    <div class="teams">
+      <div class="team-name home">皇家社会<br><span style="font-size:11px;color:#888">Real Sociedad</span></div>
+      <div class="score">1 - 0</div>
+      <div class="team-name away">西班牙人<br><span style="font-size:11px;color:#888">RCD Espanyol</span></div>
+    </div>
+    <div class="score-label">主预测比分 (12.9%) · 近6次交锋皇家社会4胜2平不败</div>
+    <div class="probs">
+      <div class="prob-item"><div class="prob-val prob-home">57.3%</div><div class="prob-label">皇家社会胜</div></div>
+      <div class="prob-item"><div class="prob-val prob-draw">22.1%</div><div class="prob-label">平局</div></div>
+      <div class="prob-item"><div class="prob-val prob-away">20.6%</div><div class="prob-label">西班牙人胜</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>皇家社会 vs 西班牙人</h1>
+  <div class="subtitle">西甲 2026-27 第3轮 · 阿诺埃塔球场 · 2026年8月30日(周六) 凌晨1:00 · "垫底反弹" vs "残阵出击"</div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div style="text-align:center;margin:16px 0">
+      <div style="font-size:20px;font-weight:700;color:#4caf50">主预测：皇家社会主场 1-0 (12.9%)</div>
+      <div style="font-size:14px;color:#aaa;margin-top:8px">方向概率 57.3% · 垫底反弹战意+首个主场+关键球员回归 · 西班牙人锋线缺人严重</div>
+    </div>
+    <div class="xg-row">
+      <div class="xg-item"><div class="xg-val">1.93</div><div class="xg-label">皇家社会预期进球</div></div>
+      <div class="xg-vs">vs</div>
+      <div class="xg-item"><div class="xg-val away">0.78</div><div class="xg-label">西班牙人预期进球</div></div>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <span class="factor-tag positive">垫底反弹战意(desperate)</span>
+      <span class="factor-tag positive">首个主场</span>
+      <span class="factor-tag positive">近6次交锋4胜2平</span>
+      <span class="factor-tag positive">关键球员回归</span>
+      <span class="factor-tag negative">RSO状态低迷(两连败)</span>
+      <span class="factor-tag negative">ESP锋线缺人</span>
+      <span class="factor-tag">RSO欧战双线(-)</span>
+      <span class="factor-tag">实力悬殊(方差中性)</span>
+    </div>
+  </div>
+
+  <!-- 赛事情报 -->
+  <div class="card">
+    <h2>赛事情报</h2>
+
+    <div class="intel-item">
+      <div class="intel-icon milestone">★</div>
+      <div><strong style="color:#ffd700">垫底反弹战意：</strong>皇家社会开局两连败暂列积分榜垫底（第20名），但前两轮是连续客场挑战皇马和贝蒂斯，赛程艰难是客观因素。本场是新赛季首个主场比赛，反弹战意强烈！</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon positive">✓</div>
+      <div><strong>关键球员回归：</strong>中场戈罗萨特吉长期伤停后首次进入大名单，可提供新选择。主力中卫苏维尔迪亚伤愈复出，对防线是重要补充。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon negative">✗</div>
+      <div><strong>皇家社会缺阵：</strong>右后卫奥德里奥索拉(膝关节损伤)和中场巴勃罗·马林继续因伤缺阵。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon injury">✗</div>
+      <div><strong style="color:#ff5722">西班牙人锋线损失惨重：</strong>头号射手哈维·普阿多、前锋基克·加西亚、后卫卡夫雷拉均缺阵。新援布莱恩·萨拉戈萨已参与训练但本场不会进入大名单。进攻终结能力和轮换深度受到明显影响。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon positive">✓</div>
+      <div><strong>历史交锋占优：</strong>近6次交手皇家社会4胜2平保持不败，心理优势明显。不过上赛季两回合均战成平局，包括在阿诺埃塔2-2——西班牙人一度2-0领先。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon neutral">ℹ</div>
+      <div><strong>战术对抗：</strong>皇家社会4-2-3-1主场全力进攻，久保建英+巴雷内切亚边路突破，奥亚萨瓦尔单箭头。西班牙人同样4-2-3-1但残阵稳守反击，中场绞杀破坏节奏。关键在于RSO能否尽早破门打开局面。</div>
+    </div>
+  </div>
+
+  <!-- 概率分布 -->
+  <div class="card">
+    <h2>概率分布</h2>
+    <div class="prob-bar-wrap">
+      <div class="prob-bar-label">
+        <span style="color:#4caf50">皇家社会胜 57.3%</span>
+        <span style="color:#ff9800">平局 22.1%</span>
+        <span style="color:#f44336">西班牙人胜 20.6%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="seg seg-home" style="width:57.3%">57.3</div>
+        <div class="seg seg-draw" style="width:22.1%">22.1</div>
+        <div class="seg seg-away" style="width:20.6%">20.6</div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:20px">比分分布 Top5</h2>
+    <div class="scores-grid">
+      <div class="score-card top">
+        <div class="sc">1-0</div>
+        <div class="sp">12.9%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">2-0</div>
+        <div class="sp">12.6%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">1-1</div>
+        <div class="sp">9.8%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">2-1</div>
+        <div class="sp">9.3%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">3-0</div>
+        <div class="sp">8.2%</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#888">
+      前5比分合计概率：52.8% · 皇家社会零封比分(1-0/2-0/3-0)合计：33.7% · 西班牙人锋线缺人+RSO防线回归
+    </div>
+  </div>
+
+  <!-- 场景演绎 -->
+  <div class="card">
+    <h2>场景演绎</h2>
+
+    <div class="scenario">
+      <div class="sc-title">📊 基准场景：主场反弹，皇家社会小胜零封 (57.3%)</div>
+      <div class="sc-desc">
+        皇家社会在首个主场的狂热氛围中全力进攻。久保建英+巴雷内切亚边路突破制造传中机会，奥亚萨瓦尔中路终结。苏维尔迪亚复出稳固防线。西班牙人锋线缺人（普阿多/基克·加西亚）导致进攻乏力，客场稳守反击但无法破门。<br>
+        <strong>最可能比分：1-0 (12.9%)</strong> · 备选：2-0 (12.6%) / 3-0 (8.2%)
+      </div>
+    </div>
+
+    <div class="scenario orange">
+      <div class="sc-title">🤝 平局场景：上赛季剧本重演 (22.1%)</div>
+      <div class="sc-desc">
+        上赛季两回合均战成平局——包括阿诺埃塔2-2（西班牙人一度2-0领先！）。西班牙人虽然锋线缺人但中场绞杀战术有效，破坏皇家社会进攻节奏。RSO两连败后信心不足，急于求胜反而失误增多。<br>
+        <strong>触发条件：</strong>① 上赛季平局模式延续 ② RSO两连败后心态急躁 ③ ESP中场绞杀成功率>60%<br>
+        <strong>最可能平局比分：</strong>1-1 (9.8%) · 0-0 (2.4%)
+      </div>
+    </div>
+
+    <div class="scenario green">
+      <div class="sc-title">🔥 大胜场景：首个主场爆发！ (低概率)</div>
+      <div class="sc-desc">
+        垫底反弹的战意+首个主场的狂热氛围完全点燃皇家社会！久保建英个人能力闪光，奥亚萨瓦尔梅开二度。西班牙人锋线缺人导致进攻毫无威胁，客场心态崩溃。近6次交锋4胜2平的心理优势发挥到极致。<br>
+        <strong>可能比分：</strong>3-0 (8.2%) / 3-1 (5.1%) / 4-0 (2.8%)<br>
+        <strong>触发条件：</strong>① 前20分钟进球打开局面 ② ESP客场心态崩溃 ③ 久保建英+奥亚萨瓦尔双双发挥
+      </div>
+    </div>
+
+    <div class="scenario red">
+      <div class="sc-title">⚡ 爆冷场景：西班牙人客场逆袭 (20.6%)</div>
+      <div class="sc-desc">
+        西班牙人延续上赛季在阿诺埃塔2-0领先的精神遗产！虽然锋线缺人但中场绞杀战术奏效，利用皇家社会两连败后急于求胜的心理打反击。RSO心态急躁失误增多，西班牙人抓住定位球机会破门。<br>
+        <strong>关键触发条件：</strong>① RSO两连败后心态崩溃 ② ESP定位球/反击破门 ③ 上赛季2-0领先剧本重演
+      </div>
+    </div>
+  </div>
+
+  <!-- 战术对比 -->
+  <div class="card">
+    <h2>战术对比</h2>
+    <div class="stat-grid">
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val">4-2-3-1</div></div>
+        <div class="stat-cell center">阵型</div>
+        <div class="stat-cell right"><div class="val">4-2-3-1</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">主场强攻+边路突破</div>
+        <div class="stat-cell center">风格</div>
+        <div class="stat-cell right">稳守反击+中场绞杀</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val good">desperate</div></div>
+        <div class="stat-cell center">战意</div>
+        <div class="stat-cell right"><div class="val">normal</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val bad">两连败(垫底)</div></div>
+        <div class="stat-cell center">近况</div>
+        <div class="stat-cell right"><div class="val">1胜1负(第9)</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">奥德里奥索拉/巴勃罗·马林</div>
+        <div class="stat-cell center">关键缺阵</div>
+        <div class="stat-cell right"><div class="val bad">普阿多/基克·加西亚/卡夫雷拉</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">留任</div>
+        <div class="stat-cell center">主帅</div>
+        <div class="stat-cell right">冈萨雷斯</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">久保建英+奥亚萨瓦尔</div>
+        <div class="stat-cell center">关键人</div>
+        <div class="stat-cell right">待定(锋线缺人)</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val">Elo 1720</div></div>
+        <div class="stat-cell center">Elo评级</div>
+        <div class="stat-cell right"><div class="val">Elo 1560</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val good">4胜2平0负</div></div>
+        <div class="stat-cell center">近6次交锋</div>
+        <div class="stat-cell right"><div class="val bad">0胜2平4负</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模型解读 -->
+  <div class="card">
+    <h2>模型解读</h2>
+    <div style="font-size:14px;line-height:1.8;color:#bbb">
+      <p><strong>Elo差距：</strong>160点（RSO 1720 vs ESP 1560），皇家社会实力明显占优。模型自动应用"实力悬殊(方差中性)"处理。</p>
+      <p style="margin-top:8px"><strong>战意加成：</strong>RSO desperate(+0.30 xG)——垫底反弹+首个主场，极度渴望胜利。ESP normal。战意差距是本场最大的人为因子。</p>
+      <p style="margin-top:8px"><strong>状态修正：</strong>RSO两连败(-0.12)，ESP 1胜1负(0)。但RSO的连败是客场连战皇马+贝蒂斯，含金量不低。</p>
+      <p style="margin-top:8px"><strong>锋线缺人：</strong>ESP普阿多/基克·加西亚/卡夫雷拉缺阵(-0.10)。RSO戈罗萨特吉+苏维尔迪亚回归(+0.05)。双向修正差距约0.15 xG。</p>
+      <p style="margin-top:8px"><strong>历史交锋：</strong>RSO近6次4胜2平不败，心理优势明显。但上赛季阿诺埃塔2-2（ESP一度2-0领先）提醒不能轻敌。</p>
+      <p style="margin-top:8px"><strong>综合：</strong>皇家社会在战意+实力+历史交锋+关键球员回归四重加持下占据明显优势。预计一场<strong>主队主导、客队死守</strong>的比赛，1-0零封是最合理结果。ESP锋线缺人是最大硬伤。</p>
+    </div>
+  </div>
+
+  <!-- 预测摘要 -->
+  <div class="disclaimer">
+    <strong>📋 预测摘要</strong><br>
+    · 联赛：西甲 2026-27 第3轮<br>
+    · 对阵：皇家社会(主) vs 西班牙人(客) · 阿诺埃塔球场<br>
+    · 时间：2026年8月30日(周六) 凌晨1:00<br>
+    · 方向：<strong>皇家社会主胜</strong> (57.3%)<br>
+    · 主预测比分：1-0 (12.9%)<br>
+    · 模型 xG：皇家社会 1.93 - 0.78 西班牙人<br>
+    · 垫底反弹战意(desperate) + 首个主场 + 近6次交锋4胜2平 + 关键球员回归<br>
+    · 西班牙人锋线缺人严重(普阿多/基克·加西亚/卡夫雷拉)<br>
+    · RSO零封比分合计33.7%——防线回归+ESP锋线缺人<br>
+    · ⚠️ 上赛季阿诺埃塔2-2（ESP一度2-0领先）提醒不能轻敌<br>
+    · 诱盘：无盘口数据，纯模型预测<br>
+    · 已记录到台账: data/reviews/predictions.json
+  </div>
+
+</div>
+</body>
+</html>

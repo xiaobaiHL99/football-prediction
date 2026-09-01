@@ -1,0 +1,31 @@
+{
+  "special_factors": {
+    "travel_distance": {
+      "description": "跨国旅行消耗，跨区域比赛体能影响",
+      "value": -0.08,
+      "apply_when": "home_region != away_region"
+    },
+    "thursday_schedule_compact": {
+      "description": "周四欧战+周日联赛的紧凑赛程影响",
+      "value": -0.06,
+      "apply_when": "team_in_europe"
+    },
+    "weather_difference": {
+      "description": "南北欧显著温差对客队影响",
+      "value": -0.05,
+      "apply_when": "abs(home_region_index - away_region_index) >= 2"
+    }
+  },
+  "europe_teams": ["TOT", "MUN", "CHE", "RSO", "BET", "VIL", "FRA", "ROM", "LAZ", "FIO", "MAR", "LYO", "POR", "BRA", "AJX", "FEY", "AZ", "GAL", "FEN", "RAN", "OLY", "SLP", "YB", "STU", "FCK", "BOD", "MAL", "LEG", "DZG", "HAM", "BEN", "BJK", "MID", "TWE", "FTC", "HAJ", "PAF", "KUP", "SAB", "HAR", "SGZ"],
+  "turf_map": {
+    "artificial": ["BOD", "HAM", "KUP"],
+    "natural": ["TOT", "MUN", "CHE", "RSO", "BET", "VIL", "FRA", "HOF", "S04", "ROM", "LAZ", "FIO", "MAR", "LYO", "NCE", "POR", "BRA", "GUI", "AJX", "AZ", "FEY", "AND", "USG", "GAL", "FEN", "RAN", "OLY", "PAO", "SLP", "YB", "STU", "FCK", "MAL", "LEG", "DZG", "STG", "BEN", "BJK", "MID", "TWE", "FTC", "HAJ", "PAF", "SAB", "HAR", "SGZ"]
+  },
+  "region_index": {
+    "north": 0,
+    "central": 1,
+    "northwest": 1,
+    "southwest": 2,
+    "centralwest": 2
+  }
+}

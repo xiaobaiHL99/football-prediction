@@ -1,0 +1,220 @@
+{
+  "match": {
+    "home": "BAR",
+    "away": "RAY",
+    "date": "2026-09-01",
+    "round": 3,
+    "venue": "诺坎普球场 (Barcelona)",
+    "turf": "natural",
+    "time": "03:30 (北京时间)",
+    "significance": "西甲第3轮，完美开局的巴萨主场迎战伤病满营的巴列卡诺"
+  },
+  "context": "西甲第3轮，巴塞罗那主场迎战巴列卡诺。巴萨弗里克带队联赛前两轮全胜打进7球且一球未失稳坐榜首；巴列卡诺仅1平1负，伤兵满营（主力门将胫骨骨折、主力后卫伤缺、边路爆点缺阵）。近5次诺坎普交手巴萨全胜。",
+  "teams": {
+    "BAR": {
+      "code": "BAR",
+      "name_cn": "巴塞罗那",
+      "full_name": "FC Barcelona",
+      "form": "胜-胜",
+      "position": 1,
+      "points": 6,
+      "played": 2,
+      "goals_for": 7,
+      "goals_against": 0,
+      "elo_delta": 5,
+      "confidence": 0.90,
+      "notes": "弗里克带队联赛两连胜7-0进球且一球未失稳坐榜首；首轮客场5-0横扫埃尔切，次轮主场2-0胜毕尔巴鄂竞技；冲击三连胜；新援罗德里上轮替补完成首秀本场有望获更多时间；小将埃斯帕特左后卫连续首发表现获认可",
+      "key_players": [
+        {
+          "name": "拉菲尼亚",
+          "position": "前锋",
+          "status": "available",
+          "impact": "顶在最前面的第一落点，进攻核心"
+        },
+        {
+          "name": "亚马尔",
+          "position": "边锋",
+          "status": "available",
+          "impact": "边路爆破利器，本赛季状态正佳"
+        },
+        {
+          "name": "佩德里",
+          "position": "中场",
+          "status": "available",
+          "impact": "双后腰之一，出球和串联核心"
+        },
+        {
+          "name": "罗德里",
+          "position": "中场",
+          "status": "available",
+          "impact": "新援上轮替补首秀，本场有望获更多时间或首发"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "加维",
+          "position": "中场",
+          "status": "injured",
+          "impact": "膝盖伤势缺阵"
+        },
+        {
+          "name": "德容",
+          "position": "中场",
+          "status": "injured",
+          "impact": "膝盖伤势缺阵"
+        },
+        {
+          "name": "巴尔德吉",
+          "position": "中场",
+          "status": "injured",
+          "impact": "膝盖伤势缺阵"
+        },
+        {
+          "name": "卡萨多",
+          "position": "中场",
+          "status": "injured",
+          "impact": "伤缺"
+        }
+      ]
+    },
+    "RAY": {
+      "code": "RAY",
+      "name_cn": "巴列卡诺",
+      "full_name": "Rayo Vallecano",
+      "form": "负-平",
+      "position": 15,
+      "points": 1,
+      "played": 2,
+      "goals_for": 2,
+      "goals_against": 3,
+      "elo_delta": -15,
+      "confidence": 0.80,
+      "notes": "前两轮1平1负尚未取胜；首轮客场1-2负塞维利亚，次轮主场1-1平阿拉维斯；伤病满营三线受损严重；主力门将巴塔利亚胫骨骨折+后卫路易斯·费利佩腿筋+边路爆点帕拉松肌肉均缺阵；库姆布拉出战存疑",
+      "key_players": [
+        {
+          "name": "塞尔希奥·卡梅略",
+          "position": "前锋",
+          "status": "available",
+          "impact": "速度反击的主要执行者，残阵下几乎唯一的进攻希望"
+        },
+        {
+          "name": "乌奈·洛佩斯 / 巴伦廷",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场绞杀组合，任务是破坏佩德里的节奏"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "巴塔利亚",
+          "position": "门将",
+          "status": "injured",
+          "impact": "主力门将胫骨骨折缺阵，防线指挥缺失"
+        },
+        {
+          "name": "路易斯·费利佩",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "主力后卫腿筋伤缺阵，防线核心缺失"
+        },
+        {
+          "name": "帕拉松",
+          "position": "边锋",
+          "status": "injured",
+          "impact": "边路爆点肌肉伤缺阵，反击速度和宽度大减"
+        },
+        {
+          "name": "库姆布拉",
+          "position": "后卫",
+          "status": "doubtful",
+          "impact": "出战存疑，若缺阵防线将进一步削弱"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 10,
+    "home_wins": 7,
+    "away_wins": 1,
+    "draws": 2,
+    "at_camp_nou": "近5次诺坎普交手巴萨全胜",
+    "recent": "巴萨近10次交手7胜2平1负",
+    "last_season": "上赛季巴萨主客场双杀巴列卡诺（主场3-0，客场2-1）",
+    "historical_note": "前几个赛季巴列卡诺曾被称为巴萨'苦主'，但近期标签影响力减弱，上赛季已被完全压制",
+    "notes": "巴萨主场碾压，历史交锋优势巨大"
+  },
+  "tactical": {
+    "BAR": {
+      "style": "possession",
+      "formation": "4-2-3-1",
+      "strengths": ["两连胜7-0零封火力全开", "诺坎普主场加持", "亚马尔边路爆破", "拉菲尼亚+费尔明+阿德耶米前场四人组冲击力强", "佩德里串联出球", "新援罗德里增强中场深度"],
+      "weaknesses": ["加维/德容/巴尔德吉/卡萨多四人中场缺阵", "佩德里+贝尔纳尔双后腰承压", "面对铁桶阵可能耐心不足"],
+      "key_tactics": "主动控球+高位压迫，拉菲尼亚突前第一落点，亚马尔/阿德耶米边路爆破，费尔明中路串联"
+    },
+    "RAY": {
+      "style": "defensive_deep",
+      "formation": "3-4-2-1",
+      "strengths": ["五后卫/三中卫铁桶阵", "战术纪律性", "卡梅略反击速度"],
+      "weaknesses": ["伤病满营三线受损", "主力门将缺阵防线指挥缺失", "边路爆点帕拉松缺阵反击宽度大减", "进攻端几乎只有卡梅略一人", "新门将卡德纳斯面对诺坎普压力"],
+      "key_tactics": "五后卫深度防守+中场绞杀破坏节奏，卡梅略速度反击+定位球伺机"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "诺坎普主场加持，近5次对巴列卡诺全胜，两连胜7-0士气正盛",
+      "impact": 0.14,
+      "confidence": 0.9
+    },
+    {
+      "type": "recent_form",
+      "description": "巴萨联赛两连胜7-0零封 vs 巴列卡诺1平1负开局不顺",
+      "impact": 0.12,
+      "confidence": 0.9
+    },
+    {
+      "type": "injury_impact",
+      "description": "巴列卡诺主力门将骨折+主力后卫伤缺+边路爆点缺阵，三线受损严重",
+      "impact": -0.14,
+      "confidence": 0.9
+    },
+    {
+      "type": "head_to_head",
+      "description": "近5次诺坎普全胜，近10次7胜2平1负，上赛季双杀，巴萨历史碾压",
+      "impact": 0.08,
+      "confidence": 0.8
+    },
+    {
+      "type": "tactical_matchup",
+      "description": "巴萨前场四人组冲击力 vs 巴列卡诺残阵五后卫铁桶阵，火力差距悬殊",
+      "impact": 0.10,
+      "confidence": 0.85
+    },
+    {
+      "type": "midfield_concern",
+      "description": "巴萨四名中场缺阵（加维/德容/巴尔德吉/卡萨多），佩德里+贝尔纳尔承压",
+      "impact": -0.05,
+      "confidence": 0.7
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "巴萨大胜",
+      "probability": 42,
+      "score": "3-0 或 4-0",
+      "description": "火力全开的巴萨碾压残阵巴列卡诺，延续7-0的零封火力"
+    },
+    {
+      "name": "巴萨小胜",
+      "probability": 32,
+      "score": "2-0 或 2-1",
+      "description": "巴萨控场但巴列卡诺铁桶阵韧性十足，比赛后段才拉开比分"
+    },
+    {
+      "name": "平局/爆冷",
+      "probability": 26,
+      "score": "1-1 或 0-1",
+      "description": "巴列卡诺铁桶阵成功+定位球发威，或巴萨中场缺人被反击惩罚"
+    }
+  ]
+}

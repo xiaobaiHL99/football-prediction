@@ -1,0 +1,32 @@
+{
+  "weak_elo_threshold": 1400,
+  "special_factors": {
+    "european_qualification_distraction": {
+      "description": "降班马或拥有欧战级球员的球队若有欧战传闻干扰，双线作战消耗",
+      "value": -0.06,
+      "apply_when": "team_in_europe and match_within_3_days_of_europe_match"
+    },
+    "promoted_side_boost": {
+      "description": "从英甲/英乙升级的新军早期主场气势与对手陌生感红利",
+      "value": 0.05,
+      "apply_when": "team_promoted_last_season and round <= 10"
+    },
+    "relegated_squad_decay": {
+      "description": "英超降班马赛季初阵容流失(租借回归/核心出走)导致实际战力低于纸面",
+      "value": -0.04,
+      "apply_when": "team_relegated_last_season and round <= 12"
+    },
+    "midweek_congestion": {
+      "description": "英冠46轮+杯赛赛程密集，周二/周三快车场次下半场体能崩塌风险高",
+      "value": -0.03,
+      "apply_when": "matchday in ['Tuesday', 'Wednesday']"
+    }
+  },
+  "europe_teams": [],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["WHU", "WOL", "SOU", "MID", "SHU", "CHA", "NOR", "WBA", "SWA", "MIL", "QPR", "BIR", "WAT", "BRC", "BLB", "BOL", "STK", "POR", "CDI", "DER", "PRE", "WRE", "LIN", "BUR"]
+  },
+  "relegated_teams": ["WHU", "WOL", "SOU", "BUR"],
+  "promoted_teams": ["LIN", "BOL", "WRE"]
+}

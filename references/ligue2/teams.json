@@ -1,0 +1,190 @@
+{
+  "_meta": {
+    "league": "Ligue 2 BKT",
+    "season": "2026-27",
+    "updated_at": "2026-08-14T00:00:00Z",
+    "note": "Elo ratings initial calibration based on league tier (relegated Ligue 1 > Ligue 2 incumbents > National promoted). Adjustable via elo_updater."
+  },
+  "teams": {
+    "NAN": {
+      "name": "FC Nantes",
+      "name_cn": "南特",
+      "elo": 1610,
+      "city": "Nantes",
+      "stadium": "Stade de la Beaujoire",
+      "color": "yellow",
+      "notes": "法甲降级，13年后重回法乙，阵容厚度在法乙顶级"
+    },
+    "MET": {
+      "name": "FC Metz",
+      "name_cn": "梅斯",
+      "elo": 1600,
+      "city": "Metz",
+      "stadium": "Stade Saint-Symphorien",
+      "color": "red",
+      "notes": "法甲一年游降级，主场强、攻防均衡，法乙升级热门"
+    },
+    "MTP": {
+      "name": "Montpellier HSC",
+      "name_cn": "蒙彼利埃",
+      "elo": 1595,
+      "city": "Montpellier",
+      "stadium": "Stade de la Mosson",
+      "color": "orange",
+      "notes": "法甲降级，阵容流失但底子仍在，主场南方优势"
+    },
+    "STE": {
+      "name": "AS Saint-Étienne",
+      "name_cn": "圣艾蒂安",
+      "elo": 1575,
+      "city": "Saint-Étienne",
+      "stadium": "Stade Geoffroy-Guichard",
+      "color": "green",
+      "notes": "法乙第3，附加赛惜败，主场氛围火爆的升级热门"
+    },
+    "RED": {
+      "name": "Red Star FC 93",
+      "name_cn": "红星",
+      "elo": 1560,
+      "city": "Paris (Saint-Ouen)",
+      "stadium": "Stade Bauer",
+      "color": "red",
+      "notes": "法乙第4，巴黎第二队，技术流年轻化阵容"
+    },
+    "REI": {
+      "name": "Stade de Reims",
+      "name_cn": "兰斯",
+      "elo": 1560,
+      "city": "Reims",
+      "stadium": "Stade Auguste-Delaune",
+      "color": "red",
+      "notes": "法乙第6，青训出色，定位球与快速反击有威胁"
+    },
+    "ROD": {
+      "name": "Rodez AF",
+      "name_cn": "罗德兹",
+      "elo": 1555,
+      "city": "Rodez",
+      "stadium": "Stade Paul-Lignon",
+      "color": "blue",
+      "notes": "法乙第5，小球会但组织严密，主场稳定"
+    },
+    "ANN": {
+      "name": "FC Annecy",
+      "name_cn": "安纳西",
+      "elo": 1545,
+      "city": "Annecy",
+      "stadium": "Parc des Sports",
+      "color": "red",
+      "notes": "法乙第7，主场攻势足球，边路推进活跃"
+    },
+    "GUI": {
+      "name": "EA Guingamp",
+      "name_cn": "甘冈",
+      "elo": 1540,
+      "city": "Guingamp",
+      "stadium": "Stade de Roudourou",
+      "color": "red",
+      "notes": "法乙第11，布列塔尼传统强队，主场有加成"
+    },
+    "DNK": {
+      "name": "USL Dunkerque",
+      "name_cn": "登卡基",
+      "elo": 1535,
+      "city": "Dunkerque",
+      "stadium": "Stade Marcel Tribut",
+      "color": "blue",
+      "notes": "法乙第10，防反为主，主场稳定"
+    },
+    "GRE": {
+      "name": "Grenoble Foot 38",
+      "name_cn": "格勒诺布尔",
+      "elo": 1525,
+      "city": "Grenoble",
+      "stadium": "Stade des Alpes",
+      "color": "blue",
+      "notes": "法乙第12，中游球队，攻守均衡"
+    },
+    "CLE": {
+      "name": "Clermont Foot",
+      "name_cn": "克莱蒙",
+      "elo": 1520,
+      "city": "Clermont-Ferrand",
+      "stadium": "Stade Gabriel Montpied",
+      "color": "blue",
+      "notes": "法乙第13，高原主场，防守反击为主"
+    },
+    "PAU": {
+      "name": "Pau FC",
+      "name_cn": "波城",
+      "elo": 1520,
+      "city": "Pau",
+      "stadium": "Stade du Hameau",
+      "color": "blue",
+      "notes": "法乙第9，青年军打法积极，客场起伏较大"
+    },
+    "SOC": {
+      "name": "FC Sochaux-Montbéliard",
+      "name_cn": "索肖",
+      "elo": 1515,
+      "city": "Montbéliard",
+      "stadium": "Stade Auguste Bonal",
+      "color": "blue",
+      "notes": "丙级升班马(第2)，老牌青训豪门，底蕴深厚"
+    },
+    "LAV": {
+      "name": "Stade Lavallois",
+      "name_cn": "拉瓦勒",
+      "elo": 1510,
+      "city": "Laval",
+      "stadium": "Stade Francis Le Basser",
+      "color": "orange",
+      "notes": "法乙第16，保级球队，防守为主"
+    },
+    "DIJ": {
+      "name": "Dijon FCO",
+      "name_cn": "第戎",
+      "elo": 1505,
+      "city": "Dijon",
+      "stadium": "Stade Gaston Gérard",
+      "color": "red",
+      "notes": "丙级升班马(第1)，升级冠军，阵容年轻"
+    },
+    "ETG": {
+      "name": "Evian Thonon Gaillard",
+      "name_cn": "埃维昂TG",
+      "elo": 1500,
+      "city": "Thonon-les-Bains",
+      "stadium": "Parc des Sports d'Annecy",
+      "color": "red",
+      "notes": "升班马，蛰伏多年回归职业联赛，阵容待磨合"
+    },
+    "MRT": {
+      "name": "FC Martigues",
+      "name_cn": "马尔蒂格",
+      "elo": 1495,
+      "city": "Martigues",
+      "stadium": "Stade Francis Turcan",
+      "color": "blue",
+      "notes": "升班马，南方小球会，主场小气候有利"
+    },
+    "NCL": {
+      "name": "AS Nancy Lorraine",
+      "name_cn": "南锡",
+      "elo": 1490,
+      "city": "Nancy",
+      "stadium": "Stade Marcel Picot",
+      "color": "red",
+      "notes": "升班马，与梅斯的洛林德比回归，保级为主"
+    },
+    "BOU": {
+      "name": "US Boulogne",
+      "name_cn": "布罗尼",
+      "elo": 1485,
+      "city": "Boulogne-sur-Mer",
+      "stadium": "Stade de la Libération",
+      "color": "yellow",
+      "notes": "升班马，法乙新军，整体实力垫底档"
+    }
+  }
+}

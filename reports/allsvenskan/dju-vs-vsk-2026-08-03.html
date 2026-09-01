@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐加顿斯 vs 韦斯特罗斯 | 赛前预测 | 瑞超第15轮</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0e17; color: #e8edf5; min-height: 100vh; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+  /* === PITCH === */
+  .pitch-wrapper { position: relative; width: 100%; aspect-ratio: 2/1; max-height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+  .pitch { width: 100%; height: 100%; background: linear-gradient(135deg, #1a4a2e 0%, #2d6b3e 40%, #1e5631 100%); position: relative; }
+  .pitch::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 6%, rgba(255,255,255,0.03) 6%, rgba(255,255,255,0.03) 6.2%); }
+  .pitch-lines { position: absolute; inset: 6% 3%; border: 2px solid rgba(255,255,255,0.35); }
+  .pitch-lines::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35); transform: translateY(-50%); }
+  .center-circle { position: absolute; top: 50%; left: 50%; width: 22%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .penalty-a, .penalty-b { position: absolute; top: 50%; width: 30%; height: 55%; border: 2px solid rgba(255,255,255,0.3); transform: translateY(-50%); }
+  .penalty-a { left: -1px; border-left: none; border-radius: 0 6px 6px 0; }
+  .penalty-b { right: -1px; border-right: none; border-radius: 6px 0 0 6px; }
+  .goal-a, .goal-b { position: absolute; top: 50%; width: 16%; height: 22%; border: 2px solid rgba(255,255,255,0.25); transform: translateY(-50%); }
+  .goal-a { left: -1px; border-left: none; border-radius: 0 4px 4px 0; }
+  .goal-b { right: -1px; border-right: none; border-radius: 4px 0 0 4px; }
+  .spot-a, .spot-b { position: absolute; top: 50%; width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .spot-a { left: 11%; } .spot-b { right: 11%; }
+  .arc-a, .arc-b { position: absolute; top: 50%; width: 12%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; transform: translate(-50%, -50%); }
+  .arc-a { left: 19%; } .arc-b { right: 19%; }
+  .corner { position: absolute; width: 6%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; }
+  .corner-tl { top: 4%; left: 1%; } .corner-tr { top: 4%; right: 1%; }
+  .corner-bl { bottom: 4%; left: 1%; } .corner-br { bottom: 4%; right: 1%; }
+
+  .scoreboard { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); border: 2px solid rgba(255,200,50,0.4); border-radius: 12px; padding: 12px 28px; display: flex; align-items: center; gap: 16px; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(255,200,50,0.15); z-index: 10; }
+  .scoreboard .team { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .scoreboard .team .name { font-size: 1rem; font-weight: 700; letter-spacing: 0.5px; }
+  .scoreboard .team .badge { width: 36px; height: 36px; border-radius: 50%; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+  .scoreboard .team .badge.dju { background: #2980b9; color: #fff; }
+  .scoreboard .team .badge.vsk { background: #27ae60; color: #fff; }
+  .scoreboard .vs-score { display: flex; flex-direction: column; align-items: center; }
+  .scoreboard .vs-score .pred-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #f1c40f; margin-bottom: 2px; }
+  .scoreboard .vs-score .score { font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px rgba(255,200,50,0.3); letter-spacing: 4px; }
+  .scoreboard .vs-score .sub { font-size: 0.55rem; color: #95a5a6; letter-spacing: 1px; }
+  .scoreboard .probs-row { display: flex; gap: 8px; margin-top: 4px; }
+  .scoreboard .probs-row .prob { font-size: 0.6rem; padding: 1px 6px; border-radius: 4px; }
+
+  .stadium-info { position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 8px; font-size: 0.65rem; color: #bdc3c7; z-index: 10; text-align: center; backdrop-filter: blur(4px); }
+
+  .stands { position: absolute; bottom: 0; left: 0; right: 0; height: 14%; display: flex; gap: 2px; padding: 0 4%; align-items: flex-end; z-index: 5; }
+  .stand-row { display: flex; gap: 1px; align-items: flex-end; flex: 1; }
+  .stand-seat { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 1px; }
+  .floodlight { position: absolute; top: -10%; width: 3px; height: 20%; background: linear-gradient(to bottom, rgba(255,255,200,0.6), transparent); z-index: 2; }
+  .floodlight.l { left: 15%; } .floodlight.r { right: 15%; }
+
+  /* === SECTIONS === */
+  .section { background: #111827; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border: 1px solid #1f2937; }
+  .section-title { font-size: 1rem; font-weight: 700; color: #f1c40f; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 1.1rem; }
+
+  .prob-bar { display: flex; height: 32px; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+  .prob-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; transition: width 0.5s; min-width: fit-content; padding: 0 6px; }
+  .prob-bar .seg.h { background: #2980b9; color: #fff; }
+  .prob-bar .seg.d { background: #7f8c8d; color: #fff; }
+  .prob-bar .seg.a { background: #27ae60; color: #fff; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: #0f1729; border-radius: 10px; padding: 14px; border: 1px solid #1e2a45; }
+  .card .label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .card .value { font-size: 1.4rem; font-weight: 800; }
+  .card .value.xg { color: #60a5fa; }
+  .card .value.dju-v { color: #2980b9; }
+  .card .value.vsk-v { color: #27ae60; }
+  .card .sub { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .score-card { background: #0f1729; border-radius: 8px; padding: 10px 6px; text-align: center; border: 1px solid #1e2a45; }
+  .score-card .s { font-size: 1rem; font-weight: 700; }
+  .score-card .pct { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+  .score-card.top { border-color: #f1c40f; background: rgba(241,196,15,0.08); }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+  .badge.green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+  .badge.yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+  .badge.red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+  .badge.blue { background: rgba(52,152,219,0.2); color: #3498db; }
+  .badge.gray { background: rgba(149,165,166,0.2); color: #95a5a6; }
+
+  .intel-item { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid #1a1f2e; font-size: 0.85rem; }
+  .intel-item:last-child { border: none; }
+  .intel-item .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .intel-item .dot.green { background: #2ecc71; }
+  .intel-item .dot.yellow { background: #f1c40f; }
+  .intel-item .dot.red { background: #e74c3c; }
+  .intel-item .dot.gray { background: #64748b; }
+
+  .odds-compare { display: flex; gap: 16px; margin: 12px 0; }
+  .odds-card { flex: 1; background: #0f1729; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #1e2a45; }
+  .odds-card .label { font-size: 0.65rem; color: #94a3b8; }
+  .odds-card .price { font-size: 1.2rem; font-weight: 700; margin: 4px 0; }
+  .odds-card .model-pct { font-size: 0.75rem; }
+  .odds-card .market-pct { font-size: 0.7rem; color: #64748b; }
+  .odds-card .dev { font-size: 0.7rem; font-weight: 600; margin-top: 2px; }
+  .odds-card .dev.pos { color: #2ecc71; }
+  .odds-card .dev.neg { color: #e74c3c; }
+
+  .scenario { background: #0f1729; border-left: 3px solid; padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; }
+  .scenario.primary { border-color: #f1c40f; }
+  .scenario.secondary { border-color: #3498db; }
+  .scenario.cold { border-color: #e74c3c; }
+
+  .footer-note { text-align: center; padding: 24px 0; color: #64748b; font-size: 0.75rem; border-top: 1px solid #1f2937; margin-top: 16px; }
+
+  .form-dots { display: flex; gap: 4px; margin: 6px 0; }
+  .form-dot { width: 20px; height: 20px; border-radius: 50%; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .form-dot.w { background: #2ecc71; color: #fff; }
+  .form-dot.d { background: #95a5a6; color: #fff; }
+  .form-dot.l { background: #e74c3c; color: #fff; }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    .odds-compare { flex-direction: column; }
+    .scoreboard { padding: 8px 12px; gap: 8px; }
+    .scoreboard .team .badge { width: 28px; height: 28px; font-size: 11px; }
+    .scoreboard .vs-score .score { font-size: 1.4rem; }
+    .scoreboard .team .name { font-size: 0.75rem; }
+    .section { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- PITCH -->
+  <div class="pitch-wrapper">
+    <div class="pitch">
+      <div class="pitch-lines">
+        <div class="penalty-a"></div>
+        <div class="penalty-b"></div>
+        <div class="goal-a"></div>
+        <div class="goal-b"></div>
+        <div class="spot-a"></div>
+        <div class="spot-b"></div>
+        <div class="arc-a"></div>
+        <div class="arc-b"></div>
+      </div>
+      <div class="center-circle"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="floodlight l"></div>
+      <div class="floodlight r"></div>
+
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        <div class="team">
+          <div class="badge dju">D</div>
+          <div class="name">佐加顿斯</div>
+        </div>
+        <div class="vs-score">
+          <div class="pred-label">PREDICTED</div>
+          <div class="score">2-1</div>
+          <div class="probs-row">
+            <span class="prob" style="background:#2980b9;">60.5%</span>
+            <span class="prob" style="background:#7f8c8d;">20.3%</span>
+            <span class="prob" style="background:#27ae60;">19.2%</span>
+          </div>
+          <div class="sub">H · D · A</div>
+        </div>
+        <div class="team">
+          <div class="badge vsk">V</div>
+          <div class="name">韦斯特罗斯</div>
+        </div>
+      </div>
+
+      <div class="stadium-info">
+        Tele2 Arena (3Arena) · 瑞典超级联赛 第15轮 · 2026.08.03 19:00<br>
+        人工草皮 · 斯德哥尔摩
+      </div>
+
+      <!-- Stands -->
+      <div class="stands">
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+    <div>
+      <h1 style="font-size:1.3rem;">佐加顿斯 <span style="color:#94a3b8;font-weight:400;">vs</span> 韦斯特罗斯</h1>
+      <div style="font-size:0.75rem;color:#64748b;">预测生成: 2026-08-03  |  数据快照: 2026-08-03  |  理性模型</div>
+    </div>
+    <div><span class="badge blue">主场火力</span> <span class="badge green">升班马客战黑马</span></div>
+  </div>
+
+  <!-- CORE CONCLUSION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎯</span> 核心结论</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">主预测赛果</div>
+          <div class="value dju-v">佐加顿斯胜</div>
+          <div class="sub">概率 60.5% · 主预测比分 2-1</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">预期进球 (xG)</div>
+          <div class="value xg">2.15 - 1.02</div>
+          <div class="sub">佐加顿斯主场火力 vs 韦斯特罗斯低位反击</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:0.85rem;color:#bdc3c7;">
+      佐加顿斯夏歇后3连胜且3场零封，主场7场进16球，评级与状态均占优；<br>
+      但韦斯特罗斯是客场4胜的升班马，头号射手Ladefoged解禁复出，模型保留近40%的不胜空间。
+    </div>
+  </div>
+
+  <!-- PROBABILITY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📊</span> 胜平负概率</div>
+    <div class="prob-bar">
+      <div class="seg h" style="width:60.5%">60.5% 佐加顿斯</div>
+      <div class="seg d" style="width:20.3%">20.3% 平</div>
+      <div class="seg a" style="width:19.2%">19.2% 韦斯特罗斯</div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">比分分布 Top 5</div>
+      <div class="score-grid">
+        <div class="score-card top">
+          <div class="s" style="color:#2980b9;">2-1</div>
+          <div class="pct">9.8%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#2980b9;">2-0</div>
+          <div class="pct">9.7%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#95a5a6;">1-1</div>
+          <div class="pct">9.1%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#2980b9;">1-0</div>
+          <div class="pct">9.0%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#2980b9;">3-0</div>
+          <div class="pct">7.0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">双方近期状态</div>
+      <div class="grid-2">
+        <div>
+          <div style="font-weight:700;color:#2980b9;margin-bottom:4px;">佐加顿斯</div>
+          <div class="form-dots">
+            <span class="form-dot l">负</span>
+            <span class="form-dot w">胜</span>
+            <span class="form-dot w">胜</span>
+            <span class="form-dot d">平</span>
+            <span class="form-dot w">胜</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">近5场3胜1平1负 · 夏歇后3连胜3零封</div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#27ae60;margin-bottom:4px;">韦斯特罗斯</div>
+          <div class="form-dots">
+            <span class="form-dot l">负</span>
+            <span class="form-dot w">胜</span>
+            <span class="form-dot w">胜</span>
+            <span class="form-dot d">平</span>
+            <span class="form-dot w">胜</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">近5场3胜1平1负 · 夏歇后4轮10分(净胜7球)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTELLIGENCE -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔍</span> 赛前情报</div>
+    <div class="grid-2">
+      <div>
+        <div style="font-weight:700;color:#2980b9;margin-bottom:8px;">佐加顿斯 <span style="font-size:0.7rem;color:#94a3b8;">积分榜中上游 · 23分(13场)</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>夏歇后4轮取10分，联赛3连胜且连续3场零封（含1-0客胜代格福什）</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>主场7场进16球，进攻火力充足，但主场仅2次零封</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>中场 <strong>Daniel Stensson</strong> 热身时伤退，本场缺阵</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅 Honkavaara · 3-5-2/4-2-3-1 控球推进型，防守端近期稳固</span></div>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#27ae60;margin-bottom:8px;">韦斯特罗斯 <span style="font-size:0.7rem;color:#94a3b8;">升班马 · 22分(14场)</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>夏歇后4轮10分(7-1净胜球)，客战更佳——7个客场4胜</span></div>
+        <div class="intel-item"><span class="dot green"></span><span><strong>Mikkel Ladefoged</strong> 9球解禁复出（联赛第4射手，5粒头球），是制空关键</span></div>
+        <div class="intel-item"><span class="dot red"></span><span><strong>Jonathan Ring / Moussa Diallo</strong> 伤缺</span></div>
+        <div class="intel-item"><span class="dot yellow"></span><span>近14场11场取得进球，客场3-2爆冷马尔默、3-1胜哈尔姆斯塔德</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <div style="font-weight:700;margin-bottom:6px;">战术对位分析</div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>风格对位：控球 vs 低位反击</strong> — 传控打法对反击存在天然弱点（-0.20/+0.20 xG），韦斯特罗斯Ladefoged高空支点正是反击落点</span></div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>预期节奏：均衡</strong> — 主队主导控球，客队收缩反击但非纯大巴（客场4胜有进攻资本）</span></div>
+      <div class="intel-item"><span class="dot gray"></span><span>历史交锋：佐加顿斯近6次4胜1平1负，2024年两次主场2-1、2-0</span></div>
+      <div class="intel-item"><span class="dot gray"></span><span>双方均为人工草皮主场/客场，无草皮适应成本；市场大2.5球低赔、BTTS热卖，进球预期高</span></div>
+    </div>
+  </div>
+
+  <!-- PREDICTION REASONS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 预测原因</div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>评级优势：</strong> 佐加顿斯 Elo 1726 vs 韦斯特罗斯 1598，净胜球期望差约1.2球</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>主队状态：</strong> 夏歇后3连胜+3零封，后防中卫组合近3场未失球</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>主场火力：</strong> 7个主场进16球，破密集防守能力在联赛前列</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>客队威胁被低估：</strong> 韦斯特罗斯客场7场4胜，Ladefoged解禁复出，模型给的客胜概率(19.2%)高于市场(16.2%)</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>战术弱点：</strong> 控球vs反击的错位让主队存在被偷袭空间，BTTS市场65%反映双方都有进球预期</span></div>
+    <div class="intel-item"><span class="dot gray"></span><span><strong>单场随机性：</strong> 模型已纳入泊松抽样+状态冲击+概率收缩，仍保留39.5%不胜空间</span></div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎭</span> 场景推演</div>
+    <div class="scenario primary">
+      <div style="font-weight:700;color:#f1c40f;">主路径：佐加顿斯主场奏凯 (概率 ~61%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">主队控球压制，边路传中/定位球破局，2-1 或 2-0 拿下。与2024年两次主场2-1、2-0的历史轨迹吻合。</div>
+    </div>
+    <div class="scenario secondary">
+      <div style="font-weight:700;color:#3498db;">次路径：胶着平局 (概率 ~20%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">韦斯特罗斯防线紧凑+反击奏效，1-1 或 0-0 互交白卷——主队主场7场仅2次零封，客队也难被压制。</div>
+    </div>
+    <div class="scenario cold">
+      <div style="font-weight:700;color:#e74c3c;">冷门路径：韦斯特罗斯客胜 (概率 ~19%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">Ladefoged制空/反击偷袭得手，1-2 或 0-1。市场客胜5.55赔率，模型认为其概率(19.2%)略高于市场定价(16.2%)，有一定轻仓价值。</div>
+    </div>
+  </div>
+
+  <!-- ODDS VIEW -->
+  <div class="section">
+    <div class="section-title"><span class="icon">💰</span> 赔率视角</div>
+    <div style="font-size:0.75rem;color:#64748b;margin-bottom:12px;">赔率来源: 综合多家博彩公司 · 采集时间: 2026-08-03 · 抽水率 11.2%</div>
+    <div class="odds-compare">
+      <div class="odds-card">
+        <div class="label">主胜 (佐加顿斯)</div>
+        <div class="price" style="color:#2980b9;">1.40</div>
+        <div class="model-pct">模型: <strong>60.5%</strong></div>
+        <div class="market-pct">市场: 64.2%</div>
+        <div class="dev neg">偏差 -3.7%</div>
+      </div>
+      <div class="odds-card">
+        <div class="label">平局</div>
+        <div class="price" style="color:#95a5a6;">4.60</div>
+        <div class="model-pct">模型: <strong>20.3%</strong></div>
+        <div class="market-pct">市场: 19.6%</div>
+        <div class="dev neg">偏差 +0.7%</div>
+      </div>
+      <div class="odds-card">
+        <div class="label">客胜 (韦斯特罗斯)</div>
+        <div class="price" style="color:#27ae60;">5.55</div>
+        <div class="model-pct">模型: <strong>19.2%</strong></div>
+        <div class="market-pct">市场: 16.2%</div>
+        <div class="dev pos">偏差 +3.0%</div>
+      </div>
+    </div>
+    <div style="font-size:0.8rem;color:#bdc3c7;">
+      <strong>模型 vs 市场解读：</strong>方向一致看好佐加顿斯，但模型略不认同市场对主队的过度自信（60.5% vs 64.2%）。模型认为韦斯特罗斯客胜概率比市场高3.0%，源于其客场4胜的扎实战绩与Ladefoged复出的攻击加成——客胜@5.55出现轻微正期望(EV +6.6%)，可作轻仓参考。模型同时认为大球方向略低于市场热度。
+    </div>
+    <div style="margin-top:8px;font-size:0.7rem;color:#64748b;border-top:1px solid #1f2937;padding-top:8px;">
+      赔率数据仅供概率比较参考，不构成投注建议。足球单场随机性极高，任何方向都有相当的不确定性。
+    </div>
+  </div>
+
+  <!-- UNCERTAINTY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚠️</span> 不确定性说明</div>
+    <ul style="list-style:none;font-size:0.85rem;color:#94a3b8;">
+      <li style="padding:4px 0;">• 佐加顿斯 60.5% 仍保留近四成不胜空间，主场强队也常有翻车</li>
+      <li style="padding:4px 0;">• 韦斯特罗斯作为升班马客战波动较大，但客场4胜说明其并非鱼腩</li>
+      <li style="padding:4px 0;">• Ladefoged 解禁复出的实际影响可能大于模型 Elo 修正</li>
+      <li style="padding:4px 0;">• 市场热卖大球(大2.5 @1.40)与BTTS，模型进球预期相对保守</li>
+      <li style="padding:4px 0;">• 模型无法预测红牌、点球、定位球等突发事件</li>
+    </ul>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📎</span> 数据来源</div>
+    <div style="font-size:0.8rem;color:#94a3b8;">
+      <div>• Svenskafans — 佐加顿斯vs韦斯特罗斯赛前情报与预计首发</div>
+      <div>• TV Matchen / Stats24 / Tribuna — 赛前预测与赔率（主1.40/平4.60/客5.55）</div>
+      <div>• FootyStats — H2H 与进球预期（大2.5 74%、BTTS 64%）</div>
+      <div>• Goal.com / Courtoffside — 赛程信息（8月3日首回合、8月10日次回合）</div>
+      <div>• 本地快照 — data/live/allsvenskan/（Elo、积分榜、赛程、情报）</div>
+      <div style="margin-top:8px;color:#64748b;">数据采集时间: 2026-08-03</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    本预测基于 Elo 评级 + 泊松模型 + 蒙特卡洛模拟生成，仅供娱乐参考。<br>
+    足球比赛单场随机性很高，任何预测都不构成确定性判断。
+  </div>
+</div>
+</body>
+</html>

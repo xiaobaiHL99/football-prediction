@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卡尔马 vs 哈马比 | 赛后复盘 | 瑞超第17轮</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0e17; color: #e8edf5; min-height: 100vh; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+  /* === PITCH === */
+  .pitch-wrapper { position: relative; width: 100%; aspect-ratio: 2/1; max-height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+  .pitch { width: 100%; height: 100%; background: linear-gradient(135deg, #1a4a2e 0%, #2d6b3e 40%, #1e5631 100%); position: relative; }
+  .pitch::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 6%, rgba(255,255,255,0.03) 6%, rgba(255,255,255,0.03) 6.2%); }
+  .pitch-lines { position: absolute; inset: 6% 3%; border: 2px solid rgba(255,255,255,0.35); }
+  .pitch-lines::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35); transform: translateY(-50%); }
+  .center-circle { position: absolute; top: 50%; left: 50%; width: 22%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .penalty-a, .penalty-b { position: absolute; top: 50%; width: 30%; height: 55%; border: 2px solid rgba(255,255,255,0.3); transform: translateY(-50%); }
+  .penalty-a { left: -1px; border-left: none; border-radius: 0 6px 6px 0; }
+  .penalty-b { right: -1px; border-right: none; border-radius: 6px 0 0 6px; }
+  .goal-a, .goal-b { position: absolute; top: 50%; width: 16%; height: 22%; border: 2px solid rgba(255,255,255,0.25); transform: translateY(-50%); }
+  .goal-a { left: -1px; border-left: none; border-radius: 0 4px 4px 0; }
+  .goal-b { right: -1px; border-right: none; border-radius: 4px 0 0 4px; }
+  .spot-a, .spot-b { position: absolute; top: 50%; width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .spot-a { left: 11%; } .spot-b { right: 11%; }
+  .arc-a, .arc-b { position: absolute; top: 50%; width: 12%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; transform: translate(-50%, -50%); }
+  .arc-a { left: 19%; } .arc-b { right: 19%; }
+  .corner { position: absolute; width: 6%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; }
+  .corner-tl { top: 4%; left: 1%; } .corner-tr { top: 4%; right: 1%; }
+  .corner-bl { bottom: 4%; left: 1%; } .corner-br { bottom: 4%; right: 1%; }
+
+  /* Scoreboard overlay */
+  .scoreboard { position: absolute; top: 7%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.88); border: 2px solid rgba(255,200,50,0.5); border-radius: 12px; padding: 10px 26px; display: flex; align-items: center; gap: 16px; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(255,200,50,0.18); z-index: 10; }
+  .scoreboard .team { display: flex; flex-direction: column; align-items: center; min-width: 76px; }
+  .scoreboard .team .name { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px; }
+  .scoreboard .team .badge { width: 34px; height: 34px; border-radius: 50%; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+  .scoreboard .team .badge.kal { background: #c0392b; color: #fff; }
+  .scoreboard .team .badge.ham { background: #2ecc71; color: #1a1a2e; }
+  .scoreboard .vs-score { display: flex; flex-direction: column; align-items: center; }
+  .scoreboard .vs-score .pred-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #f1c40f; margin-bottom: 2px; }
+  .scoreboard .vs-score .score { font-size: 2.1rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px rgba(255,200,50,0.3); letter-spacing: 4px; }
+  .scoreboard .vs-score .sub { font-size: 0.55rem; color: #95a5a6; letter-spacing: 1px; }
+  .scoreboard .probs-row { display: flex; gap: 8px; margin-top: 4px; }
+  .scoreboard .probs-row .prob { font-size: 0.6rem; padding: 1px 6px; border-radius: 4px; }
+
+  .stadium-info { position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 8px; font-size: 0.65rem; color: #bdc3c7; z-index: 10; text-align: center; backdrop-filter: blur(4px); }
+
+  .stands { position: absolute; bottom: 0; left: 0; right: 0; height: 14%; display: flex; gap: 2px; padding: 0 4%; align-items: flex-end; z-index: 5; }
+  .stand-row { display: flex; gap: 1px; align-items: flex-end; flex: 1; }
+  .stand-seat { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 1px; }
+  .floodlight { position: absolute; top: -10%; width: 3px; height: 20%; background: linear-gradient(to bottom, rgba(255,255,200,0.6), transparent); z-index: 2; }
+  .floodlight.l { left: 15%; } .floodlight.r { right: 15%; }
+
+  /* === SECTIONS === */
+  .section { background: #111827; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border: 1px solid #1f2937; }
+  .section-title { font-size: 1rem; font-weight: 700; color: #f1c40f; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 1.1rem; }
+
+  .prob-bar { display: flex; height: 32px; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+  .prob-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; min-width: fit-content; padding: 0 6px; }
+  .prob-bar .seg.h { background: #c0392b; color: #fff; }
+  .prob-bar .seg.d { background: #7f8c8d; color: #fff; }
+  .prob-bar .seg.a { background: #2ecc71; color: #1a1a2e; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: #0f1729; border-radius: 10px; padding: 14px; border: 1px solid #1e2a45; }
+  .card .label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .card .value { font-size: 1.4rem; font-weight: 800; }
+  .card .value.xg { color: #60a5fa; }
+  .card .value.kal-v { color: #e74c3c; }
+  .card .value.ham-v { color: #2ecc71; }
+  .card .value.actual { color: #f1c40f; }
+  .card .sub { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .score-card { background: #0f1729; border-radius: 8px; padding: 10px 6px; text-align: center; border: 1px solid #1e2a45; }
+  .score-card .s { font-size: 1rem; font-weight: 700; }
+  .score-card .pct { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+  .score-card.top { border-color: #f1c40f; background: rgba(241,196,15,0.08); }
+  .score-card.hit { border-color: #2ecc71; background: rgba(46,204,113,0.1); }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+  .badge.green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+  .badge.yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+  .badge.red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+  .badge.blue { background: rgba(52,152,219,0.2); color: #3498db; }
+  .badge.gray { background: rgba(149,165,166,0.2); color: #95a5a6; }
+
+  .intel-item { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid #1a1f2e; font-size: 0.85rem; }
+  .intel-item:last-child { border: none; }
+  .intel-item .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .intel-item .dot.green { background: #2ecc71; }
+  .intel-item .dot.yellow { background: #f1c40f; }
+  .intel-item .dot.red { background: #e74c3c; }
+  .intel-item .dot.gray { background: #64748b; }
+
+  .form-dots { display: flex; gap: 4px; margin: 6px 0; }
+  .form-dot { width: 20px; height: 20px; border-radius: 50%; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .form-dot.w { background: #2ecc71; color: #fff; }
+  .form-dot.d { background: #95a5a6; color: #fff; }
+  .form-dot.l { background: #e74c3c; color: #fff; }
+
+  .scenario { background: #0f1729; border-left: 3px solid; padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; }
+  .scenario.primary { border-color: #f1c40f; }
+  .scenario.secondary { border-color: #3498db; }
+  .scenario.cold { border-color: #e74c3c; }
+
+  .hit-banner { display: flex; gap: 12px; align-items: center; background: linear-gradient(90deg, rgba(46,204,113,0.15), rgba(46,204,113,0.05)); border: 1px solid rgba(46,204,113,0.4); border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .hit-banner .big { font-size: 1.1rem; font-weight: 800; color: #2ecc71; }
+
+  .footer-note { text-align: center; padding: 24px 0; color: #64748b; font-size: 0.75rem; border-top: 1px solid #1f2937; margin-top: 16px; }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    .scoreboard { padding: 8px 12px; gap: 8px; }
+    .scoreboard .team .badge { width: 28px; height: 28px; font-size: 11px; }
+    .scoreboard .vs-score .score { font-size: 1.5rem; }
+    .scoreboard .team .name { font-size: 0.75rem; }
+    .section { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- PITCH -->
+  <div class="pitch-wrapper">
+    <div class="pitch">
+      <div class="pitch-lines">
+        <div class="penalty-a"></div>
+        <div class="penalty-b"></div>
+        <div class="goal-a"></div>
+        <div class="goal-b"></div>
+        <div class="spot-a"></div>
+        <div class="spot-b"></div>
+        <div class="arc-a"></div>
+        <div class="arc-b"></div>
+      </div>
+      <div class="center-circle"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="floodlight l"></div>
+      <div class="floodlight r"></div>
+
+      <!-- Scoreboard: ACTUAL RESULT -->
+      <div class="scoreboard">
+        <div class="team">
+          <div class="badge kal">K</div>
+          <div class="name">卡尔马</div>
+        </div>
+        <div class="vs-score">
+          <div class="pred-label" style="color:#f1c40f;">FINAL · 实际赛果</div>
+          <div class="score">0-2</div>
+          <div class="sub">10' 亚伯拉罕 · 51' 乌龙</div>
+        </div>
+        <div class="team">
+          <div class="badge ham">H</div>
+          <div class="name">哈马比</div>
+        </div>
+      </div>
+
+      <div class="stadium-info">
+        Guldfågeln Arena · 瑞典超级联赛 第17轮 · 2026.08.16 15:30<br>
+        卡尔马 · 天然草 · 赛后复盘报告
+      </div>
+
+      <!-- Stands -->
+      <div class="stands">
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+    <div>
+      <h1 style="font-size:1.3rem;">卡尔马 <span style="color:#94a3b8;font-weight:400;">vs</span> 哈马比</h1>
+      <div style="font-size:0.75rem;color:#64748b;">报告生成: 2026-08-16  |  赛前预测模型对比  |  理性模型</div>
+    </div>
+    <div><span class="badge yellow">赛后复盘</span> <span class="badge red">实际 0-2</span></div>
+  </div>
+
+  <!-- CORE CONCLUSION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏁</span> 复盘核心结论</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">实际赛果</div>
+          <div class="value actual">0 - 2</div>
+          <div class="sub">哈马比客场取胜 · 10' 亚伯拉罕 · 51' 乌龙(凯塔)</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">赛前模型主预测</div>
+          <div class="value ham-v">哈马比胜 51.8%</div>
+          <div class="sub">主预测比分 0-1 · 预期进球 0.97 - 1.81</div>
+        </div>
+      </div>
+    </div>
+    <div class="hit-banner">
+      <div class="big">✔ 方向命中</div>
+      <div style="font-size:0.85rem;color:#bdc3c7;">模型主预测方向「哈马比胜」(51.8%) 命中实际结果；实际比分 0-2 落在模型比分分布 Top 3（10.2%），虽未押中最高概率比分 0-1，但方向与整体分布判断正确。</div>
+    </div>
+    <div style="margin-top:12px;font-size:0.85rem;color:#bdc3c7;">
+      赛前争议点：卡尔马主场7场不败金身 vs 哈马比客场疲软+欧战出局消耗。最终哈马比凭借整体实力与锋线效率客场 0-2 取胜，<strong>卡尔马主场金身被打破</strong>，哈马比把对卡尔马的联赛不败纪录扩大到7场。
+    </div>
+  </div>
+
+  <!-- PROBABILITY (pre-match model) -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📊</span> 赛前模型预测（用于对比验证）</div>
+    <div class="prob-bar">
+      <div class="seg h" style="width:24.8%">24.8% 卡尔马</div>
+      <div class="seg d" style="width:23.4%">23.4% 平</div>
+      <div class="seg a" style="width:51.8%">51.8% 哈马比</div>
+    </div>
+    <div style="font-size:0.7rem;color:#64748b;margin-top:4px;">模型置信度 0.85 · 球员可用性修正：卡尔马 -12 Elo / 哈马比 -7 Elo · 情境分类：实力悬殊(方差中性)+哈马比状态火热(+0.09)+卡尔马战意高涨</div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">比分分布 Top 5 <span style="font-size:0.7rem;color:#94a3b8;font-weight:400;">（绿色=实际命中比分）</span></div>
+      <div class="score-grid">
+        <div class="score-card top">
+          <div class="s" style="color:#2ecc71;">0-1</div>
+          <div class="pct">11.1% · 主预测</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#95a5a6;">1-1</div>
+          <div class="pct">10.7%</div>
+        </div>
+        <div class="score-card hit">
+          <div class="s" style="color:#2ecc71;">0-2</div>
+          <div class="pct">10.2% · 实际 ✓</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#2ecc71;">1-2</div>
+          <div class="pct">9.6%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#2ecc71;">0-3</div>
+          <div class="pct">6.3%</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">双方近期状态（赛前）</div>
+      <div class="grid-2">
+        <div>
+          <div style="font-weight:700;color:#e74c3c;margin-bottom:4px;">卡尔马</div>
+          <div class="form-dots">
+            <span class="form-dot w">W</span>
+            <span class="form-dot d">D</span>
+            <span class="form-dot w">W</span>
+            <span class="form-dot l">L</span>
+            <span class="form-dot d">D</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">胜-平-胜-负-平 · 近5场2胜2平1负 · 但主场7场不败</div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#2ecc71;margin-bottom:4px;">哈马比</div>
+          <div class="form-dots">
+            <span class="form-dot w">W</span>
+            <span class="form-dot w">W</span>
+            <span class="form-dot w">W</span>
+            <span class="form-dot d">D</span>
+            <span class="form-dot w">W</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">胜-胜-胜-平-胜 · 近5场联赛4胜1平</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST-MATCH REVIEW -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔬</span> 赛后复盘：预测 vs 实际</div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>方向命中：</strong>模型主预测「哈马比胜」(51.8%最高) → 实际哈马比胜 ✓。评级优势 + 锋线效率的权重判断正确。</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>比分未完全命中：</strong>模型最高概率比分 0-1，实际 0-2。0-2 在模型分布中排名第3（10.2%），属于高概率区间内，偏差一球。</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>被低估的因子：</strong>卡尔马主场金身被高估——其防线伤病（中卫凯塔跟腱断裂+中场科内缺阵）实际影响比模型 Elo 修正(-12)更大，主场连续进球纪录未能延续。</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>判断正确的因子：</strong>哈马比欧战出局后回归联赛的专注度被正确评估，亚伯拉罕(8球)继续发挥，整体实力优势(第2名 vs 第12名)如期兑现。</span></div>
+    <div class="intel-item"><span class="dot gray"></span><span><strong>模型逻辑合理度：</strong>预期进球 0.97-1.81 vs 实际 0-2，实际结果接近模型期望（哈马比 1.8 xG 左右打出 2 球）；方向、分布、xG 三层都基本合理。</span></div>
+  </div>
+
+  <!-- INTELLIGENCE -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔍</span> 赛前情报摘要</div>
+    <div class="grid-2">
+      <div>
+        <div style="font-weight:700;color:#e74c3c;margin-bottom:8px;">卡尔马 <span style="font-size:0.7rem;color:#94a3b8;">联赛第12 · 18分 · 16场5胜3平8负</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>中卫 <strong>A.凯塔</strong> 跟腱断裂长期缺阵，中场 <strong>科内</strong> 膝伤缺阵，后防+锋线均有伤病</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>主场金身：7场不败(近6场5胜)、主场胜率63%列联赛第3、近6主场连续进2+球</span></div>
+        <div class="intel-item"><span class="dot yellow"></span><span>上轮客场2-3负哥德堡结束3场不败；周中主场2-2平布洛马</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅托尼·科斯基拉(芬兰) · 主场主打 <strong>541 防反</strong>，放弃控球打纵深反击+定位球</span></div>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#2ecc71;margin-bottom:8px;">哈马比 <span style="font-size:0.7rem;color:#94a3b8;">联赛第2 · 30分 · 16场9胜3平4负</span></div>
+        <div class="intel-item"><span class="dot yellow"></span><span>周中欧协联资格赛次回合 <strong>0-1 负琴斯托霍瓦被淘汰</strong>(总比分0-1)，一周双赛体能存疑</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>近5场联赛4胜1平，上轮3-0大胜赫根；亚伯拉罕8球、林6球、贝萨拉5球5助</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>客场疲软：本赛季客场2胜2平3负，客场胜率低、净胜球为负</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅亨里克·吕德斯特伦 · <strong>433 高位压迫传控</strong>，控球率55%+，双边路高速前插</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <div style="font-weight:700;margin-bottom:6px;">战术对位 + 战意</div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>风格对位：防反(541) vs 传控(433)</strong> — 反击理论上克制传控，但卡尔马防线伤兵满营削弱了反击执行质量</span></div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>预期节奏：偏保守</strong> — 卡尔马主场收缩拖慢节奏 + 哈马比一周双赛消耗</span></div>
+      <div class="intel-item"><span class="dot gray"></span><span><strong>战意：</strong>卡尔马「高涨」主场破对哈马比4连败魔咒(+0.15) vs 哈马比「正常」欧战出局后专注争冠</span></div>
+      <div class="intel-item"><span class="dot red"></span><span><strong>交锋历史：</strong>哈马比近6次联赛交手对卡尔马不败(5胜1平、近4次全胜，含7月主场2-0)</span></div>
+    </div>
+  </div>
+
+  <!-- PREDICTION REASONS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 预测原因（赛前逻辑）</div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>评级差距明显：</strong>哈马比 Elo 1733 vs 卡尔马 1512（相差约 220 分），第2名 vs 第12名的实力差距</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>状态反差：</strong>哈马比近5场联赛4胜1平 vs 卡尔马近5场2胜2平1负</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>交锋心理：</strong>哈马比近6次交手不败、近4次全胜，心理优势明显</span></div>
+    <div class="intel-item"><span class="dot red"></span><span><strong>卡尔马伤病：</strong>后防核心凯塔长期缺阵+锋线轮换深度不足，削弱主场反击效率</span></div>
+    <div class="intel-item"><span class="dot red"></span><span><strong>哈马比客场短板：</strong>客场2胜2平3负+欧战一周双赛，构成客胜的收敛因素（故主预测0-1而非0-2）</span></div>
+    <div class="intel-item"><span class="dot gray"></span><span><strong>单场随机性：</strong>模型仍给卡尔马主场保留24.8%爆冷空间（基于主场金身+反击克制传控）</span></div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎭</span> 赛前场景推演（实际走向：主路径）</div>
+    <div class="scenario primary">
+      <div style="font-weight:700;color:#2ecc71;">主路径：哈马比客场取胜（概率 ~52%）→ 实际发生 ✓</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">哈马比控球压制+锋线三叉戟高效，亚伯拉罕10'闪击，卡尔马防反因伤病执行打折，51'乌龙锁定2-0。实际：0-2 全取三分。</div>
+    </div>
+    <div class="scenario secondary">
+      <div style="font-weight:700;color:#3498db;">次路径：卡尔马主场爆冷/拿分（概率 ~25%）</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">利用主场金身+反击克制传控，罗森奎斯特/萨格边路反击得手，1-1或2-1。此路径未发生——卡尔马零封被攻破且没能进球。</div>
+    </div>
+    <div class="scenario cold">
+      <div style="font-weight:700;color:#95a5a6;">胶着路径：低比分平局（概率 ~23%）</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">哈马比欧战消耗体能下降，卡尔马龟缩+定位球搏平，1-1。此路径未发生——哈马比状态与专注度更优。</div>
+    </div>
+  </div>
+
+  <!-- UNCERTAINTY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚠️</span> 不确定性说明</div>
+    <ul style="list-style:none;font-size:0.85rem;color:#94a3b8;">
+      <li style="padding:4px 0;">• 本报告为赛后复盘：模型输出为「赛前预测」复现，用于验证模型逻辑，非赛后修正值</li>
+      <li style="padding:4px 0;">• 足球单场随机性极高，即使哈马比52%胜率也有近半概率不赢</li>
+      <li style="padding:4px 0;">• 卡尔马防线伤病的实际影响大于模型 Elo 修正(-12)所能体现</li>
+      <li style="padding:4px 0;">• 哈马比欧战出局后的专注度/士气变量无法完全量化</li>
+      <li style="padding:4px 0;">• 模型无法预测乌龙球（本场第2球为凯塔乌龙）等意外事件</li>
+    </ul>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📎</span> 数据来源</div>
+    <div style="font-size:0.8rem;color:#94a3b8;">
+      <div>• Scoresway / Tribuna.com — 比赛实际赛果、进球时间线 (2026-08-16)</div>
+      <div>• Forebet / Sports Mole — 赛前预测、积分榜、双方状态</div>
+      <div>• 网易体育(163.com) / titan007 / dszuqiu 中文前瞻 — 阵型、伤停、战术风格</div>
+      <div>• Soccerstats — 主客场数据、交手记录</div>
+      <div>• 本模型快照 — references/allsvenskan/teams.json · data/live/allsvenskan/</div>
+      <div style="margin-top:8px;color:#64748b;">数据采集时间: 2026-08-16（赛后）</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    本预测基于 Elo 评级 + 泊松模型 + 蒙特卡洛模拟生成，仅供娱乐参考。<br>
+    足球比赛单场随机性很高，任何预测都不构成确定性判断。
+  </div>
+</div>
+</body>
+</html>

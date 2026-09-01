@@ -1,0 +1,138 @@
+{
+  "match": {
+    "home": "WOL",
+    "away": "STK",
+    "date": "2026-08-29",
+    "round": 3,
+    "venue": "Molineux Stadium (Wolverhampton)",
+    "turf": "natural",
+    "significance": "英冠第3轮：英超降班马狼队主场迎战三战全败垫底的斯托克城【盲测回测：情报严格限于2026-08-29赛前】"
+  },
+  "context": "英冠第3轮，狼队主场迎战斯托克城。降班马狼队开局1胜1平不败（2-2布莱克本、客场3-1普雷斯顿）攻击力全开；斯托克两连败垫底（主场1-2斯旺西、客场1-3南安普顿）防线漏勺。Molineux午后开球，西米德兰兹地区德比气氛。",
+  "teams": {
+    "WOL": {
+      "code": "WOL",
+      "name_cn": "狼队",
+      "full_name": "Wolverhampton Wanderers",
+      "form": "平-胜",
+      "position": 6,
+      "points": 4,
+      "played": 2,
+      "goals_for": 5,
+      "goals_against": 3,
+      "elo_delta": 0,
+      "confidence": 0.75,
+      "notes": "赛前情报：英超降班马，阵容纸面实力英冠顶级；前两轮1胜1平不败轰5球，斯特兰德·拉森领衔的锋线火力全开；若昂·戈麦斯坐镇中场；主场Molineux声势大；唯一隐忧是防线也丢了3球",
+      "key_players": [
+        {
+          "name": "斯特兰德·拉森",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线核心，降级后留队的英冠顶级射手"
+        },
+        {
+          "name": "若昂·戈麦斯",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场屏障，英冠级别的控场能力"
+        }
+      ],
+      "injuries": []
+    },
+    "STK": {
+      "code": "STK",
+      "name_cn": "斯托克城",
+      "full_name": "Stoke City",
+      "form": "负-负",
+      "position": 24,
+      "points": 0,
+      "played": 2,
+      "goals_for": 2,
+      "goals_against": 5,
+      "elo_delta": 5,
+      "confidence": 0.6,
+      "notes": "赛前情报：两连败开局垫底，防线2场丢5球是最大问题；但阵容纸面实力高于当前战绩（陶工阵容中有曼霍夫等英冠级攻击手），存在触底反弹的绝地求生动力；客场作战韧性未知；elo_delta+5为对冲基准Elo中包含的本场后视偏差（赛前是两连败而非三连败）",
+      "key_players": [
+        {
+          "name": "曼霍夫",
+          "position": "边锋",
+          "status": "available",
+          "impact": "边路爆点，反击中的主要威胁源"
+        }
+      ],
+      "injuries": []
+    }
+  },
+  "h2h": {
+    "total_matches": "近年同级交手少",
+    "notes": "两队上次在英冠交手已是多年前，狼队历史交锋略占优；本场是西米德兰兹区域对抗"
+  },
+  "tactical": {
+    "WOL": {
+      "style": "possession",
+      "formation": "4-2-3-1",
+      "strengths": ["英冠顶级锋线火力", "主场Molineux气势", "中场控制力碾压多数英冠球队", "降班马整体协作成熟"],
+      "weaknesses": ["防线前两轮也丢3球", "降级后士气仍需证明", "对手大概率摆大巴需要破密集能力"],
+      "key_tactics": "控球压制+拉森支点，两翼传中与中路渗透结合，尽早破门避免久攻不下"
+    },
+    "STK": {
+      "style": "defensive_deep",
+      "formation": "5-3-2",
+      "strengths": ["绝地求生的战意", "曼霍夫反击速度", "背水一战无包袱"],
+      "weaknesses": ["防线2场丢5球信心崩塌", "客场对阵火力全开的降班马", "进攻端输出有限"],
+      "key_tactics": "五后卫深度防守+曼霍夫反击偷袭，定位球是次要得分手段"
+    }
+  },
+  "factors": [
+    {
+      "type": "squad_quality",
+      "description": "狼队英超级阵容 vs 斯托克中下游阵容，纸面差距悬殊",
+      "impact": 0.10,
+      "confidence": 0.85
+    },
+    {
+      "type": "attacking_form",
+      "description": "狼队2场5球火力全开 vs 斯托克2场丢5球防线漏勺，攻防错位",
+      "impact": 0.08,
+      "confidence": 0.8
+    },
+    {
+      "type": "home_advantage",
+      "description": "Molineux主场3万+球迷，降班马主场声势",
+      "impact": 0.06,
+      "confidence": 0.8
+    },
+    {
+      "type": "desperation_factor",
+      "description": "斯托克0分垫底背水一战，绝地反弹的战意与冷门可能",
+      "impact": -0.03,
+      "confidence": 0.55
+    },
+    {
+      "type": "big_game_risk",
+      "description": "狼队降级后对阵弱旅的专注度存疑（轻敌风险）",
+      "impact": -0.03,
+      "confidence": 0.55
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "狼队火力碾压",
+      "probability": 50,
+      "score": "2-0 或 3-1",
+      "description": "拉森领衔锋线早进球，斯托克防线崩盘惯性延续，控球碾压拿下"
+    },
+    {
+      "name": "顽强平局",
+      "probability": 28,
+      "score": "1-1 或 2-2",
+      "description": "斯托克五后卫收缩成功+曼霍夫反击偷一球，狼队破密集乏术被拖住"
+    },
+    {
+      "name": "客队爆冷",
+      "probability": 22,
+      "score": "0-1 或 1-2",
+      "description": "背水一战的陶工触底反弹，定位球或反击致命一击"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "special_factors": {
+    "european_qualification_distraction": {
+      "description": "欧冠/欧联/欧协联双线作战消耗",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_european_match"
+    }
+  },
+  "europe_teams": ["BAY", "BVB", "B04", "RBL", "FRG", "STU", "WOL"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["BAY", "BVB", "B04", "RBL", "FRG", "STU", "WOL", "SCF", "BMG", "UNI", "HOF", "MAI", "AUG", "BRE", "HEI", "HAM", "KOE", "DUS"]
+  }
+}

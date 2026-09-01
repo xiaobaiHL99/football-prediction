@@ -1,0 +1,41 @@
+{
+  "special_factors": {
+    "travel_distance": {
+      "description": "巴西幅员辽阔，跨区域旅行消耗体能",
+      "value": -0.08,
+      "apply_when": "home_region != away_region"
+    },
+    "heat_humidity_penalty": {
+      "description": "东北部高温高湿环境对客队的影响",
+      "value": 0.06,
+      "apply_when": "home_region == 'northeast' and away_region != 'northeast'"
+    },
+    "altitude_advantage": {
+      "description": "高海拔主场优势（虽然巴西海拔不高，但部分主场气候适应优势）",
+      "value": 0.05,
+      "apply_when": "home_region in ['centralwest'] and away_region not in ['centralwest']"
+    },
+    "libertadores_distraction": {
+      "description": "解放者杯双线作战消耗",
+      "value": -0.08,
+      "apply_when": "team_in_europe"
+    },
+    "artificial_turf_penalty": {
+      "description": "客队不适应人工草皮的惩罚",
+      "value": -0.10,
+      "apply_when": "home_turf == 'artificial' and away_turf == 'natural'"
+    }
+  },
+  "europe_teams": ["FLA", "PAL", "CAM", "INT", "FLU", "BOT"],
+  "turf_map": {
+    "artificial": ["CAP"],
+    "natural": ["FLA", "PAL", "CAM", "COR", "SAO", "INT", "GRE", "FLU", "BOT", "CRU", "FOR", "BAH", "RBK", "SAN", "VAS", "CUI", "JUV", "CRI", "VIT", "REM"]
+  },
+  "region_map": {
+    "southeast": ["FLA", "PAL", "CAM", "COR", "SAO", "FLU", "BOT", "CRU", "RBK", "SAN", "VAS"],
+    "south": ["INT", "GRE", "CAP", "JUV", "CRI"],
+    "northeast": ["FOR", "BAH", "VIT"],
+    "centralwest": ["CUI"],
+    "north": ["REM"]
+  }
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欧冠资格赛附加赛首回合 · 索菲亚列夫斯基 vs 雅典AEK · 赛前预测</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#131a2e; --panel2:#182140; --line:#223055;
+    --txt:#e8eef7; --sub:#9fb0c3; --dim:#6b7a90;
+    --home:#ffd24a; --away:#38bdf8; --draw:#9aa5b5; --accent:#4ade80;
+    --warn:#fbbf24; --danger:#f87171;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.55}
+  .wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:26px;letter-spacing:.5px;margin:6px 0 2px}
+  h2{font-size:18px;margin:34px 0 12px;padding-left:10px;border-left:4px solid var(--accent);color:#d8e6ff}
+  .sub{color:var(--sub);font-size:13px}
+  .tag{display:inline-block;background:#1b2547;border:1px solid var(--line);color:#b9c8e8;border-radius:20px;padding:2px 12px;font-size:12px;margin-right:6px}
+  /* 球场 */
+  .pitch{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);height:280px;margin:18px 0 4px;
+    background:
+      radial-gradient(120% 120% at 50% 0%, #243b2e 0%, #1a2e23 45%, #122218 100%);}
+  .pitch::after{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 2px,transparent 2px 90px),
+               repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 90px);
+    mix-blend-mode:overlay}
+  .mow{position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent 48%,rgba(255,255,255,.05) 49%,transparent 50%);}
+  .mow2{position:absolute;inset:0;background:linear-gradient(0deg,transparent 44%,rgba(255,255,255,.04) 45%,transparent 46%);}
+  .line{position:absolute;border:2px solid rgba(255,255,255,.5)}
+  .line.center{left:50%;top:0;bottom:0;transform:translateX(-50%)}
+  .line.half{left:50%;top:50%;width:90px;height:90px;transform:translate(-50%,-50%);border-radius:50%}
+  .line.box{width:150px;height:190px;border:2px solid rgba(255,255,255,.5)}
+  .line.box.b1{left:0;top:50%;transform:translateY(-50%);border-left:0;border-radius:0 8px 8px 0}
+  .line.box.b2{right:0;top:50%;transform:translateY(-50%);border-right:0;border-radius:8px 0 0 8px}
+  .line.area{width:70px;height:120px;border:2px solid rgba(255,255,255,.5)}
+  .line.area.a1{left:0;top:50%;transform:translateY(-50%);border-left:0;border-radius:0 6px 6px 0}
+  .line.area.a2{right:0;top:50%;transform:translateY(-50%);border-right:0;border-radius:6px 0 0 6px}
+  .goal{position:absolute;width:56px;height:16px;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.45)}
+  .goal.g1{left:-2px;top:50%;transform:translateY(-50%);border-left:0}
+  .goal.g2{right:-2px;top:50%;transform:translateY(-50%);border-right:0}
+  /* 记分牌 */
+  .scoreboard{position:relative;z-index:2;background:linear-gradient(180deg,#0d1322,#0a0f1c);border:1px solid #2a3a5c;
+    border-radius:14px;box-shadow:0 12px 34px rgba(0,0,0,.5);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .sb-team{flex:1;min-width:140px;text-align:center}
+  .sb-team .cn{font-size:17px;font-weight:700}
+  .sb-team .en{font-size:11px;color:var(--dim);letter-spacing:.4px}
+  .sb-mid{text-align:center}
+  .sb-score{font-size:44px;font-weight:800;letter-spacing:2px;font-family:"Courier New",monospace;color:#fff;
+    text-shadow:0 0 18px rgba(77,220,120,.45)}
+  .sb-time{font-size:11px;color:var(--warn);letter-spacing:1px;margin-top:2px;background:#2a1f08;border:1px solid #574214;border-radius:4px;padding:1px 8px}
+  .sb-label{font-size:10px;color:var(--dim);margin-top:6px;letter-spacing:1px}
+  .prob-chip{font-size:12px;color:#cfe0ff;margin-top:4px}
+  .home-dot{color:var(--home);font-weight:700}.away-dot{color:var(--away);font-weight:700}.draw-dot{color:var(--draw)}
+  /* 卡片 */
+  .grid{display:grid;gap:12px;margin-top:14px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card h3{font-size:14px;color:#bcd0f4;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .big{font-size:34px;font-weight:800;color:#fff}
+  .big small{font-size:14px;color:var(--sub);font-weight:400}
+  .num{font-size:20px;font-weight:700}
+  .bar{display:flex;height:26px;border-radius:6px;overflow:hidden;margin:8px 0;font-size:12px;font-weight:700}
+  .bar div{display:flex;align-items:center;justify-content:center;color:#0b1020;min-width:44px}
+  .bar .h{background:var(--home)}.bar .d{background:var(--draw);color:#fff}.bar .a{background:var(--away)}
+  .legend{font-size:12px;color:var(--sub);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}
+  .legend b{color:var(--txt)}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #1d2942}
+  th{color:var(--dim);font-weight:600;font-size:12px}
+  td .pct{float:right;color:#cfe0ff;font-weight:600}
+  ul{list-style:none;padding-left:0}
+  li{padding:7px 0 7px 20px;position:relative;font-size:13.5px;color:#d7e2f3;border-bottom:1px dashed #1d2942}
+  li:last-child{border-bottom:none}
+  li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .factor{border-left:3px solid var(--warn);background:#1a1c24;padding:10px 12px;border-radius:0 8px 8px 0;margin:10px 0;font-size:13px;color:#e6ddc2}
+  .note{font-size:12px;color:var(--dim)}
+  .badge{display:inline-block;padding:1px 8px;border-radius:4px;font-size:11px;font-weight:700}
+  .b-home{background:#5a4a10;color:var(--home)} .b-away{background:#123c54;color:var(--away)} .b-draw{background:#2a3242;color:var(--draw)}
+  .sources{font-size:12px;color:var(--sub);word-break:break-all}
+  .sources a{color:#7fb3ff;text-decoration:none}
+  .sources li::before{content:"↗";color:#7fb3ff}
+  .disclaimer{background:#161b2c;border:1px solid #2a3450;border-radius:10px;padding:14px;margin-top:26px;font-size:12.5px;color:#aebbd4}
+  .kv{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #1d2942;font-size:13px}
+  .kv span{color:var(--sub)} .kv b{color:#e6eefb}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="sub">UEFA Champions League 2026-27 · 资格赛附加赛 · 首回合</div>
+  <h1>索菲亚列夫斯基 <span style="color:var(--dim);font-weight:400">vs</span> 雅典AEK</h1>
+  <div style="margin-top:8px">
+    <span class="tag">理性预测</span>
+    <span class="tag">生成 2026-08-18</span>
+    <span class="tag">场地 索菲亚·国家体育场</span>
+    <span class="tag">次回合 08-26 雅典</span>
+  </div>
+
+  <!-- 球场 + 比分牌 -->
+  <div class="pitch">
+    <div class="mow"></div><div class="mow2"></div>
+    <div class="line center"></div><div class="line half"></div>
+    <div class="line box b1"></div><div class="line box b2"></div>
+    <div class="line area a1"></div><div class="line area a2"></div>
+    <div class="goal g1"></div><div class="goal g2"></div>
+  </div>
+
+  <div class="scoreboard">
+    <div class="sb-team">
+      <div class="cn">索菲亚列夫斯基</div>
+      <div class="en">Levski Sofia · 保加利亚</div>
+      <div class="prob-chip"><span class="home-dot">胜 40.2%</span></div>
+    </div>
+    <div class="sb-mid">
+      <div class="sb-score">2 - 1</div>
+      <div class="sb-time">⚽ 预测比分 · 最高概率赛果:主胜</div>
+      <div class="sb-label">预计于 2026-08-18 21:00 (当地)</div>
+    </div>
+    <div class="sb-team">
+      <div class="cn">雅典AEK</div>
+      <div class="en">AEK Athens · 希腊</div>
+      <div class="prob-chip"><span class="away-dot">胜 35.8%</span></div>
+    </div>
+  </div>
+  <div class="sub" style="text-align:center;margin-top:6px">平局 24.1% · 预期进球 1.53 - 1.41 · 模拟概率最高的单一比分:1-1(11.2%)</div>
+
+  <!-- 核心结论 -->
+  <h2>核心结论</h2>
+  <div class="grid g3">
+    <div class="card"><h3>主预测赛果</h3><div class="big">主胜 <small>40.2%</small></div>
+      <div class="note">索菲亚列夫斯基不败(双选1X)合计 64.3%</div></div>
+    <div class="card"><h3>主预测比分</h3><div class="big">2-1 <small>8.6%</small></div>
+      <div class="note">单一最高概率比分 1-1(11.2%),仅作比分参考</div></div>
+    <div class="card"><h3>预期进球</h3><div class="num">1.53 <span style="color:var(--sub)">:</span> 1.41</div>
+      <div class="note">总进球期望 2.94 · 市场大小球 2.5 偏小</div></div>
+  </div>
+
+  <!-- 预测原因 -->
+  <h2>预测原因</h2>
+  <div class="card">
+    <ul>
+      <li><b>评级与赛程位置:</b> AEK 纸面更强(希腊冠军,注入 Elo 1660 vs 1520),但本场是两回合附加赛首回合,AEK 客场求稳,倾向把决胜放到 08-26 雅典主场。</li>
+      <li><b>主场堡垒:</b> 列夫斯基欧战资格赛 6 场 4 零封、主场 3 胜 0 失球,5 月至今不败(13-17 场),防守是最大资本。</li>
+      <li><b>状态/节奏差:</b> 列夫斯基连打 6 场欧战 + 3 场联赛,磨合充分;AEK 本赛季仅 1 场正式比赛(超级杯 2-2 点球负),阵容大换血(皮内达/柳比西奇/扬松离队、新援磨合),近 5 客场仅 1 胜。</li>
+      <li><b>战术克制:</b> 列夫斯基紧凑防反(counter)克制 AEK 控球体系(possession),AEK 控球率可能虚高但威胁有限,模型施加了无效控球惩罚。</li>
+      <li><b>盘口互证:</b> 市场 AEK 仅让平半(-0.25),模型预期让球差 +0.26,分歧 +0.51,诱盘评分 1.1 判定为正常盘口,采信权重 0.30,小幅向市场回调后仍偏主队。</li>
+      <li><b>随机性边界:</b> 单场足球随机性极高,AEK 阵容个体质量(Jović/马林)仍能制造冷门;40.2% 不等于稳胜。</li>
+    </ul>
+  </div>
+
+  <!-- 详细预测 -->
+  <h2>详细预测</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="card">
+      <h3>胜 / 平 / 负 概率</h3>
+      <div class="bar">
+        <div class="h" style="width:40.2%">主 40.2%</div>
+        <div class="d" style="width:24.1%">平 24.1%</div>
+        <div class="a" style="width:35.8%">客 35.8%</div>
+      </div>
+      <div class="legend">
+        <span><b class="home-dot">■</b> 列夫斯基胜 40.2%</span>
+        <span><b class="draw-dot">■</b> 平局 24.1%</span>
+        <span><b class="away-dot">■</b> AEK胜 35.8%</span>
+      </div>
+      <div class="kv"><span>概率收缩</span><b>常态</b></div>
+      <div class="kv"><span>模型置信度</span><b>0.80</b></div>
+    </div>
+    <div class="card">
+      <h3>比分分布 Top 5</h3>
+      <table>
+        <tr><th>比分</th><th>方向</th><th>概率</th></tr>
+        <tr><td><b>1-1</b></td><td><span class="badge b-draw">平</span></td><td class="pct">11.2%</td></tr>
+        <tr><td><b>2-1</b></td><td><span class="badge b-home">主</span></td><td class="pct">8.6%</td></tr>
+        <tr><td><b>1-0</b></td><td><span class="badge b-home">主</span></td><td class="pct">8.1%</td></tr>
+        <tr><td><b>1-2</b></td><td><span class="badge b-away">客</span></td><td class="pct">7.9%</td></tr>
+        <tr><td><b>0-1</b></td><td><span class="badge b-away">客</span></td><td class="pct">7.4%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>球员可用性 & 状态修正</h3>
+    <div class="kv"><span>列夫斯基</span><b>-14 Elo</b><span class="note">Kirilov(膝)+Vulikić(脚)大概率缺阵;Sangare/Bouras/Kamdem 出战成疑;Grujić 新援随队</span></div>
+    <div class="kv"><span>雅典AEK</span><b>-7 Elo</b><span class="note">Vitalis 杯赛资格限制;皮内达/柳比西奇/扬松离队,Arriaga 等新援磨合</span></div>
+    <div class="kv"><span>列夫斯基状态</span><b>火热 +0.12</b><span class="note">欧战 6 场 10 进 3 失 4 零封,主场合计 3 胜 0 失</span></div>
+    <div class="kv"><span>AEK状态</span><b>中性</b><span class="note">赛季仅 1 场正式比赛,缺比赛节奏</span></div>
+  </div>
+
+  <!-- 情报摘要 -->
+  <h2>情报摘要</h2>
+  <div class="card">
+    <ul>
+      <li><b>战术对位:</b> 列夫斯基(防反) vs AEK(传控) — 反击克制传控(+0.20),AEK 控球或难转化为威胁(-0.25 无效控球惩罚),整体 <b>谨慎格局(-0.15)</b>。</li>
+      <li><b>战意:</b> 列夫斯基<b>高涨(+0.15)</b> — 17 年来首度冲击欧冠正赛,主场不败金身;AEK 正常 — 客场求稳待次回合。</li>
+      <li><b>场地:</b> 索菲亚国家体育场(Vasil Levski)承接本场,主队球迷助威+防线纪律是关键变量。</li>
+      <li><b>赛制:</b> 两回合附加赛,胜者进欧冠联赛阶段,败者掉入欧联联赛阶段 — 双方均有强烈动机但倾向谨慎。</li>
+      <li><b>盘口:</b> AEK -0.25(平半)/大小 2.5 看小;公开投注 61% 押 AEK 但资金流仅 46%,聪明钱倾向列夫斯基 +0.25。</li>
+    </ul>
+  </div>
+
+  <!-- 场景推演 -->
+  <h2>场景推演</h2>
+  <div class="card">
+    <div class="factor"><b>🅰 主队正常剧本(概率最大 ~40%):</b> 列夫斯基靠定位球/快速转换先声夺人,AEK 控球但渗透乏力,终场 1-0/2-1,为次回合奠定主动。</div>
+    <div class="factor"><b>🅱 低比分胶着(合计 ~24%):</b> 双方都谨慎,A 组"铁桶"与 AEK 生疏互相抵消,0-0/1-1 收场,次回合雅典定生死。</div>
+    <div class="factor"><b>🅲 冷门路径(~36%):</b> Jović/马林个体爆发,或列夫斯基防线一次失误,AEK 客场抢下 1-0/2-1,把列夫斯基逼入客场绝境。</div>
+  </div>
+
+  <!-- 结果敏感点 -->
+  <h2>结果敏感点</h2>
+  <div class="card">
+    <ul>
+      <li>开场 15 分钟是否出现早进球 — 会显著打开/收紧比赛节奏。</li>
+      <li>列夫斯基 2 名主力伤缺(左后卫位置 Maicon 复出与否)影响防守厚度。</li>
+      <li>AEK 新援中场 Arriaga 是否首发及其比赛感觉。</li>
+      <li>红牌/点球等一次性事件,或裁判尺度(瑞典主裁 Nyberg)。</li>
+    </ul>
+  </div>
+
+  <!-- 数据新鲜度 -->
+  <h2>数据新鲜度 & 来源</h2>
+  <div class="card">
+    <div class="kv"><span>数据快照</span><b>2026-08-18 (比赛日)</b></div>
+    <div class="kv"><span>Elo 来源</span><b>离线快照注入 + 市场共识校准(AEK 为新增)</b></div>
+    <div class="kv"><span>战术/伤停</span><b>基于赛前媒体预览与球队季前信息,可信度中高</b></div>
+    <div class="kv"><span>缺失说明</span><b>双方均为欧冠资格赛新对阵,无历史交锋;AEK 正式比赛样本仅 1 场</b></div>
+  </div>
+
+  <div class="disclaimer">
+    <b>免责声明:</b> 本预测为娱乐/分析用途,不构成任何投注建议或确定性判断。足球单场随机性很高,强队高概率不等于稳胜。赛前情报为有界修正,非确定性结论。模型与市场存在分歧(模型偏主队、市场偏 AEK),正是分歧意味着不确定性更大。
+  </div>
+
+  <h2>来源</h2>
+  <div class="card sources">
+    <ul>
+      <li>Sports Mole — <a href="https://www.sportsmole.co.uk/football/levski-sofia/champions-league/preview/levski-sofia-vs-aek-athens-prediction-team-news-lineups_603126.html">Levski Sofia vs AEK Athens preview, team news, lineups</a></li>
+      <li>新浪体育 — <a href="https://sports.sina.com.cn/g/2026-08-18/doc-inintpir7398724.shtml">欧冠:索非亚列夫斯基状态强势 AEK雅典表现稳定</a></li>
+      <li>163 — <a href="https://www.163.com/dy/article/L4IU52HQ0556P87I.html">欧冠附加赛:索菲亚列夫斯基不败金身硬扛雅典AEK</a></li>
+      <li>Championat — <a href="https://www.championat.com/bets/article-6585740-levski-aek-afiny-prognoz-i-stavka-na-match-ligi-chempionov-18-avgusta-2026-goda.html">Левски — АЕК прогноз и ставка</a></li>
+      <li>dszuqiu — <a href="https://www.dszuqiu.com/articles/lottery/2098979.html">周二欧冠杯:索菲亚列夫斯基VS雅典AEK</a></li>
+      <li>Fox Sports odds — <a href="https://www.foxsports.com/soccer/champions-league-levski-sofia-vs-aek-athens-aug-18-2026-game-boxscore-962538?tab=odds">Levski Sofia vs AEK Athens odds</a></li>
+      <li>Forebet — <a href="https://www.forebet.com/fr/football/matches/levski-sofia-aek-2518715">Levski Sofia - AEK prediction</a></li>
+      <li>gazzetta — <a href="https://www.gazzetta.gr/football/champions-league/2562050/lefski-sofias-aek-rythmos-enantion-klasis-i-pithani-endekada-toy">Η πιθανή ενδεκάδα του Νίκολιτς</a></li>
+    </ul>
+    <p style="margin-top:8px">情报采集时间:2026-08-18 · 模型:Elo → 泊松比分 → 概率收缩,叠加战术对位/战意/状态/盘口修正</p>
+  </div>
+
+</div>
+</body>
+</html>

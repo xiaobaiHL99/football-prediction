@@ -1,0 +1,106 @@
+{
+  "special_factors": {
+    "travel_distance": {
+      "description": "长途客场旅行对客队体能和状态的影响",
+      "value": -0.08,
+      "apply_when": "home_region != away_region"
+    },
+    "midweek_schedule_compact": {
+      "description": "欧战+周末联赛的紧密赛程对状态影响",
+      "value": -0.06,
+      "apply_when": "team_in_europe"
+    },
+    "weather_difference": {
+      "description": "北/南欧温差对客队适应影响",
+      "value": -0.05,
+      "apply_when": "abs(home_region_index - away_region_index) >= 2"
+    }
+  },
+  "europe_teams": [
+    "PSG",
+    "BAY",
+    "RMA",
+    "LIV",
+    "INT",
+    "MCI",
+    "ARS",
+    "BAR",
+    "ATM",
+    "BVB",
+    "ROM",
+    "SPO",
+    "AVL",
+    "POR",
+    "MUN",
+    "CLB",
+    "BET",
+    "PSV",
+    "FEY",
+    "LIL",
+    "BOD",
+    "NAP",
+    "RBL",
+    "VIL",
+    "FEN",
+    "SHA",
+    "GAL",
+    "SLP",
+    "SLO",
+    "STU",
+    "AEK",
+    "LIN",
+    "COM",
+    "LEN",
+    "VIK",
+    "SABH"
+  ],
+  "turf_map": {
+    "artificial": [
+      "BOD"
+    ],
+    "natural": [
+      "PSG",
+      "BAY",
+      "RMA",
+      "LIV",
+      "INT",
+      "MCI",
+      "ARS",
+      "BAR",
+      "ATM",
+      "BVB",
+      "ROM",
+      "SPO",
+      "AVL",
+      "POR",
+      "MUN",
+      "CLB",
+      "BET",
+      "PSV",
+      "FEY",
+      "LIL",
+      "NAP",
+      "RBL",
+      "VIL",
+      "FEN",
+      "SHA",
+      "GAL",
+      "SLP",
+      "SLO",
+      "STU",
+      "AEK",
+      "LIN",
+      "COM",
+      "LEN",
+      "VIK",
+      "SABH"
+    ]
+  },
+  "region_index": {
+    "north": 0,
+    "central": 1,
+    "northwest": 1,
+    "southwest": 2,
+    "centralwest": 2
+  }
+}

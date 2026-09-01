@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>波兹南莱赫 vs 图恩 · 欧联附加赛首回合预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 50% -10%, rgba(56,139,253,.22), transparent 60%),linear-gradient(180deg,#1a2a3d,#152336 55%,#12202f)}
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%)}
+  .pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px)}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+
+  .scoreboard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:min(600px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:16px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--home);background:rgba(248,81,73,.12)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div>
+      <div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+
+      <div class="scoreboard">
+        <div class="sb-top">
+          <span class="sb-tag">预测比分 · PREDICTION</span>
+          <span>欧联附加赛 · 首回合 · 2026-08-20</span>
+        </div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">波兹南莱赫</div><div class="en">Lech Poznań</div></div>
+          <div class="sb-score">2 : 1</div>
+          <div class="sb-team"><div class="cn">图恩</div><div class="en">FC Thun</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：波兹南莱赫占优（主胜）· 单一最高概率比分 2-1 见下方"比分分布参考" · 已含盘口修正</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>53.0%</b>主胜</div>
+          <div class="sb-p p-draw"><b>21.3%</b>平局</div>
+          <div class="sb-p p-away"><b>25.7%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Enea Stadion · Poznań · 次回合 2026-08-27 @ Stockhorn Arena, Thun</div>
+    </div>
+  </div>
+
+  <!-- ===== 标题区 ===== -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">欧足联欧洲联赛 · 附加赛（Play-off）首回合 · 2026-27</div>
+        <h1 style="font-size:24px;margin-top:2px">波兹南莱赫 vs 图恩</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（欧联 teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag warn">波兹南锋线危机（伊沙克/戈利扎德伤缺）</span>
+      <span class="tag blue">图恩客场连败·欧战两客场丢7球</span>
+      <span class="tag red">弱弱对话·方差放大</span>
+      <span class="tag">首次交锋</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#f85149">波兹南莱赫占优（主胜 53.0%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">2 : 1 <span class="muted" style="font-size:13px">（方向性最优比分 · 9.5%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">2 : 1（主胜 · 9.5%）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">波兹南莱赫 2.07 — 1.27 图恩</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">波兹南莱赫 1560（-21） · 图恩 1500（-11）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">对阵博彩模型</div><div class="v small">市场主胜约 1.54（隐含 ~63%）+ 主让一球 → 本模型 53.0%，方向一致但认为主胜概率略被高估</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>波兹南莱赫胜</span><span>53.0%</span></div><div class="bar"><div class="seg" style="width:53.0%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>21.3%</span></div><div class="bar"><div class="seg" style="width:21.3%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>图恩胜</span><span>25.7%</span></div><div class="bar"><div class="seg" style="width:25.7%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 盘口分析与诱盘判定 ===== -->
+  <div class="card">
+    <h2>盘口分析与诱盘判定</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">市场盘口</div><div class="v">波兹南莱赫 主让一球（-1.0）· 水位 0.90 / 0.87</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型让球差 vs 市场</div><div class="v small">模型 +0.730 vs 市场主让 1.000 → 分歧 -0.270（市场略深于模型）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">诱盘评分</div><div class="v"><span class="tag good">1.0 · 正常盘口</span> 方向一致、分歧小，水位均衡，无明显诱盘信号 → 高采信</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">市场权重 / 修正因子</div><div class="v">0.30 · factor +0.036（小幅向市场收敛）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">xG 调整</div><div class="v">2.040 / 1.310 → <b>2.072 / 1.270</b>（微抬主、压客）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">主让一球盘下，若升盘一球/球半（-1.25）或主水跌破 0.85 → 市场对主队信心增强；若回落半/一（-0.75）→ 认可图恩客场韧性</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">盘口为赛前情报的有界修正，非确定性结论。本场市场主让一球与模型方向一致（模型让球差 +0.73），分歧仅 -0.27 → 判定正常盘口，权重采信 0.30，模型与市场互证，主队取胜方向置信度较高。</p>
+  </div>
+
+  <!-- ===== 预测原因 ===== -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>波兹南状态火热</b>：近 4 连胜 + 3 零封（欧联 Q3 总比分 6-0 克拉克斯维克），近 10 场 8 胜 1 平 1 负，主场近 12 场仅 1 负 → 状态修正 +0.12。</li>
+      <li><b>锋线危机是最大隐患</b>：队长/中锋伊沙克腿筋伤大概率缺阵两回合（中英情报冲突，按缺阵保守处理），Gholizadeh ACL 赛季报销、Moutinho 脚伤、Jagiello/Bengtsson 伤疑 → 全队 Elo -21；18 岁 Szymczak 或 Sayyadmanesh 顶锋线，攻击力打折。</li>
+      <li><b>图恩客场崩塌</b>：近 3 客场全败，本赛季欧战两客场全败（2-3 维京人 / 2-4 巴塞尔）丢 7 球；主力前锋 Rastoder 转会离队，Labo 腿筋存疑；中卫 Montolio ACL 赛季报销 + 后腰 Kait 缺阵 → -11 Elo。</li>
+      <li><b>战术对位</b>：主队传控围攻 vs 图恩客场防反 → 反击克制传控（+0.20 客 / -0.20 主），图恩理论上有反击空间，但自身防线漏勺难守住。</li>
+      <li><b>战意</b>：波兹南主场必须首回合锁定优势，Enea Stadion 超 4 万球迷 + 4 连胜士气 → 高涨（+0.15）；图恩客场求保平少负、回主场再搏 → 正常。</li>
+      <li><b>历史参考</b>：两队首次交锋；图恩 2013-14 赛季以来未进欧战正赛/联赛阶段，欧战经验有限。</li>
+      <li><b>弱弱对话</b>：双方平均 Elo 低于阈值 → 方差放大，冷门空间存在。</li>
+    </ul>
+  </div>
+
+  <!-- ===== 详细预测 ===== -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">波兹南莱赫胜</div><div class="v" style="color:#f85149">53.0%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">21.3%</div></div>
+      <div class="kv"><div class="k">图恩胜</div><div class="v" style="color:#388bfd">25.7%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard hl"><div class="s">2 : 1</div><div class="p">9.5% · 主预测</div></div>
+        <div class="scard"><div class="s">1 : 1</div><div class="p">9.2%</div></div>
+        <div class="scard"><div class="s">2 : 0</div><div class="p">7.6%</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">7.3%</div></div>
+        <div class="scard"><div class="s">3 : 1</div><div class="p">6.6%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">主预测比分与最高概率方向（主胜）一致取 2-1，也是单一最高概率比分；但 1-1 紧随其后，图恩偷分风险不低。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag red">波兹南 -21 Elo（伊沙克/戈利扎德/莫蒂尼奥伤缺）</span><span class="tag blue">图恩 -11 Elo（Montolio/Kait 缺阵+锋线流失）</span></div>
+      <div style="margin-top:8px"><span class="tag">波兹南状态火热 +0.12</span><span class="tag">波兹南战意高涨 +0.15</span><span class="tag">反击克制传控 +0.20/-0.20</span><span class="tag">弱弱对话·方差放大</span><span class="tag">周中紧凑赛程</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">波兹南莱赫 · 高涨（+0.15）</div><div class="v small">波甲冠军主场必须首回合锁定优势，Enea Stadion 超 4 万球迷，4 连胜士气正盛</div></div>
+        <div class="kv"><div class="k">图恩 · 正常（0）</div><div class="v small">客场弱旅求保平/少负，回瑞士主场再搏；但连输欧战客场信心受挫</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 赛前情报摘要 ===== -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>波兹南莱赫</th><th>图恩</th></tr>
+      <tr><td>主帅</td><td>弗雷德里克森（Frederiksen）</td><td>詹-卢卡·普里维特利（Gian-Luca Privitelli）</td></tr>
+      <tr><td>阵型</td><td>4-3-3</td><td>4-4-2 / 5-3-2 灵活</td></tr>
+      <tr><td>战术风格</td><td>传控 + 边路冲击 · 主场火力全开</td><td>客场防反 + 定位球 · 防线漏勺</td></tr>
+      <tr><td>晋级之路</td><td>欧冠资格赛失利后入欧联；欧联 Q3 总比分 6-0 克拉克斯维克</td><td>瑞士超冠军；欧联 Q3 总比分 5-3 维京人（主 3-0 / 客 2-3）</td></tr>
+      <tr><td>伤停</td><td>伊沙克（腿筋·缺阵存疑）；Gholizadeh（ACL 赛季报销）；Moutinho（脚伤）；Jagiello/Bengtsson 伤疑</td><td>Montolio（中卫·ACL 赛季报销）；Kait（后腰·肌肉伤）；Labo（前锋·腿筋存疑）；Burki 伤疑</td></tr>
+      <tr><td>关键球员</td><td>瓦尔马克、帕尔马、Sayyadmanesh（顶锋线）、新援 Berggren（中场首秀）</td><td>斯特芬（门将）、罗特、里希穆特、卡迪乌</td></tr>
+      <tr><td>身价</td><td colspan="2">波兹南约 €5750 万 vs 图恩约 €1555 万（约 3.7:1）</td></tr>
+      <tr><td>主场/客场</td><td>主场近 12 场仅 1 负 · Enea Stadion 超 4 万球迷</td><td>近 3 客场全败 · 欧战两客场丢 7 球</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">高：Sports Mole / 网易 / footballpredictions / zerozero 一致；伊沙克是否出场存在中英情报冲突，已按缺阵保守处理</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 场景推演 ===== -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 主队火力全开</div><div class="v small">波兹南控场围攻，Sayyadmanesh/瓦尔马克破门 → 2-0 / 3-1，首回合基本锁定晋级</div></div>
+      <div class="kv"><div class="k">路径 B · 图恩反击偷分</div><div class="v small">图恩定位球/反击抓主队锋线生疏，首回合偷平或小负 → 1-1 / 2-1，悬念留到瑞士次回合</div></div>
+      <div class="kv"><div class="k">路径 C · 冷门翻盘</div><div class="v small">弱弱对话方差放大，图恩客场爆冷 → 1-2 / 0-1，波兹南次回合客场翻盘压力巨大</div></div>
+    </div>
+  </div>
+
+  <!-- ===== 不确定性说明 ===== -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场三向概率 53.0% / 21.3% / 25.7%，主胜居首但"弱弱对话"方差放大，冷门空间高于普通主强客弱局。模型边界：① 伊沙克是否缺阵存在中英情报冲突，若他出场则主队进攻预期显著上调；② 波兹南"欧冠资格赛被淘汰"路径与数据快照存在出入，Elo 校准基于欧联快照 1560；③ 图恩客场丢球数据（欧战两客场丢 7 球）样本小，方差大；④ 反击克制传控的 -0.20/+0.20 修正幅度依情报主观设定。单场随机性高，本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <!-- ===== 数据与情报来源 ===== -->
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">Sports Mole · Lech Poznan vs Thun 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/lech-poznan/europa-league/preview/lech-poznan-vs-thun-prediction-team-news-lineups_603240.html</li>
+      <li class="src">网易 · 波兹南莱赫主场迎战图恩，锋线危机与遭遇战悬念并存 — https://www.163.com/dy/article/L4OG70S10556P87I.html</li>
+      <li class="src">网易 · 队长伤了锋线乱了，这附加赛怎么打？ — https://www.163.com/dy/article/L4OHB8A20556P009.html</li>
+      <li class="src">网易 · 欧联杯附加赛针尖对麦芒：波兹南主场静候图恩 — https://www.163.com/dy/article/L4O3N5KG0556OW0H.html</li>
+      <li class="src">FootballPredictions · Prediction & Betting Tips — https://footballpredictions.com/footballpredictions/europaleaguepredictions/lech-poznan-vs-thun-prediction-20-08-2026/</li>
+      <li class="src">7msport · 亚盘赔率走势 — https://live.7msport.com/oddshistory/index_en.shtml?matchId=5166310</li>
+      <li class="src">zerozero · Antevisão / Onzes Prováveis — https://www.zerozero.pt/jogo/2026-08-20-lech-poznan-fc-thun/12378180</li>
+      <li class="src">Forebet · Prediction & Stats — https://www.forebet.com/br/football/matches/lech-poznan-fc-thun-2518737</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

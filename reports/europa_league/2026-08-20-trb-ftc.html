@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特拉布宗 vs 弗伦茨瓦罗斯 · 欧联附加赛首回合预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 50% -10%, rgba(56,139,253,.22), transparent 60%),linear-gradient(180deg,#1a2a3d,#152336 55%,#12202f)}
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%)}
+  .pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px)}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+
+  .scoreboard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:min(600px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:16px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--home);background:rgba(248,81,73,.12)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div>
+      <div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+
+      <div class="scoreboard">
+        <div class="sb-top">
+          <span class="sb-tag">预测比分 · PREDICTION</span>
+          <span>欧联附加赛 · 首回合 · 2026-08-20</span>
+        </div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">特拉布宗</div><div class="en">Trabzonspor</div></div>
+          <div class="sb-score">2 : 1</div>
+          <div class="sb-team"><div class="cn">弗伦茨瓦罗斯</div><div class="en">Ferencváros</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：特拉布宗占优（主胜）· 单一最高概率比分 1-1 见下方"比分分布参考" · 已含盘口修正</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>41.1%</b>主胜</div>
+          <div class="sb-p p-draw"><b>31.1%</b>平局</div>
+          <div class="sb-p p-away"><b>27.9%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Papara Park (Şenol Güneş) · Trabzon · 次回合 2026-08-27 @ Groupama Arena, Budapest</div>
+    </div>
+  </div>
+
+  <!-- ===== 标题区 ===== -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">欧足联欧洲联赛 · 附加赛（Play-off）首回合 · 2026-27</div>
+        <h1 style="font-size:24px;margin-top:2px">特拉布宗 vs 弗伦茨瓦罗斯</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（欧联 teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag warn">萨拉赫本场有望首次首发</span>
+      <span class="tag blue">费伦茨客场欧战不败</span>
+      <span class="tag red">特拉布宗720天未踢欧战·仅1场正式赛</span>
+      <span class="tag">反击克制传控</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#f85149">特拉布宗占优（主胜 41.1%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">2 : 1 <span class="muted" style="font-size:13px">（方向性最优比分 · 9.3%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">1 : 1（平局 · 10.4%）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">特拉布宗 1.79 — 1.32 弗伦茨瓦罗斯</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">特拉布宗 1580（-11） · 弗伦茨瓦罗斯 1540（-7）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">对阵博彩模型</div><div class="v small">市场主胜隐含约 62%（欧赔 1.62 + 主让半/一）→ 本模型更保守（41.1%），认为市场高估生疏的主队</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>特拉布宗胜</span><span>41.1%</span></div><div class="bar"><div class="seg" style="width:41.1%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>31.1%</span></div><div class="bar"><div class="seg" style="width:31.1%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>弗伦茨瓦罗斯胜</span><span>27.9%</span></div><div class="bar"><div class="seg" style="width:27.9%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 盘口分析与诱盘判定 ===== -->
+  <div class="card">
+    <h2>盘口分析与诱盘判定</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">市场盘口</div><div class="v">特拉布宗 主让半/一（-0.75）· 水位 0.79 / 1.03</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型让球差 vs 市场</div><div class="v small">模型 +0.428 vs 市场主让 0.750 → 分歧 -0.322（市场比模型更看好主队）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">诱盘评分</div><div class="v"><span class="tag warn">3.0 · 疑似分歧</span> 市场让球深于模型预期 + 主队低水（0.79）强化主胜引导，疑借萨拉赫/主场声势造热</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">市场权重 / 修正因子</div><div class="v">0.15 · factor +0.022（仅小幅向市场收敛）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">xG 调整</div><div class="v">1.771 / 1.343 → <b>1.793 / 1.321</b>（微抬主、压客）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">若升盘至一球（-1.0）或主水跌破 0.75 → 市场对特拉布宗信心增强；若回落半球（-0.5）或客水走低 → 认可费伦茨客场韧性</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">盘口为赛前情报的有界修正，非确定性结论。市场主让半/一 + 欧赔 1.62 隐含约 62% 主胜，模型仅 41.1% —— 分歧主要来自模型对主队"720 天未踢欧战 + 赛季仅 1 场正式赛 + 3 名中后场伤缺"的生疏折损，以及费伦茨本赛季欧战客场不败的韧性，模型认为市场高估了主队。</p>
+  </div>
+
+  <!-- ===== 预测原因 ===== -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>萨拉赫首次首发是最大变量</b>：联赛首轮替补 30 分钟即贡献全场最高 xG + 8 次传中，主帅法提赫·泰克"可能首发"；若首发，主队进攻威胁显著升级。</li>
+      <li><b>特拉布宗比赛生疏</b>：约 720 天未踢欧战，赛季仅 1 场正式赛（客平卡斯帕萨 1-1）；Batagov、Jabol-Folcarelli（膝）+ Muci（腿筋）伤缺，Yokuşlu 状态不足 → 全队 Elo -11。</li>
+      <li><b>费伦茨客场韧性</b>：本赛季欧战客场不败（胜伏伊伏丁那、特温特，平戈尔尼克），6 场资格赛 4 胜 2 平进 11 球，比赛感觉远胜主队（9 场 vs 1 场）→ 状态火热（+0.06）。</li>
+      <li><b>战术对位</b>：主队传控围攻 vs 费伦茨客场反击 → 反击克制传控（+0.20 客 / -0.20 主）；客队保平即可次回合主场决胜。</li>
+      <li><b>战意</b>：特拉布宗约 720 天来首个欧战主场之夜，帕帕拉公园满场 → 高涨（+0.15）；费伦茨已保底欧协联联赛阶段、压力较小 → 正常。</li>
+      <li><b>历史参考</b>：两队 2022-23 欧联小组赛两回合各自主场 1-0 获胜；欧战淘汰赛首次交锋。</li>
+      <li><b>校准规则</b>：近均衡局押主队 → 平局概率上修 +0.08。</li>
+    </ul>
+  </div>
+
+  <!-- ===== 详细预测 ===== -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">特拉布宗胜</div><div class="v" style="color:#f85149">41.1%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">31.1%</div></div>
+      <div class="kv"><div class="k">弗伦茨瓦罗斯胜</div><div class="v" style="color:#388bfd">27.9%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard hl"><div class="s">1 : 1</div><div class="p">10.4% · 分布参考</div></div>
+        <div class="scard main"><div class="s">2 : 1</div><div class="p">9.3% · 主预测</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">8.0%</div></div>
+        <div class="scard"><div class="s">2 : 0</div><div class="p">7.2%</div></div>
+        <div class="scard"><div class="s">1 : 2</div><div class="p">6.9%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">主预测比分与最高概率方向（主胜）一致取 2-1；单一最高概率比分 1-1（平）仅作分布参考。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag blue">特拉布宗 -11 Elo（Batagov/Jabol-Folcarelli/Muci 伤缺+Yokuslu 状态不足）</span><span class="tag">费伦茨 -7 Elo（长期伤员）</span></div>
+      <div style="margin-top:8px"><span class="tag">特拉布宗战意高涨 +0.15</span><span class="tag">反击克制传控 +0.20/-0.20</span><span class="tag">费伦茨状态火热 +0.06</span><span class="tag">近均衡押主队向平局收缩</span><span class="tag">跨区域长途旅行双方消耗</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">特拉布宗 · 高涨（+0.15）</div><div class="v small">约 720 天来首个欧战主场之夜，帕帕拉公园满场，首回合必须拿下；萨拉赫首发带来的期待感</div></div>
+        <div class="kv"><div class="k">弗伦茨瓦罗斯 · 正常（0）</div><div class="v small">已保底欧协联联赛阶段，压力较小但目标直指欧联；客场求稳防反，次回合主场再发力</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 赛前情报摘要 ===== -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>特拉布宗</th><th>弗伦茨瓦罗斯</th></tr>
+      <tr><td>主帅</td><td>法提赫·泰克（Fatih Tekke）</td><td>鲍拉日·博尔贝伊（Balázs Borbély）</td></tr>
+      <tr><td>阵型</td><td>4-2-3-1 / 4-3-3</td><td>4-3-3 / 4-2-3-1</td></tr>
+      <tr><td>战术风格</td><td>传控围攻 + 边路传中（萨拉赫/奥努阿楚高点）</td><td>客场防反 + 定位球 · 快速转换（扎卡里亚森/约瑟夫）</td></tr>
+      <tr><td>晋级之路</td><td>土耳其杯冠军直接进入附加赛</td><td>欧联资格赛 Q3 淘汰戈尔尼克扎布热（总 2-1）</td></tr>
+      <tr><td>伤停</td><td>Batagov（膝）/Jabol-Folcarelli（膝）/Muci（腿筋）缺；Yokuşlu 状态不足</td><td>无新伤，仅 Osváth/Otvos 长期缺席</td></tr>
+      <tr><td>关键球员</td><td>萨拉赫（或首发）、奥努阿楚（上季 22 球）、奥纳纳（门将）</td><td>迪布斯（门将）、扎卡里亚森、约瑟夫、卡迪乌</td></tr>
+      <tr><td>身价</td><td colspan="2">特拉布宗约 €1.14-1.56 亿 vs 弗伦茨约 €3400-4000 万（约 4:1）</td></tr>
+      <tr><td>赛程</td><td>本场后 3 天客战伊斯坦布尔（联赛）</td><td>周末联赛轮空，全力备战次回合</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">高：Sports Mole / leballonrond / 网易 / 球探一致，首发与伤停信息齐备</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 场景推演 ===== -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 萨拉赫首秀建功</div><div class="v small">萨拉赫首发激活进攻，奥努阿楚高点破门，主场控场取胜 → 2-1 / 2-0，次回合占先</div></div>
+      <div class="kv"><div class="k">路径 B · 客队铁桶偷分</div><div class="v small">费伦茨反击 + 定位球抓主队生疏失误，首回合偷平/小负 → 1-1 / 1-2，回到布达佩斯翻盘</div></div>
+      <div class="kv"><div class="k">路径 C · 低比分胶着</div><div class="v small">双方谨慎、主队得势不得分，0-0 / 1-1 → 分布参考 1-1，晋级悬念留到次回合</div></div>
+    </div>
+  </div>
+
+  <!-- ===== 不确定性说明 ===== -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场三向概率 41.1% / 31.1% / 27.9%，主胜虽居首但远非市场认为的那样一边倒。模型边界：① 萨拉赫是否首发存在"可能"的不确定性，若首发则主队进攻预期显著上调；② 特拉布宗仅 1 场正式赛，比赛节奏/体能状态难以精确量化，长期未踢欧战的心理冲击也未计入；③ 费伦茨 Elo 用 ucl_qualifying 市场校准值 1540（弃用欧联快照旧低值 1460），存在校准误差；④ 反击克制传控的 -0.20/+0.20 修正幅度依情报主观设定。单场随机性高，本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <!-- ===== 数据与情报来源 ===== -->
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">Sports Mole · Trabzonspor vs Ferencvaros 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/trabzonspor/preview/trabzonspor-vs-ferencvaros-prediction-team-news-lineups_603216.html</li>
+      <li class="src">leballonrond · Analyse & Cotes Probables — https://www.leballonrond.fr/match/2026-08-20-trabzonspor-ferencvaros/12378172</li>
+      <li class="src">网易 · 特拉布宗主场迎战费伦茨瓦罗斯，萨拉赫首发出战成最大变量 — https://www.163.com/dy/article/L4OFDTSB0556P9NN.html</li>
+      <li class="src">网易 · 欧联杯附加赛土匈对决：特拉布宗主场死磕费伦茨瓦罗斯 — https://www.163.com/dy/article/L4OE8MQD0556ORKV.html</li>
+      <li class="src">球探体育 · 亚盘让球/欧赔/大小球分析 — https://m.titan007.com/Analy/Analysis/3064801.htm</li>
+      <li class="src">titan007 · 亚赔变化表 — http://vip.titan007.com/changeDetail/multiHandicap.aspx?id=1417922&companyid=12&n=2</li>
+      <li class="src">stats24 · Odds, Stats, H2H — https://www.stats24.com/football/trabzonspor-vs-ferencvaros/3348628</li>
+      <li class="src">Soccernews · Prediction — https://www.soccernews.com/prediction-trabzonspor-vs-ferencvaros/403498/</li>
+      <li class="src">Action Network · Odds & Live Scores — https://www.actionnetwork.com/europa-game/ferencvaros-trabzonspor/295957</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

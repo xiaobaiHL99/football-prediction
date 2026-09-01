@@ -1,0 +1,124 @@
+{
+  "matches": [
+    {
+      "home": "RAC",
+      "away": "VIL",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "ESP",
+      "away": "LEV",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "DEP",
+      "away": "ELC",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "ATM",
+      "away": "MGA",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "BET",
+      "away": "RSO",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "ATH",
+      "away": "SEV",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "ESP",
+      "away": "RMA",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "ATM",
+      "away": "VIL",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "OSA",
+      "away": "LEV",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "MGA",
+      "away": "DEP",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "VAL",
+      "away": "BET",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "RMA",
+      "away": "RSO",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "BAR",
+      "away": "ATH",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "RAC",
+      "away": "ELC",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "RSO",
+      "away": "ESP",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "SEV",
+      "away": "ATM",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "RMA",
+      "away": "MGA",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "LEV",
+      "away": "BET",
+      "hg": 5,
+      "ag": 2
+    },
+    {
+      "home": "CEL",
+      "away": "ATH",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "DEP",
+      "away": "VAL",
+      "hg": 3,
+      "ag": 1
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "matches": [
+    {
+      "home": "USG",
+      "away": "BOD",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "home": "SPA",
+      "away": "OL",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "OLY",
+      "away": "NEC",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "MJA",
+      "away": "SLO",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "AGF",
+      "away": "SAB",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "FEN",
+      "away": "STU",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "KRT",
+      "away": "LEV",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "BOD",
+      "away": "USG",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "SAB",
+      "away": "AGF",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "SLO",
+      "away": "MJA",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "CEJ",
+      "away": "ARM",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "LEV",
+      "away": "AEK",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "ZAG",
+      "away": "VIK",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "FEN",
+      "away": "OL",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "CEL",
+      "away": "LASK",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "NEC",
+      "away": "BOD",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "SLO",
+      "away": "CEJ",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "LASK",
+      "away": "CEL",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "BOD",
+      "away": "NEC",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "AEK",
+      "away": "LEV",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "CEJ",
+      "away": "SLO",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "VIK",
+      "away": "ZAG",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "OL",
+      "away": "FEN",
+      "hg": 1,
+      "ag": 2
+    }
+  ]
+}

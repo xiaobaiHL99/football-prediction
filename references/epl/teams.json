@@ -1,0 +1,190 @@
+{
+  "_meta": {
+    "league": "Premier League",
+    "season": "2026-27",
+    "updated_at": "2026-08-21T00:00:00Z",
+    "note": "Elo ratings initial calibration aligned with champions_league/europa_league snapshots for shared clubs (MCI/LIV/ARS/TOT/MUN/CHE); promoted sides (COV/IPS/HUL) at bottom tier. Relegated 2025-26: Wolves/Burnley/West Ham. Adjustable via elo_updater."
+  },
+  "teams": {
+    "MCI": {
+      "name": "Manchester City",
+      "name_cn": "曼彻斯特城",
+      "elo": 1930,
+      "city": "Manchester",
+      "stadium": "Etihad Stadium",
+      "color": "skyblue",
+      "notes": "曼城蓝月，瓜迪奥拉传控王朝，争冠最大热门"
+    },
+    "LIV": {
+      "name": "Liverpool",
+      "name_cn": "利物浦",
+      "elo": 1890,
+      "city": "Liverpool",
+      "stadium": "Anfield",
+      "color": "red",
+      "notes": "斯洛特红军，高位逼抢+快速转换，安菲尔德魔鬼主场"
+    },
+    "ARS": {
+      "name": "Arsenal",
+      "name_cn": "阿森纳",
+      "elo": 1870,
+      "city": "London",
+      "stadium": "Emirates Stadium",
+      "color": "red",
+      "notes": "阿尔特塔枪手，连续多年争冠，定位球犀利"
+    },
+    "TOT": {
+      "name": "Tottenham Hotspur",
+      "name_cn": "托特纳姆热刺",
+      "elo": 1850,
+      "city": "London",
+      "stadium": "Tottenham Hotspur Stadium",
+      "color": "blue",
+      "notes": "热刺白百合，攻势足球，欧战常客"
+    },
+    "MUN": {
+      "name": "Manchester United",
+      "name_cn": "曼联",
+      "elo": 1820,
+      "city": "Manchester",
+      "stadium": "Old Trafford",
+      "color": "red",
+      "notes": "红魔重建期，阵容身价高但发挥起伏大"
+    },
+    "CHE": {
+      "name": "Chelsea",
+      "name_cn": "切尔西",
+      "elo": 1800,
+      "city": "London",
+      "stadium": "Stamford Bridge",
+      "color": "blue",
+      "notes": "蓝军阿布时代后持续投入，年轻阵容潜力大"
+    },
+    "NEW": {
+      "name": "Newcastle United",
+      "name_cn": "纽卡斯尔联",
+      "elo": 1720,
+      "city": "Newcastle",
+      "stadium": "St James' Park",
+      "color": "black",
+      "notes": "喜鹊沙特资本加持，圣詹姆斯公园氛围火爆，争四档"
+    },
+    "AVL": {
+      "name": "Aston Villa",
+      "name_cn": "阿斯顿维拉",
+      "elo": 1700,
+      "city": "Birmingham",
+      "stadium": "Villa Park",
+      "color": "blue",
+      "notes": "维拉埃梅里时代进步明显，欧战经验丰富"
+    },
+    "BHA": {
+      "name": "Brighton & Hove Albion",
+      "name_cn": "布莱顿",
+      "elo": 1670,
+      "city": "Brighton",
+      "stadium": "Amex Stadium",
+      "color": "blue",
+      "notes": "海鸥数据化引援典范，技术流中场厚度足"
+    },
+    "NFO": {
+      "name": "Nottingham Forest",
+      "name_cn": "诺丁汉森林",
+      "elo": 1650,
+      "city": "Nottingham",
+      "stadium": "City Ground",
+      "color": "red",
+      "notes": "森林近年强势崛起，主场反击高效"
+    },
+    "LEE": {
+      "name": "Leeds United",
+      "name_cn": "利兹联",
+      "elo": 1620,
+      "city": "Leeds",
+      "stadium": "Elland Road",
+      "color": "white",
+      "notes": "白玫瑰埃兰路主场狂热，攻势足球"
+    },
+    "BOU": {
+      "name": "AFC Bournemouth",
+      "name_cn": "伯恩茅斯",
+      "elo": 1610,
+      "city": "Bournemouth",
+      "stadium": "Vitality Stadium",
+      "color": "red",
+      "notes": "樱桃高位逼抢，伊劳拉时代稳居中游"
+    },
+    "FUL": {
+      "name": "Fulham",
+      "name_cn": "富勒姆",
+      "elo": 1600,
+      "city": "London",
+      "stadium": "Craven Cottage",
+      "color": "black",
+      "notes": "农场主伦敦西区球队，技术流中场"
+    },
+    "SUN": {
+      "name": "Sunderland",
+      "name_cn": "桑德兰",
+      "elo": 1595,
+      "city": "Sunderland",
+      "stadium": "Stadium of Light",
+      "color": "red",
+      "notes": "黑猫青年军打法积极，主场光明球场"
+    },
+    "CRY": {
+      "name": "Crystal Palace",
+      "name_cn": "水晶宫",
+      "elo": 1590,
+      "city": "London",
+      "stadium": "Selhurst Park",
+      "color": "blue",
+      "notes": "老鹰防守反击，塞尔赫斯特公园主场难攻"
+    },
+    "BRE": {
+      "name": "Brentford",
+      "name_cn": "布伦特福德",
+      "elo": 1585,
+      "city": "London",
+      "stadium": "Gtech Community Stadium",
+      "color": "red",
+      "notes": "蜜蜂数据流小球会，定位球与反击出色"
+    },
+    "EVE": {
+      "name": "Everton",
+      "name_cn": "埃弗顿",
+      "elo": 1565,
+      "city": "Liverpool",
+      "stadium": "Everton Stadium",
+      "color": "blue",
+      "notes": "太妃糖默西塞德德比一方，防守硬朗保级为主"
+    },
+    "COV": {
+      "name": "Coventry City",
+      "name_cn": "考文垂",
+      "elo": 1530,
+      "city": "Coventry",
+      "stadium": "Coventry Building Society Arena",
+      "color": "skyblue",
+      "notes": "英冠冠军升班马，兰帕德执教，25年后回归英超"
+    },
+    "IPS": {
+      "name": "Ipswich Town",
+      "name_cn": "伊普斯维奇",
+      "elo": 1515,
+      "city": "Ipswich",
+      "stadium": "Portman Road",
+      "color": "blue",
+      "notes": "英冠亚军升班马，一年后重回英超，防守反击"
+    },
+    "HUL": {
+      "name": "Hull City",
+      "name_cn": "赫尔城",
+      "elo": 1505,
+      "city": "Kingston upon Hull",
+      "stadium": "MKM Stadium",
+      "color": "orange",
+      "notes": "英冠附加赛冠军升班马，时隔多年回归，中下游保级档"
+    }
+  }
+}

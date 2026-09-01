@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# 数据缓存（API 响应缓存，不入库）
+data/cache/
+
+# 配置备份文件（调参自动备份，不入库）
+*.backup.json
+*.backup_*
+
+# 临时试验脚本
+_tmp*.py

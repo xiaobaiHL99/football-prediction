@@ -1,0 +1,1486 @@
+[
+  {
+    "home": "NAN",
+    "away": "BOU"
+  },
+  {
+    "home": "MET",
+    "away": "NCL"
+  },
+  {
+    "home": "MTP",
+    "away": "MRT"
+  },
+  {
+    "home": "STE",
+    "away": "ETG"
+  },
+  {
+    "home": "RED",
+    "away": "DIJ"
+  },
+  {
+    "home": "REI",
+    "away": "LAV"
+  },
+  {
+    "home": "ROD",
+    "away": "SOC"
+  },
+  {
+    "home": "ANN",
+    "away": "PAU"
+  },
+  {
+    "home": "GUI",
+    "away": "CLE"
+  },
+  {
+    "home": "NCL",
+    "away": "NAN"
+  },
+  {
+    "home": "BOU",
+    "away": "MRT"
+  },
+  {
+    "home": "MET",
+    "away": "ETG"
+  },
+  {
+    "home": "STE",
+    "away": "LAV"
+  },
+  {
+    "home": "RED",
+    "away": "SOC"
+  },
+  {
+    "home": "REI",
+    "away": "PAU"
+  },
+  {
+    "home": "ROD",
+    "away": "CLE"
+  },
+  {
+    "home": "ANN",
+    "away": "GRE"
+  },
+  {
+    "home": "GUI",
+    "away": "DNK"
+  },
+  {
+    "home": "NAN",
+    "away": "MRT"
+  },
+  {
+    "home": "NCL",
+    "away": "ETG"
+  },
+  {
+    "home": "BOU",
+    "away": "DIJ"
+  },
+  {
+    "home": "MET",
+    "away": "LAV"
+  },
+  {
+    "home": "MTP",
+    "away": "SOC"
+  },
+  {
+    "home": "STE",
+    "away": "PAU"
+  },
+  {
+    "home": "RED",
+    "away": "CLE"
+  },
+  {
+    "home": "REI",
+    "away": "GRE"
+  },
+  {
+    "home": "ROD",
+    "away": "DNK"
+  },
+  {
+    "home": "ANN",
+    "away": "GUI"
+  },
+  {
+    "home": "ETG",
+    "away": "NAN"
+  },
+  {
+    "home": "MRT",
+    "away": "DIJ"
+  },
+  {
+    "home": "NCL",
+    "away": "LAV"
+  },
+  {
+    "home": "BOU",
+    "away": "SOC"
+  },
+  {
+    "home": "MET",
+    "away": "PAU"
+  },
+  {
+    "home": "MTP",
+    "away": "CLE"
+  },
+  {
+    "home": "STE",
+    "away": "GRE"
+  },
+  {
+    "home": "RED",
+    "away": "DNK"
+  },
+  {
+    "home": "REI",
+    "away": "GUI"
+  },
+  {
+    "home": "ROD",
+    "away": "ANN"
+  },
+  {
+    "home": "NAN",
+    "away": "DIJ"
+  },
+  {
+    "home": "ETG",
+    "away": "LAV"
+  },
+  {
+    "home": "MRT",
+    "away": "SOC"
+  },
+  {
+    "home": "NCL",
+    "away": "PAU"
+  },
+  {
+    "home": "BOU",
+    "away": "CLE"
+  },
+  {
+    "home": "MET",
+    "away": "GRE"
+  },
+  {
+    "home": "MTP",
+    "away": "DNK"
+  },
+  {
+    "home": "STE",
+    "away": "GUI"
+  },
+  {
+    "home": "RED",
+    "away": "ANN"
+  },
+  {
+    "home": "REI",
+    "away": "ROD"
+  },
+  {
+    "home": "LAV",
+    "away": "NAN"
+  },
+  {
+    "home": "DIJ",
+    "away": "SOC"
+  },
+  {
+    "home": "ETG",
+    "away": "PAU"
+  },
+  {
+    "home": "MRT",
+    "away": "CLE"
+  },
+  {
+    "home": "NCL",
+    "away": "GRE"
+  },
+  {
+    "home": "BOU",
+    "away": "DNK"
+  },
+  {
+    "home": "MTP",
+    "away": "ANN"
+  },
+  {
+    "home": "STE",
+    "away": "ROD"
+  },
+  {
+    "home": "RED",
+    "away": "REI"
+  },
+  {
+    "home": "NAN",
+    "away": "SOC"
+  },
+  {
+    "home": "LAV",
+    "away": "PAU"
+  },
+  {
+    "home": "DIJ",
+    "away": "CLE"
+  },
+  {
+    "home": "ETG",
+    "away": "GRE"
+  },
+  {
+    "home": "MRT",
+    "away": "DNK"
+  },
+  {
+    "home": "NCL",
+    "away": "GUI"
+  },
+  {
+    "home": "BOU",
+    "away": "ANN"
+  },
+  {
+    "home": "MET",
+    "away": "ROD"
+  },
+  {
+    "home": "MTP",
+    "away": "REI"
+  },
+  {
+    "home": "STE",
+    "away": "RED"
+  },
+  {
+    "home": "PAU",
+    "away": "NAN"
+  },
+  {
+    "home": "SOC",
+    "away": "CLE"
+  },
+  {
+    "home": "LAV",
+    "away": "GRE"
+  },
+  {
+    "home": "DIJ",
+    "away": "DNK"
+  },
+  {
+    "home": "ETG",
+    "away": "GUI"
+  },
+  {
+    "home": "MRT",
+    "away": "ANN"
+  },
+  {
+    "home": "NCL",
+    "away": "ROD"
+  },
+  {
+    "home": "BOU",
+    "away": "REI"
+  },
+  {
+    "home": "MET",
+    "away": "RED"
+  },
+  {
+    "home": "MTP",
+    "away": "STE"
+  },
+  {
+    "home": "NAN",
+    "away": "CLE"
+  },
+  {
+    "home": "PAU",
+    "away": "GRE"
+  },
+  {
+    "home": "SOC",
+    "away": "DNK"
+  },
+  {
+    "home": "LAV",
+    "away": "GUI"
+  },
+  {
+    "home": "DIJ",
+    "away": "ANN"
+  },
+  {
+    "home": "ETG",
+    "away": "ROD"
+  },
+  {
+    "home": "MRT",
+    "away": "REI"
+  },
+  {
+    "home": "NCL",
+    "away": "RED"
+  },
+  {
+    "home": "BOU",
+    "away": "STE"
+  },
+  {
+    "home": "MET",
+    "away": "MTP"
+  },
+  {
+    "home": "GRE",
+    "away": "NAN"
+  },
+  {
+    "home": "CLE",
+    "away": "DNK"
+  },
+  {
+    "home": "PAU",
+    "away": "GUI"
+  },
+  {
+    "home": "SOC",
+    "away": "ANN"
+  },
+  {
+    "home": "LAV",
+    "away": "ROD"
+  },
+  {
+    "home": "DIJ",
+    "away": "REI"
+  },
+  {
+    "home": "ETG",
+    "away": "RED"
+  },
+  {
+    "home": "MRT",
+    "away": "STE"
+  },
+  {
+    "home": "NCL",
+    "away": "MTP"
+  },
+  {
+    "home": "BOU",
+    "away": "MET"
+  },
+  {
+    "home": "NAN",
+    "away": "DNK"
+  },
+  {
+    "home": "GRE",
+    "away": "GUI"
+  },
+  {
+    "home": "CLE",
+    "away": "ANN"
+  },
+  {
+    "home": "PAU",
+    "away": "ROD"
+  },
+  {
+    "home": "SOC",
+    "away": "REI"
+  },
+  {
+    "home": "LAV",
+    "away": "RED"
+  },
+  {
+    "home": "DIJ",
+    "away": "STE"
+  },
+  {
+    "home": "ETG",
+    "away": "MTP"
+  },
+  {
+    "home": "MRT",
+    "away": "MET"
+  },
+  {
+    "home": "NCL",
+    "away": "BOU"
+  },
+  {
+    "home": "GUI",
+    "away": "NAN"
+  },
+  {
+    "home": "DNK",
+    "away": "ANN"
+  },
+  {
+    "home": "GRE",
+    "away": "ROD"
+  },
+  {
+    "home": "PAU",
+    "away": "RED"
+  },
+  {
+    "home": "LAV",
+    "away": "MTP"
+  },
+  {
+    "home": "DIJ",
+    "away": "MET"
+  },
+  {
+    "home": "ETG",
+    "away": "BOU"
+  },
+  {
+    "home": "MRT",
+    "away": "NCL"
+  },
+  {
+    "home": "NAN",
+    "away": "ANN"
+  },
+  {
+    "home": "GUI",
+    "away": "ROD"
+  },
+  {
+    "home": "DNK",
+    "away": "REI"
+  },
+  {
+    "home": "GRE",
+    "away": "RED"
+  },
+  {
+    "home": "CLE",
+    "away": "STE"
+  },
+  {
+    "home": "PAU",
+    "away": "MTP"
+  },
+  {
+    "home": "SOC",
+    "away": "MET"
+  },
+  {
+    "home": "LAV",
+    "away": "BOU"
+  },
+  {
+    "home": "DIJ",
+    "away": "NCL"
+  },
+  {
+    "home": "ETG",
+    "away": "MRT"
+  },
+  {
+    "home": "ROD",
+    "away": "NAN"
+  },
+  {
+    "home": "ANN",
+    "away": "REI"
+  },
+  {
+    "home": "GUI",
+    "away": "RED"
+  },
+  {
+    "home": "DNK",
+    "away": "STE"
+  },
+  {
+    "home": "GRE",
+    "away": "MTP"
+  },
+  {
+    "home": "CLE",
+    "away": "MET"
+  },
+  {
+    "home": "PAU",
+    "away": "BOU"
+  },
+  {
+    "home": "SOC",
+    "away": "NCL"
+  },
+  {
+    "home": "LAV",
+    "away": "MRT"
+  },
+  {
+    "home": "DIJ",
+    "away": "ETG"
+  },
+  {
+    "home": "NAN",
+    "away": "REI"
+  },
+  {
+    "home": "ROD",
+    "away": "RED"
+  },
+  {
+    "home": "ANN",
+    "away": "STE"
+  },
+  {
+    "home": "GUI",
+    "away": "MTP"
+  },
+  {
+    "home": "DNK",
+    "away": "MET"
+  },
+  {
+    "home": "GRE",
+    "away": "BOU"
+  },
+  {
+    "home": "CLE",
+    "away": "NCL"
+  },
+  {
+    "home": "PAU",
+    "away": "MRT"
+  },
+  {
+    "home": "SOC",
+    "away": "ETG"
+  },
+  {
+    "home": "LAV",
+    "away": "DIJ"
+  },
+  {
+    "home": "RED",
+    "away": "NAN"
+  },
+  {
+    "home": "REI",
+    "away": "STE"
+  },
+  {
+    "home": "ROD",
+    "away": "MTP"
+  },
+  {
+    "home": "ANN",
+    "away": "MET"
+  },
+  {
+    "home": "GUI",
+    "away": "BOU"
+  },
+  {
+    "home": "DNK",
+    "away": "NCL"
+  },
+  {
+    "home": "GRE",
+    "away": "MRT"
+  },
+  {
+    "home": "CLE",
+    "away": "ETG"
+  },
+  {
+    "home": "PAU",
+    "away": "DIJ"
+  },
+  {
+    "home": "SOC",
+    "away": "LAV"
+  },
+  {
+    "home": "NAN",
+    "away": "STE"
+  },
+  {
+    "home": "RED",
+    "away": "MTP"
+  },
+  {
+    "home": "REI",
+    "away": "MET"
+  },
+  {
+    "home": "ROD",
+    "away": "BOU"
+  },
+  {
+    "home": "ANN",
+    "away": "NCL"
+  },
+  {
+    "home": "GUI",
+    "away": "MRT"
+  },
+  {
+    "home": "DNK",
+    "away": "ETG"
+  },
+  {
+    "home": "GRE",
+    "away": "DIJ"
+  },
+  {
+    "home": "CLE",
+    "away": "LAV"
+  },
+  {
+    "home": "PAU",
+    "away": "SOC"
+  },
+  {
+    "home": "MTP",
+    "away": "NAN"
+  },
+  {
+    "home": "STE",
+    "away": "MET"
+  },
+  {
+    "home": "RED",
+    "away": "BOU"
+  },
+  {
+    "home": "REI",
+    "away": "NCL"
+  },
+  {
+    "home": "ROD",
+    "away": "MRT"
+  },
+  {
+    "home": "ANN",
+    "away": "ETG"
+  },
+  {
+    "home": "GUI",
+    "away": "DIJ"
+  },
+  {
+    "home": "DNK",
+    "away": "LAV"
+  },
+  {
+    "home": "GRE",
+    "away": "SOC"
+  },
+  {
+    "home": "CLE",
+    "away": "PAU"
+  },
+  {
+    "home": "NAN",
+    "away": "MET"
+  },
+  {
+    "home": "MTP",
+    "away": "BOU"
+  },
+  {
+    "home": "STE",
+    "away": "NCL"
+  },
+  {
+    "home": "RED",
+    "away": "MRT"
+  },
+  {
+    "home": "REI",
+    "away": "ETG"
+  },
+  {
+    "home": "ROD",
+    "away": "DIJ"
+  },
+  {
+    "home": "ANN",
+    "away": "LAV"
+  },
+  {
+    "home": "GUI",
+    "away": "SOC"
+  },
+  {
+    "home": "DNK",
+    "away": "PAU"
+  },
+  {
+    "home": "GRE",
+    "away": "CLE"
+  },
+  {
+    "home": "BOU",
+    "away": "NAN"
+  },
+  {
+    "home": "NCL",
+    "away": "MET"
+  },
+  {
+    "home": "MRT",
+    "away": "MTP"
+  },
+  {
+    "home": "ETG",
+    "away": "STE"
+  },
+  {
+    "home": "DIJ",
+    "away": "RED"
+  },
+  {
+    "home": "LAV",
+    "away": "REI"
+  },
+  {
+    "home": "SOC",
+    "away": "ROD"
+  },
+  {
+    "home": "CLE",
+    "away": "GUI"
+  },
+  {
+    "home": "GRE",
+    "away": "DNK"
+  },
+  {
+    "home": "NAN",
+    "away": "NCL"
+  },
+  {
+    "home": "MRT",
+    "away": "BOU"
+  },
+  {
+    "home": "ETG",
+    "away": "MET"
+  },
+  {
+    "home": "DIJ",
+    "away": "MTP"
+  },
+  {
+    "home": "LAV",
+    "away": "STE"
+  },
+  {
+    "home": "SOC",
+    "away": "RED"
+  },
+  {
+    "home": "PAU",
+    "away": "REI"
+  },
+  {
+    "home": "CLE",
+    "away": "ROD"
+  },
+  {
+    "home": "GRE",
+    "away": "ANN"
+  },
+  {
+    "home": "DNK",
+    "away": "GUI"
+  },
+  {
+    "home": "MRT",
+    "away": "NAN"
+  },
+  {
+    "home": "ETG",
+    "away": "NCL"
+  },
+  {
+    "home": "DIJ",
+    "away": "BOU"
+  },
+  {
+    "home": "LAV",
+    "away": "MET"
+  },
+  {
+    "home": "SOC",
+    "away": "MTP"
+  },
+  {
+    "home": "PAU",
+    "away": "STE"
+  },
+  {
+    "home": "CLE",
+    "away": "RED"
+  },
+  {
+    "home": "GRE",
+    "away": "REI"
+  },
+  {
+    "home": "DNK",
+    "away": "ROD"
+  },
+  {
+    "home": "GUI",
+    "away": "ANN"
+  },
+  {
+    "home": "NAN",
+    "away": "ETG"
+  },
+  {
+    "home": "DIJ",
+    "away": "MRT"
+  },
+  {
+    "home": "LAV",
+    "away": "NCL"
+  },
+  {
+    "home": "SOC",
+    "away": "BOU"
+  },
+  {
+    "home": "PAU",
+    "away": "MET"
+  },
+  {
+    "home": "CLE",
+    "away": "MTP"
+  },
+  {
+    "home": "GRE",
+    "away": "STE"
+  },
+  {
+    "home": "DNK",
+    "away": "RED"
+  },
+  {
+    "home": "GUI",
+    "away": "REI"
+  },
+  {
+    "home": "ANN",
+    "away": "ROD"
+  },
+  {
+    "home": "DIJ",
+    "away": "NAN"
+  },
+  {
+    "home": "LAV",
+    "away": "ETG"
+  },
+  {
+    "home": "SOC",
+    "away": "MRT"
+  },
+  {
+    "home": "PAU",
+    "away": "NCL"
+  },
+  {
+    "home": "CLE",
+    "away": "BOU"
+  },
+  {
+    "home": "GRE",
+    "away": "MET"
+  },
+  {
+    "home": "DNK",
+    "away": "MTP"
+  },
+  {
+    "home": "GUI",
+    "away": "STE"
+  },
+  {
+    "home": "ANN",
+    "away": "RED"
+  },
+  {
+    "home": "ROD",
+    "away": "REI"
+  },
+  {
+    "home": "NAN",
+    "away": "LAV"
+  },
+  {
+    "home": "SOC",
+    "away": "DIJ"
+  },
+  {
+    "home": "PAU",
+    "away": "ETG"
+  },
+  {
+    "home": "CLE",
+    "away": "MRT"
+  },
+  {
+    "home": "GRE",
+    "away": "NCL"
+  },
+  {
+    "home": "DNK",
+    "away": "BOU"
+  },
+  {
+    "home": "GUI",
+    "away": "MET"
+  },
+  {
+    "home": "ANN",
+    "away": "MTP"
+  },
+  {
+    "home": "ROD",
+    "away": "STE"
+  },
+  {
+    "home": "REI",
+    "away": "RED"
+  },
+  {
+    "home": "SOC",
+    "away": "NAN"
+  },
+  {
+    "home": "PAU",
+    "away": "LAV"
+  },
+  {
+    "home": "CLE",
+    "away": "DIJ"
+  },
+  {
+    "home": "GRE",
+    "away": "ETG"
+  },
+  {
+    "home": "DNK",
+    "away": "MRT"
+  },
+  {
+    "home": "GUI",
+    "away": "NCL"
+  },
+  {
+    "home": "ANN",
+    "away": "BOU"
+  },
+  {
+    "home": "ROD",
+    "away": "MET"
+  },
+  {
+    "home": "REI",
+    "away": "MTP"
+  },
+  {
+    "home": "RED",
+    "away": "STE"
+  },
+  {
+    "home": "NAN",
+    "away": "PAU"
+  },
+  {
+    "home": "CLE",
+    "away": "SOC"
+  },
+  {
+    "home": "GRE",
+    "away": "LAV"
+  },
+  {
+    "home": "DNK",
+    "away": "DIJ"
+  },
+  {
+    "home": "GUI",
+    "away": "ETG"
+  },
+  {
+    "home": "ANN",
+    "away": "MRT"
+  },
+  {
+    "home": "ROD",
+    "away": "NCL"
+  },
+  {
+    "home": "REI",
+    "away": "BOU"
+  },
+  {
+    "home": "RED",
+    "away": "MET"
+  },
+  {
+    "home": "STE",
+    "away": "MTP"
+  },
+  {
+    "home": "CLE",
+    "away": "NAN"
+  },
+  {
+    "home": "GRE",
+    "away": "PAU"
+  },
+  {
+    "home": "DNK",
+    "away": "SOC"
+  },
+  {
+    "home": "GUI",
+    "away": "LAV"
+  },
+  {
+    "home": "ANN",
+    "away": "DIJ"
+  },
+  {
+    "home": "ROD",
+    "away": "ETG"
+  },
+  {
+    "home": "REI",
+    "away": "MRT"
+  },
+  {
+    "home": "RED",
+    "away": "NCL"
+  },
+  {
+    "home": "STE",
+    "away": "BOU"
+  },
+  {
+    "home": "MTP",
+    "away": "MET"
+  },
+  {
+    "home": "NAN",
+    "away": "GRE"
+  },
+  {
+    "home": "DNK",
+    "away": "CLE"
+  },
+  {
+    "home": "GUI",
+    "away": "PAU"
+  },
+  {
+    "home": "ANN",
+    "away": "SOC"
+  },
+  {
+    "home": "REI",
+    "away": "DIJ"
+  },
+  {
+    "home": "RED",
+    "away": "ETG"
+  },
+  {
+    "home": "STE",
+    "away": "MRT"
+  },
+  {
+    "home": "MTP",
+    "away": "NCL"
+  },
+  {
+    "home": "MET",
+    "away": "BOU"
+  },
+  {
+    "home": "DNK",
+    "away": "NAN"
+  },
+  {
+    "home": "GUI",
+    "away": "GRE"
+  },
+  {
+    "home": "ANN",
+    "away": "CLE"
+  },
+  {
+    "home": "ROD",
+    "away": "PAU"
+  },
+  {
+    "home": "REI",
+    "away": "SOC"
+  },
+  {
+    "home": "RED",
+    "away": "LAV"
+  },
+  {
+    "home": "STE",
+    "away": "DIJ"
+  },
+  {
+    "home": "MTP",
+    "away": "ETG"
+  },
+  {
+    "home": "MET",
+    "away": "MRT"
+  },
+  {
+    "home": "NAN",
+    "away": "GUI"
+  },
+  {
+    "home": "ANN",
+    "away": "DNK"
+  },
+  {
+    "home": "ROD",
+    "away": "GRE"
+  },
+  {
+    "home": "REI",
+    "away": "CLE"
+  },
+  {
+    "home": "RED",
+    "away": "PAU"
+  },
+  {
+    "home": "STE",
+    "away": "SOC"
+  },
+  {
+    "home": "MTP",
+    "away": "LAV"
+  },
+  {
+    "home": "MET",
+    "away": "DIJ"
+  },
+  {
+    "home": "BOU",
+    "away": "ETG"
+  },
+  {
+    "home": "NCL",
+    "away": "MRT"
+  },
+  {
+    "home": "ANN",
+    "away": "NAN"
+  },
+  {
+    "home": "ROD",
+    "away": "GUI"
+  },
+  {
+    "home": "REI",
+    "away": "DNK"
+  },
+  {
+    "home": "RED",
+    "away": "GRE"
+  },
+  {
+    "home": "STE",
+    "away": "CLE"
+  },
+  {
+    "home": "MTP",
+    "away": "PAU"
+  },
+  {
+    "home": "MET",
+    "away": "SOC"
+  },
+  {
+    "home": "BOU",
+    "away": "LAV"
+  },
+  {
+    "home": "NCL",
+    "away": "DIJ"
+  },
+  {
+    "home": "MRT",
+    "away": "ETG"
+  },
+  {
+    "home": "NAN",
+    "away": "ROD"
+  },
+  {
+    "home": "REI",
+    "away": "ANN"
+  },
+  {
+    "home": "RED",
+    "away": "GUI"
+  },
+  {
+    "home": "STE",
+    "away": "DNK"
+  },
+  {
+    "home": "MTP",
+    "away": "GRE"
+  },
+  {
+    "home": "MET",
+    "away": "CLE"
+  },
+  {
+    "home": "BOU",
+    "away": "PAU"
+  },
+  {
+    "home": "NCL",
+    "away": "SOC"
+  },
+  {
+    "home": "MRT",
+    "away": "LAV"
+  },
+  {
+    "home": "ETG",
+    "away": "DIJ"
+  },
+  {
+    "home": "REI",
+    "away": "NAN"
+  },
+  {
+    "home": "RED",
+    "away": "ROD"
+  },
+  {
+    "home": "STE",
+    "away": "ANN"
+  },
+  {
+    "home": "MTP",
+    "away": "GUI"
+  },
+  {
+    "home": "MET",
+    "away": "DNK"
+  },
+  {
+    "home": "BOU",
+    "away": "GRE"
+  },
+  {
+    "home": "NCL",
+    "away": "CLE"
+  },
+  {
+    "home": "MRT",
+    "away": "PAU"
+  },
+  {
+    "home": "ETG",
+    "away": "SOC"
+  },
+  {
+    "home": "DIJ",
+    "away": "LAV"
+  },
+  {
+    "home": "STE",
+    "away": "REI"
+  },
+  {
+    "home": "MTP",
+    "away": "ROD"
+  },
+  {
+    "home": "MET",
+    "away": "ANN"
+  },
+  {
+    "home": "BOU",
+    "away": "GUI"
+  },
+  {
+    "home": "NCL",
+    "away": "DNK"
+  },
+  {
+    "home": "MRT",
+    "away": "GRE"
+  },
+  {
+    "home": "ETG",
+    "away": "CLE"
+  },
+  {
+    "home": "DIJ",
+    "away": "PAU"
+  },
+  {
+    "home": "LAV",
+    "away": "SOC"
+  },
+  {
+    "home": "STE",
+    "away": "NAN"
+  },
+  {
+    "home": "MTP",
+    "away": "RED"
+  },
+  {
+    "home": "MET",
+    "away": "REI"
+  },
+  {
+    "home": "BOU",
+    "away": "ROD"
+  },
+  {
+    "home": "NCL",
+    "away": "ANN"
+  },
+  {
+    "home": "MRT",
+    "away": "GUI"
+  },
+  {
+    "home": "ETG",
+    "away": "DNK"
+  },
+  {
+    "home": "DIJ",
+    "away": "GRE"
+  },
+  {
+    "home": "LAV",
+    "away": "CLE"
+  },
+  {
+    "home": "SOC",
+    "away": "PAU"
+  },
+  {
+    "home": "NAN",
+    "away": "MTP"
+  },
+  {
+    "home": "MET",
+    "away": "STE"
+  },
+  {
+    "home": "BOU",
+    "away": "RED"
+  },
+  {
+    "home": "NCL",
+    "away": "REI"
+  },
+  {
+    "home": "MRT",
+    "away": "ROD"
+  },
+  {
+    "home": "ETG",
+    "away": "ANN"
+  },
+  {
+    "home": "DIJ",
+    "away": "GUI"
+  },
+  {
+    "home": "LAV",
+    "away": "DNK"
+  },
+  {
+    "home": "SOC",
+    "away": "GRE"
+  },
+  {
+    "home": "PAU",
+    "away": "CLE"
+  },
+  {
+    "home": "MET",
+    "away": "NAN"
+  },
+  {
+    "home": "BOU",
+    "away": "MTP"
+  },
+  {
+    "home": "NCL",
+    "away": "STE"
+  },
+  {
+    "home": "MRT",
+    "away": "RED"
+  },
+  {
+    "home": "ETG",
+    "away": "REI"
+  },
+  {
+    "home": "DIJ",
+    "away": "ROD"
+  },
+  {
+    "home": "LAV",
+    "away": "ANN"
+  },
+  {
+    "home": "SOC",
+    "away": "GUI"
+  },
+  {
+    "home": "PAU",
+    "away": "DNK"
+  },
+  {
+    "home": "CLE",
+    "away": "GRE"
+  }
+]

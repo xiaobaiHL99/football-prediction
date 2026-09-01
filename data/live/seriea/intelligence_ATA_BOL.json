@@ -1,0 +1,197 @@
+{
+  "match": {
+    "home": "ATA",
+    "away": "BOL",
+    "date": "2026-09-01",
+    "round": 2,
+    "venue": "意大利蓝色竞技球场 (Bergamo)",
+    "turf": "natural",
+    "time": "02:45 (北京时间)",
+    "significance": "意甲第2轮，萨里执教稳步前进的亚特兰大 vs 磨合期挣扎的博洛尼亚"
+  },
+  "context": "意甲第2轮，亚特兰大主场迎战博洛尼亚。主队萨里带队各项赛事三连胜渐入佳境；客队特德斯科首秀主场0-1负拉齐奥，跨赛季主场不胜四场，进攻端尚未找到感觉。两队后防线均有伤病隐患。",
+  "teams": {
+    "ATA": {
+      "code": "ATA",
+      "name_cn": "亚特兰大",
+      "full_name": "Atalanta BC",
+      "form": "胜-胜-胜",
+      "position": 3,
+      "points": 3,
+      "played": 1,
+      "goals_for": 2,
+      "goals_against": 1,
+      "elo_delta": 0,
+      "confidence": 0.85,
+      "notes": "萨里带队各项赛事三连胜渐入佳境；首轮2-1胜萨索洛+欧协联附加赛晋级；成功留住中场核心埃德松；萨里批评球队有起伏需改善；斯卡马卡和德凯特拉雷有望重回首发",
+      "key_players": [
+        {
+          "name": "埃德松·若泽",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场核心，攻守转换枢纽，成功留队是重大利好"
+        },
+        {
+          "name": "斯卡马卡",
+          "position": "前锋",
+          "status": "available",
+          "impact": "有望重回首发，锋线支点"
+        },
+        {
+          "name": "德凯特拉雷",
+          "position": "前锋",
+          "status": "available",
+          "impact": "有望重回首发，创造力和突破能力"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "希恩 / 克里斯滕森 / 阿哈诺尔",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "后卫线减员严重，科苏努和斯卡尔维尼被迫承担更重防守任务"
+        },
+        {
+          "name": "苏莱马纳",
+          "position": "中场",
+          "status": "injured",
+          "impact": "中场轮换受损"
+        }
+      ]
+    },
+    "BOL": {
+      "code": "BOL",
+      "name_cn": "博洛尼亚",
+      "full_name": "Bologna FC",
+      "form": "负",
+      "position": 17,
+      "points": 0,
+      "played": 1,
+      "goals_for": 0,
+      "goals_against": 1,
+      "elo_delta": -5,
+      "confidence": 0.80,
+      "notes": "特德斯科首秀主场0-1负拉齐奥不理想；跨赛季主场不胜四场；进攻端尚未找到感觉，整体仍在磨合；上赛季客场胜率排在意甲前列具备客场拿分能力；定位球是得分武器",
+      "key_players": [
+        {
+          "name": "贝尔纳代斯基",
+          "position": "中场",
+          "status": "available",
+          "impact": "进攻组织核心，经验丰富的创造力源泉"
+        },
+        {
+          "name": "奥尔索利尼",
+          "position": "边锋",
+          "status": "available",
+          "impact": "边路突破和定位球主要执行者"
+        },
+        {
+          "name": "皮科利",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线首发，领先于多夫比克竞争主力"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "埃尔阿祖齐",
+          "position": "中场",
+          "status": "injured",
+          "impact": "中场缺阵，轮换深度受损"
+        },
+        {
+          "name": "卡萨莱",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "后卫缺阵，防线轮换受损"
+        },
+        {
+          "name": "比克马/Rowe",
+          "position": "前锋",
+          "status": "unavailable",
+          "impact": "因转会传闻未进大名单，锋线选择受限"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": "近期交锋互有胜负，亚特兰大整体占优但并非一边倒",
+    "this_season_note": "上赛季（2026年5月）亚特兰大主场0-1负于博洛尼亚",
+    "before_that": "再之前亚特兰大主场2-0赢过博洛尼亚",
+    "notes": "比赛风格多变，既有小比分也有对攻大球，场面通常胶着"
+  },
+  "tactical": {
+    "ATA": {
+      "style": "possession",
+      "formation": "4-3-3",
+      "strengths": ["萨里短传控球体系渐入佳境", "主场气势强", "各项赛事三连胜士气高涨", "埃德松攻守转换枢纽", "锋线三叉戟斯卡马卡+德凯特拉雷+拉斯帕多里回归"],
+      "weaknesses": ["后卫线减员严重（希恩/克里斯滕森/阿哈诺尔缺阵）", "边翼卫压上后补防隐患", "萨里批评球队有起伏", "新帅体系过渡期细节待磨合"],
+      "key_tactics": "萨里短传控球体系，掌控比赛节奏，利用主场气势冲击对手，埃德松的攻守转换是关键"
+    },
+    "BOL": {
+      "style": "counter_attack",
+      "formation": "4-2-3-1",
+      "strengths": ["特德斯科战术纪律性强", "上赛季客场胜率前列", "定位球得分武器", "中场绞杀能力"],
+      "weaknesses": ["进攻端尚未找到感觉", "跨赛季主场不胜四场士气受挫", "整体仍在磨合期", "锋线竞争待定"],
+      "key_tactics": "客场放低姿态优先稳固防守，中场绞杀破坏对手节奏，定位球是主要得分手段"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "亚特兰大主场蓝色竞技球场气氛火爆，萨里带队三连胜渐入佳境",
+      "impact": 0.12,
+      "confidence": 0.85
+    },
+    {
+      "type": "recent_form",
+      "description": "亚特兰大各项赛事三连胜 vs 博洛尼亚跨赛季主场不胜四场，状态反差明显",
+      "impact": 0.10,
+      "confidence": 0.8
+    },
+    {
+      "type": "tactical_transition",
+      "description": "萨里正将球队从加斯佩里尼高位压迫向短传控球过渡，体系渐入佳境但仍有起伏",
+      "impact": 0.05,
+      "confidence": 0.7
+    },
+    {
+      "type": "injury_impact",
+      "description": "亚特兰大后卫线减员严重（3人缺阵），边翼卫压上后的补防是隐患",
+      "impact": -0.08,
+      "confidence": 0.8
+    },
+    {
+      "type": "defensive_concern",
+      "description": "博洛尼亚进攻端尚未找到感觉，首轮0-1负拉齐奥毫无斩获",
+      "impact": 0.06,
+      "confidence": 0.75
+    },
+    {
+      "type": "head_to_head",
+      "description": "上赛季亚特兰大主场0-1负于博洛尼亚，再之前2-0赢过，交锋胶着非一边倒",
+      "impact": -0.02,
+      "confidence": 0.6
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队掌控取胜",
+      "probability": 52,
+      "score": "2-0 或 2-1",
+      "description": "萨里控球体系逐步压制，斯卡马卡/德凯特拉雷锋线组合撕开对手，博洛尼亚客场韧性强但火力不足无法回敬"
+    },
+    {
+      "name": "主队小胜/平局",
+      "probability": 30,
+      "score": "1-0 或 1-1",
+      "description": "亚特兰大后防减员被博洛尼亚定位球惩罚，比赛胶着最后靠个人能力或定位球决定胜负"
+    },
+    {
+      "name": "客队爆冷",
+      "probability": 18,
+      "score": "0-1 或 1-2",
+      "description": "复刻上赛季0-1剧本，博洛尼亚客场韧性强+定位球发威，萨里过渡期起伏被惩罚"
+    }
+  ]
+}

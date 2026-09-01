@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "note": "亚盘分析 + 诱盘检测配置。weights: 模型与盘口分歧时的市场可信权重（normal正常盘口/suspect疑似分歧/trap明显诱盘）；divergence_thresholds: 分歧阈值（球）；elo_threshold: 模型 Elo 差低于此值时视为近均衡、不让盘口制造假优势（权重 0、收缩乘数 1.0）；water_coefficient: 水位对市场让球的折扣；trap_score_thresholds: 诱盘评分分档；dynamic_shrink_multipliers: 各判定下的概率收缩乘数（normal 互证更自信、trap 忽略盘口更谨慎）。",
+    "updated_at": "2026-08-11"
+  },
+  "weights": {
+    "normal": 0.3,
+    "suspect": 0.15,
+    "trap": 0.0
+  },
+  "divergence_thresholds": {
+    "handicap_goals": 0.8,
+    "goals_total": 1.2
+  },
+  "elo_threshold": 15,
+  "water_coefficient": 0.90,
+  "confidence": {
+    "low": 0.4,
+    "medium": 0.65,
+    "high": 0.85
+  },
+  "trap_score_thresholds": {
+    "low": 2.0,
+    "high": 4.0
+  },
+  "dynamic_shrink_multipliers": {
+    "normal": 0.6,
+    "suspect": 1.0,
+    "trap": 1.2
+  }
+}

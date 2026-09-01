@@ -1,0 +1,76 @@
+{
+  "matches": [
+    {
+      "home": "SOC",
+      "away": "STE",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "home": "NAN",
+      "away": "RED",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "MET",
+      "away": "GUI",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "MTP",
+      "away": "DIJ",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "BOU",
+      "away": "NCL",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "CLE",
+      "away": "REI",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "DNK",
+      "away": "GRE",
+      "hg": 4,
+      "ag": 2
+    },
+    {
+      "home": "PAU",
+      "away": "ANN",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "ROD",
+      "away": "LAV",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "ANN",
+      "away": "ROD",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "REI",
+      "away": "DNK",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "home": "STE",
+      "away": "CLE",
+      "hg": 3,
+      "ag": 1
+    }
+  ]
+}

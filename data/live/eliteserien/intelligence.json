@@ -1,0 +1,58 @@
+{
+  "matches": [
+    {
+      "home": "RBS",
+      "away": "FKB",
+      "date": "2026-07-27",
+      "time": "19:00",
+      "round": 16,
+      "venue": "Lerkendal Stadion (Trondheim)",
+      "context": "挪超第16轮，第5名罗森博格主场迎战第13名腓特烈斯塔。罗森博格新帅Freyr Alexandersson上任后联赛两连胜(3-0克里斯蒂安松、3-0斯达)，腓特烈斯塔则遭遇2连败。罗森博格15分中有11分来自主场，腓特烈客场仅4分且无客场零封",
+      "teams": {
+        "RBS": {
+          "code": "RBS",
+          "name_cn": "罗森博格",
+          "form": "平-负-负-胜-胜",
+          "position": 5,
+          "points": 26,
+          "played": 15,
+          "elo_delta": -10,
+          "confidence": 0.85,
+          "notes": "新帅上任后联赛2连胜；主场11/15分来自主场；前锋Chiakha 5球状态火热；Islamovic小腿伤缺(非核心)；4-1-4-1阵型"
+        },
+        "FKB": {
+          "code": "FKB",
+          "name_cn": "腓特烈斯塔",
+          "form": "平-胜-胜-负-负",
+          "position": 13,
+          "points": 17,
+          "played": 15,
+          "elo_delta": -20,
+          "confidence": 0.80,
+          "notes": "近2连败(0-2利勒斯特罗姆、0-1博德闪耀)；客场仅4分且无零封；Sørløkk(脚)和Kvile(膝)伤缺；Leach/Ohlenschläger/Owusu出战成疑；3-4-3阵型"
+        }
+      },
+      "h2h": {
+        "last_meetings": "腓特烈斯塔自2012年11月以来未战胜过罗森博格(14年不胜)；近4次联赛交手腓特烈1平3负",
+        "note": "罗森博格历史交锋心理优势明显"
+      },
+      "tactical": {
+        "style_a": "hybrid",
+        "style_b": "possession",
+        "matchup": "混合型 vs 传控型 — 罗森博格新帅主打4-1-4-1防反转换，腓特烈近期改打3-4-3控球推进",
+        "expected_pattern": "balanced",
+        "ineffective_possession": true,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "factors": [
+        "罗森博格新帅Freyr Alexandersson上任后激活球队，联赛2连胜且打入6球0失球",
+        "腓特烈斯塔客场极度疲软(仅4分)，且无客场零封记录，客场场均失球近2个",
+        "腓特烈自2012年起14年未胜过罗森博格，心理劣势明显",
+        "罗森博格前锋Chiakha最近2场联赛各入1球，包办球队50%的间歇期后进球",
+        "腓特烈斯塔多名球员伤疑(Sørløkk/Kvile/Leach/Ohlenschläger/Owusu)影响阵容完整度",
+        "战术数据来源：Sports Mole赛前预测阵容 + 2026赛季阵型数据分析(theyScored/FBref)"
+      ]
+    }
+  ]
+}

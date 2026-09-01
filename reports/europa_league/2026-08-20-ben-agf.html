@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本菲卡 vs 奥胡斯 · 欧联附加赛首回合预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 50% -10%, rgba(56,139,253,.22), transparent 60%),linear-gradient(180deg,#1a2a3d,#152336 55%,#12202f)}
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%)}
+  .pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px)}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+
+  .scoreboard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:min(600px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:16px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--home);background:rgba(248,81,73,.12)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div>
+      <div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+
+      <div class="scoreboard">
+        <div class="sb-top">
+          <span class="sb-tag">预测比分 · PREDICTION</span>
+          <span>欧联附加赛 · 首回合 · 2026-08-20</span>
+        </div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">本菲卡</div><div class="en">SL Benfica</div></div>
+          <div class="sb-score">2 : 0</div>
+          <div class="sb-team"><div class="cn">奥胡斯</div><div class="en">AGF Aarhus</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：本菲卡占优（主胜 74.1%）· 单一最高概率比分 2-0（19.7%）· 纯模型（亚盘盘口未能确认）</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>74.1%</b>主胜</div>
+          <div class="sb-p p-draw"><b>14.1%</b>平局</div>
+          <div class="sb-p p-away"><b>11.8%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Estádio da Luz · Lisbon · 次回合 2026-08-27 @ Ceres Park, Aarhus</div>
+    </div>
+  </div>
+
+  <!-- ===== 标题区 ===== -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">欧足联欧洲联赛 · 附加赛（Play-off）首回合 · 2026-27</div>
+        <h1 style="font-size:24px;margin-top:2px">本菲卡 vs 奥胡斯</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（欧联 teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag red">实力悬殊 · 本菲卡全面碾压（Elo 差 330 · 身价 10:1）</span>
+      <span class="tag blue">奥胡斯伤兵满营 · 近3客场全败零进球</span>
+      <span class="tag warn">首回合强队高估风险（模型74% &lt; 市场84%）</span>
+      <span class="tag">本菲卡欧战主场两战进11球</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#f85149">本菲卡占优（主胜 74.1%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">2 : 0 <span class="muted" style="font-size:13px">（方向性最优比分 · 19.7%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">2 : 0（零封 · 19.7%）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">本菲卡 2.56 — 0.20 奥胡斯</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">本菲卡 1880（-8） · 奥胡斯 1550（-16）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">对阵博彩模型</div><div class="v small">市场欧赔 1.20（隐含 ~84%）+ 多机构预测 3-0/4-0 → 本模型 74.1%，模型比市场更保守（规避首回合强队高估）</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>本菲卡胜</span><span>74.1%</span></div><div class="bar"><div class="seg" style="width:74.1%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>14.1%</span></div><div class="bar"><div class="seg" style="width:14.1%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>奥胡斯胜</span><span>11.8%</span></div><div class="bar"><div class="seg" style="width:11.8%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 市场盘口参考（数据说明） ===== -->
+  <div class="card">
+    <h2>市场盘口参考（数据说明）</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">亚盘让球盘</div><div class="v small">⚠️ 未能获取确认盘口（抓取受限，7msport/搜狐源不可达）—— 按规则不编造盘口，本场走纯模型</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">欧洲指数</div><div class="v small">主胜 1.20 / 平 7.00 / 客胜 16.00（隐含主胜约 84%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">晋级赔率</div><div class="v small">本菲卡 1.10 / 奥胡斯 9.00（市场认为首回合即定生死）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">机构预测比分</div><div class="v small">4-0 / 3-0 / 4-1（Sports Mole：4-0）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型 vs 市场</div><div class="v small">模型 74.1% &lt; 市场 84%；模型 xG 净胜 +2.36 vs 市场"至少净胜 2 球"——方向一致、幅度比市场温和</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">若能看到亚盘，正常应在 主让一球半/两球（-1.75）~ 主让两球（-2.0）区间；主水跌破 0.85 → 市场深度看好本菲卡；大小球 3 球盘看大球方向为主流</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">本场亚盘让球盘口未能从可用来源确认，按 skill 规则不编造盘口，故无诱盘检测与盘口权重修正，预测为纯模型输出。市场信息（欧赔/晋级赔率/机构比分）仅作方向参考：市场对本菲卡的预期比模型更极端，模型相对克制。</p>
+  </div>
+
+  <!-- ===== 预测原因 ===== -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>实力悬殊</b>：Elo 1880 vs 1550（差 330），总身价约 3.5 亿欧 vs 3500 万欧（约 10:1）→ 模型判"实力悬殊(方差中性)"，大热不再压缩方差。</li>
+      <li><b>本菲卡主场火力</b>：欧联资格赛主场 5-0 圣加仑、6-1 哈茨，两战进 11 球；跨赛季联赛主场 51 场不败；近 6 场 4 胜 2 平 → 状态火热 +0.07。</li>
+      <li><b>奥胡斯客场崩盘</b>：近 3 客场全败且一球未进，欧冠 Q3 客场 0-4 惨败沙巴巴库；丹超前 3-4 轮仅 1 胜列第 10 → 状态低迷 -0.07。</li>
+      <li><b>奥胡斯伤兵满营</b>：中卫 Tingager（脚伤）、中场 Yakob（膝）+ Nicolai Poulsen（跟腱）、Jensen-Abbew、Haugstrup、Kristjánsson 等缺阵 → 全队 Elo -16。</li>
+      <li><b>战术对位</b>：本菲卡传控围攻 vs 奥胡斯客场防反 → 反击克制传控理论上有空间，但奥胡斯防线残阵 + 客场零进球，反击执行力存疑。</li>
+      <li><b>战意</b>：双方均正常——本菲卡大热无背水压力，7-0 大胜中已轮换留力欧战；奥胡斯求少负回主场再搏。</li>
+      <li><b>谨慎点</b>：首回合强队高估是历史系统性模式 → 本模型 74.1% 已比市场 84% 保守；奥胡斯有欧冠 Q2 客场 3-0 逆转波兹南莱赫（点球晋级）的爆冷基因，客场并非毫无还手之力。</li>
+    </ul>
+  </div>
+
+  <!-- ===== 详细预测 ===== -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">本菲卡胜</div><div class="v" style="color:#f85149">74.1%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">14.1%</div></div>
+      <div class="kv"><div class="k">奥胡斯胜</div><div class="v" style="color:#388bfd">11.8%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard main"><div class="s">2 : 0</div><div class="p">19.7% · 主预测</div></div>
+        <div class="scard"><div class="s">3 : 0</div><div class="p">16.9%</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">15.3%</div></div>
+        <div class="scard"><div class="s">4 : 0</div><div class="p">10.9%</div></div>
+        <div class="scard"><div class="s">0 : 0</div><div class="p">6.0%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">模型 xG 给奥胡斯仅 0.20（客场连败 + 伤潮）→ Top5 全部是本菲卡零封，2-0/3-0/1-0/4-0 为主流；0-0 居第 5 提示"奥胡斯摆大巴拖平"仍是尾端风险。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag red">奥胡斯 -16 Elo（Tingager/Yakob/Poulsen 等 6 人缺阵）</span><span class="tag blue">本菲卡 -8 Elo（Umeh 手术 + 新援未注册）</span></div>
+      <div style="margin-top:8px"><span class="tag">本菲卡状态火热 +0.07</span><span class="tag">奥胡斯状态低迷 -0.07</span><span class="tag">实力悬殊 · 方差中性</span><span class="tag">本菲卡欧战双线 -</span><span class="tag">跨区域长途旅行 · 南北欧天气</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">本菲卡 · 正常（0）</div><div class="v small">主场大热、首回合要锁定晋级，但无背水一战压力；7-0 大胜中已轮换留力欧战</div></div>
+        <div class="kv"><div class="k">奥胡斯 · 正常（0）</div><div class="v small">客场大热倒灶、近 3 客全败零进球，求少负回主场再搏；伤兵满营信心不足</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 赛前情报摘要 ===== -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>本菲卡</th><th>奥胡斯</th></tr>
+      <tr><td>主帅</td><td>马尔科·席尔瓦（Marco Silva）</td><td>雅各布·波尔森（Jakob Poulsen）</td></tr>
+      <tr><td>阵型</td><td>4-2-3-1</td><td>3-4-3</td></tr>
+      <tr><td>战术风格</td><td>传控围攻 + 边路/肋部冲击</td><td>客场防反 + 定位球</td></tr>
+      <tr><td>晋级之路</td><td>欧联 Q2 起步：主 5-0 圣加仑、6-1 哈茨（次回合客 1-1）</td><td>欧冠 Q2 客场 3-0 逆转波兹南（点球晋级）、Q3 客 0-4 沙巴总 2-5 出局降入欧联附加赛</td></tr>
+      <tr><td>伤停</td><td>Aursnes（队长·回归训练或赛季首秀·存疑）；Umeh（大腿手术）；Wynder/Circati（新援未注册）</td><td>Tingager（中卫·脚伤）；Yakob（膝）；Nicolai Poulsen（跟腱）；Jensen-Abbew；Haugstrup；Kristjánsson</td></tr>
+      <tr><td>关键球员</td><td>帕夫利季斯（7-0 帽子戏法）、拉法·席尔瓦、苏达科夫、普雷斯蒂安尼、卢克巴基奥</td><td>博格雷、贝赫、阿恩斯塔德、罗斯勒（队长）</td></tr>
+      <tr><td>身价</td><td colspan="2">本菲卡约 €3.5 亿 vs 奥胡斯约 €3500 万（约 10:1）</td></tr>
+      <tr><td>主场/客场</td><td>跨赛季联赛主场 51 场不败 · 欧战主场两战进 11 球</td><td>近 3 客场全败且一球未进 · 客场防线崩</td></tr>
+      <tr><td>状态</td><td>近 6 场 4 胜 2 平 · 7-0 卡萨皮亚（轮换 7 主力）</td><td>丹超前 3-4 轮仅 1 胜列第 10 · 上周末才稳住阵脚</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">高：多源一致（Sports Mole / 163 / zerozero / Record / fotmob）</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 场景推演 ===== -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 大胜锁定</div><div class="v small">本菲卡主场碾压，2-0/3-0/4-0，首回合即终结晋级悬念，次回合走流程</div></div>
+      <div class="kv"><div class="k">路径 B · 奥胡斯摆大巴偷分</div><div class="v small">奥胡斯全员退守拼 0-0/1-1，回主场像对波兹南那样搏命（有 Q2 客场 0-3 逆转基因）</div></div>
+      <div class="kv"><div class="k">路径 C · 本菲卡轮换留力</div><div class="v small">7-0 后为周末联赛留力、领先后降速 → 1-0/2-1 小胜，悬念留到丹麦</div></div>
+    </div>
+  </div>
+
+  <!-- ===== 不确定性说明 ===== -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场亚盘让球盘口未能确认（抓取受限），无诱盘检测，盯盘请以欧赔/大小球为参考。模型 xG 给奥胡斯仅 0.20（客场连败 + 伤潮 + 巨大实力差），若奥胡斯成功摆大巴拖成低比分，其实际守住能力可能比模型预期高。另注意：① 首回合强队高估是历史系统性模式，本模型 74.1% 已比市场 84% 保守，但 2-0/3-0 仍是主流方向；② 奥胡斯有欧冠 Q2 客场 3-0 逆转波兹南的爆冷基因，非完全无还手之力；③ Aursnes 是否首发、本菲卡是否为大胜留力轮换是变量。单场随机性高，本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <!-- ===== 数据与情报来源 ===== -->
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">Sports Mole · Benfica vs Aarhus 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/benfica/europa-league/preview/benfica-vs-aarhus-prediction-team-news-lineups_603235.html</li>
+      <li class="src">网易 · 欧联赛前探查：本菲卡主场迎战奥胡斯，队长复出成关键变量 — https://www.163.com/dy/article/L4OHLFBI0556P009.html</li>
+      <li class="src">网易 · 本菲卡撞上奥胡斯：主帅口气不小，核心回归才是真底气 — https://www.163.com/dy/article/L4OGGKQL0556P87I.html</li>
+      <li class="src">网易 · 欧罗巴前瞻：本菲卡主场硬实力与欧战底蕴碾压 — https://www.163.com/dy/article/L4NCUUR70556P1GH.html</li>
+      <li class="src">ZeroZero · Benfica x Aarhus: antevisão, ausências e onzes prováveis — https://www.zerozero.pt/noticias/benfica-x-aarhus-antevisao-ausencias-e-onzes-provaveis/1178900</li>
+      <li class="src">Record · Aursnes treina sem limitações e pode ser opção — http://www.record.pt/futebol/futebol-nacional/liga-betclic/benfica/detalhe/...</li>
+      <li class="src">搜狐 · 8月21日欧罗巴推荐：本菲卡VS奥胡斯（欧赔 1.20/7.00/16.00） — https://www.sohu.com/a/1065231103_554394</li>
+      <li class="src">7msport · UEFA Europa League Preview: Benfica vs Aarhus — https://news.7msport.com/news/newsdata/20260819/263316.shtml</li>
+      <li class="src">FotMob · Benfica vs AGF 数据与预测首发 — https://www.fotmob.com/matches/agf-vs-benfica/2msbdm</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

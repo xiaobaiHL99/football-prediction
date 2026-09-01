@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "created_at": "2026-08-17",
+    "note": "由分桶校准(data/reviews/bucket_stats.json)生成的校准规则；build_match_entry 自动应用(软调整)。基于累计 62 场已完赛样本；near_even_home_shift 平局收缩 0.05→0.08（08-17 两场近均衡押主队全 1-1，命中率 36.8%→33.3%）。回滚：删除本文件即关闭所有规则。"
+  },
+  "rules": [
+    {
+      "id": "small_goals_underest",
+      "when": {"pred_goals_lt": 2.5},
+      "do": {"la_up": 0.15, "lb_up": 0.15},
+      "evidence": {"n": 16, "dir_hit_rate": 0.375, "goal_diff": 0.7},
+      "confidence": "high",
+      "label": "小球进球低估上调"
+    },
+    {
+      "id": "near_even_home_shift",
+      "when": {"direction": "home", "elo_gap_lt": 50},
+      "do": {"shift_to": "draw", "amount": 0.08},
+      "evidence": {"n": 21, "dir_hit_rate": 0.333},
+      "confidence": "high",
+      "label": "近均衡押主队向平局收缩"
+    },
+    {
+      "id": "away_direction_weak",
+      "when": {"direction": "away"},
+      "do": {"shift_to": "draw", "amount": 0.04},
+      "evidence": {"n": 21, "dir_hit_rate": 0.286},
+      "confidence": "high",
+      "label": "押客队向平局收缩"
+    }
+  ]
+}

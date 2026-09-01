@@ -1,0 +1,148 @@
+{
+  "match": {
+    "home": "INT",
+    "away": "KUP",
+    "date": "2026-08-31",
+    "round": 22,
+    "venue": "Veritas Stadion (Turku)",
+    "turf": "natural",
+    "time": "23:00 (北京时间)",
+    "significance": "常规赛收官战，积分榜前两名直接对话"
+  },
+  "context": "芬超常规赛收官战，国际图尔库主场迎战库奥皮奥。库奥皮奥以43分高居榜首，国际图尔库39分位列第二。虽然排名已定，但作为头名之争和争冠附加赛前的重要热身，双方都会全力争胜。",
+  "teams": {
+    "INT": {
+      "code": "INT",
+      "name_cn": "国际图尔库",
+      "full_name": "FC Inter Turku",
+      "form": "平-胜-平-平-胜",
+      "position": 2,
+      "points": 39,
+      "played": 21,
+      "wins": 10,
+      "draws": 9,
+      "losses": 2,
+      "goals_for": 35,
+      "goals_against": 16,
+      "elo_delta": 0,
+      "confidence": 0.85,
+      "notes": "防守联赛最佳仅失16球(场均0.76球)；主场10场6胜3平1负；4轮联赛不败；队内射手王阿利耶·孔泰11球",
+      "key_players": [
+        {
+          "name": "阿利耶·孔泰 (Alie Conteh)",
+          "position": "前锋",
+          "status": "available",
+          "impact": "队内射手王，11个联赛进球，进攻核心"
+        }
+      ]
+    },
+    "KUP": {
+      "code": "KUP",
+      "name_cn": "库奥皮奥",
+      "full_name": "KuPS",
+      "form": "胜-胜-平-胜-胜",
+      "position": 1,
+      "points": 43,
+      "played": 21,
+      "wins": 12,
+      "draws": 7,
+      "losses": 2,
+      "goals_for": 38,
+      "goals_against": 18,
+      "elo_delta": 0,
+      "confidence": 0.80,
+      "notes": "卫冕冠军，连续14场联赛进球；客场7场4胜2平1负；攻击点分散火力充足；中场托米·于里面对旧主",
+      "key_players": [
+        {
+          "name": "托米·于里 (Tommi Jyry)",
+          "position": "中场",
+          "status": "available",
+          "impact": "面对旧主战意十足，中场组织核心"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 66,
+    "INT_wins": 19,
+    "draws": 18,
+    "KUP_wins": 29,
+    "last_5": "国际图尔库0胜3平2负，库奥皮奥近5次对阵保持不败",
+    "last_match": "2026-06-15: KUP 1-1 INT (库奥皮奥主场平局)",
+    "at_INT_home": "35次交手，国际图尔库13胜8平14负"
+  },
+  "tactical": {
+    "INT": {
+      "style": "balanced",
+      "formation": "4-2-3-1",
+      "strengths": ["防守组织严密", "主场气势强", "快速反击效率高", "定位球威胁大"],
+      "weaknesses": ["进攻创造力有限", "面对强队时控球率低"],
+      "key_tactics": "依靠稳固防守，通过边路快速反击和定位球寻找机会"
+    },
+    "KUP": {
+      "style": "possession",
+      "formation": "4-3-3",
+      "strengths": ["控球能力强", "进攻点多", "客场经验丰富", "心理优势明显"],
+      "weaknesses": ["防守高空球一般", "面对密集防守时办法不多"],
+      "key_tactics": "通过控球消耗对手，利用多点进攻撕开防线"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "国际图尔库主场10场仅1负，主场优势明显",
+      "impact": 0.15,
+      "confidence": 0.9
+    },
+    {
+      "type": "defensive_strength",
+      "description": "国际图尔库防守联赛最佳，场均仅失0.76球",
+      "impact": 0.12,
+      "confidence": 0.85
+    },
+    {
+      "type": "recent_form",
+      "description": "库奥皮奥近期4胜1平状态出色，连续14场进球",
+      "impact": 0.10,
+      "confidence": 0.8
+    },
+    {
+      "type": "head_to_head",
+      "description": "库奥皮奥近5次对阵保持不败，心理优势明显",
+      "impact": 0.08,
+      "confidence": 0.75
+    },
+    {
+      "type": "title_race",
+      "description": "常规赛收官战，头名之争，双方都会全力争胜",
+      "impact": 0.05,
+      "confidence": 0.7
+    },
+    {
+      "type": "key_player",
+      "description": "孔泰 vs 于里，两位核心球员的对决将决定比赛走向",
+      "impact": 0.06,
+      "confidence": 0.7
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队小胜",
+      "probability": 35,
+      "score": "1-0 或 2-1",
+      "description": "国际图尔库凭借主场优势和稳固防守，通过反击或定位球小胜"
+    },
+    {
+      "name": "平局收场",
+      "probability": 40,
+      "score": "1-1 或 0-0",
+      "description": "两队实力接近，互有攻守，最终握手言和"
+    },
+    {
+      "name": "客队取胜",
+      "probability": 25,
+      "score": "0-1 或 1-2",
+      "description": "库奥皮奥凭借更强的整体实力和心理优势客场全取三分"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "match": {
+    "home": "DJU",
+    "away": "MJA",
+    "date": "2026-09-01",
+    "round": 19,
+    "venue": "3Arena (Stockholm)",
+    "turf": "artificial",
+    "time": "01:00 (北京时间)",
+    "significance": "瑞超第19轮，主队状态火热冲击欧战区，客队低迷且欧战消耗严重"
+  },
+  "context": "瑞超第19轮，佐加顿斯主场迎战米亚尔比。主队上轮3-0完胜卫冕冠军马尔默，气势如虹；客队联赛7轮不胜，周中欧联杯0-3负于萨尔茨堡，体能消耗极大。双方状态和体能形成鲜明反差。",
+  "teams": {
+    "DJU": {
+      "code": "DJU",
+      "name_cn": "佐加顿斯",
+      "full_name": "Djurgårdens IF",
+      "form": "负-胜-胜-平-胜",
+      "position": 6,
+      "points": 29,
+      "played": 17,
+      "goals_for": 37,
+      "goals_against": 24,
+      "elo_delta": 10,
+      "confidence": 0.85,
+      "notes": "上轮客场3-0完胜马尔默打赛季代表作；联赛攻击力最强之一17场37球；主场强势；中场核心芬德尔因转会事宜出战成疑，兰治贺夫出战成疑",
+      "key_players": [
+        {
+          "name": "芬德尔",
+          "position": "中场",
+          "status": "doubtful",
+          "impact": "中场核心，因转会事宜缺席上轮，本场能否出战存疑"
+        }
+      ],
+      "injuries": []
+    },
+    "MJA": {
+      "code": "MJA",
+      "name_cn": "米亚尔比",
+      "full_name": "Mjällby AIF",
+      "form": "平-负-平-负-负",
+      "position": 11,
+      "points": 20,
+      "played": 18,
+      "goals_for": 18,
+      "goals_against": 26,
+      "elo_delta": -25,
+      "confidence": 0.80,
+      "notes": "联赛连续7场不胜；周中欧联杯0-3负萨尔茨堡，体能消耗极大；伤病停赛突出：前锋斯塔维茨基、后卫米迪宁、中场伊萨克森均无法出战；进攻端失去关键得分点",
+      "key_players": [],
+      "injuries": [
+        {
+          "name": "斯塔维茨基",
+          "position": "前锋",
+          "status": "injured",
+          "impact": "关键得分点缺阵，攻坚能力进一步削弱"
+        },
+        {
+          "name": "米迪宁",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "后防轮换缺阵，防线厚度受损"
+        },
+        {
+          "name": "伊萨克森",
+          "position": "中场",
+          "status": "injured",
+          "impact": "中场缺阵，组织能力下降"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 6,
+    "home_wins": 3,
+    "away_wins": 1,
+    "draws": 2,
+    "last_5": "近6次交锋佐加顿斯3胜2平1负占上风；但上赛季两次交手米亚尔比1胜1平不败，其中客场3-1击败佐加顿斯",
+    "last_match": "2025赛季：米亚尔比客场3-1佐加顿斯",
+    "at_home": "佐加顿斯主场近2次对米亚尔比未尝胜绩",
+    "notes": "整体占优但上赛季客场曾遭3-1击败，心理层面略有芥蒂"
+  },
+  "tactical": {
+    "DJU": {
+      "style": "attacking",
+      "formation": "4-3-3",
+      "strengths": ["进攻火力联赛顶级", "主场气势足", "士气正盛", "边路冲击力强"],
+      "weaknesses": ["中场核心出战成疑", "防线偶有波动"],
+      "key_tactics": "开场猛攻，利用边路冲击和中场调度压制对手"
+    },
+    "MJA": {
+      "style": "defensive_deep",
+      "formation": "5-4-1",
+      "strengths": ["防守组织纪律性", "上赛季交锋心理优势"],
+      "weaknesses": ["体能严重消耗", "三名主力缺阵", "攻坚能力弱", "客场防守非铁板一块"],
+      "key_tactics": "深度防守摆大巴，伺机反击，能否顶住主队攻势是最大疑问"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "佐加顿斯主场强势，刚3-0完胜马尔默士气如虹",
+      "impact": 0.15,
+      "confidence": 0.9
+    },
+    {
+      "type": "recent_form",
+      "description": "佐加顿斯状态高点 vs 米亚尔比7轮不胜，状态反差极大",
+      "impact": 0.12,
+      "confidence": 0.85
+    },
+    {
+      "type": "europe_fatigue",
+      "description": "米亚尔比周中远赴奥地利踢欧联杯0-3失利，体能消耗极大",
+      "impact": -0.10,
+      "confidence": 0.9
+    },
+    {
+      "type": "injury_impact",
+      "description": "米亚尔比三名主力缺阵（斯塔维茨基/米迪宁/伊萨克森），攻防两端受损",
+      "impact": -0.12,
+      "confidence": 0.85
+    },
+    {
+      "type": "head_to_head",
+      "description": "近6次交锋佐加顿斯占优，但上赛季米亚尔比1胜1平不败且客场3-1赢过",
+      "impact": 0.05,
+      "confidence": 0.6
+    },
+    {
+      "type": "key_player",
+      "description": "佐加顿斯中场核心芬德尔因转会事宜出战成疑，中场调度或受影响",
+      "impact": -0.04,
+      "confidence": 0.6
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队大胜",
+      "probability": 50,
+      "score": "2-0 或 3-0",
+      "description": "佐加顿斯凭借火力优势主场猛攻，残阵且疲惫的米亚尔比难以招架"
+    },
+    {
+      "name": "主队小胜",
+      "probability": 27,
+      "score": "1-0 或 2-1",
+      "description": "米亚尔比摆大巴一度顶住，但体能崩盘后晚段失球"
+    },
+    {
+      "name": "平局/爆冷",
+      "probability": 23,
+      "score": "1-1 或 0-1",
+      "description": "米亚尔比复刻上赛季防守韧性，摆大巴成功带走分数"
+    }
+  ]
+}

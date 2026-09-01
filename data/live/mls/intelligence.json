@@ -1,0 +1,43 @@
+{
+  "match": {
+    "home": "SJ",
+    "away": "LAG",
+    "date": "2026-07-25",
+    "competition": "MLS",
+    "round": 23,
+    "venue": "Stanford Stadium (Stanford, CA)",
+    "capacity": 50000,
+    "turf": "natural",
+    "kickoff": "19:30 PT"
+  },
+  "context": "美职联加州德比+Heritage Cup。圣何塞排名西部中游(28分/22场)，洛杉矶银河排名西部第2(45分/22场)。圣何塞近6轮仅1胜，银河状态也下滑。圣何塞主场8年未赢过银河",
+  "teams": {
+    "SJ": {
+      "name": "San Jose Earthquakes",
+      "name_cn": "圣何塞地震",
+      "elo": 1680,
+      "elo_delta": -10,
+      "confidence": 0.85,
+      "form": "负-胜-负-平-负",
+      "position": 10,
+      "points": 28,
+      "notes": "近6轮仅1胜状态低迷；上轮主场0-4惨败奥兰多城；近4个主场输3场；Preston Judd(11球)是头号射手；DeJuan Jones长期伤缺"
+    },
+    "LAG": {
+      "name": "LA Galaxy",
+      "name_cn": "洛杉矶银河",
+      "elo": 1840,
+      "elo_delta": -38,
+      "confidence": 0.85,
+      "form": "负-负-胜-负-平",
+      "position": 2,
+      "points": 45,
+      "notes": "近2场连败(0-3 LAFC, 2-3 St.Louis)，场均丢3球；中场核心Riqui Puig十字韧带赛季报销；头号射手Klauss(5球)脚伤缺阵；Erik Thommy脚伤缺；Marco Reus(4球)是主要进攻点"
+    }
+  },
+  "h2h": {
+    "last_meetings": "上赛季: SJ 2-1 LAG, LAG 2-2 SJ; 但圣何塞主场近8次对银河不胜(2平5负)，上次主场赢球是2018年",
+    "note": "圣何塞主场对银河8年不胜，堪称魔咒"
+  },
+  "tactical_notes": "圣何塞近况不佳但对手银河伤病更严重（核心Puig+头号射手Klauss均缺阵）。圣何塞主场历史对银河极度劣势，但本场银河阵容残缺程度可能是近年之最。两队近期防守都不稳，预计有较多进球。"
+}

@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "note": "partial fixtures from draw,2026-08-29"
+  },
+  "fixtures": [
+    {
+      "home": "RMA",
+      "away": "INT"
+    },
+    {
+      "home": "ARS",
+      "away": "RMA"
+    },
+    {
+      "home": "RMA",
+      "away": "PSV"
+    },
+    {
+      "home": "ROM",
+      "away": "RMA"
+    },
+    {
+      "home": "RMA",
+      "away": "RBL"
+    },
+    {
+      "home": "SHA",
+      "away": "RMA"
+    },
+    {
+      "home": "RMA",
+      "away": "LIN"
+    },
+    {
+      "home": "AEK",
+      "away": "RMA"
+    },
+    {
+      "home": "MCI",
+      "away": "PSG"
+    },
+    {
+      "home": "BAR",
+      "away": "MCI"
+    },
+    {
+      "home": "MCI",
+      "away": "SPO"
+    },
+    {
+      "home": "POR",
+      "away": "MCI"
+    },
+    {
+      "home": "MCI",
+      "away": "NAP"
+    },
+    {
+      "home": "RBL",
+      "away": "MCI"
+    },
+    {
+      "home": "MCI",
+      "away": "AEK"
+    },
+    {
+      "home": "LEN",
+      "away": "MCI"
+    },
+    {
+      "home": "PSG",
+      "away": "BAR"
+    },
+    {
+      "home": "BAR",
+      "away": "AVL"
+    },
+    {
+      "home": "SPO",
+      "away": "BAR"
+    },
+    {
+      "home": "BAR",
+      "away": "FEY"
+    },
+    {
+      "home": "GAL",
+      "away": "BAR"
+    },
+    {
+      "home": "BAR",
+      "away": "COM"
+    },
+    {
+      "home": "SABH",
+      "away": "BAR"
+    },
+    {
+      "home": "ATM",
+      "away": "BAY"
+    },
+    {
+      "home": "LIV",
+      "away": "ATM"
+    },
+    {
+      "home": "ATM",
+      "away": "MUN"
+    },
+    {
+      "home": "PSV",
+      "away": "ATM"
+    },
+    {
+      "home": "ATM",
+      "away": "FEN"
+    },
+    {
+      "home": "BOD",
+      "away": "ATM"
+    },
+    {
+      "home": "ATM",
+      "away": "VIK"
+    },
+    {
+      "home": "STU",
+      "away": "ATM"
+    },
+    {
+      "home": "MUN",
+      "away": "BAY"
+    },
+    {
+      "home": "MUN",
+      "away": "ROM"
+    },
+    {
+      "home": "SPO",
+      "away": "MUN"
+    },
+    {
+      "home": "MUN",
+      "away": "RBL"
+    },
+    {
+      "home": "VIL",
+      "away": "MUN"
+    },
+    {
+      "home": "MUN",
+      "away": "SABH"
+    },
+    {
+      "home": "COM",
+      "away": "MUN"
+    },
+    {
+      "home": "AVL",
+      "away": "PSG"
+    },
+    {
+      "home": "AVL",
+      "away": "BVB"
+    },
+    {
+      "home": "CLB",
+      "away": "AVL"
+    },
+    {
+      "home": "AVL",
+      "away": "FEN"
+    },
+    {
+      "home": "GAL",
+      "away": "AVL"
+    },
+    {
+      "home": "AVL",
+      "away": "VIK"
+    },
+    {
+      "home": "SLP",
+      "away": "AVL"
+    }
+  ]
+}

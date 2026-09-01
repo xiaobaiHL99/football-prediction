@@ -1,0 +1,29 @@
+{
+  "special_factors": {
+    "artificial_turf_penalty": {
+      "description": "客队适应人工草皮的额外惩罚",
+      "value": -0.12,
+      "apply_when": "home_turf == 'artificial' and away_turf == 'natural'"
+    },
+    "europe_qualification": {
+      "description": "欧战资格赛期间的双线消耗",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_europe_match"
+    },
+    "northern_advantage": {
+      "description": "北方球队（博德/特罗姆瑟）主场对南方球队的优势",
+      "value": 0.06,
+      "apply_when": "home_region == 'north' and away_region != 'north'"
+    },
+    "june_july_high_scoring": {
+      "description": "夏季昼长夜短，进球增多",
+      "value": 0.15,
+      "apply_when": "month in ['June', 'July']"
+    }
+  },
+  "europe_teams": ["BOD", "MOL"],
+  "turf_map": {
+    "artificial": ["BOD", "MOL", "SARP", "TRO", "KBK", "KFUM"],
+    "natural": ["VIK", "BGN", "RBS", "LIL", "AALES", "SAND", "FKB", "HAM", "STAB", "VIF"]
+  }
+}

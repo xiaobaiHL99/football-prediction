@@ -1,0 +1,81 @@
+{
+  "match": {
+    "home": "GWJ",
+    "away": "JEU",
+    "date": "2026-07-27",
+    "time": "18:30",
+    "round": 20,
+    "venue": "Gwangju World Cup Stadium"
+  },
+  "context": {
+    "league_phase": "relegation battle - GWJ last(10pts) vs JEU 8th(24pts)",
+    "weather": "severe heat warning 35-38°C, -0.04 xG both sides",
+    "note": "GWJ is in desperate straits: 1 win all season, 17+ games without win at one point"
+  },
+  "teams": {
+    "GWJ": {
+      "code": "GWJ",
+      "name_cn": "光州FC",
+      "form": "负-平-负-平-平",
+      "position": 12,
+      "points": 10,
+      "elo_delta": 0,
+      "confidence": 0.85,
+      "notes": "联赛垫底，19轮仅1胜7平11负；近5轮3平2负未尝胜绩；进攻联赛最差(10球/19场)；防守也是联赛最差(失43球)；夏窗新援澳大利亚中锋艾尔代尔3场1球1助；崔庆禄和申昶武伤愈复出"
+    },
+    "JEU": {
+      "code": "JEU",
+      "name_cn": "济州联",
+      "form": "平-平-胜-平-负",
+      "position": 8,
+      "points": 24,
+      "elo_delta": -17,
+      "confidence": 0.85,
+      "notes": "中游，近4轮曾1胜3平不败但上轮0-3负江原；两名外援主力中卫塞莱斯廷(18场)和菲格雷多(8场)双双累积黄牌停赛，后防被迫启用全韩班临时组合；中场李昌珉伤愈复出；金信珍连续两轮进球状态回升"
+    }
+  },
+  "matches": [
+    {
+      "teams": ["GWJ", "JEU"],
+      "confidence": 0.85,
+      "goal_delta": {"GWJ": 0.0, "JEU": 0.0},
+      "tactical": {
+        "style_a": "counter_attack",
+        "style_b": "possession",
+        "matchup": "防守反击 vs 传控控制 — 反击克制传控体系",
+        "expected_pattern": "cautious",
+        "ineffective_possession": false,
+        "physical_mismatch": 0,
+        "derby_boost": false,
+        "counter_strategy": true,
+        "underdog_boost": 0.06,
+        "favorite_penalty": -0.05,
+        "description": "光州FC垫底崩盘被迫放弃控球改打防反，恰好克制济州联的传控体系；济州联双外援中卫停赛后防线隐患大"
+      },
+      "competition_context": {
+        "type": "normal",
+        "goal_boost": {}
+      },
+      "factors": [
+        {"summary": "战术对位：防守反击(光州) vs 传控(济州)，反击克制传控(+0.20/-0.20)"},
+        {"summary": "推测：光州因崩盘状态放弃常规压迫打法，改打低位防守反击"},
+        {"summary": "济州联两名主力外援中卫双双停赛，后防全韩班临时组合漏洞明显"},
+        {"summary": "高温35-38°C预警，比赛节奏预计偏慢，预期保守"},
+        {"summary": "历史交锋光州占据绝对心理优势：近6次交手4胜2平且全部零封济州"},
+        {"summary": "光州夏窗新援艾尔代尔已融入球队提供支点，崔庆禄/申昶武伤愈复出增强进攻"}
+      ],
+      "notes": [
+        "光州FC本赛季唯一胜场为主场3-2胜仁川联，此外17场不胜",
+        "济州联上轮客场0-3完败江原，双中卫停赛是巨大隐患",
+        "本赛季首次交锋：济州主场0-0光州，当时济州大部分时间10人应战",
+        "光州主帅李正圭赛前表示准备了'Plan B和C'，全力争胜",
+        "济州主帅科斯塔承认光州夏窗补强后已是'完全不同的球队'"
+      ]
+    }
+  ],
+  "h2h": {
+    "last_6": "GWJ 4W 2D 0L, GWJ未失一球",
+    "last_match": "2026-03: JEU 0-0 GWJ (济州主场)",
+    "note": "光州是济州的'克星'，近6次交手4胜2平且全部零封"
+  }
+}

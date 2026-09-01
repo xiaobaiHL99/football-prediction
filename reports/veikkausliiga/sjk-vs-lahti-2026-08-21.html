@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>塞伊奈约基 vs 拉赫蒂 — 芬超保级战预测</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+
+.stadium{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#0d1117 0%,#1a2332 30%,#1a2332 100%);overflow:hidden}
+.pitch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:90%;max-width:900px;height:220px;background:linear-gradient(180deg,#2d7a3a,#1e5c2a);border-radius:4px 4px 0 0;border:2px solid rgba(255,255,255,0.3)}
+.pitch::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,0.3)}
+.pitch::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:2px solid rgba(255,255,255,0.3);border-radius:50%}
+.penalty-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:44%;height:60px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.penalty-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.goal-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18%;height:24px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.goal-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.lights{position:absolute;top:20px;left:10%;right:10%;display:flex;justify-content:space-between}
+.light{width:6px;height:6px;background:#ffd700;border-radius:50%;box-shadow:0 0 12px 4px rgba(255,215,0,0.4)}
+.stands{position:absolute;bottom:220px;left:0;right:0;height:60px;background:linear-gradient(180deg,#1a1a2e,#16213e)}
+
+.scoreboard{position:absolute;top:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);border:1px solid #2a5298;border-radius:12px;padding:20px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.1);min-width:520px;text-align:center}
+.scoreboard .league-tag{font-size:11px;color:#64b5f6;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.scoreboard .match-tag{font-size:10px;color:#ff9800;background:rgba(255,152,0,0.15);display:inline-block;padding:2px 10px;border-radius:10px;margin-bottom:12px}
+.scoreboard .teams{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:10px}
+.scoreboard .team-name{font-size:20px;font-weight:700;color:#fff;min-width:120px}
+.scoreboard .team-name.home{text-align:right}
+.scoreboard .team-name.away{text-align:left}
+.scoreboard .score{font-size:42px;font-weight:900;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.5)}
+.scoreboard .score-label{font-size:10px;color:#aaa;margin-top:4px}
+.scoreboard .probs{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.scoreboard .prob-item{text-align:center}
+.scoreboard .prob-val{font-size:18px;font-weight:700}
+.scoreboard .prob-label{font-size:10px;color:#888;margin-top:2px}
+.prob-home{color:#4caf50}.prob-draw{color:#ff9800}.prob-away{color:#f44336}
+
+.container{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:28px;text-align:center;margin:30px 0 6px;background:linear-gradient(90deg,#4caf50,#ff9800);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#888;font-size:13px;margin-bottom:30px}
+
+.card{background:#141926;border:1px solid #1e2a3a;border-radius:12px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:#64b5f6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2::before{content:'';width:4px;height:18px;background:#2196f3;border-radius:2px}
+
+.prob-bar-wrap{margin:8px 0}
+.prob-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.prob-bar{height:28px;background:#1a2332;border-radius:6px;overflow:hidden;display:flex}
+.prob-bar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.seg-home{background:linear-gradient(90deg,#2e7d32,#4caf50)}.seg-draw{background:linear-gradient(90deg,#e65100,#ff9800)}.seg-away{background:linear-gradient(90deg,#b71c1c,#f44336)}
+
+.scores-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.score-card{background:#1a2332;border:1px solid #253347;border-radius:8px;padding:12px 8px;text-align:center}
+.score-card .sc{font-size:22px;font-weight:800;color:#ffd700}
+.score-card .sp{font-size:12px;color:#aaa;margin-top:4px}
+.score-card.top{border-color:#2a5298;background:linear-gradient(135deg,#1a2332,#0f3460)}
+
+.xg-row{display:flex;align-items:center;justify-content:center;gap:30px;margin:16px 0}
+.xg-item{text-align:center}
+.xg-val{font-size:32px;font-weight:800;color:#4caf50}
+.xg-val.away{color:#f44336}
+.xg-label{font-size:12px;color:#888;margin-top:4px}
+.xg-vs{font-size:18px;color:#555}
+
+.intel-item{display:flex;gap:10px;margin:10px 0;font-size:14px;line-height:1.6}
+.intel-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px}
+.intel-icon.positive{background:#1b5e20;color:#4caf50}
+.intel-icon.neutral{background:#1a2332;color:#64b5f6}
+.intel-icon.negative{background:#4a1414;color:#f44336}
+.intel-icon.warning{background:#3e2723;color:#ff9800}
+.intel-icon.injury{background:#4a1414;color:#ff5722}
+
+.scenario{background:#1a2332;border-left:3px solid #2196f3;padding:14px 18px;border-radius:0 8px 8px 0;margin:10px 0}
+.scenario .sc-title{font-weight:700;color:#64b5f6;font-size:14px;margin-bottom:6px}
+.scenario .sc-desc{font-size:13px;color:#bbb;line-height:1.6}
+
+.disclaimer{background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:20px;font-size:12px;color:#aaa;line-height:1.7}
+
+.factor-tag{display:inline-block;background:rgba(33,150,243,0.15);color:#64b5f6;padding:3px 10px;border-radius:12px;font-size:11px;margin:3px 2px}
+
+.injury-table{width:100%;border-collapse:collapse;font-size:13px}
+.injury-table th{text-align:left;color:#888;padding:8px 10px;border-bottom:1px solid #1e2a3a;font-weight:600}
+.injury-table td{padding:8px 10px;border-bottom:1px solid #0d1117}
+.injury-table .status-out{color:#f44336;font-weight:600}
+.injury-table .status-doubt{color:#ff9800;font-weight:600}
+
+.stat-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:12px 0}
+.stat-row{display:contents}
+.stat-cell{padding:8px 12px;font-size:14px;border-bottom:1px solid #0d1117}
+.stat-cell.left{text-align:right}
+.stat-cell.center{text-align:center;color:#555;font-size:12px}
+.stat-cell.right{text-align:left}
+.stat-cell .val{font-size:18px;font-weight:700}
+.stat-cell .val.bad{color:#f44336}
+.stat-cell .val.good{color:#4caf50}
+
+@media(max-width:640px){
+  .scoreboard{min-width:auto;padding:14px 18px}
+  .scoreboard .team-name{font-size:15px;min-width:80px}
+  .scoreboard .score{font-size:32px}
+  .scores-grid{grid-template-columns:repeat(3,1fr)}
+  .stadium{height:340px}
+  .pitch{height:160px}
+  .stands{bottom:160px;height:40px}
+  .scoreboard{top:50px}
+}
+</style>
+</head>
+<body>
+
+<div class="stadium">
+  <div class="stands"></div>
+  <div class="pitch">
+    <div class="penalty-area top"></div>
+    <div class="goal-area top"></div>
+    <div class="penalty-area"></div>
+    <div class="goal-area"></div>
+  </div>
+  <div class="lights"><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div></div>
+  <div class="scoreboard">
+    <div class="league-tag">Veikkausliiga · 芬兰超级联赛</div>
+    <div class="match-tag">📅 2026-08-21 · 第21轮 · 保级关键战 · 预测比分</div>
+    <div class="teams">
+      <div class="team-name home">塞伊奈约基<br><span style="font-size:11px;color:#888">SJK</span></div>
+      <div class="score">1 - 1</div>
+      <div class="team-name away">拉赫蒂<br><span style="font-size:11px;color:#888">Lahti</span></div>
+    </div>
+    <div class="score-label">单一最高概率比分 · 主预测方向：拉赫蒂客胜 1-2</div>
+    <div class="probs">
+      <div class="prob-item"><div class="prob-val prob-home">35.5%</div><div class="prob-label">SJK胜</div></div>
+      <div class="prob-item"><div class="prob-val prob-draw">28.1%</div><div class="prob-label">平局</div></div>
+      <div class="prob-item"><div class="prob-val prob-away">36.4%</div><div class="prob-label">拉赫蒂胜</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>塞伊奈约基 vs 拉赫蒂</h1>
+  <div class="subtitle">芬超 2026 第21轮 · OmaSP Stadion · 2026年8月21日 · 保级关键战</div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div style="text-align:center;margin:16px 0">
+      <div style="font-size:20px;font-weight:700;color:#ff9800">主预测：拉赫蒂客胜 1-2 (8.3%)</div>
+      <div style="font-size:14px;color:#aaa;margin-top:8px">方向概率 36.4% · 近均衡局，任何结果都不意外</div>
+    </div>
+    <div class="xg-row">
+      <div class="xg-item"><div class="xg-val">1.52</div><div class="xg-label">SJK预期进球</div></div>
+      <div class="xg-vs">vs</div>
+      <div class="xg-item"><div class="xg-val away">1.55</div><div class="xg-label">拉赫蒂预期进球</div></div>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <span class="factor-tag">SJK -12 Elo (三人伤缺)</span>
+      <span class="factor-tag">拉赫蒂 -17 Elo (核心伤停)</span>
+      <span class="factor-tag">SJK desperate 保级</span>
+      <span class="factor-tag">拉赫蒂 high 冲前6</span>
+      <span class="factor-tag">近均衡押客队</span>
+    </div>
+  </div>
+
+  <!-- 基本面对比 -->
+  <div class="card">
+    <h2>基本面与排名</h2>
+    <div class="stat-grid">
+      <div class="stat-row">
+        <div class="stat-cell left"><span class="val bad">18分</span></div>
+        <div class="stat-cell center">积分 (20轮)</div>
+        <div class="stat-cell right"><span class="val">26分</span></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><span class="val bad">第10</span></div>
+        <div class="stat-cell center">排名</div>
+        <div class="stat-cell right"><span class="val">第8</span></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><span class="val bad">31球</span></div>
+        <div class="stat-cell center">失球 (联赛最差)</div>
+        <div class="stat-cell right"><span class="val good">18球</span></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">1胜 (近6场)</div>
+        <div class="stat-cell center">近期状态</div>
+        <div class="stat-cell right">3胜1平2负 (近6场)</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">降级附加赛边缘</div>
+        <div class="stat-cell center">处境</div>
+        <div class="stat-cell right">冲击前6争冠组</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 伤停 -->
+  <div class="card">
+    <h2>🏥 伤停与阵容</h2>
+    <table class="injury-table">
+      <tr><th style="width:40%">塞伊奈约基</th><th style="width:20%">状态</th><th>影响</th></tr>
+      <tr><td>阿尔宾·比约克斯科格 (主力前锋)</td><td class="status-out">❌ 膝伤缺阵</td><td>进攻终结能力严重削弱</td></tr>
+      <tr><td>卡斯帕·帕纳宁 (主力中场)</td><td class="status-out">❌ 伤缺</td><td>中场组织能力下降</td></tr>
+      <tr><td>普罗斯佩·帕德拉 (轮换中场)</td><td class="status-out">❌ 伤缺</td><td>中场轮换深度不足</td></tr>
+      <tr><td colspan="3" style="color:#888;font-size:12px;padding-top:8px">Elo 修正：-12 (compute_elo_delta: starter×2 + rotation×1)</td></tr>
+    </table>
+    <table class="injury-table" style="margin-top:16px">
+      <tr><th style="width:40%">拉赫蒂</th><th style="width:20%">状态</th><th>影响</th></tr>
+      <tr><td>马克西姆·斯托伊诺夫 (头号射手)</td><td class="status-doubt">⚠️ 肌肉伤势存疑</td><td>若缺阵进攻火力大减</td></tr>
+      <tr><td>尤霍·雷科宁 (主力中场)</td><td class="status-out">❌ 累积黄牌停赛</td><td>中场攻防转换受影响</td></tr>
+      <tr><td colspan="3" style="color:#888;font-size:12px;padding-top:8px">Elo 修正：-17 (compute_elo_delta: star×0 + starter×1，斯托伊诺夫存疑未完全计入)</td></tr>
+    </table>
+  </div>
+
+  <!-- 概率分布 -->
+  <div class="card">
+    <h2>胜平负概率</h2>
+    <div class="prob-bar-wrap">
+      <div class="prob-bar-label"><span>SJK胜 35.5%</span><span>平局 28.1%</span><span>拉赫蒂胜 36.4%</span></div>
+      <div class="prob-bar">
+        <div class="seg seg-home" style="width:35.5%">35%</div>
+        <div class="seg seg-draw" style="width:28.1%">28%</div>
+        <div class="seg seg-away" style="width:36.4%">36%</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#888;margin-top:8px;text-align:center">近均衡局(三方向概率接近)，模型自动向平局收缩</div>
+  </div>
+
+  <!-- 比分分布 -->
+  <div class="card">
+    <h2>比分分布 Top 5</h2>
+    <div class="scores-grid">
+      <div class="score-card top"><div class="sc">1-1</div><div class="sp">10.7%</div></div>
+      <div class="score-card"><div class="sc">1-2</div><div class="sp">8.3%</div></div>
+      <div class="score-card"><div class="sc">2-1</div><div class="sp">8.2%</div></div>
+      <div class="score-card"><div class="sc">0-1</div><div class="sp">7.2%</div></div>
+      <div class="score-card"><div class="sc">1-0</div><div class="sp">7.1%</div></div>
+    </div>
+    <div style="font-size:12px;color:#888;margin-top:12px;text-align:center">单一最高：1-1 (10.7%) · 主预测方向最高：1-2 拉赫蒂客胜 (8.3%)</div>
+  </div>
+
+  <!-- 预测原因 -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <div class="intel-item"><div class="intel-icon injury">🏥</div><div><b>SJK中前场削弱严重</b>：主力前锋比约克斯科格(膝伤)+主力中场帕纳宁+轮换中场帕德拉三人缺阵，进攻组织和终结能力大幅下降。面对拉赫蒂铁桶防线，攻坚手段更加匮乏。</div></div>
+    <div class="intel-item"><div class="intel-icon injury">🏥</div><div><b>拉赫蒂也有损失</b>：头号射手斯托伊诺夫出战存疑、主力中场雷科宁停赛。但拉赫蒂防守体系完整(联赛第2少失球)，即使进攻端受限，客场拿一分仍有把握。</div></div>
+    <div class="intel-item"><div class="intel-icon negative">↓</div><div><b>SJK防守崩盘</b>：20轮丢31球联赛最差，近期糟糕近6场仅1胜(上轮0-2负保级对手玛丽港)。即使保级战意desperate，防守漏洞难以弥补。</div></div>
+    <div class="intel-item"><div class="intel-icon positive">↑</div><div><b>拉赫蒂防守铁壁</b>：20轮仅丢18球联赛第2少，客场打法务实收缩防守+快速反击。战术风格恰好克制SJK的阵地战攻坚。</div></div>
+    <div class="intel-item"><div class="intel-icon warning">⚠</div><div><b>历史交锋SJK不败</b>：近5次交手SJK 2胜3平保持不败，本赛季首回合客场3-2胜。但此役SJK状态和人员大不相同，历史优势难以延续。</div></div>
+    <div class="intel-item"><div class="intel-icon neutral">→</div><div><b>近均衡局</b>：Elo差极小(伤停修正后几乎持平)，三方向概率接近(35/28/36)，模型自动向平局收缩。任何结果都不意外。</div></div>
+  </div>
+
+  <!-- 战术对位 -->
+  <div class="card">
+    <h2>🧠 战术对位分析</h2>
+    <div style="font-size:14px;line-height:1.8">
+      <b>SJK (长传 direct)</b> vs <b>拉赫蒂 (防反 counter_attack)</b><br><br>
+      <b>克制关系</b>：长传 vs 防反 → 无明确克制矩阵(未列出组合)。但拉赫蒂低位收缩恰好克制SJK的直接打法——长传难以穿透密集防守。<br><br>
+      <b>预期节奏</b>：<span style="color:#ff9800">cautious (保守)</span> — SJK保级压力下不敢大开大合，拉赫蒂客场本就保守。预计低节奏沉闷比赛。<br><br>
+      <b>关键变量</b>：SJK能否在主场球迷助威下早破僵局？若0-0进入下半场，拉赫蒂防反威胁将增大。
+    </div>
+  </div>
+
+  <!-- 场景推演 -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="scenario">
+      <div class="sc-title">🟡 主线路径：低比分胶着 (45%)</div>
+      <div class="sc-desc">SJK主场进攻但缺乏终结能力，拉赫蒂收缩防守。0-0或1-1平局收场，双方各拿1分。SJK保级压力未能缓解，拉赫蒂冲前6希望也受挫。</div>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">🟢 拉赫蒂反击得手 (36%)</div>
+      <div class="sc-desc">SJK压上进攻暴露后防漏洞(联赛最差防守)，拉赫蒂利用反击先拔头筹。SJK急躁之下再丢球，最终1-2或0-1客胜。拉赫蒂防守纪律是关键。</div>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">🔴 SJK保级爆发 (35%)</div>
+      <div class="sc-desc">保级desperate战意激发超常发挥，主场球迷助威下SJK先破门。拉赫蒂被迫攻出来暴露防守空档，SJK趁机扩大比分。2-1主胜。</div>
+    </div>
+  </div>
+
+  <!-- 盘口说明 -->
+  <div style="background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:16px">
+    <div style="font-size:14px;font-weight:700;color:#ff9800;margin-bottom:8px">📊 盘口分析</div>
+    <div style="font-size:12px;color:#ff9800">⚠️ 本场未能获取实时亚盘数据，预测走纯 Elo + 泊松模型 + 伤停修正。</div>
+    <div style="font-size:12px;color:#888;margin-top:8px">参考：近均衡局盘口预计平手/平半。如需盘口分析，请提供亚盘盘口和水位数据。</div>
+  </div>
+
+  <!-- 不确定性 -->
+  <div class="disclaimer">
+    <b>⚠️ 不确定性说明</b><br>
+    • 近均衡局三方向概率接近(35/28/36)，任何赛果都不意外。<br>
+    • 1-1平局概率最高(10.7%)，但主预测方向为拉赫蒂客胜(1-2, 8.3%)。<br>
+    • SJK保级desperate战意可能激发超常发挥，历史交锋5场不败也有心理优势。<br>
+    • 两队均有核心缺阵，比赛质量可能较低，偶然性增大。<br>
+    • 本预测基于 Elo + 泊松模型 + 伤停修正 + 赛前情报，不含盘口市场信号。<br>
+    • 概率不等于确定性结论，本预测纯属娱乐分析。
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,811 @@
+{
+  "_meta": {
+    "updated_at": "2026-09-01T08:21:15"
+  },
+  "reviews": [
+    {
+      "date": "2026-08-03",
+      "n": 2,
+      "matched": 2,
+      "pending": 0,
+      "dir_hit": 2,
+      "score_hit": 1,
+      "avg_log_loss": 0.4428,
+      "avg_brier": 0.1939,
+      "leagues": {
+        "allsvenskan": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.4428
+        }
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "n": 5,
+      "matched": 5,
+      "pending": 0,
+      "dir_hit": 0,
+      "score_hit": 0,
+      "avg_log_loss": 1.5296,
+      "avg_brier": 0.9725,
+      "leagues": {
+        "brasileirao": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.9951
+        },
+        "ucl_qualifying": {
+          "n": 4,
+          "matched": 4,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.4133
+        }
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "n": 3,
+      "matched": 3,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 1,
+      "avg_log_loss": 1.5559,
+      "avg_brier": 0.9236,
+      "leagues": {
+        "brasileirao": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.9099
+        },
+        "ucl_qualifying": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.3789
+        }
+      }
+    },
+    {
+      "date": "2026-08-06",
+      "n": 2,
+      "matched": 2,
+      "pending": 0,
+      "dir_hit": 0,
+      "score_hit": 0,
+      "avg_log_loss": 1.1925,
+      "avg_brier": 0.742,
+      "leagues": {
+        "europa_league": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.1925
+        }
+      }
+    },
+    {
+      "date": "2026-08-07",
+      "n": 4,
+      "matched": 4,
+      "pending": 0,
+      "dir_hit": 2,
+      "score_hit": 0,
+      "avg_log_loss": 0.8584,
+      "avg_brier": 0.5095,
+      "leagues": {
+        "europa_league": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.8348
+        },
+        "jleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.8819
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "n": 4,
+      "matched": 4,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 0,
+      "avg_log_loss": 1.3831,
+      "avg_brier": 0.8531,
+      "leagues": {
+        "eliteserien": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.3859
+        },
+        "jleague": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.6053
+        },
+        "kleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.7705
+        }
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "n": 1,
+      "matched": 1,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 0,
+      "avg_log_loss": 0.4413,
+      "avg_brier": 0.1939,
+      "leagues": {
+        "brasileirao": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.4413
+        }
+      }
+    },
+    {
+      "date": "2026-08-11",
+      "n": 8,
+      "matched": 8,
+      "pending": 0,
+      "dir_hit": 5,
+      "score_hit": 0,
+      "avg_log_loss": 1.1646,
+      "avg_brier": 0.7318,
+      "leagues": {
+        "allsvenskan": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.6867
+        },
+        "champions_league": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.5437
+        },
+        "ucl_qualifying": {
+          "n": 5,
+          "matched": 5,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.8799
+        }
+      }
+    },
+    {
+      "date": "2026-08-12",
+      "n": 1,
+      "matched": 1,
+      "pending": 0,
+      "dir_hit": 0,
+      "score_hit": 0,
+      "avg_log_loss": 1.2424,
+      "avg_brier": 0.7639,
+      "leagues": {
+        "libertadores": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.2424
+        }
+      }
+    },
+    {
+      "date": "2026-08-13",
+      "n": 2,
+      "matched": 2,
+      "pending": 0,
+      "dir_hit": 0,
+      "score_hit": 0,
+      "avg_log_loss": 1.3735,
+      "avg_brier": 0.8955,
+      "leagues": {
+        "libertadores": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.3735
+        }
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "n": 14,
+      "matched": 14,
+      "pending": 0,
+      "dir_hit": 5,
+      "score_hit": 0,
+      "avg_log_loss": 1.1336,
+      "avg_brier": 0.6951,
+      "leagues": {
+        "allsvenskan": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.7987
+        },
+        "eliteserien": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 0.9322
+        },
+        "europa_league": {
+          "n": 6,
+          "matched": 6,
+          "dir_hit_rate": 0.167,
+          "avg_log_loss": 1.3157
+        },
+        "jleague": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.9251
+        },
+        "libertadores": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.3345
+        },
+        "ligue2": {
+          "n": 3,
+          "matched": 3,
+          "dir_hit_rate": 0.667,
+          "avg_log_loss": 0.938
+        },
+        "veikkausliiga": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.1722
+        }
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "n": 5,
+      "matched": 5,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 0,
+      "avg_log_loss": 1.2867,
+      "avg_brier": 0.7964,
+      "leagues": {
+        "allsvenskan": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.5852
+        },
+        "eliteserien": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.6124
+        },
+        "jleague": {
+          "n": 3,
+          "matched": 3,
+          "dir_hit_rate": 0.333,
+          "avg_log_loss": 1.0786
+        }
+      }
+    },
+    {
+      "date": "2026-08-16",
+      "n": 8,
+      "matched": 8,
+      "pending": 0,
+      "dir_hit": 4,
+      "score_hit": 0,
+      "avg_log_loss": 1.088,
+      "avg_brier": 0.6704,
+      "leagues": {
+        "allsvenskan": {
+          "n": 4,
+          "matched": 4,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.9531
+        },
+        "eredivisie": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.2277
+        },
+        "laliga": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.2183
+        }
+      }
+    },
+    {
+      "date": "2026-08-17",
+      "n": 3,
+      "matched": 3,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 0,
+      "avg_log_loss": 0.8972,
+      "avg_brier": 0.5353,
+      "leagues": {
+        "allsvenskan": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.2219
+        },
+        "brasileirao": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.2103
+        },
+        "laliga": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.2595
+        }
+      }
+    },
+    {
+      "date": "2026-08-18",
+      "n": 3,
+      "matched": 3,
+      "pending": 0,
+      "dir_hit": 0,
+      "score_hit": 0,
+      "avg_log_loss": 1.262,
+      "avg_brier": 0.7774,
+      "leagues": {
+        "ucl_qualifying": {
+          "n": 3,
+          "matched": 3,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.262
+        }
+      }
+    },
+    {
+      "date": "2026-08-19",
+      "n": 5,
+      "matched": 3,
+      "pending": 2,
+      "dir_hit": 1,
+      "score_hit": 0,
+      "avg_log_loss": 1.0815,
+      "avg_brier": 0.6525,
+      "leagues": {
+        "kleague": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.6798
+        },
+        "ucl_qualifying": {
+          "n": 4,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.2823
+        }
+      }
+    },
+    {
+      "date": "2026-08-20",
+      "n": 11,
+      "matched": 8,
+      "pending": 3,
+      "dir_hit": 6,
+      "score_hit": 1,
+      "avg_log_loss": 0.7904,
+      "avg_brier": 0.4494,
+      "leagues": {
+        "europa_league": {
+          "n": 6,
+          "matched": 6,
+          "dir_hit_rate": 0.667,
+          "avg_log_loss": 0.8793
+        },
+        "laliga": {
+          "n": 3,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.3201
+        },
+        "ucl_qualifying": {
+          "n": 2,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.7275
+        }
+      }
+    },
+    {
+      "date": "2026-08-21",
+      "n": 8,
+      "matched": 5,
+      "pending": 3,
+      "dir_hit": 3,
+      "score_hit": 1,
+      "avg_log_loss": 1.1205,
+      "avg_brier": 0.676,
+      "leagues": {
+        "allsvenskan": {
+          "n": 3,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 2.2857
+        },
+        "epl": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.2567
+        },
+        "jleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.0417
+        },
+        "veikkausliiga": {
+          "n": 2,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.9768
+        }
+      }
+    },
+    {
+      "date": "2026-08-22",
+      "n": 16,
+      "matched": 10,
+      "pending": 6,
+      "dir_hit": 4,
+      "score_hit": 1,
+      "avg_log_loss": 1.0644,
+      "avg_brier": 0.6319,
+      "leagues": {
+        "allsvenskan": {
+          "n": 1,
+          "matched": 0,
+          "dir_hit_rate": null,
+          "avg_log_loss": null
+        },
+        "epl": {
+          "n": 6,
+          "matched": 5,
+          "dir_hit_rate": 0.2,
+          "avg_log_loss": 1.2893
+        },
+        "jleague": {
+          "n": 2,
+          "matched": 0,
+          "dir_hit_rate": null,
+          "avg_log_loss": null
+        },
+        "kleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.6538
+        },
+        "laliga": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.1363
+        },
+        "ligue1": {
+          "n": 3,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.6169
+        }
+      }
+    },
+    {
+      "date": "2026-08-23",
+      "n": 9,
+      "matched": 9,
+      "pending": 0,
+      "dir_hit": 5,
+      "score_hit": 0,
+      "avg_log_loss": 0.969,
+      "avg_brier": 0.577,
+      "leagues": {
+        "seriea": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.803
+        },
+        "laliga": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.082
+        },
+        "eredivisie": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.594
+        },
+        "jleague": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 1.037
+        },
+        "kleague": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.652
+        },
+        "epl": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.832
+        }
+      }
+    },
+    {
+      "date": "2026-08-25",
+      "n": 8,
+      "matched": 8,
+      "pending": 0,
+      "dir_hit": 3,
+      "score_hit": 0,
+      "avg_log_loss": 1.0557,
+      "avg_brier": 0.6431,
+      "leagues": {
+        "allsvenskan": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.7315
+        },
+        "brasileirao": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.0987
+        },
+        "epl": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.7095
+        },
+        "kleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.3136
+        },
+        "laliga": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.1661
+        },
+        "ucl_qualifying": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.9467
+        }
+      }
+    },
+    {
+      "date": "2026-08-26",
+      "n": 4,
+      "matched": 4,
+      "pending": 0,
+      "dir_hit": 2,
+      "score_hit": 1,
+      "avg_log_loss": 0.8894,
+      "avg_brier": 0.5207,
+      "leagues": {
+        "kleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.9345
+        },
+        "laliga": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.0236
+        },
+        "ucl_qualifying": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.6651
+        }
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "n": 6,
+      "matched": 6,
+      "pending": 0,
+      "dir_hit": 4,
+      "score_hit": 0,
+      "avg_log_loss": 0.9124,
+      "avg_brier": 0.5273,
+      "leagues": {
+        "europa_league": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.897
+        },
+        "laliga": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.3274
+        },
+        "ucl_qualifying": {
+          "n": 4,
+          "matched": 4,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.0625
+        }
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "n": 11,
+      "matched": 11,
+      "pending": 0,
+      "dir_hit": 9,
+      "score_hit": 1,
+      "avg_log_loss": 0.6935,
+      "avg_brier": 0.3823,
+      "leagues": {
+        "eliteserien": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.227
+        },
+        "epl": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 0.9952
+        },
+        "eredivisie": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.657
+        },
+        "kleague": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.0602
+        },
+        "laliga": {
+          "n": 3,
+          "matched": 3,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.4746
+        },
+        "ligue1": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.9434
+        },
+        "seriea": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.2662
+        }
+      }
+    },
+    {
+      "date": "2026-08-31",
+      "n": 5,
+      "matched": 5,
+      "pending": 0,
+      "dir_hit": 3,
+      "score_hit": 0,
+      "avg_log_loss": 0.8442,
+      "avg_brier": 0.4869,
+      "leagues": {
+        "laliga": {
+          "n": 2,
+          "matched": 2,
+          "dir_hit_rate": 0.5,
+          "avg_log_loss": 1.027
+        },
+        "ligue1": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.6663
+        },
+        "seriea": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.4048
+        },
+        "veikkausliiga": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 0.0,
+          "avg_log_loss": 1.096
+        }
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "n": 1,
+      "matched": 1,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 1,
+      "avg_log_loss": 0.9795,
+      "avg_brier": 0.586,
+      "leagues": {
+        "championship": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.9795
+        }
+      }
+    },
+    {
+      "date": "2026-08-29",
+      "n": 1,
+      "matched": 1,
+      "pending": 0,
+      "dir_hit": 1,
+      "score_hit": 0,
+      "avg_log_loss": 0.5122,
+      "avg_brier": 0.2411,
+      "leagues": {
+        "championship": {
+          "n": 1,
+          "matched": 1,
+          "dir_hit_rate": 1.0,
+          "avg_log_loss": 0.5122
+        }
+      }
+    }
+  ]
+}

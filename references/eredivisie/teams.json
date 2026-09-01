@@ -1,0 +1,172 @@
+{
+  "_meta": {
+    "league": "Eredivisie",
+    "season": "2026-27",
+    "updated_at": "2026-08-16T00:00:00Z",
+    "note": "Elo ratings initial calibration aligned with champions_league/europa_league/ucl_qualifying snapshots for shared clubs (PSV/AJX/FEY/AZ/NEC/TWE); promoted sides (ADO/CAM/WIL) at bottom tier. Adjustable via elo_updater."
+  },
+  "teams": {
+    "PSV": {
+      "name": "PSV Eindhoven",
+      "name_cn": "埃因霍温",
+      "elo": 1750,
+      "city": "Eindhoven",
+      "stadium": "Philips Stadion",
+      "color": "red",
+      "notes": "荷甲三连冠卫冕冠军，博斯高位逼抢+锋线爆点，争冠最大热门"
+    },
+    "AJX": {
+      "name": "Ajax Amsterdam",
+      "name_cn": "阿贾克斯",
+      "elo": 1740,
+      "city": "Amsterdam",
+      "stadium": "Johan Cruijff ArenA",
+      "color": "red",
+      "notes": "阿姆斯特丹豪门，青训流水线，重建后重新冲击冠军"
+    },
+    "FEY": {
+      "name": "Feyenoord Rotterdam",
+      "name_cn": "费耶诺德",
+      "elo": 1680,
+      "city": "Rotterdam",
+      "stadium": "De Kuip",
+      "color": "red",
+      "notes": "鹿特丹铁军，德库伊普魔鬼主场，欧战常客"
+    },
+    "NEC": {
+      "name": "NEC Nijmegen",
+      "name_cn": "奈梅亨",
+      "elo": 1600,
+      "city": "Nijmegen",
+      "stadium": "Goffertstadion",
+      "color": "red",
+      "notes": "2025-26 黑马拿到欧冠资格赛门票，攻势足球，高位逼抢"
+    },
+    "AZ": {
+      "name": "AZ Alkmaar",
+      "name_cn": "阿尔克马尔",
+      "elo": 1580,
+      "city": "Alkmaar",
+      "stadium": "AFAS Stadion",
+      "color": "red",
+      "notes": "北方青训强队，欧联常客，主场火力开放"
+    },
+    "UTR": {
+      "name": "FC Utrecht",
+      "name_cn": "乌德勒支",
+      "elo": 1565,
+      "city": "Utrecht",
+      "stadium": "Stadion Galgenwaard",
+      "color": "white",
+      "notes": "中上游劲旅，主场 Galgenwaard 坚韧，欧战资格竞争者"
+    },
+    "TWE": {
+      "name": "FC Twente",
+      "name_cn": "特温特",
+      "elo": 1560,
+      "city": "Enschede",
+      "stadium": "De Grolsch Veste",
+      "color": "red",
+      "notes": "恩斯赫德劲旅，欧冠资格赛经验，攻守均衡"
+    },
+    "GRN": {
+      "name": "FC Groningen",
+      "name_cn": "格罗宁根",
+      "elo": 1540,
+      "city": "Groningen",
+      "stadium": "Euroborg",
+      "color": "green",
+      "notes": "北部劲旅，主场欧堡球场氛围火爆"
+    },
+    "HEE": {
+      "name": "SC Heerenveen",
+      "name_cn": "海伦芬",
+      "elo": 1520,
+      "city": "Heerenveen",
+      "stadium": "Abe Lenstra Stadion",
+      "color": "blue",
+      "notes": "弗里斯兰球队，青训出色，主场稳健"
+    },
+    "GAE": {
+      "name": "Go Ahead Eagles",
+      "name_cn": "前进之鹰",
+      "elo": 1500,
+      "city": "Deventer",
+      "stadium": "De Adelaarshorst",
+      "color": "yellow",
+      "notes": "代芬特尔百年小球会，稳居中游，主场狂热"
+    },
+    "SPA": {
+      "name": "Sparta Rotterdam",
+      "name_cn": "鹿特丹斯巴达",
+      "elo": 1490,
+      "city": "Rotterdam",
+      "stadium": "Het Kasteel",
+      "color": "red",
+      "notes": "荷兰最古老职业俱乐部，防守反击为主"
+    },
+    "FUT": {
+      "name": "Fortuna Sittard",
+      "name_cn": "锡塔德福图纳",
+      "elo": 1480,
+      "city": "Sittard",
+      "stadium": "Fortuna Sittard Stadion",
+      "color": "yellow",
+      "notes": "林堡省球队，主场强攻，中下游保级档"
+    },
+    "PEC": {
+      "name": "PEC Zwolle",
+      "name_cn": "兹沃勒",
+      "elo": 1470,
+      "city": "Zwolle",
+      "stadium": "MAC³PARK Stadion",
+      "color": "blue",
+      "notes": "上艾瑟尔省球队，务实踢法，保级为主"
+    },
+    "WIL": {
+      "name": "Willem II",
+      "name_cn": "威廉二世",
+      "elo": 1460,
+      "city": "Tilburg",
+      "stadium": "Koning Willem II Stadion",
+      "color": "red",
+      "notes": "升级附加赛胜出回归，蒂尔堡主场韧性足"
+    },
+    "EXC": {
+      "name": "Excelsior Rotterdam",
+      "name_cn": "鹿特丹精英",
+      "elo": 1450,
+      "city": "Rotterdam",
+      "stadium": "Van Donge & De Roo Stadion",
+      "color": "red",
+      "notes": "鹿特丹小俱乐部，升降机属性，主场紧凑"
+    },
+    "TEL": {
+      "name": "Telstar",
+      "name_cn": "特尔斯达",
+      "elo": 1445,
+      "city": "Velsen",
+      "stadium": "BUKO Stadion",
+      "color": "white",
+      "notes": "队史首次征战荷甲，维森小球会，主场容量小"
+    },
+    "ADO": {
+      "name": "ADO Den Haag",
+      "name_cn": "海牙ADO",
+      "elo": 1440,
+      "city": "Den Haag",
+      "stadium": "Bingoal Stadion",
+      "color": "green",
+      "notes": "荷乙冠军升班马，五年后回归，海牙市球队"
+    },
+    "CAM": {
+      "name": "SC Cambuur",
+      "name_cn": "坎布尔",
+      "elo": 1435,
+      "city": "Leeuwarden",
+      "stadium": "Cambuur Stadion",
+      "color": "yellow",
+      "notes": "荷乙亚军升班马，三年后回归，弗里斯兰北部球队"
+    }
+  }
+}

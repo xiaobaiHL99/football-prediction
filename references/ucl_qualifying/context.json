@@ -1,0 +1,13 @@
+{
+  "special_factors": {
+    "travel_distance": { "description": "跨国旅行消耗，跨区域比赛体能影响", "value": -0.08, "apply_when": "home_region != away_region" },
+    "midweek_schedule_compact": { "description": "资格赛周中+周末联赛的紧凑赛程影响", "value": -0.06, "apply_when": "team_in_europe" },
+    "weather_difference": { "description": "南北欧显著温差对客队影响", "value": -0.05, "apply_when": "abs(home_region_index - away_region_index) >= 2" }
+  },
+  "europe_teams": ["OLY", "USG", "BOD", "GAL", "CEL", "SHA", "FEN", "SAL", "CLB", "BJK", "NEC", "AND", "RSB", "HAJ", "QAR", "MAL", "KYD", "FTC", "GNK", "MID", "SLP", "FCK", "PAO", "TWE", "MJA", "YB", "ZAG", "LUD", "SLO", "LEG"],
+  "turf_map": {
+    "artificial": ["BOD"],
+    "natural": ["OLY", "USG", "GAL", "CEL", "SHA", "FEN", "SAL", "CLB", "BJK", "NEC", "AND", "RSB", "HAJ", "QAR", "MAL", "KYD", "FTC", "GNK", "MID", "SLP", "FCK", "PAO", "TWE", "MJA", "YB", "ZAG", "LUD", "SLO", "LEG"]
+  },
+  "region_index": { "north": 0, "central": 1, "northwest": 1, "southwest": 2, "centralwest": 2 }
+}

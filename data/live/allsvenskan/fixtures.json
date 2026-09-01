@@ -1,0 +1,966 @@
+[
+  {
+    "home": "KAL",
+    "away": "MJA"
+  },
+  {
+    "home": "MAL",
+    "away": "GOT"
+  },
+  {
+    "home": "AIK",
+    "away": "VAR"
+  },
+  {
+    "home": "HAC",
+    "away": "SOF"
+  },
+  {
+    "home": "DJU",
+    "away": "DEG"
+  },
+  {
+    "home": "ELF",
+    "away": "BRO"
+  },
+  {
+    "home": "KAL",
+    "away": "SIR"
+  },
+  {
+    "home": "NOR",
+    "away": "PRI"
+  },
+  {
+    "home": "HBK",
+    "away": "GAIS"
+  },
+  {
+    "home": "MAL",
+    "away": "VAR"
+  },
+  {
+    "home": "GOT",
+    "away": "SOF"
+  },
+  {
+    "home": "AIK",
+    "away": "DEG"
+  },
+  {
+    "home": "HAC",
+    "away": "BRO"
+  },
+  {
+    "home": "DJU",
+    "away": "SIR"
+  },
+  {
+    "home": "ELF",
+    "away": "PRI"
+  },
+  {
+    "home": "KAL",
+    "away": "GAIS"
+  },
+  {
+    "home": "NOR",
+    "away": "HBK"
+  },
+  {
+    "home": "MAL",
+    "away": "SOF"
+  },
+  {
+    "home": "VAR",
+    "away": "DEG"
+  },
+  {
+    "home": "GOT",
+    "away": "BRO"
+  },
+  {
+    "home": "AIK",
+    "away": "SIR"
+  },
+  {
+    "home": "HAC",
+    "away": "PRI"
+  },
+  {
+    "home": "DJU",
+    "away": "GAIS"
+  },
+  {
+    "home": "ELF",
+    "away": "HBK"
+  },
+  {
+    "home": "KAL",
+    "away": "NOR"
+  },
+  {
+    "home": "MAL",
+    "away": "DEG"
+  },
+  {
+    "home": "SOF",
+    "away": "BRO"
+  },
+  {
+    "home": "VAR",
+    "away": "SIR"
+  },
+  {
+    "home": "GOT",
+    "away": "PRI"
+  },
+  {
+    "home": "AIK",
+    "away": "GAIS"
+  },
+  {
+    "home": "HAC",
+    "away": "HBK"
+  },
+  {
+    "home": "DJU",
+    "away": "NOR"
+  },
+  {
+    "home": "ELF",
+    "away": "KAL"
+  },
+  {
+    "home": "MAL",
+    "away": "BRO"
+  },
+  {
+    "home": "DEG",
+    "away": "SIR"
+  },
+  {
+    "home": "SOF",
+    "away": "PRI"
+  },
+  {
+    "home": "VAR",
+    "away": "GAIS"
+  },
+  {
+    "home": "GOT",
+    "away": "HBK"
+  },
+  {
+    "home": "AIK",
+    "away": "NOR"
+  },
+  {
+    "home": "HAC",
+    "away": "KAL"
+  },
+  {
+    "home": "DJU",
+    "away": "ELF"
+  },
+  {
+    "home": "MAL",
+    "away": "SIR"
+  },
+  {
+    "home": "BRO",
+    "away": "PRI"
+  },
+  {
+    "home": "DEG",
+    "away": "GAIS"
+  },
+  {
+    "home": "SOF",
+    "away": "HBK"
+  },
+  {
+    "home": "VAR",
+    "away": "NOR"
+  },
+  {
+    "home": "GOT",
+    "away": "KAL"
+  },
+  {
+    "home": "AIK",
+    "away": "ELF"
+  },
+  {
+    "home": "HAC",
+    "away": "DJU"
+  },
+  {
+    "home": "MAL",
+    "away": "PRI"
+  },
+  {
+    "home": "SIR",
+    "away": "GAIS"
+  },
+  {
+    "home": "BRO",
+    "away": "HBK"
+  },
+  {
+    "home": "DEG",
+    "away": "NOR"
+  },
+  {
+    "home": "SOF",
+    "away": "KAL"
+  },
+  {
+    "home": "VAR",
+    "away": "ELF"
+  },
+  {
+    "home": "GOT",
+    "away": "DJU"
+  },
+  {
+    "home": "AIK",
+    "away": "HAC"
+  },
+  {
+    "home": "MAL",
+    "away": "GAIS"
+  },
+  {
+    "home": "PRI",
+    "away": "HBK"
+  },
+  {
+    "home": "SIR",
+    "away": "NOR"
+  },
+  {
+    "home": "BRO",
+    "away": "KAL"
+  },
+  {
+    "home": "DEG",
+    "away": "ELF"
+  },
+  {
+    "home": "SOF",
+    "away": "DJU"
+  },
+  {
+    "home": "VAR",
+    "away": "HAC"
+  },
+  {
+    "home": "GOT",
+    "away": "AIK"
+  },
+  {
+    "home": "MAL",
+    "away": "HBK"
+  },
+  {
+    "home": "GAIS",
+    "away": "NOR"
+  },
+  {
+    "home": "PRI",
+    "away": "KAL"
+  },
+  {
+    "home": "SIR",
+    "away": "ELF"
+  },
+  {
+    "home": "BRO",
+    "away": "DJU"
+  },
+  {
+    "home": "DEG",
+    "away": "HAC"
+  },
+  {
+    "home": "SOF",
+    "away": "AIK"
+  },
+  {
+    "home": "VAR",
+    "away": "GOT"
+  },
+  {
+    "home": "MAL",
+    "away": "NOR"
+  },
+  {
+    "home": "HBK",
+    "away": "KAL"
+  },
+  {
+    "home": "GAIS",
+    "away": "ELF"
+  },
+  {
+    "home": "PRI",
+    "away": "DJU"
+  },
+  {
+    "home": "SIR",
+    "away": "HAC"
+  },
+  {
+    "home": "BRO",
+    "away": "AIK"
+  },
+  {
+    "home": "DEG",
+    "away": "GOT"
+  },
+  {
+    "home": "SOF",
+    "away": "VAR"
+  },
+  {
+    "home": "MAL",
+    "away": "KAL"
+  },
+  {
+    "home": "NOR",
+    "away": "ELF"
+  },
+  {
+    "home": "HBK",
+    "away": "DJU"
+  },
+  {
+    "home": "GAIS",
+    "away": "HAC"
+  },
+  {
+    "home": "PRI",
+    "away": "AIK"
+  },
+  {
+    "home": "SIR",
+    "away": "GOT"
+  },
+  {
+    "home": "BRO",
+    "away": "VAR"
+  },
+  {
+    "home": "DEG",
+    "away": "SOF"
+  },
+  {
+    "home": "MAL",
+    "away": "ELF"
+  },
+  {
+    "home": "KAL",
+    "away": "DJU"
+  },
+  {
+    "home": "NOR",
+    "away": "HAC"
+  },
+  {
+    "home": "HBK",
+    "away": "AIK"
+  },
+  {
+    "home": "GAIS",
+    "away": "GOT"
+  },
+  {
+    "home": "PRI",
+    "away": "VAR"
+  },
+  {
+    "home": "SIR",
+    "away": "SOF"
+  },
+  {
+    "home": "BRO",
+    "away": "DEG"
+  },
+  {
+    "home": "MAL",
+    "away": "DJU"
+  },
+  {
+    "home": "ELF",
+    "away": "HAC"
+  },
+  {
+    "home": "KAL",
+    "away": "AIK"
+  },
+  {
+    "home": "NOR",
+    "away": "GOT"
+  },
+  {
+    "home": "HBK",
+    "away": "VAR"
+  },
+  {
+    "home": "GAIS",
+    "away": "SOF"
+  },
+  {
+    "home": "PRI",
+    "away": "DEG"
+  },
+  {
+    "home": "SIR",
+    "away": "BRO"
+  },
+  {
+    "home": "MAL",
+    "away": "HAC"
+  },
+  {
+    "home": "DJU",
+    "away": "AIK"
+  },
+  {
+    "home": "ELF",
+    "away": "GOT"
+  },
+  {
+    "home": "KAL",
+    "away": "VAR"
+  },
+  {
+    "home": "NOR",
+    "away": "SOF"
+  },
+  {
+    "home": "HBK",
+    "away": "DEG"
+  },
+  {
+    "home": "GAIS",
+    "away": "BRO"
+  },
+  {
+    "home": "PRI",
+    "away": "SIR"
+  },
+  {
+    "home": "MAL",
+    "away": "AIK"
+  },
+  {
+    "home": "HAC",
+    "away": "GOT"
+  },
+  {
+    "home": "DJU",
+    "away": "VAR"
+  },
+  {
+    "home": "ELF",
+    "away": "SOF"
+  },
+  {
+    "home": "KAL",
+    "away": "DEG"
+  },
+  {
+    "home": "NOR",
+    "away": "BRO"
+  },
+  {
+    "home": "HBK",
+    "away": "SIR"
+  },
+  {
+    "home": "GAIS",
+    "away": "PRI"
+  },
+  {
+    "home": "GOT",
+    "away": "MAL"
+  },
+  {
+    "home": "VAR",
+    "away": "AIK"
+  },
+  {
+    "home": "SOF",
+    "away": "HAC"
+  },
+  {
+    "home": "DEG",
+    "away": "DJU"
+  },
+  {
+    "home": "BRO",
+    "away": "ELF"
+  },
+  {
+    "home": "SIR",
+    "away": "KAL"
+  },
+  {
+    "home": "PRI",
+    "away": "NOR"
+  },
+  {
+    "home": "GAIS",
+    "away": "HBK"
+  },
+  {
+    "home": "VAR",
+    "away": "MAL"
+  },
+  {
+    "home": "SOF",
+    "away": "GOT"
+  },
+  {
+    "home": "DEG",
+    "away": "AIK"
+  },
+  {
+    "home": "BRO",
+    "away": "HAC"
+  },
+  {
+    "home": "SIR",
+    "away": "DJU"
+  },
+  {
+    "home": "PRI",
+    "away": "ELF"
+  },
+  {
+    "home": "GAIS",
+    "away": "KAL"
+  },
+  {
+    "home": "HBK",
+    "away": "NOR"
+  },
+  {
+    "home": "SOF",
+    "away": "MAL"
+  },
+  {
+    "home": "DEG",
+    "away": "VAR"
+  },
+  {
+    "home": "BRO",
+    "away": "GOT"
+  },
+  {
+    "home": "SIR",
+    "away": "AIK"
+  },
+  {
+    "home": "PRI",
+    "away": "HAC"
+  },
+  {
+    "home": "GAIS",
+    "away": "DJU"
+  },
+  {
+    "home": "HBK",
+    "away": "ELF"
+  },
+  {
+    "home": "NOR",
+    "away": "KAL"
+  },
+  {
+    "home": "DEG",
+    "away": "MAL"
+  },
+  {
+    "home": "BRO",
+    "away": "SOF"
+  },
+  {
+    "home": "SIR",
+    "away": "VAR"
+  },
+  {
+    "home": "PRI",
+    "away": "GOT"
+  },
+  {
+    "home": "GAIS",
+    "away": "AIK"
+  },
+  {
+    "home": "HBK",
+    "away": "HAC"
+  },
+  {
+    "home": "NOR",
+    "away": "DJU"
+  },
+  {
+    "home": "KAL",
+    "away": "ELF"
+  },
+  {
+    "home": "BRO",
+    "away": "MAL"
+  },
+  {
+    "home": "SIR",
+    "away": "DEG"
+  },
+  {
+    "home": "PRI",
+    "away": "SOF"
+  },
+  {
+    "home": "GAIS",
+    "away": "VAR"
+  },
+  {
+    "home": "HBK",
+    "away": "GOT"
+  },
+  {
+    "home": "NOR",
+    "away": "AIK"
+  },
+  {
+    "home": "KAL",
+    "away": "HAC"
+  },
+  {
+    "home": "ELF",
+    "away": "DJU"
+  },
+  {
+    "home": "SIR",
+    "away": "MAL"
+  },
+  {
+    "home": "PRI",
+    "away": "BRO"
+  },
+  {
+    "home": "GAIS",
+    "away": "DEG"
+  },
+  {
+    "home": "HBK",
+    "away": "SOF"
+  },
+  {
+    "home": "NOR",
+    "away": "VAR"
+  },
+  {
+    "home": "KAL",
+    "away": "GOT"
+  },
+  {
+    "home": "ELF",
+    "away": "AIK"
+  },
+  {
+    "home": "DJU",
+    "away": "HAC"
+  },
+  {
+    "home": "PRI",
+    "away": "MAL"
+  },
+  {
+    "home": "GAIS",
+    "away": "SIR"
+  },
+  {
+    "home": "HBK",
+    "away": "BRO"
+  },
+  {
+    "home": "NOR",
+    "away": "DEG"
+  },
+  {
+    "home": "KAL",
+    "away": "SOF"
+  },
+  {
+    "home": "ELF",
+    "away": "VAR"
+  },
+  {
+    "home": "DJU",
+    "away": "GOT"
+  },
+  {
+    "home": "HAC",
+    "away": "AIK"
+  },
+  {
+    "home": "GAIS",
+    "away": "MAL"
+  },
+  {
+    "home": "HBK",
+    "away": "PRI"
+  },
+  {
+    "home": "NOR",
+    "away": "SIR"
+  },
+  {
+    "home": "KAL",
+    "away": "BRO"
+  },
+  {
+    "home": "ELF",
+    "away": "DEG"
+  },
+  {
+    "home": "DJU",
+    "away": "SOF"
+  },
+  {
+    "home": "HAC",
+    "away": "VAR"
+  },
+  {
+    "home": "AIK",
+    "away": "GOT"
+  },
+  {
+    "home": "HBK",
+    "away": "MAL"
+  },
+  {
+    "home": "NOR",
+    "away": "GAIS"
+  },
+  {
+    "home": "KAL",
+    "away": "PRI"
+  },
+  {
+    "home": "ELF",
+    "away": "SIR"
+  },
+  {
+    "home": "DJU",
+    "away": "BRO"
+  },
+  {
+    "home": "HAC",
+    "away": "DEG"
+  },
+  {
+    "home": "AIK",
+    "away": "SOF"
+  },
+  {
+    "home": "GOT",
+    "away": "VAR"
+  },
+  {
+    "home": "NOR",
+    "away": "MAL"
+  },
+  {
+    "home": "KAL",
+    "away": "HBK"
+  },
+  {
+    "home": "ELF",
+    "away": "GAIS"
+  },
+  {
+    "home": "DJU",
+    "away": "PRI"
+  },
+  {
+    "home": "HAC",
+    "away": "SIR"
+  },
+  {
+    "home": "AIK",
+    "away": "BRO"
+  },
+  {
+    "home": "GOT",
+    "away": "DEG"
+  },
+  {
+    "home": "VAR",
+    "away": "SOF"
+  },
+  {
+    "home": "KAL",
+    "away": "MAL"
+  },
+  {
+    "home": "ELF",
+    "away": "NOR"
+  },
+  {
+    "home": "DJU",
+    "away": "HBK"
+  },
+  {
+    "home": "HAC",
+    "away": "GAIS"
+  },
+  {
+    "home": "AIK",
+    "away": "PRI"
+  },
+  {
+    "home": "GOT",
+    "away": "SIR"
+  },
+  {
+    "home": "VAR",
+    "away": "BRO"
+  },
+  {
+    "home": "SOF",
+    "away": "DEG"
+  },
+  {
+    "home": "ELF",
+    "away": "MAL"
+  },
+  {
+    "home": "DJU",
+    "away": "KAL"
+  },
+  {
+    "home": "HAC",
+    "away": "NOR"
+  },
+  {
+    "home": "AIK",
+    "away": "HBK"
+  },
+  {
+    "home": "GOT",
+    "away": "GAIS"
+  },
+  {
+    "home": "VAR",
+    "away": "PRI"
+  },
+  {
+    "home": "SOF",
+    "away": "SIR"
+  },
+  {
+    "home": "DEG",
+    "away": "BRO"
+  },
+  {
+    "home": "DJU",
+    "away": "MAL"
+  },
+  {
+    "home": "HAC",
+    "away": "ELF"
+  },
+  {
+    "home": "AIK",
+    "away": "KAL"
+  },
+  {
+    "home": "GOT",
+    "away": "NOR"
+  },
+  {
+    "home": "VAR",
+    "away": "HBK"
+  },
+  {
+    "home": "SOF",
+    "away": "GAIS"
+  },
+  {
+    "home": "DEG",
+    "away": "PRI"
+  },
+  {
+    "home": "BRO",
+    "away": "SIR"
+  },
+  {
+    "home": "HAC",
+    "away": "MAL"
+  },
+  {
+    "home": "AIK",
+    "away": "DJU"
+  },
+  {
+    "home": "GOT",
+    "away": "ELF"
+  },
+  {
+    "home": "VAR",
+    "away": "KAL"
+  },
+  {
+    "home": "SOF",
+    "away": "NOR"
+  },
+  {
+    "home": "DEG",
+    "away": "HBK"
+  },
+  {
+    "home": "BRO",
+    "away": "GAIS"
+  },
+  {
+    "home": "SIR",
+    "away": "PRI"
+  },
+  {
+    "home": "AIK",
+    "away": "MAL"
+  },
+  {
+    "home": "GOT",
+    "away": "HAC"
+  },
+  {
+    "home": "VAR",
+    "away": "DJU"
+  },
+  {
+    "home": "SOF",
+    "away": "ELF"
+  },
+  {
+    "home": "DEG",
+    "away": "KAL"
+  },
+  {
+    "home": "BRO",
+    "away": "NOR"
+  },
+  {
+    "home": "SIR",
+    "away": "HBK"
+  },
+  {
+    "home": "PRI",
+    "away": "GAIS"
+  }
+]

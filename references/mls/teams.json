@@ -1,0 +1,340 @@
+{
+  "_meta": {
+    "league": "Major League Soccer",
+    "season": "2026",
+    "updated_at": "2026-07-22T00:00:00Z",
+    "note": "ELO ratings adjusted for 2026 season performance. 30 teams including expansion San Diego FC."
+  },
+  "teams": {
+    "ATL": {
+      "name": "Atlanta United FC",
+      "name_cn": "亚特兰大联",
+      "elo": 1810,
+      "city": "Atlanta",
+      "conference": "eastern",
+      "stadium": "Mercedes-Benz Stadium",
+      "turf": "artificial",
+      "color": "red",
+      "notes": "球市火爆，主场氛围顶级"
+    },
+    "AUS": {
+      "name": "Austin FC",
+      "name_cn": "奥斯汀FC",
+      "elo": 1780,
+      "city": "Austin",
+      "conference": "western",
+      "stadium": "Q2 Stadium",
+      "turf": "natural",
+      "color": "green",
+      "notes": "德州新贵，主场强劲"
+    },
+    "CHI": {
+      "name": "Chicago Fire FC",
+      "name_cn": "芝加哥火焰",
+      "elo": 1720,
+      "city": "Chicago",
+      "conference": "eastern",
+      "stadium": "Soldier Field",
+      "turf": "natural",
+      "color": "red",
+      "notes": "重建中，主场表现尚可"
+    },
+    "CLT": {
+      "name": "Charlotte FC",
+      "name_cn": "夏洛特FC",
+      "elo": 1740,
+      "city": "Charlotte",
+      "conference": "eastern",
+      "stadium": "Bank of America Stadium",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "美东南新势力"
+    },
+    "CIN": {
+      "name": "FC Cincinnati",
+      "name_cn": "辛辛那提FC",
+      "elo": 1860,
+      "city": "Cincinnati",
+      "conference": "eastern",
+      "stadium": "TQL Stadium",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "东部顶级强队，攻防俱佳"
+    },
+    "COL": {
+      "name": "Colorado Rapids",
+      "name_cn": "科罗拉多急流",
+      "elo": 1700,
+      "city": "Commerce City",
+      "conference": "western",
+      "stadium": "Dick's Sporting Goods Park",
+      "turf": "natural",
+      "color": "red",
+      "notes": "高原主场优势"
+    },
+    "CLB": {
+      "name": "Columbus Crew",
+      "name_cn": "哥伦布机员",
+      "elo": 1790,
+      "city": "Columbus",
+      "conference": "eastern",
+      "stadium": "Lower.com Field",
+      "turf": "natural",
+      "color": "yellow",
+      "notes": "防守稳固，杯赛常客"
+    },
+    "DAL": {
+      "name": "FC Dallas",
+      "name_cn": "达拉斯FC",
+      "elo": 1730,
+      "city": "Frisco",
+      "conference": "western",
+      "stadium": "Toyota Stadium",
+      "turf": "natural",
+      "color": "red",
+      "notes": "青训出色，打法稳定"
+    },
+    "DCU": {
+      "name": "D.C. United",
+      "name_cn": "华盛顿联",
+      "elo": 1710,
+      "city": "Washington D.C.",
+      "conference": "eastern",
+      "stadium": "Audi Field",
+      "turf": "natural",
+      "color": "red",
+      "notes": "传统强队，重建中"
+    },
+    "HOU": {
+      "name": "Houston Dynamo FC",
+      "name_cn": "休斯顿迪纳摩",
+      "elo": 1690,
+      "city": "Houston",
+      "conference": "western",
+      "stadium": "Shell Energy Stadium",
+      "turf": "natural",
+      "color": "orange",
+      "notes": "主场偏硬，客场疲软"
+    },
+    "MIA": {
+      "name": "Inter Miami CF",
+      "name_cn": "迈阿密国际",
+      "elo": 1900,
+      "city": "Fort Lauderdale",
+      "conference": "eastern",
+      "stadium": "Chase Stadium",
+      "turf": "natural",
+      "color": "red",
+      "notes": "拥有超级巨星，进攻火力强大"
+    },
+    "LA": {
+      "name": "Los Angeles FC",
+      "name_cn": "洛杉矶FC",
+      "elo": 1880,
+      "city": "Los Angeles",
+      "conference": "western",
+      "stadium": "BMO Stadium",
+      "turf": "natural",
+      "color": "black",
+      "notes": "西部顶级强队，进攻火力猛"
+    },
+    "LAG": {
+      "name": "LA Galaxy",
+      "name_cn": "洛杉矶银河",
+      "elo": 1840,
+      "city": "Los Angeles",
+      "conference": "western",
+      "stadium": "Dignity Health Sports Park",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "传统豪门，巨星吸引力"
+    },
+    "MIN": {
+      "name": "Minnesota United FC",
+      "name_cn": "明尼苏达联",
+      "elo": 1760,
+      "city": "St. Paul",
+      "conference": "western",
+      "stadium": "Allianz Field",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "主场要塞，进攻流畅"
+    },
+    "MTL": {
+      "name": "CF Montréal",
+      "name_cn": "蒙特利尔CF",
+      "elo": 1710,
+      "city": "Montreal",
+      "conference": "eastern",
+      "stadium": "Stade Saputo",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "加拿大球队，人工草皮球场"
+    },
+    "NSH": {
+      "name": "Nashville SC",
+      "name_cn": "纳什维尔SC",
+      "elo": 1770,
+      "city": "Nashville",
+      "conference": "eastern",
+      "stadium": "GEODIS Park",
+      "turf": "natural",
+      "color": "yellow",
+      "notes": "主场魔鬼，防守见长"
+    },
+    "NE": {
+      "name": "New England Revolution",
+      "name_cn": "新英格兰革命",
+      "elo": 1800,
+      "city": "Foxborough",
+      "conference": "eastern",
+      "stadium": "Gillette Stadium",
+      "turf": "artificial",
+      "color": "red",
+      "notes": "东部强队，杯赛威胁大"
+    },
+    "NYC": {
+      "name": "New York City FC",
+      "name_cn": "纽约城FC",
+      "elo": 1820,
+      "city": "New York",
+      "conference": "eastern",
+      "stadium": "Yankee Stadium",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "技术流球队，控球打法"
+    },
+    "NYRB": {
+      "name": "New York Red Bulls",
+      "name_cn": "纽约红牛",
+      "elo": 1780,
+      "city": "Harrison",
+      "conference": "eastern",
+      "stadium": "Red Bull Arena",
+      "turf": "natural",
+      "color": "red",
+      "notes": "高压逼抢战术，体能充沛"
+    },
+    "ORL": {
+      "name": "Orlando City SC",
+      "name_cn": "奥兰多城",
+      "elo": 1760,
+      "city": "Orlando",
+      "conference": "eastern",
+      "stadium": "Inter&Co Stadium",
+      "turf": "natural",
+      "color": "red",
+      "notes": "进步明显，主场稳健"
+    },
+    "PHI": {
+      "name": "Philadelphia Union",
+      "name_cn": "费城联合",
+      "elo": 1840,
+      "city": "Chester",
+      "conference": "eastern",
+      "stadium": "Subaru Park",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "东部顶级，战术体系成熟"
+    },
+    "POR": {
+      "name": "Portland Timbers",
+      "name_cn": "波特兰伐木者",
+      "elo": 1750,
+      "city": "Portland",
+      "conference": "western",
+      "stadium": "Providence Park",
+      "turf": "artificial",
+      "color": "green",
+      "notes": "主场氛围火爆"
+    },
+    "RSL": {
+      "name": "Real Salt Lake",
+      "name_cn": "皇家盐湖城",
+      "elo": 1740,
+      "city": "Sandy",
+      "conference": "western",
+      "stadium": "America First Field",
+      "turf": "natural",
+      "color": "red",
+      "notes": "高原主场，防守顽强"
+    },
+    "SDFC": {
+      "name": "San Diego FC",
+      "name_cn": "圣迭戈FC",
+      "elo": 1700,
+      "city": "San Diego",
+      "conference": "western",
+      "stadium": "Snapdragon Stadium",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "MLS新军，潜力待发掘"
+    },
+    "SJ": {
+      "name": "San Jose Earthquakes",
+      "name_cn": "圣何塞地震",
+      "elo": 1680,
+      "city": "San Jose",
+      "conference": "western",
+      "stadium": "PayPal Park",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "加州球队，进攻积极"
+    },
+    "SEA": {
+      "name": "Seattle Sounders FC",
+      "name_cn": "西雅图海湾人",
+      "elo": 1850,
+      "city": "Seattle",
+      "conference": "western",
+      "stadium": "Lumen Field",
+      "turf": "artificial",
+      "color": "blue",
+      "notes": "西部顶级，杯赛专家"
+    },
+    "SKC": {
+      "name": "Sporting Kansas City",
+      "name_cn": "堪萨斯城竞技",
+      "elo": 1730,
+      "city": "Kansas City",
+      "conference": "western",
+      "stadium": "Children's Mercy Park",
+      "turf": "natural",
+      "color": "blue",
+      "notes": "传统强队，主场稳定"
+    },
+    "STL": {
+      "name": "St. Louis CITY SC",
+      "name_cn": "圣路易斯城",
+      "elo": 1750,
+      "city": "St. Louis",
+      "conference": "western",
+      "stadium": "CityPark",
+      "turf": "natural",
+      "color": "red",
+      "notes": "MLS新贵，主场氛围极佳"
+    },
+    "TOR": {
+      "name": "Toronto FC",
+      "name_cn": "多伦多FC",
+      "elo": 1700,
+      "city": "Toronto",
+      "conference": "eastern",
+      "stadium": "BMO Field",
+      "turf": "natural",
+      "color": "red",
+      "notes": "加拿大球队，重建期"
+    },
+    "VAN": {
+      "name": "Vancouver Whitecaps FC",
+      "name_cn": "温哥华白浪",
+      "elo": 1690,
+      "city": "Vancouver",
+      "conference": "western",
+      "stadium": "BC Place",
+      "turf": "artificial",
+      "color": "blue",
+      "notes": "加拿大球队，主场人工草"
+    }
+  }
+}

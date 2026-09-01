@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴列卡诺 vs 阿拉维斯 · 西甲第2轮预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  /* ===== 首屏球场 ===== */
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:
+      radial-gradient(1200px 500px at 50% -10%, rgba(63,185,80,.28), transparent 60%),
+      linear-gradient(180deg,#1c3d24,#17321f 55%,#12301d);
+  }
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%);
+  }
+  .pitch::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px);}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .spot-t,.spot-b{position:absolute;left:50%;width:6px;height:6px;background:rgba(255,255,255,.5);border-radius:50%}
+  .spot-t{top:50%;transform:translate(-50%,-50%)}
+  .spot-b{right:0;transform:translate(50%,-50%)}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+
+  /* 比分牌 */
+  .scoreboard{position:absolute;left:50%;top:18px;transform:translateX(-50%);width:min(560px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:17px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;
+    color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  /* ===== 内容区 ===== */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+
+  /* 概率条 */
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+
+  /* 比分卡 */
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--away);background:rgba(56,139,253,.12)}
+
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  .disclaim{font-size:12px;color:var(--mut);border-left:3px solid var(--line);padding:8px 12px;background:var(--panel2);border-radius:6px}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 首屏：球场 + 比分牌 ===== -->
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div>
+      <div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+
+      <div class="scoreboard">
+        <div class="sb-top">
+          <span class="sb-tag">预测比分 · PREDICTION</span>
+          <span>西甲 · 第2轮 · 2026-08-20</span>
+        </div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">巴列卡诺</div><div class="en">Rayo Vallecano</div></div>
+          <div class="sb-score">0 : 1</div>
+          <div class="sb-team"><div class="cn">阿拉维斯</div><div class="en">Deportivo Alavés</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：阿拉维斯占优（客胜）· 最高单场概率比分 1-1 见下方"比分分布参考" · 已含盘口修正</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>34.7%</b>主胜</div>
+          <div class="sb-p p-draw"><b>29.0%</b>平局</div>
+          <div class="sb-p p-away"><b>36.3%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Estadio de Vallecas 无法使用 → 本场设于 Leganés · Estadio Municipal de Butarque · 中立场化处理</div>
+    </div>
+  </div>
+
+  <!-- ===== 标题区 ===== -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">西甲 La Liga · 2026-27 赛季</div>
+        <h1 style="font-size:24px;margin-top:2px">巴列卡诺 vs 阿拉维斯</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag warn">借用球场·球迷抵制→中立场</span>
+      <span class="tag red">巴列卡诺核心帕拉松停赛</span>
+      <span class="tag blue">阿拉维斯首轮3-0开门红</span>
+      <span class="tag">反击克制高位逼抢</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#388bfd">阿拉维斯占优（客胜 36.3%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">0 : 1 <span class="muted" style="font-size:13px">（方向性最优比分 · 9.0%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">1 : 1（平局 · 11.7%）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">巴列卡诺 1.38 — 1.42 阿拉维斯</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">巴列卡诺 1595（伤停修正 -17） · 阿拉维斯 1550（伤停修正 -12）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">冷门空间</div><div class="v small">三向概率 36.3/29.0/34.7，接近三分天下 → 单场随机性很高</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>巴列卡诺胜</span><span>34.7%</span></div><div class="bar"><div class="seg" style="width:34.7%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>29.0%</span></div><div class="bar"><div class="seg" style="width:29.0%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>阿拉维斯胜</span><span>36.3%</span></div><div class="bar"><div class="seg" style="width:36.3%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 预测原因 ===== -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>主场优势归零</b>：瓦莱卡斯球场因看台安全问题被马德里大区与西甲联盟禁用，巴列卡诺被迫"流亡"借用莱加内斯的布塔尔克球场作赛；球迷抵制（仅约 50 人取票）→ 模型按<b>中立场</b>处理，取消 0.38 主场优势。</li>
+      <li><b>巴列卡诺进攻打折</b>：新帅贝纳特·圣何塞（前埃瓦尔）主场首秀，阵型转 4-3-3；核心 10 号<b>伊西·帕拉松停赛</b>（另有来源称其列入首发，存在冲突，按缺阵保守处理），路易斯·费利佩腿筋伤缺约 4 个月，左后卫荒致巴柳客串 → 全队 Elo -17，创造力明显下滑。</li>
+      <li><b>阿拉维斯状态与心态</b>：首轮主场 3-0 大胜 10 人赫塔菲开门红，马里亚诺替补 1 球 2 助状态火热，目标冲击两连胜；但费梅尼亚、加塞斯双停赛削弱防线（Elo -12）。</li>
+      <li><b>战术对位</b>：高位逼抢 vs 防守反击 → 反击克制逼抢（+0.25 客 / -0.25 主）；阿拉维斯客场不抢控球、低位防反 + 定位球，正中缺核心创造力的巴列卡诺软肋；预期比赛节奏偏<b>谨慎</b>（-0.15 双方）。</li>
+      <li><b>校准规则</b>：预测总进球 &lt;2.5 → 小球进球低估上调（双方 +0.15）；方向押客队 → 平局概率上修 +0.04。</li>
+      <li><b>历史参考打折</b>：巴列卡诺近 5 次交锋胜 4 次，但场地不是瓦莱卡斯，且当前状态远非上季巅峰，参考价值有限。</li>
+    </ul>
+  </div>
+
+  <!-- ===== 详细预测 ===== -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">巴列卡诺胜</div><div class="v" style="color:#f85149">34.7%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">29.0%</div></div>
+      <div class="kv"><div class="k">阿拉维斯胜</div><div class="v" style="color:#388bfd">36.3%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard hl"><div class="s">1 : 1</div><div class="p">11.7% · 分布参考</div></div>
+        <div class="scard main"><div class="s">0 : 1</div><div class="p">9.0% · 主预测</div></div>
+        <div class="scard"><div class="s">1 : 2</div><div class="p">8.6%</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">8.1%</div></div>
+        <div class="scard"><div class="s">2 : 1</div><div class="p">7.8%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">主预测比分必须与最高概率方向（客胜）一致，因此取 0-1；单一最高概率比分 1-1（平）仅作分布参考。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag warn">中立场处理（借用球场+抵制）</span><span class="tag red">巴列卡诺 -17 Elo（帕拉松停赛/费利佩伤/金贝拉疑）</span><span class="tag blue">阿拉维斯 -12 Elo（费梅尼亚+加塞斯停赛）</span></div>
+      <div style="margin-top:8px"><span class="tag">巴列卡诺战意高涨 +0.15（新帅首秀·急需首胜）</span><span class="tag">反击克制逼抢 +0.25/-0.25</span><span class="tag">谨慎节奏 -0.15</span><span class="tag">身体对抗 -1 级利客队</span><span class="tag">状态/士气 -0.05 / +0.05</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">巴列卡诺 · 高涨（+0.15）</div><div class="v small">新帅主场名义首秀，0 分急取赛季首胜；但失核心+被赶出主场，士气复杂</div></div>
+        <div class="kv"><div class="k">阿拉维斯 · 正常（0）</div><div class="v small">首胜后士气高涨但客场保持务实防反，不冒进</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 盘口分析与诱盘判定 ===== -->
+  <div class="card">
+    <h2>盘口分析与诱盘判定</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">市场盘口</div><div class="v">巴列卡诺 主让平半（-0.25）· 水位 0.95 / 0.92</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型让球差 vs 市场</div><div class="v small">模型 -0.151（小幅利客）vs 市场主让 0.250 → 分歧 -0.401</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">诱盘评分</div><div class="v"><span class="tag good">0.95 · 正常盘口</span> 水位均衡、分歧在正常区间，无明显诱盘信号</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">市场权重 / 修正因子</div><div class="v">0.30 · factor +0.054（小幅向市场主让收敛）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">xG 调整</div><div class="v">1.32 / 1.47 → <b>1.38 / 1.42</b>（盘口略抬巴列卡诺、压阿拉维斯）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">若主队水位持续下行（&lt;0.90）或升盘至半球，市场对巴列卡诺信心增强；若维持平半+客队水位走低，谨防诱主</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">盘口为赛前情报的有界修正，非确定性结论。本场主让平半盘口与模型方向一致（皆不看好主队大胜），采信后主胜概率微升但仍为客胜占优。</p>
+  </div>
+
+  <!-- ===== 情报摘要 ===== -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>巴列卡诺</th><th>阿拉维斯</th></tr>
+      <tr><td>主帅</td><td>贝纳特·圣何塞（新帅·前埃瓦尔）</td><td>基克·桑切斯·弗洛雷斯</td></tr>
+      <tr><td>阵型</td><td>4-3-3（由 4-2-3-1 转型）</td><td>4-2-3-1 / 4-4-2 / 3-5-2 灵活</td></tr>
+      <tr><td>战术风格</td><td>高位逼抢·直接冲击·"混乱足球"</td><td>低控球·防反·定位球强</td></tr>
+      <tr><td>首轮</td><td>客负塞维利亚 1-2（末段两粒点球）</td><td>主胜赫塔菲 3-0（10 人）</td></tr>
+      <tr><td>伤停</td><td>帕拉松停赛（核心·存疑）；路易斯·费利佩伤 4 个月；金贝拉疑伤；左后卫荒</td><td>费梅尼亚+加塞斯停赛；博耶伤疑；瓦伦蒂尼新援可用</td></tr>
+      <tr><td>关键球员</td><td>阿尔瓦罗·加西亚（首轮进球）</td><td>马里亚诺（首轮 1 球 2 助）；西维拉（门将）</td></tr>
+      <tr><td>场地</td><td colspan="2">布塔尔克球场（莱加内斯）· 巴列卡诺名义主场但非瓦莱卡斯 · 客队无远征球迷</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">中等：赛前报道齐备，但帕拉松是否首发存在冲突信息，已按缺阵保守处理</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 场景推演 ===== -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 客队偷走三分</div><div class="v small">阿拉维斯继续低位防反，马里亚诺/定位球一击致命；巴列卡诺缺帕拉松打不开局面 → 0-1 / 0-2</div></div>
+      <div class="kv"><div class="k">路径 B · 低比分胶着</div><div class="v small">双方谨慎、节奏慢，巴列卡诺控球但机会寥寥，阿拉维斯安于平局 → 1-1 / 0-0</div></div>
+      <div class="kv"><div class="k">路径 C · 巴列卡诺主场名分回勇</div><div class="v small">新帅首秀动员成功，定位球或换人打破僵局，阿拉维斯双中卫停赛防线吃紧 → 1-0 / 2-1</div></div>
+    </div>
+  </div>
+
+  <!-- ===== 不确定性与边界 ===== -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场三向概率 34.7% / 29.0% / 36.3%，差距极小，属于"接近抛硬币"的高随机性比赛。模型边界：① 帕拉松是否停赛信息冲突，若他首发则巴列卡诺进攻预期上调；② 布塔尔克球场虽按中立场处理，但巴列卡诺对马德里场地仍有地理熟悉度，未额外加分；③ 单场足球随机性高，强队大热也非稳胜，更不用说这种接近均衡的比赛。本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <!-- ===== 来源 ===== -->
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">ScoutingStats · Rayo Vallecano 2025/26 战术总览 — https://scoutingstats.ai/es/clubs/377/rayo-vallecano/overview</li>
+      <li class="src">ScoutingStats · Deportivo Alavés 2025/26 — https://scoutingstats.ai/es/clubs/2975/deportivo-alav-s/overview</li>
+      <li class="src">OneFootball 前瞻《Rayo Vallecano - Alavés: refugio en Butarque ante la tormenta》 — https://onefootball.com.br/es/noticias/previa-rayo-vallecano-alaves-refugio-en-butarque-ante-la-tormenta-43304294</li>
+      <li class="src">Sports Mole 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/rayo-vallecano/preview/rayo-vallecano-vs-alaves-prediction-team-news-lineups_603229.html</li>
+      <li class="src">El Correo · Alavés 首轮 3-0 赛后 + 赛前《El Alavés se ilusiona con el pleno》 — https://www.elcorreo.com/alaves/alaves-rayo-previa-ilusiona-pleno-20260820203539-nt.html</li>
+      <li class="src">Marca · RAY-ALA 转播指南（场地/DAZN） — https://www.marca.com/futbol/primera-division/2026/08/18/donde-ver-en-tv-el-rayo-vallecano-alaves-de-laliga-ea-sports.html</li>
+      <li class="src">Sport · 阿拉维斯球迷无客场票风波 — https://www.sport.es/es/noticias/alaves/polemica-rayo-vallecano-aficionados-alaves-133489853</li>
+      <li class="src">Diario Siglo XXI · 前瞻（巴列卡诺莱加内斯首秀） — https://www.diariosigloxxi.com/texto-ep/mostrar/20260819180526/previa-alaves-quiere-prolongar-euforia-debut-rayo-leganes</li>
+      <li class="src">163 网易赛前分析 — https://www.163.com/dy/article/L4O434O90556ORKV.html（抓取被网络策略拦截，未采用其细节）</li>
+    </ul>
+    <p class="muted" style="margin-top:8px">采集时间：2026-08-20。缺失/未用：本场未提供实时亚盘盘口数据，故未做盘口+诱盘分析（纯模型预测）；数据快照为 08-15 生成的西甲初始配置。</p>
+  </div>
+
+  <p style="text-align:center;color:var(--mut);font-size:12px;margin-top:18px">本页为赛前概率模拟仪表盘 · 仅供娱乐与分析 · 不代表真实赛果 · 不构成任何投注建议</p>
+</div>
+</body>
+</html>

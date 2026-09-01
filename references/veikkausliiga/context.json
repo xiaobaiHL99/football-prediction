@@ -1,0 +1,32 @@
+{
+  "special_factors": {
+    "artificial_turf_penalty": {
+      "description": "芬兰多数球场为人造草皮，习惯天然草的客队适应成本高",
+      "value": -0.06,
+      "apply_when": "home_turf_is_artificial and away_team_plays_on_natural"
+    },
+    "nordic_summer_effect": {
+      "description": "芬兰夏季白昼极长，影响球员作息和比赛节奏",
+      "value": 0.03,
+      "apply_when": "month in ['June', 'July']"
+    },
+    "european_qualification_distraction": {
+      "description": "欧战资格赛双线作战消耗",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_europe_match"
+    }
+  },
+  "europe_teams": ["KUP", "INT", "HJK"],
+  "turf_map": {
+    "artificial": ["KUP", "VPS", "OUL", "HJK", "GNI", "LAH", "ILV", "SJK", "JAR", "MAR"],
+    "natural": ["INT", "TPS"]
+  },
+  "region_map": {
+    "south": ["HJK", "GNI", "LAH"],
+    "southwest": ["INT", "TPS"],
+    "west": ["VPS", "ILV", "SJK", "JAR"],
+    "east": ["KUP"],
+    "north": ["OUL"],
+    "islands": ["MAR"]
+  }
+}

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赫根 vs 哈尔姆斯塔德 预测 · 瑞超第17轮</title>
+<style>
+  :root{
+    --bg:#0b0f1a; --panel:#141a2b; --panel2:#1b2338; --line:#2a3550;
+    --text:#e8edf6; --muted:#8fa0bd; --green:#39d98a; --green2:#1fae6a;
+    --amber:#ffc24b; --red:#ff5d5d; --blue:#4ba3ff; --violet:#a78bfa;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:radial-gradient(1200px 600px at 70% -10%, #16233f 0%, var(--bg) 60%);
+       color:var(--text); font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif; line-height:1.55;}
+  .wrap{max-width:1040px; margin:0 auto; padding:24px 18px 60px;}
+
+  /* ===== 首屏球场 ===== */
+  .stage{position:relative; border-radius:20px; overflow:hidden;
+         background:linear-gradient(180deg,#1d2b4d 0%,#0f1730 40%,#0a0f1f 100%);
+         border:1px solid var(--line); box-shadow:0 18px 50px rgba(0,0,0,.5);}
+  .pitch{position:relative; height:340px;
+         background:
+           radial-gradient(circle at 50% 38%, rgba(80,200,120,.10), transparent 55%),
+           repeating-linear-gradient(0deg, #1e5c3a 0 6px, #1a5335 6px 12px);}
+  .pitch::before{content:""; position:absolute; inset:0;
+         background:linear-gradient(180deg, rgba(10,15,31,.0), rgba(10,15,31,.55));}
+  .lines{position:absolute; inset:18px 4%; border:3px solid rgba(255,255,255,.55);}
+  .lines::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:3px;
+         background:rgba(255,255,255,.55); transform:translateX(-50%);}
+  .lines::after{content:""; position:absolute; left:50%; top:50%; width:90px; height:90px;
+         border:3px solid rgba(255,255,255,.55); border-radius:50%;
+         transform:translate(-50%,-50%);}
+  .box{position:absolute; top:18px; bottom:18px; width:64px; border:3px solid rgba(255,255,255,.55);}
+  .box.l{left:4%;} .box.r{right:4%;}
+  .box::before{content:""; position:absolute; top:50%; transform:translateY(-50%);
+         width:34px; height:64px; border:3px solid rgba(255,255,255,.55);}
+  .box.l::before{right:0;} .box.r::before{left:0;}
+  .goal{position:absolute; top:50%; width:30px; height:56px; transform:translateY(-50%);
+        border:3px solid rgba(255,255,255,.9); border-radius:2px;
+        background:rgba(20,30,50,.35); box-shadow:0 0 22px rgba(255,255,255,.25);}
+  .goal.l{left:4%;} .goal.r{right:4%;}
+  .stands{position:absolute; top:0; left:0; right:0; height:46px; opacity:.5;
+         background:repeating-linear-gradient(90deg,#2c3a5c 0 26px,#253250 26px 52px);}
+  .flood{position:absolute; width:200px; height:200px; border-radius:50%;
+         background:radial-gradient(circle,#fff6d8 0%, rgba(255,246,216,.0) 70%); opacity:.28;
+         filter:blur(6px); top:-60px;}
+  .flood.l{left:12%;} .flood.r{right:12%;}
+  .pitch-label{position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+         color:rgba(255,255,255,.5); font-size:13px; letter-spacing:4px; text-transform:uppercase;}
+
+  /* ===== 比分牌 ===== */
+  .scoreboard{position:relative; z-index:3; margin:-6px 16px 0; display:flex; align-items:stretch;
+         background:linear-gradient(180deg,#1d2740,#141c30); border:1px solid #32405f;
+         border-radius:14px; box-shadow:0 14px 40px rgba(0,0,0,.55); overflow:hidden;}
+  .team{flex:1; padding:16px 14px; text-align:center;}
+  .team .code{font-size:15px; color:var(--muted); letter-spacing:1px;}
+  .team .name{font-size:22px; font-weight:800; margin-top:2px;}
+  .team .sub{font-size:12px; color:var(--muted); margin-top:3px;}
+  .score{margin:14px 0; min-width:150px; text-align:center;}
+  .score .vs{font-size:52px; font-weight:900; color:#fff; letter-spacing:2px;
+         font-family:"Segoe UI",Consolas,monospace;
+         text-shadow:0 0 18px rgba(80,180,255,.55);}
+  .score .tag{font-size:11px; color:var(--amber); letter-spacing:2px; margin-top:2px;}
+  .score .probs{display:flex; gap:6px; margin-top:10px; justify-content:center;}
+  .probpill{font-size:11px; padding:2px 8px; border-radius:20px; background:var(--panel2); color:var(--text);}
+  .probpill.b{background:rgba(57,217,138,.15); color:var(--green); border:1px solid rgba(57,217,138,.4);}
+  .statusbar{position:absolute; top:0; left:0; right:0; height:4px;
+         background:linear-gradient(90deg,var(--green) 0%, var(--green) 80.1%, #33405e 80.1%);}
+
+  /* ===== 通用卡片 ===== */
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--line);
+        border-radius:14px; padding:18px 20px; margin-top:18px;}
+  .card h2{font-size:16px; color:var(--blue); letter-spacing:1px; margin-bottom:12px;
+        display:flex; align-items:center; gap:8px;}
+  .card h2::before{content:""; width:4px; height:16px; background:var(--blue); border-radius:2px;}
+  .grid{display:grid; gap:14px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:1fr 1fr;}
+  @media(max-width:720px){.g3{grid-template-columns:1fr;} .g2{grid-template-columns:1fr;} .team .name{font-size:17px;} .score .vs{font-size:38px;}}
+
+  .big-num{font-size:34px; font-weight:900; color:#fff;}
+  .big-num.g{color:var(--green);} .big-num.a{color:var(--amber);} .big-num.r{color:var(--red);}
+  .cell-label{font-size:12px; color:var(--muted);}
+
+  /* 概率条 */
+  .pbar{height:14px; border-radius:7px; background:#0e1426; overflow:hidden; display:flex; margin-top:6px;}
+  .pbar .seg{height:100%;}
+  .seg.hac{background:linear-gradient(90deg,#1fae6a,#39d98a);}
+  .seg.draw{background:var(--amber);}
+  .seg.hbk{background:linear-gradient(90deg,#ff5d5d,#ff9d5d);}
+  .plabel{display:flex; justify-content:space-between; font-size:13px; margin-top:10px;}
+  .plabel b{font-size:14px;}
+
+  /* 比分卡 */
+  .scorecards{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-top:10px;}
+  .scard{background:#0e1426; border:1px solid var(--line); border-radius:10px; padding:10px; text-align:center;}
+  .scard .s{font-size:20px; font-weight:800; color:#fff;}
+  .scard .p{font-size:12px; color:var(--green); margin-top:3px;}
+  .scard.top{border-color:var(--green); background:rgba(57,217,138,.07);}
+
+  /* 情报/来源 */
+  .intel li{margin:0 0 7px 18px; font-size:13.5px; color:var(--text);}
+  .chip{display:inline-block; font-size:11px; padding:2px 8px; border-radius:20px; margin:2px 4px 2px 0;
+        background:var(--panel2); border:1px solid var(--line); color:var(--muted);}
+  .chip.g{color:var(--green); border-color:rgba(57,217,138,.4);}
+  .chip.a{color:var(--amber); border-color:rgba(255,194,75,.4);}
+  .chip.r{color:var(--red); border-color:rgba(255,93,93,.4);}
+  .src{font-size:12.5px; color:var(--muted);}
+  .src a{color:var(--blue); text-decoration:none; word-break:break-all;}
+  .foot{margin-top:22px; text-align:center; font-size:12px; color:var(--muted);}
+  .warn{font-size:12.5px; color:var(--amber); background:rgba(255,194,75,.08);
+        border:1px solid rgba(255,194,75,.3); border-radius:10px; padding:10px 14px;}
+  .sbar{display:grid; gap:8px;}
+  .srow{display:grid; grid-template-columns:180px 1fr 70px; gap:10px; align-items:center; font-size:13px;}
+  .srow .bar{height:12px; border-radius:6px; background:#0e1426; overflow:hidden;}
+  .srow .bar i{display:block; height:100%; background:linear-gradient(90deg,#1fae6a,#39d98a); border-radius:6px;}
+  table.mini{width:100%; border-collapse:collapse; font-size:13px;}
+  table.mini td,table.mini th{padding:7px 8px; border-bottom:1px solid var(--line); text-align:left;}
+  table.mini th{color:var(--muted); font-weight:600; font-size:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 首屏：球场 + 比分牌 -->
+  <div class="stage">
+    <div class="flood l"></div><div class="flood r"></div>
+    <div class="stands"></div>
+    <div class="pitch">
+      <div class="lines"></div>
+      <div class="box l"></div><div class="box r"></div>
+      <div class="goal l"></div><div class="goal r"></div>
+      <div class="pitch-label">Nordic Wellness Arena · Göteborg</div>
+    </div>
+    <div class="scoreboard">
+      <div class="statusbar"></div>
+      <div class="team">
+        <div class="code">BK HÄCKEN</div>
+        <div class="name">赫根</div>
+        <div class="sub">第5名 · 25分 · Elo 1680</div>
+      </div>
+      <div class="score">
+        <div class="tag">● 预测比分 PREDICTION</div>
+        <div class="vs">3 - 0</div>
+        <div class="probs">
+          <span class="probpill b">主胜 80.1%</span>
+          <span class="probpill">平 9.5%</span>
+          <span class="probpill">客胜 10.2%</span>
+        </div>
+      </div>
+      <div class="team">
+        <div class="code">HALMSTADS BK</div>
+        <div class="name">哈尔姆斯塔德</div>
+        <div class="sub">第16名 · 7分 · Elo 1229</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 标题区 -->
+  <div style="margin-top:18px; text-align:center;">
+    <h1 style="font-size:22px; font-weight:900; letter-spacing:1px;">瑞超 · 第17轮 · 赫根 vs 哈尔姆斯塔德</h1>
+    <div style="color:var(--muted); font-size:13px; margin-top:6px;">
+      预测生成：2026-08-17 · 比赛时间：2026-08-17 19:00（当地） · 数据快照：瑞超 results/teams 快照 + 赛前网络情报
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g3">
+      <div>
+        <div class="cell-label">主预测赛果</div>
+        <div class="big-num g">赫根胜</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">最高概率方向（80.1%）</div>
+      </div>
+      <div>
+        <div class="cell-label">主预测比分</div>
+        <div class="big-num">3 - 0</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">概率 15.5%（比分分布最高）</div>
+      </div>
+      <div>
+        <div class="cell-label">预期进球 xG</div>
+        <div class="big-num" style="font-size:26px;">3.91 <span style="color:var(--muted);font-size:16px;">vs</span> 0.20</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">模型估算（含伤停/战术/战意修正）</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <div class="plabel"><span>赫根胜</span><b class="big-num" style="font-size:16px;color:var(--green);">80.1%</b></div>
+      <div class="pbar"><div class="seg hac" style="width:80.1%"></div><div class="seg draw" style="width:9.5%"></div><div class="seg hbk" style="width:10.2%"></div></div>
+      <div class="plabel"><span>平局</span><b style="font-size:14px;color:var(--amber);">9.5%</b><span>哈尔姆斯塔德胜</span><b style="font-size:14px;color:var(--red);">10.2%</b></div>
+    </div>
+    <div class="warn" style="margin-top:14px;">冷门空间提示：单场足球随机性高，80% 不等于稳胜。赫根后防伤兵满营，若早早被哈尔姆斯偷进一球，比赛可能进入被追杀的节奏。</div>
+  </div>
+
+  <!-- 详细预测 -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g2">
+      <div>
+        <div class="cell-label">比分分布 Top 5</div>
+        <div class="scorecards">
+          <div class="scard top"><div class="s">3 - 0</div><div class="p">15.5%</div></div>
+          <div class="scard"><div class="s">4 - 0</div><div class="p">15.2%</div></div>
+          <div class="scard"><div class="s">5 - 0</div><div class="p">11.9%</div></div>
+          <div class="scard"><div class="s">2 - 0</div><div class="p">11.9%</div></div>
+          <div class="scard"><div class="s">6 - 0</div><div class="p">7.8%</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px;">模型评分极悬殊（Elo 差距 451）+ 哈尔姆斯 3 名主力停赛，比分分布整体右偏。</div>
+      </div>
+      <div>
+        <div class="cell-label">模型情境分类（自动）</div>
+        <div style="margin-top:8px;">
+          <span class="chip">实力悬殊(方差中性)</span>
+          <span class="chip a">HAC 战意高涨</span>
+          <span class="chip a">HBK 战意背水一战</span>
+          <span class="chip g">HBK 伤病保守</span>
+          <span class="chip">HBK 状态低迷(-0.09)</span>
+          <span class="chip">HAC 欧战双线(-)</span>
+        </div>
+        <div class="cell-label" style="margin-top:12px;">球员可用性修正</div>
+        <table class="mini" style="margin-top:6px;">
+          <tr><th>球队</th><th>缺阵</th><th>Elo 修正</th></tr>
+          <tr><td>赫根</td><td>门将 Berisha/Linde、后卫 Öhman/Engdahl、中场 Hestnes</td><td style="color:var(--red);">-14</td></tr>
+          <tr><td>哈尔姆斯</td><td>中场 Andersson/Eyjólfsson、前锋 Mohammed（停赛）</td><td style="color:var(--red);">-18</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 预测原因 + 战意 -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <div class="grid g2">
+      <div>
+        <ul style="list-style:none; font-size:14px;">
+          <li>▸ <b>评级 + 主场优势</b>：赫根 Elo 1680 vs 哈尔姆斯 1229（差 451），客场毫无抵抗力。</li>
+          <li>▸ <b>战意差</b>：赫根距欧战区 1 分，主场必须取胜（战意高涨 +0.15）；哈尔姆斯垫底保级、背水一战（+0.30），但无力执行。</li>
+          <li>▸ <b>人员此消彼长</b>：哈尔姆斯 3 名中前场主力停赛，联赛最差进攻（11 球）几乎哑火，只能 5-4-1 摆大巴。</li>
+          <li>▸ <b>战术对位</b>：传控 vs 铁桶大巴 → 传控克制大巴（+0.15 xG），赫根围攻但破密集防守需耐心。</li>
+          <li>▸ <b>历史交锋</b>：近 5 次交手赫根 4 胜 1 平，首回合客场 2-0 胜（林德格伦梅开二度）。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="cell-label">战意因素（fighting_spirit）</div>
+        <table class="mini" style="margin-top:6px;">
+          <tr><th>球队</th><th>等级</th><th>xG 修正</th><th>理由</th></tr>
+          <tr><td>赫根</td><td style="color:var(--amber);">高涨</td><td style="color:var(--green);">+0.15</td><td>距欧战区 1 分，主场必须取胜</td></tr>
+          <tr><td>哈尔姆斯</td><td style="color:var(--amber);">背水一战</td><td style="color:var(--green);">+0.30</td><td>垫底保级生死战</td></tr>
+        </table>
+        <div class="warn" style="margin-top:12px;">关键风险：赫根门将 + 防线 4 人伤缺，近 2 轮丢 8 球；新援门将位置不稳，若被反击 / 定位球偷分，大胜剧本会被打断。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 情报摘要 -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <ul class="intel">
+      <li><b>赫根（第5，25分）</b>：16 轮 6 胜 7 平 3 负，主场近 15 场不败率 87%，但近 3 个主场不胜；上轮客负哈马比，近 2 轮丢 8 球，防线稳定性成疑。</li>
+      <li><b>赫根伤停</b>：门将 Berisha（长期背伤）、Linde（本场缺阵）、后卫 Öhman（肩伤）、Engdahl，中场 Hestnes（私人原因）；新援 Markus Haaland（租自博恩）或迎瑞超首秀，Lindberg 回归。</li>
+      <li><b>哈尔姆斯塔德（垫底，7分）</b>：1 胜 4 平 11 负，联赛最差进攻（11 球）与最差净胜球（-22）；近 6 轮不胜、客场 10 场不胜。</li>
+      <li><b>哈尔姆斯伤停</b>：中场 Andersson、Eyjólfsson + 前锋 Mohammed 停赛，预计 5-4-1 摆大巴。</li>
+      <li><b>历史</b>：近 5 次交手赫根 4 胜 1 平；但哈尔姆斯近 4 次做客赫根主场 3 次破门，赫根近 5 次主场赢哈尔姆斯 4 次只赢 1 球。</li>
+    </ul>
+  </div>
+
+  <!-- 场景推演 -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div>
+        <div class="cell-label">① 主线（最可能）</div>
+        <div style="font-size:13.5px; margin-top:6px;">赫根围攻破密集防守，上半场即进球，2-0/3-0 稳步拿下，比分对应 80% 区间。</div>
+      </div>
+      <div>
+        <div class="cell-label">② 胶着路径</div>
+        <div style="font-size:13.5px; margin-top:6px;">赫根后防失误或哈尔姆斯定位球偷分，比分 1-1/2-1，冷门空间落在平局与客胜（合计 19.7%）。</div>
+      </div>
+      <div>
+        <div class="cell-label">③ 冷门路径</div>
+        <div style="font-size:13.5px; margin-top:6px;">早红牌 / 新援门将脱手，哈尔姆斯靠反击偷鸡，出现 1-2/2-3 逆势结果——需依赖单一事件，概率低。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 不确定性 -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <ul class="intel">
+      <li>足球单场随机性极高，Elo 模型给出的是长期期望，单场存在大幅波动空间。</li>
+      <li>本配置中哈尔姆斯 Elo（1229）偏低，模型按"强弱悬殊"处理；若按真实世界评分差收敛，比分分布会向 2-1/2-0 收缩。请结合盘口做交叉验证。</li>
+      <li>伤停情报基于赛前报道（门将/后防缺阵、哈尔姆斯 3 人停赛），以官方首发名单为准。</li>
+      <li>不构成投注建议，纯属娱乐分析。</li>
+    </ul>
+  </div>
+
+  <!-- 来源 -->
+  <div class="card">
+    <h2>数据来源</h2>
+    <ul class="intel" style="font-size:12.5px; color:var(--muted);">
+      <li>本模型离线快照：references/allsvenskan/teams.json、data/live/allsvenskan/（table/fixtures/results）</li>
+      <li>赛前情报（采集于 2026-08-17）：<span class="src">
+        <a href="https://www.fotbollskanalen.se/artiklar/allsvenskan/hestnes-saknas-for-hacken---av-privata-skal">Fotbollskanalen（Hestnes 缺阵）</a> ·
+        <a href="https://bollsvenskan.se/haaland-truppdebuterar-for-hacken-mot-halmstad-linde-och-hestnes-saknas/">Bollsvenskan（Haaland 首秀/伤停）</a> ·
+        <a href="https://www.163.com/dy/article/L4G09S7L0556OWY1.html">163 瑞超前瞻</a> ·
+        <a href="https://www.163.com/dy/article/L4G161O50556OYCW.html">163 第17轮前瞻</a> ·
+        <a href="https://www.bongdaplus.vn/bong-da-the-gioi/nhan-dinh-bong-da-hacken-vs-halmstads-00h30-ngay-18-8-dap-day-duoi-top-4-5127742608.html">Bongdaplus</a> ·
+        <a href="https://www.bongda24h.vn/nhan-dinh-bong-da/du-doan-hacken-vs-halmstads-hom-nay-344-457494.html">Bongda24h</a> ·
+        <a href="https://www.soccerstats.com/pmatch.asp?league=sweden&stats=134-13-8-2026">SoccerStats H2H</a> ·
+        <a href="https://www.fotmob.com/matches/halmstad-vs-hacken/2bermn#1">FotMob</a>
+      </span></li>
+      <li>参考预测：Bongdaplus 3-1、Bongda24h 3-2、多数中文分析 2-0/2-1。</li>
+    </ul>
+  </div>
+
+  <div class="foot">⚽ 瑞超第17轮 · 赫根 vs 哈尔姆斯塔德 · 理性模型预测（Elo → 泊松 → 蒙特卡洛） · 概率非确定性结论 · 娱乐分析</div>
+</div>
+</body>
+</html>

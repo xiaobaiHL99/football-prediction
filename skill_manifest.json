@@ -1,0 +1,66 @@
+{
+  "name": "football-prediction",
+  "version": "1.0.0",
+  "description": "专业足球比赛预测系统，支持多联赛分析",
+  "author": "MiMo Team",
+  "capabilities": [
+    "match_prediction",
+    "league_simulation",
+    "daily_review",
+    "intelligence_analysis",
+    "odds_analysis"
+  ],
+  "supported_leagues": [
+    "eliteserien",
+    "allsvenskan", 
+    "mls",
+    "kleague",
+    "jleague",
+    "epl",
+    "laliga",
+    "seriea",
+    "bundesliga",
+    "ligue1",
+    "eredivisie",
+    "brasileirao",
+    "veikkausliiga",
+    "europa_league",
+    "ucl_qualifying",
+    "libertadores"
+  ],
+  "commands": {
+    "predict_match": {
+      "description": "预测单场比赛结果",
+      "usage": "predict_match [home_team] [away_team] --league [league_name] --date [YYYY-MM-DD]",
+      "example": "predict_match BOD MOL --league eliteserien --date 2026-08-30"
+    },
+    "simulate_league": {
+      "description": "模拟联赛积分榜",
+      "usage": "simulate_league [league_name] --sims [number]",
+      "example": "simulate_league eliteserien --sims 10000"
+    },
+    "daily_review": {
+      "description": "每日复盘和参数调优",
+      "usage": "daily_review [review|tune] --date [YYYY-MM-DD] --league [league_name]",
+      "example": "daily_review review --date 2026-08-29"
+    },
+    "update_intelligence": {
+      "description": "更新赛前情报",
+      "usage": "update_intelligence [league_name] [match_id] --data [json_data]",
+      "example": "update_intelligence eliteserien BOD-MOL --data '{\"teams\": {...}}'"
+    }
+  },
+  "data_structure": {
+    "references": "联赛配置和球队数据",
+    "data/live": "实时数据和情报",
+    "data/reviews": "复盘数据和调参记录",
+    "reports": "预测报告输出",
+    "scripts": "核心Python脚本"
+  },
+  "dependencies": [
+    "python3",
+    "json",
+    "math",
+    "random"
+  ]
+}

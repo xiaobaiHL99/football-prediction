@@ -1,0 +1,34 @@
+{
+  "matches": [
+    {
+      "home": "UDI",
+      "away": "COM",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "INTER",
+      "away": "MON",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "MIL",
+      "away": "VEN",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "JUV",
+      "away": "PAR",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "CAG",
+      "away": "INTER",
+      "hg": 0,
+      "ag": 1
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "match": {
+    "home": "SWA",
+    "away": "WAT",
+    "date": "2026-09-01",
+    "round": 4,
+    "venue": "Swansea.com Stadium (Swansea)",
+    "kickoff_utc": "18:45",
+    "turf": "natural",
+    "significance": "英冠第4轮：两支不败球队相遇，斯旺西主场冲击连胜，沃特福德携平局大师属性客场挑战"
+  },
+  "model_output": {
+    "xg_home": 2.08,
+    "xg_away": 1.28,
+    "probabilities": { "home": 45.4, "draw": 30.4, "away": 24.2 },
+    "main_direction": "斯旺西占优",
+    "main_score": "2-1",
+    "main_score_prob": 9.4,
+    "top5_scores": [
+      { "score": "2-1", "prob": 9.4 },
+      { "score": "1-1", "prob": 9.2 },
+      { "score": "2-0", "prob": 7.5 },
+      { "score": "1-0", "prob": 7.2 },
+      { "score": "3-1", "prob": 6.6 }
+    ],
+    "context_labels": ["争冠队主场(+)", "斯旺西状态火热(+0.08)", "沃特福德状态火热(+0.03)", "近均衡押主队向平局收缩"],
+    "calibration_banner": "近均衡场次(累计29场)方向命中率仅41.4%、实际总进球比预测低0.6 → 谨慎对待大分差/大球预期，平局价值上调",
+    "form_corrections": { "SWA": "+0.03", "WAT": "-0.03" },
+    "player_availability": "斯旺西 +4 Elo",
+    "recorded": "data/reviews/predictions.json"
+  },
+  "pre_match": {
+    "SWA": { "position": 3, "points": 7, "played": 3, "gf": 5, "ga": 1, "form": "胜-平-胜", "elo": 1470 },
+    "WAT": { "position": 10, "points": 5, "played": 3, "gf": 4, "ga": 3, "form": "胜-平-平", "elo": 1440 },
+    "elo_diff": 30,
+    "bucket": "近均衡(<50)"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "match": {
+    "home": "SIR",
+    "away": "MAL",
+    "date": "2026-09-01",
+    "round": 19,
+    "venue": "Studenternas IP (Uppsala)",
+    "turf": "natural",
+    "time": "01:00 (北京时间)",
+    "significance": "瑞超第19轮，领头羊主场迎战崩盘传统霸主，榜首完整度vs落魄豪门残阵"
+  },
+  "context": "瑞超第19轮，天狼星主场迎战马尔默。天狼星18轮13胜3平2负领跑积分榜领先6分，但联赛两连败防守丢7球，周中瑞典杯2-0止颓，阵容齐整；马尔默传统霸主赛季灾难，18轮丢30球，上轮0-3惨败佐加顿斯，两名主力中场停赛中场瘫痪，另有4-6人伤缺。",
+  "teams": {
+    "SIR": {
+      "code": "SIR",
+      "name_cn": "天狼星",
+      "full_name": "Sirius IF",
+      "form": "负-负-胜-胜-胜",
+      "position": 1,
+      "points": 42,
+      "played": 18,
+      "wins": 13,
+      "draws": 3,
+      "losses": 2,
+      "elo_delta": 5,
+      "confidence": 0.85,
+      "notes": "超级黑马领跑领先6分；联赛两连败(负赫根、米亚尔比)两场丢7球，防守波动；周中瑞典杯2-0赢球止颓；阵容齐整无主力停赛，仅3名轮换球员伤缺；本赛季首回合客场3-2击败马尔默",
+      "key_players": [
+        {
+          "name": "查理·尼尔登",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场核心，将压过中线冲击马尔默右路空当"
+        },
+        {
+          "name": "佩尔松",
+          "position": "前锋",
+          "status": "available",
+          "impact": "杯赛有进球状态不错，负责争抢第一落点"
+        },
+        {
+          "name": "亚当·维克曼 / 维克托·斯文松",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场组合完整，出球和拦截均有保障"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "利马塔 / 于内肯等3人",
+          "position": "轮换球员",
+          "status": "injured",
+          "impact": "非绝对主力缺阵，框架影响小"
+        }
+      ]
+    },
+    "MAL": {
+      "code": "MAL",
+      "name_cn": "马尔默",
+      "full_name": "Malmö FF",
+      "form": "负-胜-负-胜-负",
+      "position": 8,
+      "points": 26,
+      "played": 18,
+      "wins": 8,
+      "draws": 2,
+      "losses": 8,
+      "elo_delta": -30,
+      "confidence": 0.90,
+      "notes": "传统霸主赛季灾难18轮丢30球(前10失球最多)；上轮主场0-3惨败佐加顿斯；胜负交替状态极不稳；两名主力中场布苏拉季奇、奥托·罗森格伦双双停赛，上轮中场组合直接被拆；前锋诺阿·约翰、后卫庞图斯·扬松(赛季报销)、埃孔等4-6人伤缺；中场只能赫格+替补伦德贝里/米洛萨夫列维奇拼凑",
+      "key_players": [
+        {
+          "name": "博海姆",
+          "position": "前锋",
+          "status": "available",
+          "impact": "个人能力仍在，但中场瘫痪球很难送到脚下，只能长传找他"
+        },
+        {
+          "name": "哈克萨巴诺维奇",
+          "position": "前锋",
+          "status": "available",
+          "impact": "个人能力尚存，孤立无援"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "布苏拉季奇",
+          "position": "中场",
+          "status": "suspended",
+          "impact": "主力中场停赛，中场出球瘫痪"
+        },
+        {
+          "name": "奥托·罗森格伦",
+          "position": "中场",
+          "status": "suspended",
+          "impact": "主力中场停赛，中场屏障消失"
+        },
+        {
+          "name": "庞图斯·扬松",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "赛季报销，防线受损"
+        },
+        {
+          "name": "诺阿·约翰 / 埃孔等",
+          "position": "锋线/后卫",
+          "status": "injured",
+          "impact": "多线缺员，轮换深度枯竭"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": "大样本历史马尔默碾压，本世纪天狼星从未单赛季双杀马尔默",
+    "recent_5": "天狼星2胜1平2负不落下风",
+    "recent_3": "天狼星2胜1平保持不败",
+    "this_season": "2026首回合：天狼星客场3-2击败马尔默",
+    "at_away": "马尔默近9次做客天狼星7胜2负，场均近3球",
+    "notes": "近期天狼星克制马尔默，但客场大样本马尔默仍有心理优势"
+  },
+  "tactical": {
+    "SIR": {
+      "style": "attacking",
+      "formation": "4-3-3",
+      "strengths": ["中场组合完整出球流畅", "主场主动压上", "锋线状态不错", "人员齐整轮换有余"],
+      "weaknesses": ["两连败防线丢7球信心波动", "领先优势下或有保守心态"],
+      "key_tactics": "主场主动压上，尼尔登压过中线冲击布萨内洛身侧空当，佩尔松争第一落点压制久里奇"
+    },
+    "MAL": {
+      "style": "direct",
+      "formation": "4-4-2",
+      "strengths": ["博海姆/哈克萨巴诺维奇个人能力", "历史客场交锋心理优势"],
+      "weaknesses": ["中场双核停赛出球瘫痪", "只能长传找博海姆且被重点照顾", "中场屏障消失防线直接暴露", "伤病满营轮换枯竭"],
+      "key_tactics": "长传找博海姆的简单直接打法，防守端靠后卫线硬扛"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "天狼星主场主动压上，榜首气势",
+      "impact": 0.12,
+      "confidence": 0.85
+    },
+    {
+      "type": "injury_impact",
+      "description": "马尔默两名主力中场停赛+4-6人伤缺，中场瘫痪是本场最大变量",
+      "impact": -0.15,
+      "confidence": 0.95
+    },
+    {
+      "type": "recent_form",
+      "description": "天狼星两连败但杯赛止颓回暖；马尔默胜负交替且刚0-3惨败",
+      "impact": 0.06,
+      "confidence": 0.7
+    },
+    {
+      "type": "head_to_head",
+      "description": "近期天狼星克制(近3次不败+首回合3-2客胜)，但马尔默历史客场7胜2负",
+      "impact": 0.04,
+      "confidence": 0.6
+    },
+    {
+      "type": "defensive_concern",
+      "description": "天狼星两连败丢7球，防线波动是主队最大隐患",
+      "impact": -0.05,
+      "confidence": 0.7
+    },
+    {
+      "type": "tactical_matchup",
+      "description": "完整三中场 vs 拼凑中场，出球权争夺决定比赛走向",
+      "impact": 0.08,
+      "confidence": 0.8
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队掌控取胜",
+      "probability": 52,
+      "score": "2-1 或 3-1",
+      "description": "天狼星中场压制主导比赛，冲击马尔默瘫痪的中场和暴露的防线，主队进球但防线波动可能丢1球"
+    },
+    {
+      "name": "主队零封完胜",
+      "probability": 22,
+      "score": "2-0 或 3-0",
+      "description": "马尔默中场彻底瘫痪毫无还手之力，天狼星零封取胜"
+    },
+    {
+      "name": "客队抢分/爆冷",
+      "probability": 26,
+      "score": "2-2 或 1-2",
+      "description": "天狼星防线波动被博海姆个人能力惩罚，马尔默复刻客场克制传统"
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皇家贝蒂斯 vs 皇家社会 — 西甲预测</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+
+.stadium{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#0d1117 0%,#1a2332 30%,#1a2332 100%);overflow:hidden}
+.pitch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:90%;max-width:900px;height:220px;background:linear-gradient(180deg,#2d7a3a,#1e5c2a);border-radius:4px 4px 0 0;border:2px solid rgba(255,255,255,0.3)}
+.pitch::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,0.3)}
+.pitch::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:2px solid rgba(255,255,255,0.3);border-radius:50%}
+.penalty-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:44%;height:60px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.penalty-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.goal-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18%;height:24px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.goal-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.lights{position:absolute;top:20px;left:10%;right:10%;display:flex;justify-content:space-between}
+.light{width:6px;height:6px;background:#ffd700;border-radius:50%;box-shadow:0 0 12px 4px rgba(255,215,0,0.4)}
+.stands{position:absolute;bottom:220px;left:0;right:0;height:60px;background:linear-gradient(180deg,#1a1a2e,#16213e)}
+
+.scoreboard{position:absolute;top:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);border:1px solid #2a5298;border-radius:12px;padding:20px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.1);min-width:520px;text-align:center}
+.scoreboard .league-tag{font-size:11px;color:#64b5f6;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.scoreboard .match-tag{font-size:10px;color:#ff9800;background:rgba(255,152,0,0.15);display:inline-block;padding:2px 10px;border-radius:10px;margin-bottom:12px}
+.scoreboard .teams{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:10px}
+.scoreboard .team-name{font-size:20px;font-weight:700;color:#fff;min-width:120px}
+.scoreboard .team-name.home{text-align:right}
+.scoreboard .team-name.away{text-align:left}
+.scoreboard .score{font-size:42px;font-weight:900;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.5)}
+.scoreboard .score-label{font-size:10px;color:#aaa;margin-top:4px}
+.scoreboard .probs{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.scoreboard .prob-item{text-align:center}
+.scoreboard .prob-val{font-size:18px;font-weight:700}
+.scoreboard .prob-label{font-size:10px;color:#888;margin-top:2px}
+.prob-home{color:#4caf50}.prob-draw{color:#ff9800}.prob-away{color:#f44336}
+
+.container{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:28px;text-align:center;margin:30px 0 6px;background:linear-gradient(90deg,#00954c,#ffffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#888;font-size:13px;margin-bottom:30px}
+
+.card{background:#141926;border:1px solid #1e2a3a;border-radius:12px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:#64b5f6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2::before{content:'';width:4px;height:18px;background:#2196f3;border-radius:2px}
+
+.prob-bar-wrap{margin:8px 0}
+.prob-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.prob-bar{height:28px;background:#1a2332;border-radius:6px;overflow:hidden;display:flex}
+.prob-bar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.seg-home{background:linear-gradient(90deg,#2e7d32,#4caf50)}.seg-draw{background:linear-gradient(90deg,#e65100,#ff9800)}.seg-away{background:linear-gradient(90deg,#b71c1c,#f44336)}
+
+.scores-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.score-card{background:#1a2332;border:1px solid #253347;border-radius:8px;padding:12px 8px;text-align:center}
+.score-card .sc{font-size:22px;font-weight:800;color:#ffd700}
+.score-card .sp{font-size:12px;color:#aaa;margin-top:4px}
+.score-card.top{border-color:#2a5298;background:linear-gradient(135deg,#1a2332,#0f3460)}
+
+.xg-row{display:flex;align-items:center;justify-content:center;gap:30px;margin:16px 0}
+.xg-item{text-align:center}
+.xg-val{font-size:32px;font-weight:800;color:#4caf50}
+.xg-val.away{color:#f44336}
+.xg-label{font-size:12px;color:#888;margin-top:4px}
+.xg-vs{font-size:18px;color:#555}
+
+.intel-item{display:flex;gap:10px;margin:10px 0;font-size:14px;line-height:1.6}
+.intel-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px}
+.intel-icon.positive{background:#1b5e20;color:#4caf50}
+.intel-icon.neutral{background:#1a2332;color:#64b5f6}
+.intel-icon.negative{background:#4a1414;color:#f44336}
+.intel-icon.warning{background:#3e2723;color:#ff9800}
+.intel-icon.injury{background:#4a1414;color:#ff5722}
+
+.scenario{background:#1a2332;border-left:3px solid #2196f3;padding:14px 18px;border-radius:0 8px 8px 0;margin:10px 0}
+.scenario .sc-title{font-weight:700;color:#64b5f6;font-size:14px;margin-bottom:6px}
+.scenario .sc-desc{font-size:13px;color:#bbb;line-height:1.6}
+
+.disclaimer{background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:20px;font-size:12px;color:#aaa;line-height:1.7}
+
+.factor-tag{display:inline-block;background:rgba(33,150,243,0.15);color:#64b5f6;padding:3px 10px;border-radius:12px;font-size:11px;margin:3px 2px}
+
+@media(max-width:640px){
+  .scoreboard{min-width:auto;padding:14px 18px}
+  .scoreboard .team-name{font-size:15px;min-width:80px}
+  .scoreboard .score{font-size:32px}
+  .scores-grid{grid-template-columns:repeat(3,1fr)}
+  .stadium{height:340px}
+  .pitch{height:160px}
+  .stands{bottom:160px;height:40px}
+  .scoreboard{top:50px}
+}
+</style>
+</head>
+<body>
+
+<div class="stadium">
+  <div class="stands"></div>
+  <div class="pitch">
+    <div class="penalty-area top"></div>
+    <div class="goal-area top"></div>
+    <div class="penalty-area"></div>
+    <div class="goal-area"></div>
+  </div>
+  <div class="lights"><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div></div>
+  <div class="scoreboard">
+    <div class="league-tag">La Liga · 西班牙足球甲级联赛</div>
+    <div class="match-tag">📅 2026-08-22 · 第2轮 · 残阵对决 · 预测比分</div>
+    <div class="teams">
+      <div class="team-name home">皇家贝蒂斯<br><span style="font-size:11px;color:#888">Real Betis</span></div>
+      <div class="score">1 - 1</div>
+      <div class="team-name away">皇家社会<br><span style="font-size:11px;color:#888">R. Sociedad</span></div>
+    </div>
+    <div class="score-label">单一最高概率比分 (10.8%) · 主预测方向：皇家社会客胜 1-2</div>
+    <div class="probs">
+      <div class="prob-item"><div class="prob-val prob-home">32.6%</div><div class="prob-label">贝蒂斯胜</div></div>
+      <div class="prob-item"><div class="prob-val prob-draw">28.2%</div><div class="prob-label">平局</div></div>
+      <div class="prob-item"><div class="prob-val prob-away">39.3%</div><div class="prob-label">皇家社会胜</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>皇家贝蒂斯 vs 皇家社会</h1>
+  <div class="subtitle">西甲 2026-27 第2轮 · Estadio de La Cartuja · 2026年8月22日 03:00 · 残阵对决</div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div style="text-align:center;margin:16px 0">
+      <div style="font-size:20px;font-weight:700;color:#ff9800">主预测：皇家社会客胜 1-2 (8.8%)</div>
+      <div style="font-size:14px;color:#aaa;margin-top:8px">方向概率 39.3% · ⚠️ 贝蒂斯门将危机是决定性因素</div>
+    </div>
+    <div class="xg-row">
+      <div class="xg-item"><div class="xg-val">1.41</div><div class="xg-label">贝蒂斯预期进球</div></div>
+      <div class="xg-vs">vs</div>
+      <div class="xg-item"><div class="xg-val away">1.63</div><div class="xg-label">皇家社会预期进球</div></div>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <span class="factor-tag">BET -22 Elo (门将+锋线+中场)</span>
+      <span class="factor-tag">RSO -14 Elo (右后卫报销)</span>
+      <span class="factor-tag">BET主场12月起不败</span>
+      <span class="factor-tag">RSO连续16场未零封</span>
+    </div>
+  </div>
+
+  <!-- 伤停 -->
+  <div class="card">
+    <h2>🏥 伤停与阵容（残阵对决）</h2>
+    <h3 style="color:#00954c;font-size:14px;margin:12px 0 8px">皇家贝蒂斯（阵容损耗极为严重）</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px">
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">迭戈·孔德 (主力门将)</td><td style="padding:8px 10px;color:#f44336;font-weight:600">❌ 肩伤至9月</td><td style="padding:8px 10px">第三门将巴列斯首发</td></tr>
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">阿布德 (边路爆破手)</td><td style="padding:8px 10px;color:#f44336;font-weight:600">❌ 膝伤</td><td style="padding:8px 10px">锋线突破能力削弱</td></tr>
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">鲁伊瓦尔 (锋线)</td><td style="padding:8px 10px;color:#f44336;font-weight:600">❌ 半月板手术</td><td style="padding:8px 10px">锋线轮换不足</td></tr>
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">伊斯科 (中场核心)</td><td style="padding:8px 10px;color:#ff9800;font-weight:600">⚠️ 打不了90分钟</td><td style="padding:8px 10px">软骨伤愈状态不满，后手替补</td></tr>
+      <tr><td style="padding:8px 10px">洛塞尔索 (中场)</td><td style="padding:8px 10px;color:#ff9800;font-weight:600">⚠️ 肌肉不适</td><td style="padding:8px 10px">预计替补待命</td></tr>
+      <tr><td colspan="3" style="color:#888;font-size:12px;padding-top:8px">✅ 贝莱林回归首发右后卫 · Elo 修正：-22</td></tr>
+    </table>
+    <h3 style="color:#0067c0;font-size:14px;margin:12px 0 8px">皇家社会（相对齐整，但有结构性缺口）</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">奥德里奥索拉 (右后卫)</td><td style="padding:8px 10px;color:#f44336;font-weight:600">❌ 十字韧带撕裂赛季报销</td><td style="padding:8px 10px">右后卫位置结构性空缺</td></tr>
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">久保建英 (前场核心)</td><td style="padding:8px 10px;color:#ff9800;font-weight:600">⚠️ 膝盖单独康复</td><td style="padding:8px 10px">世界杯归来，能否打满全场存疑</td></tr>
+      <tr style="border-bottom:1px solid #1e2a3a"><td style="padding:8px 10px">格德斯</td><td style="padding:8px 10px;color:#ff9800;font-weight:600">⚠️ 身体不适</td><td style="padding:8px 10px">出战存疑</td></tr>
+      <tr><td style="padding:8px 10px">奥亚萨瓦尔 (队长)</td><td style="padding:8px 10px;color:#4caf50;font-weight:600">✅ 伤愈复出</td><td style="padding:8px 10px">预计替补登场找状态</td></tr>
+      <tr><td colspan="3" style="color:#888;font-size:12px;padding-top:8px">Elo 修正：-14</td></tr>
+    </table>
+  </div>
+
+  <!-- 概率分布 -->
+  <div class="card">
+    <h2>胜平负概率</h2>
+    <div class="prob-bar-wrap">
+      <div class="prob-bar-label"><span>贝蒂斯胜 32.6%</span><span>平局 28.2%</span><span>皇家社会胜 39.3%</span></div>
+      <div class="prob-bar">
+        <div class="seg seg-home" style="width:32.6%">33%</div>
+        <div class="seg seg-draw" style="width:28.2%">28%</div>
+        <div class="seg seg-away" style="width:39.3%">39%</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#888;margin-top:8px;text-align:center">近均衡局——贝蒂斯门将危机 vs 皇家社会防线漏洞</div>
+  </div>
+
+  <!-- 比分分布 -->
+  <div class="card">
+    <h2>比分分布 Top 5</h2>
+    <div class="scores-grid">
+      <div class="score-card top"><div class="sc">1-1</div><div class="sp">10.8%</div></div>
+      <div class="score-card"><div class="sc">1-2</div><div class="sp">8.8%</div></div>
+      <div class="score-card"><div class="sc">0-1</div><div class="sp">7.8%</div></div>
+      <div class="score-card"><div class="sc">2-1</div><div class="sp">7.6%</div></div>
+      <div class="score-card"><div class="sc">1-0</div><div class="sp">6.7%</div></div>
+    </div>
+  </div>
+
+  <!-- 预测原因 -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <div class="intel-item"><div class="intel-icon injury">🏥</div><div><b>贝蒂斯门将危机是决定性因素</b>：主力门将孔德肩伤至9月，第三门将巴列斯首发。防线最后一环严重削弱，面对皇家社会久保建英等技术型前锋，门将经验和能力不足可能直接决定比赛走向。</div></div>
+    <div class="intel-item"><div class="intel-icon negative">↓</div><div><b>贝蒂斯中前场多人缺阵</b>：阿布德(膝伤)+鲁伊瓦尔(半月板)锋线缺人，伊斯科打不了90分钟+洛塞尔索肌肉不适中场受限。佩莱格里尼的4-2-3-1体系攻击火力大打折扣。</div></div>
+    <div class="intel-item"><div class="intel-icon positive">↑</div><div><b>贝蒂斯主场底蕴</b>：自2025年12月起西甲主场不败，季前击败里昂和阿森纳。即使残阵，主场气势和佩莱格里尼的战术纪律仍是优势。</div></div>
+    <div class="intel-item"><div class="intel-icon warning">⚠</div><div><b>皇家社会防线持续不稳</b>：连续16场未零封，季前赛3连败。右后卫奥德里奥索拉赛季报销，新帅马塔拉佐的前场逼抢战术效果不佳且暴露身后空档。</div></div>
+    <div class="intel-item"><div class="intel-icon neutral">→</div><div><b>历史交锋持平</b>：近10次3-4-3完全平手。但贝蒂斯主场近2次3-1和3-0双杀皇家社会——主场优势在正常情况下非常明确。本场残阵能否延续是关键。</div></div>
+    <div class="intel-item"><div class="intel-icon warning">⚠</div><div><b>关键对决</b>：安东尼(贝蒂斯右路内切) vs 皇家社会右路空缺(奥德里奥索拉报销)。贝蒂斯左路能否利用这个缺口是进攻关键。</div></div>
+  </div>
+
+  <!-- 场景推演 -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="scenario">
+      <div class="sc-title">🟢 贝蒂斯残阵主场发威 (33%)</div>
+      <div class="sc-desc">佩莱格里尼战术纪律+主场气势弥补伤缺。安东尼/里克尔梅利用边路突破，库乔·埃尔南德斯把握机会。贝莱林回归稳固右路防守。2-1或1-0主胜。</div>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">🟡 平局收场 (28%)</div>
+      <div class="sc-desc">双方残阵互有攻守但都缺乏终结能力。贝蒂斯门将问题+皇家社会防线漏洞相互抵消。1-1平局，延续近10次交手的持平格局。</div>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">🔴 皇家社会客场反击 (39%)</div>
+      <div class="sc-desc">贝蒂斯第三门将巴列斯暴露经验不足，久保建英/巴雷内特塞亚利用速度冲击。皇家社会虽然防线不稳但前场火力更完整。1-2或0-1客胜。</div>
+    </div>
+  </div>
+
+  <!-- 盘口说明 -->
+  <div style="background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:16px">
+    <div style="font-size:14px;font-weight:700;color:#ff9800;margin-bottom:8px">📊 盘口分析</div>
+    <div style="font-size:12px;color:#ff9800">⚠️ 本场未能获取实时亚盘数据，预测走纯 Elo + 泊松模型 + 伤停修正。</div>
+    <div style="font-size:12px;color:#888;margin-top:8px">参考：贝蒂斯残阵主场 vs 皇家社会防线漏洞，市场盘口预计平手/贝蒂斯让平半。贝蒂斯门将危机可能使盘口向皇家社会倾斜。</div>
+  </div>
+
+  <!-- 不确定性 -->
+  <div class="disclaimer">
+    <b>⚠️ 不确定性说明</b><br>
+    • 近均衡局(33/28/39)，任何赛果都不意外。<br>
+    • 贝蒂斯门将危机(第三门将首发)是本场最大变量——门将经验不足可能直接导致丢球。<br>
+    • 皇家社会防线连续16场未零封，贝蒂斯即使残阵也有进球机会。<br>
+    • 伊斯科若替补登场可能改变比赛节奏，但能否在有限时间内发挥是问号。<br>
+    • 历史交锋近10次完全持平，但贝蒂斯主场近2次双杀——残阵能否延续主场统治力？<br>
+    • 概率不等于确定性结论，本预测纯属娱乐分析。
+  </div>
+</div>
+
+</body>
+</html>

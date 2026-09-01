@@ -1,0 +1,213 @@
+{
+  "match": {
+    "home": "AVL",
+    "away": "ARS",
+    "date": "2026-09-01",
+    "round": 2,
+    "venue": "维拉公园球场 (Birmingham)",
+    "turf": "natural",
+    "time": "03:00 (北京时间)",
+    "significance": "英超第2轮，拆队重组的维拉主场迎战状态火热的卫冕冠军阿森纳"
+  },
+  "context": "英超第2轮，维拉主场迎战阿森纳。维拉今夏遭遇拆队式重组（罗杰斯、蒂勒曼斯、沃特金斯、马丁内斯、迪涅、孔萨等多名欧联杯决赛首发离队），首轮客场0-4惨败布莱顿；阿森纳作为卫冕冠军稳步补强（吉马良斯、措利斯、孔萨），社区盾3-0胜曼城+首轮3-0胜考文垂状态正佳。但维拉拥有'冠军杀手'属性：近3个英超主场对卫冕冠军全胜，上赛季主场2-1绝杀过阿森纳。",
+  "teams": {
+    "AVL": {
+      "code": "AVL",
+      "name_cn": "阿斯顿维拉",
+      "full_name": "Aston Villa",
+      "form": "负",
+      "position": 18,
+      "points": 0,
+      "played": 1,
+      "goals_for": 0,
+      "goals_against": 4,
+      "elo_delta": -20,
+      "confidence": 0.85,
+      "notes": "拆队式重组：罗杰斯、蒂勒曼斯、沃特金斯、马丁内斯、迪涅、孔萨等多名欧联杯决赛首发离队；新援铃木彩艳、戈雷茨卡、雅克松磨合期；首轮客场0-4惨败布莱顿；中场核心缺阵拦截出球能力大幅下降",
+      "key_players": [
+        {
+          "name": "麦金",
+          "position": "中场",
+          "status": "available",
+          "impact": "残阵中场核心，将与卡马拉搭档撑中场"
+        },
+        {
+          "name": "布恩迪亚",
+          "position": "前锋",
+          "status": "available",
+          "impact": "预计突前，进攻端主要威胁点"
+        },
+        {
+          "name": "加纳乔",
+          "position": "边锋",
+          "status": "available",
+          "impact": "快速转换的冲击核心，反击爆点"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "若昂·戈麦斯",
+          "position": "中场",
+          "status": "suspended",
+          "impact": "中场核心首轮红牌停赛，中场真空主因"
+        },
+        {
+          "name": "阿马杜·奥纳纳",
+          "position": "中场",
+          "status": "injured",
+          "impact": "十字韧带重伤长期缺阵，中场硬度再损"
+        },
+        {
+          "name": "曼赞比 / 马乔",
+          "position": "轮换球员",
+          "status": "injured",
+          "impact": "轮换深度受损"
+        },
+        {
+          "name": "塔米·亚伯拉罕",
+          "position": "前锋",
+          "status": "doubtful",
+          "impact": "腹股沟伤势出战成疑"
+        }
+      ]
+    },
+    "ARS": {
+      "code": "ARS",
+      "name_cn": "阿森纳",
+      "full_name": "Arsenal",
+      "form": "胜",
+      "position": 2,
+      "points": 3,
+      "played": 1,
+      "goals_for": 3,
+      "goals_against": 0,
+      "elo_delta": 0,
+      "confidence": 0.90,
+      "notes": "卫冕冠军夏窗稳中有升：吉马良斯、措利斯、孔萨等强援；社区盾3-0胜曼城、联赛首轮3-0胜考文垂状态正佳；萨卡/厄德高/哈弗茨进攻组合状态正佳；但萨利巴长期缺阵+廷贝尔伤缺，中卫深度受损",
+      "key_players": [
+        {
+          "name": "萨卡",
+          "position": "边锋",
+          "status": "available",
+          "impact": "进攻组合核心，状态正佳，冲击维拉残阵边路"
+        },
+        {
+          "name": "厄德高",
+          "position": "中场",
+          "status": "available",
+          "impact": "组织核心，将主导比赛节奏，利用维拉中场空当"
+        },
+        {
+          "name": "哈弗茨",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线支点，状态正佳"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "萨利巴",
+          "position": "中卫",
+          "status": "injured",
+          "impact": "后防核心长期缺阵，莫斯克拉继续顶替"
+        },
+        {
+          "name": "廷贝尔",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "腹股沟伤势未愈，边路防守轮换受损"
+        },
+        {
+          "name": "吉马良斯",
+          "position": "中场",
+          "status": "doubtful",
+          "impact": "腹股沟轻伤已恢复训练，可能进大名单"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 13,
+    "home_wins": 6,
+    "away_wins": 6,
+    "draws": 1,
+    "recent": "自2020年以来各取6胜1平完全持平",
+    "arsenal_away": "近7次联赛做客维拉公园仅3胜4负，客场不稳",
+    "champion_killer": "维拉近3个英超主场对卫冕冠军(曼城/利物浦)全胜；上赛季主场2-1绝杀阿森纳",
+    "notes": "总战绩持平，但维拉公园对豪门有特殊加持，卫冕冠军来客需警惕"
+  },
+  "tactical": {
+    "AVL": {
+      "style": "counter_attack",
+      "formation": "4-2-3-1",
+      "strengths": ["主场氛围火爆", "加纳乔反击冲击力", "冠军杀手心理基因", "埃梅里战术素养"],
+      "weaknesses": ["中场真空拦截出球双降", "新援磨合期", "首轮0-4士气受挫", "后防重组默契不足"],
+      "key_tactics": "放弃控球，低位防守+加纳乔领衔快速转换，趁阿森纳防线不整打反击"
+    },
+    "ARS": {
+      "style": "possession",
+      "formation": "4-3-3",
+      "strengths": ["控球主导节奏", "萨卡/厄德高/哈弗茨组合状态正佳", "定位球犀利", "卫冕冠军气势"],
+      "weaknesses": ["萨利巴缺阵中卫深度受损", "莫斯克拉与加布里埃尔搭档默契待考", "维拉公园是传统苦主场地"],
+      "key_tactics": "牢牢控制节奏，利用维拉中场空当制造大量威胁，定位球是破密集防守利器"
+    }
+  },
+  "factors": [
+    {
+      "type": "squad_rebuild",
+      "description": "维拉拆队式重组多名欧联杯决赛首发离队，整体实力处于重组期",
+      "impact": -0.14,
+      "confidence": 0.9
+    },
+    {
+      "type": "injury_impact",
+      "description": "维拉中场真空：戈麦斯停赛+奥纳纳重伤，拦截出球能力大幅下降",
+      "impact": -0.12,
+      "confidence": 0.9
+    },
+    {
+      "type": "recent_form",
+      "description": "阿森纳社区盾3-0胜曼城+首轮3-0胜考文垂；维拉首轮0-4惨败布莱顿，状态冰火两重天",
+      "impact": 0.15,
+      "confidence": 0.9
+    },
+    {
+      "type": "champion_killer",
+      "description": "维拉近3个英超主场对卫冕冠军全胜，上赛季主场2-1绝杀阿森纳",
+      "impact": 0.10,
+      "confidence": 0.7
+    },
+    {
+      "type": "injury_impact_away",
+      "description": "阿森纳萨利巴长期缺阵+廷贝尔伤缺，中卫组合重组给维拉反击留下空间",
+      "impact": 0.06,
+      "confidence": 0.65
+    },
+    {
+      "type": "head_to_head",
+      "description": "近7次阿森纳做客维拉公园仅3胜4负，客场不稳",
+      "impact": 0.05,
+      "confidence": 0.65
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "客队掌控取胜",
+      "probability": 52,
+      "score": "0-2 或 1-3",
+      "description": "阿森纳控场压制残阵维拉，利用中场空当制造大量威胁，萨卡/哈弗茨火力兑现"
+    },
+    {
+      "name": "客队小胜/平局",
+      "probability": 30,
+      "score": "1-2 或 1-1",
+      "description": "维拉冠军杀手基因+主场氛围，加纳乔反击扳回一球但整体差距难抹平"
+    },
+    {
+      "name": "主队爆冷",
+      "probability": 18,
+      "score": "2-1 或 1-0",
+      "description": "复刻冠军杀手剧本：维拉公园魔力+快速转换惩罚重组的阿森纳中卫线"
+    }
+  ]
+}

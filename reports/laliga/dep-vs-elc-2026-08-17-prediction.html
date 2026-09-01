@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拉科鲁尼亚 vs 埃尔切 预测 · 西甲第1轮</title>
+<style>
+  :root{
+    --bg:#0b0f1a; --panel:#141a2b; --panel2:#1b2338; --line:#2a3550;
+    --text:#e8edf6; --muted:#8fa0bd; --green:#39d98a; --green2:#1fae6a;
+    --amber:#ffc24b; --red:#ff5d5d; --blue:#4ba3ff; --violet:#a78bfa;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:radial-gradient(1200px 600px at 70% -10%, #16233f 0%, var(--bg) 60%);
+       color:var(--text); font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif; line-height:1.55;}
+  .wrap{max-width:1040px; margin:0 auto; padding:24px 18px 60px;}
+
+  .stage{position:relative; border-radius:20px; overflow:hidden;
+         background:linear-gradient(180deg,#1d2b4d 0%,#0f1730 40%,#0a0f1f 100%);
+         border:1px solid var(--line); box-shadow:0 18px 50px rgba(0,0,0,.5);}
+  .pitch{position:relative; height:340px;
+         background:
+           radial-gradient(circle at 50% 38%, rgba(80,200,120,.10), transparent 55%),
+           repeating-linear-gradient(0deg, #1e5c3a 0 6px, #1a5335 6px 12px);}
+  .pitch::before{content:""; position:absolute; inset:0;
+         background:linear-gradient(180deg, rgba(10,15,31,.0), rgba(10,15,31,.55));}
+  .lines{position:absolute; inset:18px 4%; border:3px solid rgba(255,255,255,.55);}
+  .lines::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:3px;
+         background:rgba(255,255,255,.55); transform:translateX(-50%);}
+  .lines::after{content:""; position:absolute; left:50%; top:50%; width:90px; height:90px;
+         border:3px solid rgba(255,255,255,.55); border-radius:50%;
+         transform:translate(-50%,-50%);}
+  .box{position:absolute; top:18px; bottom:18px; width:64px; border:3px solid rgba(255,255,255,.55);}
+  .box.l{left:4%;} .box.r{right:4%;}
+  .box::before{content:""; position:absolute; top:50%; transform:translateY(-50%);
+         width:34px; height:64px; border:3px solid rgba(255,255,255,.55);}
+  .box.l::before{right:0;} .box.r::before{left:0;}
+  .goal{position:absolute; top:50%; width:30px; height:56px; transform:translateY(-50%);
+        border:3px solid rgba(255,255,255,.9); border-radius:2px;
+        background:rgba(20,30,50,.35); box-shadow:0 0 22px rgba(255,255,255,.25);}
+  .goal.l{left:4%;} .goal.r{right:4%;}
+  .stands{position:absolute; top:0; left:0; right:0; height:46px; opacity:.5;
+         background:repeating-linear-gradient(90deg,#2c3a5c 0 26px,#253250 26px 52px);}
+  .flood{position:absolute; width:200px; height:200px; border-radius:50%;
+         background:radial-gradient(circle,#fff6d8 0%, rgba(255,246,216,.0) 70%); opacity:.28;
+         filter:blur(6px); top:-60px;}
+  .flood.l{left:12%;} .flood.r{right:12%;}
+  .pitch-label{position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+         color:rgba(255,255,255,.5); font-size:13px; letter-spacing:4px; text-transform:uppercase;}
+
+  .scoreboard{position:relative; z-index:3; margin:-6px 16px 0; display:flex; align-items:stretch;
+         background:linear-gradient(180deg,#1d2740,#141c30); border:1px solid #32405f;
+         border-radius:14px; box-shadow:0 14px 40px rgba(0,0,0,.55); overflow:hidden;}
+  .team{flex:1; padding:16px 14px; text-align:center;}
+  .team .code{font-size:15px; color:var(--muted); letter-spacing:1px;}
+  .team .name{font-size:22px; font-weight:800; margin-top:2px;}
+  .team .sub{font-size:12px; color:var(--muted); margin-top:3px;}
+  .score{margin:14px 0; min-width:150px; text-align:center;}
+  .score .vs{font-size:52px; font-weight:900; color:#fff; letter-spacing:2px;
+         font-family:"Segoe UI",Consolas,monospace;
+         text-shadow:0 0 18px rgba(80,180,255,.55);}
+  .score .tag{font-size:11px; color:var(--amber); letter-spacing:2px; margin-top:2px;}
+  .score .probs{display:flex; gap:6px; margin-top:10px; justify-content:center;}
+  .probpill{font-size:11px; padding:2px 8px; border-radius:20px; background:var(--panel2); color:var(--text);}
+  .probpill.b{background:rgba(57,217,138,.15); color:var(--green); border:1px solid rgba(57,217,138,.4);}
+  .statusbar{position:absolute; top:0; left:0; right:0; height:4px;
+         background:linear-gradient(90deg,var(--green) 0%, var(--green) 47.0%, var(--amber) 47.0% 75.4%, #33405e 75.4%);}
+
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--line);
+        border-radius:14px; padding:18px 20px; margin-top:18px;}
+  .card h2{font-size:16px; color:var(--blue); letter-spacing:1px; margin-bottom:12px;
+        display:flex; align-items:center; gap:8px;}
+  .card h2::before{content:""; width:4px; height:16px; background:var(--blue); border-radius:2px;}
+  .grid{display:grid; gap:14px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:1fr 1fr;}
+  @media(max-width:720px){.g3{grid-template-columns:1fr;} .g2{grid-template-columns:1fr;} .team .name{font-size:17px;} .score .vs{font-size:38px;}}
+
+  .big-num{font-size:34px; font-weight:900; color:#fff;}
+  .big-num.g{color:var(--green);} .big-num.a{color:var(--amber);} .big-num.r{color:var(--red);}
+  .cell-label{font-size:12px; color:var(--muted);}
+
+  .pbar{height:14px; border-radius:7px; background:#0e1426; overflow:hidden; display:flex; margin-top:6px;}
+  .pbar .seg{height:100%;}
+  .seg.dep{background:linear-gradient(90deg,#1fae6a,#39d98a);}
+  .seg.draw{background:var(--amber);}
+  .seg.elc{background:linear-gradient(90deg,#4ba3ff,#7cc0ff);}
+  .plabel{display:flex; justify-content:space-between; font-size:13px; margin-top:10px;}
+  .plabel b{font-size:14px;}
+
+  .scorecards{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-top:10px;}
+  .scard{background:#0e1426; border:1px solid var(--line); border-radius:10px; padding:10px; text-align:center;}
+  .scard .s{font-size:20px; font-weight:800; color:#fff;}
+  .scard .p{font-size:12px; color:var(--green); margin-top:3px;}
+  .scard.top{border-color:var(--amber); background:rgba(255,194,75,.07);}
+
+  .intel li{margin:0 0 7px 18px; font-size:13.5px; color:var(--text);}
+  .chip{display:inline-block; font-size:11px; padding:2px 8px; border-radius:20px; margin:2px 4px 2px 0;
+        background:var(--panel2); border:1px solid var(--line); color:var(--muted);}
+  .chip.g{color:var(--green); border-color:rgba(57,217,138,.4);}
+  .chip.a{color:var(--amber); border-color:rgba(255,194,75,.4);}
+  .chip.r{color:var(--red); border-color:rgba(255,93,93,.4);}
+  .src{font-size:12.5px; color:var(--muted);}
+  .src a{color:var(--blue); text-decoration:none; word-break:break-all;}
+  .foot{margin-top:22px; text-align:center; font-size:12px; color:var(--muted);}
+  .warn{font-size:12.5px; color:var(--amber); background:rgba(255,194,75,.08);
+        border:1px solid rgba(255,194,75,.3); border-radius:10px; padding:10px 14px;}
+  table.mini{width:100%; border-collapse:collapse; font-size:13px;}
+  table.mini td,table.mini th{padding:7px 8px; border-bottom:1px solid var(--line); text-align:left;}
+  table.mini th{color:var(--muted); font-weight:600; font-size:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="stage">
+    <div class="flood l"></div><div class="flood r"></div>
+    <div class="stands"></div>
+    <div class="pitch">
+      <div class="lines"></div>
+      <div class="box l"></div><div class="box r"></div>
+      <div class="goal l"></div><div class="goal r"></div>
+      <div class="pitch-label">ABANCA Riazor · A Coruña</div>
+    </div>
+    <div class="scoreboard">
+      <div class="statusbar"></div>
+      <div class="team">
+        <div class="code">RC DEPORTIVO</div>
+        <div class="name">拉科鲁尼亚</div>
+        <div class="sub">升班马 · 上季西乙亚军 · Elo 1520</div>
+      </div>
+      <div class="score">
+        <div class="tag">● 预测比分 PREDICTION</div>
+        <div class="vs">1 - 0</div>
+        <div class="probs">
+          <span class="probpill b">主胜 47.0%</span>
+          <span class="probpill">平 28.4%</span>
+          <span class="probpill">客胜 24.6%</span>
+        </div>
+      </div>
+      <div class="team">
+        <div class="code">ELCHE CF</div>
+        <div class="name">埃尔切</div>
+        <div class="sub">上季第15 · 换帅三中卫 · Elo 1540</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px; text-align:center;">
+    <h1 style="font-size:22px; font-weight:900; letter-spacing:1px;">西甲 2026-27 · 第1轮 · 拉科鲁尼亚 vs 埃尔切</h1>
+    <div style="color:var(--muted); font-size:13px; margin-top:6px;">
+      预测生成：2026-08-17 · 比赛时间：2026-08-17 20:00（当地）/ 08-18 03:00（北京） · 数据：离线快照 + 赛前网络情报
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g3">
+      <div>
+        <div class="cell-label">主预测赛果</div>
+        <div class="big-num g">拉科小胜</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">最高概率方向（47.0%）</div>
+      </div>
+      <div>
+        <div class="cell-label">主预测比分</div>
+        <div class="big-num">1 - 0</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">概率 10.0%；单一最高比分 1-1(10.6%) 为分布参考</div>
+      </div>
+      <div>
+        <div class="cell-label">预期进球 xG</div>
+        <div class="big-num" style="font-size:26px;">1.83 <span style="color:var(--muted);font-size:16px;">vs</span> 1.08</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">低比分胶着预期，夏季高温拖慢节奏</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <div class="plabel"><span>拉科鲁尼亚胜</span><b class="big-num" style="font-size:16px;color:var(--green);">47.0%</b></div>
+      <div class="pbar"><div class="seg dep" style="width:47.0%"></div><div class="seg draw" style="width:28.4%"></div><div class="seg elc" style="width:24.6%"></div></div>
+      <div class="plabel"><span>平局</span><b style="font-size:14px;color:var(--amber);">28.4%</b><span>埃尔切胜</span><b style="font-size:14px;color:var(--red);">24.6%</b></div>
+    </div>
+    <div class="warn" style="margin-top:14px;">揭幕战双方谨慎，平局概率高达 28.4%（单一最高比分正是 1-1）。拉科略占主场/补强优势，但升班马节奏 + 防线伤病，不宜期待大胜。</div>
+  </div>
+
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g2">
+      <div>
+        <div class="cell-label">比分分布 Top 5</div>
+        <div class="scorecards">
+          <div class="scard top"><div class="s">1 - 1</div><div class="p">10.6%</div></div>
+          <div class="scard"><div class="s">1 - 0</div><div class="p">10.0%</div></div>
+          <div class="scard"><div class="s">2 - 1</div><div class="p">9.6%</div></div>
+          <div class="scard"><div class="s">2 - 0</div><div class="p">9.2%</div></div>
+          <div class="scard"><div class="s">0 - 1</div><div class="p">5.9%</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px;">Elo 差距极小（20）+ 双方揭幕战谨慎 → 低比分集中分布。</div>
+      </div>
+      <div>
+        <div class="cell-label">模型情境分类（自动）</div>
+        <div style="margin-top:8px;">
+          <span class="chip">弱弱对话(方差放大)</span>
+          <span class="chip a">拉科战意高涨</span>
+          <span class="chip g">近均衡押主队向平局收缩</span>
+          <span class="chip">夏季高温高湿</span>
+        </div>
+        <div class="cell-label" style="margin-top:12px;">球员可用性修正</div>
+        <table class="mini" style="margin-top:6px;">
+          <tr><th>球队</th><th>缺阵</th><th>Elo 修正</th></tr>
+          <tr><td>拉科鲁尼亚</td><td>耶雷迈(核心边锋,伤疑)、卡里略、阿尔蒂米拉等恢复中</td><td style="color:var(--red);">-5</td></tr>
+          <tr><td>埃尔切</td><td>前锋雅戈·圣地亚哥、迪安加纳（伤停）；比加斯/丘斯特存疑</td><td style="color:var(--red);">-10</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>预测原因</h2>
+    <div class="grid g2">
+      <div>
+        <ul style="list-style:none; font-size:14px;">
+          <li>▸ <b>主场 + 士气</b>：时隔 8 年重返西甲主场揭幕战，3 万球迷，夏窗投入 2600 万欧补强（奥巴梅扬/安格里尼奥等），战意高涨（+0.15）。</li>
+          <li>▸ <b>战术对位</b>：拉科 4-4-2 传控压制 vs 埃尔切三中卫铁桶（5-2-2-1）→ 传控克制大巴（+0.15）。</li>
+          <li>▸ <b>埃尔切客场疲弱</b>：上季西甲客场仅 1 胜；锋线主力流失 + 2 人伤停，反击威胁有限。</li>
+          <li>▸ <b>升班马隐忧</b>：拉科需适应西甲节奏，核心边锋耶雷迈伤疑，防线有伤病；历史交锋近 10 次各 4 胜 2 平，客队不处下风。</li>
+          <li>▸ <b>节奏</b>：夏季高温高湿 + 揭幕战双方谨慎 → expected_pattern 保守，比分偏低。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="cell-label">战意因素（fighting_spirit）</div>
+        <table class="mini" style="margin-top:6px;">
+          <tr><th>球队</th><th>等级</th><th>xG 修正</th><th>理由</th></tr>
+          <tr><td>拉科鲁尼亚</td><td style="color:var(--amber);">高涨</td><td style="color:var(--green);">+0.15</td><td>重返西甲主场揭幕战，力争开门红</td></tr>
+          <tr><td>埃尔切</td><td>正常</td><td>0</td><td>保级队揭幕战客场，目标至少 1 分</td></tr>
+        </table>
+        <div class="warn" style="margin-top:12px;">关键风险：埃尔切热身不败、三中卫防守框架完整，且近 2 次作客拉科全胜（含 4-0）。客队心理占优，拉科若久攻不下易被反击偷分。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <ul class="intel">
+      <li><b>拉科鲁尼亚（升班马）</b>：上季西乙亚军（77 分），时隔 8 年重返西甲；夏窗投入 2600 万欧（转会投入第 4），引进莱奥·罗曼、安格里尼奥（租）、奥巴梅扬、埃德、阿马图奇；热身 3 胜 3 平 1 负（0-1 皇马）。</li>
+      <li><b>拉科伤病</b>：核心边锋耶雷迈·埃尔南德斯（腹股沟，未踢季前，伤疑）、小将卡里略缺阵、阿尔蒂米拉/阿斯普-延森未完全恢复；预计 4-4-2，奥巴梅扬+比尔·恩松戈双前锋。</li>
+      <li><b>埃尔切</b>：上季西甲第 15（43 分）惊险保级；换帅安塞尔米（三中卫体系首秀）；主力流失（费瓦斯/安德烈·席尔瓦/拉法·米尔/阿尔瓦罗/佩德罗萨），引援费尔·尼诺、丘斯特、布纳诺特（租）。</li>
+      <li><b>埃尔切伤病</b>：前锋雅戈·圣地亚哥（膝）、迪安加纳（腿）伤停；比加斯/丘斯特存疑；热身不败（2 胜 3 平，3-0 图卢兹）。</li>
+      <li><b>历史</b>：近 10 次交锋各 4 胜 2 平；上季西乙埃尔切客场 4-0 拉科，近 2 次作客拉科全胜（心理占优）。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div>
+        <div class="cell-label">① 主线（拉科小胜）</div>
+        <div style="font-size:13.5px; margin-top:6px;">拉科主场围攻，奥巴梅扬/恩松戈抓住定位球或反击机会，1-0/2-0/2-1 拿下揭幕战，对应主胜区间。</div>
+      </div>
+      <div>
+        <div class="cell-label">② 胶着平局</div>
+        <div style="font-size:13.5px; margin-top:6px;">埃尔切三中卫稳守 + 拉科破密集乏力，1-1 收场——单一最高概率比分路径，28.4% 平局区间。</div>
+      </div>
+      <div>
+        <div class="cell-label">③ 客队偷分路径</div>
+        <div style="font-size:13.5px; margin-top:6px;">拉科久攻不下被埃尔切快速反击（费尔·尼诺/布纳诺特）偷袭 0-1/0-2——需拉科后防失误，24.6% 客胜区间。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <ul class="intel">
+      <li>揭幕战双方均无联赛状态样本，季前热身与转会磨合是本模型的主要信息源，不确定性高于联赛中段。</li>
+      <li>双方 Elo 仅差 20，模型按"近均衡"处理并加裁判定规则向平局收缩，真实临场首发（耶雷迈、比加斯能否登场）会明显改变走向。</li>
+      <li>历史交锋客队占优（近 2 次作客全胜）与拉科主场士气相抵消，市场预测分歧大（1-1 / 0-1 / 1-0 / 2-1 均有）。</li>
+      <li>不构成投注建议，纯属娱乐分析。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>数据来源</h2>
+    <ul class="intel" style="font-size:12.5px; color:var(--muted);">
+      <li>本模型离线快照：references/laliga/teams.json、data/live/laliga/（table/fixtures/results）</li>
+      <li>赛前情报（采集于 2026-08-17）：<span class="src">
+        <a href="https://www.sportsmole.co.uk/football/deportivo-la-coruna/preview/deportivo-vs-elche-prediction-team-news-lineups_603065.html">Sports Mole</a> ·
+        <a href="https://www.whoscored.com/matches/1993900/preview/spain-laliga-2026-2027-deportivo-de-a-coruna-elche">WhoScored</a> ·
+        <a href="https://www.mundiario.com/articulo/deportes/que-once-debe-sacar-deportivo-frente-elche/20260816120830435725.html">Mundiario（拉科首发）</a> ·
+        <a href="https://news.7m.com.cn/news/20260817/735583.shtml">7M 前瞻</a> ·
+        <a href="https://www.sport.es/es/noticias/futbol/deportivo-elche-posible-once-depor-133412097">Sport.es</a> ·
+        <a href="https://as.com/futbol/primera/alineacion-posible-del-deportivo-ante-el-elche-en-laliga-ea-sports-f202608-n/">AS</a> ·
+        <a href="https://www.sohu.com/a/1063734019_100135174">搜狐：谁能拿开门红</a>
+      </span></li>
+      <li>参考预测：Sports Mole 1-1、WhoScored 0-1(小球)、中文分析多数倾向拉科小胜 1-0/2-1 或平。</li>
+    </ul>
+  </div>
+
+  <div class="foot">⚽ 西甲 2026-27 第1轮 · 拉科鲁尼亚 vs 埃尔切 · 理性模型预测（Elo → 泊松 → 蒙特卡洛） · 概率非确定性结论 · 娱乐分析</div>
+</div>
+</body>
+</html>

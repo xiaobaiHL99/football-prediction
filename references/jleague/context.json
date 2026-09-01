@@ -1,0 +1,24 @@
+{
+  "special_factors": {
+    "summer_heat_penalty": {
+      "description": "7-8月日本高温高湿，比赛节奏下降，体能消耗大",
+      "value": -0.04,
+      "apply_when": "month in ['July', 'August']"
+    },
+    "european_qualification_distraction": {
+      "description": "亚冠(亚精英赛)双线作战消耗",
+      "value": -0.08,
+      "apply_when": "team_in_acl and match_within_3_days_of_acl_match"
+    }
+  },
+  "europe_teams": ["KSA", "SAN", "YFM", "URD", "GAM", "KWF", "VIS", "MAC"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["KSA", "SAN", "YFM", "URD", "GAM", "KWF", "VIS", "MAC", "FCT", "CER", "NAG", "KAS", "KYO", "VVN", "FAG", "TOV", "SHP", "JEF", "AVF", "MIT"]
+  },
+  "region_map": {
+    "east": ["KSA", "YFM", "URD", "KWF", "MAC", "FCT", "KAS", "TOV", "JEF", "MIT"],
+    "central": ["NAG", "SHP"],
+    "west": ["SAN", "GAM", "VIS", "CER", "KYO", "VVN", "FAG", "AVF"]
+  }
+}

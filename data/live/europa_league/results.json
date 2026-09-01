@@ -1,0 +1,154 @@
+{
+  "matches": [
+    {
+      "home": "SAB",
+      "away": "KUP",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "SGZ",
+      "away": "HAR",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "AGF",
+      "away": "LPZ",
+      "hg": 1,
+      "ag": 4
+    },
+    {
+      "home": "OMO",
+      "away": "KRT",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "KUP",
+      "away": "CRAI",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "JAG",
+      "away": "RAN",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "BEN",
+      "away": "HAR",
+      "hg": 6,
+      "ag": 1
+    },
+    {
+      "home": "PAOK",
+      "away": "AND",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "CRAI",
+      "away": "KUP",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "PAF",
+      "away": "SAL",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "home": "VKR",
+      "away": "THN",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "RAN",
+      "away": "JAG",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "AND",
+      "away": "PAOK",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "HAR",
+      "away": "BEN",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "KRT",
+      "hg": 0,
+      "ag": 3,
+      "away": "AND"
+    },
+    {
+      "home": "MJA",
+      "hg": 0,
+      "ag": 1,
+      "away": "SAL"
+    },
+    {
+      "home": "TRB",
+      "hg": 0,
+      "ag": 1,
+      "away": "FTC"
+    },
+    {
+      "home": "LPZ",
+      "hg": 7,
+      "ag": 0,
+      "away": "THN"
+    },
+    {
+      "home": "RSB",
+      "hg": 3,
+      "ag": 0,
+      "away": "PLZ"
+    },
+    {
+      "home": "BEN",
+      "hg": 3,
+      "ag": 1,
+      "away": "AGF"
+    },
+    {
+      "home": "PLZ",
+      "away": "RSB",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "OMO",
+      "away": "STV",
+      "hg": 4,
+      "ag": 2
+    },
+    {
+      "home": "FTC",
+      "away": "TRB",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "AND",
+      "away": "KRT",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "AGF",
+      "away": "BEN",
+      "hg": 1,
+      "ag": 3
+    }
+  ]
+}

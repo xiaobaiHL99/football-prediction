@@ -1,0 +1,145 @@
+{
+  "match": {
+    "home": "WHU",
+    "away": "WOL",
+    "date": "2026-09-01",
+    "round": 4,
+    "venue": "London Stadium (London)",
+    "kickoff_utc": "18:45",
+    "turf": "natural",
+    "significance": "英冠第4轮：两支英超降班马对决，西汉姆主场急需首胜，狼队携积分榜次席之势来袭"
+  },
+  "context": "英冠第4轮，西汉姆主场迎战狼队。降班马境遇两极：西汉姆3轮0胜（2平1负）排第19，压力山大急求首胜；狼队2胜1平不败轰9球高居第2，状态全联赛最火。伦敦碗夜场，主队球迷情绪紧张。",
+  "teams": {
+    "WHU": {
+      "code": "WHU",
+      "name_cn": "西汉姆联",
+      "full_name": "West Ham United",
+      "form": "平-平-负",
+      "position": 19,
+      "points": 2,
+      "played": 3,
+      "goals_for": 4,
+      "goals_against": 5,
+      "elo_delta": 0,
+      "confidence": 0.7,
+      "notes": "赛前情报：英超降级后阵容纸面实力英冠顶级（全联赛Elo最高），但开局3轮不胜（2平1负）远低预期；鲍恩、帕奎塔领衔的攻击线场均1.33球尚可，防线3轮失5球是主要问题；主场伦敦碗6万球迷，降级后首赛季主场氛围复杂（期待与焦躁并存）；急需首胜止损",
+      "key_players": [
+        {
+          "name": "鲍恩",
+          "position": "前锋",
+          "status": "available",
+          "impact": "队长兼进攻核心，英格兰国脚级"
+        },
+        {
+          "name": "帕奎塔",
+          "position": "中场",
+          "status": "available",
+          "impact": "创造力中枢，英冠级别的组织者"
+        }
+      ],
+      "injuries": []
+    },
+    "WOL": {
+      "code": "WOL",
+      "name_cn": "狼队",
+      "full_name": "Wolverhampton Wanderers",
+      "form": "平-胜-胜",
+      "position": 2,
+      "points": 7,
+      "played": 3,
+      "goals_for": 9,
+      "goals_against": 4,
+      "elo_delta": 0,
+      "confidence": 0.8,
+      "notes": "赛前情报：降级后快速反弹的标杆，2胜1平不败积7分排第2；攻击力全联赛最强（3轮9球，场均3球），斯特兰德·拉森状态火热；若昂·戈麦斯坐镇中场控制力碾压英冠多数球队；隐患是防线也丢4球，客场作战但从无包袱",
+      "key_players": [
+        {
+          "name": "斯特兰德·拉森",
+          "position": "前锋",
+          "status": "available",
+          "impact": "锋线箭头，3轮火热脚感"
+        },
+        {
+          "name": "若昂·戈麦斯",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场屏障与出球核心"
+        }
+      ],
+      "injuries": []
+    }
+  },
+  "h2h": {
+    "total_matches": "英超多年交手频繁",
+    "notes": "英超时代互有胜负，近年交手狼队客场对西汉姆战绩不俗；本场是两队降级后首次英冠交锋"
+  },
+  "tactical": {
+    "WHU": {
+      "style": "possession",
+      "formation": "4-2-3-1",
+      "strengths": ["阵容深度英冠顶级", "主场6万球迷规模", "鲍恩个人能力", "急需首胜的战意"],
+      "weaknesses": ["开局3轮不胜信心受挫", "防线失5球", "降级后士气重建中", "球迷焦躁情绪压力"],
+      "key_tactics": "主场必须拿下比赛，控球压上，鲍恩支点+帕奎塔身后球，边路传中为主要手段"
+    },
+    "WOL": {
+      "style": "counter_attack",
+      "formation": "4-2-3-1",
+      "strengths": ["状态全联赛最火(2胜1平9球)", "拉森火热脚感", "中场控制力", "客场无包袱"],
+      "weaknesses": ["防线丢4球不算稳", "客场对阵同样级别的降班马", "被追平后的应变"],
+      "key_tactics": "防守反击，让出球权打转换，拉森冲击西汉姆不稳的防线，中场戈麦斯拦截发动快攻"
+    }
+  },
+  "factors": [
+    {
+      "type": "squad_quality",
+      "description": "两队均为英超级阵容，纸面实力伯仲之间（Elo差仅10）",
+      "impact": 0.0,
+      "confidence": 0.85
+    },
+    {
+      "type": "momentum_gap",
+      "description": "狼队2胜1平9球 vs 西汉姆3轮不胜，状态与信心差距明显",
+      "impact": 0.06,
+      "confidence": 0.8
+    },
+    {
+      "type": "desperation_home",
+      "description": "西汉姆主场急需首胜，战意拉满但急躁风险并存",
+      "impact": 0.04,
+      "confidence": 0.6
+    },
+    {
+      "type": "relegated_decay",
+      "description": "两队均处于降级后阵容磨合期（≤12轮），均受降班马流失/适应影响",
+      "impact": 0.0,
+      "confidence": 0.65
+    },
+    {
+      "type": "pressure_intangible",
+      "description": "伦敦碗6万主场既是助力也可能变焦躁包袱，落后时主场情绪可能反噬",
+      "impact": -0.02,
+      "confidence": 0.55
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "狼队反客为主",
+      "probability": 40,
+      "score": "1-2 或 0-2",
+      "description": "拉森延续火热脚感打穿西汉姆不稳防线，戈麦斯掌控中场节奏"
+    },
+    {
+      "name": "西汉姆主场反弹",
+      "probability": 35,
+      "score": "2-1 或 2-0",
+      "description": "伦敦碗6万人助推，鲍恩/帕奎塔级球员的个人能力终于兑现，触底反弹拿首胜"
+    },
+    {
+      "name": "降班马互交白卷式平局",
+      "probability": 25,
+      "score": "1-1 或 2-2",
+      "description": "双方防线均有漏洞但进攻端互相抵消，保级压力下的谨慎对赌"
+    }
+  ]
+}

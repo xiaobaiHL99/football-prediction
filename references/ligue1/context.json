@@ -1,0 +1,14 @@
+{
+  "special_factors": {
+    "european_qualification_distraction": {
+      "description": "欧冠/欧联双线作战消耗，法甲欧战球队周中双赛",
+      "value": -0.08,
+      "apply_when": "team_in_europe and match_within_3_days_of_european_match"
+    }
+  },
+  "europe_teams": ["PSG", "LEN", "LIL", "MON", "MAR", "LYO", "NCE"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["PSG", "MON", "LIL", "MAR", "LYO", "LEN", "REN", "NCE", "STR", "LOR", "TLS", "AUX", "BRE", "PFC", "ANG", "HAV", "TRO", "LMA"]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "teams": {
+    "VIT": {
+      "elo_delta": 0,
+      "confidence": 0.90,
+      "form": "负-胜-负-胜-负",
+      "position": 13,
+      "points": 26,
+      "notes": "巴甲第13；主场战绩极佳(7胜1平1负)，仅失3球为巴甲最佳主场防守；近6个主场全胜；前锋René5球队内最佳"
+    },
+    "PAL": {
+      "elo_delta": 8,
+      "confidence": 0.85,
+      "form": "负-胜-胜-负-胜",
+      "position": 1,
+      "points": 44,
+      "notes": "巴甲榜首44分；上场主场1-2负CAM结束14场不败；Flaco López(6球)+Ramón Sosa伤愈复出；客场战绩巴甲最佳(6胜3平1负)"
+    }
+  },
+  "matches": [
+    {
+      "teams": ["VIT", "PAL"],
+      "confidence": 0.85,
+      "tactical": {
+        "style_a": "counter_attack",
+        "style_b": "possession",
+        "matchup": "防守反击 vs 传控 — 维多利亚主场防反克制帕尔梅拉斯传控",
+        "expected_pattern": "cautious",
+        "ineffective_possession": false,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "competition_context": {
+        "type": "normal",
+        "goal_boost": {
+          "VIT": 0.06,
+          "PAL": 0.03
+        }
+      },
+      "context_openness": {
+        "VIT": -0.05,
+        "PAL": 0.02
+      },
+      "factors": [
+        {"summary": "维多利亚主场防守巴甲最佳：9场仅失3球，近6个主场全胜"},
+        {"summary": "帕尔梅拉斯刚结束14场不败(1-2负CAM)，急需反弹保持领先"},
+        {"summary": "帕尔梅拉斯客场战绩巴甲最佳(6胜3平1负)，客场火力最强"},
+        {"summary": "Flaco López(6球)+Sosa伤愈复出，帕尔梅拉斯锋线增强"},
+        {"summary": "维多利亚防反打法克制帕尔梅拉斯传控(+0.20 xG战术修正)"},
+        {"summary": "帕尔梅拉斯过去24次对阵维多利亚赢下14场，心理占优"},
+        {"summary": "维多利亚近2个主场对阵帕尔梅拉斯均告负，主场交锋不占优"}
+      ],
+      "notes": [
+        "福雷bet预测帕尔梅拉斯胜，但多家巴甲分析看好维多利亚+0.5",
+        "维托利亚主场6连胜中包含击败格雷米奥、弗鲁米嫩塞、巴西国际",
+        "帕尔梅拉斯刚丢榜首位置领先优势缩小到6分，战意极强",
+        "本赛季首次交锋(第2轮): 维多利亚客场1-5惨败帕尔梅拉斯",
+        "巴甲最强主场防守 vs 最佳客场进攻的巅峰对决"
+      ]
+    }
+  ]
+}

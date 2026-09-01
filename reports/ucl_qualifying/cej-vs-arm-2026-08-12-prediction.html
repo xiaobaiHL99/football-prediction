@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>采列 vs 亚拉腊-亚美尼亚 — 欧冠资格赛Q3次回合预测</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --panel:#131a2c; --panel2:#0f1524; --line:#223052;
+    --txt:#e8edf7; --sub:#8b97b5; --grn:#3ddc84; --cyn:#39c5ff;
+    --yel:#ffcf5c; --red:#ff5c6c; --pur:#a78bfa;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  /* ===== 球场首屏 ===== */
+  .stadium{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    background:
+      radial-gradient(1200px 300px at 50% -10%, rgba(255,255,255,.14), transparent 60%),
+      linear-gradient(180deg,#0c1a24 0%,#12301f 55%,#0d2418 100%);padding:0}
+  .stadium::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 2px, transparent 2px 8px);}
+  .pitch{margin:14px auto 0;width:92%;max-width:860px;aspect-ratio:16/9;
+    background:repeating-linear-gradient(90deg,#1d5c38 0 46px,#1a5434 46px 92px);
+    border:3px solid rgba(255,255,255,.35);border-radius:6px;position:relative;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);}
+  .pitch::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:rgba(255,255,255,.5)}
+  .pitch .box{position:absolute;width:24%;height:34%;border:2px solid rgba(255,255,255,.5);top:33%}
+  .pitch .box.l{left:-2px}.pitch .box.r{right:-2px}
+  .pitch .goal{position:absolute;width:38%;height:8%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.5);top:46%}
+  .pitch .goal.l{left:-2px}.pitch .goal.r{right:-2px}
+  .pitch .circ{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:14%;aspect-ratio:1;border:2px solid rgba(255,255,255,.5);border-radius:50%}
+  /* ===== 比分牌 ===== */
+  .board{margin:16px 14px 14px;background:linear-gradient(180deg,#0d1424,#0a0f1c);border:1px solid #2a3a5e;border-radius:12px;
+    padding:14px 16px;display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.6)}
+  .team{text-align:center}
+  .team .nm{font-size:1.05rem;font-weight:800;letter-spacing:.03em}
+  .team .name_cn{display:block;font-size:1.35rem;font-weight:900}
+  .team .tag{display:inline-block;font-size:.68rem;color:var(--sub);background:#1a2440;border:1px solid var(--line);border-radius:20px;padding:1px 10px;margin-top:3px}
+  .score{text-align:center}
+  .score .vs{font-size:.7rem;color:var(--sub);letter-spacing:.25em}
+  .score .num{font-family:Consolas,monospace;font-size:2.5rem;font-weight:800;color:#fff;
+    text-shadow:0 0 14px rgba(57,197,255,.6);letter-spacing:.05em}
+  .score .lab{margin-top:2px;font-size:.62rem;color:var(--yel);border:1px solid rgba(255,207,92,.5);border-radius:4px;padding:0 6px;display:inline-block}
+  .pbar{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+  .pbar div{height:8px;border-radius:4px}
+  .pbar .w{background:var(--grn)}.pbar .d{background:#7d8aa6}.pbar .l{background:var(--red)}
+  .pleg{grid-column:1/-1;display:flex;justify-content:space-between;font-size:.72rem;color:var(--sub)}
+  .pleg b{color:var(--txt);font-size:.9rem}
+  /* ===== 通用 ===== */
+  h2{font-size:1.05rem;margin:26px 0 10px;color:var(--cyn);border-left:3px solid var(--cyn);padding-left:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:700px){.grid2{grid-template-columns:1fr}}
+  .kpi{display:flex;flex-wrap:wrap;gap:10px}
+  .kpi .box{flex:1;min-width:120px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:center}
+  .kpi .box .v{font-size:1.35rem;font-weight:900;color:var(--cyn)}
+  .kpi .box .k{font-size:.7rem;color:var(--sub)}
+  table{width:100%;border-collapse:collapse;font-size:.86rem}
+  th,td{padding:7px 10px;text-align:left;border-bottom:1px solid #1c2740}
+  th{color:var(--sub);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+  .prob{display:inline-block;min-width:52px;font-weight:800}
+  .bar{height:7px;border-radius:4px;background:#223052;position:relative;overflow:hidden;margin-top:3px}
+  .bar i{display:block;height:100%;border-radius:4px}
+  .li{list-style:none;padding-left:0}
+  .li li{padding:7px 0;border-bottom:1px dashed #1c2740;font-size:.88rem}
+  .li li b{color:var(--yel)}
+  .src{font-size:.75rem;color:var(--sub)}
+  .src a{color:var(--cyn);text-decoration:none;word-break:break-all}
+  .warn{background:rgba(255,207,92,.08);border:1px solid rgba(255,207,92,.35);border-radius:10px;padding:12px 14px;font-size:.82rem;color:#f2d9a0}
+  .spirit{display:flex;gap:10px;flex-wrap:wrap}
+  .spirit .box{flex:1;min-width:200px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .spirit .lv{font-weight:900;font-size:.95rem}
+  .spirit .lv.d{color:var(--red)}.spirit .lv.h{color:var(--grn)}
+  .tie{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:600px){.tie{grid-template-columns:1fr}}
+  .tie .box{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center}
+  .tie .box .v{font-size:1.6rem;font-weight:900}
+  .tie .box.adv .v{color:var(--grn)}.tie .box.et .v{color:var(--yel)}.tie .box.out .v{color:var(--red)}
+  .tie .box .k{font-size:.72rem;color:var(--sub);margin-top:2px}
+  .foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:.72rem;color:var(--sub);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 球场首屏 -->
+  <div class="stadium">
+    <div class="pitch">
+      <div class="box l"></div><div class="box r"></div>
+      <div class="goal l"></div><div class="goal r"></div>
+      <div class="circ"></div>
+    </div>
+    <div class="board">
+      <div class="team">
+        <span class="name_cn">采列</span>
+        <span class="nm">NK Celje</span><br>
+        <span class="tag">主队 · 主场扎德泽莱</span>
+      </div>
+      <div class="score">
+        <div class="lab">预测比分</div>
+        <div class="num">2 : 1</div>
+        <div class="vs">欧冠资格赛 Q3 次回合</div>
+      </div>
+      <div class="team">
+        <span class="name_cn">亚拉腊-亚美尼亚</span>
+        <span class="nm">Ararat-Armenia</span><br>
+        <span class="tag">客队 · 首回合 2-1 领先</span>
+      </div>
+      <div class="pbar">
+        <div class="w" style="width:43.9%"></div>
+        <div class="d" style="width:21.0%"></div>
+        <div class="l" style="width:35.1%"></div>
+      </div>
+      <div class="pleg">
+        <span><b>43.9%</b> 采列胜</span>
+        <span><b>21.0%</b> 平</span>
+        <span><b>35.1%</b> 亚拉腊胜</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 标题区 -->
+  <div style="margin-top:14px;font-size:.85rem;color:var(--sub)">
+    预测类型：单场（两回合赛制分析） · 生成时间：2026-08-11 · 开球：2026-08-12 凌晨（北京时间）· 数据快照：临时注入（CEJ 1530 / ARM 1480）
+  </div>
+
+  <!-- 核心结论 -->
+  <h2>核心结论</h2>
+  <div class="card">
+    <div class="kpi">
+      <div class="box"><div class="v">2-1</div><div class="k">主预测比分（7.6%）</div></div>
+      <div class="box"><div class="v">2.19</div><div class="k">采列预期进球</div></div>
+      <div class="box"><div class="v">1.88</div><div class="k">亚拉腊预期进球</div></div>
+      <div class="box"><div class="v">43.9%</div><div class="k">采列胜（主方向）</div></div>
+      <div class="box"><div class="v">26.9%</div><div class="k">采列净胜2球+直接晋级</div></div>
+    </div>
+    <p style="margin-top:12px;font-size:.9rem">
+      采列背水一战（首回合客场 1-2 负），主场大概率赢球甚至小胜，但 <b>90 分钟内净胜 2 球直接翻盘的概率仅约 27%</b>；
+      净胜 1 球（约 19%）将拖入加时，其余约 54% 被亚拉腊拖成平/负即遭淘汰。
+      综合两回合，<b>采列整体晋级概率约 36%（含加时），亚拉腊约 64%</b>——主队"赢下场面、难翻盘"是最可能剧本。
+    </p>
+  </div>
+
+  <!-- 两回合晋级形势 -->
+  <h2>两回合晋级形势（90分钟比分分布推导）</h2>
+  <div class="card">
+    <div class="tie">
+      <div class="box adv"><div class="v">26.9%</div><div class="k">采列直接晋级（净胜≥2球）</div></div>
+      <div class="box et"><div class="v">19.0%</div><div class="k">进入加时（净胜1球）</div></div>
+      <div class="box out"><div class="v">54.2%</div><div class="k">亚拉腊直接晋级（平/负）</div></div>
+    </div>
+    <div class="warn" style="margin-top:12px">
+      客场进球规则已取消：采列必须净胜 2 球才直接晋级，净胜 1 球则进加时（加时约五五开）。
+      亚拉腊只要客场不输或小负 1 球以内，就能把系列赛握在自己手里——其"稳守反击 + 利马下半场杀招"正是为此设计。
+    </div>
+  </div>
+
+  <!-- 详细预测 -->
+  <h2>详细预测</h2>
+  <div class="grid2">
+    <div class="card">
+      <h2 style="margin-top:0">比分分布 Top 5</h2>
+      <table>
+        <tr><th>比分</th><th>概率</th><th></th></tr>
+        <tr><td>采列 2-1</td><td class="prob">7.6%</td><td><div class="bar"><i style="width:100%;background:var(--grn)"></i></div></td></tr>
+        <tr><td>采列 2-2</td><td class="prob">7.1%</td><td><div class="bar"><i style="width:94%;background:#7d8aa6"></i></div></td></tr>
+        <tr><td>采列 1-1</td><td class="prob">7.0%</td><td><div class="bar"><i style="width:92%;background:#7d8aa6"></i></div></td></tr>
+        <tr><td>采列 1-2</td><td class="prob">6.6%</td><td><div class="bar"><i style="width:86%;background:var(--red)"></i></div></td></tr>
+        <tr><td>采列 3-1</td><td class="prob">5.6%</td><td><div class="bar"><i style="width:74%;background:var(--grn)"></i></div></td></tr>
+      </table>
+      <p style="font-size:.78rem;color:var(--sub);margin-top:8px">2-1 为主预测比分（与主方向一致）。1-1 / 2-2 的高位提示"平局即遭淘汰"的剧本概率不低。</p>
+    </div>
+    <div class="card">
+      <h2 style="margin-top:0">模型输入 & 修正</h2>
+      <table>
+        <tr><th>项目</th><th>采列</th><th>亚拉腊</th></tr>
+        <tr><td>Elo 评级（临时注入）</td><td>1530</td><td>1480</td></tr>
+        <tr><td>伤停修正 elo_delta</td><td>-6</td><td>0</td></tr>
+        <tr><td>近期状态 form</td><td>+0.007</td><td>+0.021</td></tr>
+        <tr><td>goal_delta / 战意加成</td><td>+0.04 / +0.10</td><td>0 / 0</td></tr>
+        <tr><td>战术风格</td><td>传控围攻</td><td>防反</td></tr>
+        <tr><td>预期比赛模式</td><td colspan="2">开放（expected_pattern=open）</td></tr>
+        <tr><td>无效控球惩罚</td><td colspan="2">是（围攻 vs 防反）</td></tr>
+        <tr><td>单场随机冲击 shock_sd</td><td colspan="2">0.38</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 战意因素 -->
+  <h2>战意因素（fighting_spirit）</h2>
+  <div class="card">
+    <div class="spirit">
+      <div class="box">
+        <div class="lv d">采列 · 背水一战（desperate）+0.30 xG</div>
+        <div style="font-size:.82rem;margin-top:6px">总比分 1-2 落后，必须净胜 2 球否则出局，容错为零；主帅坎佩洛斯预计大举压上，首回合已改 3-4-3 攻击阵。</div>
+      </div>
+      <div class="box">
+        <div class="lv h">亚拉腊 · 战意高涨（high）+0.15 xG</div>
+        <div style="font-size:.82rem;margin-top:6px">手握一球优势，客场全身而退即锁定欧冠附加赛席位；利马近 3 场欧冠均下半场破门，是锁定胜局的杀招。</div>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--sub);margin-top:10px">注：战意是本场权重最高的因子之一，但采列进攻端实际受损（两大射手离队），"背水一战"与"攻坚乏力"相抵。</p>
+  </div>
+
+  <!-- 情报摘要 -->
+  <h2>赛前情报摘要</h2>
+  <div class="card">
+    <ul class="li">
+      <li><b>采列（主）：</b>斯洛文尼亚冠军，主场本赛季不败（1胜3平）；比对手多休息一天，且更适应扎德泽莱草皮与8月当地气候。</li>
+      <li><b>采列进攻受损：</b>上季头号射手约西福夫 + 科瓦切维奇（合计23球）夏窗离队，终结能力下滑；皮塞克（十字韧带撕裂）、贝杰格（胫骨瘀伤）缺阵；克维希奇状态在线，巴拉塔伤愈复出。</li>
+      <li><b>采列状态：</b>欧冠常规时间本赛季一场未赢（两回合平埃格纳蒂亚 3-3/2-2 靠点球晋级）；近 9 场 8 场双方进球、近 10 场 9 场上半场出球——抢开局也丢球快。</li>
+      <li><b>亚拉腊（客）：</b>亚美尼亚冠军，从第一圈淘汰里加 FC、沙姆洛克流浪者打进第三轮；阵容齐整无伤停，联赛开局 2 连胜。</li>
+      <li><b>亚拉腊客场魔咒：</b>资格赛主场全胜、客场全败（此前六次欧战两回合均"主场赢客场输"），但两场客场败仗都有进球；近 11 场场场进球。</li>
+      <li><b>历史交锋：</b>2020 年欧联资格赛亚拉腊曾加时 1-0 淘汰采列（心理优势在客队）。</li>
+      <li><b>媒体参考：</b>Sportsmole 预测采列 2-1 进点球大战；BongdaPlus 预测 1-1；亚洲参考亚拉腊 +1.25。</li>
+    </ul>
+  </div>
+
+  <!-- 场景推演 -->
+  <h2>场景推演</h2>
+  <div class="card">
+    <table>
+      <tr><th>路径</th><th>触发条件</th><th>结果</th></tr>
+      <tr><td><b>采列翻盘</b></td><td>前 30 分钟靠塞斯拉尔斜传 + 库齐斯冲击先破门，且后防顶住亚拉腊反击</td><td>净胜 2 球直接晋级（~27%）</td></tr>
+      <tr><td><b>胶着加时</b></td><td>采列赢 1 球、双方互交白卷后靠 1 球小胜</td><td>总比分打平进加时（~19%，加时五五开）</td></tr>
+      <tr><td><b>亚拉腊淘汰主队</b></td><td>采列压上被利马/弗兰萨反击偷分，或 60 分钟后丹尼尔前压身后留空当</td><td>平局或客胜 → 亚拉腊直接晋级（~54%）</td></tr>
+    </table>
+  </div>
+
+  <!-- 不确定性 -->
+  <h2>不确定性说明</h2>
+  <div class="card">
+    <div class="warn">
+      足球单场随机性极高：亚拉腊首回合 2-1 由替补弗兰萨 70 分钟绝杀，采列近 9 场 8 场双方进球——本场 90 分钟内 4 球以上大战并不罕见。
+      采列 Elo 1530 为临时校准值（斯洛文尼亚冠军但欧战战绩平淡），若实际身价/状态高于此，翻盘概率会上升。模型给出的是概率，不是确定性结论，更不是投注建议。
+    </div>
+    <p style="font-size:.82rem;margin-top:10px"><b>结果敏感点：</b>① 采列能否在上半场先进球（近10场9场上半场出球）；② 亚拉腊客场连续失球/利马下半场破门；③ 红牌、点球、门将失误等随机冲击；④ 采列过早丢球后被迫更激进导致的开放式对攻。</p>
+  </div>
+
+  <!-- 来源 -->
+  <h2>数据来源</h2>
+  <div class="card src">
+    <p>情报采集时间：2026-08-11。Elo 为临时校准注入（未写入快照），赛果验证后建议补录 teams.json 供后续复用。</p>
+    <ul class="li">
+      <li><a href="https://www.bongdaplusvn.com/champions-league-cup-c1/nhan-dinh-bong-da-celje-vs-ararat-armenia-01h15-ngay-12-8-tam-biet-chu-nha-5122052608.html">BongdaPlus 前瞻（含阵容/战术）</a></li>
+      <li><a href="https://www.lance.com.br/sites-de-apostas/palpites/celje-x-ararat-armenia-11-08-2026.html">Lance! 投注分析（BTTS/首球）</a></li>
+      <li><a href="https://www.ceroacero.es/partido/2026-08-11-nk-celje-fc-ararat-armenia/12322458">CeroaCero 统计/预测</a></li>
+      <li><a href="https://www.qiumiwu.com/news/1986289849427">球迷屋：采列主场背水一战</a></li>
+      <li><a href="https://www.dszuqiu.com/articles/lottery/2098086.html">大圣足球：欧冠采列 vs 亚拉腊</a></li>
+      <li><a href="https://www.163.com/dy/article/L3UPMD9U0556P009.html">网易：采列家门口设擂</a></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    本报告由足球预测 skill 生成，纯属娱乐分析，不构成投注建议或确定性判断 · 数据快照时间 2026-08-11 · 生成时间 2026-08-11
+  </div>
+</div>
+</body>
+</html>

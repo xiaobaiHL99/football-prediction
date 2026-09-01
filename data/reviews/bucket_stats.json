@@ -1,0 +1,166 @@
+{
+  "_meta": {
+    "updated_at": "2026-09-01T08:21:15",
+    "n_matched": 93
+  },
+  "buckets": {
+    "Elo差桶": {
+      "中等(50-150)": {
+        "n": 36,
+        "dir_hit": 22,
+        "dir_hit_rate": 0.611,
+        "avg_log_loss": 0.953,
+        "pred_avg_goals": 3.15,
+        "actual_avg_goals": 3.11,
+        "goal_diff": -0.04,
+        "flag": "✅强项"
+      },
+      "近均衡(<50)": {
+        "n": 29,
+        "dir_hit": 12,
+        "dir_hit_rate": 0.414,
+        "avg_log_loss": 1.111,
+        "pred_avg_goals": 3.09,
+        "actual_avg_goals": 2.52,
+        "goal_diff": -0.57,
+        "flag": ""
+      },
+      "悬殊(>150)": {
+        "n": 28,
+        "dir_hit": 20,
+        "dir_hit_rate": 0.714,
+        "avg_log_loss": 0.761,
+        "pred_avg_goals": 3.22,
+        "actual_avg_goals": 3.71,
+        "goal_diff": 0.49,
+        "flag": "✅强项"
+      }
+    },
+    "方向桶": {
+      "押主队": {
+        "n": 65,
+        "dir_hit": 41,
+        "dir_hit_rate": 0.631,
+        "avg_log_loss": 0.905,
+        "pred_avg_goals": 3.18,
+        "actual_avg_goals": 3.08,
+        "goal_diff": -0.11,
+        "flag": "✅强项"
+      },
+      "押客队": {
+        "n": 27,
+        "dir_hit": 13,
+        "dir_hit_rate": 0.481,
+        "avg_log_loss": 1.035,
+        "pred_avg_goals": 3.09,
+        "actual_avg_goals": 3.22,
+        "goal_diff": 0.13,
+        "flag": ""
+      },
+      "押平局": {
+        "n": 1,
+        "dir_hit": 0,
+        "dir_hit_rate": 0.0,
+        "avg_log_loss": 1.076,
+        "pred_avg_goals": 2.52,
+        "actual_avg_goals": 2.0,
+        "goal_diff": -0.52,
+        "flag": "样本不足(需≥15)"
+      }
+    },
+    "钻取·近均衡": {
+      "近均衡×押主队": {
+        "n": 24,
+        "dir_hit": 11,
+        "dir_hit_rate": 0.458,
+        "avg_log_loss": 1.108,
+        "pred_avg_goals": 3.16,
+        "actual_avg_goals": 2.62,
+        "goal_diff": -0.53,
+        "flag": ""
+      },
+      "近均衡×预测中球": {
+        "n": 21,
+        "dir_hit": 7,
+        "dir_hit_rate": 0.333,
+        "avg_log_loss": 1.145,
+        "pred_avg_goals": 2.96,
+        "actual_avg_goals": 2.52,
+        "goal_diff": -0.44,
+        "flag": "⚠️偏误"
+      },
+      "近均衡×预测大球": {
+        "n": 6,
+        "dir_hit": 3,
+        "dir_hit_rate": 0.5,
+        "avg_log_loss": 1.047,
+        "pred_avg_goals": 3.99,
+        "actual_avg_goals": 2.5,
+        "goal_diff": -1.49,
+        "flag": "样本不足(需≥15)"
+      },
+      "近均衡×押客队": {
+        "n": 4,
+        "dir_hit": 1,
+        "dir_hit_rate": 0.25,
+        "avg_log_loss": 1.139,
+        "pred_avg_goals": 2.82,
+        "actual_avg_goals": 2.0,
+        "goal_diff": -0.82,
+        "flag": "样本不足(需≥15)"
+      },
+      "近均衡×押平局": {
+        "n": 1,
+        "dir_hit": 0,
+        "dir_hit_rate": 0.0,
+        "avg_log_loss": 1.076,
+        "pred_avg_goals": 2.52,
+        "actual_avg_goals": 2.0,
+        "goal_diff": -0.52,
+        "flag": "样本不足(需≥15)"
+      },
+      "近均衡×预测小球": {
+        "n": 2,
+        "dir_hit": 2,
+        "dir_hit_rate": 1.0,
+        "avg_log_loss": 0.948,
+        "pred_avg_goals": 1.72,
+        "actual_avg_goals": 2.5,
+        "goal_diff": 0.78,
+        "flag": "样本不足(需≥15)"
+      }
+    },
+    "预测总进球桶": {
+      "中(2.5-3.4)": {
+        "n": 66,
+        "dir_hit": 39,
+        "dir_hit_rate": 0.591,
+        "avg_log_loss": 0.918,
+        "pred_avg_goals": 2.96,
+        "actual_avg_goals": 3.03,
+        "goal_diff": 0.07,
+        "flag": ""
+      },
+      "大(≥3.5)": {
+        "n": 24,
+        "dir_hit": 13,
+        "dir_hit_rate": 0.542,
+        "avg_log_loss": 0.986,
+        "pred_avg_goals": 3.84,
+        "actual_avg_goals": 3.38,
+        "goal_diff": -0.46,
+        "flag": ""
+      },
+      "小(<2.5)": {
+        "n": 3,
+        "dir_hit": 2,
+        "dir_hit_rate": 0.667,
+        "avg_log_loss": 1.183,
+        "pred_avg_goals": 1.81,
+        "actual_avg_goals": 2.67,
+        "goal_diff": 0.85,
+        "flag": "样本不足(需≥15)"
+      }
+    }
+  }
+}

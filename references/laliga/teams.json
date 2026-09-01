@@ -1,0 +1,190 @@
+{
+  "_meta": {
+    "league": "La Liga",
+    "season": "2026-27",
+    "updated_at": "2026-08-15T00:00:00Z",
+    "note": "Elo ratings initial calibration aligned with champions_league/europa_league snapshots for shared clubs; promoted sides (RAC/DEP/MGA) at bottom tier. Adjustable via elo_updater."
+  },
+  "teams": {
+    "RMA": {
+      "name": "Real Madrid",
+      "name_cn": "皇家马德里",
+      "elo": 1930,
+      "city": "Madrid",
+      "stadium": "Santiago Bernabéu",
+      "color": "white",
+      "notes": "西甲豪门，姆巴佩+贝林厄姆核心，争冠最大热门"
+    },
+    "BAR": {
+      "name": "Barcelona",
+      "name_cn": "巴塞罗那",
+      "elo": 1840,
+      "city": "Barcelona",
+      "stadium": "Camp Nou",
+      "color": "blue",
+      "notes": "卫冕冠军，弗里克高位逼抢，亚马尔边路爆破"
+    },
+    "ATM": {
+      "name": "Atlético Madrid",
+      "name_cn": "马德里竞技",
+      "elo": 1820,
+      "city": "Madrid",
+      "stadium": "Metropolitano",
+      "color": "red",
+      "notes": "西蒙尼铁血防反，主场大都会强势"
+    },
+    "RSO": {
+      "name": "Real Sociedad",
+      "name_cn": "皇家社会",
+      "elo": 1720,
+      "city": "San Sebastián",
+      "stadium": "Reale Arena",
+      "color": "blue",
+      "notes": "巴斯克技术流，青训出色，欧战常客"
+    },
+    "ATH": {
+      "name": "Athletic Bilbao",
+      "name_cn": "毕尔巴鄂竞技",
+      "elo": 1710,
+      "city": "Bilbao",
+      "stadium": "San Mamés",
+      "color": "red",
+      "notes": "巴斯克雄狮，血统政策+高压逼抢，圣马梅斯魔鬼主场"
+    },
+    "VIL": {
+      "name": "Villarreal CF",
+      "name_cn": "比利亚雷亚尔",
+      "elo": 1700,
+      "city": "Villarreal",
+      "stadium": "Estadio de la Cerámica",
+      "color": "yellow",
+      "notes": "黄色潜水艇，战术灵活，欧联冠军底蕴"
+    },
+    "BET": {
+      "name": "Real Betis",
+      "name_cn": "皇家贝蒂斯",
+      "elo": 1680,
+      "city": "Seville",
+      "stadium": "Benito Villamarín",
+      "color": "green",
+      "notes": "安达卢西亚劲旅，主场氛围狂热"
+    },
+    "SEV": {
+      "name": "Sevilla FC",
+      "name_cn": "塞维利亚",
+      "elo": 1650,
+      "city": "Seville",
+      "stadium": "Ramón Sánchez-Pizjuán",
+      "color": "red",
+      "notes": "塞维利亚杯之王，欧战经验丰富，状态起伏大"
+    },
+    "VAL": {
+      "name": "Valencia CF",
+      "name_cn": "瓦伦西亚",
+      "elo": 1630,
+      "city": "Valencia",
+      "stadium": "Mestalla",
+      "color": "black",
+      "notes": "蝙蝠军团，梅斯塔利亚主场韧性足"
+    },
+    "CEL": {
+      "name": "Celta Vigo",
+      "name_cn": "塞尔塔",
+      "elo": 1610,
+      "city": "Vigo",
+      "stadium": "Balaídos",
+      "color": "blue",
+      "notes": "加利西亚技术流，主场火力开放"
+    },
+    "RAY": {
+      "name": "Rayo Vallecano",
+      "name_cn": "巴列卡诺",
+      "elo": 1595,
+      "city": "Madrid",
+      "stadium": "Vallecas",
+      "color": "red",
+      "notes": "巴列卡斯铁血主场，高位压迫风格"
+    },
+    "GET": {
+      "name": "Getafe CF",
+      "name_cn": "赫塔菲",
+      "elo": 1585,
+      "city": "Getafe",
+      "stadium": "Coliseum",
+      "color": "blue",
+      "notes": "马德里卫星城小球会，防守硬朗，主场难啃"
+    },
+    "OSA": {
+      "name": "CA Osasuna",
+      "name_cn": "奥萨苏纳",
+      "elo": 1578,
+      "city": "Pamplona",
+      "stadium": "El Sadar",
+      "color": "red",
+      "notes": "纳瓦拉劲旅，埃尔萨达尔主场火爆，中场硬朗"
+    },
+    "ESP": {
+      "name": "RCD Espanyol",
+      "name_cn": "西班牙人",
+      "elo": 1560,
+      "city": "Barcelona",
+      "stadium": "RCDE Stadium",
+      "color": "blue",
+      "notes": "巴塞罗那第二队，防反务实，主客场反差大"
+    },
+    "ALA": {
+      "name": "Deportivo Alavés",
+      "name_cn": "阿拉维斯",
+      "elo": 1550,
+      "city": "Vitoria-Gasteiz",
+      "stadium": "Mendizorrotza",
+      "color": "blue",
+      "notes": "巴斯克小球会，防守纪律好，保级为主"
+    },
+    "ELC": {
+      "name": "Elche CF",
+      "name_cn": "埃尔切",
+      "elo": 1540,
+      "city": "Elche",
+      "stadium": "Estadio Martínez Valero",
+      "color": "green",
+      "notes": "瓦伦西亚大区球队，整体实力中下游"
+    },
+    "LEV": {
+      "name": "Levante UD",
+      "name_cn": "莱万特",
+      "elo": 1530,
+      "city": "Valencia",
+      "stadium": "Ciutat de València",
+      "color": "blue",
+      "notes": "瓦伦西亚德比一方，青年才俊多，保级档"
+    },
+    "DEP": {
+      "name": "RC Deportivo de La Coruña",
+      "name_cn": "拉科鲁尼亚",
+      "elo": 1520,
+      "city": "A Coruña",
+      "stadium": "Riazor",
+      "color": "blue",
+      "notes": "西乙亚军升班马，8年后回归，里亚索主场氛围"
+    },
+    "MGA": {
+      "name": "Málaga CF",
+      "name_cn": "马拉加",
+      "elo": 1512,
+      "city": "Málaga",
+      "stadium": "La Rosaleda",
+      "color": "blue",
+      "notes": "升级附加赛胜出回归，安达卢西亚南岸球队"
+    },
+    "RAC": {
+      "name": "Racing de Santander",
+      "name_cn": "桑坦德竞技",
+      "elo": 1505,
+      "city": "Santander",
+      "stadium": "El Sardinero",
+      "color": "green",
+      "notes": "西乙冠军升班马，14年后回归顶级联赛"
+    }
+  }
+}

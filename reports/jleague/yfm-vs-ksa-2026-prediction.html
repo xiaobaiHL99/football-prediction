@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横滨水手 vs 鹿岛鹿角 — 2026/27 J1 揭幕战预测</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif; background:#0b0f14; color:#e8edf3; line-height:1.6; }
+  .wrap { max-width:960px; margin:0 auto; padding:20px; }
+  /* ==== 首屏球场 ==== */
+  .pitch {
+    position:relative; width:100%; height:320px; border-radius:16px; overflow:hidden; margin-bottom:18px;
+    background:
+      radial-gradient(ellipse at 50% -20%, rgba(60,180,120,.35), transparent 55%),
+      repeating-linear-gradient(90deg, #1e7a4f 0 60px, #238a5b 60px 120px);
+    box-shadow:0 0 60px rgba(20,120,80,.35) inset;
+  }
+  .pitch::before {
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 2px, transparent 2px 40px);
+  }
+  .pitch-line {
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:78%; height:64%; border:3px solid rgba(255,255,255,.65); border-radius:4px;
+  }
+  .pitch-line::before, .pitch-line::after {
+    content:""; position:absolute; top:0; bottom:0; width:3px; background:rgba(255,255,255,.65);
+  }
+  .pitch-line::before { left:-3px; }
+  .pitch-line::after { right:-3px; }
+  .mid-circle {
+    position:absolute; top:50%; left:50%; width:120px; height:120px;
+    transform:translate(-50%,-50%); border:3px solid rgba(255,255,255,.6); border-radius:50%;
+  }
+  .mid-spot { position:absolute; top:50%; left:50%; width:10px; height:10px; transform:translate(-50%,-50%); background:#fff; border-radius:50%; }
+  .box-l, .box-r { position:absolute; top:50%; transform:translateY(-50%); width:18%; height:56%; border:3px solid rgba(255,255,255,.6); }
+  .box-l { left:0; border-left:none; }
+  .box-r { right:0; border-right:none; }
+  .goal-l, .goal-r { position:absolute; top:50%; transform:translateY(-50%); width:4%; height:22%; border:3px solid rgba(255,255,255,.7); }
+  .goal-l { left:0; }
+  .goal-r { right:0; }
+  .floodlight {
+    position:absolute; top:-6px; width:10px; height:56px; background:linear-gradient(180deg,#fff,#8fb9ff); opacity:.85; border-radius:4px;
+    box-shadow:0 0 24px 8px rgba(120,180,255,.5);
+  }
+  .floodlight.l1 { left:12%; } .floodlight.l2 { left:36%; } .floodlight.l3 { right:36%; } .floodlight.l4 { right:12%; }
+  .stand {
+    position:absolute; left:0; right:0; height:34px; opacity:.8;
+    background:repeating-linear-gradient(0deg, #2a3540 0 7px, #39485a 7px 14px, #202932 14px 21px);
+  }
+  .stand.top { top:0; border-radius:14px 14px 0 0; }
+  .stand.bottom { bottom:0; border-radius:0 0 14px 14px; }
+  .pitch-tag { position:absolute; top:44px; left:50%; transform:translateX(-50%); font-size:12px; letter-spacing:4px; color:rgba(255,255,255,.75); text-shadow:0 1px 3px #000; }
+  /* ==== 比分牌 ==== */
+  .scoreboard {
+    position:relative; z-index:2; margin:-40px 16px 22px; padding:18px 20px;
+    background:linear-gradient(180deg,#10151d,#0a0e14); border:1px solid #2b3644; border-radius:14px;
+    box-shadow:0 12px 40px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04) inset;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px;
+  }
+  .sb-team { text-align:center; }
+  .sb-team .cn { font-size:20px; font-weight:700; }
+  .sb-team .en { font-size:11px; color:#8fa3b8; letter-spacing:1px; }
+  .sb-team.bad .cn { color:#8fc9ff; }
+  .sb-score {
+    display:flex; align-items:center; gap:8px; font-family:Consolas,monospace;
+    font-size:52px; font-weight:800; color:#7dffc2; text-shadow:0 0 18px rgba(60,255,170,.5);
+  }
+  .sb-score .dash { color:#5a6a7c; }
+  .sb-label { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:#ff3b5c; color:#fff; font-size:11px; font-weight:700; padding:2px 10px; border-radius:20px; letter-spacing:2px; }
+  .sb-meta { text-align:center; font-size:11px; color:#7d8da0; margin:-10px 0 20px; }
+  .sb-meta b { color:#c8d6e6; }
+  .prob-row { display:flex; align-items:center; gap:10px; margin:8px 0; font-size:13px; }
+  .prob-row .lbl { width:110px; text-align:right; color:#c8d6e6; flex-shrink:0; }
+  .prob-row .bar { flex:1; height:18px; background:#141b24; border-radius:9px; overflow:hidden; }
+  .prob-row .bar i { display:block; height:100%; border-radius:9px; }
+  .prob-row .pct { width:52px; font-family:Consolas,monospace; font-weight:700; }
+  .bar .w { background:linear-gradient(90deg,#3a82e8,#5ea2ff); }
+  .bar .d { background:linear-gradient(90deg,#9aa7b5,#b9c4d0); }
+  .bar .l { background:linear-gradient(90deg,#e83a5a,#ff5c7a); }
+  .prob-row.win .lbl { color:#5ea2ff; } .prob-row.win .pct { color:#7db4ff; }
+  .prob-row.draw .pct { color:#c8d6e6; }
+  .prob-row.lose .lbl { color:#ff5c7a; } .prob-row.lose .pct { color:#ff7d96; }
+  /* ==== 板块 ==== */
+  .card { background:#10161e; border:1px solid #232e3b; border-radius:14px; padding:20px 22px; margin-bottom:18px; }
+  .card h2 { font-size:16px; color:#7dffc2; margin-bottom:12px; letter-spacing:1px; border-left:3px solid #7dffc2; padding-left:10px; }
+  .card h3 { font-size:14px; color:#c8d6e6; margin:12px 0 6px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:640px){ .grid2{grid-template-columns:1fr;} .sb-score{font-size:40px;} }
+  .kpi { display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; border-bottom:1px dashed #232e3b; }
+  .kpi:last-child{ border-bottom:none; }
+  .kpi b { font-family:Consolas,monospace; font-size:18px; }
+  .score-cards { display:flex; flex-wrap:wrap; gap:8px; }
+  .sc { flex:1; min-width:110px; background:#141c26; border:1px solid #2a3745; border-radius:10px; padding:10px; text-align:center; }
+  .sc .s { font-size:24px; font-weight:800; color:#7dffc2; font-family:Consolas,monospace; }
+  .sc .p { font-size:12px; color:#8fa3b8; margin-top:2px; }
+  .sc.main { border-color:#ffb03b; box-shadow:0 0 0 1px rgba(255,176,59,.35); }
+  .sc.main .s { color:#ffcf7d; }
+  .tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:12px; margin:2px 4px 2px 0; }
+  .tag.red { background:rgba(255,59,92,.15); color:#ff7d96; border:1px solid rgba(255,59,92,.4); }
+  .tag.blue { background:rgba(63,130,232,.15); color:#7db4ff; border:1px solid rgba(63,130,232,.4); }
+  .tag.green { background:rgba(63,232,160,.12); color:#7dffc2; border:1px solid rgba(63,232,160,.35); }
+  .tag.grey { background:rgba(160,175,190,.12); color:#b9c4d0; border:1px solid rgba(160,175,190,.3); }
+  ul.tight { margin:6px 0 0 18px; }
+  ul.tight li { margin:5px 0; }
+  .src { font-size:12px; color:#8fa3b8; }
+  .src a { color:#7db4ff; text-decoration:none; }
+  .src a:hover{ text-decoration:underline; }
+  .warn { background:rgba(255,176,59,.08); border:1px solid rgba(255,176,59,.3); border-radius:10px; padding:10px 14px; font-size:12px; color:#ffd9a8; }
+  .table-sm { width:100%; border-collapse:collapse; font-size:13px; }
+  .table-sm td { padding:6px 8px; border-bottom:1px solid #1c2530; }
+  .table-sm tr td:first-child{ color:#c8d6e6; }
+  .table-sm tr td:last-child{ font-family:Consolas,monospace; text-align:right; }
+  footer { text-align:center; font-size:11px; color:#5a6a7c; padding:20px 0 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 首屏球场 -->
+  <div class="pitch">
+    <div class="stand top"></div><div class="stand bottom"></div>
+    <div class="floodlight l1"></div><div class="floodlight l2"></div><div class="floodlight l3"></div><div class="floodlight l4"></div>
+    <div class="pitch-line"></div>
+    <div class="mid-circle"></div><div class="mid-spot"></div>
+    <div class="box-l"></div><div class="box-r"></div>
+    <div class="goal-l"></div><div class="goal-r"></div>
+    <div class="pitch-tag">2026/27 J1 LEAGUE · ROUND 1 · 揭幕战</div>
+  </div>
+
+  <!-- 比分牌 -->
+  <div class="scoreboard">
+    <span class="sb-label">🔮 预 测 比 分</span>
+    <div class="sb-team bad"><div class="cn">横滨水手</div><div class="en">YOKOHAMA F.MARINOS</div></div>
+    <div class="sb-score">0 <span class="dash">:</span> 1</div>
+    <div class="sb-team"><div class="cn">鹿岛鹿角</div><div class="en">KASHIMA ANTLERS</div></div>
+  </div>
+  <div class="sb-meta">最高概率赛果：<b>鹿岛鹿角胜</b> · 主预测比分 0-1 · 预期进球 0.88 — 1.48 · 中立场地</div>
+
+  <!-- 胜平负概率条 -->
+  <div class="card">
+    <h2>胜平负概率</h2>
+    <div class="prob-row win"><span class="lbl">横滨水手胜</span><div class="bar"><i class="w" style="width:24.2%"></i></div><span class="pct">24.2%</span></div>
+    <div class="prob-row draw"><span class="lbl">平局</span><div class="bar"><i class="d" style="width:26.1%"></i></div><span class="pct">26.1%</span></div>
+    <div class="prob-row lose"><span class="lbl">鹿岛鹿角胜</span><div class="bar"><i class="l" style="width:49.8%"></i></div><span class="pct">49.8%</span></div>
+  </div>
+
+  <!-- 比分分布 -->
+  <div class="card">
+    <h2>比分分布 Top 5</h2>
+    <div class="score-cards">
+      <div class="sc main"><div class="s">0 : 1</div><div class="p">13.9% · 主预测</div></div>
+      <div class="sc"><div class="s">1 : 1</div><div class="p">12.1%</div></div>
+      <div class="sc"><div class="s">0 : 2</div><div class="p">10.4%</div></div>
+      <div class="sc"><div class="s">0 : 0</div><div class="p">9.4%</div></div>
+      <div class="sc"><div class="s">1 : 2</div><div class="p">8.9%</div></div>
+    </div>
+    <p style="font-size:12px;color:#8fa3b8;margin-top:10px;">主预测比分与最高概率赛果方向一致（客队 0-1）。冷门区间：横滨直接取胜 24.2%，含主场大冷空间。</p>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <p><b>主预测：鹿岛鹿角客场取胜（49.8%）</b>，主预测比分 <b>0-1</b>。平局 26.1%，横滨水手爆冷取胜 24.2%。</p>
+    <div class="grid2">
+      <div>
+        <h3>支持鹿岛的理由</h3>
+        <ul class="tight">
+          <li>卫冕冠军阵容完整，过渡赛季东区头名、防守联赛最佳</li>
+          <li>客场战绩顶级：近15客8次零封、不败率87%，跨赛季93%不败</li>
+          <li>横滨中前场4人伤停 + 新帅科里卡体系磨合期 + 上赛季失球联赛最多</li>
+          <li>中立场地（国立竞技场），横滨失去主场优势</li>
+          <li>莱奥·塞阿拉生涯8次对横滨进9球，历史交锋33次鹿岛17胜5平11负</li>
+        </ul>
+      </div>
+      <div>
+        <h3>平局与冷门路径</h3>
+        <ul class="tight">
+          <li>揭幕战节奏可能谨慎，0-0/1-1 合计 21.5%</li>
+          <li>横滨末段状态火热（3场10球1失球），新帅首秀战意高涨（+0.10 xG）</li>
+          <li>知念庆对阵旧主、全国黄金档直播，横滨拼劲十足</li>
+          <li>单场足球随机性高：48% 级别概率 ≠ 稳胜，任何一方红牌/点球都可能翻转</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模型与情报 -->
+  <div class="card">
+    <h2>模型输入与关键情报修正</h2>
+    <div class="grid2">
+      <div>
+        <h3>球员可用性（Elo 修正）</h3>
+        <div class="kpi"><span>横滨水手</span><b>-27 Elo</b></div>
+        <div class="kpi"><span>鹿岛鹿角</span><b>-8 Elo</b></div>
+        <p class="src" style="margin-top:6px;">横滨：远野大弥（跟腱伤至9月/核心）、山根陆、铃木冬一、尤里·阿劳霍。鹿岛：樋口雄太、安西幸辉、关川郁万（均非核心轴线）。</p>
+      </div>
+      <div>
+        <h3>战术对位</h3>
+        <p><span class="tag red">高位逼抢</span> vs <span class="tag blue">防守反击</span></p>
+        <p style="font-size:13px;color:#b9c4d0;">反击克制高位逼抢：鹿岛靠相马勇纪速度 + 塞阿拉抢点专打横滨身后的空当。横滨伤员潮削弱逼抢持续性，高位逼抢风险放大。</p>
+        <p style="font-size:13px;margin-top:8px;"><span class="tag green">战意</span>横滨<code>高</code>(+0.10)：新帅首秀+复仇卫冕冠军+知念庆对阵旧主 · 鹿岛<code>正常</code></p>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:12px;">
+      <div>
+        <h3>近期状态（form → xG）</h3>
+        <div class="kpi"><span>横滨水手 胜-胜-胜</span><b>+0.10</b></div>
+        <div class="kpi"><span>鹿岛鹿角 胜-胜-平-胜-胜</span><b>+0.08</b></div>
+        <p class="src">横滨为上赛季末段3场10球1失球；鹿岛为过渡赛季强势收官。</p>
+      </div>
+      <div>
+        <h3>联赛特殊因子</h3>
+        <div class="kpi"><span>夏季高温高湿</span><b>-0.04 双方</b></div>
+        <div class="kpi"><span>周中欧战消耗</span><b>-0.08 双方</b></div>
+        <p class="src">两队同列欧战名单，消耗对等，不影响相对胜率。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景推演 -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <h3>① 鹿岛正常发挥（最可能）</h3>
+    <p>横滨高位逼抢被反击打穿，鹿岛 0-1 / 0-2 带走揭幕战胜利。塞阿拉延续"横滨克星"表现。</p>
+    <h3>② 低比分胶着</h3>
+    <p>揭幕战双方谨慎、高温节奏放缓，0-0 / 1-1。横滨伤停下的进攻创造力不足，鹿岛亦无大胜必要。合计约 21.5%。</p>
+    <h3>③ 横滨爆冷路径</h3>
+    <p>新帅首秀破釜沉舟、知念庆对旧主灵光、鹿岛开季慢热 + 前场伤员回归前超预期发挥，横滨 1-0 / 2-1。约 24.2%。</p>
+  </div>
+
+  <!-- 不确定性 -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <div class="warn">足球单场随机性极高：48% 胜率 ≠ 稳胜。本预测为娱乐分析，不构成投注建议。2026 J1 跨年制/东西分区数据口径与 skill 内 Elo 初始值存在出入，本次已用 elo_delta 做现实校准，但赛前首发与伤停可能变动，实际结果可能明显偏离。</div>
+  </div>
+
+  <!-- 来源 -->
+  <div class="card">
+    <h2>情报来源</h2>
+    <p class="src">采集时间：2026-08-07（北京时间）</p>
+    <ul class="tight src">
+      <li><a href="https://www.qiumiwu.com/news/1984237640052">球迷屋：横滨水手vs鹿岛鹿角预测分析 核心缺阵与客场压力</a></li>
+      <li><a href="https://www.163.com/dy/article/L3MF2S2Q0556OTG4.html">网易：横滨水手主场出击，鹿岛鹿角能否客场全身而退</a></li>
+      <li><a href="https://news.zhibo8.com/zuqiu/2026-08-07/6a752e6955c35native.htm">直播吧：J联赛彩经 横滨主场迎战卫冕冠军鹿岛鹿角</a></li>
+      <li><a href="https://www.bongdaplusvn.com/bong-da-the-gioi/nhan-dinh-bong-da-yokohama-f-marinos-vs-kashima-antlers-17h25-ngay-7-8-nha-vo-dich-thi-uy-5117882608.html">Bongdaplus：冠军球队客场宣示实力（含首发、状态、交手数据）</a></li>
+      <li><a href="https://www.fussballdaten.de/japan/2027/1/yokohama-kashima/">Fussballdaten：J1 2026/27 第1轮数据（含博彩概率模型 鹿岛47%/平28%/横滨25%）</a></li>
+      <li><a href="https://www.goal.com/en/match/yokohama-f-marinos-vs-kashima-antlers/mmv-NglIaDwxgNcxgW8Nj">Goal.com：赛程/伤停页面（开赛前报告无新增停赛）</a></li>
+      <li><a href="https://51kaoben.com/d/521862.html">柠檬直播：国立竞技场揭幕战 全国黄金档直播</a></li>
+      <li><a href="http://pc.dongqiudi.com/articles/5940568.html">懂球帝：J联赛官宣 2026/27 国立竞技场主题日</a></li>
+      <li><a href="https://www.sohu.com/a/1059783644_122480832">搜狐：8月7日竞彩推荐（比分/进球参考）</a></li>
+    </ul>
+    <p class="src" style="margin-top:8px;">缺失/冲突说明：场地在"中立（国立竞技场）"与"横滨主场"两种来源间冲突，多数来源确认国立竞技场中立；鹿岛战术"三中卫"仅一源提及、另一源为4-3-3/4-4-2，本报告按"可攻可守、反击高效"建模。</p>
+  </div>
+
+  <footer>本报告由 football-prediction skill 理性模型（Elo → 泊松 → 蒙特卡洛）生成 · 娱乐分析，非投注建议 · 生成于 2026-08-07</footer>
+</div>
+</body>
+</html>

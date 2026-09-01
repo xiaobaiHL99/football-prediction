@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>哈尔姆斯塔德 vs 天狼星 | 赛前预测 | 瑞超第15轮</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0e17; color: #e8edf5; min-height: 100vh; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+  /* === PITCH === */
+  .pitch-wrapper { position: relative; width: 100%; aspect-ratio: 2/1; max-height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+  .pitch { width: 100%; height: 100%; background: linear-gradient(135deg, #1a4a2e 0%, #2d6b3e 40%, #1e5631 100%); position: relative; }
+  .pitch::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 6%, rgba(255,255,255,0.03) 6%, rgba(255,255,255,0.03) 6.2%); }
+  .pitch-lines { position: absolute; inset: 6% 3%; border: 2px solid rgba(255,255,255,0.35); }
+  .pitch-lines::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35); transform: translateY(-50%); }
+  .center-circle { position: absolute; top: 50%; left: 50%; width: 22%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .penalty-a, .penalty-b { position: absolute; top: 50%; width: 30%; height: 55%; border: 2px solid rgba(255,255,255,0.3); transform: translateY(-50%); }
+  .penalty-a { left: -1px; border-left: none; border-radius: 0 6px 6px 0; }
+  .penalty-b { right: -1px; border-right: none; border-radius: 6px 0 0 6px; }
+  .goal-a, .goal-b { position: absolute; top: 50%; width: 16%; height: 22%; border: 2px solid rgba(255,255,255,0.25); transform: translateY(-50%); }
+  .goal-a { left: -1px; border-left: none; border-radius: 0 4px 4px 0; }
+  .goal-b { right: -1px; border-right: none; border-radius: 4px 0 0 4px; }
+  .spot-a, .spot-b { position: absolute; top: 50%; width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .spot-a { left: 11%; } .spot-b { right: 11%; }
+  .arc-a, .arc-b { position: absolute; top: 50%; width: 12%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; transform: translate(-50%, -50%); }
+  .arc-a { left: 19%; } .arc-b { right: 19%; }
+  .corner { position: absolute; width: 6%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; }
+  .corner-tl { top: 4%; left: 1%; } .corner-tr { top: 4%; right: 1%; }
+  .corner-bl { bottom: 4%; left: 1%; } .corner-br { bottom: 4%; right: 1%; }
+
+  .scoreboard { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); border: 2px solid rgba(255,200,50,0.4); border-radius: 12px; padding: 12px 28px; display: flex; align-items: center; gap: 16px; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(255,200,50,0.15); z-index: 10; }
+  .scoreboard .team { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .scoreboard .team .name { font-size: 1rem; font-weight: 700; letter-spacing: 0.5px; }
+  .scoreboard .team .badge { width: 36px; height: 36px; border-radius: 50%; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+  .scoreboard .team .badge.hbk { background: #3498db; color: #fff; }
+  .scoreboard .team .badge.sir { background: #e74c3c; color: #fff; }
+  .scoreboard .vs-score { display: flex; flex-direction: column; align-items: center; }
+  .scoreboard .vs-score .pred-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #f1c40f; margin-bottom: 2px; }
+  .scoreboard .vs-score .score { font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px rgba(255,200,50,0.3); letter-spacing: 4px; }
+  .scoreboard .vs-score .sub { font-size: 0.55rem; color: #95a5a6; letter-spacing: 1px; }
+  .scoreboard .probs-row { display: flex; gap: 8px; margin-top: 4px; }
+  .scoreboard .probs-row .prob { font-size: 0.6rem; padding: 1px 6px; border-radius: 4px; }
+
+  .stadium-info { position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 8px; font-size: 0.65rem; color: #bdc3c7; z-index: 10; text-align: center; backdrop-filter: blur(4px); }
+
+  .stands { position: absolute; bottom: 0; left: 0; right: 0; height: 14%; display: flex; gap: 2px; padding: 0 4%; align-items: flex-end; z-index: 5; }
+  .stand-row { display: flex; gap: 1px; align-items: flex-end; flex: 1; }
+  .stand-seat { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 1px; }
+  .floodlight { position: absolute; top: -10%; width: 3px; height: 20%; background: linear-gradient(to bottom, rgba(255,255,200,0.6), transparent); z-index: 2; }
+  .floodlight.l { left: 15%; } .floodlight.r { right: 15%; }
+
+  /* === SECTIONS === */
+  .section { background: #111827; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border: 1px solid #1f2937; }
+  .section-title { font-size: 1rem; font-weight: 700; color: #f1c40f; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 1.1rem; }
+
+  .prob-bar { display: flex; height: 32px; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+  .prob-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; transition: width 0.5s; min-width: fit-content; padding: 0 6px; }
+  .prob-bar .seg.h { background: #3498db; color: #fff; }
+  .prob-bar .seg.d { background: #7f8c8d; color: #fff; }
+  .prob-bar .seg.a { background: #e74c3c; color: #fff; }
+
+  .prob-table { width: 100%; border-collapse: collapse; }
+  .prob-table td { padding: 8px 4px; border-bottom: 1px solid #1f2937; }
+  .prob-table td:last-child { text-align: right; font-weight: 700; }
+  .prob-table .mini-bar { height: 6px; border-radius: 3px; background: #2d3a56; }
+  .prob-table .mini-bar .fill { height: 100%; border-radius: 3px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .card { background: #0f1729; border-radius: 10px; padding: 14px; border: 1px solid #1e2a45; }
+  .card .label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .card .value { font-size: 1.4rem; font-weight: 800; }
+  .card .value.xg { color: #60a5fa; }
+  .card .value.hbk-v { color: #3498db; }
+  .card .value.sir-v { color: #e74c3c; }
+  .card .sub { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .score-card { background: #0f1729; border-radius: 8px; padding: 10px 6px; text-align: center; border: 1px solid #1e2a45; }
+  .score-card .s { font-size: 1rem; font-weight: 700; }
+  .score-card .pct { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+  .score-card.top { border-color: #f1c40f; background: rgba(241,196,15,0.08); }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+  .badge.green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+  .badge.yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+  .badge.red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+  .badge.blue { background: rgba(52,152,219,0.2); color: #3498db; }
+  .badge.gray { background: rgba(149,165,166,0.2); color: #95a5a6; }
+
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 0.65rem; background: #1f2937; color: #bdc3c7; margin: 2px; }
+
+  .intel-item { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid #1a1f2e; font-size: 0.85rem; }
+  .intel-item:last-child { border: none; }
+  .intel-item .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .intel-item .dot.green { background: #2ecc71; }
+  .intel-item .dot.yellow { background: #f1c40f; }
+  .intel-item .dot.red { background: #e74c3c; }
+  .intel-item .dot.gray { background: #64748b; }
+
+  .odds-compare { display: flex; gap: 16px; margin: 12px 0; }
+  .odds-card { flex: 1; background: #0f1729; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #1e2a45; }
+  .odds-card .label { font-size: 0.65rem; color: #94a3b8; }
+  .odds-card .price { font-size: 1.2rem; font-weight: 700; margin: 4px 0; }
+  .odds-card .model-pct { font-size: 0.75rem; }
+  .odds-card .market-pct { font-size: 0.7rem; color: #64748b; }
+  .odds-card .dev { font-size: 0.7rem; font-weight: 600; margin-top: 2px; }
+  .odds-card .dev.pos { color: #2ecc71; }
+  .odds-card .dev.neg { color: #e74c3c; }
+
+  .scenario { background: #0f1729; border-left: 3px solid; padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; }
+  .scenario.primary { border-color: #f1c40f; }
+  .scenario.secondary { border-color: #3498db; }
+  .scenario.cold { border-color: #e74c3c; }
+
+  .footer-note { text-align: center; padding: 24px 0; color: #64748b; font-size: 0.75rem; border-top: 1px solid #1f2937; margin-top: 16px; }
+
+  .form-dots { display: flex; gap: 4px; margin: 6px 0; }
+  .form-dot { width: 20px; height: 20px; border-radius: 50%; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .form-dot.w { background: #2ecc71; color: #fff; }
+  .form-dot.d { background: #95a5a6; color: #fff; }
+  .form-dot.l { background: #e74c3c; color: #fff; }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    .odds-compare { flex-direction: column; }
+    .scoreboard { padding: 8px 12px; gap: 8px; }
+    .scoreboard .team .badge { width: 28px; height: 28px; font-size: 11px; }
+    .scoreboard .vs-score .score { font-size: 1.4rem; }
+    .scoreboard .team .name { font-size: 0.75rem; }
+    .section { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- PITCH -->
+  <div class="pitch-wrapper">
+    <div class="pitch">
+      <div class="pitch-lines">
+        <div class="penalty-a"></div>
+        <div class="penalty-b"></div>
+        <div class="goal-a"></div>
+        <div class="goal-b"></div>
+        <div class="spot-a"></div>
+        <div class="spot-b"></div>
+        <div class="arc-a"></div>
+        <div class="arc-b"></div>
+      </div>
+      <div class="center-circle"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="floodlight l"></div>
+      <div class="floodlight r"></div>
+
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        <div class="team">
+          <div class="badge hbk">H</div>
+          <div class="name">哈尔姆斯塔德</div>
+        </div>
+        <div class="vs-score">
+          <div class="pred-label">PREDICTED</div>
+          <div class="score">0-2</div>
+          <div class="probs-row">
+            <span class="prob" style="background:#3498db;">13.1%</span>
+            <span class="prob" style="background:#7f8c8d;">18.7%</span>
+            <span class="prob" style="background:#e74c3c;">68.2%</span>
+          </div>
+          <div class="sub">H · D · A</div>
+        </div>
+        <div class="team">
+          <div class="badge sir">S</div>
+          <div class="name">天狼星</div>
+        </div>
+      </div>
+
+      <div class="stadium-info">
+        Örjans Vall · 瑞典超级联赛 第15轮 · 2026.08.03 19:00<br>
+        天然草皮 · 哈尔姆斯塔德
+      </div>
+
+      <!-- Stands -->
+      <div class="stands">
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+    <div>
+      <h1 style="font-size:1.3rem;">哈尔姆斯塔德 <span style="color:#94a3b8;font-weight:400;">vs</span> 天狼星</h1>
+      <div style="font-size:0.75rem;color:#64748b;">预测生成: 2026-08-03  |  数据快照: 2026-08-03  |  理性模型</div>
+    </div>
+    <div><span class="badge red">榜首 vs 垫底</span> <span class="badge blue">客队强势</span></div>
+  </div>
+
+  <!-- CORE CONCLUSION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎯</span> 核心结论</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">主预测赛果</div>
+          <div class="value sir-v">天狼星胜</div>
+          <div class="sub">概率 68.2% · 主预测比分 0-2</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">预期进球 (xG)</div>
+          <div class="value xg">0.67 - 2.17</div>
+          <div class="sub">天狼星联赛最强火力 vs 最漏防线</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:0.85rem;color:#bdc3c7;">
+      不败领跑的天狼星客场挑战垫底的哈尔姆斯塔德，攻防两端全面碾压；主队预计低位死守伺机反击，<br>
+      但联赛最差防线难以招架客队火力。模型保留 31.9% 的不胜空间，单场仍非稳胜。
+    </div>
+  </div>
+
+  <!-- PROBABILITY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📊</span> 胜平负概率</div>
+    <div class="prob-bar">
+      <div class="seg h" style="width:13.1%">13.1% 哈尔姆斯塔德</div>
+      <div class="seg d" style="width:18.7%">18.7% 平</div>
+      <div class="seg a" style="width:68.2%">68.2% 天狼星</div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">比分分布 Top 5</div>
+      <div class="score-grid">
+        <div class="score-card top">
+          <div class="s" style="color:#e74c3c;">0-2</div>
+          <div class="pct">13.8%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#e74c3c;">0-1</div>
+          <div class="pct">12.7%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#e74c3c;">0-3</div>
+          <div class="pct">10.0%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#e74c3c;">1-2</div>
+          <div class="pct">9.1%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#95a5a6;">1-1</div>
+          <div class="pct">8.4%</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">双方近期状态</div>
+      <div class="grid-2">
+        <div>
+          <div style="font-weight:700;color:#3498db;margin-bottom:4px;">哈尔姆斯塔德</div>
+          <div class="form-dots">
+            <span class="form-dot l">负</span>
+            <span class="form-dot l">负</span>
+            <span class="form-dot l">负</span>
+            <span class="form-dot l">负</span>
+            <span class="form-dot d">平</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">近5场1平4负 · 上轮补时逼平加尔斯止住4连败</div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#e74c3c;margin-bottom:4px;">天狼星</div>
+          <div class="form-dots">
+            <span class="form-dot w">胜</span>
+            <span class="form-dot w">胜</span>
+            <span class="form-dot d">平</span>
+            <span class="form-dot w">胜</span>
+            <span class="form-dot w">胜</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">近5场4胜1平 · 赛季不败14场(12胜2平)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTELLIGENCE -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔍</span> 赛前情报</div>
+    <div class="grid-2">
+      <div>
+        <div style="font-weight:700;color:#3498db;margin-bottom:8px;">哈尔姆斯塔德 <span style="font-size:0.7rem;color:#94a3b8;">第16名(垫底) · 7分 · 1胜4平9负</span></div>
+        <div class="intel-item"><span class="dot red"></span><span><strong>Kaib / Ascone</strong> 双双停赛，中场与防线轮换受限</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>联赛最差防线，14轮丢29球（场均2.07）</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>9场失利中8场净负至少2球，崩盘倾向明显</span></div>
+        <div class="intel-item"><span class="dot yellow"></span><span>唯一亮点：上轮补时1-1逼平加尔斯，终结4连败</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅 Stuart Baxter · 5-4-1/4-4-2 低位防守反击，控球率常低于40%</span></div>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#e74c3c;margin-bottom:8px;">天狼星 <span style="font-size:0.7rem;color:#94a3b8;">第1名(领跑) · 38分 · 12胜2平</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>赛季不败领跑，联赛最佳进攻（40球，场均2.86）+ 次佳防守（17失）</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>客场6胜1平保持不败，场场至少进2球</span></div>
+        <div class="intel-item"><span class="dot green"></span><span><strong>Robbie Ure</strong> 14球领跑射手榜，转会传闻缠身仍火力全开</span></div>
+        <div class="intel-item"><span class="dot yellow"></span><span><strong>Noel Milleskog / Joakim Persson</strong> 伤缺，攻击线轮换深度略降</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅 Andreas Engelmark · 4-2-3-1/4-3-3 高位逼抢+快速转换</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <div style="font-weight:700;margin-bottom:6px;">战术对位分析</div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>风格对位：低位防反 vs 高位逼抢</strong> — 反击在纸面上克制逼抢（+0.25/-0.25 xG），但实力差距完全盖过战术修正</span></div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>预期节奏：偏保守</strong> — 主队预计全员退守，比赛可能呈半场攻防演练</span></div>
+      <div class="intel-item"><span class="dot gray"></span><span>历史交锋：天狼星近10次5胜，本赛季首回合 1-1 平；近10次对阵哈尔姆斯塔德的下半场，天狼星赢下7场</span></div>
+      <div class="intel-item"><span class="dot gray"></span><span>主队定位球与快速转换是其仅有的得分手段，天狼星高位线是主队反击的突破口</span></div>
+    </div>
+  </div>
+
+  <!-- PREDICTION REASONS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 预测原因</div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>评级差距悬殊：</strong> 天狼星 Elo 1730 vs 哈尔姆斯塔德 1480（已按文档区间校准），净胜球期望差距约2.2球</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>状态与战绩：</strong> 客队赛季不败领跑 vs 主队仅1胜垫底，天狼星客战场场进2球+</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>攻防两端错位：</strong> 联赛最强进攻 vs 联赛最漏防线，进球方向几乎单向</span></div>
+    <div class="intel-item"><span class="dot red"></span><span><strong>主队减员：</strong> 两名主力停赛进一步削弱本已孱弱的中场防守</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>战术修正有限：</strong> 防反克制逼抢在纸面上有利主队，但面对整季净胜+23的对手，威胁有限</span></div>
+    <div class="intel-item"><span class="dot gray"></span><span><strong>单场随机性：</strong> 模型已纳入泊松抽样+状态冲击+概率收缩，仍保留 31.9% 不胜空间</span></div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎭</span> 场景推演</div>
+    <div class="scenario primary">
+      <div style="font-weight:700;color:#f1c40f;">主路径：天狼星客胜 (概率 ~68%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">天狼星上半场取得领先，Ure/攻击群持续施压，主队防线难以支撑90分钟，0-2 或 0-3 完场，符合其客战场场进2球+的常态。</div>
+    </div>
+    <div class="scenario secondary">
+      <div style="font-weight:700;color:#3498db;">次路径：低比分胶着 (概率 ~19%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">主队摆出铁桶阵，天狼星控球但破密集防守效率下降，0-0 或 1-1 收场——本赛季首回合正是 1-1 平，天狼星并非总能打穿大巴。</div>
+    </div>
+    <div class="scenario cold">
+      <div style="font-weight:700;color:#95a5a6;">冷门路径：主队爆冷 (概率 ~13%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">天狼星客场大意 + 主队定位球或快速反击得手 + 天狼星伤缺轮换影响，1-0 / 1-1 爆冷。市场客胜赔率仅1.30，冷门兑现概率不高但并非零。</div>
+    </div>
+  </div>
+
+  <!-- ODDS VIEW -->
+  <div class="section">
+    <div class="section-title"><span class="icon">💰</span> 赔率视角</div>
+    <div style="font-size:0.75rem;color:#64748b;margin-bottom:12px;">赔率来源: 综合多家博彩公司 · 采集时间: 2026-08-03 · 抽水率 14.9%</div>
+    <div class="odds-compare">
+      <div class="odds-card">
+        <div class="label">主胜 (哈尔姆斯塔德)</div>
+        <div class="price" style="color:#3498db;">6.00</div>
+        <div class="model-pct">模型: <strong>13.1%</strong></div>
+        <div class="market-pct">市场: 14.5%</div>
+        <div class="dev neg">偏差 -1.4%</div>
+      </div>
+      <div class="odds-card">
+        <div class="label">平局</div>
+        <div class="price" style="color:#95a5a6;">4.70</div>
+        <div class="model-pct">模型: <strong>18.7%</strong></div>
+        <div class="market-pct">市场: 18.5%</div>
+        <div class="dev neg">偏差 +0.2%</div>
+      </div>
+      <div class="odds-card">
+        <div class="label">客胜 (天狼星)</div>
+        <div class="price" style="color:#e74c3c;">1.30</div>
+        <div class="model-pct">模型: <strong>68.2%</strong></div>
+        <div class="market-pct">市场: 67.0%</div>
+        <div class="dev pos">偏差 +1.2%</div>
+      </div>
+    </div>
+    <div style="font-size:0.8rem;color:#bdc3c7;">
+      <strong>模型 vs 市场解读：</strong>模型与市场高度一致，均认定天狼星客胜为主方向（模型 68.2% vs 市场 67.0%），模型略更看好客队。唯一分歧在总进球：模型因主队摆大巴给出偏保守的进球预期（主比分0-2/0-1），而市场大2.5球低至1.38（隐含~70%），分析师多倾向 1-3/0-3/1-4 ——市场更相信天狼星火力会打穿主队漏防。
+    </div>
+    <div style="margin-top:8px;font-size:0.7rem;color:#64748b;border-top:1px solid #1f2937;padding-top:8px;">
+      赔率数据仅供概率比较参考，不构成投注建议。足球单场随机性极高，任何方向都有相当的不确定性。
+    </div>
+  </div>
+
+  <!-- UNCERTAINTY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚠️</span> 不确定性说明</div>
+    <ul style="list-style:none;font-size:0.85rem;color:#94a3b8;">
+      <li style="padding:4px 0;">• 天狼星 68.2% 仍保留近三分之一的不胜空间，强队高概率不等于稳胜</li>
+      <li style="padding:4px 0;">• 本地参考快照原始 Elo（天狼星 2055 / 哈尔姆斯塔德 1229）超出瑞超文档区间（1450–1750），本次已按赛季表现与文档区间校准至 1730 / 1480</li>
+      <li style="padding:4px 0;">• 停赛/伤缺的实际影响可能大于模型 Elo 修正</li>
+      <li style="padding:4px 0;">• 天狼星对主队下半场的统治（近10次赢7个下半场）是模型未单列的隐性优势</li>
+      <li style="padding:4px 0;">• 模型无法预测红牌、点球、定位球等突发事件</li>
+    </ul>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📎</span> 数据来源</div>
+    <div style="font-size:0.8rem;color:#94a3b8;">
+      <div>• FBref — Sirius / Halmstad 2026 赛季数据与阵型（4-2-3-1/4-3-3 与 5-4-1/4-4-2）</div>
+      <div>• Football Team News — Halmstads BK 2026 赛季指南（主帅、转会、风格）</div>
+      <div>• MatchPulse / Stats24 — 赛前预测与 H2H（模型参考：SIR胜69% · xG 0.93-2.54）</div>
+      <div>• Racing Post / TV Matchen — 赛前推荐（天狼星-1.5让球 @2.12、天狼星3+球 @2.10）</div>
+      <div>• 本地快照 — data/live/allsvenskan/（Elo、积分榜、赛程、情报）</div>
+      <div style="margin-top:8px;color:#64748b;">数据采集时间: 2026-08-03</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    本预测基于 Elo 评级 + 泊松模型 + 蒙特卡洛模拟生成，仅供娱乐参考。<br>
+    足球比赛单场随机性很高，任何预测都不构成确定性判断。
+  </div>
+</div>
+</body>
+</html>

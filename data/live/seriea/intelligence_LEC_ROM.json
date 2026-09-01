@@ -1,0 +1,201 @@
+{
+  "match": {
+    "home": "LEC",
+    "away": "ROM",
+    "date": "2026-08-31",
+    "round": 2,
+    "venue": "维迪马里球场 (Stadio Via del Mare)",
+    "turf": "natural",
+    "time": "23:30 (北京时间)",
+    "significance": "意甲第2轮，莱切主场迎战罗马，首轮都赢了但含金量不同"
+  },
+  "context": "意甲第2轮，莱切主场迎战罗马。莱切首轮客场2-0击败威尼斯，罗马首轮主场4-0大胜佛罗伦萨。罗马联赛跨赛季6连胜，但莱切主场硬度和历史交锋韧性可能让比赛变成攻坚战。",
+  "teams": {
+    "LEC": {
+      "code": "LEC",
+      "name_cn": "莱切",
+      "full_name": "US Lecce",
+      "form": "胜",
+      "position": 11,
+      "points": 3,
+      "played": 1,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 2,
+      "goals_against": 0,
+      "elo_delta": 10,
+      "confidence": 0.85,
+      "notes": "首轮客场2-0击败威尼斯，全场29%控球率但完成21次成功拦截(72%成功率)；防线核心西伯特表现出色；主场硬度强；阵容基本齐整",
+      "key_players": [
+        {
+          "name": "贾梅尔·西伯特",
+          "position": "后卫",
+          "status": "available",
+          "impact": "防线核心，首轮多次解围和门线救险"
+        },
+        {
+          "name": "威廉·赫伊比约",
+          "position": "前锋",
+          "status": "available",
+          "impact": "新援，进攻支点，首轮表现出色"
+        },
+        {
+          "name": "安东尼诺·加洛",
+          "position": "后卫",
+          "status": "available",
+          "impact": "主力左后卫，已通过体检可以出战"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "马尔钦温斯基",
+          "position": "中场",
+          "status": "injured",
+          "impact": "替补中场缺阵，影响较小"
+        }
+      ]
+    },
+    "ROM": {
+      "code": "ROM",
+      "name_cn": "罗马",
+      "full_name": "AS Roma",
+      "form": "胜",
+      "position": 2,
+      "points": 3,
+      "played": 1,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 4,
+      "goals_against": 0,
+      "elo_delta": 0,
+      "confidence": 0.90,
+      "notes": "首轮主场4-0大胜佛罗伦萨，联赛跨赛季6连胜且5场零封；马伦帽子戏法状态火热；但佩莱格里尼和伦施缺阵影响中后场",
+      "key_players": [
+        {
+          "name": "当耶尔·马伦",
+          "position": "前锋",
+          "status": "available",
+          "impact": "首轮帽子戏法，状态火热，进攻核心"
+        },
+        {
+          "name": "迪巴拉",
+          "position": "前锋",
+          "status": "doubtful",
+          "impact": "首轮踢了60分钟被换下，赛前未参加合练，可能带伤替补待命"
+        },
+        {
+          "name": "莱昂纳多·巴列尔迪",
+          "position": "后卫",
+          "status": "available",
+          "impact": "新援，首次进入大名单，预计首发出任左中卫"
+        }
+      ],
+      "injuries": [
+        {
+          "name": "洛伦佐·佩莱格里尼",
+          "position": "中场",
+          "status": "injured",
+          "impact": "中场核心缺阵，影响中后场出球和组织"
+        },
+        {
+          "name": "德文·伦施",
+          "position": "后卫",
+          "status": "injured",
+          "impact": "后卫缺阵，影响边路攻防"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 33,
+    "home_wins": 2,
+    "away_wins": 23,
+    "draws": 8,
+    "last_5": "罗马4胜1平，近4次交手3场零封",
+    "last_match": "2025-26赛季：罗马对莱切4连胜",
+    "at_home": "莱切近两个赛季主场对阵罗马全部逼平(0-0、1-1)",
+    "notes": "罗马历史交锋占绝对优势，但莱切主场近期逼平对手"
+  },
+  "tactical": {
+    "LEC": {
+      "style": "defensive_deep",
+      "formation": "4-3-3",
+      "strengths": ["防守体系严密", "拦截成功率高", "主场硬度强", "体能和跑动出色"],
+      "weaknesses": ["进攻创造力有限", "控球率低", "依赖反击和定位球"],
+      "key_tactics": "低位防守+中场绞杀，依靠防守反击和定位球寻找机会"
+    },
+    "ROM": {
+      "style": "possession",
+      "formation": "3-4-2-1",
+      "strengths": ["控球能力强", "进攻火力猛", "联赛连胜气势足", "锋线状态火热"],
+      "weaknesses": ["中场核心缺阵", "客场推进可能偏慢", "迪巴拉伤病是X因素"],
+      "key_tactics": "3-4-2-1体系，依靠马伦和迪巴拉的前场组合破局"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "莱切主场硬度强，近两个赛季主场对阵罗马全部逼平",
+      "impact": 0.12,
+      "confidence": 0.8
+    },
+    {
+      "type": "defensive_strength",
+      "description": "莱切首轮72%拦截成功率，防守体系严密",
+      "impact": 0.10,
+      "confidence": 0.85
+    },
+    {
+      "type": "recent_form",
+      "description": "罗马联赛跨赛季6连胜，首轮4-0大胜，气势如虹",
+      "impact": 0.15,
+      "confidence": 0.9
+    },
+    {
+      "type": "head_to_head",
+      "description": "罗马历史交锋占绝对优势，但莱切主场近期逼平对手",
+      "impact": 0.08,
+      "confidence": 0.7
+    },
+    {
+      "type": "injury_impact",
+      "description": "罗马中场核心佩莱格里尼和后卫伦施缺阵，影响中后场",
+      "impact": -0.10,
+      "confidence": 0.8
+    },
+    {
+      "type": "key_player",
+      "description": "罗马马伦首轮帽子戏法状态火热，但迪巴拉伤病是X因素",
+      "impact": 0.05,
+      "confidence": 0.6
+    },
+    {
+      "type": "tactical_matchup",
+      "description": "莱切铁桶阵 vs 罗马攻坚能力，战术对位是关键",
+      "impact": 0.03,
+      "confidence": 0.7
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "罗马小胜",
+      "probability": 45,
+      "score": "0-1 或 1-2",
+      "description": "罗马凭借整体实力和锋线状态，艰难攻克莱切铁桶阵"
+    },
+    {
+      "name": "平局收场",
+      "probability": 35,
+      "score": "0-0 或 1-1",
+      "description": "莱切防守严密，罗马难以破门，比赛以平局收场"
+    },
+    {
+      "name": "莱切爆冷",
+      "probability": 20,
+      "score": "1-0 或 2-1",
+      "description": "莱切凭借主场优势和防守反击，爆冷击败罗马"
+    }
+  ]
+}

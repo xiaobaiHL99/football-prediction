@@ -1,0 +1,20 @@
+{
+  "FLA": {"points": 40, "gd": 20, "gf": 38, "ga": 18, "played": 19},
+  "PAL": {"points": 37, "gd": 16, "gf": 35, "ga": 19, "played": 19},
+  "CAP": {"points": 33, "gd": 10, "gf": 30, "ga": 20, "played": 19},
+  "CAM": {"points": 32, "gd": 8, "gf": 28, "ga": 20, "played": 19},
+  "SAO": {"points": 30, "gd": 6, "gf": 26, "ga": 20, "played": 19},
+  "COR": {"points": 28, "gd": 4, "gf": 24, "ga": 20, "played": 19},
+  "FLU": {"points": 27, "gd": 2, "gf": 22, "ga": 20, "played": 19},
+  "GRE": {"points": 26, "gd": 0, "gf": 20, "ga": 20, "played": 19},
+  "BOT": {"points": 25, "gd": -2, "gf": 19, "ga": 21, "played": 19},
+  "CRU": {"points": 24, "gd": -4, "gf": 18, "ga": 22, "played": 19},
+  "FOR": {"points": 23, "gd": -6, "gf": 17, "ga": 23, "played": 19},
+  "BAH": {"points": 22, "gd": -8, "gf": 16, "ga": 24, "played": 19},
+  "RBK": {"points": 22, "gd": -8, "gf": 15, "ga": 23, "played": 19},
+  "INT": {"points": 21, "gd": -10, "gf": 14, "ga": 24, "played": 19},
+  "SAN": {"points": 20, "gd": -12, "gf": 13, "ga": 25, "played": 19},
+  "VAS": {"points": 19, "gd": -14, "gf": 12, "ga": 26, "played": 19},
+  "CUI": {"points": 18, "gd": -16, "gf": 11, "ga": 27, "played": 19},
+  "CHA": {"points": 9, "gd": -28, "gf": 10, "ga": 38, "played": 19}
+}

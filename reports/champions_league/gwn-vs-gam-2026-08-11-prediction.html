@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>江原FC vs 大阪钢巴 — 亚冠精英联赛资格赛预测</title>
+<style>
+  :root{--bg:#0a0e1a;--panel:#131a2c;--panel2:#0f1524;--line:#223052;--txt:#e8edf7;--sub:#8b97b5;
+    --grn:#3ddc84;--cyn:#39c5ff;--yel:#ffcf5c;--red:#ff5c6c;--org:#ff9f43}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .stadium{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    background:radial-gradient(1200px 300px at 50% -10%, rgba(255,255,255,.14), transparent 60%),
+    linear-gradient(180deg,#0c1a24 0%,#12301f 55%,#0d2418 100%)}
+  .pitch{margin:14px auto 0;width:92%;max-width:860px;aspect-ratio:16/9;
+    background:repeating-linear-gradient(90deg,#1d5c38 0 46px,#1a5434 46px 92px);
+    border:3px solid rgba(255,255,255,.35);border-radius:6px;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .pitch::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:rgba(255,255,255,.5)}
+  .pitch .box{position:absolute;width:24%;height:34%;border:2px solid rgba(255,255,255,.5);top:33%}
+  .pitch .box.l{left:-2px}.pitch .box.r{right:-2px}
+  .pitch .goal{position:absolute;width:38%;height:8%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.5);top:46%}
+  .pitch .goal.l{left:-2px}.pitch .goal.r{right:-2px}
+  .pitch .circ{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:14%;aspect-ratio:1;border:2px solid rgba(255,255,255,.5);border-radius:50%}
+  .board{margin:16px 14px 14px;background:linear-gradient(180deg,#0d1424,#0a0f1c);border:1px solid #2a3a5e;border-radius:12px;
+    padding:14px 16px;display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.6)}
+  .team{text-align:center}
+  .team .nm{font-size:1rem;font-weight:800}
+  .team .name_cn{display:block;font-size:1.35rem;font-weight:900}
+  .team .tag{display:inline-block;font-size:.68rem;color:var(--sub);background:#1a2440;border:1px solid var(--line);border-radius:20px;padding:1px 10px;margin-top:3px}
+  .score{text-align:center}
+  .score .lab{margin-bottom:2px;font-size:.62rem;color:var(--org);border:1px solid rgba(255,159,67,.5);border-radius:4px;padding:0 6px;display:inline-block}
+  .score .num{font-family:Consolas,monospace;font-size:2.5rem;font-weight:800;color:#fff;text-shadow:0 0 14px rgba(255,159,67,.6)}
+  .score .vs{font-size:.7rem;color:var(--sub);letter-spacing:.15em;margin-top:2px}
+  .pbar{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+  .pbar div{height:8px;border-radius:4px}
+  .pbar .w{background:var(--org)}.pbar .d{background:#7d8aa6}.pbar .l{background:var(--cyn)}
+  .pleg{grid-column:1/-1;display:flex;justify-content:space-between;font-size:.72rem;color:var(--sub)}
+  .pleg b{color:var(--txt);font-size:.9rem}
+  h2{font-size:1.05rem;margin:26px 0 10px;color:var(--org);border-left:3px solid var(--org);padding-left:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:700px){.grid2{grid-template-columns:1fr}}
+  .kpi{display:flex;flex-wrap:wrap;gap:10px}
+  .kpi .box{flex:1;min-width:120px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:center}
+  .kpi .box .v{font-size:1.35rem;font-weight:900;color:var(--org)}
+  .kpi .box .k{font-size:.7rem;color:var(--sub)}
+  table{width:100%;border-collapse:collapse;font-size:.86rem}
+  th,td{padding:7px 10px;text-align:left;border-bottom:1px solid #1c2740}
+  th{color:var(--sub);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+  .prob{display:inline-block;min-width:52px;font-weight:800}
+  .bar{height:7px;border-radius:4px;background:#223052;position:relative;overflow:hidden;margin-top:3px}
+  .bar i{display:block;height:100%;border-radius:4px}
+  .li{list-style:none;padding-left:0}
+  .li li{padding:7px 0;border-bottom:1px dashed #1c2740;font-size:.88rem}
+  .li li b{color:var(--yel)}
+  .src{font-size:.75rem;color:var(--sub)}
+  .src a{color:var(--cyn);text-decoration:none;word-break:break-all}
+  .warn{background:rgba(255,207,92,.08);border:1px solid rgba(255,207,92,.35);border-radius:10px;padding:12px 14px;font-size:.82rem;color:#f2d9a0}
+  .spirit{display:flex;gap:10px;flex-wrap:wrap}
+  .spirit .box{flex:1;min-width:200px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .spirit .lv{font-weight:900;font-size:.95rem}
+  .spirit .lv.d{color:var(--red)}.spirit .lv.h{color:var(--grn)}
+  .foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:.72rem;color:var(--sub);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="stadium">
+    <div class="pitch">
+      <div class="box l"></div><div class="box r"></div>
+      <div class="goal l"></div><div class="goal r"></div>
+      <div class="circ"></div>
+    </div>
+    <div class="board">
+      <div class="team">
+        <span class="name_cn">江原FC</span>
+        <span class="nm">Gangwon FC</span><br>
+        <span class="tag">主队 · 江陵综合运动场</span>
+      </div>
+      <div class="score">
+        <div class="lab">预测比分</div>
+        <div class="num">2 : 1</div>
+        <div class="vs">亚冠精英联赛 · 资格赛单场定胜负</div>
+      </div>
+      <div class="team">
+        <span class="name_cn">大阪钢巴</span>
+        <span class="nm">Gamba Osaka</span><br>
+        <span class="tag">客队 · 上季亚冠二级冠军</span>
+      </div>
+      <div class="pbar">
+        <div class="w" style="width:56.9%"></div>
+        <div class="d" style="width:20.0%"></div>
+        <div class="l" style="width:23.1%"></div>
+      </div>
+      <div class="pleg">
+        <span><b>56.9%</b> 江原胜</span>
+        <span><b>20.0%</b> 平（90分钟）</span>
+        <span><b>23.1%</b> 钢巴胜</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:14px;font-size:.85rem;color:var(--sub)">
+    预测类型：单场（资格赛单场定胜负）· 生成时间：2026-08-11 · 开球：2026-08-11 18:30（北京时间）· 数据快照：跨联赛校准（GWN 1555 / GAM 1550）
+  </div>
+
+  <h2>核心结论</h2>
+  <div class="card">
+    <div class="kpi">
+      <div class="box"><div class="v">2-1</div><div class="k">主预测比分（9.4%）</div></div>
+      <div class="box"><div class="v">2.33</div><div class="k">江原预期进球</div></div>
+      <div class="box"><div class="v">1.15</div><div class="k">钢巴预期进球</div></div>
+      <div class="box"><div class="v">56.9%</div><div class="k">江原胜（主方向）</div></div>
+      <div class="box"><div class="v">-24</div><div class="k">钢巴伤停 Elo 修正</div></div>
+    </div>
+    <p style="margin-top:12px;font-size:.9rem">
+      单场定胜负，胜者进亚冠正赛。模型押<b>江原主场小优（56.9%）</b>：主队全主力 + 10 天完整休整 + 反击/定位球正打钢巴高位防线身后，而客队<b>防线 7 人伤缺（含门将、整条中卫线、进攻核心宇佐美贵史）</b>且 8/7 刚踢完七球大战后跨国旅行体能透支。
+      但这是 55-45 级别的胶着战——钢巴外援三叉戟进攻火力真实，江原亚冠精英赛近 4 场一球未进是最大隐患，模型方向与多数媒体（看好钢巴）分歧明显。
+    </p>
+  </div>
+
+  <h2>详细预测</h2>
+  <div class="grid2">
+    <div class="card">
+      <h2 style="margin-top:0">比分分布 Top 5</h2>
+      <table>
+        <tr><th>比分</th><th>概率</th><th></th></tr>
+        <tr><td>江原 2-1</td><td class="prob">9.4%</td><td><div class="bar"><i style="width:100%;background:var(--org)"></i></div></td></tr>
+        <tr><td>江原 2-0</td><td class="prob">8.4%</td><td><div class="bar"><i style="width:90%;background:var(--org)"></i></div></td></tr>
+        <tr><td>江原 1-1</td><td class="prob">8.2%</td><td><div class="bar"><i style="width:87%;background:#7d8aa6"></i></div></td></tr>
+        <tr><td>江原 3-1</td><td class="prob">7.3%</td><td><div class="bar"><i style="width:78%;background:var(--org)"></i></div></td></tr>
+        <tr><td>江原 1-0</td><td class="prob">7.2%</td><td><div class="bar"><i style="width:77%;background:var(--org)"></i></div></td></tr>
+      </table>
+      <p style="font-size:.78rem;color:var(--sub);margin-top:8px">1-1 高分提示钢巴"进一球就翻盘"的剧本不低；双方都可能进球（BTTS 概率较高）。</p>
+    </div>
+    <div class="card">
+      <h2 style="margin-top:0">模型输入 & 修正</h2>
+      <table>
+        <tr><th>项目</th><th>江原</th><th>钢巴</th></tr>
+        <tr><td>Elo 评级（跨联赛校准）</td><td>1555</td><td>1550</td></tr>
+        <tr><td>伤停修正 elo_delta</td><td>-2</td><td>-24</td></tr>
+        <tr><td>近期状态 form</td><td>-0.07（低迷）</td><td>+0.08（火热）</td></tr>
+        <tr><td>goal_delta / 战意加成</td><td>+0.03 / +0.05</td><td>+0.05 / 0</td></tr>
+        <tr><td>战术风格</td><td>防反</td><td>高位传控</td></tr>
+        <tr><td>无效控球惩罚</td><td colspan="2">是（钢巴传控 vs 江原防反）</td></tr>
+        <tr><td>特殊因子</td><td colspan="2">跨区域长途旅行（双方消耗）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>战意因素（fighting_spirit）</h2>
+  <div class="card">
+    <div class="spirit">
+      <div class="box">
+        <div class="lv d">江原FC · 背水一战（desperate）+0.30 xG</div>
+        <div style="font-size:.82rem;margin-top:6px">单场定胜负主场晋级战；亚冠精英赛近 4 场 0 进球需破荒，联赛低迷急需正赛证明；主场硬仗（7月连续零封金泉/蔚山）。</div>
+      </div>
+      <div class="box">
+        <div class="lv h">大阪钢巴 · 战意高涨（high）+0.15 xG</div>
+        <div style="font-size:.82rem;margin-top:6px">卫冕亚冠二级冠军想回顶级正赛；新帅明神智和首秀 4-3 逆转浦和后士气高；但防线残阵 + 体能存疑。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>赛前情报摘要</h2>
+  <div class="card">
+    <ul class="li">
+      <li><b>江原FC（主）：</b>K联赛第 4（32分），失 17 球联赛最少（场均 0.8）；主帅郑暻镐 4-4-2，狭小主场放弃控球，双后腰拦截 + 边路反击 + 定位球。</li>
+      <li><b>江原利好：</b>无伤停无停赛全主力，后防核心图奇解禁回归 + 国脚李期奕归队，中卫组合完整；10 天完整休整（为备战本场将联赛延期）；金大元 7 球 5 助攻。</li>
+      <li><b>江原隐患：</b>近 3 场 1 平 2 负（0-3 惨败富川）连丢 6 球，后场退防慢；亚冠精英赛近 4 场一球未进、对日系球队 1 胜 1 平 3 负；门将朴清孝状态差、宋俊锡入伍。</li>
+      <li><b>大阪钢巴（客）：</b>上季亚冠二级联赛冠军（决赛胜 C 罗的利雅得胜利）；新帅明神智和（从助教升任）首秀 4-3 逆转浦和；近 6 场 4 胜 1 平 1 负进 18 球，客场近 6 场 5 胜 1 负。</li>
+      <li><b>钢巴致命伤：</b>防线 7 人伤缺——门将一森纯（手指骨折）、中卫三浦弦太、半田陆、横井裕也、佐佐木翔悟、福冈将太 + 进攻核心宇佐美贵史；仅中谷进之介带年轻防线。</li>
+      <li><b>钢巴体能与磨合：</b>8/7 刚踢完 4-3 七球大战，隔约 4 天跨国飞韩国客场；新帅上任不到一月体系仍在磨合。</li>
+      <li><b>交锋：</b>两队历史从未交手，纯遭遇战。</li>
+      <li><b>媒体分歧：</b>7M/倚天看好钢巴客胜（0-2/1-2/1-3）；搜狐倾向拉锯 1-1/2-1；网易认为场面开放进球多。</li>
+    </ul>
+  </div>
+
+  <h2>场景推演</h2>
+  <div class="card">
+    <table>
+      <tr><th>路径</th><th>触发条件</th><th>结果</th></tr>
+      <tr><td><b>江原主场破荒</b></td><td>早段定位球/边路反击得手，钢巴残阵防线顶不住，江原 10 天体能优势后段显现</td><td>江原 1-0 / 2-0 / 2-1 晋级（~57%）</td></tr>
+      <tr><td><b>拉锯拖加时</b></td><td>钢巴控球但残阵防线丢球，江原亚冠攻坚乏力无法扩大比分</td><td>90分钟 1-1 平，加时/点球定生死</td></tr>
+      <tr><td><b>钢巴外援爆点</b></td><td>巴利/胡梅特/韦尔顿抓住江原压上身后空档，或江原久攻不下被反击</td><td>钢巴客胜晋级（~23%）</td></tr>
+    </table>
+  </div>
+
+  <h2>不确定性说明</h2>
+  <div class="card">
+    <div class="warn">
+      本场模型方向与主流媒体（多数看好钢巴）分歧明显——分歧核心在<b>钢巴伤停到底多重 vs 江原亚冠 0 进球到底多差</b>。
+      单场定胜负随机性极高：钢巴哪怕残阵，外援三叉戟 + 新帅首秀士气随时能进 1-2 球；江原若破不了亚冠进球荒，56.9% 可能被高估。
+      Elo 为跨联赛校准临时值（GWN 1727 kleague 刻度 / GAM 1550 jleague 刻度校准到亚冠刻度），赛果验证后建议补录。
+      模型给出的是概率，不是确定性结论，更不是投注建议。
+    </div>
+    <p style="font-size:.82rem;margin-top:10px"><b>结果敏感点：</b>① 江原能否在上半场破亚冠进球荒；② 钢巴残阵防线第几分钟先丢球；③ 江原后场退防落位慢是否被钢巴纵向推进打穿；④ 体能：10 天休整 vs 4 天前七球大战。</p>
+  </div>
+
+  <h2>数据来源</h2>
+  <div class="card src">
+    <p>情报采集时间：2026-08-11。Elo 为临时校准注入（未写入快照），赛果验证后建议补录 teams.json 供后续复用。</p>
+    <ul class="li">
+      <li><a href="https://news.7m.com.cn/mobi/news/20260811/734794.shtml">7M 亚冠精英预选赛前瞻</a></li>
+      <li><a href="https://www.qiumiwu.com/news/1986252458198">球迷屋：江原主场迎战亚协杯卫冕冠军</a></li>
+      <li><a href="https://www.163.com/dy/article/L412BE2V0556OYGH.html">网易：江原防线告急，钢巴火力全开</a></li>
+      <li><a href="https://www.dszuqiu.com/articles/lottery/2098076.html">大圣足球：江原能拦住钢巴吗</a></li>
+      <li><a href="https://www.sohu.com/a/1061405766_122903341">搜狐：亚冠精英附加赛近期状态解析</a></li>
+      <li><a href="https://www.nowscore.com/news/1191001.htm">球探网：残阵钢巴客场让不起球</a></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    本报告由足球预测 skill 生成，纯属娱乐分析，不构成投注建议或确定性判断 · 数据快照时间 2026-08-11 · 生成时间 2026-08-11
+  </div>
+</div>
+</body>
+</html>

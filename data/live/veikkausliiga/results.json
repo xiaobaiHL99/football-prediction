@@ -1,0 +1,58 @@
+{
+  "matches": [
+    {
+      "home": "INT",
+      "away": "GNI",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "ILV",
+      "away": "LAH",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "HJK",
+      "away": "TPS",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "JAR",
+      "away": "SJK",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "MAR",
+      "away": "OUL",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "KUP",
+      "away": "VPS",
+      "hg": 5,
+      "ag": 0
+    },
+    {
+      "home": "VPS",
+      "away": "TPS",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "SJK",
+      "away": "LAH",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "INT",
+      "away": "KUP",
+      "hg": 1,
+      "ag": 0
+    }
+  ]
+}

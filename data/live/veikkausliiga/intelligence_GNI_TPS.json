@@ -1,0 +1,161 @@
+{
+  "match": {
+    "home": "GNI",
+    "away": "TPS",
+    "date": "2026-08-31",
+    "round": 22,
+    "venue": "赫尔辛基足球场",
+    "turf": "artificial",
+    "time": "晚间 (北京时间)",
+    "significance": "保级六分战，两队积分接近，争夺保级附加赛有利位置"
+  },
+  "context": "芬超第22轮，排名第6的赫尔辛基火花主场对阵第7的TPS图尔库。两队分差仅2分，此役堪称提前上演的保级六分战。赫尔火花近期状态低迷，TPS客场疲软，双方都急需胜利提振士气。",
+  "teams": {
+    "GNI": {
+      "code": "GNI",
+      "name_cn": "赫尔辛基火花",
+      "full_name": "IF Gnistan",
+      "form": "胜-平-负-平-负",
+      "position": 6,
+      "points": 33,
+      "played": 21,
+      "wins": 10,
+      "draws": 3,
+      "losses": 8,
+      "goals_for": 25,
+      "goals_against": 25,
+      "elo_delta": 0,
+      "confidence": 0.75,
+      "notes": "近期状态低迷，近5轮仅1胜；主场5胜1平3负，进攻火力联赛第4；头号射手阿基涅米状态火热；中场有叶廖缅科和拉托宁组织",
+      "key_players": [
+        {
+          "name": "阿基涅米",
+          "position": "前锋",
+          "status": "available",
+          "impact": "头号射手，状态火热，进攻核心"
+        },
+        {
+          "name": "叶廖缅科",
+          "position": "中场",
+          "status": "available",
+          "impact": "中场组织核心，传球能力出色"
+        }
+      ]
+    },
+    "TPS": {
+      "code": "TPS",
+      "name_cn": "TPS图尔库",
+      "full_name": "TPS Turku",
+      "form": "负-平-胜-负-平",
+      "position": 7,
+      "points": 30,
+      "played": 21,
+      "wins": 8,
+      "draws": 6,
+      "losses": 7,
+      "goals_for": 27,
+      "goals_against": 22,
+      "elo_delta": 0,
+      "confidence": 0.70,
+      "notes": "典型客场虫，本赛季7个客场至今未尝胜绩；有防守韧性但攻坚能力有限；近10场仅3胜；历史交锋不怵赫尔火花",
+      "key_players": [
+        {
+          "name": "待确认",
+          "position": "前锋",
+          "status": "available",
+          "impact": "需要关注赛前首发名单"
+        }
+      ]
+    }
+  },
+  "h2h": {
+    "total_matches": 15,
+    "home_wins": 8,
+    "away_wins": 4,
+    "draws": 3,
+    "last_5": "赫尔火花3胜1平1负，TPS近期赢过赫尔火花",
+    "last_match": "2026-05-08: TPS 1-0 HIFK (TPS主场小胜)",
+    "at_home": "赫尔火花主场对TPS 5胜1平1负",
+    "notes": "历史交锋记录存在冲突，但TPS近期赢过赫尔火花，心理不怵"
+  },
+  "tactical": {
+    "GNI": {
+      "style": "attacking",
+      "formation": "4-3-3",
+      "strengths": ["主场气势强", "进攻火力充足", "头号射手状态火热", "中场组织有序"],
+      "weaknesses": ["近期状态低迷", "防守稳定性不足", "心理压力大"],
+      "key_tactics": "依靠主场优势，通过边路进攻和中路渗透寻找机会"
+    },
+    "TPS": {
+      "style": "defensive",
+      "formation": "4-4-2",
+      "strengths": ["防守韧性", "历史交锋心理优势", "擅长偷分"],
+      "weaknesses": ["客场虫属性", "攻坚能力有限", "进攻创造力不足"],
+      "key_tactics": "稳固防守，通过反击和定位球寻找机会"
+    }
+  },
+  "factors": [
+    {
+      "type": "home_advantage",
+      "description": "赫尔火花主场5胜1平3负，主场优势明显",
+      "impact": 0.15,
+      "confidence": 0.8
+    },
+    {
+      "type": "recent_form",
+      "description": "赫尔火花近期状态低迷，近5轮仅1胜，心理压力大",
+      "impact": -0.10,
+      "confidence": 0.75
+    },
+    {
+      "type": "away_weakness",
+      "description": "TPS典型客场虫，本赛季7个客场至今未尝胜绩",
+      "impact": -0.12,
+      "confidence": 0.85
+    },
+    {
+      "type": "head_to_head",
+      "description": "历史交锋记录冲突，但TPS近期赢过赫尔火花，心理不怵",
+      "impact": 0.05,
+      "confidence": 0.6
+    },
+    {
+      "type": "relegation_battle",
+      "description": "保级六分战，两队都会全力以赴，比赛强度高",
+      "impact": 0.08,
+      "confidence": 0.7
+    },
+    {
+      "type": "key_player",
+      "description": "赫尔火花头号射手阿基涅米状态火热，可能成为比赛关键",
+      "impact": 0.06,
+      "confidence": 0.7
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "主队小胜",
+      "probability": 45,
+      "score": "1-0 或 2-1",
+      "description": "赫尔火花凭借主场优势，通过进攻火力小胜TPS"
+    },
+    {
+      "name": "平局收场",
+      "probability": 30,
+      "score": "1-1 或 0-0",
+      "description": "两队实力接近，互有攻守最终握手言和"
+    },
+    {
+      "name": "客队取胜",
+      "probability": 25,
+      "score": "0-1 或 1-2",
+      "description": "TPS延续近期对赫尔火花的优势，客场爆冷取胜"
+    }
+  ],
+  "data_conflicts": [
+    "历史交锋记录存在两个完全相反的版本",
+    "赫尔火花的联赛排名存在争议（第6名或争冠区）",
+    "TPS的客场战绩描述不一致",
+    "部分信息可能混淆了男足和女足比赛"
+  ]
+}

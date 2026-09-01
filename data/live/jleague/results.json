@@ -1,0 +1,88 @@
+{
+  "matches": [
+    {
+      "home": "YFM",
+      "away": "KSA",
+      "hg": 3,
+      "ag": 4
+    },
+    {
+      "home": "GAM",
+      "away": "URD",
+      "hg": 4,
+      "ag": 3
+    },
+    {
+      "home": "CER",
+      "away": "FAG",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "TOV",
+      "away": "KAS",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "KSA",
+      "away": "NAG",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "URD",
+      "away": "SAN",
+      "hg": 1,
+      "ag": 4
+    },
+    {
+      "home": "VIS",
+      "away": "FCT",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "KAS",
+      "away": "VVN",
+      "hg": 4,
+      "ag": 2
+    },
+    {
+      "home": "FCT",
+      "away": "JEF",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "KSA",
+      "away": "AVF",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "CER",
+      "away": "SHP",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "MAC",
+      "away": "URD",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "MIT",
+      "away": "MAC",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "SHP",
+      "away": "KAS",
+      "hg": 0,
+      "ag": 1
+    }
+  ]
+}

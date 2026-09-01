@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>斯旺西 vs 沃特福德 — 英冠预测</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+
+.stadium{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#0d1117 0%,#1a2332 30%,#1a2332 100%);overflow:hidden}
+.pitch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:90%;max-width:900px;height:220px;background:linear-gradient(180deg,#2d7a3a,#1e5c2a);border-radius:4px 4px 0 0;border:2px solid rgba(255,255,255,0.3)}
+.pitch::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,0.3)}
+.pitch::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:2px solid rgba(255,255,255,0.3);border-radius:50%}
+.penalty-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:44%;height:60px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.penalty-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.goal-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18%;height:24px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.goal-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.lights{position:absolute;top:20px;left:10%;right:10%;display:flex;justify-content:space-between}
+.light{width:6px;height:6px;background:#ffd700;border-radius:50%;box-shadow:0 0 12px 4px rgba(255,215,0,0.4)}
+.stands{position:absolute;bottom:220px;left:0;right:0;height:60px;background:linear-gradient(180deg,#1a1a2e,#16213e)}
+
+.scoreboard{position:absolute;top:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);border:1px solid #2a5298;border-radius:12px;padding:20px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.1);min-width:520px;text-align:center}
+.scoreboard .league-tag{font-size:11px;color:#64b5f6;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.scoreboard .match-tag{font-size:10px;color:#ff9800;background:rgba(255,152,0,0.15);display:inline-block;padding:2px 10px;border-radius:10px;margin-bottom:12px}
+.scoreboard .teams{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:10px}
+.scoreboard .team-name{font-size:20px;font-weight:700;color:#fff;min-width:120px}
+.scoreboard .team-name.home{text-align:right}
+.scoreboard .team-name.away{text-align:left}
+.scoreboard .score{font-size:42px;font-weight:900;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.5)}
+.scoreboard .score-label{font-size:10px;color:#aaa;margin-top:4px}
+.scoreboard .probs{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.scoreboard .prob-item{text-align:center}
+.scoreboard .prob-val{font-size:18px;font-weight:700}
+.scoreboard .prob-label{font-size:10px;color:#888;margin-top:2px}
+.prob-home{color:#4caf50}.prob-draw{color:#ff9800}.prob-away{color:#f44336}
+
+.container{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:28px;text-align:center;margin:30px 0 6px;background:linear-gradient(90deg,#e0e0e0,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#888;font-size:13px;margin-bottom:30px}
+
+.card{background:#141926;border:1px solid #1e2a3a;border-radius:12px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:#64b5f6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2::before{content:'';width:4px;height:18px;background:#2196f3;border-radius:2px}
+
+.prob-bar-wrap{margin:8px 0}
+.prob-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.prob-bar{height:28px;background:#1a2332;border-radius:6px;overflow:hidden;display:flex}
+.prob-bar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.seg-home{background:linear-gradient(90deg,#2e7d32,#4caf50)}.seg-draw{background:linear-gradient(90deg,#e65100,#ff9800)}.seg-away{background:linear-gradient(90deg,#b71c1c,#f44336)}
+
+.scores-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.score-card{background:#1a2332;border:1px solid #253347;border-radius:8px;padding:12px 8px;text-align:center}
+.score-card .sc{font-size:22px;font-weight:800;color:#ffd700}
+.score-card .sp{font-size:12px;color:#aaa;margin-top:4px}
+.score-card.top{border-color:#2a5298;background:linear-gradient(135deg,#1a2332,#0f3460)}
+
+.xg-row{display:flex;align-items:center;justify-content:center;gap:30px;margin:16px 0}
+.xg-item{text-align:center}
+.xg-val{font-size:32px;font-weight:800;color:#4caf50}
+.xg-val.away{color:#f44336}
+.xg-label{font-size:12px;color:#888;margin-top:4px}
+.xg-vs{font-size:18px;color:#555}
+
+.intel-item{display:flex;gap:10px;margin:10px 0;font-size:14px;line-height:1.6}
+.intel-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px}
+.intel-icon.positive{background:#1b5e20;color:#4caf50}
+.intel-icon.neutral{background:#1a2332;color:#64b5f6}
+.intel-icon.negative{background:#4a1414;color:#f44336}
+.intel-icon.warning{background:#3e2723;color:#ff9800}
+
+.scenario{background:#1a2332;border-left:3px solid #2196f3;padding:14px 18px;border-radius:0 8px 8px 0;margin:10px 0}
+.scenario .sc-title{font-weight:700;color:#64b5f6;font-size:14px;margin-bottom:6px}
+.scenario .sc-desc{font-size:13px;color:#bbb;line-height:1.6}
+.scenario.green{border-left-color:#4caf50}.scenario.green .sc-title{color:#4caf50}
+.scenario.red{border-left-color:#f44336}.scenario.red .sc-title{color:#f44336}
+.scenario.orange{border-left-color:#ff9800}.scenario.orange .sc-title{color:#ff9800}
+
+.disclaimer{background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:20px;font-size:12px;color:#aaa;line-height:1.7}
+
+.factor-tag{display:inline-block;background:rgba(33,150,243,0.15);color:#64b5f6;padding:3px 10px;border-radius:12px;font-size:11px;margin:3px 2px}
+.factor-tag.positive{background:rgba(76,175,80,0.15);color:#4caf50}
+.factor-tag.negative{background:rgba(244,67,54,0.15);color:#f44336}
+.factor-tag.warning{background:rgba(255,152,0,0.15);color:#ff9800}
+
+.stat-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:12px 0}
+.stat-row{display:contents}
+.stat-cell{padding:8px 12px;font-size:14px;border-bottom:1px solid #0d1117}
+.stat-cell.left{text-align:right}
+.stat-cell.center{text-align:center;color:#555;font-size:12px}
+.stat-cell.right{text-align:left}
+.stat-cell .val{font-size:18px;font-weight:700}
+.stat-cell .val.bad{color:#f44336}
+.stat-cell .val.good{color:#4caf50}
+
+.banner{background:linear-gradient(135deg,#3e2723,#4a2c0a);border:1px solid #ff9800;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.7;color:#ffcc80}
+
+@media(max-width:640px){
+  .scoreboard{min-width:auto;padding:14px 18px}
+  .scoreboard .team-name{font-size:15px;min-width:80px}
+  .scoreboard .score{font-size:32px}
+  .scores-grid{grid-template-columns:repeat(3,1fr)}
+  .stadium{height:340px}
+  .pitch{height:160px}
+  .stands{bottom:160px;height:40px}
+  .scoreboard{top:50px}
+}
+</style>
+</head>
+<body>
+
+<div class="stadium">
+  <div class="stands"></div>
+  <div class="pitch">
+    <div class="penalty-area top"></div>
+    <div class="goal-area top"></div>
+    <div class="penalty-area"></div>
+    <div class="goal-area"></div>
+  </div>
+  <div class="lights"><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div></div>
+  <div class="scoreboard">
+    <div class="league-tag">EFL Championship · 英格兰足球冠军联赛</div>
+    <div class="match-tag">📅 2026-09-01 · 第4轮 · 不败之战 · 主预测比分</div>
+    <div class="teams">
+      <div class="team-name home">斯旺西<br><span style="font-size:11px;color:#888">Swansea City · 第3名</span></div>
+      <div class="score">2 - 1</div>
+      <div class="team-name away">沃特福德<br><span style="font-size:11px;color:#888">Watford · 第10名</span></div>
+    </div>
+    <div class="score-label">主预测比分 = 单一最高概率比分 (9.4%) · 两队开局均保持不败</div>
+    <div class="probs">
+      <div class="prob-item"><div class="prob-val prob-home">45.4%</div><div class="prob-label">斯旺西胜</div></div>
+      <div class="prob-item"><div class="prob-val prob-draw">30.4%</div><div class="prob-label">平局</div></div>
+      <div class="prob-item"><div class="prob-val prob-away">24.2%</div><div class="prob-label">沃特福德胜</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>斯旺西 vs 沃特福德</h1>
+  <div class="subtitle">英冠 2026-27 第4轮 · Swansea.com Stadium · 2026年9月1日(周二) 18:45 UTC · 不败之战：联赛最佳防线 vs 平局大师</div>
+
+  <!-- 校准横幅 -->
+  <div class="banner">
+    ⚠️ <strong>近均衡场次校准提示</strong>（Elo差仅30）：系统累计29场近均衡样本方向命中率仅41.4%，实际总进球平均比预测低0.6。
+    本场请谨慎对待大分差与大球预期，<strong>平局价值上调</strong>——2-1与1-1的概率差仅0.2pp，实质是"小胜/闷平"二选一。
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div style="text-align:center;margin:16px 0">
+      <div style="font-size:20px;font-weight:700;color:#4caf50">主预测：斯旺西 2-1 沃特福德 (9.4%)</div>
+      <div style="font-size:14px;color:#aaa;margin-top:8px">主队"有优势不托大"：45.4%胜率 + 30.4%平局 = 不败概率75.8%</div>
+    </div>
+    <div class="xg-row">
+      <div class="xg-item"><div class="xg-val">2.08</div><div class="xg-label">斯旺西预期进球</div></div>
+      <div class="xg-vs">vs</div>
+      <div class="xg-item"><div class="xg-val away">1.28</div><div class="xg-label">沃特福德预期进球</div></div>
+    </div>
+    <div style="text-align:center;font-size:12px;color:#888">模型xG总和3.36 · 近均衡校准后实际期望≈2.75 · 大小球分界线附近</div>
+    <div style="text-align:center;margin-top:12px">
+      <span class="factor-tag positive">SWA联赛最佳防线(3轮1失球)</span>
+      <span class="factor-tag positive">SWA主场稳定</span>
+      <span class="factor-tag positive">双方均不败</span>
+      <span class="factor-tag warning">WAT平局惯性(3轮2平)</span>
+      <span class="factor-tag warning">近均衡Elo差30</span>
+      <span class="factor-tag negative">WAT客场未经强队检验</span>
+    </div>
+  </div>
+
+  <!-- 赛事情报 -->
+  <div class="card">
+    <h2>赛事情报</h2>
+
+    <div class="intel-item">
+      <div class="intel-icon positive">✓</div>
+      <div><strong style="color:#4caf50">斯旺西开局2胜1平不败：</strong>高居英冠第3，最亮眼的是防守——3轮仅失1球，英冠最佳级别防线。传控体系成型，胜-平-胜的节奏稳步向上，主场Swansea.com Stadium稳定输出。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon neutral">ℹ</div>
+      <div><strong>斯旺西进攻未满格：</strong>场均1.67球在英冠只能算中上，攻坚爆发力一般。面对沃特福德的稳守反击，需要库伦的支点作用和边路渗透来打开局面。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon positive">✓</div>
+      <div><strong style="color:#fbbf24">沃特福德不败但平局偏多：</strong>1胜2平保持不败，韧性十足但制胜力不足（3轮2平）。巴约领衔的反击有威胁，查克维塔泽是创造力源泉，防守组织尚可。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon warning">⚠</div>
+      <div><strong>客场考验：</strong>黄蜂的客场稳定性尚未经过强队检验——前3轮未遇第3名级别的对手。客场对阵状态火热的联赛最佳防线，是本赛季首次真正的大考。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon neutral">ℹ</div>
+      <div><strong>历史交锋：</strong>近年英冠多次交手互有胜负，比分普遍偏低，小比分传统延续至今。本场大概率延续低进球基调。</div>
+    </div>
+  </div>
+
+  <!-- 概率分布 -->
+  <div class="card">
+    <h2>概率分布</h2>
+    <div class="prob-bar-wrap">
+      <div class="prob-bar-label">
+        <span style="color:#4caf50">斯旺西胜 45.4%</span>
+        <span style="color:#ff9800">平局 30.4%</span>
+        <span style="color:#f44336">沃特福德胜 24.2%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="seg seg-home" style="width:45.4%">45.4</div>
+        <div class="seg seg-draw" style="width:30.4%">30.4</div>
+        <div class="seg seg-away" style="width:24.2%">24.2</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:12px;color:#ff9800;text-align:center">
+      ⚠️ 近均衡局：主胜概率仅45.4%（不足半数信心）· 平局30.4%价值显著高于常规场次
+    </div>
+
+    <h2 style="margin-top:20px">比分分布 Top5</h2>
+    <div class="scores-grid">
+      <div class="score-card top">
+        <div class="sc">2-1</div>
+        <div class="sp">9.4%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">1-1</div>
+        <div class="sp">9.2%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">2-0</div>
+        <div class="sp">7.5%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">1-0</div>
+        <div class="sp">7.2%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">3-1</div>
+        <div class="sp">6.6%</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#888">
+      前5比分合计概率：39.9% · 主胜比分合计：30.7% · 平局比分合计：约12% · 分布平坦=近均衡局特征
+    </div>
+  </div>
+
+  <!-- 场景演绎 -->
+  <div class="card">
+    <h2>场景演绎</h2>
+
+    <div class="scenario green">
+      <div class="sc-title">🟢 最可能场景：斯旺西小胜 (45.4%)</div>
+      <div class="sc-desc">
+        联赛最佳防线守住底限，主场耐心渗透。格里姆斯掌控节奏，库伦支点作用兑现，一次定位球或边路配合打破僵局。沃特福德的平局惯性被主场气势打破，但过程不会轻松。<br>
+        <strong>最可能比分：2-1 (9.4%)</strong> · 备选：1-0 (7.2%) / 2-0 (7.5%)
+      </div>
+    </div>
+
+    <div class="scenario orange">
+      <div class="sc-title">🤝 闷平收场 (30.4%)</div>
+      <div class="sc-desc">
+        双方均保持不败且打法谨慎——斯旺西不强攻，沃特福德稳守反击。客队复刻平局惯性，主队攻坚乏力。1-1与2-1概率差仅0.2pp，这是本场最微妙的对赌。<br>
+        <strong>最可能比分：1-1 (9.2%)</strong> · 备选：0-0 (约3%)
+      </div>
+    </div>
+
+    <div class="scenario red">
+      <div class="sc-title">🔴 客队偷分 (24.2%)</div>
+      <div class="sc-desc">
+        巴约反击效率制胜——查克维塔泽直塞打穿斯旺西压上后的空当，黄蜂客场偷走胜利或再次逼平延续不败。需要客队把握住为数不多的反击机会。<br>
+        <strong>最可能比分：1-2 (约5.5%) / 2-2 (约4.5%)</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 战术对比 -->
+  <div class="card">
+    <h2>战术对比</h2>
+    <div class="stat-grid">
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val">4-2-3-1</div></div>
+        <div class="stat-cell center">阵型</div>
+        <div class="stat-cell right"><div class="val">4-2-3-1</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">控球主导</div>
+        <div class="stat-cell center">风格</div>
+        <div class="stat-cell right">稳守反击</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val good">3轮仅失1球</div></div>
+        <div class="stat-cell center">防线</div>
+        <div class="stat-cell right"><div class="val">3轮失3球</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val good">2胜1平不败</div></div>
+        <div class="stat-cell center">近况</div>
+        <div class="stat-cell right"><div class="val good">1胜2平不败</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val bad">攻坚爆发力一般</div></div>
+        <div class="stat-cell center">隐忧</div>
+        <div class="stat-cell right"><div class="val bad">制胜力不足(2平局)</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">库伦(支点) / 格里姆斯(节拍器)</div>
+        <div class="stat-cell center">关键人</div>
+        <div class="stat-cell right">巴约(反击) / 查克维塔泽(创造力)</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val">Elo 1470</div></div>
+        <div class="stat-cell center">Elo评级</div>
+        <div class="stat-cell right"><div class="val">Elo 1440</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模型解读 -->
+  <div class="card">
+    <h2>模型解读</h2>
+    <div style="font-size:14px;line-height:1.8;color:#bbb">
+      <p><strong>Elo差距：</strong>30点（SWA 1470 vs WAT 1440），典型近均衡对话——历史样本显示此类场次方向命中率仅41.4%，是系统最弱的区间。</p>
+      <p style="margin-top:8px"><strong>状态对冲：</strong>两队均"状态火热"标签——SWA +0.08（2胜1平+最佳防线）与WAT +0.03（不败韧性）部分相互抵消，主队净优势约0.05 xG。</p>
+      <p style="margin-top:8px"><strong>核心矛盾：</strong>联赛最佳防线（SWA，3轮1失球）vs 平局大师（WAT，3轮2平）。主队防守端的稳定性让客队爆冷空间极小（24.2%），但主队攻坚乏力也让小胜与闷平难以区分。</p>
+      <p style="margin-top:8px"><strong>进球校准：</strong>模型xG总和3.36偏高，但近均衡场次实际进球平均比预测低0.6——校准后期望约2.75，大小球分界线附近，小比分传统（双方交锋历史）支持低进球剧本。</p>
+      <p style="margin-top:8px"><strong>综合：</strong>主预测2-1（9.4%），但1-1（9.2%）实质并列——本场本质是<strong>"主队小胜 vs 闷平"的二选一</strong>，方向上主队不败（75.8%）比主队取胜（45.4%）更可靠。</p>
+    </div>
+  </div>
+
+  <!-- 预测摘要 -->
+  <div class="disclaimer">
+    <strong>📋 预测摘要</strong><br>
+    · 联赛：英冠 EFL Championship 2026-27 第4轮<br>
+    · 对阵：斯旺西(主) vs 沃特福德(客) · Swansea.com Stadium<br>
+    · 时间：2026-09-01(周二) 18:45 UTC · 北京时间09-02 02:45<br>
+    · 方向：<strong>斯旺西占优</strong> (45.4%) — ⚠️ 近均衡场次，平局价值上调<br>
+    · 主预测比分：2-1 (9.4%) · 并列风险比分：1-1 (9.2%)<br>
+    · 模型 xG：斯旺西 2.08 - 1.28 沃特福德 · 校准后总进球≈2.75<br>
+    · 斯旺西3轮仅失1球（英冠最佳防线）vs 沃特福德3轮2平（平局惯性）<br>
+    · 两队均保持不败，本场不败之战的"谨慎双向"特征明显<br>
+    · 无盘口数据，纯模型预测<br>
+    · 已记录到台账: data/reviews/predictions.json
+  </div>
+
+</div>
+</body>
+</html>

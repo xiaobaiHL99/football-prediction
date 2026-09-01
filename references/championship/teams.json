@@ -1,0 +1,220 @@
+{
+  "teams": {
+    "WHU": {
+      "name": "West Ham United",
+      "name_cn": "西汉姆联",
+      "elo": 1545,
+      "city": "London",
+      "stadium": "London Stadium",
+      "color": "claret",
+      "notes": "2025-26赛季从英超降级，阵容纸面实力英冠顶级，开局慢热(0胜2平1负)"
+    },
+    "WOL": {
+      "name": "Wolverhampton Wanderers",
+      "name_cn": "狼队",
+      "elo": 1535,
+      "city": "Wolverhampton",
+      "stadium": "Molineux Stadium",
+      "color": "gold",
+      "notes": "英超降班马，开局3轮不败(2胜1平)轰9球，状态火热"
+    },
+    "SOU": {
+      "name": "Southampton",
+      "name_cn": "南安普顿",
+      "elo": 1520,
+      "city": "Southampton",
+      "stadium": "St Mary's Stadium",
+      "color": "red",
+      "notes": "英超降班马，攻击力强(3轮9球)，圣徒冲超传统强队"
+    },
+    "MID": {
+      "name": "Middlesbrough",
+      "name_cn": "米德尔斯堡",
+      "elo": 1505,
+      "city": "Middlesbrough",
+      "stadium": "Riverside Stadium",
+      "color": "red",
+      "notes": "英冠上游常客，阵容稳定冲超热门"
+    },
+    "SHU": {
+      "name": "Sheffield United",
+      "name_cn": "谢菲尔德联",
+      "elo": 1495,
+      "city": "Sheffield",
+      "stadium": "Bramall Lane",
+      "color": "red",
+      "notes": "附加赛常客级别的阵容，开局3连平不败"
+    },
+    "CHA": {
+      "name": "Charlton Athletic",
+      "name_cn": "查尔顿竞技",
+      "elo": 1490,
+      "city": "London",
+      "stadium": "The Valley",
+      "color": "red",
+      "notes": "本赛季领头羊，开局3连胜(5进2失)，山谷球场气势正盛"
+    },
+    "NOR": {
+      "name": "Norwich City",
+      "name_cn": "诺维奇",
+      "elo": 1480,
+      "city": "Norwich",
+      "stadium": "Carrow Road",
+      "color": "yellow",
+      "notes": "金丝雀传统上游阵容，开局慢热(1胜2负)但攻击力在线"
+    },
+    "WBA": {
+      "name": "West Bromwich Albion",
+      "name_cn": "西布罗姆维奇",
+      "elo": 1475,
+      "city": "West Bromwich",
+      "stadium": "The Hawthorns",
+      "color": "blue",
+      "notes": "灯笼裤稳居上半区，冲附加赛竞争者"
+    },
+    "SWA": {
+      "name": "Swansea City",
+      "name_cn": "斯旺西",
+      "elo": 1470,
+      "city": "Swansea",
+      "stadium": "Swansea.com Stadium",
+      "color": "white",
+      "notes": "开局2胜1平不败，防守出色(3轮仅失1球)"
+    },
+    "MIL": {
+      "name": "Millwall",
+      "name_cn": "米尔沃尔",
+      "elo": 1460,
+      "city": "London",
+      "stadium": "The Den",
+      "color": "blue",
+      "notes": "狮子硬朗作风，主场The Den素来难啃"
+    },
+    "QPR": {
+      "name": "Queens Park Rangers",
+      "name_cn": "女王公园巡游者",
+      "elo": 1455,
+      "city": "London",
+      "stadium": "Loftus Road",
+      "color": "blue",
+      "notes": "开局2胜1平不败，小球场Loftus Road主场氛围热烈"
+    },
+    "BIR": {
+      "name": "Birmingham City",
+      "name_cn": "伯明翰",
+      "elo": 1450,
+      "city": "Birmingham",
+      "stadium": "St Andrew's",
+      "color": "blue",
+      "notes": "开局不败(1胜2平)，投入重金的蓝军稳居上半区"
+    },
+    "WAT": {
+      "name": "Watford",
+      "name_cn": "沃特福德",
+      "elo": 1440,
+      "city": "Watford",
+      "stadium": "Vicarage Road",
+      "color": "yellow",
+      "notes": "黄蜂开局不败，实力中游偏上"
+    },
+    "BRC": {
+      "name": "Bristol City",
+      "name_cn": "布里斯托尔城",
+      "elo": 1435,
+      "city": "Bristol",
+      "stadium": "Ashton Gate",
+      "color": "red",
+      "notes": "知更鸟中游球队，攻守平衡略偏攻"
+    },
+    "BLB": {
+      "name": "Blackburn Rovers",
+      "name_cn": "布莱克本",
+      "elo": 1425,
+      "city": "Blackburn",
+      "stadium": "Ewood Park",
+      "color": "blue",
+      "notes": "流浪者中游，攻守开合型"
+    },
+    "BOL": {
+      "name": "Bolton Wanderers",
+      "name_cn": "博尔顿",
+      "elo": 1420,
+      "city": "Bolton",
+      "stadium": "Toughsheet Community Stadium",
+      "color": "white",
+      "notes": "升班马立足英冠，开局1胜1平1负及格"
+    },
+    "STK": {
+      "name": "Stoke City",
+      "name_cn": "斯托克城",
+      "elo": 1415,
+      "city": "Stoke-on-Trent",
+      "stadium": "bet365 Stadium",
+      "color": "red",
+      "notes": "陶工阵容不差但开局3连败0分，状态与实力背离"
+    },
+    "POR": {
+      "name": "Portsmouth",
+      "name_cn": "朴茨茅斯",
+      "elo": 1410,
+      "city": "Portsmouth",
+      "stadium": "Fratton Park",
+      "color": "blue",
+      "notes": "庞贝军团中下游客场作战能力一般"
+    },
+    "CDI": {
+      "name": "Cardiff City",
+      "name_cn": "卡迪夫城",
+      "elo": 1405,
+      "city": "Cardiff",
+      "stadium": "Cardiff City Stadium",
+      "color": "blue",
+      "notes": "蓝鸟开局3连平，平局大师属性"
+    },
+    "DER": {
+      "name": "Derby County",
+      "name_cn": "德比郡",
+      "elo": 1400,
+      "city": "Derby",
+      "stadium": "Pride Park",
+      "color": "white",
+      "notes": "公羊开局不顺(1分)，防线失7球需调整"
+    },
+    "PRE": {
+      "name": "Preston North End",
+      "name_cn": "普雷斯顿",
+      "elo": 1395,
+      "city": "Preston",
+      "stadium": "Deepdale",
+      "color": "white",
+      "notes": "北端开局3连败0分，深谷球场急需止颓"
+    },
+    "WRE": {
+      "name": "Wrexham",
+      "name_cn": "雷克斯汉姆",
+      "elo": 1390,
+      "city": "Wrexham",
+      "stadium": "Racecourse Ground",
+      "color": "red",
+      "notes": "好莱坞球队三连升后英冠立足期，开局2平1负"
+    },
+    "LIN": {
+      "name": "Lincoln City",
+      "name_cn": "林肯城",
+      "elo": 1365,
+      "city": "Lincoln",
+      "stadium": "Sincil Bank",
+      "color": "red",
+      "notes": "从英甲升级的 新军，阵容英冠下游"
+    },
+    "BUR": {
+      "name": "Burnley",
+      "name_cn": "伯恩利",
+      "elo": 1490,
+      "city": "Burnley",
+      "stadium": "Turf Moor",
+      "color": "claret",
+      "notes": "英超降班马但开局灾难(3轮1分失9球)，特富摩尔信心受挫"
+    }
+  }
+}

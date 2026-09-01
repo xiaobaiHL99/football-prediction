@@ -1,0 +1,32 @@
+{
+  "special_factors": {
+    "summer_heat_penalty": {
+      "description": "7-8月韩国高温高湿，比赛节奏下降，射门精度降低",
+      "value": -0.04,
+      "apply_when": "month in ['July', 'August']"
+    },
+    "european_qualification_distraction": {
+      "description": "亚冠联赛双线作战消耗",
+      "value": -0.08,
+      "apply_when": "team_in_acl and match_within_3_days_of_acl_match"
+    },
+    "military_team": {
+      "description": "金泉尚武军旅球队，球员因兵役制度频繁轮换，阵容稳定性差",
+      "value": -0.05,
+      "apply_when": "team == 'GIM'"
+    }
+  },
+  "europe_teams": ["ULS", "JEO", "POH"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["ULS", "JEO", "POH", "SEO", "GWN", "ANY", "GWJ", "DJN", "JEU", "ICU", "BUC", "GIM"]
+  },
+  "region_map": {
+    "northwest": ["SEO", "ANY", "ICU", "BUC"],
+    "southeast": ["ULS", "POH"],
+    "southwest": ["JEO", "GWJ"],
+    "central": ["DJN", "GIM"],
+    "east": ["GWN"],
+    "south": ["JEU"]
+  }
+}

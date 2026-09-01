@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水户蜀葵 vs 町田泽维亚 — 日职第4轮预测</title>
+<style>
+:root {
+  --bg: #0a0f1a;
+  --card: #111827;
+  --border: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #3b82f6;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+  --orange: #f97316;
+  --home: #3b82f6;
+  --away: #ef4444;
+  --draw: #a855f7;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 16px; }
+
+/* === PITCH VISUAL === */
+.pitch-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.pitch {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56%;
+  background: linear-gradient(180deg, #1a7a3a 0%, #15803d 25%, #1a7a3a 50%, #15803d 75%, #1a7a3a 100%);
+  overflow: hidden;
+}
+.pitch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.03) 49px, rgba(255,255,255,0.03) 50px);
+}
+.pitch-lines {
+  position: absolute;
+  inset: 8%;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 2px;
+}
+.pitch-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  height: 40%;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch-center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch-center-line {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 2px;
+  height: 84%;
+  background: rgba(255,255,255,0.5);
+  transform: translateX(-50%);
+}
+.pitch-box-l, .pitch-box-r {
+  position: absolute;
+  top: 25%;
+  width: 15%;
+  height: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.pitch-box-l { left: 8%; border-left: none; }
+.pitch-box-r { right: 8%; border-right: none; }
+.pitch-goal-l, .pitch-goal-r {
+  position: absolute;
+  top: 38%;
+  width: 6%;
+  height: 24%;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.pitch-goal-l { left: 8%; border-left: none; }
+.pitch-goal-r { right: 8%; border-right: none; }
+
+/* Stadium lights */
+.pitch-lights {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  background: radial-gradient(ellipse at 20% 0%, rgba(255,255,200,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 0%, rgba(255,255,200,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+/* Crowd stands */
+.stands {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 12%;
+  background: linear-gradient(0deg, #1a1a2e 0%, #16213e 60%, transparent 100%);
+}
+.stands-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10%;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 60%, transparent 100%);
+}
+
+/* === SCOREBOARD === */
+.scoreboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 20px 32px;
+  min-width: 420px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.scoreboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.scoreboard-header .tag {
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.scoreboard-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.team-name {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  min-width: 100px;
+}
+.team-name.home { color: var(--home); }
+.team-name.away { color: var(--away); }
+.score-main {
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(59,130,246,0.5);
+  letter-spacing: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.scoreboard-meta {
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+.scoreboard-meta .prob-line {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.prob-pill {
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.prob-pill.home { background: rgba(59,130,246,0.2); color: var(--home); }
+.prob-pill.draw { background: rgba(168,85,247,0.2); color: var(--draw); }
+.prob-pill.away { background: rgba(239,68,68,0.2); color: var(--away); }
+
+/* === SECTION LAYOUT === */
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .icon { font-size: 22px; }
+
+/* === PROBABILITY BARS === */
+.prob-bars { margin: 16px 0; }
+.prob-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+.prob-label {
+  width: 80px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+.prob-bar-track {
+  flex: 1;
+  height: 28px;
+  background: #1e293b;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.prob-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  transition: width 1s ease;
+}
+.prob-bar-fill.home { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+.prob-bar-fill.draw { background: linear-gradient(90deg, #7c3aed, #a855f7); }
+.prob-bar-fill.away { background: linear-gradient(90deg, #dc2626, #ef4444); }
+.prob-pct { width: 50px; font-size: 14px; font-weight: 700; }
+
+/* === SCORE CARDS === */
+.score-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.score-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  position: relative;
+}
+.score-card.top {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(59,130,246,0.2);
+}
+.score-card .sc-score {
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+}
+.score-card .sc-prob {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.score-card .sc-tag {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* === XG COMPARISON === */
+.xg-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 16px 0;
+}
+.xg-team {
+  text-align: center;
+}
+.xg-val {
+  font-size: 36px;
+  font-weight: 900;
+}
+.xg-val.home { color: var(--home); }
+.xg-val.away { color: var(--away); }
+.xg-name { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.xg-vs {
+  font-size: 18px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* === FACTORS === */
+.factor-list { list-style: none; }
+.factor-list li {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: #1e293b;
+  border-radius: 6px;
+  font-size: 13px;
+  border-left: 3px solid var(--accent);
+}
+.factor-list li .fl-icon { margin-right: 6px; }
+
+/* === TACTICAL === */
+.tactical-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 16px 0;
+}
+.tac-side {
+  text-align: center;
+  padding: 16px;
+  background: #1e293b;
+  border-radius: 8px;
+}
+.tac-style {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.tac-desc {
+  font-size: 12px;
+  color: var(--muted);
+}
+.tac-vs {
+  font-size: 20px;
+  color: var(--yellow);
+  font-weight: 900;
+}
+
+/* === SCENARIO === */
+.scenario {
+  padding: 16px;
+  background: #1e293b;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid;
+}
+.scenario.s1 { border-color: var(--green); }
+.scenario.s2 { border-color: var(--yellow); }
+.scenario.s3 { border-color: var(--red); }
+.scenario .sc-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.scenario .sc-body {
+  font-size: 13px;
+  color: var(--muted);
+}
+.scenario .sc-prob {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* === FORM TABLE === */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+.form-team {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 16px;
+}
+.form-team .ft-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.form-team .ft-name.home { color: var(--home); }
+.form-team .ft-name.away { color: var(--away); }
+.form-badge {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 3px;
+  color: #fff;
+}
+.form-badge.w { background: var(--green); }
+.form-badge.d { background: var(--yellow); color: #000; }
+.form-badge.l { background: var(--red); }
+.ft-stat {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* === INJURY TABLE === */
+.injury-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+.injury-table th {
+  text-align: left;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.injury-table td {
+  padding: 8px;
+  font-size: 13px;
+  border-bottom: 1px solid #1e293b;
+}
+.injury-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.injury-status.out { background: rgba(239,68,68,0.2); color: var(--red); }
+.injury-status.doubt { background: rgba(234,179,8,0.2); color: var(--yellow); }
+
+/* === SPIRIT === */
+.spirit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.spirit-card {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.spirit-level {
+  font-size: 18px;
+  font-weight: 900;
+}
+.spirit-level.high { color: var(--orange); }
+.spirit-level.desperate { color: var(--red); }
+.spirit-level.normal { color: var(--muted); }
+.spirit-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.spirit-xg {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  margin-top: 4px;
+}
+
+/* === DISCLAIMER === */
+.disclaimer {
+  background: rgba(234,179,8,0.1);
+  border: 1px solid rgba(234,179,8,0.3);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 12px;
+  color: var(--yellow);
+  margin-top: 16px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .scoreboard { min-width: 300px; padding: 16px 20px; }
+  .score-main { font-size: 36px; }
+  .team-name { font-size: 13px; min-width: 70px; }
+  .tactical-grid { grid-template-columns: 1fr; }
+  .tac-vs { display: block; text-align: center; }
+  .form-grid { grid-template-columns: 1fr; }
+  .spirit-grid { grid-template-columns: 1fr; }
+  .xg-compare { gap: 12px; }
+  .xg-val { font-size: 28px; }
+  .score-cards { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ==================== PITCH + SCOREBOARD ==================== -->
+<div class="pitch-wrap">
+  <div class="pitch">
+    <div class="stands-top"></div>
+    <div class="stands"></div>
+    <div class="pitch-lights"></div>
+    <div class="pitch-lines">
+      <div class="pitch-center"></div>
+      <div class="pitch-center-dot"></div>
+      <div class="pitch-center-line"></div>
+      <div class="pitch-box-l"></div>
+      <div class="pitch-box-r"></div>
+      <div class="pitch-goal-l"></div>
+      <div class="pitch-goal-r"></div>
+    </div>
+
+    <!-- SCOREBOARD -->
+    <div class="scoreboard">
+      <div class="scoreboard-header">
+        <span>J1联赛 第4轮</span>
+        <span class="tag">预测比分</span>
+        <span>2026-08-29 17:00</span>
+      </div>
+      <div class="scoreboard-teams">
+        <div class="team-name home">水户蜀葵</div>
+        <div class="score-main">1 - 0</div>
+        <div class="team-name away">町田泽维</div>
+      </div>
+      <div class="scoreboard-meta">
+        概率最高赛果方向：水户蜀葵胜 · 主预测比分 1-0 (8.5%)
+        <div class="prob-line">
+          <span class="prob-pill home">主胜 39.1%</span>
+          <span class="prob-pill draw">平局 24.9%</span>
+          <span class="prob-pill away">客胜 36.0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CORE CONCLUSION ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">📊</span>核心结论</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+    <div style="background:#1e293b;border-radius:8px;padding:16px;text-align:center;">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">主预测赛果</div>
+      <div style="font-size:20px;font-weight:900;color:var(--green);">水户蜀葵胜</div>
+    </div>
+    <div style="background:#1e293b;border-radius:8px;padding:16px;text-align:center;">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">主预测比分</div>
+      <div style="font-size:20px;font-weight:900;color:#fff;">1-0 (8.5%)</div>
+    </div>
+  </div>
+
+  <div class="xg-compare">
+    <div class="xg-team">
+      <div class="xg-val home">1.47</div>
+      <div class="xg-name">水户蜀葵 xG</div>
+    </div>
+    <div class="xg-vs">vs</div>
+    <div class="xg-team">
+      <div class="xg-val away">1.38</div>
+      <div class="xg-name">町田泽维 xG</div>
+    </div>
+  </div>
+
+  <div class="prob-bars">
+    <div class="prob-row">
+      <div class="prob-label" style="color:var(--home)">主胜</div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill home" style="width:39.1%">39.1%</div>
+      </div>
+    </div>
+    <div class="prob-row">
+      <div class="prob-label" style="color:var(--draw)">平局</div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill draw" style="width:24.9%">24.9%</div>
+      </div>
+    </div>
+    <div class="prob-row">
+      <div class="prob-label" style="color:var(--away)">客胜</div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill away" style="width:36.0%">36.0%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PREDICTION REASONING ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔍</span>预测原因</div>
+  <ul class="factor-list">
+    <li><span class="fl-icon">⚡</span><strong>Elo微弱优势：</strong>町田(1540)比水户(1470)高70 Elo，但模型综合修正后水户xG略高(1.47 vs 1.38)——主场优势+战术克制+伤病修正后实力差距缩小</li>
+    <li><span class="fl-icon">🔄</span><strong>战术克制：</strong>水户收缩防反天然克制町田高位逼抢；町田逼抢一旦失效，后防空当可被水户反击利用(+0.25xG)</li>
+    <li><span class="fl-icon">🏟️</span><strong>主场加成：</strong>日职home_adv=0.31，水户作为升班马主场拿分意愿强烈</li>
+    <li><span class="fl-icon">📉</span><strong>町田亚冠消耗：</strong>MAC列入亚冠双线球队，额外-0.04xG体能惩罚</li>
+    <li><span class="fl-icon">☀️</span><strong>高温惩罚：</strong>8月底日本高温高湿，双方各-0.04xG，比赛节奏下降</li>
+    <li><span class="fl-icon">🤕</span><strong>水户伤病：</strong>门将危机+停赛=-21Elo，但模型自动触发"伤病保守"机制压低对手xG</li>
+    <li><span class="fl-icon">🎲</span><strong>随机性：</strong>弱弱对话方差放大，单场不确定性高，冷门空间充足</li>
+  </ul>
+</div>
+
+<!-- ==================== TOP 5 SCORES ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">⚽</span>比分分布 Top 5</div>
+  <div class="score-cards">
+    <div class="score-card top">
+      <div class="sc-tag">最高概率</div>
+      <div class="sc-score">1-1</div>
+      <div class="sc-prob">11.5%</div>
+    </div>
+    <div class="score-card">
+      <div class="sc-score">1-0</div>
+      <div class="sc-prob">8.5%</div>
+    </div>
+    <div class="score-card">
+      <div class="sc-score">2-1</div>
+      <div class="sc-prob">8.5%</div>
+    </div>
+    <div class="score-card">
+      <div class="sc-score">0-1</div>
+      <div class="sc-prob">8.0%</div>
+    </div>
+    <div class="score-card">
+      <div class="sc-score">1-2</div>
+      <div class="sc-prob">7.9%</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:8px;">* 单一最高概率比分为1-1(11.5%)，属平局方向；但综合胜平负概率，主队胜(39.1%)略高于客队(36.0%)，故主预测方向为水户蜀葵胜，主预测比分1-0。平局概率空间(24.9%)不可忽视，1-1为比分分布参考。</p>
+</div>
+
+<!-- ==================== TACTICAL MATCHUP ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">⚔️</span>战术对位</div>
+  <div class="tactical-grid">
+    <div class="tac-side">
+      <div class="tac-style">防守反击</div>
+      <div style="color:var(--home);font-weight:700;font-size:14px;">水户蜀葵</div>
+      <div class="tac-desc">不追求控球，擅长利用主场防守反击<br>门将危机迫使更深防守</div>
+    </div>
+    <div class="tac-vs">VS</div>
+    <div class="tac-side">
+      <div class="tac-style">高位逼抢</div>
+      <div style="color:var(--away);font-weight:700;font-size:14px;">町田泽维</div>
+      <div class="tac-desc">高位逼抢+整体压迫，攻击点众多<br>身体对抗强，定位球高效</div>
+    </div>
+  </div>
+  <div style="background:#1e293b;border-radius:8px;padding:12px;font-size:13px;margin-top:12px;">
+    <strong>克制关系：</strong>反击克制高位逼抢(+0.25xG) — 町田的高位逼抢一旦失效，后防空当可被水户反击利用。但水户门将危机意味着即便创造机会，防守端也可能丢球。町田身体对抗优势(physical_mismatch=-1)在定位球中尤为致命。
+  </div>
+</div>
+
+<!-- ==================== FIGHTING SPIRIT ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔥</span>战意因素</div>
+  <div class="spirit-grid">
+    <div class="spirit-card">
+      <div style="color:var(--home);font-weight:700;margin-bottom:6px;">水户蜀葵</div>
+      <div class="spirit-level high">高涨</div>
+      <div class="spirit-note">升班马主场力争拿分，上轮队史首胜士气高涨</div>
+      <div class="spirit-xg">+0.15 xG</div>
+    </div>
+    <div class="spirit-card">
+      <div style="color:var(--away);font-weight:700;margin-bottom:6px;">町田泽维</div>
+      <div class="spirit-level high">高涨</div>
+      <div class="spirit-note">争冠热门三连胜火力全开，客场强势，延吉融入迅速</div>
+      <div class="spirit-xg">+0.15 xG</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);">双方战意对等，均为"高涨"级别。水户天皇杯惨败后急需联赛反弹，町田三连胜士气如虹。战意因子互相抵消，不产生方向性修正。</p>
+</div>
+
+<!-- ==================== FORM ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">📈</span>近期状态</div>
+  <div class="form-grid">
+    <div class="form-team">
+      <div class="ft-name home">水户蜀葵</div>
+      <span class="form-badge l">负</span>
+      <span class="form-badge w">胜</span>
+      <span class="form-badge d">平</span>
+      <div class="ft-stat">J1前三轮：1W 1D 1L · 4分 · 暂列第7</div>
+      <div class="ft-stat">天皇杯：0-2负京都产业大学(业余队)</div>
+      <div class="ft-stat" style="color:var(--red);">近6主场：0W 1D 5L · 进3丢12</div>
+    </div>
+    <div class="form-team">
+      <div class="ft-name away">町田泽维</div>
+      <span class="form-badge w">胜</span>
+      <span class="form-badge w">胜</span>
+      <span class="form-badge w">胜</span>
+      <div class="ft-stat">J1前三轮：3W 0D 0L · 进12失2 · 榜首</div>
+      <div class="ft-stat">天皇杯：3-0胜岩手盛冈仙鹤</div>
+      <div class="ft-stat" style="color:var(--green);">近6客场：3W 3D 0L · 进15丢5</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== INJURIES ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏥</span>伤停与阵容</div>
+  <table class="injury-table">
+    <tr>
+      <th>球队</th>
+      <th>球员</th>
+      <th>位置</th>
+      <th>状态</th>
+      <th>影响</th>
+    </tr>
+    <tr>
+      <td style="color:var(--home);">水户</td>
+      <td>上山海翔</td>
+      <td>门将</td>
+      <td><span class="injury-status out">伤缺</span></td>
+      <td>手指伤，门将危机核心</td>
+    </tr>
+    <tr>
+      <td style="color:var(--home);">水户</td>
+      <td>早川(乌瓦布赖特)</td>
+      <td>门将</td>
+      <td><span class="injury-status out">伤缺</span></td>
+      <td>膝盖伤，双门将缺阵</td>
+    </tr>
+    <tr>
+      <td style="color:var(--home);">水户</td>
+      <td>大崎航诗</td>
+      <td>中场</td>
+      <td><span class="injury-status out">停赛</span></td>
+      <td>中场轮转受限</td>
+    </tr>
+    <tr>
+      <td style="color:var(--home);">水户</td>
+      <td>岩崎博</td>
+      <td>后卫</td>
+      <td><span class="injury-status out">停赛</span></td>
+      <td>防线被迫轮换</td>
+    </tr>
+    <tr>
+      <td style="color:var(--away);">町田</td>
+      <td>小川航基</td>
+      <td>前锋</td>
+      <td><span class="injury-status out">伤缺</span></td>
+      <td>头部受伤，锋线厚度减弱</td>
+    </tr>
+    <tr>
+      <td style="color:var(--away);">町田</td>
+      <td>中村帆高</td>
+      <td>中卫</td>
+      <td><span class="injury-status doubt">存疑</span></td>
+      <td>近期有伤情传闻</td>
+    </tr>
+  </table>
+  <div style="background:#1e293b;border-radius:8px;padding:12px;font-size:13px;margin-top:12px;">
+    <strong>Elo修正：</strong>水户 -21 Elo（门将危机+停赛），町田 -6 Elo（1名首发缺阵）。水户伤病更严重，但模型自动触发"伤病保守"机制——残阵球队倾向收缩防守，压低对手xG。
+  </div>
+</div>
+
+<!-- ==================== H2H ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">📜</span>历史交锋</div>
+  <div style="background:#1e293b;border-radius:8px;padding:16px;">
+    <div style="font-size:14px;font-weight:700;margin-bottom:8px;">水户 = 町田"克星"？</div>
+    <ul style="list-style:none;font-size:13px;">
+      <li style="margin-bottom:6px;">🏟️ <strong>水户近3次主场对町田全平：</strong>2-2、1-1、0-0</li>
+      <li style="margin-bottom:6px;">🔄 <strong>本赛季两战全平2-2：</strong>町田两次靠点球才多拿一分</li>
+      <li style="margin-bottom:6px;">⚡ <strong>连续四场90分钟未分胜负：</strong>水户对町田有某种"克制"属性</li>
+      <li style="margin-bottom:6px;">📊 近10次交手：水户3W 4D 3L，不分上下</li>
+    </ul>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">历史交锋数据对模型有弱修正作用（≥3次交手触发熟悉度修正），但不改变概率方向。</p>
+  </div>
+</div>
+
+<!-- ==================== SCENARIOS ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🎬</span>场景推演</div>
+
+  <div class="scenario s1">
+    <div class="sc-title" style="color:var(--green);">🟢 场景一：水户主场偷袭得手（约40%概率空间）</div>
+    <div class="sc-body">
+      水户收缩防守成功抵挡町田前30分钟高压，利用反击和定位球率先破门。町田被迫压上进攻，后防空当再被利用。门将位置虽有隐患，但防守纪律和主场氛围弥补了人员缺失。历史交锋"克星"属性再次发挥作用。
+    </div>
+    <div class="sc-prob" style="color:var(--green);">比分区间：1-0 / 2-1 / 2-0 · 概率空间约25%</div>
+  </div>
+
+  <div class="scenario s2">
+    <div class="sc-title" style="color:var(--yellow);">🟡 场景二：胶着战平局收场（约25%概率空间）</div>
+    <div class="sc-body">
+      两队战意对等，水户防守反击vs町田高位逼抢形成均势。町田进攻端虽火力强大但后防有缺口，水户门将危机让防守端不稳。双方互有攻守但都难以扩大战果，比赛在1-1或0-0的胶着中收场——复刻历史交锋的平局传统。
+    </div>
+    <div class="sc-prob" style="color:var(--yellow);">比分区间：1-1 / 0-0 / 2-2 · 概率空间约25%</div>
+  </div>
+
+  <div class="scenario s3">
+    <div class="sc-title" style="color:var(--red);">🔴 场景三：町田碾压客场大胜（约36%概率空间）</div>
+    <div class="sc-body">
+      町田三连胜的争冠气势不可阻挡。新援延吉持续进球，攻击点众多让水户防线应接不暇。水户门将危机+两名停赛导致防线千疮百孔，高位逼抢直接压迫出致命失误。天皇杯惨败的阴影持续影响士气。
+    </div>
+    <div class="sc-prob" style="color:var(--red);">比分区间：0-1 / 0-2 / 1-3 · 概率空间约25%</div>
+  </div>
+</div>
+
+<!-- ==================== SPECIAL FACTORS ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🌡️</span>特殊因子</div>
+  <ul class="factor-list">
+    <li><span class="fl-icon">☀️</span><strong>夏季高温高湿：</strong>8月底日本高温，比赛节奏下降，体能消耗大 → 双方各-0.04 xG</li>
+    <li><span class="fl-icon">✈️</span><strong>町田亚冠双线：</strong>MAC列入亚冠球队，赛程紧凑体能消耗 → -0.04 xG</li>
+    <li><span class="fl-icon">🏟️</span><strong>弱弱对话方差放大：</strong>两队Elo均低于1550，比赛随机性更高</li>
+    <li><span class="fl-icon">🔄</span><strong>熟悉度修正：</strong>两队本赛季已交手2次（均平），触发交手熟悉度因子</li>
+  </ul>
+</div>
+
+<!-- ==================== SENSITIVITY ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🎯</span>结果敏感点</div>
+  <ul class="factor-list">
+    <li><span class="fl-icon">🥅</span><strong>早早进球：</strong>町田若前15分钟破门，水户被迫放弃收缩反击策略，比赛可能走向大比分客胜</li>
+    <li><span class="fl-icon">🧤</span><strong>门将表现：</strong>水户第三门将若表现稳健，可极大提升拿分概率；若出现低级失误，则比赛悬念提前终结</li>
+    <li><span class="fl-icon">🔴</span><strong>红牌/点球：</strong>两队战意高涨+身体对抗激烈，早期红牌或点球可彻底改变比赛走向</li>
+    <li><span class="fl-icon">⚡</span><strong>定位球：</strong>町田定位球高效+水户防线轮换，角球/任意球可能是决定性时刻</li>
+    <li><span class="fl-icon">🌡️</span><strong>高温体能：</strong>8月底高温下半场体能下降明显，70分钟后可能出现进球潮</li>
+  </ul>
+</div>
+
+<!-- ==================== UNCERTAINTY ==================== -->
+<div class="section disclaimer">
+  <div style="font-weight:700;margin-bottom:8px;">⚠️ 不确定性说明</div>
+  <ul style="list-style:disc inside;font-size:12px;line-height:1.8;">
+    <li>足球单场随机性极高：即使概率最高的方向也只约39%——这意味着超过60%的概率空间指向"其他结果"</li>
+    <li>模型给出的是概率分布，不是确定性结论；1-0作为主预测比分仅8.5%概率</li>
+    <li>水户"克星"属性虽有历史支撑，但每场比赛独立，历史交锋不能决定未来结果</li>
+    <li>门将危机的实际影响难以量化——第三门将可能超水平发挥，也可能犯致命错误</li>
+    <li>本预测基于赛前情报，比赛中红牌、伤病、天气变化等突发事件不在模型覆盖范围内</li>
+  </ul>
+</div>
+
+<!-- ==================== DATA SOURCES ==================== -->
+<div class="section">
+  <div class="section-title"><span class="icon">📋</span>数据来源</div>
+  <ul class="factor-list">
+    <li><span class="fl-icon">📊</span><strong>模型数据：</strong>jleague/teams.json (Elo评级) + league_config.json (联赛参数)</li>
+    <li><span class="fl-icon">📈</span><strong>赛果数据：</strong>data/live/jleague/results.json (已赛12场)</li>
+    <li><span class="fl-icon">🏟️</span><strong>赛前情报：</strong>用户提供（水户近况、町田状态、伤停、历史交锋）</li>
+    <li><span class="fl-icon">⚙️</span><strong>模型参数：</strong>2026-08-11二次调参后（probability_shrink=0.26, shock_sd=0.38/0.40）</li>
+  </ul>
+  <p style="font-size:11px;color:var(--muted);margin-top:8px;">预测时间：2026-08-29 · 数据快照：2026-08-29 · 日职第4轮（水户vs町田为第4轮比赛，前三轮数据已录入）</p>
+</div>
+
+<div style="text-align:center;padding:24px;font-size:12px;color:var(--muted);">
+  本预测纯属娱乐分析，不构成投注建议 · 概率不是确定性结论 · 足球的魅力在于不可预测性 ⚽
+</div>
+
+</div><!-- /container -->
+
+</body>
+</html>

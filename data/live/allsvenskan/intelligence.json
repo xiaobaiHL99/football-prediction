@@ -1,0 +1,134 @@
+{
+  "matches": [
+    {
+      "home": "BRO",
+      "away": "HAM",
+      "date": "2026-07-26",
+      "time": "14:00",
+      "round": 14,
+      "venue": "Grimsta IP",
+      "context": "瑞超第14轮，第11名布洛马波卡纳主场迎战第2名哈马比。布洛马波卡纳4轮不胜，哈马比3连胜状态火热。哈马比周中打了欧联资格赛(1-1平安德莱赫特)",
+      "teams": {
+        "BRO": {
+          "code": "BRO",
+          "name_cn": "布洛马波卡纳",
+          "form": "负-平-负-负-平",
+          "position": 11,
+          "points": 16,
+          "played": 13,
+          "elo_delta": -40,
+          "confidence": 0.85,
+          "notes": "4轮不胜(2负2平)；主场5场仅1胜；头号射手Mads Hansen红牌停赛；二号射手Oliver Berg黄牌累积停赛；中场Ackerman伤缺；进攻端严重受损"
+        },
+        "HAM": {
+          "code": "HAM",
+          "name_cn": "哈马比",
+          "form": "胜-胜-胜-负-胜",
+          "position": 2,
+          "points": 26,
+          "played": 14,
+          "elo_delta": -15,
+          "confidence": 0.85,
+          "notes": "联赛3连胜；周中欧联资格赛1-1平安德莱赫特有消耗；Paulos Abraham联赛8球是头号射手；后卫Victor Eriksson解禁复出；中场Sorou Kone膝伤缺阵；对布洛马波近4场不败"
+        }
+      },
+      "h2h": {
+        "last_meetings": "哈马比近4次联赛对阵布洛马波不败(3胜1平)，上赛季双杀",
+        "note": "哈马比交锋和心理优势明显"
+      }
+    },
+    {
+      "home": "SIR",
+      "away": "SOF",
+      "date": "2026-07-26",
+      "time": "19:00",
+      "round": 14,
+      "venue": "Studenternas IP (Uppsala)",
+      "context": "瑞超第14轮，领头羊天狼星主场迎战中下游的哥德堡。天狼星赛季不败领跑，哥德堡接近降级区",
+      "teams": {
+        "SIR": {
+          "code": "SIR",
+          "name_cn": "天狼星",
+          "form": "胜-胜-胜-平-胜",
+          "position": 1,
+          "points": 35,
+          "played": 13,
+          "elo_delta": 10,
+          "confidence": 0.90,
+          "notes": "赛季不败(11胜2平)；主场6场5胜1平；Robbie Ure联赛14球领跑射手榜；Isak Bjerkebo 12球；联赛最佳进攻(36球)；Noel Milleskog和Joakim Persson伤缺"
+        },
+        "SOF": {
+          "code": "SOF",
+          "name_cn": "哥德堡",
+          "form": "负-胜-负-胜-负",
+          "position": 13,
+          "points": 13,
+          "played": 13,
+          "elo_delta": -20,
+          "confidence": 0.80,
+          "notes": "近6场3胜3负不稳定；周中欧协联资格赛1-2负Levadia有消耗；Tobias Heintz 7球最多；Arbnor Mucolli伤缺；客场防守差"
+        }
+      },
+      "h2h": {
+        "last_meetings": "哥德堡此前4次联赛对阵天狼星不败，但天狼星2026年杯赛1-0击败哥德堡",
+        "note": "历史交锋哥德堡有心理优势，但本赛季天狼星状态完全碾压"
+      }
+    },
+    {
+      "home": "HAC",
+      "away": "AIK",
+      "date": "2026-07-27",
+      "time": "18:00",
+      "round": 16,
+      "venue": "Nordic Wellness Arena",
+      "context": "瑞超第16轮焦点战，第4名赫根主场迎战第3名索尔纳。双方仅差2分，争冠集团关键卡位战。两队历史交锋进球多，近5次交手场均4.2球，大球倾向明显",
+      "teams": {
+        "HAC": {
+          "code": "HAC",
+          "name_cn": "赫根",
+          "form": "胜-平-负-负-胜",
+          "position": 4,
+          "points": 32,
+          "played": 15,
+          "elo_delta": -18,
+          "confidence": 0.85,
+          "notes": "上轮2-0胜哈尔姆斯塔德止住2连败；主场3胜2平1负但失13球防守最差；中卫Engdahl/Öhman双双伤缺防线危机；Lundqvist结束停赛复出左路利好"
+        },
+        "AIK": {
+          "code": "AIK",
+          "name_cn": "索尔纳",
+          "form": "平-胜-胜-胜-胜",
+          "position": 3,
+          "points": 34,
+          "played": 15,
+          "elo_delta": -12,
+          "confidence": 0.85,
+          "notes": "联赛3连胜+客场3连胜状态正佳；Johan Hove 7球2助核心；CB Cisse脚踝伤缺、中场Ellingsen伤缺影响防守厚度"
+        }
+      },
+      "h2h": {
+        "last_meetings": "赫根近10次联赛交锋6胜2平2负占优，但近3次不胜(2平1负)，包括2026年瑞典杯0-4惨败",
+        "note": "双方近5次交手场均4.2球，大球率80%；赫根本赛季主场场均3.3球"
+      },
+      "context_openness": {"HAC": 0.12, "AIK": 0.12},
+      "tactical": {
+        "style_a": "possession",
+        "style_b": "possession",
+        "matchup": "传控vs传控 — 同风格对位，无直接克制修正；双方都偏好控球推进",
+        "expected_pattern": "open",
+        "ineffective_possession": true,
+        "physical_mismatch": 0,
+        "derby_boost": false
+      },
+      "factors": [
+        "赫根本赛季主场防守差(6场失13球)，中卫Engdahl/Öhman双双伤缺加剧防线危机",
+        "索尔纳客场3连胜，Johan Hove状态火热(7球2助)",
+        "双方历史交锋进球多，近5次交手场均4.2球，大球率80%",
+        "赫根上轮2-0止颓，亚布兰克·林德奎斯特解禁复出左路攻防都有提升",
+        "索尔纳中卫Cisse和中场Ellingsen缺阵影响防守厚度",
+        "两队都是争冠集团，分差仅2分，战意强烈",
+        "战术数据来源：Sports Mole赛前预测阵容 + 2026赛季阵型数据分析"
+      ]
+    }
+  ]
+}

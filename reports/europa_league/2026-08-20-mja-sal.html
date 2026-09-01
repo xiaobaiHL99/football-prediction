@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>米亚尔比 vs 萨尔茨堡红牛 · 欧联附加赛首回合预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 50% -10%, rgba(56,139,253,.22), transparent 60%),linear-gradient(180deg,#1a2a3d,#152336 55%,#12202f)}
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%)}
+  .pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px)}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+
+  .scoreboard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:min(600px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:16px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--home);background:rgba(248,81,73,.12)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div>
+      <div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+
+      <div class="scoreboard">
+        <div class="sb-top">
+          <span class="sb-tag">预测比分 · PREDICTION</span>
+          <span>欧联附加赛 · 首回合 · 2026-08-20</span>
+        </div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">米亚尔比</div><div class="en">Mjällby AIF</div></div>
+          <div class="sb-score">1 : 2</div>
+          <div class="sb-team"><div class="cn">萨尔茨堡红牛</div><div class="en">RB Salzburg</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：萨尔茨堡红牛占优（客胜）· 单一最高概率比分 1-1 见下方"比分分布参考" · 已含盘口修正</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>35.1%</b>主胜</div>
+          <div class="sb-p p-draw"><b>28.2%</b>平局</div>
+          <div class="sb-p p-away"><b>36.7%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Strandvallen Stadium · Hällevik · 人工草+海岸小场地 · 次回合 2026-08-27 @ Red Bull Arena Salzburg</div>
+    </div>
+  </div>
+
+  <!-- ===== 标题区 ===== -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">欧足联欧洲联赛 · 附加赛（Play-off）首回合 · 2026-27</div>
+        <h1 style="font-size:24px;margin-top:2px">米亚尔比 vs 萨尔茨堡红牛</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（欧联 teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag warn">人工草海岸小场地主场</span>
+      <span class="tag blue">萨尔茨堡伤兵满营(7-8人)</span>
+      <span class="tag red">米亚尔比重建期·近6场1胜</span>
+      <span class="tag">首次交手</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#388bfd">萨尔茨堡红牛占优（客胜 36.7%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">1 : 2 <span class="muted" style="font-size:13px">（方向性最优比分 · 8.4%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">1 : 1（平局 · 11.4%）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">米亚尔比 1.43 — 1.48 萨尔茨堡红牛</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">米亚尔比 1535（-6） · 萨尔茨堡红牛 1640（-26）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">对阵博彩模型</div><div class="v small">市场客胜赔率持续走低（1.75→1.70）→ 更看好萨尔茨堡；本模型方向一致但幅度大幅收敛</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>米亚尔比胜</span><span>35.1%</span></div><div class="bar"><div class="seg" style="width:35.1%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>28.2%</span></div><div class="bar"><div class="seg" style="width:28.2%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>萨尔茨堡红牛胜</span><span>36.7%</span></div><div class="bar"><div class="seg" style="width:36.7%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 盘口分析与诱盘判定 ===== -->
+  <div class="card">
+    <h2>盘口分析与诱盘判定</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">市场盘口</div><div class="v">米亚尔比 受让半/一（+0.75）· 水位 0.90 / 0.92</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型让球差 vs 市场</div><div class="v small">模型 +0.058（微利主）vs 市场客让 0.750 → 分歧 +0.808</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">诱盘评分</div><div class="v"><span class="tag warn">2.3 · 疑似分歧</span> 市场让球深度明显高于模型预期（受平/半→受半/一持续加深），疑借萨尔茨堡豪门声望引导资金</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">市场权重 / 修正因子</div><div class="v">0.15 · factor -0.055（小幅向市场收敛，仍近均衡）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">xG 调整</div><div class="v">1.481 / 1.423 → <b>1.426 / 1.478</b>（略压主、抬客）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">若盘口续升至受一球（+1.0）或客队水位跌破 0.85 → 市场对萨尔茨堡信心增强；若回落受半球（+0.5）或平手 → 认可主队人工草主场</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">盘口为赛前情报的有界修正，非确定性结论。市场让球（萨尔茨堡客让近 1 球）明显深于模型预期，模型认为萨尔茨堡伤兵满营下市场过度追捧豪门声望，采信权重降至 0.15。</p>
+  </div>
+
+  <!-- ===== 预测原因 ===== -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>萨尔茨堡伤兵满营</b>：克雷齐希（左后卫）、奥莫雷吉、蔡斯、阿吉拉尔、莱纳、维尔特森、莫泽尔确定缺阵，莫加拉（主力中卫）、迪亚巴特存疑 → 全队 Elo -26，防线轮换承压。</li>
+      <li><b>米亚尔比重建期</b>：瑞超卫冕冠军夏窗主力流失（斯特劳德→赫尔城、马内租借），近 6 场正式赛仅 1 胜，联赛跌至第 11；但上轮 0-3 落后 4-3 逆转天狼星士气回升；前锋斯塔维茨基背伤长期缺阵（-6）。</li>
+      <li><b>战术对位</b>：低位反击+转换 vs 红牛高压逼抢 → 反击克制逼抢（+0.25 主 / -0.25 客）；主场摆深等空间，人工草海岸小场地（6500 人）主队极度熟悉。</li>
+      <li><b>战意</b>：米亚尔比小镇俱乐部历史首次欧战主场之夜 → 战意高涨（+0.15）；萨尔茨堡罗尔称"这只是两回合的上半场"，目标客场取好成绩 → 正常。</li>
+      <li><b>状态面</b>：米亚尔比状态低迷（-0.06）vs 萨尔茨堡状态火热（+0.07，新季 4 胜 2 平不败）。</li>
+      <li><b>历史参考</b>：两队首次交手；萨尔茨堡历史上两次做客瑞典均 0-3 完败于马尔默 → 心理阴影，客战北欧素来不稳。</li>
+      <li><b>校准规则</b>：方向押客队 → 平局概率上修 +0.04；模型让球差近乎为 0 → 近均衡局，接近三分天下。</li>
+    </ul>
+  </div>
+
+  <!-- ===== 详细预测 ===== -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">米亚尔比胜</div><div class="v" style="color:#f85149">35.1%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">28.2%</div></div>
+      <div class="kv"><div class="k">萨尔茨堡红牛胜</div><div class="v" style="color:#388bfd">36.7%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard hl"><div class="s">1 : 1</div><div class="p">11.4% · 分布参考</div></div>
+        <div class="scard main"><div class="s">1 : 2</div><div class="p">8.4% · 主预测</div></div>
+        <div class="scard"><div class="s">2 : 1</div><div class="p">8.1%</div></div>
+        <div class="scard"><div class="s">0 : 1</div><div class="p">8.1%</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">7.8%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">主预测比分与最高概率方向（客胜）一致取 1-2；单一最高概率比分 1-1（平）仅作分布参考。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag blue">萨尔茨堡 -26 Elo（7-8 人伤缺）</span><span class="tag red">米亚尔比 -6 Elo（斯塔维茨基长期缺阵）</span></div>
+      <div style="margin-top:8px"><span class="tag">米亚尔比战意高涨 +0.15</span><span class="tag">反击克制高压 +0.25/-0.25</span><span class="tag">谨慎节奏 -0.15</span><span class="tag">米亚尔比状态 -0.06 / 萨尔茨堡 +0.07</span><span class="tag">押客队向平局收缩</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">米亚尔比 · 高涨（+0.15）</div><div class="v small">小镇俱乐部历史首次欧战主场之夜，必须守住结果再谈次回合；斯特兰德瓦伦球迷声浪大</div></div>
+        <div class="kv"><div class="k">萨尔茨堡 · 正常（0）</div><div class="v small">罗尔称两回合的"上半场"，目标客场取好成绩，下周主场（红牛竞技场）决胜</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 赛前情报摘要 ===== -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>米亚尔比</th><th>萨尔茨堡红牛</th></tr>
+      <tr><td>主帅</td><td>卡尔·马里乌斯·阿克苏姆（挪威，2026 上任）</td><td>丹尼·罗尔（德国，执教约 2 个月）</td></tr>
+      <tr><td>阵型</td><td>3-4-3</td><td>4-3-3</td></tr>
+      <tr><td>战术风格</td><td>低位反击 + 转换 + 定位球 · 身体对抗凶悍</td><td>红牛高压逼抢 + 快速直传 · 年轻极致身体流</td></tr>
+      <tr><td>晋级之路</td><td>欧冠资格赛 Q2 淘汰林肯红魔，Q3 总比分 1-4 负斯洛万 → 落入欧联附加赛</td><td>欧联资格赛 Q3 淘汰帕福斯（塔巴科维奇两回合 4 球领跑射手榜）</td></tr>
+      <tr><td>伤停/流失</td><td>斯塔维茨基（前锋·背伤长期）；斯特劳德（中场）→赫尔城、马内（前锋）租借</td><td>克雷齐希/奥莫雷吉/蔡斯/阿吉拉尔/莱纳/维尔特森/莫泽尔确定缺；莫加拉/迪亚巴特存疑</td></tr>
+      <tr><td>关键球员</td><td>贝里斯特伦、萨穆埃尔森、新援达尔萨加德/恩加德</td><td>塔巴科维奇（欧联资格赛 4 球）、北野、雷吉奇、基特</td></tr>
+      <tr><td>身价</td><td colspan="2">米亚尔比约 €1900-2600 万 vs 萨尔茨堡约 €8980 万</td></tr>
+      <tr><td>场地</td><td colspan="2">斯特兰德瓦伦（Hällevik）· 人工草 · 海岸小场地（约 6500 人）· 北欧凉爽</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">高：Sports Mole / Bollsvenskan / 网易等多家媒体一致，伤停与首发信息齐备</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 场景推演 ===== -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 萨尔茨堡控场破门</div><div class="v small">红牛高压逼出机会，塔巴科维奇/北野凭个人能力破门，客场小胜 → 1-2 / 0-1，手握次回合优势</div></div>
+      <div class="kv"><div class="k">路径 B · 主队铁桶偷分</div><div class="v small">米亚尔比人工草主场收缩反击+定位球，萨尔茨堡客战北欧不稳 → 1-0 / 1-1，晋级悬念留到萨尔茨堡</div></div>
+      <div class="kv"><div class="k">路径 C · 低比分胶着</div><div class="v small">双方谨慎、首回合试探为主，0-0 / 1-1 → 分布参考 1-1，一切下周红牛竞技场定夺</div></div>
+    </div>
+  </div>
+
+  <!-- ===== 不确定性说明 ===== -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场三向概率 35.1% / 28.2% / 36.7%，接近三分天下，单场随机性很高。模型原判微利主（人工草主场+战意+反击克制），盘口修正后客胜仅以微弱优势居首。模型边界：① 萨尔茨堡伤兵名单与首发存在信息差异（莫加拉/迪亚巴特是否出战影响防线），且伤停按团队级 Elo 处理无法精确到个体；② 米亚尔比"近 6 场 1 胜"的状态折损被其逆转天狼星的士气部分抵消，量化主观；③ 人工草 + 海岸小场地的实际损耗难以精确量化；④ 首次交手无历史样本。强队小概率≠稳胜，本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <!-- ===== 数据与情报来源 ===== -->
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">Sports Mole · Mjallby vs Salzburg 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/mjallby-aif/europa-league/preview/mjallby-aif-vs-salzburg-prediction-team-news-lineups_603231.html</li>
+      <li class="src">网易体育 · 米亚尔比撞上萨尔茨堡：海边小渔村的欧战首秀 — https://www.163.com/dy/article/L4OH16RM0556P009.html</li>
+      <li class="src">网易体育 · 瑞典黑马米亚尔比主场硬撼萨尔茨堡红牛 — https://www.163.com/dy/article/L4OI6L4B0556OY6L.html</li>
+      <li class="src">Bollsvenskan · Aksum 警告红牛压迫机器 + 斯特兰德瓦伦欧战名单 — https://bollsvenskan.se/aksum-varnar-for-salzburgs-pressmaskin-dalsgaard-och-enggard-uttagningsbara-infor-el-kvalet-pa-strandvallen/</li>
+      <li class="src">极嗨吧 · 米亚尔比 vs 萨尔茨堡 让球指数（亚盘） — https://www.jihai8.com/zq/asia/3064798.html</li>
+      <li class="src">球探体育 · 欧罗巴杯分析 — https://m.titan007.com/Analy/Analysis/3064798.htm</li>
+      <li class="src">kicker · Spielinfo（盘口/首发数据） — https://www.kicker.de/mjaellby-aif-gegen-salzburg-2026-europa-league-qualifikation-5254314/spielinfo</li>
+      <li class="src">Sky Sport Austria · 萨尔茨堡"绝不能低估对手" — https://www.skysportaustria.at/in-der-provinz-um-el-ticket-salzburg-will-mjaellby-auf-keinen-fall-unterschaetzen/</li>
+      <li class="src">Forebet · 预测与统计 — https://www.forebet.com/en/football/matches/mj%C3%A4llby-aif-rb-salzburg-2518734</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

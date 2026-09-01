@@ -1,0 +1,1522 @@
+[
+  {
+    "home": "RMA",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "CEL"
+  },
+  {
+    "home": "RMA",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "VAL"
+  },
+  {
+    "home": "RMA",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "SEV"
+  },
+  {
+    "home": "RMA",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "BET"
+  },
+  {
+    "home": "RMA",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "VIL"
+  },
+  {
+    "home": "RMA",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "ATH"
+  },
+  {
+    "home": "RMA",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "RSO"
+  },
+  {
+    "home": "RMA",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "ATM"
+  },
+  {
+    "home": "RMA",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "BAR"
+  },
+  {
+    "home": "RMA",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "RAC"
+  },
+  {
+    "home": "RMA",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "MGA"
+  },
+  {
+    "home": "RMA",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "DEP"
+  },
+  {
+    "home": "RMA",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "LEV"
+  },
+  {
+    "home": "RMA",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "ELC"
+  },
+  {
+    "home": "RMA",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "ALA"
+  },
+  {
+    "home": "RMA",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "ESP"
+  },
+  {
+    "home": "RMA",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "OSA"
+  },
+  {
+    "home": "RMA",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "GET"
+  },
+  {
+    "home": "RMA",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "RAY"
+  },
+  {
+    "home": "RAC",
+    "away": "RMA"
+  },
+  {
+    "home": "BAR",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "RAY"
+  },
+  {
+    "home": "MGA",
+    "away": "RMA"
+  },
+  {
+    "home": "RAC",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "CEL"
+  },
+  {
+    "home": "DEP",
+    "away": "RMA"
+  },
+  {
+    "home": "MGA",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "VAL"
+  },
+  {
+    "home": "LEV",
+    "away": "RMA"
+  },
+  {
+    "home": "DEP",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "SEV"
+  },
+  {
+    "home": "ELC",
+    "away": "RMA"
+  },
+  {
+    "home": "LEV",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "BET"
+  },
+  {
+    "home": "ALA",
+    "away": "RMA"
+  },
+  {
+    "home": "ELC",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "VIL"
+  },
+  {
+    "home": "ESP",
+    "away": "RMA"
+  },
+  {
+    "home": "ALA",
+    "away": "OSA"
+  },
+  {
+    "home": "GET",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "ATM"
+  },
+  {
+    "home": "RSO",
+    "away": "ATH"
+  },
+  {
+    "home": "OSA",
+    "away": "RMA"
+  },
+  {
+    "home": "ESP",
+    "away": "GET"
+  },
+  {
+    "home": "RAY",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "BAR"
+  },
+  {
+    "home": "ATM",
+    "away": "RSO"
+  },
+  {
+    "home": "GET",
+    "away": "RMA"
+  },
+  {
+    "home": "OSA",
+    "away": "RAY"
+  },
+  {
+    "home": "CEL",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "RAC"
+  },
+  {
+    "home": "BAR",
+    "away": "ATM"
+  },
+  {
+    "home": "RAY",
+    "away": "RMA"
+  },
+  {
+    "home": "GET",
+    "away": "CEL"
+  },
+  {
+    "home": "VAL",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "MGA"
+  },
+  {
+    "home": "RAC",
+    "away": "BAR"
+  },
+  {
+    "home": "CEL",
+    "away": "RMA"
+  },
+  {
+    "home": "RAY",
+    "away": "VAL"
+  },
+  {
+    "home": "SEV",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "DEP"
+  },
+  {
+    "home": "MGA",
+    "away": "RAC"
+  },
+  {
+    "home": "VAL",
+    "away": "RMA"
+  },
+  {
+    "home": "CEL",
+    "away": "SEV"
+  },
+  {
+    "home": "BET",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "LEV"
+  },
+  {
+    "home": "DEP",
+    "away": "MGA"
+  },
+  {
+    "home": "SEV",
+    "away": "RMA"
+  },
+  {
+    "home": "VAL",
+    "away": "BET"
+  },
+  {
+    "home": "VIL",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "ELC"
+  },
+  {
+    "home": "LEV",
+    "away": "DEP"
+  },
+  {
+    "home": "BET",
+    "away": "RMA"
+  },
+  {
+    "home": "SEV",
+    "away": "VIL"
+  },
+  {
+    "home": "ATH",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "ALA"
+  },
+  {
+    "home": "ELC",
+    "away": "LEV"
+  },
+  {
+    "home": "VIL",
+    "away": "RMA"
+  },
+  {
+    "home": "BET",
+    "away": "ATH"
+  },
+  {
+    "home": "RSO",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "ESP"
+  },
+  {
+    "home": "ALA",
+    "away": "ELC"
+  },
+  {
+    "home": "ATH",
+    "away": "RMA"
+  },
+  {
+    "home": "VIL",
+    "away": "RSO"
+  },
+  {
+    "home": "ATM",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "OSA"
+  },
+  {
+    "home": "ESP",
+    "away": "ALA"
+  },
+  {
+    "home": "RSO",
+    "away": "RMA"
+  },
+  {
+    "home": "ATH",
+    "away": "ATM"
+  },
+  {
+    "home": "BAR",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "GET"
+  },
+  {
+    "home": "OSA",
+    "away": "ESP"
+  },
+  {
+    "home": "ATM",
+    "away": "RMA"
+  },
+  {
+    "home": "RSO",
+    "away": "BAR"
+  },
+  {
+    "home": "RAC",
+    "away": "ATH"
+  },
+  {
+    "home": "VIL",
+    "away": "MGA"
+  },
+  {
+    "home": "DEP",
+    "away": "BET"
+  },
+  {
+    "home": "SEV",
+    "away": "LEV"
+  },
+  {
+    "home": "ELC",
+    "away": "VAL"
+  },
+  {
+    "home": "CEL",
+    "away": "ALA"
+  },
+  {
+    "home": "ESP",
+    "away": "RAY"
+  },
+  {
+    "home": "GET",
+    "away": "OSA"
+  },
+  {
+    "home": "BAR",
+    "away": "RMA"
+  },
+  {
+    "home": "ATM",
+    "away": "RAC"
+  },
+  {
+    "home": "MGA",
+    "away": "RSO"
+  },
+  {
+    "home": "ATH",
+    "away": "DEP"
+  },
+  {
+    "home": "LEV",
+    "away": "VIL"
+  },
+  {
+    "home": "BET",
+    "away": "ELC"
+  },
+  {
+    "home": "ALA",
+    "away": "SEV"
+  },
+  {
+    "home": "VAL",
+    "away": "ESP"
+  },
+  {
+    "home": "OSA",
+    "away": "CEL"
+  },
+  {
+    "home": "RAY",
+    "away": "GET"
+  }
+]

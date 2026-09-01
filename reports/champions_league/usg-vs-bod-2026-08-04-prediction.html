@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>预测：圣吉联合 vs 博德闪耀 · 欧冠资格赛第3轮首回合 · 2026-08-04</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111a2e; --panel2:#16203a; --line:#243455;
+    --txt:#e8eefb; --sub:#8fa3c8; --dim:#5c6f94;
+    --home:#ff7a3d; --away:#5db9ff; --draw:#a8b6cf;
+    --gold:#ffd76a; --green:#3ddc97; --red:#ff5f6b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--txt); font-family:"Segoe UI", "Microsoft YaHei", system-ui, sans-serif; line-height:1.55;}
+  .wrap{max-width:1040px; margin:0 auto; padding:28px 18px 60px;}
+  h1{font-size:1.5rem; font-weight:700; letter-spacing:.5px;}
+  .subline{color:var(--sub); font-size:.86rem; margin-top:6px;}
+  .tag{display:inline-block; background:rgba(255,215,106,.12); color:var(--gold); border:1px solid rgba(255,215,106,.35); border-radius:20px; padding:2px 12px; font-size:.76rem; margin-right:8px;}
+
+  /* 球场 */
+  .pitch{position:relative; margin:22px 0; border-radius:16px; overflow:hidden; height:340px;
+    background:radial-gradient(circle at 50% 40%, #1c4a24 0%, #16371d 55%, #0f2a15 100%);}
+  .pitch .mow{position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 38px, transparent 38px 76px);}
+  .pitch .field{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:82%; height:78%;
+    border:2px solid rgba(255,255,255,.75); background:transparent;}
+  .pitch .line{position:absolute; background:rgba(255,255,255,.55);}
+  .pitch .center-c{position:absolute; left:50%; top:50%; width:86px; height:86px; transform:translate(-50%,-50%);
+    border:2px solid rgba(255,255,255,.55); border-radius:50%;}
+  .pitch .mid{width:2px; height:100%; left:50%; top:0;}
+  .pitch .center-dot{position:absolute; left:50%; top:50%; width:8px; height:8px; transform:translate(-50%,-50%);
+    background:rgba(255,255,255,.55); border-radius:50%;}
+  .pitch .box{position:absolute; width:42%; height:26%; border:2px solid rgba(255,255,255,.55);}
+  .pitch .box-left{left:0; top:50%; transform:translateY(-50%); border-left:none;}
+  .pitch .box-right{right:0; top:50%; transform:translateY(-50%); border-right:none;}
+  .pitch .box6{position:absolute; width:16%; height:14%; border:2px solid rgba(255,255,255,.5);}
+  .pitch .box6-left{left:0; top:50%; transform:translateY(-50%); border-left:none;}
+  .pitch .box6-right{right:0; top:50%; transform:translateY(-50%); border-right:none;}
+  .pitch .goal{position:absolute; width:16%; height:7%; background:rgba(255,255,255,.14); border:2px solid rgba(255,255,255,.6);}
+  .pitch .goal-left{left:-2px; top:50%; transform:translateY(-50%);}
+  .pitch .goal-right{right:-2px; top:50%; transform:translateY(-50%);}
+  .pitch .stand{position:absolute; inset:0; background:radial-gradient(ellipse at 50% 100%, rgba(20,40,60,.55), transparent 70%);}
+  .pitch .flood{position:absolute; top:-18px; left:10%; width:80%; height:56px; border-radius:50%;
+    background:radial-gradient(ellipse, rgba(255,255,220,.30), transparent 70%); filter:blur(2px);}
+  .pitch .corner{position:absolute; width:14px; height:14px; border:2px solid rgba(255,255,255,.5); border-radius:50%;}
+  .c1{left:calc(9% - 7px); top:calc(11% - 7px);} .c2{right:calc(9% - 7px); top:calc(11% - 7px);}
+  .c3{left:calc(9% - 7px); bottom:calc(11% - 7px);} .c4{right:calc(9% - 7px); bottom:calc(11% - 7px);}
+  .pitch .plabel{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:rgba(255,255,255,.9); text-shadow:0 2px 8px rgba(0,0,0,.7);}
+  .pitch .plabel .t1{font-size:1.9rem; font-weight:800; letter-spacing:2px;}
+  .pitch .plabel .t2{font-size:1.15rem; margin-top:8px; color:rgba(255,255,255,.85);}
+  .pitch .plabel .cup{font-size:.78rem; margin-top:10px; letter-spacing:3px; color:rgba(255,255,255,.6);}
+
+  /* 比分牌 */
+  .scoreboard{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:18px;
+    background:linear-gradient(135deg,#0e1a30,#101f38); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; box-shadow:0 8px 24px rgba(0,0,0,.35);}
+  .team{flex:1; text-align:center;}
+  .team .nm{font-size:1.05rem; font-weight:700;}
+  .team .elo{font-size:.72rem; color:var(--sub); margin-top:2px;}
+  .team .prob{font-size:.86rem; font-weight:700; margin-top:8px;}
+  .prob-h{color:var(--home);} .prob-a{color:var(--away);}
+  .score{text-align:center; padding:0 6px;}
+  .score .big{font-size:2.5rem; font-weight:800; letter-spacing:2px; font-family:Consolas, monospace;
+    background:linear-gradient(180deg,#ffd76a,#ff9a4d); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .score .lbl{font-size:.68rem; color:var(--gold); letter-spacing:2px; margin-top:2px;}
+  .score .bar{width:100%; margin-top:8px;}
+  .score .bar div{display:flex; gap:3px;}
+  .score .bar span{height:6px; border-radius:3px;}
+  .vs{text-align:center; font-size:.78rem; color:var(--dim);}
+  @media(max-width:600px){ .team .nm{font-size:.85rem;} .score .big{font-size:2rem;} }
+
+  /* 区块 */
+  section{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-top:18px;}
+  h2{font-size:1.02rem; color:var(--gold); margin-bottom:14px; letter-spacing:1px; display:flex; align-items:center; gap:8px;}
+  h2::before{content:""; width:4px; height:16px; background:var(--gold); border-radius:2px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+  .kpi{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:14px;}
+  .kpi .k{font-size:.74rem; color:var(--sub);}
+  .kpi .v{font-size:1.25rem; font-weight:800; margin-top:4px;}
+  .kpi .d{font-size:.76rem; color:var(--dim); margin-top:3px;}
+
+  .bar-row{display:grid; grid-template-columns:70px 1fr 58px; align-items:center; gap:10px; margin:8px 0; font-size:.86rem;}
+  .bar-track{background:#0a1120; border-radius:6px; height:22px; overflow:hidden;}
+  .bar-fill{height:100%; display:flex; align-items:center; padding-left:8px; font-size:.74rem; font-weight:700; color:#fff; border-radius:6px;}
+  .pct{text-align:right; font-weight:700;}
+
+  table{width:100%; border-collapse:collapse; font-size:.86rem;}
+  th,td{padding:8px 10px; text-align:left; border-bottom:1px solid var(--line);}
+  th{color:var(--sub); font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.5px;}
+  .score-card{display:inline-block; background:var(--panel2); border:1px solid var(--line); border-radius:10px;
+    padding:10px 12px; margin:4px; text-align:center; min-width:88px;}
+  .score-card .s{font-size:1.05rem; font-weight:800;}
+  .score-card .p{font-size:.76rem; color:var(--sub);}
+  .top{color:var(--gold); border-color:rgba(255,215,106,.4);}
+  .ref{color:var(--sub); border-color:var(--line); font-size:.7rem;}
+
+  ul.tight{list-style:none;}
+  ul.tight li{position:relative; padding-left:18px; margin:7px 0; font-size:.88rem; color:#dbe6f7;}
+  ul.tight li::before{content:"▸"; position:absolute; left:0; color:var(--gold);}
+
+  .pill{display:inline-block; padding:2px 10px; border-radius:14px; font-size:.74rem; font-weight:600;}
+  .pill.ok{background:rgba(61,220,151,.15); color:var(--green); border:1px solid rgba(61,220,151,.4);}
+  .pill.no{background:rgba(255,95,107,.14); color:var(--red); border:1px solid rgba(255,95,107,.4);}
+  .pill.warn{background:rgba(255,215,106,.13); color:var(--gold); border:1px solid rgba(255,215,106,.4);}
+
+  .scenario{background:var(--panel2); border-left:3px solid var(--gold); border-radius:8px; padding:12px 14px; margin:10px 0;}
+  .scenario .sh{font-weight:700; font-size:.9rem;}
+  .scenario .sp{font-size:.83rem; color:var(--sub); margin-top:4px;}
+
+  .foot{color:var(--dim); font-size:.76rem; text-align:center; margin-top:28px; line-height:1.8;}
+  .disc{color:var(--dim); font-size:.76rem; border-top:1px solid var(--line); margin-top:20px; padding-top:12px; text-align:center;}
+  .val{font-weight:800;}
+  .val.pos{color:var(--green);} .val.neg{color:var(--red);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="tag">理性模型 · Elo→泊松→蒙特卡洛</div>
+  <div class="tag">欧冠资格赛第3轮 · 首回合 · 胜者进附加赛</div>
+  <h1>圣吉联合 USG vs 博德闪耀 BOD</h1>
+  <div class="subline">预测时间 2026-08-04 · 地点：Diaz Arena 奥斯坦德（比利时北海边，主场临时迁场 = "半个客场"） · 次回合 8/11 回博德北极圈人工草主场</div>
+
+  <!-- 球场 -->
+  <div class="pitch">
+    <div class="mow"></div>
+    <div class="stand"></div>
+    <div class="flood"></div>
+    <div class="field"></div>
+    <div class="line mid"></div>
+    <div class="line box box-left"></div><div class="line box box-right"></div>
+    <div class="line box6 box6-left"></div><div class="line box6 box6-right"></div>
+    <div class="goal goal-left"></div><div class="goal goal-right"></div>
+    <div class="center-c"></div><div class="center-dot"></div>
+    <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+    <div class="plabel">
+      <div class="t1">USG vs BOD</div>
+      <div class="t2">圣吉联合 vs 博德闪耀</div>
+      <div class="cup">UEFA CHAMPIONS LEAGUE · Q3 · LEG 1 · OSTENDE · 迁场主场</div>
+    </div>
+  </div>
+
+  <!-- 比分牌 -->
+  <div class="scoreboard">
+    <div class="team">
+      <div class="nm">圣吉联合</div>
+      <div class="elo">Elo 1500 · 主队(迁奥斯坦德) · 超杯夺冠</div>
+      <div class="prob prob-h">胜 40.1%</div>
+    </div>
+    <div class="score">
+      <div class="big">1 - 0</div>
+      <div class="lbl">主预测比分 · 圣吉联合胜（预测）</div>
+      <div class="bar"><div><span style="flex:40.1;background:var(--home)"></span><span style="flex:25.1;background:var(--draw)"></span><span style="flex:34.7;background:var(--away)"></span></div></div>
+      <div class="vs">胜 40.1% · 平 25.1% · 负 34.7%</div>
+    </div>
+    <div class="team">
+      <div class="nm">博德闪耀</div>
+      <div class="elo">Elo 1600 · 客队 · 挪超5连胜零封</div>
+      <div class="prob prob-a">胜 34.7%</div>
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <section>
+    <h2>核心结论</h2>
+    <div class="grid2">
+      <div class="kpi"><div class="k">主预测赛果</div><div class="v" style="color:var(--home)">圣吉联合胜</div><div class="d">概率 40.1% · 主预测比分 1-0（9.3%）；单一最高比分 1-1（12.0%，比分分布参考）</div></div>
+      <div class="kpi"><div class="k">预期进球 xG</div><div class="v">1.44 - 1.30</div><div class="d">胶着对局，双方差距极小；博德闪耀 Elo 略高但客场+缺锋线终结力</div></div>
+      <div class="kpi"><div class="k">冷门空间</div><div class="v" style="color:var(--gold)">59.9%</div><div class="d">平 25.1% + 客胜 34.7%；首回合悬念极大</div></div>
+      <div class="kpi"><div class="k">赛制语境</div><div class="v" style="color:var(--green)">胜者进欧冠附加赛</div><div class="d">负者降欧联附加赛；博德闪耀目标带客场进球回北极圈</div></div>
+    </div>
+  </section>
+
+  <!-- 详细预测 -->
+  <section>
+    <h2>详细预测</h2>
+    <h2 style="margin-top:10px;font-size:.92rem;color:var(--sub)">胜 / 平 / 负概率</h2>
+    <div class="bar-row"><div>主胜</div><div class="bar-track"><div class="bar-fill" style="width:40.1%;background:var(--home)">40.1%</div></div><div class="pct" style="color:var(--home)">40.1%</div></div>
+    <div class="bar-row"><div>平局</div><div class="bar-track"><div class="bar-fill" style="width:25.1%;background:var(--draw)">25.1%</div></div><div class="pct">25.1%</div></div>
+    <div class="bar-row"><div>客胜</div><div class="bar-track"><div class="bar-fill" style="width:34.7%;background:var(--away)">34.7%</div></div><div class="pct" style="color:var(--away)">34.7%</div></div>
+
+    <h2 style="margin-top:22px;font-size:.92rem;color:var(--sub)">比分分布 Top 5</h2>
+    <div>
+      <div class="score-card ref"><div class="s">1-1</div><div class="p">12.0% · 最高单一比分（参考）</div></div>
+      <div class="score-card top"><div class="s">1-0</div><div class="p">9.3% · 主预测</div></div>
+      <div class="score-card top"><div class="s">2-1</div><div class="p">8.6% · 主预测</div></div>
+      <div class="score-card"><div class="s">0-1</div><div class="p">8.4%</div></div>
+      <div class="score-card"><div class="s">1-2</div><div class="p">7.8%</div></div>
+    </div>
+    <div class="scenario" style="margin-top:8px">
+      <div class="sh">说明</div>
+      <div class="sp">单一最高概率比分 1-1 是平局，与主预测赛果（主胜）不一致，故只作"比分分布参考"；主预测比分按主胜方向取 1-0。这一胶着分布与主流预测 1-1、市场圣吉联合仅让平半完全吻合。</div>
+    </div>
+
+    <h2 style="margin-top:22px;font-size:.92rem;color:var(--sub)">情报修正量</h2>
+    <table>
+      <tr><th>队伍</th><th>Elo 修正</th><th>近期状态</th><th>主要缺阵</th></tr>
+      <tr><td>圣吉联合</td><td style="color:var(--red)">-17</td><td>平-平-平（比甲未开打，仅超杯）</td><td>艾特·埃尔·哈吉（进攻核心，转会诉求）、舍尔彭（门将转会）、伯吉斯（后防核心转会）、四名新援注册未完成</td></tr>
+      <tr><td>博德闪耀</td><td style="color:var(--red)">-24</td><td>胜-胜-胜-胜-胜（5连胜5零封）</td><td>霍格（头号射手转会）、埃夫延（中场核心膝伤至9月）、米克尔森（腹股沟术后存疑）</td></tr>
+    </table>
+    <div class="scenario" style="margin-top:14px">
+      <div class="sh">战术对位</div>
+      <div class="sp">圣吉联合三中卫防反紧凑（counter_attack）vs 博德闪耀高位逼抢+快速转换（high_press）——反击克制高位逼抢，但博德闪耀 5 场零封防守稳固，双方节奏偏慢、场面胶着（expected_pattern cautious）。圣吉联合定位球是重要武器，博德闪耀定位球防守偶尔走神。</div>
+    </div>
+    <div class="scenario">
+      <div class="sh">战意因素（fighting_spirit，权重最高的人为因子）</div>
+      <div class="sp">圣吉联合 <b>战意高涨（high）</b>：欧冠正赛资格关键战 + 超杯夺冠士气旺 + 主场抢开局 → xG +0.15；博德闪耀 <b>正常（normal）</b>：双线作战 + 长途远征，目标不丢客场进球、把悬念带回北极圈。</div>
+    </div>
+  </section>
+
+  <!-- 预测原因 -->
+  <section>
+    <h2>预测原因</h2>
+    <ul class="tight">
+      <li><b>胶着的实力对比</b>：BOD Elo 1600 高于 USG 1500，但圣吉联合身价近两倍（1.41亿欧 vs 约7000万）、主场+战意+战术克制三重补偿，模型最终微偏主队（40.1% vs 34.7%），胜负几乎五五开。</li>
+      <li><b>迁场主场削弱</b>：主场临时设在奥斯坦德"半个客场"，约瑟夫·马伦球场不可用，主场氛围打折扣——博德闪耀客场不会怯场。</li>
+      <li><b>状态反差</b>：博德闪耀挪超 5 连胜且 5 场全零封、9 场不败（+0.10 xG），联赛中段竞技节奏最佳；圣吉联合比甲未开打、仅超杯 1 场，状态成谜（中性）。</li>
+      <li><b>进攻端此消彼长</b>：博德闪耀头号射手霍格转会凯尔特人、中场核心埃夫延膝伤缺阵，锋线终结力下降（Elo -24）；圣吉联合进攻核心艾特·埃尔·哈吉无缘名单、三线主力流失（Elo -17），但新援莫佛肯（超杯制胜点球）是速度奇兵。</li>
+      <li><b>战术 + 战意</b>：主队防反克制客队高位逼抢（+0.25/-0.25），战意 high +0.15；但客队 5 场零封的防守不怵反击。</li>
+      <li><b>历史与熟悉度</b>：两队 2024-25 欧联杯 0-0 交手，彼此摸清套路，低比分胶着概率高；圣吉联合历史两次止步第 3 轮资格赛，心理关是隐患。</li>
+      <li><b>主流口径一致</b>：Sports Mole / 7M 预测 1-1，LiveScore 甚至认为博德闪耀被低估（1-2 客胜），市场圣吉联合仅让平半——模型输出与其完全吻合。</li>
+    </ul>
+  </section>
+
+  <!-- 情报摘要 -->
+  <section>
+    <h2>情报摘要</h2>
+    <div class="grid2">
+      <div>
+        <h2 style="font-size:.92rem;color:var(--home)">圣吉联合（主）</h2>
+        <ul class="tight">
+          <li>上季比甲第 2（53 分），历史首进欧冠联赛阶段（27 名出局）</li>
+          <li>7/31 比利时超级杯 1-1 布鲁日、点球 5-4 夺冠，士气正旺</li>
+          <li>比甲新赛季未开打，体能储备充足但竞技状态未知</li>
+          <li>三线主力流失：门将舍尔彭→伊普斯维奇、后防核心伯吉斯→根特、巴里→利雅得青年人</li>
+          <li>进攻核心艾特·埃尔·哈吉因转会诉求无缘欧冠名单；四名新援注册未完成</li>
+          <li>新援莫佛肯（21 岁，南非，速度奇兵）超杯替补罚进制胜点球</li>
+          <li>预计 3-4-1-2：尚贝雷；麦克·阿利斯特、西拉、赛克斯；哈利利/帕特里斯、佐尔加内、范德佩雷、奥拉鲁；富塞尼、大卫（Promise David 上季 15 球）</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-size:.92rem;color:var(--away)">博德闪耀（客）</h2>
+        <ul class="tight">
+          <li>挪超领头羊，5 连胜且 5 场全零封，9 场不败（8 胜）</li>
+          <li>上季欧冠黑马 16 强：连斩曼城、马竞，双杀国米；2024-25 欧联 4 强</li>
+          <li>联赛中段 16 场竞技节奏最佳，但双线作战 + 长途远征比利时消耗大</li>
+          <li>头号射手霍格夏窗转会凯尔特人（两年半 60+ 球），锋线终结力下降</li>
+          <li>中场核心埃夫延膝伤缺至 9 月；米克尔森腹股沟术后存疑；多名长期伤号</li>
+          <li>预计 4-3-3：海金；舍沃尔德、比约图夫特、阿莱萨米、比约坎；贝尔格；奥克伦、费特、海于格；布隆贝格、布林希尔森</li>
+          <li>次回合回北极圈阿斯米拉人工草主场，是最大后盾</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 场景推演 -->
+  <section>
+    <h2>场景推演</h2>
+    <div class="scenario">
+      <div class="sh">① 主队抢开局小胜（主预测路径）</div>
+      <div class="sp">圣吉联合防反 + 定位球 + 超杯士气，主场（奥斯坦德）1-0/2-1 小胜（主胜 40.1%），首回合占得先机，次回合去北极圈拼防守。</div>
+    </div>
+    <div class="scenario">
+      <div class="sh">② 低比分胶着 · 悬念留次回合</div>
+      <div class="sp">双方节奏偏慢、都不冒险，0-0/1-1 结束（平局 25.1%，1-1 是单一最高比分 12.0%）——最符合主流预测，博德闪耀如愿带平局回主场。</div>
+    </div>
+    <div class="scenario">
+      <div class="sh">③ 冷门路径 · 博德闪耀客场抢分</div>
+      <div class="sp">挪超 5 连胜零封的状态延续 + 迁场主场削弱 + 圣吉联合心理关，博德闪耀客场偷袭（客胜 34.7%），把晋级主动权握在手中。</div>
+    </div>
+  </section>
+
+  <!-- 不确定性 -->
+  <section>
+    <h2>不确定性说明</h2>
+    <ul class="tight">
+      <li>足球单场随机性很高：主胜仅 40.1%，本场是典型的三分天下局面，冷门空间高达 59.9%。</li>
+      <li>圣吉联合比甲未开打，竞技状态无法用近期正式比赛衡量，Elo 校准可信度低于赛季中段。</li>
+      <li>迁场奥斯坦德对主场优势的削弱程度难以量化，模型按正常主场计算，可能高估主队。</li>
+      <li>两队核心流失后的新援磨合（莫佛肯、奥拉鲁 vs 布隆贝格、海于格）是临场变量。</li>
+      <li>数据来自赛前公开情报与本地模拟快照，实际首发以赛前官方名单为准。</li>
+    </ul>
+  </section>
+
+  <!-- 来源 -->
+  <section>
+    <h2>数据来源</h2>
+    <ul class="tight">
+      <li>球队评级：skill 快照 <code>references/champions_league/teams.json</code>（USG 1500 / BOD 1600，取 europa_league 快照同刻度值，本次驱动模式内存注入，未写回文件）</li>
+      <li>联赛参数：<code>references/league_config.json</code>（欧冠 avg_goals 2.9 / home_adv 0.35 / elo_scale 130）</li>
+      <li>特殊因子：<code>references/champions_league/context.json</code>（跨区域旅行 -0.08、南北欧天气 -0.05、周中紧凑赛程 -0.06）</li>
+      <li>赛前情报：2026-08-04 网络检索（对阵、阵容、伤停、迁场、战术、盘口），来源可信度中高</li>
+      <li>外部盘口参考：主让平半（底气不足）、主流预测 1-1、部分观点认为博德闪耀被低估</li>
+      <li>缺失说明：data/live/champions_league/ 为空快照（新模块），本场按资格赛单场建模；两队历史唯一交手为 2024-25 欧联杯 0-0</li>
+    </ul>
+  </section>
+
+  <div class="foot">本预测由 Elo→泊松比分→蒙特卡洛理性模型生成，仅供娱乐分析，不构成投注建议或确定性判断。</div>
+  <div class="disc">生成时间 2026-08-04 · 数据快照时间 2026-08-04 · 无玄学内容 · 欧冠资格赛第3轮首回合</div>
+</div>
+</body>
+</html>

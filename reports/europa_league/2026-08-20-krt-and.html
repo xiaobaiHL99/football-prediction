@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿拉木图凯拉特 vs 安德莱赫特 · 欧联附加赛首回合预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 50% -10%, rgba(56,139,253,.22), transparent 60%),linear-gradient(180deg,#1a2a3d,#152336 55%,#12202f)}
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%)}
+  .pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px)}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+  .alt{position:absolute;right:14px;top:14px;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:.4px;text-align:right;z-index:5}
+
+  .scoreboard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:min(600px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:16px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--home);background:rgba(248,81,73,.12)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  .disclaim{font-size:12px;color:var(--mut);border-left:3px solid var(--line);padding:8px 12px;background:var(--panel2);border-radius:6px}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div><div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+      <div class="alt">海拔 ~800m · 人工草<br>草皮受演唱会活动受损</div>
+      <div class="scoreboard">
+        <div class="sb-top"><span class="sb-tag">预测比分 · PREDICTION</span><span>欧联附加赛首回合 · 2026-08-20</span></div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">阿拉木图凯拉特</div><div class="en">Kairat Almaty</div></div>
+          <div class="sb-score">2 : 1</div>
+          <div class="sb-team"><div class="cn">安德莱赫特</div><div class="en">RSC Anderlecht</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：凯拉特占优（主胜）· 单一最高概率比分 1-1 见"比分分布参考" · 已含盘口修正</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>40.6%</b>主胜</div>
+          <div class="sb-p p-draw"><b>23.5%</b>平局</div>
+          <div class="sb-p p-away"><b>35.8%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Central Stadium · Almaty · 次回合 2026-08-27 @ Lotto Park, Brussels</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">欧足联欧洲联赛 · 附加赛（Play-off）首回合 · 2026-27</div>
+        <h1 style="font-size:24px;margin-top:2px">阿拉木图凯拉特 vs 安德莱赫特</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（欧联 teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag warn">海拔+人工草主场</span>
+      <span class="tag blue">安德莱赫特伤停+弃用潮</span>
+      <span class="tag red">凯拉特核心ACL报销</span>
+      <span class="tag">身价差约9倍</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#f85149">凯拉特占优（主胜 40.6%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">2 : 1 <span class="muted" style="font-size:13px">（方向性最优比分 · 8.8%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">1 : 1（平局 · 10.7%）</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">凯拉特 1.62 — 1.47 安德莱赫特</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">凯拉特 1459（-18） · 安德莱赫特 1580（-12）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">对阵博彩模型</div><div class="v small">博彩约安德莱赫特 42% / 凯拉特与平各 29% → 本模型更看好主队（主场物理+战术对位）</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>阿拉木图凯拉特胜</span><span>40.6%</span></div><div class="bar"><div class="seg" style="width:40.6%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>23.5%</span></div><div class="bar"><div class="seg" style="width:23.5%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>安德莱赫特胜</span><span>35.8%</span></div><div class="bar"><div class="seg" style="width:35.8%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>主场物理优势</b>：阿拉木图中央体育场海拔约 800m + 人工草 + 凯拉特近 3 场欧战主场零封；安德莱赫特 8 小时+长途飞行、时差、海拔、受损草皮（坎耶演唱会致发黄坑洼）多重不利。</li>
+      <li><b>战术对位</b>：凯拉特摆深反击 + 定位球（卢卡斯·阿夫里科高点）vs 安德莱赫特三中场控球 → 反击克制传控（+0.20/-0.20）；安德莱赫特客场控球攻坚难，预期节奏谨慎（-0.15 双方）。</li>
+      <li><b>安德莱赫特人员危机</b>：Hey（腿骨折）、Camara（脚骨折）、Hatenboer（鼻骨折）伤缺，Sardella 存疑；斯特罗伊肯斯、韦尔塔被主帅弃用未随队；上周末比甲客场 0-1 负贝弗伦，防线本赛季仅 1 次零封。</li>
+      <li><b>凯拉特战意</b>：哈萨克冠军主场迎历史性机会（队史首次挺进欧联联赛阶段在望），战意高涨（+0.15）；核心 Jorginho ACL 赛季报销 + 中卫 Martynovich 首回合缺阵（-18 Elo）是主要削弱。</li>
+      <li><b>状态面</b>：凯拉特国内 5 连胜（刚 3-1 胜 Ulytau）；安德莱赫特欧联资格赛 4 场不败但联赛刚失利 → 双方状态修正为正，凯拉特略高（+0.12 vs +0.06）。</li>
+      <li><b>现代欧战无客场进球规则</b>：首回合任何比分局势对次回合都很关键，安德莱赫特客场倾向保守保平。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">凯拉特胜</div><div class="v" style="color:#f85149">40.6%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">23.5%</div></div>
+      <div class="kv"><div class="k">安德莱赫特胜</div><div class="v" style="color:#388bfd">35.8%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard hl"><div class="s">1 : 1</div><div class="p">10.7% · 分布参考</div></div>
+        <div class="scard main"><div class="s">2 : 1</div><div class="p">8.8% · 主预测</div></div>
+        <div class="scard"><div class="s">1 : 2</div><div class="p">7.7%</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">7.5%</div></div>
+        <div class="scard"><div class="s">0 : 1</div><div class="p">6.5%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">主预测比分与最高概率方向（主胜）一致取 2-1；单一最高概率比分 1-1（平）仅作分布参考。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag red">凯拉特 -18 Elo（Jorginho ACL + Martynovich 缺阵）</span><span class="tag blue">安德莱赫特 -12 Elo（Hey/Camara/Hatenboer 伤缺）</span></div>
+      <div style="margin-top:8px"><span class="tag">凯拉特战意高涨 +0.15</span><span class="tag">反击克制传控 +0.20/-0.20</span><span class="tag">谨慎节奏 -0.15</span><span class="tag">弱弱对话·方差放大</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">凯拉特 · 高涨（+0.15）</div><div class="v small">哈萨克冠军主场迎历史性晋级机会，首回合必须守住主场；门将阿纳尔别科夫上季扑出 3 点球</div></div>
+        <div class="kv"><div class="k">安德莱赫特 · 正常（0）</div><div class="v small">客战保守保次回合，不冒进；但欧战 Sikan 已入 3 球具备反击点</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 盘口分析与诱盘判定 ===== -->
+  <div class="card">
+    <h2>盘口分析与诱盘判定</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">市场盘口</div><div class="v">凯拉特 受让平半（+0.25）· 水位 1.03 / 0.85</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型让球差 vs 市场</div><div class="v small">模型 +0.466（利主）vs 市场凯拉特受让 -0.250 → 分歧 +0.466</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">诱盘评分</div><div class="v"><span class="tag warn">3.11 · 疑似分歧</span> 市场让球深度明显低于模型预期 + 客队水位低（0.85）引导资金压安德莱赫特</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">市场权重 / 修正因子</div><div class="v">0.15 · factor -0.031（小幅向市场收敛，仍主队占优）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">xG 调整</div><div class="v">1.65 / 1.44 → <b>1.62 / 1.47</b>（略压主、抬客）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">若安德莱赫特水位跌破 0.80 或升盘至受让半球，市场对客队信心增强，谨防主队被看轻；若盘口回落平手盘，说明市场认可主队高原主场</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">盘口为赛前情报的有界修正，非确定性结论。本场市场让球（凯拉特受让）比模型预期更深，疑似市场借助安德莱赫特豪门声望引导资金；模型采信权重降至 0.15，主胜概率仅微降。</p>
+  </div>
+
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>阿拉木图凯拉特</th><th>安德莱赫特</th></tr>
+      <tr><td>主帅</td><td>拉斐尔·乌拉兹巴赫京</td><td>维托尔·布鲁诺</td></tr>
+      <tr><td>阵型</td><td>4-2-3-1</td><td>4-3-3</td></tr>
+      <tr><td>战术</td><td>主场摆深反击 + 定位球 · 海拔/人工草</td><td>三中场控球 · 客场保守</td></tr>
+      <tr><td>晋级之路</td><td>欧冠资格赛被列夫斯基 2-0 淘汰降入欧联</td><td>欧联资格赛 2 胜哈马比 + 2 胜 PAOK</td></tr>
+      <tr><td>伤停/弃用</td><td>Jorginho ACL 赛季报销；Martynovich 缺首回合；靠年轻前锋</td><td>Hey/Camara/Hatenboer 伤缺；Sardella 存疑；Stroeykens/Huerta 弃用未随队</td></tr>
+      <tr><td>关键球员</td><td>马克·瓜尔（锋线）、阿纳尔别科夫（门将）、阿夫里科（高点）</td><td>西坎（欧战 3 球）、茨韦特科维奇、新援温克勒</td></tr>
+      <tr><td>身价</td><td colspan="2">凯拉特约 €920 万 vs 安德莱赫特约 €8100 万（约 1:9）</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">高：Sports Mole / VoetbalPrimeur / 多家媒体一致，伤停信息齐备</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 主队守住高原主场</div><div class="v small">凯拉特铁桶反击+定位球，安德莱赫特控球无门被偷一球 → 2-1 / 1-0，次回合悬念仍在</div></div>
+      <div class="kv"><div class="k">路径 B · 客场豪门控场成功</div><div class="v small">西坎/茨韦特科维奇凭个人能力破门，安德莱赫特稳住节奏 → 1-1 / 0-1，手握次回合优势</div></div>
+      <div class="kv"><div class="k">路径 C · 低比分胶着</div><div class="v small">双方谨慎、草皮拖慢节奏，首回合 0-0 / 1-1，一切交给布鲁塞尔次回合 → 分布参考 1-1</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场为两回合附加赛首回合，模型给了主队 40.6%（略高于博彩模型的凯拉特约 29%）——分歧主要来自模型对主场物理优势、反击克制传控与安德莱赫特人员危机的加权，而这三点在客队远征细节上高度依赖情报准确性。安德莱赫特虽伤兵多但身价近 9 倍、欧战状态在线，单场客场仍可能凭个人能力破门。模型边界：① 长途飞行/时差/海拔的具体损耗程度难以精确量化；② 弱弱对话（均 Elo 低于阈值）方差放大，冷门空间大；③ 单场随机性高，40.6% 远非稳胜。本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">Sports Mole · Kairat vs Anderlecht 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/kairat/preview/kairat-vs-anderlecht-prediction-team-news-lineups_603245.html</li>
+      <li class="src">PlaymakerStats · 欧联资格赛 Match Preview — https://www.playmakerstats.com/match/2026-08-20-kairat-anderlecht/12378179</li>
+      <li class="src">Fussballdaten · Europa League-Qualifikation 2026/27 — https://www.fussballdaten.de/europaleague/qualifikation/2027/play-off/kairat-rscanderlecht/</li>
+      <li class="src">VoetbalPrimeur · 安德莱赫特随队名单（温克勒可出战） — https://www.voetbalprimeur.be/nieuws/2124542/anderlecht-selectie-voor-kairat-almaty-uit-deze-namen-reizen-mee-naar-kazachstan.html</li>
+      <li class="src">Voetbalkrant · 4 名球员被弃用 — https://www.voetbalkrant.com/nieuws/2026-08-19/anderlecht-met-grove-borstel-door-de-kern-4-spelers-weg</li>
+      <li class="src">球迷屋 · 欧联附加赛伤停名单 — https://www.qiumiwu.com/news/1990072868886</li>
+      <li class="src">RIA Novosti · 凯拉特缺马丁诺维奇 — https://riamo.ru/news/sport/kajrat-sygraet-s-anderlehtom-bez-aleksandra-martynovicha/</li>
+      <li class="src">FotMob · Kairat Almaty vs Anderlecht 实时/H2H — https://www.fotmob.com/matches/kairat-almaty-vs-anderlecht/2ar51n</li>
+      <li class="src">163 网易 · 欧联附加赛赛前分析（多篇） — https://www.163.com/dy/article/L4P5DT3N0549BAP0.html</li>
+    </ul>
+    <p class="muted" style="margin-top:8px">采集时间：2026-08-20。缺失/未用：本场未提供实时亚盘盘口数据，未做盘口+诱盘分析（纯模型预测）。</p>
+  </div>
+
+  <p style="text-align:center;color:var(--mut);font-size:12px;margin-top:18px">本页为赛前概率模拟仪表盘 · 仅供娱乐与分析 · 不代表真实赛果 · 不构成任何投注建议</p>
+</div>
+</body>
+</html>

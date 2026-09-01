@@ -1,0 +1,100 @@
+{
+  "special_factors": {
+    "spring_conditions": {
+      "description": "3-4月北欧春季，场地偏硬，影响技术型球队",
+      "value": -0.05,
+      "apply_when": "month in ['March', 'April']"
+    },
+    "europe_qualification": {
+      "description": "欧战资格赛消耗",
+      "value": -0.06,
+      "apply_when": "team_in_europe and match_within_3_days_of_europe_match"
+    },
+    "stockholm_derby_boost": {
+      "description": "斯德哥尔摩德比（索尔纳vs尤尔加登）战意加成",
+      "value": 0.1,
+      "apply_when": "teams == ['AIK', 'DJU']"
+    }
+  },
+  "europe_teams": [
+    "MAL",
+    "HAC",
+    "HAM"
+  ],
+  "derby_map": {
+    "stockholm": {
+      "teams": [
+        "AIK",
+        "DJU",
+        "HAM"
+      ],
+      "boost": 0.1
+    },
+    "gothenburg": {
+      "teams": [
+        "GAIS",
+        "SOF",
+        "ORG"
+      ],
+      "boost": 0.08
+    }
+  },
+  "turf_map": {
+    "artificial": [
+      "HAC",
+      "DJU",
+      "ELF",
+      "GOT",
+      "VSK",
+      "HAM"
+    ],
+    "natural": [
+      "MAL",
+      "AIK",
+      "KAL",
+      "NOR",
+      "HBK",
+      "GAIS",
+      "PRI",
+      "SIR",
+      "BRO",
+      "DEG",
+      "SOF",
+      "VAR",
+      "ORG"
+    ]
+  },
+  "region_map": {
+    "south": [
+      "MAL",
+      "KAL",
+      "HBK",
+      "PRI",
+      "VAR"
+    ],
+    "stockholm": [
+      "AIK",
+      "DJU",
+      "BRO",
+      "HAM"
+    ],
+    "west": [
+      "HAC",
+      "ELF",
+      "GAIS",
+      "SOF",
+      "ORG"
+    ],
+    "east": [
+      "NOR",
+      "SIR"
+    ],
+    "mid": [
+      "DEG",
+      "VSK"
+    ],
+    "north": [
+      "GOT"
+    ]
+  }
+}

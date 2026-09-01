@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩职K1联赛第20轮 四场预测分析</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0a0e17; color: #e0e6f0; padding: 0; }
+
+/* Stadium Hero */
+.stadium-hero { position: relative; width: 100%; height: 420px; overflow: hidden; background: linear-gradient(180deg, #0d1b2a 0%, #1b2838 40%, #2d5a27 75%, #3a7d33 100%); }
+.stadium-hero .sky { position: absolute; top: 0; left: 0; width: 100%; height: 45%; background: linear-gradient(180deg, #0d1b2a 0%, #1a2a3a 60%, #2a3a4a 100%); }
+.stadium-hero .stars { position: absolute; top: 0; left: 0; width: 100%; height: 40%; }
+.stadium-hero .star { position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%; opacity: 0.6; }
+.stadium-hero .floodlight-l { position: absolute; top: 30%; left: 8%; width: 6px; height: 100px; background: linear-gradient(180deg, #888 0%, #aaa 30%, transparent 100%); transform: skewX(-5deg); }
+.stadium-hero .floodlight-r { position: absolute; top: 30%; right: 8%; width: 6px; height: 100px; background: linear-gradient(180deg, #888 0%, #aaa 30%, transparent 100%); transform: skewX(5deg); }
+.stadium-hero .light-beam-l { position: absolute; top: 42%; left: 6%; width: 40%; height: 50px; background: linear-gradient(135deg, rgba(255,255,200,0.08) 0%, transparent 100%); transform: skewX(-25deg); }
+.stadium-hero .light-beam-r { position: absolute; top: 42%; right: 6%; width: 40%; height: 50px; background: linear-gradient(225deg, rgba(255,255,200,0.08) 0%, transparent 100%); transform: skewX(25deg); }
+.stadium-hero .pitch { position: absolute; bottom: 0; left: 5%; width: 90%; height: 55%; background: linear-gradient(90deg, #2d6b28 0%, #3a8a33 20%, #3a8a33 80%, #2d6b28 100%); border-radius: 50% 50% 0 0 / 20% 20% 0 0; }
+.stadium-hero .pitch::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: rgba(255,255,255,0.15); }
+.stadium-hero .pitch::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 60px; height: 60px; border: 2px solid rgba(255,255,255,0.15); border-radius: 50%; }
+.stadium-hero .pitch-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 20px; height: 20px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+.stadium-hero .penalty-a { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 32%; height: 15%; border: 2px solid rgba(255,255,255,0.12); }
+.stadium-hero .penalty-b { position: absolute; bottom: 8%; left: 50%; transform: translateX(-50%); width: 32%; height: 15%; border: 2px solid rgba(255,255,255,0.12); }
+.stadium-hero .goal-a { position: absolute; top: 2%; left: 50%; transform: translateX(-50%); width: 18%; height: 6%; border: 2px solid rgba(255,255,255,0.15); border-bottom: none; }
+.stadium-hero .goal-b { position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%); width: 18%; height: 6%; border: 2px solid rgba(255,255,255,0.15); border-top: none; }
+.stadium-hero .stands { position: absolute; bottom: 50%; left: 2%; width: 96%; height: 12%; background: repeating-linear-gradient(90deg, #1a2a3a 0px, #1a2a3a 4px, #223040 4px, #223040 8px); border-radius: 4px; opacity: 0.5; }
+.stadium-hero .stands-b { position: absolute; bottom: 50%; left: 2%; width: 96%; height: 12%; background: repeating-linear-gradient(90deg, #223040 0px, #223040 4px, #1a2a3a 4px, #1a2a3a 8px); border-radius: 4px; opacity: 0.3; transform: translateY(-100%); }
+
+/* Scoreboard overlay on hero */
+.scoreboard-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 10; width: 90%; max-width: 700px; }
+.scoreboard { background: linear-gradient(135deg, rgba(10,14,23,0.92) 0%, rgba(20,30,50,0.92) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px 24px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05); }
+.scoreboard .sb-label { text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: #8899bb; margin-bottom: 10px; }
+.scoreboard .sb-teams { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; }
+.scoreboard .sb-team { text-align: center; flex: 1; }
+.scoreboard .sb-team .name { font-size: 18px; font-weight: 700; color: #fff; }
+.scoreboard .sb-team .name.home { color: #4fc3f7; }
+.scoreboard .sb-team .name.away { color: #ff8a65; }
+.scoreboard .sb-score { font-size: 42px; font-weight: 900; color: #ffd54f; letter-spacing: 4px; min-width: 80px; text-align: center; text-shadow: 0 0 20px rgba(255,213,79,0.3); }
+.scoreboard .sb-probs { display: flex; justify-content: center; gap: 20px; font-size: 12px; color: #8899bb; }
+.scoreboard .sb-probs span { padding: 2px 8px; border-radius: 4px; }
+.scoreboard .sb-probs .prob-home { color: #4fc3f7; }
+.scoreboard .sb-probs .prob-draw { color: #fff; }
+.scoreboard .sb-probs .prob-away { color: #ff8a65; }
+
+/* Content */
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; color: #fff; }
+.subtitle { color: #8899bb; font-size: 14px; margin-bottom: 32px; }
+
+/* Match Cards */
+.match-card { background: linear-gradient(135deg, #141e30 0%, #1a2a3a 100%); border-radius: 12px; margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+.match-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.match-header .match-num { font-size: 12px; color: #8899bb; letter-spacing: 1px; }
+.match-header .match-venue { font-size: 12px; color: #667788; }
+.match-body { padding: 20px; }
+
+/* Team vs Team */
+.match-vs { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 20px; }
+.match-vs .mv-team { text-align: center; flex: 1; }
+.match-vs .mv-team .mv-name { font-size: 20px; font-weight: 700; }
+.match-vs .mv-team .mv-name.h { color: #4fc3f7; }
+.match-vs .mv-team .mv-name.a { color: #ff8a65; }
+.match-vs .mv-team .mv-elo { font-size: 12px; color: #667788; }
+.match-vs .mv-score { font-size: 36px; font-weight: 900; color: #ffd54f; min-width: 80px; text-align: center; }
+.match-vs .mv-vs { font-size: 14px; color: #667788; }
+
+/* Prob bars */
+.prob-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.prob-row .prob-label { width: 70px; font-size: 13px; color: #8899bb; text-align: right; }
+.prob-row .prob-bar-bg { flex: 1; height: 22px; background: rgba(255,255,255,0.05); border-radius: 11px; overflow: hidden; position: relative; }
+.prob-row .prob-bar-fill { height: 100%; border-radius: 11px; transition: width 0.8s; }
+.prob-row .prob-bar-fill.h { background: linear-gradient(90deg, #1565c0, #4fc3f7); }
+.prob-row .prob-bar-fill.d { background: linear-gradient(90deg, #555, #999); }
+.prob-row .prob-bar-fill.a { background: linear-gradient(90deg, #bf360c, #ff8a65); }
+.prob-row .prob-val { width: 50px; font-size: 13px; font-weight: 600; color: #fff; }
+
+/* xG row */
+.xg-row { display: flex; justify-content: center; gap: 30px; margin: 16px 0; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+.xg-item { text-align: center; }
+.xg-item .xg-label { font-size: 11px; color: #667788; text-transform: uppercase; letter-spacing: 1px; }
+.xg-item .xg-val { font-size: 24px; font-weight: 700; color: #fff; }
+.xg-item .xg-val.h { color: #4fc3f7; }
+.xg-item .xg-val.a { color: #ff8a65; }
+
+/* Score distribution */
+.score-dist { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px 0; }
+.score-item { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 80px; border: 1px solid rgba(255,255,255,0.08); }
+.score-item .si-score { font-size: 16px; font-weight: 700; color: #ffd54f; }
+.score-item .si-prob { font-size: 11px; color: #8899bb; margin-top: 2px; }
+.score-item.highlight { border-color: #ffd54f; background: rgba(255,213,79,0.08); }
+
+/* Odds Table */
+.odds-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+.odds-table th { text-align: center; padding: 8px 6px; background: rgba(255,255,255,0.05); color: #8899bb; font-weight: 500; }
+.odds-table td { text-align: center; padding: 7px 6px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.odds-table .ev-pos { color: #4caf50; font-weight: 700; }
+.odds-table .ev-neg { color: #f44336; }
+.odds-table .rec-yes { color: #4caf50; }
+.odds-table .rec-no { color: #f44336; }
+.odds-table .rec-light { color: #ffc107; }
+
+/* Intelligence */
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.intel-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); }
+.intel-card .ic-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.intel-card .ic-title.h { color: #4fc3f7; }
+.intel-card .ic-title.a { color: #ff8a65; }
+.intel-card .ic-item { font-size: 12px; color: #aab; padding: 2px 0; padding-left: 12px; position: relative; }
+.intel-card .ic-item::before { content: '·'; position: absolute; left: 2px; color: #667; }
+
+/* Scenarios */
+.scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0; }
+.scenario-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
+.scenario-card .sc-title { font-size: 13px; font-weight: 600; color: #ffd54f; margin-bottom: 6px; }
+.scenario-card .sc-desc { font-size: 12px; color: #aab; line-height: 1.5; }
+
+/* Value callout */
+.value-callout { background: linear-gradient(135deg, rgba(76,175,80,0.1) 0%, rgba(76,175,80,0.03) 100%); border: 1px solid rgba(76,175,80,0.2); border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+.value-callout .vc-title { font-size: 13px; font-weight: 700; color: #4caf50; }
+.value-callout .vc-desc { font-size: 12px; color: #aab; margin-top: 4px; }
+
+.factors { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.factor-tag { background: rgba(255,255,255,0.06); border-radius: 4px; padding: 3px 10px; font-size: 11px; color: #8899bb; }
+
+.h2h-row { display: flex; gap: 16px; padding: 10px 14px; background: rgba(255,255,255,0.02); border-radius: 8px; margin: 10px 0; font-size: 13px; color: #aab; }
+
+.section-title { font-size: 16px; font-weight: 700; color: #fff; margin: 20px 0 12px 0; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+.footer { text-align: center; padding: 32px 16px; font-size: 12px; color: #556; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 32px; }
+.footer a { color: #4fc3f7; text-decoration: none; }
+
+@media (max-width: 600px) {
+  .stadium-hero { height: 320px; }
+  .scoreboard .sb-team .name { font-size: 14px; }
+  .scoreboard .sb-score { font-size: 32px; min-width: 60px; }
+  .match-vs .mv-team .mv-name { font-size: 16px; }
+  .match-vs .mv-score { font-size: 28px; min-width: 60px; }
+  .intel-grid { grid-template-columns: 1fr; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .xg-row { gap: 16px; }
+  .prob-row .prob-label { width: 50px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ STADIUM HERO ============ -->
+<div class="stadium-hero">
+  <div class="sky"></div>
+  <div class="stars">
+    <div class="star" style="top:10%;left:15%"></div>
+    <div class="star" style="top:5%;left:35%"></div>
+    <div class="star" style="top:8%;left:55%"></div>
+    <div class="star" style="top:3%;left:75%"></div>
+    <div class="star" style="top:12%;left:88%"></div>
+    <div class="star" style="top:18%;left:25%"></div>
+    <div class="star" style="top:15%;left:45%"></div>
+    <div class="star" style="top:6%;left:65%"></div>
+    <div class="star" style="top:20%;left:10%"></div>
+    <div class="star" style="top:14%;left:80%"></div>
+  </div>
+  <div class="floodlight-l"></div>
+  <div class="floodlight-r"></div>
+  <div class="light-beam-l"></div>
+  <div class="light-beam-r"></div>
+  <div class="stands"></div>
+  <div class="stands-b"></div>
+  <div class="pitch">
+    <div class="penalty-a"></div>
+    <div class="penalty-b"></div>
+    <div class="pitch-circle"></div>
+    <div class="goal-a"></div>
+    <div class="goal-b"></div>
+  </div>
+  <div class="scoreboard-overlay">
+    <div class="scoreboard">
+      <div class="sb-label">K League 1 · Round 20 · 2026.07.26</div>
+      <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center; margin-bottom:6px">
+        <div class="sb-team"><div class="name home">首尔 / 仁川 / 光州 / 安养</div><div style="font-size:11px;color:#667788">H O M E</div></div>
+        <div class="sb-score">VS</div>
+        <div class="sb-team"><div class="name away">蔚山 / 富川 / 济州 / 江原</div><div style="font-size:11px;color:#667788">A W A Y</div></div>
+      </div>
+      <div style="text-align:center;font-size:13px;color:#ffd54f;font-weight:600;letter-spacing:1px">四场比分预测 · 初盘价值分析</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>韩职K1联赛 第20轮</h1>
+  <div class="subtitle">2026年7月26日 · 四场比分预测 + 初盘价值分析 · 生成时间: 2026-07-26</div>
+
+  <!-- ============ MATCH 1: SEO vs ULS ============ -->
+  <div class="match-card">
+    <div class="match-header">
+      <span class="match-num">#1  FC首尔 vs 蔚山现代</span>
+      <span class="match-venue">首尔世界杯竞技场 · 18:30</span>
+    </div>
+    <div class="match-body">
+      <div class="match-vs">
+        <div class="mv-team">
+          <div class="mv-name h">FC首尔</div>
+          <div class="mv-elo">Elo 1680 · 第1名</div>
+        </div>
+        <div class="mv-score">2-0</div>
+        <div class="mv-team">
+          <div class="mv-name a">蔚山现代</div>
+          <div class="mv-elo">Elo 1620 · 第7名</div>
+        </div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-label">主胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill h" style="width:61.6%"></div></div>
+        <div class="prob-val" style="color:#4fc3f7">61.6%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">平局</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill d" style="width:21.6%"></div></div>
+        <div class="prob-val">21.6%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">客胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill a" style="width:16.8%"></div></div>
+        <div class="prob-val" style="color:#ff8a65">16.8%</div>
+      </div>
+
+      <div class="xg-row">
+        <div class="xg-item"><div class="xg-label">预期进球 (主)</div><div class="xg-val h">1.94</div></div>
+        <div class="xg-item"><div class="xg-label">预期进球 (客)</div><div class="xg-val a">0.78</div></div>
+        <div class="xg-item"><div class="xg-label">总预期</div><div class="xg-val" style="color:#ffd54f">2.72</div></div>
+      </div>
+
+      <div class="section-title">比分分布 Top5</div>
+      <div class="score-dist">
+        <div class="score-item highlight"><div class="si-score">2-0</div><div class="si-prob">12.4% ▲</div></div>
+        <div class="score-item highlight"><div class="si-score">1-0</div><div class="si-prob">12.8% ▲</div></div>
+        <div class="score-item"><div class="si-score">1-1</div><div class="si-prob">9.9%</div></div>
+        <div class="score-item"><div class="si-score">2-1</div><div class="si-prob">9.5%</div></div>
+        <div class="score-item"><div class="si-score">3-0</div><div class="si-prob">8.1%</div></div>
+      </div>
+
+      <div class="value-callout">
+        <div class="vc-title">✅ 价值方向: 主胜 @1.98 (EV +22.0%)</div>
+        <div class="vc-desc">模型61.6% vs 庄家真实概率46.7%，偏差+14.9%。首尔主场碾压+蔚山欧战消耗，初盘让0.5球偏浅，主胜被低估。</div>
+      </div>
+
+      <div class="factors">
+        <span class="factor-tag">蔚山周中欧战消耗 -0.08 xG</span>
+        <span class="factor-tag">夏季高温高湿 -0.04 xG</span>
+        <span class="factor-tag">首尔主场最强攻击力</span>
+        <span class="factor-tag">蔚山客场进攻乏力</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:12px">
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">初盘赔率</div>
+          <table class="odds-table">
+            <tr><th></th><th>主胜</th><th>平局</th><th>客胜</th></tr>
+            <tr><td>初盘</td><td>1.98</td><td>3.60</td><td>3.35</td></tr>
+            <tr><td>庄家真实概率</td><td>46.7%</td><td>25.7%</td><td>27.6%</td></tr>
+            <tr><td>模型概率</td><td style="color:#4fc3f7">61.6%</td><td>21.6%</td><td>16.8%</td></tr>
+            <tr><td>EV</td><td class="ev-pos">+22.0%</td><td class="ev-neg">-22.2%</td><td class="ev-neg">-43.7%</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">赛前情报</div>
+          <div style="font-size:12px;color:#aab;line-height:1.6">
+            · 首尔42分领跑，主场8胜1负<br>
+            · 蔚山仅28分第7，客场4胜1平4负<br>
+            · 蔚山欧联资格赛周中有消耗<br>
+            · 首尔近5个主场4胜1平
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">场景推演</div>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="sc-title">🌤 正常路径 (65%)</div>
+          <div class="sc-desc">首尔控制中场，蔚山防线被压制。首尔2-0或1-0取胜，预期进球优势兑现。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">🌧 僵局路径 (22%)</div>
+          <div class="sc-desc">高温高湿降低节奏，双方失误增多。蔚山死守反击，1-1平局收场。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">⚡ 冷门路径 (13%)</div>
+          <div class="sc-desc">蔚山利用定位球偷一个，首尔久攻不下反被反击。蔚山1-0客胜。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MATCH 2: ICU vs BUC ============ -->
+  <div class="match-card">
+    <div class="match-header">
+      <span class="match-num">#2  仁川联 vs 富川FC</span>
+      <span class="match-venue">仁川足球场 · 18:30</span>
+    </div>
+    <div class="match-body">
+      <div class="match-vs">
+        <div class="mv-team">
+          <div class="mv-name h">仁川联</div>
+          <div class="mv-elo">Elo 1570 · 第7名</div>
+        </div>
+        <div class="mv-score">1-0</div>
+        <div class="mv-team">
+          <div class="mv-name a">富川FC</div>
+          <div class="mv-elo">Elo 1500 · 第11名</div>
+        </div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-label">主胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill h" style="width:56.2%"></div></div>
+        <div class="prob-val" style="color:#4fc3f7">56.2%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">平局</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill d" style="width:22.9%"></div></div>
+        <div class="prob-val">22.9%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">客胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill a" style="width:20.9%"></div></div>
+        <div class="prob-val" style="color:#ff8a65">20.9%</div>
+      </div>
+
+      <div class="xg-row">
+        <div class="xg-item"><div class="xg-label">预期进球 (主)</div><div class="xg-val h">1.85</div></div>
+        <div class="xg-item"><div class="xg-label">预期进球 (客)</div><div class="xg-val a">0.95</div></div>
+        <div class="xg-item"><div class="xg-label">总预期</div><div class="xg-val" style="color:#ffd54f">2.80</div></div>
+      </div>
+
+      <div class="section-title">比分分布 Top5</div>
+      <div class="score-dist">
+        <div class="score-item highlight"><div class="si-score">1-0</div><div class="si-prob">11.3% ▲</div></div>
+        <div class="score-item"><div class="si-score">1-1</div><div class="si-prob">10.6%</div></div>
+        <div class="score-item"><div class="si-score">2-0</div><div class="si-prob">10.5%</div></div>
+        <div class="score-item"><div class="si-score">2-1</div><div class="si-prob">9.7%</div></div>
+        <div class="score-item"><div class="si-score">3-0</div><div class="si-prob">6.5%</div></div>
+      </div>
+
+      <div class="value-callout" style="border-color:rgba(255,193,7,0.2);background:linear-gradient(135deg,rgba(255,193,7,0.08),rgba(255,193,7,0.02))">
+        <div class="vc-title" style="color:#ffc107">⚡ 价值方向: 客胜 @5.10 (EV +6.6%)</div>
+        <div class="vc-desc">模型客胜20.9% vs 庄家真实概率17.6%，偏差+3.3%。仁川联让半一偏深，主胜1.66 EV为负，客胜有轻仓博冷空间。</div>
+      </div>
+
+      <div class="factors">
+        <span class="factor-tag">夏季高温高湿 -0.04 xG</span>
+        <span class="factor-tag">仁川联近2连胜含金量高</span>
+        <span class="factor-tag">富川FC联赛4轮不胜</span>
+        <span class="factor-tag">首都圈德比战意</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:12px">
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">初盘赔率</div>
+          <table class="odds-table">
+            <tr><th></th><th>主胜</th><th>平局</th><th>客胜</th></tr>
+            <tr><td>初盘</td><td>1.66</td><td>3.20</td><td>5.10</td></tr>
+            <tr><td>庄家真实概率</td><td>54.2%</td><td>28.1%</td><td>17.6%</td></tr>
+            <tr><td>模型概率</td><td>56.2%</td><td>22.9%</td><td style="color:#ffc107">20.9%</td></tr>
+            <tr><td>EV</td><td class="ev-neg">-6.7%</td><td class="ev-neg">-26.7%</td><td class="ev-pos">+6.6%</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">赛前情报</div>
+          <div style="font-size:12px;color:#aab;line-height:1.6">
+            · 仁川联27分第7，近2连胜（胜全北、蔚山）<br>
+            · 富川FC 19分第11，近4轮1平3负<br>
+            · 仁川联主场4胜2平3负<br>
+            · 富川客场1胜4平4负
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">场景推演</div>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="sc-title">🌤 正常路径 (56%)</div>
+          <div class="sc-desc">仁川联利用近期连胜士气压制富川，控球+推进占优，1-0或2-0小胜。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">🌧 僵局路径 (23%)</div>
+          <div class="sc-desc">富川死守摆大巴，仁川联破密集乏力。高温下节奏慢，0-0或1-1闷平。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">⚡ 冷门路径 (21%)</div>
+          <div class="sc-desc">仁川联久攻不下+后防疏忽，富川反击偷一个。富川1-0或2-1客胜。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MATCH 3: GWJ vs JEU ============ -->
+  <div class="match-card">
+    <div class="match-header">
+      <span class="match-num">#3  光州FC vs 济州SK</span>
+      <span class="match-venue">光州世界杯竞技场 · 18:30</span>
+    </div>
+    <div class="match-body">
+      <div class="match-vs">
+        <div class="mv-team">
+          <div class="mv-name h">光州FC</div>
+          <div class="mv-elo">Elo 1450 · 第12名</div>
+        </div>
+        <div class="mv-score">0-1</div>
+        <div class="mv-team">
+          <div class="mv-name a">济州SK</div>
+          <div class="mv-elo">Elo 1580 · 第8名</div>
+        </div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-label">主胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill h" style="width:23.4%"></div></div>
+        <div class="prob-val" style="color:#4fc3f7">23.4%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">平局</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill d" style="width:23.6%"></div></div>
+        <div class="prob-val">23.6%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">客胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill a" style="width:53.0%"></div></div>
+        <div class="prob-val" style="color:#ff8a65">53.0%</div>
+      </div>
+
+      <div class="xg-row">
+        <div class="xg-item"><div class="xg-label">预期进球 (主)</div><div class="xg-val h">1.02</div></div>
+        <div class="xg-item"><div class="xg-label">预期进球 (客)</div><div class="xg-val a">1.78</div></div>
+        <div class="xg-item"><div class="xg-label">总预期</div><div class="xg-val" style="color:#ffd54f">2.80</div></div>
+      </div>
+
+      <div class="section-title">比分分布 Top5</div>
+      <div class="score-dist">
+        <div class="score-item"><div class="si-score">1-1</div><div class="si-prob">11.0%</div></div>
+        <div class="score-item highlight"><div class="si-score">0-1</div><div class="si-prob">10.8% ▲</div></div>
+        <div class="score-item"><div class="si-score">1-2</div><div class="si-prob">9.7%</div></div>
+        <div class="score-item"><div class="si-score">0-2</div><div class="si-prob">9.6%</div></div>
+        <div class="score-item"><div class="si-score">1-0</div><div class="si-prob">6.2%</div></div>
+      </div>
+
+      <div class="value-callout" style="border-color:rgba(255,255,255,0.1);background:rgba(255,255,255,0.02)">
+        <div class="vc-title" style="color:#8899bb">⚠ 无显著价值方向 (EV +1.8%)</div>
+        <div class="vc-desc">模型客胜53.0% vs 庄家真实概率46.2%，偏差+6.8%但抽水高达12.8%，EV仅+1.8%。方向看客胜，但赔率没油水。</div>
+      </div>
+
+      <div class="factors">
+        <span class="factor-tag">夏季高温高湿 -0.04 xG</span>
+        <span class="factor-tag">光州FC垫底仅10分</span>
+        <span class="factor-tag">济州24分中下游</span>
+        <span class="factor-tag">光州主场防守差</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:12px">
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">初盘赔率</div>
+          <table class="odds-table">
+            <tr><th></th><th>主胜</th><th>平局</th><th>客胜</th></tr>
+            <tr><td>初盘</td><td>3.65</td><td>3.00</td><td>1.92</td></tr>
+            <tr><td>庄家真实概率</td><td>24.3%</td><td>29.5%</td><td>46.2%</td></tr>
+            <tr><td>模型概率</td><td>23.4%</td><td>23.6%</td><td style="color:#ff8a65">53.0%</td></tr>
+            <tr><td>EV</td><td class="ev-neg">-14.6%</td><td class="ev-neg">-29.2%</td><td style="color:#8899bb">+1.8%</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">赛前情报</div>
+          <div style="font-size:12px;color:#aab;line-height:1.6">
+            · 光州FC 10分垫底，联赛最差进攻(10球)<br>
+            · 济州SK 24分第8，近期状态一般<br>
+            · 光州主场1胜4平4负<br>
+            · 济州客场2胜3平4负
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">场景推演</div>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="sc-title">🌤 正常路径 (53%)</div>
+          <div class="sc-desc">济州实力压制，光州进攻乏力难破门。济州1-0或2-0客胜。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">🌧 僵局路径 (24%)</div>
+          <div class="sc-desc">双方高温下节奏慢，失误多。光州死守争取1分，1-1或0-0平局。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">⚡ 冷门路径 (23%)</div>
+          <div class="sc-desc">光州主场偷鸡，定位球或反击破门。光州1-0主场爆冷。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MATCH 4: ANY vs GWN ============ -->
+  <div class="match-card">
+    <div class="match-header">
+      <span class="match-num">#4  安养FC vs 江原FC</span>
+      <span class="match-venue">安养综合运动场 · 18:30</span>
+    </div>
+    <div class="match-body">
+      <div class="match-vs">
+        <div class="mv-team">
+          <div class="mv-name h">安养FC</div>
+          <div class="mv-elo">Elo 1530 · 第6名</div>
+        </div>
+        <div class="mv-score">1-1</div>
+        <div class="mv-team">
+          <div class="mv-name a">江原FC</div>
+          <div class="mv-elo">Elo 1600 · 第3名</div>
+        </div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-label">主胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill h" style="width:31.1%"></div></div>
+        <div class="prob-val" style="color:#4fc3f7">31.1%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">平局</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill d" style="width:25.0%"></div></div>
+        <div class="prob-val">25.0%</div>
+      </div>
+      <div class="prob-row">
+        <div class="prob-label">客胜</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill a" style="width:43.9%"></div></div>
+        <div class="prob-val" style="color:#ff8a65">43.9%</div>
+      </div>
+
+      <div class="xg-row">
+        <div class="xg-item"><div class="xg-label">预期进球 (主)</div><div class="xg-val h">1.24</div></div>
+        <div class="xg-item"><div class="xg-label">预期进球 (客)</div><div class="xg-val a">1.56</div></div>
+        <div class="xg-item"><div class="xg-label">总预期</div><div class="xg-val" style="color:#ffd54f">2.80</div></div>
+      </div>
+
+      <div class="section-title">比分分布 Top5</div>
+      <div class="score-dist">
+        <div class="score-item highlight"><div class="si-score">1-1</div><div class="si-prob">11.7% ▲</div></div>
+        <div class="score-item"><div class="si-score">0-1</div><div class="si-prob">9.5%</div></div>
+        <div class="score-item"><div class="si-score">1-2</div><div class="si-prob">9.1%</div></div>
+        <div class="score-item"><div class="si-score">1-0</div><div class="si-prob">7.6%</div></div>
+        <div class="score-item"><div class="si-score">0-2</div><div class="si-prob">7.4%</div></div>
+      </div>
+
+      <div class="value-callout" style="border-color:rgba(255,193,7,0.2);background:linear-gradient(135deg,rgba(255,193,7,0.08),rgba(255,193,7,0.02))">
+        <div class="vc-title" style="color:#ffc107">⚡ 价值方向: 主胜 @3.40 (EV +5.7%)</div>
+        <div class="vc-desc">模型主胜31.1% vs 庄家真实概率27.1%，偏差+4.0%。江原主力中卫停赛+安养交锋心理优势，主胜有轻仓价值。</div>
+      </div>
+
+      <div class="factors">
+        <span class="factor-tag">夏季高温高湿 -0.04 xG</span>
+        <span class="factor-tag">江原主力中卫停赛</span>
+        <span class="factor-tag">安养近4次对江原不败</span>
+        <span class="factor-tag">江原客场防守不稳</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:12px">
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">初盘赔率</div>
+          <table class="odds-table">
+            <tr><th></th><th>主胜</th><th>平局</th><th>客胜</th></tr>
+            <tr><td>初盘</td><td>3.40</td><td>3.10</td><td>2.14</td></tr>
+            <tr><td>庄家真实概率</td><td>27.1%</td><td>29.8%</td><td>43.1%</td></tr>
+            <tr><td>模型概率</td><td style="color:#ffc107">31.1%</td><td>25.0%</td><td>43.9%</td></tr>
+            <tr><td>EV</td><td class="ev-pos">+5.7%</td><td class="ev-neg">-22.5%</td><td class="ev-neg">-6.1%</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#667788;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">赛前情报</div>
+          <div style="font-size:12px;color:#aab;line-height:1.6">
+            · 安养FC 27分第6，近4次对江原2胜2平<br>
+            · 江原FC 32分第3，9场不败(5胜4平)<br>
+            · 江原主力中卫图奇停赛<br>
+            · 安养主场3胜3平3负
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">场景推演</div>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="sc-title">🌤 正常路径 (44%)</div>
+          <div class="sc-desc">江原实力略优，控制场面但缺少主力中卫。江原1-0或2-1小胜。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">🌧 僵局路径 (25%)</div>
+          <div class="sc-desc">安养主场稳守反击，江原破门乏术。1-1平局，最高概率比分。</div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-title">⚡ 冷门路径 (31%)</div>
+          <div class="sc-desc">安养利用江原防线残缺，主场爆冷取胜。安养1-0或2-1。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SUMMARY ============ -->
+  <div class="match-card">
+    <div class="match-header">
+      <span class="match-num">四场综合总结</span>
+      <span class="match-venue">价值方向 + 比分汇总</span>
+    </div>
+    <div class="match-body">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px">
+        <tr style="background:rgba(255,255,255,0.05)">
+          <th style="padding:10px 8px;text-align:left;color:#8899bb">比赛</th>
+          <th style="padding:10px 8px;text-align:center;color:#8899bb">主预测比分</th>
+          <th style="padding:10px 8px;text-align:center;color:#8899bb">模型看好</th>
+          <th style="padding:10px 8px;text-align:center;color:#8899bb">初盘价值方向</th>
+          <th style="padding:10px 8px;text-align:center;color:#8899bb">EV</th>
+          <th style="padding:10px 8px;text-align:center;color:#8899bb">建议</th>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.04)">FC首尔 vs 蔚山现代</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ffd54f;font-weight:700">2-0</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#4fc3f7">主胜 61.6%</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#4fc3f7">主胜 @1.98</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#4caf50">+22.0%</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#4caf50">✅ 首选</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.04)">仁川联 vs 富川FC</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ffd54f;font-weight:700">1-0</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#4fc3f7">主胜 56.2%</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ffc107">客胜 @5.10</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ffc107">+6.6%</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ffc107">⚡ 轻仓博冷</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.04)">光州FC vs 济州SK</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ffd54f;font-weight:700">0-1</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#ff8a65">客胜 53.0%</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#8899bb">无价值</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#8899bb">+1.8%</td>
+          <td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);color:#8899bb">❌ 放弃</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px">安养FC vs 江原FC</td>
+          <td style="padding:10px 8px;text-align:center;color:#ffd54f;font-weight:700">1-1</td>
+          <td style="padding:10px 8px;text-align:center;color:#ff8a65">客胜 43.9%</td>
+          <td style="padding:10px 8px;text-align:center;color:#ffc107">主胜 @3.40</td>
+          <td style="padding:10px 8px;text-align:center;color:#ffc107">+5.7%</td>
+          <td style="padding:10px 8px;text-align:center;color:#ffc107">⚡ 轻仓</td>
+        </tr>
+      </table>
+
+      <div style="font-size:12px;color:#667788;line-height:1.6;padding:12px;background:rgba(255,255,255,0.02);border-radius:8px">
+        <strong style="color:#aab">风险提示：</strong> 赔率数据仅供概率比较参考，不构成投注建议。足球单场随机性很高，强队高概率不等于稳胜。模型默认包含随机冲击因子(σ=0.28)和夏季高温修正(-0.04 xG)。初盘赔率来源为各博彩公司开出的初始赔率，可能与临场赔率有差异。
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>数据来源: 球探体育(titan007) · TotalCorner · Stats24 · 懂球帝 · 新浪体育</p>
+    <p>Powered by Elo Rating + Poisson Score Model + Monte Carlo Simulation</p>
+    <p>Generated on 2026-07-26 · Report: reports/kleague/kleague_round20_4matches_20260726.html</p>
+  </div>
+</div>
+</body>
+</html>

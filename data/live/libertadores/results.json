@@ -1,0 +1,28 @@
+{
+  "matches": [
+    {
+      "home": "FLU",
+      "away": "IRV",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "PLA",
+      "away": "COQ",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "PAL",
+      "away": "CPO",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "ROS",
+      "away": "COR",
+      "hg": 0,
+      "ag": 0
+    }
+  ]
+}

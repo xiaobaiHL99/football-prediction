@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赫根 vs 索尔纳 | 赛前预测 | 瑞超第16轮</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0e17; color: #e8edf5; min-height: 100vh; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+  /* === PITCH === */
+  .pitch-wrapper { position: relative; width: 100%; aspect-ratio: 2/1; max-height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+  .pitch { width: 100%; height: 100%; background: linear-gradient(135deg, #1a4a2e 0%, #2d6b3e 40%, #1e5631 100%); position: relative; }
+  .pitch::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 6%, rgba(255,255,255,0.03) 6%, rgba(255,255,255,0.03) 6.2%); }
+  .pitch-lines { position: absolute; inset: 6% 3%; border: 2px solid rgba(255,255,255,0.35); }
+  .pitch-lines::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35); transform: translateY(-50%); }
+  .center-circle { position: absolute; top: 50%; left: 50%; width: 22%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .penalty-a, .penalty-b { position: absolute; top: 50%; width: 30%; height: 55%; border: 2px solid rgba(255,255,255,0.3); transform: translateY(-50%); }
+  .penalty-a { left: -1px; border-left: none; border-radius: 0 6px 6px 0; }
+  .penalty-b { right: -1px; border-right: none; border-radius: 6px 0 0 6px; }
+  .goal-a, .goal-b { position: absolute; top: 50%; width: 16%; height: 22%; border: 2px solid rgba(255,255,255,0.25); transform: translateY(-50%); }
+  .goal-a { left: -1px; border-left: none; border-radius: 0 4px 4px 0; }
+  .goal-b { right: -1px; border-right: none; border-radius: 4px 0 0 4px; }
+  .spot-a, .spot-b { position: absolute; top: 50%; width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .spot-a { left: 11%; } .spot-b { right: 11%; }
+  .arc-a, .arc-b { position: absolute; top: 50%; width: 12%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; transform: translate(-50%, -50%); }
+  .arc-a { left: 19%; } .arc-b { right: 19%; }
+
+  /* Corner arcs */
+  .corner { position: absolute; width: 6%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; }
+  .corner-tl { top: 4%; left: 1%; } .corner-tr { top: 4%; right: 1%; }
+  .corner-bl { bottom: 4%; left: 1%; } .corner-br { bottom: 4%; right: 1%; }
+
+  /* Scoreboard overlay */
+  .scoreboard { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); border: 2px solid rgba(255,200,50,0.4); border-radius: 12px; padding: 12px 28px; display: flex; align-items: center; gap: 16px; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(255,200,50,0.15); z-index: 10; }
+  .scoreboard .team { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .scoreboard .team .name { font-size: 1rem; font-weight: 700; letter-spacing: 0.5px; }
+  .scoreboard .team .badge { width: 36px; height: 36px; border-radius: 50%; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+  .scoreboard .team .badge.hac { background: #ffd700; color: #1a1a2e; }
+  .scoreboard .team .badge.aik { background: #c0392b; color: #fff; }
+  .scoreboard .vs-score { display: flex; flex-direction: column; align-items: center; }
+  .scoreboard .vs-score .pred-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #f1c40f; margin-bottom: 2px; }
+  .scoreboard .vs-score .score { font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px rgba(255,200,50,0.3); letter-spacing: 4px; }
+  .scoreboard .vs-score .sub { font-size: 0.55rem; color: #95a5a6; letter-spacing: 1px; }
+  .scoreboard .probs-row { display: flex; gap: 8px; margin-top: 4px; }
+  .scoreboard .probs-row .prob { font-size: 0.6rem; padding: 1px 6px; border-radius: 4px; }
+
+  .stadium-info { position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 8px; font-size: 0.65rem; color: #bdc3c7; z-index: 10; text-align: center; backdrop-filter: blur(4px); }
+
+  /* Stands */
+  .stands { position: absolute; bottom: 0; left: 0; right: 0; height: 14%; display: flex; gap: 2px; padding: 0 4%; align-items: flex-end; z-index: 5; }
+  .stand-row { display: flex; gap: 1px; align-items: flex-end; flex: 1; }
+  .stand-seat { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 1px; }
+  .floodlight { position: absolute; top: -10%; width: 3px; height: 20%; background: linear-gradient(to bottom, rgba(255,255,200,0.6), transparent); z-index: 2; }
+  .floodlight.l { left: 15%; } .floodlight.r { right: 15%; }
+
+  /* === SECTIONS === */
+  .section { background: #111827; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border: 1px solid #1f2937; }
+  .section-title { font-size: 1rem; font-weight: 700; color: #f1c40f; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 1.1rem; }
+
+  /* Prob bars */
+  .prob-bar { display: flex; height: 32px; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+  .prob-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; transition: width 0.5s; min-width: fit-content; padding: 0 6px; }
+  .prob-bar .seg.h { background: #ffd700; color: #1a1a2e; }
+  .prob-bar .seg.d { background: #7f8c8d; color: #fff; }
+  .prob-bar .seg.a { background: #c0392b; color: #fff; }
+
+  .prob-table { width: 100%; border-collapse: collapse; }
+  .prob-table td { padding: 8px 4px; border-bottom: 1px solid #1f2937; }
+  .prob-table td:last-child { text-align: right; font-weight: 700; }
+  .prob-table .mini-bar { height: 6px; border-radius: 3px; background: #2d3a56; }
+  .prob-table .mini-bar .fill { height: 100%; border-radius: 3px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .card { background: #0f1729; border-radius: 10px; padding: 14px; border: 1px solid #1e2a45; }
+  .card .label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .card .value { font-size: 1.4rem; font-weight: 800; }
+  .card .value.xg { color: #60a5fa; }
+  .card .value.hac-v { color: #ffd700; }
+  .card .value.aik-v { color: #e74c3c; }
+  .card .sub { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .score-card { background: #0f1729; border-radius: 8px; padding: 10px 6px; text-align: center; border: 1px solid #1e2a45; }
+  .score-card .s { font-size: 1rem; font-weight: 700; }
+  .score-card .pct { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+  .score-card.top { border-color: #f1c40f; background: rgba(241,196,15,0.08); }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+  .badge.green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+  .badge.yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+  .badge.red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+  .badge.blue { background: rgba(52,152,219,0.2); color: #3498db; }
+  .badge.gray { background: rgba(149,165,166,0.2); color: #95a5a6; }
+
+  .flag { display: inline-block; width: 20px; text-align: center; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 0.65rem; background: #1f2937; color: #bdc3c7; margin: 2px; }
+
+  .intel-item { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid #1a1f2e; font-size: 0.85rem; }
+  .intel-item:last-child { border: none; }
+  .intel-item .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .intel-item .dot.green { background: #2ecc71; }
+  .intel-item .dot.yellow { background: #f1c40f; }
+  .intel-item .dot.red { background: #e74c3c; }
+  .intel-item .dot.gray { background: #64748b; }
+
+  .odds-compare { display: flex; gap: 16px; margin: 12px 0; }
+  .odds-card { flex: 1; background: #0f1729; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #1e2a45; }
+  .odds-card .label { font-size: 0.65rem; color: #94a3b8; }
+  .odds-card .price { font-size: 1.2rem; font-weight: 700; margin: 4px 0; }
+  .odds-card .model-pct { font-size: 0.75rem; }
+  .odds-card .market-pct { font-size: 0.7rem; color: #64748b; }
+  .odds-card .dev { font-size: 0.7rem; font-weight: 600; margin-top: 2px; }
+  .odds-card .dev.pos { color: #2ecc71; }
+  .odds-card .dev.neg { color: #e74c3c; }
+
+  .scenario { background: #0f1729; border-left: 3px solid; padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; }
+  .scenario.primary { border-color: #f1c40f; }
+  .scenario.secondary { border-color: #3498db; }
+  .scenario.cold { border-color: #e74c3c; }
+
+  .footer-note { text-align: center; padding: 24px 0; color: #64748b; font-size: 0.75rem; border-top: 1px solid #1f2937; margin-top: 16px; }
+
+  .form-dots { display: flex; gap: 4px; margin: 6px 0; }
+  .form-dot { width: 20px; height: 20px; border-radius: 50%; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .form-dot.w { background: #2ecc71; color: #fff; }
+  .form-dot.d { background: #95a5a6; color: #fff; }
+  .form-dot.l { background: #e74c3c; color: #fff; }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    .odds-compare { flex-direction: column; }
+    .scoreboard { padding: 8px 12px; gap: 8px; }
+    .scoreboard .team .badge { width: 28px; height: 28px; font-size: 11px; }
+    .scoreboard .vs-score .score { font-size: 1.4rem; }
+    .scoreboard .team .name { font-size: 0.75rem; }
+    .section { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- PITCH -->
+  <div class="pitch-wrapper">
+    <div class="pitch">
+      <div class="pitch-lines">
+        <div class="penalty-a"></div>
+        <div class="penalty-b"></div>
+        <div class="goal-a"></div>
+        <div class="goal-b"></div>
+        <div class="spot-a"></div>
+        <div class="spot-b"></div>
+        <div class="arc-a"></div>
+        <div class="arc-b"></div>
+      </div>
+      <div class="center-circle"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="floodlight l"></div>
+      <div class="floodlight r"></div>
+
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        <div class="team">
+          <div class="badge hac">H</div>
+          <div class="name">赫根</div>
+        </div>
+        <div class="vs-score">
+          <div class="pred-label">PREDICTED</div>
+          <div class="score">2-1</div>
+          <div class="probs-row">
+            <span class="prob" style="background:#ffd700;color:#1a1a2e;">43.9%</span>
+            <span class="prob" style="background:#7f8c8d;">21.4%</span>
+            <span class="prob" style="background:#c0392b;">34.7%</span>
+          </div>
+          <div class="sub">H · D · A</div>
+        </div>
+        <div class="team">
+          <div class="badge aik">A</div>
+          <div class="name">索尔纳</div>
+        </div>
+      </div>
+
+      <div class="stadium-info">
+        Nordic Wellness Arena · 瑞典超级联赛 第16轮 · 2026.07.27 18:00<br>
+        人工草皮 · 哥德堡
+      </div>
+
+      <!-- Stands -->
+      <div class="stands">
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+        <div class="stand-row"><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+    <div>
+      <h1 style="font-size:1.3rem;">赫根 <span style="color:#94a3b8;font-weight:400;">vs</span> 索尔纳</h1>
+      <div style="font-size:0.75rem;color:#64748b;">预测生成: 2026-07-27  |  数据快照: 2026-07-26  |  理性模型</div>
+    </div>
+    <div><span class="badge yellow">争冠卡位战</span> <span class="badge blue">焦点战</span></div>
+  </div>
+
+  <!-- CORE CONCLUSION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎯</span> 核心结论</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">主预测赛果</div>
+          <div class="value hac-v">赫根胜</div>
+          <div class="sub">概率 43.9% · 主预测比分 2-1</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">预期进球 (xG)</div>
+          <div class="value xg">2.04 - 1.78</div>
+          <div class="sub">赫根主场进攻 vs 索尔纳客场反击</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:0.85rem;color:#bdc3c7;">
+      赫根主场优势+历史交锋心理占优，但防线两名中卫伤缺(Engdahl/Öhman)导致防守脆弱；<br>
+      索尔纳联赛3连胜+客场3连胜状态火热，模型赋予较高冷门概率(34.7%)，单场冷门空间较大。
+    </div>
+  </div>
+
+  <!-- PROBABILITY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📊</span> 胜平负概率</div>
+    <div class="prob-bar">
+      <div class="seg h" style="width:43.9%">43.9% 赫根</div>
+      <div class="seg d" style="width:21.4%">21.4%</div>
+      <div class="seg a" style="width:34.7%">34.7% 索尔纳</div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">比分分布 Top 5</div>
+      <div class="score-grid">
+        <div class="score-card top">
+          <div class="s" style="color:#ffd700;">2-1</div>
+          <div class="pct">8.1%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#95a5a6;">1-1</div>
+          <div class="pct">7.9%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#95a5a6;">2-2</div>
+          <div class="pct">7.2%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#e74c3c;">1-2</div>
+          <div class="pct">7.1%</div>
+        </div>
+        <div class="score-card">
+          <div class="s" style="color:#ffd700;">3-1</div>
+          <div class="pct">5.5%</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="section-title" style="font-size:0.9rem;margin-bottom:8px;">双方近期状态</div>
+      <div class="grid-2">
+        <div>
+          <div style="font-weight:700;color:#ffd700;margin-bottom:4px;">赫根</div>
+          <div class="form-dots">
+            <span class="form-dot w">W</span>
+            <span class="form-dot d">D</span>
+            <span class="form-dot l">L</span>
+            <span class="form-dot l">L</span>
+            <span class="form-dot w">W</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">胜-平-负-负-胜 · 近5场2胜1平2负</div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#e74c3c;margin-bottom:4px;">索尔纳</div>
+          <div class="form-dots">
+            <span class="form-dot d">D</span>
+            <span class="form-dot w">W</span>
+            <span class="form-dot w">W</span>
+            <span class="form-dot w">W</span>
+            <span class="form-dot w">W</span>
+          </div>
+          <div style="font-size:0.7rem;color:#94a3b8;">平-胜-胜-胜-胜 · 近5场4胜1平</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTELLIGENCE -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔍</span> 赛前情报</div>
+    <div class="grid-2">
+      <div>
+        <div style="font-weight:700;color:#ffd700;margin-bottom:8px;">赫根 <span style="font-size:0.7rem;color:#94a3b8;">排名第4 · 32分 · +10 GD</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>中卫 <strong>Engdahl/Öhman</strong> 双双伤缺，防线严重受损</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>左后卫 <strong>Lundqvist</strong> 结束停赛复出，边路攻防利好</span></div>
+        <div class="intel-item"><span class="dot yellow"></span><span>主场3胜2平1负，但6场失13球，防守最差</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>上轮2-0胜哈尔姆斯塔德，止住2连败</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅 Jens Gustafsson · 4-2-3-1 攻击型传控</span></div>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#e74c3c;margin-bottom:8px;">索尔纳 <span style="font-size:0.7rem;color:#94a3b8;">排名第3 · 34分 · +14 GD</span></div>
+        <div class="intel-item"><span class="dot red"></span><span>中卫 <strong>Cisse</strong> 脚踝伤缺，中场 <strong>Ellingsen</strong> 伤缺</span></div>
+        <div class="intel-item"><span class="dot green"></span><span>联赛3连胜 + 客场3连胜，状态极佳</span></div>
+        <div class="intel-item"><span class="dot green"></span><span><strong>Johan Hove</strong> 7球2助，是中场核心火力点</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>防线也有伤病，但整体防守数据优于赫根</span></div>
+        <div class="intel-item"><span class="dot gray"></span><span>主帅 José Riveiro · 4-3-3 控球推进型</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <div style="font-weight:700;margin-bottom:6px;">战术对位分析</div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>风格对位：传控 vs 传控</strong> — 双方都偏好控球推进，无直接战术克制</span></div>
+      <div class="intel-item"><span class="dot yellow"></span><span><strong>预期节奏：偏开放</strong> — 赫根防线伤兵满营+两队攻击力强+历史交锋大球率高</span></div>
+      <div class="intel-item"><span class="dot green"></span><span>赫根主场人工草皮，对适应天然草的球队有一定影响</span></div>
+      <div class="intel-item"><span class="dot gray"></span><span>近5次交手场均4.2球，大球率80%</span></div>
+    </div>
+  </div>
+
+  <!-- PREDICTION REASONS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 预测原因</div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>主场优势 + 评级领先：</strong> 赫根 Elo 1680 vs 索尔纳 1673，主场人工草皮额外加持</span></div>
+    <div class="intel-item"><span class="dot yellow"></span><span><strong>历史交锋心理优势：</strong> 近10次联赛交锋6胜2平2负，赫根占优</span></div>
+    <div class="intel-item"><span class="dot red"></span><span><strong>赫根防线危机：</strong> 两名首发中卫伤缺，直接影响防守稳定性，降低零封概率</span></div>
+    <div class="intel-item"><span class="dot red"></span><span><strong>索尔纳状态高热：</strong> 4胜1平近5场不败，客场3连胜，追分势头强劲</span></div>
+    <div class="intel-item"><span class="dot green"></span><span><strong>赫根进攻火力：</strong> 30场进15球(场均2.0)，联赛进攻第三强</span></div>
+    <div class="intel-item"><span class="dot gray"></span><span><strong>单场随机性：</strong> 模型已纳入泊松抽样+状态冲击+概率收缩，但仍保留34.7%冷门空间</span></div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎭</span> 场景推演</div>
+    <div class="scenario primary">
+      <div style="font-weight:700;color:#f1c40f;">主路径：赫根主场奏凯 (概率 ~44%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">赫根利用主场优势和人工草皮控制中场，Lindgren/Svanback 把握机会破门，防线虽漏但进攻火力更猛，2-1或3-1取胜。</div>
+    </div>
+    <div class="scenario secondary">
+      <div style="font-weight:700;color:#3498db;">次路径：索尔纳客场爆冷 (概率 ~35%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">索尔纳利用赫根防线漏洞，Hove组织反击快速得分，延续客场连胜势头。市场赔率3.75显示有可观价值空间。</div>
+    </div>
+    <div class="scenario cold">
+      <div style="font-weight:700;color:#95a5a6;">胶着路径：低比分平局 (概率 ~21%)</div>
+      <div style="font-size:0.8rem;color:#bdc3c7;margin-top:4px;">双方防守都存在问题但进攻端也相互制约，陷入中场绞杀战，1-1互交白卷。双方近期交锋中平局率上升(近3次2平)。</div>
+    </div>
+  </div>
+
+  <!-- ODDS VIEW -->
+  <div class="section">
+    <div class="section-title"><span class="icon">💰</span> 赔率视角</div>
+    <div style="font-size:0.75rem;color:#64748b;margin-bottom:12px;">赔率来源: 综合多家博彩公司 · 采集时间: 2026-07-27</div>
+    <div class="odds-compare">
+      <div class="odds-card">
+        <div class="label">主胜 (赫根)</div>
+        <div class="price" style="color:#ffd700;">1.87</div>
+        <div class="model-pct">模型: <strong>43.9%</strong></div>
+        <div class="market-pct">市场: 50.9%</div>
+        <div class="dev neg">偏差 -7.0%</div>
+      </div>
+      <div class="odds-card">
+        <div class="label">平局</div>
+        <div class="price" style="color:#95a5a6;">4.00</div>
+        <div class="model-pct">模型: <strong>21.4%</strong></div>
+        <div class="market-pct">市场: 23.8%</div>
+        <div class="dev neg">偏差 -2.4%</div>
+      </div>
+      <div class="odds-card">
+        <div class="label">客胜 (索尔纳)</div>
+        <div class="price" style="color:#e74c3c;">3.75</div>
+        <div class="model-pct">模型: <strong>34.7%</strong></div>
+        <div class="market-pct">市场: 25.4%</div>
+        <div class="dev pos">偏差 +9.3%</div>
+      </div>
+    </div>
+    <div style="font-size:0.8rem;color:#bdc3c7;">
+      <strong>模型 vs 市场解读：</strong>模型显著看好索尔纳爆冷方向 (34.7% vs 25.4%)。市场过度看好赫根主场优势，低估了索尔纳的近况火热和赫根防线危机的影响。索尔纳客胜在赔率3.75处存在正期望值(+30.1%)。
+    </div>
+    <div style="margin-top:8px;font-size:0.7rem;color:#64748b;border-top:1px solid #1f2937;padding-top:8px;">
+      赔率数据仅供概率比较参考，不构成投注建议。足球单场随机性极高，任何方向都有相当的不确定性。
+    </div>
+  </div>
+
+  <!-- UNCERTAINTY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚠️</span> 不确定性说明</div>
+    <ul style="list-style:none;font-size:0.85rem;color:#94a3b8;">
+      <li style="padding:4px 0;">• 足球单场随机性极高，即使是强队也只有44%左右的胜率</li>
+      <li style="padding:4px 0;">• 赫根防线两名主力缺阵的实际影响可能比Elo修正更大</li>
+      <li style="padding:4px 0;">• 索尔纳客场3连胜可能面临回调压力</li>
+      <li style="padding:4px 0;">• 争冠关键战的心理因素无法完全量化</li>
+      <li style="padding:4px 0;">• 模型已包含泊松比分抽样、状态冲击和概率收缩，但无法预测红牌/点球等突发事件</li>
+    </ul>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📎</span> 数据来源</div>
+    <div style="font-size:0.8rem;color:#94a3b8;">
+      <div>• Sports Mole — 赛前对阵预测、阵容、伤停信息 (2026-07)</div>
+      <div>• FBref — 球队赛季数据统计、阵型分析</div>
+      <div>• Allsvenskan 积分榜 — 2026赛季实时排名</div>
+      <div>• 历史交锋数据 — 近10次联赛对阵记录</div>
+      <div>• 多家博彩公司 — 实时赔率数据</div>
+      <div style="margin-top:8px;color:#64748b;">数据采集时间: 2026-07-26 ~ 2026-07-27</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    本预测基于 Elo 评级 + 泊松模型 + 蒙特卡洛模拟生成，仅供娱乐参考。<br>
+    足球比赛单场随机性很高，任何预测都不构成确定性判断。
+  </div>
+</div>
+</body>
+</html>

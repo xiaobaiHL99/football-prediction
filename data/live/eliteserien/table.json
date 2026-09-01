@@ -1,0 +1,19 @@
+{
+  "BOD": {"points": 37, "gd": 24, "gf": 42, "ga": 18, "played": 15},
+  "MOL": {"points": 33, "gd": 16, "gf": 35, "ga": 19, "played": 15},
+  "VIK": {"points": 30, "gd": 10, "gf": 30, "ga": 20, "played": 15},
+  "BGN": {"points": 28, "gd": 8, "gf": 28, "ga": 20, "played": 15},
+  "RBS": {"points": 26, "gd": 4, "gf": 24, "ga": 20, "played": 15},
+  "LIL": {"points": 24, "gd": 2, "gf": 22, "ga": 20, "played": 15},
+  "SARP": {"points": 22, "gd": -2, "gf": 20, "ga": 22, "played": 15},
+  "TRO": {"points": 21, "gd": -4, "gf": 18, "ga": 22, "played": 15},
+  "AALES": {"points": 20, "gd": -6, "gf": 17, "ga": 23, "played": 15},
+  "SAND": {"points": 19, "gd": -8, "gf": 16, "ga": 24, "played": 15},
+  "KFUM": {"points": 18, "gd": -10, "gf": 15, "ga": 25, "played": 15},
+  "FKB": {"points": 17, "gd": -12, "gf": 14, "ga": 26, "played": 15},
+  "KBK": {"points": 16, "gd": -14, "gf": 13, "ga": 27, "played": 15},
+  "HAM": {"points": 15, "gd": -16, "gf": 12, "ga": 28, "played": 15},
+  "STAB": {"points": 14, "gd": -18, "gf": 11, "ga": 29, "played": 15},
+  "VIF": {"points": 13, "gd": -20, "gf": 10, "ga": 30, "played": 15},
+  "IKT": {"points": 7, "gd": -19, "gf": 14, "ga": 33, "played": 14}
+}

@@ -1,0 +1,152 @@
+{
+  "_meta": {
+    "updated": "2026-08-29",
+    "format": "champions_league_2026-27"
+  },
+  "teams": {
+    "RMA": {
+      "name_cn": "皇家马德里",
+      "elo": 1950
+    },
+    "BAY": {
+      "name_cn": "拜仁慕尼黑",
+      "elo": 1930
+    },
+    "MCI": {
+      "name_cn": "曼城",
+      "elo": 1930
+    },
+    "PSG": {
+      "name_cn": "巴黎圣日耳曼",
+      "elo": 1900
+    },
+    "LIV": {
+      "name_cn": "利物浦",
+      "elo": 1890
+    },
+    "INT": {
+      "name_cn": "国际米兰",
+      "elo": 1890
+    },
+    "ARS": {
+      "name_cn": "阿森纳",
+      "elo": 1870
+    },
+    "BAR": {
+      "name_cn": "巴塞罗那",
+      "elo": 1860
+    },
+    "ATM": {
+      "name_cn": "马德里竞技",
+      "elo": 1850
+    },
+    "MUN": {
+      "name_cn": "曼联",
+      "elo": 1830
+    },
+    "BVB": {
+      "name_cn": "多特蒙德",
+      "elo": 1820
+    },
+    "NAP": {
+      "name_cn": "那不勒斯",
+      "elo": 1710
+    },
+    "ROM": {
+      "name_cn": "罗马",
+      "elo": 1780
+    },
+    "POR": {
+      "name_cn": "波尔图",
+      "elo": 1770
+    },
+    "SPO": {
+      "name_cn": "葡萄牙体育",
+      "elo": 1760
+    },
+    "PSV": {
+      "name_cn": "PSV埃因霍温",
+      "elo": 1750
+    },
+    "AVL": {
+      "name_cn": "阿斯顿维拉",
+      "elo": 1740
+    },
+    "BET": {
+      "name_cn": "皇家贝蒂斯",
+      "elo": 1720
+    },
+    "RBL": {
+      "name_cn": "RB莱比锡",
+      "elo": 1700
+    },
+    "LIL": {
+      "name_cn": "里尔",
+      "elo": 1700
+    },
+    "VIL": {
+      "name_cn": "比利亚雷亚尔",
+      "elo": 1690
+    },
+    "FEY": {
+      "name_cn": "费耶诺德",
+      "elo": 1680
+    },
+    "BOD": {
+      "name_cn": "博德闪耀",
+      "elo": 1670
+    },
+    "GAL": {
+      "name_cn": "加拉塔萨雷",
+      "elo": 1660
+    },
+    "LEN": {
+      "name_cn": "朗斯",
+      "elo": 1550
+    },
+    "SHA": {
+      "name_cn": "顿涅茨克矿工",
+      "elo": 1640
+    },
+    "FEN": {
+      "name_cn": "费内巴切",
+      "elo": 1630
+    },
+    "CLB": {
+      "name_cn": "布鲁日",
+      "elo": 1720
+    },
+    "STU": {
+      "name_cn": "斯图加特",
+      "elo": 1580
+    },
+    "SLP": {
+      "name_cn": "布拉格斯拉维亚",
+      "elo": 1560
+    },
+    "COM": {
+      "name_cn": "科莫",
+      "elo": 1540
+    },
+    "VIK": {
+      "name_cn": "维京",
+      "elo": 1520
+    },
+    "LIN": {
+      "name_cn": "林茨",
+      "elo": 1510
+    },
+    "SABH": {
+      "name_cn": "沙巴巴库",
+      "elo": 1500
+    },
+    "AEK": {
+      "name_cn": "雅典AEK",
+      "elo": 1490
+    },
+    "SLO": {
+      "name_cn": "布拉迪斯拉发",
+      "elo": 1480
+    }
+  }
+}

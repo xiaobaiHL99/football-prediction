@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Västerås vs Örgryte 预测报告 | 2026-07-24</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0e17;
+  color: #e0e6f0;
+  font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.pitch-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(180deg, #0d1b2a 0%, #1b3a2a 40%, #2d5a3a 60%, #1b3a2a 80%, #0d1b2a 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pitch-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
+}
+.pitch {
+  position: relative;
+  width: 700px;
+  max-width: 94%;
+  aspect-ratio: 70/44;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  background: linear-gradient(135deg, #2d6a3a 0%, #3a8a4a 50%, #2d6a3a 100%);
+  box-shadow: 0 0 40px rgba(0,0,0,0.5), inset 0 0 60px rgba(0,0,0,0.2);
+}
+.pitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 16px, rgba(255,255,255,0.04) 16px, rgba(255,255,255,0.04) 17px),
+              repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(255,255,255,0.04) 16px, rgba(255,255,255,0.04) 17px);
+}
+.pitch .center-circle {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 24%; height: 48%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch .center-spot {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 8px; height: 8px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch .center-line {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+}
+.pitch .pa-left, .pitch .pa-right {
+  position: absolute;
+  width: 40%; height: 44%;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.pitch .pa-left { left: 0; top: 50%; transform: translateY(-50%); border-left: none; }
+.pitch .pa-right { right: 0; top: 50%; transform: translateY(-50%); border-right: none; }
+.pitch .ga-left, .pitch .ga-right {
+  position: absolute;
+  width: 16%; height: 20%;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+.pitch .ga-left { left: 0; top: 50%; transform: translateY(-50%); border-left: none; }
+.pitch .ga-right { right: 0; top: 50%; transform: translateY(-50%); border-right: none; }
+.pitch .goal-left, .pitch .goal-right {
+  position: absolute;
+  width: 4%; height: 14%;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-left: none; border-right: none;
+}
+.pitch .goal-left { left: -4%; top: 50%; transform: translateY(-50%); }
+.pitch .goal-right { right: -4%; top: 50%; transform: translateY(-50%); }
+
+.scoreboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: rgba(10, 14, 23, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  min-width: 340px;
+}
+.scoreboard .team { text-align: center; flex: 1; }
+.scoreboard .team .logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.scoreboard .team .name { font-size: 13px; font-weight: 600; color: #ccc; }
+.scoreboard .team-vsk .logo { background: #228833; color: white; }
+.scoreboard .team-org .logo { background: #cc2222; color: white; }
+.scoreboard .score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.scoreboard .score-display .pred-label {
+  font-size: 9px;
+  color: #f0b429;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.scoreboard .score-display .score-nums { display: flex; align-items: center; gap: 8px; }
+.scoreboard .score-display .score-nums .num { font-size: 32px; font-weight: 900; color: #fff; line-height: 1; }
+.scoreboard .score-display .score-nums .colon { font-size: 28px; font-weight: 900; color: #f0b429; }
+.scoreboard .score-display .probs { font-size: 10px; color: #8af; letter-spacing: 0.5px; }
+
+.pitch .corner-flags {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: rgba(255,200,0,0.2);
+  border-radius: 50%;
+}
+.pitch .cf1 { top: -6px; left: -6px; }
+.pitch .cf2 { top: -6px; right: -6px; }
+.pitch .cf3 { bottom: -6px; left: -6px; }
+.pitch .cf4 { bottom: -6px; right: -6px; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 20px 16px 60px; }
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0b429;
+  margin: 32px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(240,180,41,0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title small { font-size: 12px; font-weight: 400; color: #889; }
+
+.match-header { text-align: center; padding: 18px 0 8px; }
+.match-header h1 { font-size: 22px; font-weight: 800; color: #fff; }
+.match-header .meta { font-size: 13px; color: #889; margin-top: 6px; }
+.match-header .meta span { margin: 0 8px; }
+.match-header .badge {
+  display: inline-block;
+  background: #f0b429;
+  color: #0a0e17;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+.core-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.core-card {
+  background: linear-gradient(135deg, #141b2d 0%, #1a2540 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.core-card .label { font-size: 11px; color: #889; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.core-card .value { font-size: 22px; font-weight: 800; }
+.core-card .sub { font-size: 12px; color: #8af; margin-top: 2px; }
+.core-card.gold { border-color: rgba(240,180,41,0.3); }
+.core-card.gold .value { color: #f0b429; }
+.core-card.blue .value { color: #5af; }
+.core-card.green .value { color: #4caf88; }
+.core-card.red .value { color: #f55; }
+
+.prob-section {
+  background: #141b2d;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+}
+.prob-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+.prob-row .label-cell { width: 80px; text-align: right; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+.prob-row .bar-wrap { flex: 1; height: 22px; background: rgba(255,255,255,0.04); border-radius: 11px; overflow: hidden; position: relative; }
+.prob-row .bar-wrap .bar { height: 100%; border-radius: 11px; transition: width 0.6s ease; position: relative; }
+.prob-row .bar-wrap .bar::after {
+  content: attr(data-pct);
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.bar-home { background: linear-gradient(90deg, #228833, #44bb55); }
+.bar-draw { background: linear-gradient(90deg, #888, #aaa); }
+.bar-away { background: linear-gradient(90deg, #cc2222, #ee4444); }
+.prob-row .pct-cell { width: 48px; text-align: left; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+
+.xg-section { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; margin: 8px 0; }
+.xg-bar { height: 8px; border-radius: 4px; position: relative; }
+.xg-bar-home { background: linear-gradient(90deg, #228833, #44bb55); }
+.xg-bar-away { background: linear-gradient(90deg, #cc2222, #ee4444); }
+.xg-label { font-size: 12px; color: #889; text-align: center; }
+.xg-label strong { color: #e0e6f0; font-size: 16px; }
+
+.score-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin: 10px 0; }
+.score-item { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 8px; text-align: center; border: 1px solid rgba(255,255,255,0.06); }
+.score-item .sc { font-size: 14px; font-weight: 700; color: #ddd; }
+.score-item .sc-pct { font-size: 12px; color: #8af; margin-top: 2px; }
+.score-item.top { border-color: #f0b429; background: rgba(240,180,41,0.08); }
+.score-item.top .sc { color: #f0b429; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.intel-card { background: #141b2d; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 14px; }
+.intel-card .team-name { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+.intel-card .team-name .elo { font-size: 11px; color: #889; font-weight: 400; }
+.intel-card .info-row { font-size: 12px; color: #bcc; margin: 4px 0; padding-left: 8px; border-left: 2px solid rgba(255,255,255,0.08); }
+.intel-card .info-row.negative { border-left-color: #f55; color: #f88; }
+.intel-card .info-row.positive { border-left-color: #4caf88; color: #6dd; }
+
+.odds-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
+.odds-table th { background: rgba(255,255,255,0.04); color: #889; font-weight: 600; padding: 8px 10px; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.odds-table td { padding: 8px 10px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.odds-table .value-pos { color: #4caf88; }
+.odds-table .value-neg { color: #f55; }
+
+.scenario-list { display: grid; gap: 10px; margin: 10px 0; }
+.scenario-item { background: #141b2d; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px 14px; }
+.scenario-item .sc-title { font-size: 13px; font-weight: 700; color: #f0b429; margin-bottom: 4px; }
+.scenario-item .sc-desc { font-size: 12px; color: #bcc; }
+
+.source-list { font-size: 12px; color: #889; margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.02); border-radius: 8px; }
+.source-list a { color: #5af; text-decoration: none; }
+.source-list a:hover { text-decoration: underline; }
+
+.disclaimer { margin-top: 24px; padding: 12px; background: rgba(240,180,41,0.06); border: 1px solid rgba(240,180,41,0.15); border-radius: 8px; font-size: 11px; color: #a98; text-align: center; }
+
+@media (max-width: 640px) {
+  .scoreboard { padding: 10px 14px; min-width: 260px; gap: 8px; }
+  .scoreboard .team .logo { width: 34px; height: 34px; font-size: 16px; }
+  .scoreboard .score-display .score-nums .num { font-size: 24px; }
+  .scoreboard .team .name { font-size: 11px; }
+  .core-box { grid-template-columns: 1fr; }
+  .intel-grid { grid-template-columns: 1fr; }
+  .score-grid { grid-template-columns: repeat(3, 1fr); }
+  .pitch-wrapper { min-height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="pitch-wrapper">
+  <div class="pitch">
+    <div class="corner-flags cf1"></div>
+    <div class="corner-flags cf2"></div>
+    <div class="corner-flags cf3"></div>
+    <div class="corner-flags cf4"></div>
+    <div class="center-circle"></div>
+    <div class="center-spot"></div>
+    <div class="center-line"></div>
+    <div class="pa-left"></div>
+    <div class="pa-right"></div>
+    <div class="ga-left"></div>
+    <div class="ga-right"></div>
+    <div class="goal-left"></div>
+    <div class="goal-right"></div>
+
+    <div class="scoreboard">
+      <div class="team team-vsk">
+        <div class="logo">V</div>
+        <div class="name">韦斯特罗斯<br><small>Västerås SK</small></div>
+      </div>
+      <div class="score-display">
+        <div class="pred-label">预测比分</div>
+        <div class="score-nums">
+          <span class="num">2</span>
+          <span class="colon">:</span>
+          <span class="num">0</span>
+        </div>
+        <div class="probs">VSK 胜 63.8%</div>
+      </div>
+      <div class="team team-org">
+        <div class="logo">Ö</div>
+        <div class="name">厄尔格里特<br><small>Örgryte IS</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="match-header">
+  <h1>Västerås SK vs Örgryte IS</h1>
+  <div class="meta">
+    <span>瑞典超级联赛 · 第14轮</span>
+    <span>2026-07-25 01:00 CST</span>
+    <span>Hitachi Energy Arena · 人造草</span>
+  </div>
+  <div class="badge">升班马德比 · 保级关键战</div>
+</div>
+
+<div class="section-title">核心结论</div>
+<div class="core-box">
+  <div class="core-card gold">
+    <div class="label">主预测赛果</div>
+    <div class="value">韦斯特罗斯 胜</div>
+    <div class="sub">概率 63.8% · 主预测比分 2-0</div>
+  </div>
+  <div class="core-card blue">
+    <div class="label">预期进球 (xG)</div>
+    <div class="value">2.19 - 0.89</div>
+    <div class="sub">VSK vs ORG · 差距悬殊</div>
+  </div>
+  <div class="core-card green">
+    <div class="label">ORG 客场攻击力</div>
+    <div class="value">3球</div>
+    <div class="sub">6客场仅进3球 · 近4场零进球</div>
+  </div>
+  <div class="core-card red">
+    <div class="label">冷门概率空间</div>
+    <div class="value">36.2%</div>
+    <div class="sub">ORG胜 16.6% + 平局 19.6%</div>
+  </div>
+</div>
+
+<div class="section-title">胜平负概率</div>
+<div class="prob-section">
+  <div class="prob-row">
+    <div class="label-cell" style="color:#44bb55;">韦斯特罗斯</div>
+    <div class="bar-wrap">
+      <div class="bar bar-home" style="width:63.8%" data-pct="63.8%"></div>
+    </div>
+    <div class="pct-cell" style="color:#44bb55;">63.8%</div>
+  </div>
+  <div class="prob-row">
+    <div class="label-cell" style="color:#aaa;">平局</div>
+    <div class="bar-wrap">
+      <div class="bar bar-draw" style="width:19.6%" data-pct="19.6%"></div>
+    </div>
+    <div class="pct-cell" style="color:#aaa;">19.6%</div>
+  </div>
+  <div class="prob-row">
+    <div class="label-cell" style="color:#ee4444;">厄尔格里特</div>
+    <div class="bar-wrap">
+      <div class="bar bar-away" style="width:16.6%" data-pct="16.6%"></div>
+    </div>
+    <div class="pct-cell" style="color:#ee4444;">16.6%</div>
+  </div>
+</div>
+
+<div class="section-title">预期进球</div>
+<div class="prob-section">
+  <div class="xg-section">
+    <div>
+      <div class="xg-bar xg-bar-home" style="width:100%"></div>
+      <div class="xg-label">韦斯特罗斯 <strong>2.19</strong></div>
+    </div>
+    <div style="font-size:12px;color:#889;">vs</div>
+    <div>
+      <div class="xg-bar xg-bar-away" style="width:100%"></div>
+      <div class="xg-label">厄尔格里特 <strong>0.89</strong></div>
+    </div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#889;text-align:center;">VSK 进球期望接近 ORG 的 2.5 倍</div>
+</div>
+
+<div class="section-title">比分分布 Top 5</div>
+<div class="score-grid">
+  <div class="score-item top">
+    <div class="sc">2-0</div>
+    <div class="sc-pct">11.0% ★</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">1-0</div>
+    <div class="sc-pct">10.1%</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">2-1</div>
+    <div class="sc-pct">9.7%</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">1-1</div>
+    <div class="sc-pct">8.9%</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">3-0</div>
+    <div class="sc-pct">8.1%</div>
+  </div>
+</div>
+<div style="font-size:11px;color:#889;margin-top:4px;">★ = 主预测比分（与最高概率赛果方向一致）</div>
+
+<div class="section-title">预测原因</div>
+<div class="prob-section" style="font-size:13px;color:#bcc;">
+  <ul style="padding-left:18px;">
+    <li><strong>Elo 评级差距明显</strong>：VSK 1540 vs ORG 1460，80 分差距约合 +5.5% 基础胜率优势。</li>
+    <li><strong>伤病因素加剧差距</strong>：ORG 伤病减员 Elo -30，VSK 阵容齐整（头号射手 Ladefoged 解禁复出）。</li>
+    <li><strong>ORG 客场攻击力极弱</strong>：6 客场仅 3 球，近 4 客场零进球，面对 VSK 很难破门。</li>
+    <li><strong>VSK 夏歇后状态出色</strong>：3 场抢 7 分，包括胜 HBK、DEG 和平榜首 Mjällby。</li>
+    <li><strong>人造草主场优势</strong>：VSK 人造草球场，ORG 来自哥德堡习惯天然草，需适应。</li>
+    <li><strong>ORG 近期有回暖迹象</strong>：4-3 胜 Häcken、0-0 平 Djurgården，不可忽视冷门可能。</li>
+    <li><strong>但 VSK 主场统治力不足</strong>：6 主场仅 1 胜，这为 ORG 抢分留下空间。</li>
+  </ul>
+</div>
+
+<div class="section-title">赛前情报摘要</div>
+<div class="intel-grid">
+  <div class="intel-card">
+    <div class="team-name">
+      <span style="color:#44bb55;">韦斯特罗斯 VSK</span>
+      <span class="elo">Elo 1540</span>
+    </div>
+    <div class="info-row positive">头号射手 Ladefoged (9球) 解禁复出</div>
+    <div class="info-row positive">夏歇后 3 场 7 分状态出色</div>
+    <div class="info-row">暂无重大伤病报告</div>
+    <div class="info-row">人造草主场，适应度高</div>
+  </div>
+  <div class="intel-card">
+    <div class="team-name">
+      <span style="color:#ee4444;">厄尔格里特 ORG</span>
+      <span class="elo">Elo 1460 <span style="color:#f55;">(-30)</span></span>
+    </div>
+    <div class="info-row negative">Rasmus Alm 等多人伤缺</div>
+    <div class="info-row positive">Tobias Sana 解禁复出</div>
+    <div class="info-row negative">客场 6 战 5 负，仅进 3 球</div>
+    <div class="info-row negative">近 4 客场零进球</div>
+    <div class="info-row positive">近 2 场 4 分有所回暖</div>
+  </div>
+</div>
+
+<div class="section-title">比赛关键因子 <small>瑞超特殊因子</small></div>
+<div class="prob-section" style="font-size:13px;color:#bcc;">
+  <ul style="padding-left:18px;">
+    <li><strong>人造草 vs 天然草</strong>：VSK 人造草主场，ORG 多打天然草，存在适应成本（约 -0.06 xG 修正）。</li>
+    <li><strong>北欧夏季效应</strong>：7 月瑞典白昼长，进球略偏高。</li>
+    <li><strong>升班马德比</strong>：两队上赛季同在瑞甲升超，互相熟悉，比赛可能比较开放。</li>
+  </ul>
+</div>
+
+<div class="section-title">赔率视角 <small>市场 vs 模型</small></div>
+<div class="prob-section" style="overflow-x:auto;">
+  <table class="odds-table">
+    <tr>
+      <th>结果</th>
+      <th>平均赔率</th>
+      <th>市场隐含概率</th>
+      <th>去抽水真实概率</th>
+      <th>模型概率</th>
+      <th>偏差</th>
+    </tr>
+    <tr>
+      <td>韦斯特罗斯</td>
+      <td>1.50</td>
+      <td>66.7%</td>
+      <td>60.3%</td>
+      <td>63.8%</td>
+      <td class="value-pos">+3.5%</td>
+    </tr>
+    <tr>
+      <td>平局</td>
+      <td>4.18</td>
+      <td>23.9%</td>
+      <td>21.6%</td>
+      <td>19.6%</td>
+      <td class="value-neg">-2.0%</td>
+    </tr>
+    <tr>
+      <td>厄尔格里特</td>
+      <td>5.00</td>
+      <td>20.0%</td>
+      <td>18.1%</td>
+      <td>16.6%</td>
+      <td class="value-neg">-1.5%</td>
+    </tr>
+    <tr style="color:#889;font-size:11px;">
+      <td colspan="6">庄家抽水(overround): 10.6% · 数据来源: 多家博彩公司综合</td>
+    </tr>
+  </table>
+  <div style="font-size:12px;color:#889;margin-top:8px;">
+    <strong>解读</strong>：市场与模型对 VSK 主胜的评估高度一致。模型略高看 VSK（63.8% vs 市场 60.3%），但偏差仅 +3.5%。v1.50 的赔率需 66.7% 胜率才能盈亏平衡，模型认为 VSK 稍欠火候（63.8%），因此从价值角度 VSK 主胜 EV 为 -4.3%，不建议追捧。
+  </div>
+  <div style="font-size:11px;color:#a98;margin-top:6px;">
+    * 赔率数据仅供概率比较参考，不构成投注建议。
+  </div>
+</div>
+
+<div class="section-title">场景推演</div>
+<div class="scenario-list">
+  <div class="scenario-item">
+    <div class="sc-title">场景一：VSK 正常取胜（~64%）</div>
+    <div class="sc-desc">Ladefoged 复出增强进攻，VSK 利用主场和实力优势掌控比赛。ORG 客场攻击力有限难以威胁，VSK 2-0 或 3-0 零封取胜。</div>
+  </div>
+  <div class="scenario-item">
+    <div class="sc-title">场景二：ORG 客场死守抢分（~20%）</div>
+    <div class="sc-desc">ORG 吸取客场连败教训摆大巴，VSK 主场攻坚能力不足（6 主场仅 1 胜）的弱点暴露，比赛陷入胶着，最终 0-0 或 1-1 闷平。</div>
+  </div>
+  <div class="scenario-item">
+    <div class="sc-title">场景三：ORG 爆冷（~17%）</div>
+    <div class="sc-desc">Sana 解禁提升中场组织，ORG 趁 VSK 大举压上打反击得手。但 ORG 的客场进球能力（6 场 3 球）使这种场景概率较低。</div>
+  </div>
+</div>
+
+<div class="section-title">不确定性说明</div>
+<div class="prob-section" style="font-size:12px;color:#889;">
+  <ul style="padding-left:18px;">
+    <li>VSK 虽然实力占优，但主场胜率仅 1/6，存在明显的主场表现不佳问题。</li>
+    <li>ORG 近 2 场 4 分有回暖趋势（4-3 胜 Häcken、0-0 平 Djurgården），冷门迹象在积累。</li>
+    <li>升班马德比战双方相互了解，比赛走势可能不同于常规对阵。</li>
+    <li>瑞超单场随机性——63.8% 的胜率不等于稳胜，仍有超 1/3 的不胜概率。</li>
+  </ul>
+</div>
+
+<div class="section-title">数据来源</div>
+<div class="source-list">
+  <div>数据快照：2026-07-24 · 积分榜、赛程来自已保存的 Allsvenskan 快照</div>
+  <div>球队评级：references/allsvenskan/teams.json</div>
+  <div>外部参考：</div>
+  <div>• <a href="https://www.sportsmole.co.uk/football/vasteras-sk/preview/vasteras-vs-orgryte-prediction-team-news-lineups_601667.html" target="_blank">Sports Mole - VSK vs Örgryte Preview</a></div>
+  <div>• <a href="https://news.7msport.com/news/newsdata/20260723/258573.shtml" target="_blank">7M Sports - 瑞典超前瞻</a></div>
+  <div>• <a href="https://www.stats24.com/football/vasteras-sk-vs-orgryte/3183777" target="_blank">Stats24 - Odds & Stats</a></div>
+  <div>• <a href="https://www.forebet.com/en/football/matches/vasteras-sk-fk-%C3%96rgryte-is-2448416" target="_blank">Forebet - Prediction</a></div>
+  <div>• <a href="https://www.tvmatchen.nu/betting/speltips/vasteras-orgryte-24-7-allsvenskan/" target="_blank">TV Matchen - Betting Tips</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>免责声明</strong>：本预测基于 Elo 评分、泊松模型和蒙特卡洛模拟，结合赛前情报修正，仅呈现概率分布而非确定性结论。<br>
+  足球比赛单场随机性极高，任何结果都有可能发生。本分析纯属娱乐参考，不构成任何投注建议。
+</div>
+
+</div>
+</body>
+</html>

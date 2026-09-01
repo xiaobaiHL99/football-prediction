@@ -1,0 +1,174 @@
+[
+  {
+    "home": "JAR",
+    "away": "SJK"
+  },
+  {
+    "home": "KUP",
+    "away": "VPS"
+  },
+  {
+    "home": "ILV",
+    "away": "LAH"
+  },
+  {
+    "home": "INT",
+    "away": "GNI"
+  },
+  {
+    "home": "HJK",
+    "away": "TPS"
+  },
+  {
+    "home": "MAR",
+    "away": "OUL"
+  },
+  {
+    "home": "KUP",
+    "away": "HJK"
+  },
+  {
+    "home": "OUL",
+    "away": "ILV"
+  },
+  {
+    "home": "VPS",
+    "away": "INT"
+  },
+  {
+    "home": "SJK",
+    "away": "MAR"
+  },
+  {
+    "home": "GNI",
+    "away": "JAR"
+  },
+  {
+    "home": "TPS",
+    "away": "LAH"
+  },
+  {
+    "home": "HJK",
+    "away": "INT"
+  },
+  {
+    "home": "JAR",
+    "away": "VPS"
+  },
+  {
+    "home": "LAH",
+    "away": "KUP"
+  },
+  {
+    "home": "ILV",
+    "away": "GNI"
+  },
+  {
+    "home": "MAR",
+    "away": "TPS"
+  },
+  {
+    "home": "OUL",
+    "away": "SJK"
+  },
+  {
+    "home": "KUP",
+    "away": "JAR"
+  },
+  {
+    "home": "INT",
+    "away": "MAR"
+  },
+  {
+    "home": "VPS",
+    "away": "LAH"
+  },
+  {
+    "home": "SJK",
+    "away": "ILV"
+  },
+  {
+    "home": "GNI",
+    "away": "HJK"
+  },
+  {
+    "home": "TPS",
+    "away": "OUL"
+  },
+  {
+    "home": "JAR",
+    "away": "INT"
+  },
+  {
+    "home": "LAH",
+    "away": "GNI"
+  },
+  {
+    "home": "ILV",
+    "away": "KUP"
+  },
+  {
+    "home": "MAR",
+    "away": "VPS"
+  },
+  {
+    "home": "OUL",
+    "away": "HJK"
+  },
+  {
+    "home": "SJK",
+    "away": "TPS"
+  },
+  {
+    "home": "KUP",
+    "away": "MAR"
+  },
+  {
+    "home": "INT",
+    "away": "SJK"
+  },
+  {
+    "home": "VPS",
+    "away": "OUL"
+  },
+  {
+    "home": "HJK",
+    "away": "JAR"
+  },
+  {
+    "home": "GNI",
+    "away": "TPS"
+  },
+  {
+    "home": "LAH",
+    "away": "ILV"
+  },
+  {
+    "home": "JAR",
+    "away": "LAH"
+  },
+  {
+    "home": "ILV",
+    "away": "INT"
+  },
+  {
+    "home": "MAR",
+    "away": "GNI"
+  },
+  {
+    "home": "OUL",
+    "away": "KUP"
+  },
+  {
+    "home": "SJK",
+    "away": "VPS"
+  },
+  {
+    "home": "TPS",
+    "away": "JAR"
+  },
+  {
+    "home": "INT",
+    "away": "HJK"
+  }
+]

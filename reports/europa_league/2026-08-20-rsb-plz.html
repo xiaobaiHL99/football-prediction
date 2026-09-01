@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贝尔格莱德红星 vs 比尔森胜利 · 欧联附加赛首回合预测</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --txt:#e6edf3; --mut:#8b949e; --home:#f85149; --away:#388bfd;
+    --draw:#d29922; --acc:#3fb950; --warn:#f0883e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,'Microsoft YaHei',sans-serif;line-height:1.55;padding-bottom:40px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 16px}
+
+  .pitch-stage{position:relative;border-radius:18px;overflow:hidden;margin:18px 0 0;border:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 50% -10%, rgba(56,139,253,.22), transparent 60%),linear-gradient(180deg,#1a2a3d,#152336 55%,#12202f)}
+  .pitch{position:relative;height:360px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 7.14285%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7.14285%)}
+  .pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 120px, transparent 121px)}
+  .line{position:absolute;background:rgba(255,255,255,.35)}
+  .mline{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+  .mcirc{left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:translate(-50%,-50%);position:absolute}
+  .pen-t,.pen-b{position:absolute;width:80px;height:180px;border:2px solid rgba(255,255,255,.35)}
+  .pen-t{left:0;top:50%;transform:translateY(-50%);border-left:none;border-radius:0 8px 8px 0}
+  .pen-b{right:0;top:50%;transform:translateY(-50%);border-right:none;border-radius:8px 0 0 8px}
+  .goal-t,.goal-b{position:absolute;left:50%;width:90px;height:26px;border:2px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18)}
+  .goal-t{top:0;transform:translateX(-50%);border-top:none;border-radius:0 0 8px 8px}
+  .goal-b{bottom:0;transform:translateX(-50%);border-bottom:none;border-radius:8px 8px 0 0}
+
+  .scoreboard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:min(600px,94%);
+    background:rgba(10,14,20,.85);border:1px solid #2f3a44;border-radius:12px;padding:14px 16px;
+    box-shadow:0 12px 34px rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:5}
+  .sb-top{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:11px;letter-spacing:.5px}
+  .sb-tag{color:#9ae6b4;font-weight:700;background:rgba(63,185,80,.15);padding:2px 8px;border-radius:20px}
+  .sb-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+  .sb-team{flex:1;text-align:center;color:#fff}
+  .sb-team .cn{font-size:16px;font-weight:700}
+  .sb-team .en{font-size:10px;color:var(--mut)}
+  .sb-score{font-size:40px;font-weight:800;font-family:'Consolas','SFMono-Regular',monospace;color:#7ee787;text-shadow:0 0 14px rgba(126,231,135,.45);letter-spacing:2px}
+  .sb-note{font-size:10px;color:var(--mut);text-align:center;margin-top:2px}
+  .sb-probs{display:flex;gap:8px;margin-top:10px}
+  .sb-p{flex:1;text-align:center;border-radius:8px;padding:6px 4px;font-size:12px}
+  .sb-p b{display:block;font-size:15px}
+  .p-home{background:rgba(248,81,73,.16);border:1px solid rgba(248,81,73,.4)}
+  .p-draw{background:rgba(210,153,34,.14);border:1px solid rgba(210,153,34,.4)}
+  .p-away{background:rgba(56,139,253,.16);border:1px solid rgba(56,139,253,.4)}
+  .sb-p b{color:#fff}
+  .pitch-foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.5px;z-index:5}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px}
+  h2{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:2px}
+  h3{font-size:13px;color:var(--mut);margin:14px 0 6px;font-weight:600}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .kv{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kv .k{font-size:11px;color:var(--mut)}
+  .kv .v{font-size:18px;font-weight:700;margin-top:2px}
+  .kv .v.small{font-size:14px}
+  .bar-row{margin:8px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:16px;border-radius:8px;overflow:hidden;display:flex;background:#21262d}
+  .bar .seg{height:100%;transition:width .6s ease}
+  .score-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .scard{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center}
+  .scard .s{font-size:15px;font-weight:700}
+  .scard .p{font-size:11px;color:var(--mut)}
+  .scard.hl{border-color:var(--draw);background:rgba(210,153,34,.12)}
+  .scard.main{border-color:var(--home);background:rgba(248,81,73,.12)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0;background:var(--panel2);border:1px solid var(--line)}
+  .tag.warn{border-color:var(--warn);color:var(--warn)}
+  .tag.good{border-color:var(--acc);color:var(--acc)}
+  .tag.blue{border-color:var(--away);color:var(--away)}
+  .tag.red{border-color:var(--home);color:var(--home)}
+  ul{padding-left:20px}
+  li{margin:5px 0;font-size:13.5px}
+  .muted{color:var(--mut);font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600}
+  .src{font-size:12px;color:var(--away);word-break:break-all}
+  .spirit{display:flex;gap:10px}
+  .spirit .kv{flex:1}
+  @media(max-width:700px){
+    .g2,.g3{grid-template-columns:1fr}
+    .score-cards{grid-template-columns:repeat(3,1fr)}
+    .pitch{height:340px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch-stage">
+    <div class="pitch">
+      <div class="line mline"></div>
+      <div class="mcirc"></div>
+      <div class="pen-t"></div><div class="pen-b"></div>
+      <div class="goal-t"></div><div class="goal-b"></div>
+
+      <div class="scoreboard">
+        <div class="sb-top">
+          <span class="sb-tag">预测比分 · PREDICTION</span>
+          <span>欧联附加赛 · 首回合 · 2026-08-20</span>
+        </div>
+        <div class="sb-main">
+          <div class="sb-team"><div class="cn">贝尔格莱德红星</div><div class="en">Red Star Belgrade</div></div>
+          <div class="sb-score">2 : 1</div>
+          <div class="sb-team"><div class="cn">比尔森胜利</div><div class="en">FC Viktoria Plzeň</div></div>
+        </div>
+        <div class="sb-note">主预测赛果：贝尔格莱德红星占优（主胜 35.6%）· 单一最高概率比分 1-1（10.8%，平局）· 已含盘口修正</div>
+        <div class="sb-probs">
+          <div class="sb-p p-home"><b>35.6%</b>主胜</div>
+          <div class="sb-p p-draw"><b>31.6%</b>平局</div>
+          <div class="sb-p p-away"><b>32.8%</b>客胜</div>
+        </div>
+      </div>
+      <div class="pitch-foot">Stadion Rajko Mitić (Marakana) · Belgrade · 次回合 2026-08-27 @ Doosan Arena, Plzeň</div>
+    </div>
+  </div>
+
+  <!-- ===== 标题区 ===== -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>
+        <div style="font-size:13px;color:var(--mut)">欧足联欧洲联赛 · 附加赛（Play-off）首回合 · 2026-27</div>
+        <h1 style="font-size:24px;margin-top:2px">贝尔格莱德红星 vs 比尔森胜利</h1>
+      </div>
+      <div style="text-align:right;font-size:12px;color:var(--mut)">
+        生成时间：2026-08-20<br>数据快照：2026-08-15（欧联 teams/context）· 赛果更新至 08-19
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag warn">红星欧冠出局·换帅列拉首秀（核心中场停赛）</span>
+      <span class="tag blue">比尔森递补晋级·防线伤潮·久疏欧战</span>
+      <span class="tag red">模型与市场分歧大·疑似诱盘</span>
+      <span class="tag">首次交锋</span>
+      <span class="tag good">已入预测台账</span>
+    </div>
+  </div>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">主预测赛果</div><div class="v" style="color:#f85149">贝尔格莱德红星占优（主胜 35.6%）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">主预测比分</div><div class="v">2 : 1 <span class="muted" style="font-size:13px">（方向性最优比分 · 8.5%）</span></div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">单一最高概率比分（分布参考）</div><div class="v small">1 : 1（平局 · 10.8%）—— 模型认为本场近乎五五开</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">预期进球 xG</div><div class="v">贝尔格莱德红星 1.59 — 1.49 比尔森胜利</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">Elo 评级</div><div class="v small">贝尔格莱德红星 1580（-11） · 比尔森胜利 1560（-11）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">对阵博彩模型</div><div class="v small">市场主胜约 1.70（隐含 ~57%）+ 主让半/一 → 本模型仅 35.6%，模型认为市场显著高估换帅动荡中的红星</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>胜平负概率条</h3>
+      <div class="bar-row"><div class="lab"><span>贝尔格莱德红星胜</span><span>35.6%</span></div><div class="bar"><div class="seg" style="width:35.6%;background:#f85149"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>平局</span><span>31.6%</span></div><div class="bar"><div class="seg" style="width:31.6%;background:#d29922"></div></div></div>
+      <div class="bar-row"><div class="lab"><span>比尔森胜利胜</span><span>32.8%</span></div><div class="bar"><div class="seg" style="width:32.8%;background:#388bfd"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 盘口分析与诱盘判定 ===== -->
+  <div class="card">
+    <h2>盘口分析与诱盘判定</h2>
+    <div class="grid g2">
+      <div>
+        <div class="kv"><div class="k">市场盘口</div><div class="v">贝尔格莱德红星 主让半/一（-0.75）· 即时水位 0.96 / 0.92</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">模型让球差 vs 市场</div><div class="v small">模型 -0.01 vs 市场主让 0.750 → 分歧 -0.76（模型近乎五五开，市场让深盘）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">诱盘评分</div><div class="v"><span class="tag warn">2.1 · 疑似分歧</span> 模型与市场方向分歧明显 → 部分采信</div></div>
+      </div>
+      <div>
+        <div class="kv"><div class="k">市场权重 / 修正因子</div><div class="v">0.15 · factor +0.051（微抬主、压客）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">xG 调整</div><div class="v">1.535 / 1.540 → <b>1.586 / 1.489</b>（微抬主、压客）</div></div>
+        <div class="kv" style="margin-top:10px"><div class="k">盯盘要点</div><div class="v small">半/一（-0.75）盘下上盘水位已从 0.90 升至 0.96（机构对红星穿盘信心保留）→ 若升盘一球（-1.0）或主水跌破 0.90 → 市场增强；若回落半球（-0.5）→ 认可比尔森客场韧性</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px">盘口为赛前情报的有界修正，非确定性结论。本场市场主让半/一（-0.75）而模型让球差仅 -0.01（近乎五五开），分歧 -0.76 超过诱盘阈值 → 判定疑似分歧，权重降至 0.15 部分采信。上盘水位走高 + 红星让球盘路近 19 场仅 5 赢 14 输（26%）相互印证：市场对红星穿盘信心不足，模型更谨慎。若临场主水持续走高但盘口不变，警惕市场对主队的过度引导。</p>
+  </div>
+
+  <!-- ===== 预测原因 ===== -->
+  <div class="card">
+    <h2>预测原因</h2>
+    <ul>
+      <li><b>红星换帅动荡是核心变量</b>：欧冠 Q3 被贝尔谢巴夏普尔双杀（总比分 0-3）出局，斯坦科维奇引咎辞职，西班牙教头列拉仅 3 天准备火线首秀；核心中场 Abu Fani 红牌停赛、前锋 Bruno Duarte 腹伤存疑 → 全队 Elo -11。</li>
+      <li><b>主场依然是资本</b>：塞尔超前 3 轮全胜（进 10 失 1）领跑；主场上季 15 胜 1 平 1 负（86.7%），Marakana 超 5 万球迷狂热 → 战意高涨 +0.15。</li>
+      <li><b>比尔森递补 + 防线伤潮</b>：因同联赛卡尔维纳被取消资格幸运递补直进附加赛，5 月底后无正式欧战节奏缺失；捷甲前 4 轮仅 1 胜 2 平 1 负列第 10，唯一客场 1-3 负利贝雷茨；中卫 Jemelka（膝）、门将 Baier、长伤 Paluska、Lawal 存疑 → -11 Elo。</li>
+      <li><b>战术对位</b>：红星换帅后传控围攻 vs 比尔森客场防反 → 反击克制传控（+0.20 客 / -0.20 主）；红星对低位反击队攻坚能力存疑（欧冠两回合被零封）→ 无效控球惩罚。</li>
+      <li><b>战意</b>：红星换帅首秀 + 主场狂热 + 背水一战 → 高涨（+0.15）；比尔森以逸待劳、目标客场偷分回主场再搏 → 正常。</li>
+      <li><b>近均衡押主规则</b>：两队 Elo 差小（1580 vs 1560），模型判定近均衡 → 近均衡押主向平局收缩，平局概率被抬至 31.6%。</li>
+      <li><b>历史参考</b>：两队首次交锋；比尔森主帅赫斯基称红星为"附加赛最强对手"；红星让球盘路近 19 场仅 5 赢 14 输（26%）。</li>
+    </ul>
+  </div>
+
+  <!-- ===== 详细预测 ===== -->
+  <div class="card">
+    <h2>详细预测</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">贝尔格莱德红星胜</div><div class="v" style="color:#f85149">35.6%</div></div>
+      <div class="kv"><div class="k">平局</div><div class="v" style="color:#d29922">31.6%</div></div>
+      <div class="kv"><div class="k">比尔森胜利胜</div><div class="v" style="color:#388bfd">32.8%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>比分分布 Top 5</h3>
+      <div class="score-cards">
+        <div class="scard hl"><div class="s">1 : 1</div><div class="p">10.8% · 最高概率</div></div>
+        <div class="scard main"><div class="s">2 : 1</div><div class="p">8.5% · 主预测</div></div>
+        <div class="scard"><div class="s">1 : 2</div><div class="p">8.0%</div></div>
+        <div class="scard"><div class="s">1 : 0</div><div class="p">7.3%</div></div>
+        <div class="scard"><div class="s">0 : 1</div><div class="p">6.9%</div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">最高概率比分是 1-1（平局，10.8%），主预测比分取方向性最优的 2-1（8.5%）。三向概率 35.6/31.6/32.8 近乎三分天下，是本组欧联附加赛里模型最不看好的主队。</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3>关键情报修正</h3>
+      <div><span class="tag red">红星 -11 Elo（Abu Fani 停赛 + Bruno Duarte 存疑）</span><span class="tag blue">比尔森 -11 Elo（Jemelka/Baier 缺阵 + 防线伤潮）</span></div>
+      <div style="margin-top:8px"><span class="tag">红星战意高涨 +0.15</span><span class="tag">反击克制传控 +0.20/-0.20</span><span class="tag">无效控球惩罚</span><span class="tag">近均衡押主·向平局收缩 +0.08</span><span class="tag">周中紧凑赛程</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <h3>战意因素</h3>
+      <div class="spirit">
+        <div class="kv"><div class="k">贝尔格莱德红星 · 高涨（+0.15）</div><div class="v small">换帅列拉首秀、主场超 5 万球迷狂热、欧冠出局后背水一战必须首回合锁定优势</div></div>
+        <div class="kv"><div class="k">比尔森胜利 · 正常（0）</div><div class="v small">递补晋级以逸待劳、目标客场偷分回主场再搏；防线伤潮信心受挫</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 赛前情报摘要 ===== -->
+  <div class="card">
+    <h2>赛前情报摘要</h2>
+    <table>
+      <tr><th>项目</th><th>贝尔格莱德红星</th><th>比尔森胜利</th></tr>
+      <tr><td>主帅</td><td>阿尔伯特·列拉（Albert Riera，西班牙 · 首秀）</td><td>马丁·赫斯基（Martin Hyský）</td></tr>
+      <tr><td>阵型</td><td>4-2-3-1</td><td>4-2-3-1</td></tr>
+      <tr><td>战术风格</td><td>换帅后传控围攻 + 边路冲击</td><td>客场防反 + 定位球</td></tr>
+      <tr><td>晋级之路</td><td>欧冠 Q3 被贝尔谢巴夏普尔 0-3 淘汰，降入欧联附加赛</td><td>捷甲亚军递补（卡尔维纳取消资格）直进附加赛，跳过 4 轮资格赛</td></tr>
+      <tr><td>伤停</td><td>Abu Fani（中场·红牌停赛）；Bruno Duarte（腹伤·存疑）；Avdich（左后卫·伤缺）；Enem（存疑）</td><td>Jemelka（中卫·膝）；Baier（门将·伤缺）；Paluska（长伤·手术）；Lawal（腿·存疑）；Vydra（存疑）</td></tr>
+      <tr><td>关键球员</td><td>阿瑙托维奇、布卡里、Ivanić、克鲁尼奇（补中场）</td><td>卡班戈（22 岁·4 轮 3 球）、Vydra、拉德拉开、Prince Adu</td></tr>
+      <tr><td>身价</td><td colspan="2">红星约 €1.09 亿 vs 比尔森约 €5500 万（约 2:1）</td></tr>
+      <tr><td>主场/客场</td><td>主场上季 15 胜 1 平 1 负（86.7%）· Marakana 超 5 万球迷</td><td>唯一客场 1-3 负利贝雷茨 · 5 月底后无正式欧战</td></tr>
+      <tr><td>状态</td><td>塞尔超前 3 轮全胜（进 10 失 1）领跑；欧冠两连败</td><td>捷甲前 4 轮 1 胜 2 平 1 负列第 10；上周末刚获赛季首胜</td></tr>
+      <tr><td>来源可信度</td><td colspan="2">高：中英文情报互证（停赛/伤停/递补背景一致）；比尔森递补信息多源确认</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 场景推演 ===== -->
+  <div class="card">
+    <h2>场景推演</h2>
+    <div class="grid g3">
+      <div class="kv"><div class="k">路径 A · 新帅效应兑现</div><div class="v small">红星换帅首秀 + 主场 5 万球迷，阿瑙托维奇/布卡里破门，2-0/2-1 首回合占先，次回合客场好打</div></div>
+      <div class="kv"><div class="k">路径 B · 比尔森防反偷分</div><div class="v small">卡班戈抓红星中场空缺反击，1-1/0-1 偷分，红星次回合赴捷克翻盘压力巨大</div></div>
+      <div class="kv"><div class="k">路径 C · 近五五开拉锯</div><div class="v small">模型 35.6/31.6/32.8 近乎三分天下，双方防线都有缺口 → 1-2/2-2 对攻比分也非冷门</div></div>
+    </div>
+  </div>
+
+  <!-- ===== 不确定性说明 ===== -->
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <p class="muted" style="font-size:13.5px">
+      本场是今晚四场欧联附加赛里模型与市场分歧最大的一场：模型三向概率 35.6% / 31.6% / 32.8%，近乎五五开，而市场主胜约 57% 且让半/一。模型边界：① 换帅列拉仅 3 天准备，首秀效果完全未知（新帅效应既可能提振也可能继续混乱）；② Abu Fani 停赛是红星中场枢纽空缺，但替补充足；③ 比尔森久疏欧战（5 月底后无正式比赛）的节奏状态成谜，可能比预期更生疏、也可能以逸待劳；④ 反击克制传控与无效控球惩罚的幅度依情报主观设定，红星面对低位防反的攻坚能力（欧冠两回合被零封）是本模型看低红星的关键依据。单场随机性高，本报告为赛前概率模拟，不构成投注建议。
+    </p>
+  </div>
+
+  <!-- ===== 数据与情报来源 ===== -->
+  <div class="card">
+    <h2>数据与情报来源</h2>
+    <ul>
+      <li class="src">Sports Mole · Red Star Belgrade vs Plzen 前瞻（首发/伤停/预测） — https://www.sportsmole.co.uk/football/red-star-belgrade/europa-league/preview/red-star-vs-plzen-prediction-team-news-lineups_603197.html</li>
+      <li class="src">网易 · 欧联赛前探查：红星主场迎战比尔森，恐怖气氛与防线漏洞谁更管用 — https://www.163.com/dy/article/L4OGD69C0556P87I.html</li>
+      <li class="src">网易 · 欧罗巴前瞻：红星家门口摆擂迎战比尔森：欧冠出局火线换帅 — https://www.163.com/dy/article/L4OIFFBO0556OWY1.html</li>
+      <li class="src">球迷屋 · 欧联附加赛红星vs比尔森伤病名单最新（2026-08-21） — https://www.qiumiwu.com/news/1990604983158</li>
+      <li class="src">PP体育 · 伤病追踪：红星中场枢纽停赛，比尔森后防多点受损 — http://www.ppsport.com/article/news/2597129.html</li>
+      <li class="src">搜狐 · 8月21日欧罗巴推荐：贝尔格莱德红星VS比尔森 — https://www.sohu.com/a/1065229698_554394</li>
+      <li class="src">7msport · 亚盘赔率历史（红星 半/一） — https://live.7msport.com/oddshistory/index_en.shtml?matchId=5163742</li>
+      <li class="src">Action Network · Viktoria Plzen vs Red Star odds & live scores — https://www.actionnetwork.com/europa-game/viktoria-plzen-fk-crvena-zvezda/295162</li>
+      <li class="src">Sports Mole · Match Guide / 数据统计 — https://www.sportsmole.co.uk/football/europa-league/red-star-belgrade-vs-viktoria-plzen_game_254999.html</li>
+      <li class="src">Forebet · Prediction & Stats — https://www.forebet.com/ru/football/matches/...（Crvena Zvezda - Viktoria Plzen）</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

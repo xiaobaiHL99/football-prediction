@@ -1,0 +1,20 @@
+{
+  "MAL": {"points": 38, "gd": 22, "gf": 40, "ga": 18, "played": 15},
+  "AIK": {"points": 34, "gd": 14, "gf": 32, "ga": 18, "played": 15},
+  "HAC": {"points": 32, "gd": 10, "gf": 30, "ga": 20, "played": 15},
+  "DJU": {"points": 30, "gd": 8, "gf": 28, "ga": 20, "played": 15},
+  "ELF": {"points": 28, "gd": 6, "gf": 26, "ga": 20, "played": 15},
+  "KAL": {"points": 25, "gd": 2, "gf": 22, "ga": 20, "played": 15},
+  "NOR": {"points": 24, "gd": 0, "gf": 20, "ga": 20, "played": 15},
+  "HBK": {"points": 22, "gd": -2, "gf": 18, "ga": 20, "played": 15},
+  "GAIS": {"points": 21, "gd": -4, "gf": 17, "ga": 21, "played": 15},
+  "PRI": {"points": 20, "gd": -6, "gf": 16, "ga": 22, "played": 15},
+  "SIR": {"points": 35, "gd": 24, "gf": 36, "ga": 12, "played": 13},
+  "BRO": {"points": 18, "gd": -10, "gf": 14, "ga": 24, "played": 15},
+  "DEG": {"points": 17, "gd": -12, "gf": 13, "ga": 25, "played": 15},
+  "SOF": {"points": 13, "gd": -10, "gf": 16, "ga": 26, "played": 13},
+  "VAR": {"points": 15, "gd": -16, "gf": 11, "ga": 27, "played": 15},
+  "GOT": {"points": 14, "gd": -18, "gf": 10, "ga": 28, "played": 15},
+  "MJA": {"points": 17, "gd": -1, "gf": 18, "ga": 19, "played": 14},
+  "HAM": {"points": 26, "gd": 16, "gf": 30, "ga": 14, "played": 14}
+}

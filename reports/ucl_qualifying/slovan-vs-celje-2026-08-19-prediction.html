@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>布拉迪斯拉发 vs 采列 预测报告 · 欧冠资格赛附加赛首回合</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#141b26; --panel2:#1b2432; --line:#26303f;
+    --txt:#e8edf4; --sub:#93a1b4; --acc:#ffb02e; --home:#2f9e63; --away:#b0402f;
+    --ok:#3fb97f; --warn:#e0a13a; --bad:#e05c5c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;line-height:1.55}
+  .wrap{max-width:1080px;margin:0 auto;padding:22px 18px 60px}
+  h1{font-size:22px;margin-bottom:2px}
+  h2{font-size:16px;color:var(--acc);margin:30px 0 12px;border-left:3px solid var(--acc);padding-left:10px}
+  .meta{color:var(--sub);font-size:13px;margin-bottom:18px}
+  .tag{display:inline-block;background:#1d2a3a;border:1px solid var(--line);color:var(--acc);
+       border-radius:14px;padding:2px 12px;font-size:12px;margin:0 6px 6px 0}
+  .grid{display:grid;gap:14px}
+  /* ===== 球场 ===== */
+  .pitch{position:relative;height:320px;border-radius:14px;overflow:hidden;margin-bottom:16px;
+         background:
+           repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 40px),
+           repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 2px,transparent 2px 40px),
+           radial-gradient(120% 120% at 50% 100%,#163a24 0%,#0e2417 45%,#081309 100%);}
+  .pitch .mid{position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.35)}
+  .pitch .circle{position:absolute;left:50%;top:50%;width:110px;height:110px;border:2px solid rgba(255,255,255,.35);
+                 border-radius:50%;transform:translate(-50%,-50%)}
+  .pitch .spot{position:absolute;left:50%;top:50%;width:6px;height:6px;background:#fff;border-radius:50%;
+               transform:translate(-50%,-50%)}
+  .pitch .boxL,.pitch .boxR{position:absolute;top:50%;width:120px;height:220px;border:2px solid rgba(255,255,255,.4);transform:translateY(-50%)}
+  .pitch .boxL{left:-1px}.pitch .boxR{right:-1px}
+  .pitch .penL,.pitch .penR{position:absolute;top:50%;width:60px;height:160px;border:2px solid rgba(255,255,255,.28);transform:translateY(-50%)}
+  .pitch .penL{left:-1px}.pitch .penR{right:-1px}
+  .pitch .goals{position:absolute;top:50%;width:14px;height:90px;background:#e8edf4;opacity:.5;transform:translateY(-50%);border-radius:2px}
+  .pitch .goals.left{left:8px}.pitch .goals.right{right:8px}
+  .pitch .flood{position:absolute;width:60px;height:60px;border-radius:50%;filter:blur(34px);opacity:.5}
+  .pitch .flood.f1{left:12%;top:8%;background:#fff6c8}
+  .pitch .flood.f2{right:12%;top:8%;background:#fff6c8}
+  .pitch .flood.f3{left:30%;bottom:-20px;background:#bfe3ff}
+  .pitch .flood.f4{right:30%;bottom:-20px;background:#bfe3ff}
+  .pitch .stands{position:absolute;left:0;right:0;bottom:0;height:26px;
+                 background:repeating-linear-gradient(90deg,#1a2533 0 6px,#111a26 6px 12px);border-top:2px solid #2b394d}
+  .pitch .corner{position:absolute;width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5)}
+  .pitch .c1{left:10px;top:10px}.pitch .c2{right:10px;top:10px}
+  .pitch .c3{left:10px;bottom:36px}.pitch .c4{right:10px;bottom:36px}
+  .pitch .side{position:absolute;top:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,.5);
+               font-size:11px;letter-spacing:3px}
+  /* ===== 比分牌 ===== */
+  .scoreboard{background:linear-gradient(180deg,#0d1117,#131a25);border:1px solid var(--line);
+              border-radius:12px;padding:16px 18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+              justify-content:space-between;box-shadow:0 8px 30px rgba(0,0,0,.5);position:relative}
+  .scoreboard .lbl{position:absolute;top:8px;left:14px;font-size:11px;color:var(--sub);letter-spacing:1px}
+  .scoreboard .team{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:120px}
+  .scoreboard .team .nm{font-size:15px;font-weight:700}
+  .scoreboard .team .p{font-size:12px;color:var(--sub)}
+  .scoreboard .score{display:flex;align-items:center;gap:10px}
+  .scoreboard .score .big{font-size:44px;font-weight:800;font-family:"Consolas",monospace;
+                          color:#fff;text-shadow:0 0 18px rgba(255,176,46,.55);background:#0a0e13;
+                          border:1px solid var(--line);border-radius:10px;padding:4px 14px}
+  .scoreboard .score .vs{color:var(--sub);font-size:14px}
+  .scoreboard .bars{flex:1;min-width:220px;max-width:300px}
+  .scoreboard .bars .row{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:12px}
+  .scoreboard .bars .row .n{width:62px;color:var(--sub);white-space:nowrap}
+  .scoreboard .bars .bar{flex:1;height:9px;background:#222b38;border-radius:6px;overflow:hidden}
+  .scoreboard .bars .bar i{display:block;height:100%;border-radius:6px}
+  .scoreboard .bars .row b{width:44px;text-align:right;font-family:Consolas,monospace}
+  .chip{font-size:11px;color:var(--sub);border:1px solid var(--line);padding:3px 10px;border-radius:14px}
+  /* ===== 卡片 ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .kpi .t{font-size:12px;color:var(--sub)}
+  .kpi .v{font-size:22px;font-weight:700;margin-top:4px}
+  .kpi .s{font-size:12px;color:var(--sub);margin-top:2px}
+  /* ===== 概率条 ===== */
+  .prob{display:flex;height:40px;border-radius:10px;overflow:hidden;font-size:0;border:1px solid var(--line)}
+  .prob span{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+  .prob .ph{background:linear-gradient(180deg,#3fb980,#1f8a55)}
+  .prob .pd{background:linear-gradient(180deg,#7a8698,#5c6a80)}
+  .prob .pa{background:linear-gradient(180deg,#e06a4f,#b0402f)}
+  .probLegend{display:flex;gap:16px;margin-top:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+  .probLegend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  /* ===== 比分卡 ===== */
+  .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .sc{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;
+      justify-content:space-between;align-items:center}
+  .sc .s{font-size:20px;font-weight:700;font-family:Consolas,monospace}
+  .sc .p{font-size:13px;color:var(--acc);font-weight:700}
+  .sc.top{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+  .sc .r{font-size:11px;color:var(--sub)}
+  /* ===== 情报列表 ===== */
+  ul.li{list-style:none;margin-top:6px}
+  ul.li li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;
+           font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+  ul.li li b{color:var(--acc);white-space:nowrap}
+  .pill{display:inline-block;font-size:11px;border-radius:12px;padding:1px 9px;margin-left:6px;vertical-align:1px}
+  .pill.high{background:#3a2a12;color:var(--warn);border:1px solid #6b4c1d}
+  .pill.norm{background:#152235;color:var(--sub);border:1px solid var(--line)}
+  .pill.bad{background:#331a1a;color:var(--bad);border:1px solid #6b2323}
+  /* ===== 场景 / 风险 ===== */
+  .scen{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .scen .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .scen .card h4{font-size:14px;margin-bottom:6px;color:var(--acc)}
+  .scen .card p{font-size:13px;color:var(--sub)}
+  .note{font-size:12.5px;color:var(--sub);background:var(--panel);border:1px solid var(--line);
+        border-radius:10px;padding:10px 12px;margin-top:10px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th{color:var(--sub);font-weight:600;font-size:12px}
+  .src{font-size:12.5px;color:var(--sub);word-break:break-all}
+  .src a{color:#7fb4ff;text-decoration:none}
+  .foot{margin-top:26px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--sub)}
+  @media(max-width:640px){
+    .scoreboard{flex-direction:column;align-items:stretch}
+    .scoreboard .bars{max-width:none}
+    .scoreboard .score{justify-content:center}
+    .pitch{height:240px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 标题 -->
+  <h1>布拉迪斯拉发 vs 采列</h1>
+  <div class="meta">
+    欧冠资格赛 · 附加赛首回合（两回合制）· 特赫内球场（布拉迪斯拉发）
+    <br>预测时间：2026-08-19 · 开球：2026-08-20 03:00（北京时间）
+    <span class="tag">理性模型</span><span class="tag">Elo → 泊松 → 蒙特卡洛</span><span class="tag">含亚盘诱盘检测</span>
+  </div>
+
+  <!-- 球场 -->
+  <div class="pitch">
+    <div class="side">TEHELNÉ POLE · CHAMPIONS LEAGUE PLAY-OFF LEG 1</div>
+    <div class="mid"></div><div class="circle"></div><div class="spot"></div>
+    <div class="boxL"></div><div class="boxR"></div>
+    <div class="penL"></div><div class="penR"></div>
+    <div class="goals left"></div><div class="goals right"></div>
+    <div class="flood f1"></div><div class="flood f2"></div>
+    <div class="flood f3"></div><div class="flood f4"></div>
+    <div class="corner c1"></div><div class="corner c2"></div>
+    <div class="corner c3"></div><div class="corner c4"></div>
+    <div class="stands"></div>
+  </div>
+
+  <!-- 比分牌 -->
+  <div class="scoreboard">
+    <div class="lbl">PREDICTION · 预测比分牌（非真实赛果）</div>
+    <div class="team"><span class="nm">布拉迪斯拉发</span><span class="p">Elo 1500 · 主队</span></div>
+    <div class="score"><span class="big">2 - 1</span></div>
+    <div class="team"><span class="nm">采列</span><span class="p">Elo 1450* · 客队</span></div>
+    <div class="bars">
+      <div class="row"><span class="n">布拉迪斯拉发胜</span><span class="bar"><i style="width:55.0%;background:#2f9e63"></i></span><b>55.0%</b></div>
+      <div class="row"><span class="n">平局</span><span class="bar"><i style="width:20.3%;background:#7a8698"></i></span><b>20.3%</b></div>
+      <div class="row"><span class="n">采列胜</span><span class="bar"><i style="width:24.6%;background:#b0402f"></i></span><b>24.6%</b></div>
+    </div>
+  </div>
+
+  <!-- KPI -->
+  <div class="cards">
+    <div class="kpi"><div class="t">主预测赛果</div><div class="v">布拉迪斯拉发胜</div><div class="s">55.0%，主场大热</div></div>
+    <div class="kpi"><div class="t">主预测比分</div><div class="v">2 - 1</div><div class="s">概率 9.3%</div></div>
+    <div class="kpi"><div class="t">预期进球</div><div class="v">2.23 : 1.31</div><div class="s">含盘口修正 factor -0.03</div></div>
+    <div class="kpi"><div class="t">冷门空间</div><div class="v">44.9%</div><div class="s">平/客合计</div></div>
+    <div class="kpi"><div class="t">亚盘诱盘</div><div class="v">0.7 · 正常</div><div class="s">分歧 +0.24 · 权重 0.30</div></div>
+  </div>
+
+  <!-- 核心结论 -->
+  <h2>核心结论</h2>
+  <p style="font-size:14px">
+    布拉迪斯拉发主场迎战斯洛文尼亚冠军采列，模型给出 <b style="color:#2f9e63">55.0%</b> 主胜（市场 55-67%），
+    主预测 <b>2-1</b> 与市场共识（3-1）方向一致但更务实。布拉迪斯拉发新赛季 7 场 6 胜 1 平不败、主场近 3 场全胜
+    进 10 失 0，传控围攻预计全面压制采列的"摆大巴"；但<b>锋线危机</b>（库哈列维奇伤 + 队长斯波拉尔存疑）限制了大胜空间，
+    而采列<b>中卫双缺</b> + 两年前 6-1 惨案的复仇战意，让客场偷进球的可能性真实存在。模型比市场略保守，
+    符合"淘汰赛首回合勿高估主队"的历史教训。
+  </p>
+
+  <!-- 概率可视化 -->
+  <h2>胜 / 平 / 负 概率</h2>
+  <div class="prob">
+    <span class="ph" style="width:55.0%">55.0%</span>
+    <span class="pd" style="width:20.3%">20.3%</span>
+    <span class="pa" style="width:24.6%">24.6%</span>
+  </div>
+  <div class="probLegend">
+    <span><i style="background:#2f9e63"></i>布拉迪斯拉发 胜</span>
+    <span><i style="background:#7a8698"></i>平局</span>
+    <span><i style="background:#b0402f"></i>采列 胜</span>
+    <span>两回合制首回合 · 跨国旅行 / 周中赛程均 -0.06~-0.08</span>
+  </div>
+
+  <h2>比分分布 Top 5</h2>
+  <div class="scores">
+    <div class="sc top"><span class="s">2 - 1</span><span class="p">9.3%</span><span class="r">主预测</span></div>
+    <div class="sc"><span class="s">1 - 1</span><span class="p">8.3%</span><span class="r">次选</span></div>
+    <div class="sc"><span class="s">2 - 0</span><span class="p">7.3%</span><span class="r">参考</span></div>
+    <div class="sc"><span class="s">3 - 1</span><span class="p">6.9%</span><span class="r">参考</span></div>
+    <div class="sc"><span class="s">1 - 0</span><span class="p">6.5%</span><span class="r">参考</span></div>
+  </div>
+  <div class="note">注：2-1 与「布拉迪斯拉发胜」方向一致，为正式主预测比分；最高单比分概率仅 9.3%，反映两回合首回合的高度不确定。</div>
+
+  <!-- 盘口诱盘 -->
+  <h2>亚盘分析 + 诱盘检测</h2>
+  <table>
+    <tr><th>项目</th><th>数值</th><th>解读</th></tr>
+    <tr><td>市场盘口</td><td>主让半/一（-0.75）</td><td>多数公司即时盘主水走低（约 0.83-0.92），资金看好主队；澳门盘开至一球</td></tr>
+    <tr><td>模型让球差</td><td>+0.99</td><td>模型认为布拉迪斯拉发净胜约 0.99 球</td></tr>
+    <tr><td>市场让球差</td><td>+0.75</td><td>盘口隐含主队净胜约 0.75 球</td></tr>
+    <tr><td>分歧</td><td>+0.24</td><td>模型比盘口更看好主队，但远低于疑似阈值(0.8)</td></tr>
+    <tr><td>诱盘评分</td><td>0.7 → 正常盘口</td><td>远低于「疑似」(2) /「诱盘」(4) 阈值</td></tr>
+    <tr><td>市场权重</td><td>0.30</td><td>高采信——模型与市场互证</td></tr>
+    <tr><td>xG 调整</td><td>2.26/1.27 → 2.23/1.31</td><td>盘口 factor -0.032，小幅拉平</td></tr>
+  </table>
+  <div class="note">结论：模型比盘口略乐观（+0.24），但属于正常范围，判定为「正常盘口」，完全采信市场（权重 0.30）。不存在诱盘迹象——主队水位走低是资金自然看好，与基本面一致。若主队水位临场进一步压低，可留意是否过热。</div>
+
+  <!-- 预测原因 -->
+  <h2>预测原因</h2>
+  <ul class="li">
+    <li><b>评级与预期进球</b>：布拉迪斯拉发 Elo 1500 vs 采列 1450（临时校准，参考值 1530 失真），差距 50；主场优势 + 传控克制大巴 → 预期进球 2.23 : 1.31。</li>
+    <li><b>状态反差</b>：布拉迪斯拉发新赛季 7 场 6 胜 1 平不败进 19 失 2，主场近 3 场全胜进 10 失 0；采列欧战客场未胜、资格赛两客场丢 5 球。</li>
+    <li><b>战术对位</b>：布拉迪斯拉发传控围攻 vs 采列摆大巴，定位球 + 围攻机会多；但采列反击 + 复仇战意能制造偷袭。</li>
+    <li><b>锋线隐患</b>：布拉迪斯拉发锋线 4 人伤缺（库哈列维奇腿筋伤约 1 个月 + 队长斯波拉尔存疑 + 马切利长缺 + 奥弗里停赛），新签切雷普卡伊或首秀救急；这限制了大胜（3-1 以上）的空间。</li>
+    <li><b>冷门空间</b>：平/客合计 44.9%；两年前主场 5-0 血洗的剧情难再重演，采列摆大巴 + 后腰丹尼尔解禁，会努力把分差控制在两球内。</li>
+  </ul>
+
+  <!-- 情报摘要 -->
+  <h2>赛前情报摘要</h2>
+  <table>
+    <tr><th>队伍</th><th>伤停 / 状态</th><th>战术</th><th>战意</th></tr>
+    <tr>
+      <td><b>布拉迪斯拉发</b></td>
+      <td>锋线危机：库哈列维奇（腿筋，约 1 个月）+ 队长斯波拉尔（肌肉，存疑）+ 马切利（长缺）+ 奥弗里（停赛）；巴塞基良伤愈回归，新签切雷普卡伊（科希策 50 万欧）或首秀；新赛季 7 场 6 胜 1 平不败进 19 失 2。</td>
+      <td>传控围攻 + 定位球，主帅亚亚·图雷提醒后防勿压太上防反击</td>
+      <td>高涨 <span class="pill high">+0.15</span><br>主场抢下首回合领先</td>
+    </tr>
+    <tr>
+      <td><b>采列</b></td>
+      <td>中卫双缺：主力图蒂斯吉纳斯停赛 + 贝格尔胫骨长缺；武卡索维奇停赛；后腰丹尼尔黄牌解禁复出；两大主力中场（维多维茨/耶夫舍纳克）夏窗离队；欧战客场未胜丢 5 球。</td>
+      <td>摆大巴 + 快速反击，目标偷客场进球回主场周旋</td>
+      <td>高涨 <span class="pill high">+0.15</span><br>复仇战——两年前 6-1 惨案的讨债局</td>
+    </tr>
+  </table>
+  <div class="note">数据新鲜度：Elo 快照 2026-08-06（欧冠资格赛）。采列 Elo 为本次临时校准（1530 → 1450，对齐凯拉特 1459 层级），非正式参考值。伤停与首发来自赛前媒体（Sports Mole / 网易 / 大众足球 dszuqiu / 即嗨 jihai8 等），采集于 2026-08-19。亚盘为即时盘，临场可能变动。</div>
+
+  <!-- 场景推演 -->
+  <h2>场景推演</h2>
+  <div class="scen">
+    <div class="card"><h4>① 主场围攻</h4><p>布拉迪斯拉发控球围攻 + 定位球破大巴，巴塞基良 / 切雷普卡伊 / 新援建功，2-0 或 3-1 带着两球优势去斯洛文尼亚。</p></div>
+    <div class="card"><h4>② 低比分僵持</h4><p>采列摆大巴守成，布拉迪斯拉发锋线缺人难破密集防守，1-1 甚至 1-0，悬念留到次回合（1-1 为次高单比分）。</p></div>
+    <div class="card"><h4>③ 复仇偷球</h4><p>采列快速反击 + 定位球偷得客场进球（Kvesic 资格赛 4 球 / Verbic 老将），1-2 / 2-2，把次回合变成决战（合计约 25%）。</p></div>
+  </div>
+
+  <!-- 不确定性 -->
+  <h2>不确定性说明</h2>
+  <p style="font-size:13.5px;color:var(--sub)">
+    足球单场随机性很高：55.0% 只是概率而非确定性结论，冷门空间约 45%。模型无法预知红牌、点球、个体爆发；
+    两回合制下首回合结果会直接影响次回合策略（采列可能更保守，布拉迪斯拉发则可能轮换）。
+    最大不确定源：采列的临时 Elo 校准值、布拉迪斯拉发锋线缺员的实际影响、两队近期欧洲赛事强度与疲劳管理。
+    本报告仅供娱乐与分析参考，不构成投注建议。
+  </p>
+
+  <!-- 来源 -->
+  <h2>数据 / 情报来源</h2>
+  <div class="src">
+    <p>· Preview: Slovan Bratislava vs Celje - prediction, team news, lineups — Sports Mole<br>
+       · 欧冠附加赛恩怨局：布拉迪斯拉发两年前狂灌五球，采列这次要讨债 — 网易体育（163.com）<br>
+       · 欧冠附加赛冤家路窄：布拉迪斯拉发主场再战采列 — 网易体育（163.com）<br>
+       · 欧冠资格赛：重拳手迎战牛皮糖，布拉迪斯拉发主场静候采列复仇之战 — 网易体育（163.com）<br>
+       · 欧冠附加赛！（布拉迪斯拉发vs采列）— 大众足球（dszuqiu.com）<br>
+       · 布拉迪斯拉发VS采列让球指数_欧冠杯_2026年08月20日 — 即嗨（jihai8.com）<br>
+       · Slovan Bratislava vs Nk Celje Stats, Odds Results — Stats24<br>
+       · Game Preview: Slovan Bratislava vs NK Celje — Soccerzz / zerozero<br>
+       · SK Slovan Bratislava - NK CMC Publikum Celje | Champions League-Qualifikation 2026/2027 — Fussballdaten</p>
+  </div>
+
+  <div class="foot">
+    由 football-prediction 理性模型生成 · 纯属娱乐分析，不构成投注建议或确定性判断 · 快照数据时间 2026-08-06 ~ 08-19
+  </div>
+</div>
+</body>
+</html>

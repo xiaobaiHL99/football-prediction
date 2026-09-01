@@ -1,0 +1,15 @@
+{
+  "test_time": "2026-08-31T16:51:30.672143",
+  "system_status": "operational",
+  "components": {
+    "data_loading": "✅ 正常",
+    "prediction_engine": "✅ 正常",
+    "intelligence_system": "⚠️ 需要数据",
+    "review_system": "✅ 正常"
+  },
+  "recommendations": [
+    "定期更新赛前情报数据",
+    "每日运行复盘系统优化参数",
+    "保持联赛配置文件的及时更新"
+  ]
+}

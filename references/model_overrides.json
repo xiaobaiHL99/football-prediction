@@ -1,0 +1,6 @@
+{
+  "overrides": {
+    "SPIRIT_XG_STEP": 0.2,
+    "FORM_XG_MAX": 0.12
+  }
+}

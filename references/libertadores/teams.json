@@ -1,0 +1,202 @@
+{
+  "_meta": {
+    "league": "Copa Libertadores",
+    "season": "2026",
+    "updated_at": "2026-08-13T00:00:00Z",
+    "note": "Elo ratings based on 2026 group stage form and historical CONMEBOL strength; Brazilian clubs aligned with brasileirao scale (elo_scale 120). 2026-08-13 校准：LDU 1720→1520、IDV 1700→1580（厄超队原值高于巴甲中游失真，按 H2H 与市场盘口复核）"
+  },
+  "teams": {
+    "FLA": {
+      "name": "Flamengo",
+      "name_cn": "弗拉门戈",
+      "elo": 1805,
+      "city": "Rio de Janeiro",
+      "stadium": "Maracanã",
+      "capacity": 78838,
+      "turf": "natural",
+      "color": "red",
+      "region": "brazil",
+      "notes": "卫冕冠军，巴西人气豪门，攻击力极强"
+    },
+    "PAL": {
+      "name": "Palmeiras",
+      "name_cn": "帕尔梅拉斯",
+      "elo": 1817,
+      "city": "São Paulo",
+      "stadium": "Allianz Parque",
+      "capacity": 43713,
+      "turf": "natural",
+      "color": "green",
+      "region": "brazil",
+      "notes": "近年巴甲最成功球队，防守稳健，小组赛冠军组头号种子"
+    },
+    "CRU": {
+      "name": "Cruzeiro",
+      "name_cn": "克鲁塞罗",
+      "elo": 1574,
+      "city": "Belo Horizonte",
+      "stadium": "Mineirão",
+      "capacity": 61846,
+      "turf": "natural",
+      "color": "blue",
+      "region": "brazil",
+      "notes": "传统豪门，解放者杯淘汰赛阶段心态强硬，敢于挑战强敌"
+    },
+    "COR": {
+      "name": "Corinthians",
+      "name_cn": "科林蒂安",
+      "elo": 1722,
+      "city": "São Paulo",
+      "stadium": "Neo Química Arena",
+      "capacity": 49205,
+      "turf": "natural",
+      "color": "black",
+      "region": "brazil",
+      "notes": "球迷基数巨大，主场氛围恐怖"
+    },
+    "FLU": {
+      "name": "Fluminense",
+      "name_cn": "弗鲁米嫩塞",
+      "elo": 1652,
+      "city": "Rio de Janeiro",
+      "stadium": "Maracanã",
+      "capacity": 78838,
+      "turf": "natural",
+      "color": "red",
+      "region": "brazil",
+      "notes": "上届解放者杯冠军底蕴，小组赛曾主场负于独立里瓦达维亚"
+    },
+    "MIR": {
+      "name": "Mirassol",
+      "name_cn": "米拉索尔",
+      "elo": 1530,
+      "city": "Mirassol",
+      "stadium": "Estádio José Maria de Campos Maia",
+      "capacity": 15000,
+      "turf": "natural",
+      "color": "green",
+      "region": "brazil",
+      "notes": "巴甲升班马黑马，队史首次解放者杯，客场经验存疑"
+    },
+    "EST": {
+      "name": "Estudiantes de La Plata",
+      "name_cn": "拉普拉塔大学生",
+      "elo": 1730,
+      "city": "La Plata",
+      "stadium": "Estadio Jorge Luis Hirschi",
+      "capacity": 30000,
+      "turf": "natural",
+      "color": "red",
+      "region": "argentina",
+      "notes": "阿根廷传统劲旅，2009 解放者杯冠军，主场强硬"
+    },
+    "ROS": {
+      "name": "Rosario Central",
+      "name_cn": "罗萨里奥中央",
+      "elo": 1680,
+      "city": "Rosario",
+      "stadium": "Estadio Gigante de Arroyito",
+      "capacity": 41654,
+      "turf": "natural",
+      "color": "red",
+      "region": "argentina",
+      "notes": "阿根廷劲旅，主场大球场氛围狂热"
+    },
+    "PLA": {
+      "name": "Platense",
+      "name_cn": "普拉滕斯",
+      "elo": 1630,
+      "city": "Vicente López",
+      "stadium": "Estadio Ciudad de Vicente López",
+      "capacity": 32000,
+      "turf": "natural",
+      "color": "blue",
+      "region": "argentina",
+      "notes": "首次进入解放者杯淘汰赛的黑马，小组赛客场曾2-0胜科林蒂安"
+    },
+    "IRV": {
+      "name": "Independiente Rivadavia",
+      "name_cn": "独立里瓦达维亚",
+      "elo": 1650,
+      "city": "Mendoza",
+      "stadium": "Estadio Malvinas Argentinas",
+      "capacity": 40000,
+      "turf": "natural",
+      "color": "red",
+      "region": "argentina",
+      "notes": "小组赛头名大黑马(16分不败)，阿莱士·阿尔塞8球射手王"
+    },
+    "IDV": {
+      "name": "Independiente del Valle",
+      "name_cn": "山谷独立",
+      "elo": 1580,
+      "city": "Quito",
+      "stadium": "Estadio Banco Guayaquil",
+      "capacity": 20000,
+      "turf": "natural",
+      "color": "blue",
+      "region": "ecuador",
+      "notes": "南美劲旅，青训出色，2019解放者杯亚军；Elo 校准 1700→1580（厄超队不应高于巴甲中游）"
+    },
+    "LDU": {
+      "name": "Liga de Quito",
+      "name_cn": "基多体育大学",
+      "elo": 1520,
+      "city": "Quito",
+      "stadium": "Estadio Rodrigo Paz Delgado",
+      "capacity": 41000,
+      "turf": "natural",
+      "color": "red",
+      "region": "ecuador",
+      "notes": "厄瓜多尔豪门，基多2850米高原主场巨大优势；Elo 校准 1720→1520（vs 米拉索尔小组赛主场2-0负+市场 MIR 主让1.65，原值失真）"
+    },
+    "UCA": {
+      "name": "Universidad Católica",
+      "name_cn": "天主教大学",
+      "elo": 1650,
+      "city": "Santiago",
+      "stadium": "Estadio San Carlos de Apoquindo",
+      "capacity": 14000,
+      "turf": "natural",
+      "color": "blue",
+      "region": "chile",
+      "notes": "智利传统强队，技术流打法"
+    },
+    "COQ": {
+      "name": "Coquimbo Unido",
+      "name_cn": "科金博大联合",
+      "elo": 1600,
+      "city": "Coquimbo",
+      "stadium": "Estadio Francisco Sánchez Rumoroso",
+      "capacity": 18000,
+      "turf": "natural",
+      "color": "yellow",
+      "region": "chile",
+      "notes": "首次解放者杯淘汰赛，小组赛头名出线"
+    },
+    "TOL": {
+      "name": "Deportes Tolima",
+      "name_cn": "托利马体育",
+      "elo": 1640,
+      "city": "Ibagué",
+      "stadium": "Estadio Manuel Murillo Toro",
+      "capacity": 28000,
+      "turf": "natural",
+      "color": "red",
+      "region": "colombia",
+      "notes": "哥伦比亚强队，主场伊巴盖有一定海拔"
+    },
+    "CPO": {
+      "name": "Cerro Porteño",
+      "name_cn": "波特诺山丘",
+      "elo": 1650,
+      "city": "Asunción",
+      "stadium": "Estadio General Pablo Rojas",
+      "capacity": 45000,
+      "turf": "natural",
+      "color": "yellow",
+      "region": "paraguay",
+      "notes": "巴拉圭豪门，亚松森湿热，主场氛围狂热"
+    }
+  }
+}

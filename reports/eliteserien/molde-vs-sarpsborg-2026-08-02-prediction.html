@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>莫尔德 vs 萨尔普斯堡 · 单场预测 · 挪超第16轮 2026-08-02</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#141b33; --panel2:#1b2444; --line:#2a3557;
+    --txt:#e8edf7; --muted:#8b98b8; --accent:#4fd1c5;
+    --mol:#2e86de; --sarp:#e67e22; --draw:#f5c542; --green:#4fd1c5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(160deg,#0b1020 0%,#0e1730 60%,#0b1020 100%);color:var(--txt);
+       font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.55;}
+  .wrap{max-width:1060px;margin:0 auto;padding:20px 16px 60px;}
+  header{text-align:center;padding:8px 0 14px;}
+  .kick{display:inline-block;font-size:12px;letter-spacing:2px;color:var(--muted);
+        border:1px solid var(--line);border-radius:999px;padding:4px 14px;margin-bottom:10px;}
+  h1{font-size:clamp(22px,4vw,34px);letter-spacing:1px;}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px;}
+
+  /* ---------- 球场 ---------- */
+  .pitch{position:relative;margin:22px auto 8px;border-radius:18px;overflow:hidden;
+         border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.45);}
+  .pitch::before{content:"";position:absolute;inset:0;
+         background:
+           radial-gradient(ellipse 60% 35% at 50% 18%, rgba(255,255,255,.10), transparent 60%),
+           radial-gradient(ellipse 40% 20% at 50% 88%, rgba(79,209,197,.14), transparent 60%),
+           repeating-linear-gradient(0deg, #1d9a54 0 42px, #178a4a 42px 84px);
+         z-index:0;}
+  .pitch svg{display:block;width:100%;height:auto;position:relative;z-index:1;}
+  .pitch .flood{position:absolute;inset:0;z-index:2;pointer-events:none;
+         background:radial-gradient(ellipse 120% 70% at 50% 50%, transparent 40%, rgba(5,8,18,.55) 100%);}
+
+  /* ---------- 比分牌 ---------- */
+  .scoreboard{position:relative;margin:-34px auto 26px;width:min(560px,94%);
+         background:linear-gradient(180deg,#101a30,#0a1122);border:1px solid var(--line);
+         border-radius:16px;box-shadow:0 16px 44px rgba(0,0,0,.55);overflow:hidden;z-index:5;}
+  .sb-top{display:flex;align-items:center;justify-content:space-between;
+         padding:8px 16px;background:#0d1628;color:var(--muted);font-size:11px;letter-spacing:1px;
+         border-bottom:1px solid var(--line);}
+  .sb-top .tag{color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 10px;}
+  .sb-main{display:flex;align-items:center;justify-content:center;gap:6px;padding:14px 10px 8px;}
+  .sb-team{flex:1;text-align:center;}
+  .sb-team .name{font-size:clamp(14px,3vw,19px);font-weight:700;}
+  .sb-team .tny{font-size:11px;color:var(--muted);letter-spacing:1px;}
+  .sb-score{font-family:"Segoe UI",Consolas,monospace;font-size:clamp(34px,7vw,52px);font-weight:800;
+         letter-spacing:2px;color:#fff;text-shadow:0 0 18px rgba(79,209,197,.5);min-width:110px;}
+  .sb-score b{display:inline-block;min-width:1.1em;text-align:center;}
+  .sb-score .sp{opacity:.25;font-weight:400;}
+  .sb-bars{display:flex;height:7px;overflow:hidden;margin:4px 14px 0;}
+  .sb-bars .h{background:var(--mol);height:100%;}
+  .sb-bars .d{background:var(--draw);height:100%;}
+  .sb-bars .a{background:var(--sarp);height:100%;}
+  .sb-labels{display:flex;justify-content:space-between;padding:5px 16px 10px;font-size:11px;color:var(--muted);}
+  .sb-labels b{color:var(--txt);font-weight:700;}
+  .sb-foot{display:flex;justify-content:center;gap:14px;padding:6px 10px 12px;
+         font-size:11px;color:var(--muted);border-top:1px solid var(--line);}
+  .sb-foot b{color:var(--accent);font-weight:700;}
+
+  /* ---------- 卡片 ---------- */
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+        border-radius:14px;padding:18px 18px 16px;margin:16px 0;}
+  .card h2{font-size:15px;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .card h2::before{content:"";width:4px;height:16px;background:var(--accent);border-radius:2px;}
+  .card h2 .en{color:var(--muted);font-weight:400;font-size:11px;letter-spacing:1px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .metric{background:#101a33;border:1px solid var(--line);border-radius:10px;padding:12px;}
+  .metric .k{font-size:11px;color:var(--muted);letter-spacing:1px;}
+  .metric .v{font-size:20px;font-weight:800;margin-top:2px;}
+  .metric .s{font-size:11px;color:var(--muted);margin-top:2px;}
+
+  .probrow{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .probrow .lbl{width:130px;font-size:13px;text-align:right;flex-shrink:0;}
+  .probrow .track{flex:1;height:22px;background:#0d1628;border-radius:6px;overflow:hidden;position:relative;}
+  .probrow .fill{height:100%;border-radius:6px;}
+  .probrow .pct{width:58px;font-size:14px;font-weight:700;font-family:Consolas,monospace;}
+  .fill.h{background:linear-gradient(90deg,#1f6fc4,#2e86de);}
+  .fill.d{background:linear-gradient(90deg,#c9a227,#f5c542);}
+  .fill.a{background:linear-gradient(90deg,#d35400,#e67e22);}
+
+  .scorecards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .scorecard{background:#101a33;border:1px solid var(--line);border-radius:10px;text-align:center;padding:10px 4px;}
+  .scorecard .sc{font-size:16px;font-weight:800;font-family:Consolas,monospace;}
+  .scorecard .pr{font-size:11px;color:var(--accent);margin-top:3px;}
+  .scorecard.best{border-color:var(--accent);box-shadow:0 0 14px rgba(79,209,197,.25);}
+  .scorecard.best .sc{color:var(--accent);}
+  .scorecard.ref{border-color:var(--draw);box-shadow:0 0 12px rgba(245,197,66,.18);}
+  .scorecard.ref .sc{color:var(--draw);}
+  .scorecard .tag2{font-size:9.5px;color:var(--muted);margin-top:3px;letter-spacing:.5px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);}
+  th{color:var(--muted);font-weight:600;font-size:11px;letter-spacing:1px;}
+  td .val{font-weight:700;}
+  .pos{color:var(--green);}
+  .neg{color:#ff7b6b;}
+
+  .chip{display:inline-block;background:#101a33;border:1px solid var(--line);border-radius:999px;
+        padding:3px 12px;font-size:12px;margin:0 6px 6px 0;}
+  .chip.b{background:rgba(46,134,222,.15);border-color:rgba(46,134,222,.4);}
+  .chip.r{background:rgba(230,126,34,.15);border-color:rgba(230,126,34,.4);}
+  .chip.y{background:rgba(245,197,66,.12);border-color:rgba(245,197,66,.4);}
+
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px;border-left:3px solid var(--line);padding-left:10px;}
+  .warn{background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.35);border-radius:10px;
+        padding:12px 14px;font-size:13px;margin-top:12px;color:#ffd8d3;}
+  .ulist{list-style:none;}
+  .ulist li{padding:7px 0 7px 22px;position:relative;font-size:13.5px;border-bottom:1px dashed var(--line);}
+  .ulist li:last-child{border-bottom:none;}
+  .ulist li::before{content:"▸";position:absolute;left:4px;color:var(--accent);}
+  .src{font-size:12px;color:var(--muted);}
+  .src a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  .src li{padding:4px 0;}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line);}
+  .tocx{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0 4px;}
+  @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}.scorecards{grid-template-columns:repeat(3,1fr)}.probrow .lbl{width:86px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kick">NORWEGIAN ELITESERIEN · 2026 · ROUND 16</span>
+  <h1>莫尔德 vs 萨尔普斯堡</h1>
+  <div class="sub">Molde FK · Sarpsborg 08 · 单场理性预测 · 非完赛比分</div>
+  <div class="tocx">
+    <span class="chip">预测生成：2026-08-02</span>
+    <span class="chip">开球：23:00（北京时间）</span>
+    <span class="chip">球场：Aker Stadion · 莫尔德</span>
+    <span class="chip">场地：人造草</span>
+    <span class="chip">数据快照：teams 07-22 / 赛果 112 场</span>
+  </div>
+</header>
+
+<!-- ===== 球场 ===== -->
+<div class="pitch">
+  <svg viewBox="0 0 800 420" role="img" aria-label="足球场示意图">
+    <rect x="20" y="20" width="760" height="380" rx="10" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <line x1="400" y1="20" x2="400" y2="400" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <circle cx="400" cy="210" r="60" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <circle cx="400" cy="210" r="3" fill="rgba(255,255,255,.8)"/>
+    <rect x="20" y="125" width="110" height="170" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="20" y="170" width="50" height="80" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="670" y="125" width="110" height="170" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="730" y="170" width="50" height="80" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <text x="400" y="238" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="14" letter-spacing="3">⚽</text>
+  </svg>
+  <div class="flood"></div>
+</div>
+
+<!-- ===== 比分牌 ===== -->
+<div class="scoreboard">
+  <div class="sb-top">
+    <span>ELITESERIEN · ROUND 16 · 欧战资格卡位战</span>
+    <span class="tag">预测 · PREVIEW</span>
+    <span>2026-08-02 23:00</span>
+  </div>
+  <div class="sb-main">
+    <div class="sb-team">
+      <div class="name">莫尔德</div>
+      <div class="tny">MOLDE FK</div>
+    </div>
+    <div class="sb-score"><b>2</b><span class="sp">–</span><b>1</b></div>
+    <div class="sb-team">
+      <div class="name">萨尔普斯堡</div>
+      <div class="tny">SARPSBORG 08</div>
+    </div>
+  </div>
+  <div class="sb-bars"><div class="h" style="width:41.3%"></div><div class="d" style="width:22.9%"></div><div class="a" style="width:35.8%"></div></div>
+  <div class="sb-labels">
+    <span><b>41.3%</b> 主胜</span>
+    <span><b>22.9%</b> 平局</span>
+    <span><b>35.8%</b> 客胜</span>
+  </div>
+  <div class="sb-foot">
+    <span>预期进球 <b>1.69 – 1.54</b></span>
+    <span>主预测比分 <b>2-1</b> (8.6%)</span>
+  </div>
+</div>
+
+<!-- ===== 核心结论 ===== -->
+<div class="card">
+  <h2>核心结论 <span class="en">CORE VERDICT</span></h2>
+  <div class="grid3">
+    <div class="metric"><div class="k">主预测赛果</div><div class="v" style="color:var(--mol)">莫尔德胜</div><div class="s">概率最高方向 41.3%（非稳胜）</div></div>
+    <div class="metric"><div class="k">主预测比分</div><div class="v">2 – 1</div><div class="s">主胜方向最高概率比分 (8.6%)</div></div>
+    <div class="metric"><div class="k">Elo 评级差</div><div class="v">1628 vs 1592</div><div class="s">莫尔德 +36（伤停修正后优势被大幅压缩）</div></div>
+  </div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="metric"><div class="k">理性模型胜平负</div><div class="v">41.3 / 22.9 / 35.8 <span style="font-size:12px;color:var(--muted)">%</span></div><div class="s">模型认为这是接近五五开的主场局</div></div>
+    <div class="metric"><div class="k">市场归一化概率</div><div class="v">60.2 / 20.3 / 19.5 <span style="font-size:12px;color:var(--muted)">%</span></div><div class="s">市场强看好莫尔德 ~60%</div></div>
+  </div>
+  <div class="note">模型与市场出现<b>本场最大分歧</b>：市场把莫尔德主胜定在 60%，而模型只给 41.3%——差距来自莫尔德<b>伤兵满营</b>（门将 Kikkenborg 跟腱赛季报销 + 中卫 Dahl + 中场 Hoff/Daehli/Stenevik 缺阵，Elo 修正 −23）与萨尔普斯堡<b>近5轮不败、连续3场零封、且近5次交锋4胜1平</b>的反向基本面。模型的客胜 35.8% 是市场（19.5%）的近两倍，与球迷屋独立分析（36/30/34）和 Sports Mole 的 1-1 预测高度一致——市场更看重主场与牌面，模型更看重即时状态与人员损耗。</div>
+</div>
+
+<!-- ===== 预测原因 ===== -->
+<div class="card">
+  <h2>预测原因 <span class="en">WHY</span></h2>
+  <ul class="ulist">
+    <li><b>主场强势仍是第一顺位：</b>莫尔德 7 个联赛主场 5 胜 2 负无平局、场均进 2.14 失 0.86，6 场先进球的联赛全胜，且无欧战负担、体能充足——这些把主胜压到概率第一（41.3%）。</li>
+    <li><b>但伤停损失被市场低估：</b>门将 Kikkenborg 跟腱重伤赛季报销、中卫 Dahl 膝伤、中场 Hoff / Daehli / Stenevik 缺阵，三线均有主力缺失（Elo 修正 −23），创造力与后场出球受创，直接拉平与客队的实力差。</li>
+    <li><b>萨尔普斯堡状态与心理双向压制：</b>近 5 轮 4 胜 1 平不败、最近 3 场连续零封（1-0 维京 / 0-0 克里斯蒂安松 / 1-0 汉坎）；近 5 次对莫尔德 4 胜 1 平不败（含 5 月首回合客场 2-1），防线有套路 + 交锋有心理。</li>
+    <li><b>战术克制偏向客队防反：</b>莫尔德 56% 控球压上 vs 萨尔普斯堡残阵后防深度收缩打反击，反击对传控的模型克制 + 莫尔德无效控球惩罚，压低主队 xG。</li>
+    <li><b>但客队客场与进攻是硬伤：</b>萨尔普斯堡近 6 客场仅 1 胜、进 5 失 12，赛季 15 球联赛第 3 少，且本场后防 2 伤 1 停（Utvik 停赛 / Rosted 伤）、新援 Lode 首秀是变数——模型因此也未敢把客胜推得更高。</li>
+    <li><b>单场随机性提示：</b>双方 xG 差距仅 0.15（1.69 vs 1.54），几乎均势；单一最高概率比分是 1-1（10.2%），三个赛果方向都在两成到四成，属高度开放局。</li>
+  </ul>
+</div>
+
+<!-- ===== 详细预测 ===== -->
+<div class="card">
+  <h2>详细预测 <span class="en">DETAILS</span></h2>
+  <div class="grid2">
+    <div>
+      <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:4px">胜 / 平 / 负 概率</div>
+      <div class="probrow"><div class="lbl">莫尔德胜</div><div class="track"><div class="fill h" style="width:41.3%"></div></div><div class="pct" style="color:var(--mol)">41.3%</div></div>
+      <div class="probrow"><div class="lbl">平局</div><div class="track"><div class="fill d" style="width:22.9%"></div></div><div class="pct" style="color:var(--draw)">22.9%</div></div>
+      <div class="probrow"><div class="lbl">萨尔普斯堡胜</div><div class="track"><div class="fill a" style="width:35.8%"></div></div><div class="pct" style="color:var(--sarp)">35.8%</div></div>
+      <div class="grid2" style="margin-top:12px">
+        <div class="metric"><div class="k">莫尔德 xG</div><div class="v" style="color:var(--mol)">1.69</div></div>
+        <div class="metric"><div class="k">萨尔普斯堡 xG</div><div class="v" style="color:var(--sarp)">1.54</div></div>
+      </div>
+      <div class="note">xG 已含伤停 Elo 修正（莫尔德 −23 / 萨尔普斯堡 −12）、近期状态（form）、战术对位（反击克制传控 + 无效控球惩罚）、主场 + 复仇战意加成。</div>
+    </div>
+    <div>
+      <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:4px">比分分布 Top 5</div>
+      <div class="scorecards">
+        <div class="scorecard ref"><div class="sc">1-1</div><div class="pr">10.2%</div><div class="tag2">单一最高 · 比分参考</div></div>
+        <div class="scorecard best"><div class="sc">2-1</div><div class="pr">8.6%</div><div class="tag2">主预测比分</div></div>
+        <div class="scorecard"><div class="sc">1-2</div><div class="pr">7.9%</div><div class="tag2">客胜路径</div></div>
+        <div class="scorecard"><div class="sc">1-0</div><div class="pr">6.7%</div><div class="tag2">低比分主胜</div></div>
+        <div class="scorecard"><div class="sc">2-2</div><div class="pr">6.6%</div><div class="tag2">高比分平局</div></div>
+      </div>
+      <div class="metric" style="margin-top:12px">
+        <div class="k">模型修正摘要</div>
+        <div style="font-size:12.5px;margin-top:6px">
+          <span class="chip b">莫尔德 −23 Elo · 门将+三线伤停</span>
+          <span class="chip r">萨尔普斯堡 −12 Elo · 后防2伤1停</span>
+          <span class="chip b">莫尔德 主场+复仇 +0.05</span>
+          <span class="chip r">萨尔普斯堡 近况火热 +0.08</span>
+          <span class="chip y">战术: 传控 vs 防反 · 客队克制</span>
+          <span class="chip">情境: 欧战资格卡位战 · 均势</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="warn">本报告为概率预测，不是结果保证。单一最高概率比分 1-1（10.2%）与主预测赛果（莫尔德胜）方向不同，仅作比分分布参考。主预测比分 2-1 是主胜方向内最高概率，但整体只有 8.6%。本场三个方向概率分布极接近（41/23/36），随机性高，市场 60% 的主胜与模型 41% 的分歧是核心风险点。</div>
+</div>
+
+<!-- ===== 情报摘要 ===== -->
+<div class="card">
+  <h2>情报摘要 <span class="en">INTEL</span></h2>
+  <div class="grid2">
+    <div>
+      <table>
+        <tr><th>莫尔德（主）</th><th></th></tr>
+        <tr><td>联赛排位</td><td class="val">第 5 · 23 分 · 14 轮（7胜2平5负）</td></tr>
+        <tr><td>阵容/风格</td><td class="val">4-2-3-1 传控，场均控球 56%，射门 13.8 次</td></tr>
+        <tr><td>伤停</td><td class="neg">门将 Kikkenborg 跟腱赛季报销 / CB Dahl 膝伤 / 中场 Hoff+Daehli+Stenevik 缺阵</td></tr>
+        <tr><td>主场</td><td class="val">7 个联赛主场 5 胜 2 负无平局，场均进 2.14 失 0.86</td></tr>
+        <tr><td>体能</td><td class="val">无欧战双线负担，储备充足</td></tr>
+        <tr><td>近期</td><td class="val">上轮客场 4-2 逆转 KFUM 回暖，终结两轮不胜</td></tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tr><th>萨尔普斯堡（客）</th><th></th></tr>
+        <tr><td>联赛排位</td><td class="val">第 6 · 21 分 · 14 轮（6胜3平5负）</td></tr>
+        <tr><td>阵容/风格</td><td class="val">深度收缩防守 + 快速反击，放弃中场控球</td></tr>
+        <tr><td>近况</td><td class="pos">近 5 轮 4 胜 1 平不败，连续 3 场零封（1-0 维京 / 0-0 克里斯蒂安松 / 1-0 汉坎）</td></tr>
+        <tr><td>伤停</td><td class="neg">中卫 Utvik 累计黄牌停赛 / 后卫 Reinhardsen+Rosted 伤缺；新援 Lode 或首秀</td></tr>
+        <tr><td>客场</td><td class="neg">近 6 客场仅 1 胜，进 5 失 12</td></tr>
+        <tr><td>进攻</td><td class="neg">赛季 15 球联赛第 3 少，火力有限</td></tr>
+      </table>
+    </div>
+  </div>
+  <div style="margin-top:12px">
+    <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:6px">交锋记录（历史 + 本赛季）</div>
+    <ul class="ulist">
+      <li>近 5 次交锋：萨尔普斯堡 <b>4 胜 1 平保持不败</b>，近 3 次全胜，且 4 次均打进至少 2 球。</li>
+      <li>本赛季首回合（5月25日）：萨尔普斯堡 2-1 莫尔德（Karlsbakk 点球 + Hiim 远射）。</li>
+      <li>莫尔德上一次联赛击败萨尔普斯堡要追溯到 2023 年 11 月（3-1），本场有强烈复仇战意。</li>
+      <li>另一口径：近 10 次交手莫尔德 5 胜 1 平 4 负，双方历史互有胜负。</li>
+    </ul>
+  </div>
+  <div class="note">数据来源：Sports Mole 赛前预测、球迷屋/雷速/DS足球/球探赛前分析，伤停与首发信息交叉核对基本一致（个别来源对萨尔普斯堡排名、莫尔德伤病人数略有出入）。</div>
+</div>
+
+<!-- ===== 场景推演 ===== -->
+<div class="card">
+  <h2>场景推演 <span class="en">SCENARIOS</span></h2>
+  <div class="grid3">
+    <div class="metric"><div class="k" style="color:var(--mol)">① 莫尔德主场兑现牌面</div>
+      <div class="s" style="font-size:12.5px;margin-top:6px">主场 5 胜 2 负统治力 + 复仇战意 + 先进球后 6 战全胜的纪律 → 2-1 / 2-0 主胜。模型主路径（≈41%），市场更乐观给 60%。</div></div>
+    <div class="metric"><div class="k" style="color:var(--sarp)">② 萨尔普斯堡延续不败（冷门路径）</div>
+      <div class="s" style="font-size:12.5px;margin-top:6px">连续 3 场零封的防线 + 交锋 4 胜 1 平心理 + 莫尔德伤兵满营的中前场 → 1-2 / 0-1 客胜。模型给 35.8%，市场仅 19.5%，是模型 vs 市场最大分歧点。</div></div>
+    <div class="metric"><div class="k" style="color:var(--draw)">③ 低比分胶着（平局）</div>
+      <div class="s" style="font-size:12.5px;margin-top:6px">萨尔普斯堡摆大巴 + 莫尔德中场创造力受损 → 1-1（单一最高概率 10.2%）。Sports Mole 预测正落在此路径；若莫尔德久攻不下，平局概率抬升。</div></div>
+  </div>
+</div>
+
+<!-- ===== 赔率视角 ===== -->
+<div class="card">
+  <h2>赔率视角 <span class="en">ODDS VIEW</span></h2>
+  <table>
+    <tr><th>结果</th><th>赔率</th><th>隐含概率</th><th>市场真实概率</th><th>模型概率</th><th>偏差</th></tr>
+    <tr><td>莫尔德胜</td><td>1.47</td><td>68.0%</td><td>60.2%</td><td class="val">41.3%</td><td class="neg">−18.9%</td></tr>
+    <tr><td>平局</td><td>4.35</td><td>23.0%</td><td>20.3%</td><td class="val">22.9%</td><td class="pos">+2.6%</td></tr>
+    <tr><td>萨尔普斯堡胜</td><td>4.55</td><td>22.0%</td><td>19.5%</td><td class="val">35.8%</td><td class="pos">+16.3%</td></tr>
+  </table>
+  <div style="margin-top:10px;font-size:13px">
+    <span class="chip">庄家抽水 overround：13.0%</span>
+    <span class="chip">竞彩：主胜 1.47 / 平 4.35 / 客胜 4.55（搜狐口径 1.50 / 4.29 / 4.35）</span>
+    <span class="chip">亚盘：莫尔德 −0.75（半一，近年最弱力度）</span>
+    <span class="chip">大小球：2.5（大 1.85）</span>
+    <span class="chip">竞彩让球(−1)：让胜 2.43 / 让平 3.65 / 让负 2.25</span>
+  </div>
+  <div class="note">模型唯一正期望方向是<b>客胜 @4.55（EV +62.9%）</b>：模型 35.8% vs 市场 19.5%，偏差 +16.3%，是本次预测中模型与市场分歧最大的一场。模型认为市场高估了莫尔德的主场牌面（60%），低估了其门将+三线伤停的实际损耗、以及萨尔普斯堡"连续 3 场零封 + 近 5 次交锋 4 胜 1 平"的即时基本面。需注意：此类大偏差通常意味着要么模型捕捉到了市场未定价的信息，要么模型对伤停的量化偏激进（门将赛季报销 + 三线缺阵确实大幅削弱莫尔德）——独立分析（球迷屋 36/30/34、Sports Mole 1-1）更接近模型而非市场。</div>
+  <div class="note">赔率数据仅供概率比较参考，不构成投注建议。</div>
+</div>
+
+<!-- ===== 不确定性说明 ===== -->
+<div class="card">
+  <h2>不确定性说明 <span class="en">UNCERTAINTY</span></h2>
+  <ul class="ulist">
+    <li>技能内沙盘数据（积分榜快照、Elo 评级）基于模拟/历史估计，与本场真实排名（莫尔德 5th / 萨尔普斯堡 6th）存在差距，预测主要依赖赛前实时情报修正。</li>
+    <li>莫尔德伤停名单是模型最大输入：门将赛季报销 + 三线缺阵的 Elo 扣分（−23）较激进，若莫尔德替补深度补位顺利，实际影响可能低于模型估计，主胜概率会被低估。</li>
+    <li>萨尔普斯堡"连续 3 场零封"含一场 0-0，样本偏小；其客场 1 胜与主场判若两队，客场能否守住是本场最大不确定项。</li>
+    <li>各来源对交锋数据口径不一（近 5 次 vs 近 10 次），历史心理因素只能定性参考。</li>
+    <li>比分牌为"预测"而非已完赛结果；主预测比分 2-1（8.6%）与单一最高概率比分 1-1（10.2%）并存，比分高度分散。</li>
+  </ul>
+</div>
+
+<!-- ===== 来源 ===== -->
+<div class="card">
+  <h2>数据与情报来源 <span class="en">SOURCES</span></h2>
+  <ul class="src ulist">
+    <li><a href="https://www.sportsmole.co.uk/football/molde/preview/molde-vs-sarpsborg-prediction-team-news-lineups_602239.html">Sports Mole — Molde vs Sarpsborg 08 preview, team news, lineups（2026-08）</a></li>
+    <li><a href="https://www.qiumiwu.com/news/1982348196425">球迷屋 — 莫尔德vs萨普斯堡预测分析：交锋五连不胜，主场如何破局（2026-08）</a></li>
+    <li><a href="https://www.leisu.com/news/view-681506">雷速体育 — 莫尔德刚结束四轮不胜，萨普斯堡近三场一球未丢（2026-08）</a></li>
+    <li><a href="https://www.dszuqiu.com/articles/lottery/2096988.html">DS足球 — 挪威超级联赛 莫尔德 vs 萨尔普斯堡（2026-08）</a></li>
+    <li><a href="https://www.dszuqiu.com/articles/lottery/2097013.html">DS足球 — 挪超关键之战，莫尔德实力强横击中萨普软肋？（2026-08）</a></li>
+    <li><a href="https://m.titan007.com/Analy/Analysis/2912855.htm">球探 — 2026挪超 莫尔德 VS 萨普斯堡 数据分析（2026-08-02）</a></li>
+    <li><a href="https://www.thepaper.cn/newsDetail_forward_33697566">澎湃新闻 — 竞彩湃：莫尔德主场冲击连胜（2026-08）</a></li>
+    <li><a href="https://www.stats24.com/football/molde-vs-sarpsborg-08/3182196">Stats24 — Molde vs Sarpsborg 08 Odds & H2H（2026-08-02）</a></li>
+    <li><a href="https://www.goal.com/en/match/molde-vs-sarpsborg-08/Q-6P_7NJvrzWXYyhLxjRV">Goal.com — Molde v Sarpsborg 08（2026-08-02）</a></li>
+    <li><a href="https://www.footballdatabase.eu/en/match/overview/3362261-molde-sarpsborg_08">FootballDatabase — Molde vs Sarpsborg 08 赛事页（2026-08-01）</a></li>
+  </ul>
+</div>
+
+<footer>理性概率模型：Elo → 泊松比分 → 蒙特卡洛 · 仅供娱乐分析，不构成投注建议 · 2026-08-02</footer>
+</div>
+</body>
+</html>

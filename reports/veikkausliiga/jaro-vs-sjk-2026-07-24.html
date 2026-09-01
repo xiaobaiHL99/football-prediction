@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaro vs SJK 预测报告 | 2026-07-24</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0e17;
+  color: #e0e6f0;
+  font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===== PITCH ===== */
+.pitch-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(180deg, #0d1b2a 0%, #1b3a2a 40%, #2d5a3a 60%, #1b3a2a 80%, #0d1b2a 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pitch-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
+}
+.pitch {
+  position: relative;
+  width: 700px;
+  max-width: 94%;
+  aspect-ratio: 70/44;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  background: linear-gradient(135deg, #2d6a3a 0%, #3a8a4a 50%, #2d6a3a 100%);
+  box-shadow: 0 0 40px rgba(0,0,0,0.5), inset 0 0 60px rgba(0,0,0,0.2);
+}
+.pitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 16px, rgba(255,255,255,0.04) 16px, rgba(255,255,255,0.04) 17px),
+              repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(255,255,255,0.04) 16px, rgba(255,255,255,0.04) 17px);
+}
+/* Center circle */
+.pitch .center-circle {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 24%; height: 48%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch .center-spot {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 8px; height: 8px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch .center-line {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+}
+/* Penalty areas */
+.pitch .pa-left, .pitch .pa-right {
+  position: absolute;
+  width: 40%; height: 44%;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.pitch .pa-left { left: 0; top: 50%; transform: translateY(-50%); border-left: none; }
+.pitch .pa-right { right: 0; top: 50%; transform: translateY(-50%); border-right: none; }
+/* Goal areas */
+.pitch .ga-left, .pitch .ga-right {
+  position: absolute;
+  width: 16%; height: 20%;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+.pitch .ga-left { left: 0; top: 50%; transform: translateY(-50%); border-left: none; }
+.pitch .ga-right { right: 0; top: 50%; transform: translateY(-50%); border-right: none; }
+/* Goals */
+.pitch .goal-left, .pitch .goal-right {
+  position: absolute;
+  width: 4%; height: 14%;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-left: none;
+  border-right: none;
+}
+.pitch .goal-left { left: -4%; top: 50%; transform: translateY(-50%); }
+.pitch .goal-right { right: -4%; top: 50%; transform: translateY(-50%); }
+
+/* Scoreboard overlay */
+.scoreboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: rgba(10, 14, 23, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  min-width: 340px;
+}
+.scoreboard .team {
+  text-align: center;
+  flex: 1;
+}
+.scoreboard .team .logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.scoreboard .team .name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ccc;
+}
+.scoreboard .team-jaro .logo { background: #cc2222; color: white; }
+.scoreboard .team-sjk .logo { background: #111; color: #eee; }
+.scoreboard .score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.scoreboard .score-display .pred-label {
+  font-size: 9px;
+  color: #f0b429;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.scoreboard .score-display .score-nums {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.scoreboard .score-display .score-nums .num {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+.scoreboard .score-display .score-nums .colon {
+  font-size: 28px;
+  font-weight: 900;
+  color: #f0b429;
+}
+.scoreboard .score-display .probs {
+  font-size: 10px;
+  color: #8af;
+  letter-spacing: 0.5px;
+}
+.pitch .corner-flags {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: rgba(255,200,0,0.2);
+  border-radius: 50%;
+}
+.pitch .cf1 { top: -6px; left: -6px; }
+.pitch .cf2 { top: -6px; right: -6px; }
+.pitch .cf3 { bottom: -6px; left: -6px; }
+.pitch .cf4 { bottom: -6px; right: -6px; }
+
+/* ===== MAIN CONTENT ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0b429;
+  margin: 32px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(240,180,41,0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title small {
+  font-size: 12px;
+  font-weight: 400;
+  color: #889;
+}
+
+/* Header info */
+.match-header {
+  text-align: center;
+  padding: 18px 0 8px;
+}
+.match-header h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+.match-header .meta {
+  font-size: 13px;
+  color: #889;
+  margin-top: 6px;
+}
+.match-header .meta span {
+  margin: 0 8px;
+}
+.match-header .badge {
+  display: inline-block;
+  background: #f0b429;
+  color: #0a0e17;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+/* Core conclusion cards */
+.core-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.core-card {
+  background: linear-gradient(135deg, #141b2d 0%, #1a2540 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.core-card .label {
+  font-size: 11px;
+  color: #889;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.core-card .value {
+  font-size: 22px;
+  font-weight: 800;
+}
+.core-card .sub {
+  font-size: 12px;
+  color: #8af;
+  margin-top: 2px;
+}
+.core-card.gold { border-color: rgba(240,180,41,0.3); }
+.core-card.gold .value { color: #f0b429; }
+.core-card.blue .value { color: #5af; }
+.core-card.green .value { color: #4caf88; }
+.core-card.red .value { color: #f55; }
+
+/* Probability bars */
+.prob-section {
+  background: #141b2d;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+}
+.prob-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+.prob-row .label-cell {
+  width: 80px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.prob-row .bar-wrap {
+  flex: 1;
+  height: 22px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 11px;
+  overflow: hidden;
+  position: relative;
+}
+.prob-row .bar-wrap .bar {
+  height: 100%;
+  border-radius: 11px;
+  transition: width 0.6s ease;
+  position: relative;
+}
+.prob-row .bar-wrap .bar::after {
+  content: attr(data-pct);
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.bar-home { background: linear-gradient(90deg, #cc2222, #ee4444); }
+.bar-draw { background: linear-gradient(90deg, #888, #aaa); }
+.bar-away { background: linear-gradient(90deg, #222, #444); }
+
+.prob-row .pct-cell {
+  width: 48px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* xG bar */
+.xg-section {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 8px 0;
+}
+.xg-bar {
+  height: 8px;
+  border-radius: 4px;
+  position: relative;
+}
+.xg-bar-home {
+  background: linear-gradient(90deg, #cc2222, #ff4444);
+}
+.xg-bar-away {
+  background: linear-gradient(90deg, #555, #111);
+}
+.xg-label {
+  font-size: 12px;
+  color: #889;
+  text-align: center;
+}
+.xg-label strong {
+  color: #e0e6f0;
+  font-size: 16px;
+}
+
+/* Score distribution */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+.score-item {
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.score-item .sc {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ddd;
+}
+.score-item .sc-pct {
+  font-size: 12px;
+  color: #8af;
+  margin-top: 2px;
+}
+.score-item.top { border-color: #f0b429; background: rgba(240,180,41,0.08); }
+.score-item.top .sc { color: #f0b429; }
+
+/* Intelligence */
+.intel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.intel-card {
+  background: #141b2d;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 14px;
+}
+.intel-card .team-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.intel-card .team-name .elo {
+  font-size: 11px;
+  color: #889;
+  font-weight: 400;
+}
+.intel-card .info-row {
+  font-size: 12px;
+  color: #bcc;
+  margin: 4px 0;
+  padding-left: 8px;
+  border-left: 2px solid rgba(255,255,255,0.08);
+}
+.intel-card .info-row.negative { border-left-color: #f55; color: #f88; }
+.intel-card .info-row.positive { border-left-color: #4caf88; color: #6dd; }
+
+/* Odds section */
+.odds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 10px 0;
+}
+.odds-table th {
+  background: rgba(255,255,255,0.04);
+  color: #889;
+  font-weight: 600;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.odds-table td {
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.odds-table .value-pos { color: #4caf88; }
+.odds-table .value-neg { color: #f55; }
+
+/* Scenarios */
+.scenario-list {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+.scenario-item {
+  background: #141b2d;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.scenario-item .sc-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f0b429;
+  margin-bottom: 4px;
+}
+.scenario-item .sc-desc {
+  font-size: 12px;
+  color: #bcc;
+}
+
+/* Sources */
+.source-list {
+  font-size: 12px;
+  color: #889;
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+}
+.source-list a {
+  color: #5af;
+  text-decoration: none;
+}
+.source-list a:hover { text-decoration: underline; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 24px;
+  padding: 12px;
+  background: rgba(240,180,41,0.06);
+  border: 1px solid rgba(240,180,41,0.15);
+  border-radius: 8px;
+  font-size: 11px;
+  color: #a98;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .scoreboard {
+    padding: 10px 14px;
+    min-width: 260px;
+    gap: 8px;
+  }
+  .scoreboard .team .logo { width: 34px; height: 34px; font-size: 16px; }
+  .scoreboard .score-display .score-nums .num { font-size: 24px; }
+  .scoreboard .team .name { font-size: 11px; }
+  .core-box { grid-template-columns: 1fr; }
+  .intel-grid { grid-template-columns: 1fr; }
+  .score-grid { grid-template-columns: repeat(3, 1fr); }
+  .pitch-wrapper { min-height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PITCH WITH SCOREBOARD ===== -->
+<div class="pitch-wrapper">
+  <div class="pitch">
+    <div class="corner-flags cf1"></div>
+    <div class="corner-flags cf2"></div>
+    <div class="corner-flags cf3"></div>
+    <div class="corner-flags cf4"></div>
+    <div class="center-circle"></div>
+    <div class="center-spot"></div>
+    <div class="center-line"></div>
+    <div class="pa-left"></div>
+    <div class="pa-right"></div>
+    <div class="ga-left"></div>
+    <div class="ga-right"></div>
+    <div class="goal-left"></div>
+    <div class="goal-right"></div>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <div class="team team-jaro">
+        <div class="logo">J</div>
+        <div class="name">雅罗<br><small>FF Jaro</small></div>
+      </div>
+      <div class="score-display">
+        <div class="pred-label">预测比分</div>
+        <div class="score-nums">
+          <span class="num">1</span>
+          <span class="colon">:</span>
+          <span class="num">2</span>
+        </div>
+        <div class="probs">SJK 胜 41.3%</div>
+      </div>
+      <div class="team team-sjk">
+        <div class="logo">S</div>
+        <div class="name">塞伊奈<br><small>SJK</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<div class="match-header">
+  <h1>FF Jaro vs SJK Seinäjoki</h1>
+  <div class="meta">
+    <span>芬兰超级联赛 · 第17轮</span>
+    <span>2026-07-24 23:00 CST</span>
+    <span>Project Liv Arena · 人造草</span>
+  </div>
+  <div class="badge">保级六分战 · Pohjanmaa 德比</div>
+</div>
+
+<!-- ===== CORE CONCLUSIONS ===== -->
+<div class="section-title">核心结论</div>
+<div class="core-box">
+  <div class="core-card gold">
+    <div class="label">主预测赛果</div>
+    <div class="value">塞伊奈约基 胜</div>
+    <div class="sub">概率 41.3% · 主预测比分 1-2</div>
+  </div>
+  <div class="core-card blue">
+    <div class="label">预期进球 (xG)</div>
+    <div class="value">1.40 - 1.58</div>
+    <div class="sub">JAR vs SJK · 势均力敌</div>
+  </div>
+  <div class="core-card green">
+    <div class="label">Jaro 主场不败率</div>
+    <div class="value">75%</div>
+    <div class="sub">主场 2W 4D 2L</div>
+  </div>
+  <div class="core-card red">
+    <div class="label">SJK 客场胜率</div>
+    <div class="value">12.5%</div>
+    <div class="sub">客场 1W 3D 4L</div>
+  </div>
+</div>
+
+<!-- ===== PROBABILITIES ===== -->
+<div class="section-title">胜平负概率</div>
+<div class="prob-section">
+  <div class="prob-row">
+    <div class="label-cell" style="color:#ee4444;">雅罗胜</div>
+    <div class="bar-wrap">
+      <div class="bar bar-home" style="width:34.4%" data-pct="34.4%"></div>
+    </div>
+    <div class="pct-cell" style="color:#ee4444;">34.4%</div>
+  </div>
+  <div class="prob-row">
+    <div class="label-cell" style="color:#aaa;">平局</div>
+    <div class="bar-wrap">
+      <div class="bar bar-draw" style="width:24.2%" data-pct="24.2%"></div>
+    </div>
+    <div class="pct-cell" style="color:#aaa;">24.2%</div>
+  </div>
+  <div class="prob-row">
+    <div class="label-cell" style="color:#888;">塞伊奈胜</div>
+    <div class="bar-wrap">
+      <div class="bar bar-away" style="width:41.3%" data-pct="41.3%"></div>
+    </div>
+    <div class="pct-cell" style="color:#888;">41.3%</div>
+  </div>
+</div>
+
+<div class="section-title">预期进球</div>
+<div class="prob-section">
+  <div class="xg-section">
+    <div>
+      <div class="xg-bar xg-bar-home" style="width:100%"></div>
+      <div class="xg-label">雅罗 <strong>1.40</strong></div>
+    </div>
+    <div style="font-size:12px;color:#889;">vs</div>
+    <div>
+      <div class="xg-bar xg-bar-away" style="width:100%"></div>
+      <div class="xg-label">塞伊奈 <strong>1.58</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCORE DISTRIBUTION ===== -->
+<div class="section-title">比分分布 Top 5</div>
+<div class="score-grid">
+  <div class="score-item">
+    <div class="sc">1-1</div>
+    <div class="sc-pct">11.1%</div>
+  </div>
+  <div class="score-item top">
+    <div class="sc">1-2</div>
+    <div class="sc-pct">8.8% ★</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">0-1</div>
+    <div class="sc-pct">8.0%</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">2-1</div>
+    <div class="sc-pct">7.8%</div>
+  </div>
+  <div class="score-item">
+    <div class="sc">1-0</div>
+    <div class="sc-pct">7.1%</div>
+  </div>
+</div>
+<div style="font-size:11px;color:#889;margin-top:4px;">★ = 主预测比分（与最高概率赛果方向一致）</div>
+
+<!-- ===== PREDICTION REASONS ===== -->
+<div class="section-title">预测原因</div>
+<div class="prob-section" style="font-size:13px;color:#bcc;">
+  <ul style="padding-left:18px;">
+    <li><strong>Elo 评级差距</strong>：SJK 评级 1500 vs JAR 1450，模型基础优势约 3.4%。</li>
+    <li><strong>伤病修正后差距缩小</strong>：JAR 伤缺 4 人（Elo -40），SJK 伤缺 1 人（Elo -25），修正后 SJK 仍有优势但差距收窄。</li>
+    <li><strong>历史交锋一边倒</strong>：近10次联赛交手 SJK 7胜2平1负，心理优势明显。</li>
+    <li><strong>Jaro 主场有韧性</strong>：主场 75% 不败率，曾逼平争冠队 KUP 和 INT，对同级对手有竞争力。</li>
+    <li><strong>SJK 客场极弱</strong>：客场胜率仅 12.5%，8 个客场只赢了 1 场。</li>
+    <li><strong>双方防线都不稳</strong>：JAR 失 32 球（联赛第二差），SJK 客场场均失 1.75 球，比赛可能较为开放。</li>
+    <li><strong>单场随机性高</strong>：双方实力接近，模型置信度中等，冷门概率空间约 34%。</li>
+  </ul>
+</div>
+
+<!-- ===== INTELLIGENCE ===== -->
+<div class="section-title">赛前情报摘要</div>
+<div class="intel-grid">
+  <div class="intel-card">
+    <div class="team-name">
+      <span style="color:#ee4444;">FF 雅罗</span>
+      <span class="elo">Elo 1450 <span style="color:#f55;">(-40)</span></span>
+    </div>
+    <div class="info-row negative">主力前锋 Wickström 伤缺</div>
+    <div class="info-row negative">主力前锋 Zetterström 伤缺</div>
+    <div class="info-row negative">中场 Vieskog 停赛</div>
+    <div class="info-row negative">Pedersen 伤缺</div>
+    <div class="info-row positive">夏窗引进 Hellemaa（中场）和 Lawson（前锋）</div>
+    <div class="info-row">进攻核心 Sjögrell 6球</div>
+    <div class="info-row">近4轮仅1负，0-0逼平Inter Turku</div>
+  </div>
+  <div class="intel-card">
+    <div class="team-name">
+      <span style="color:#888;">SJK 塞伊奈约基</span>
+      <span class="elo">Elo 1500 <span style="color:#f55;">(-25)</span></span>
+    </div>
+    <div class="info-row negative">主力边锋 Björkskog 赛季报销（膝伤）</div>
+    <div class="info-row negative">中场 Padra 缺阵</div>
+    <div class="info-row negative">近2连败（0-2 KuPS, 0-2 VPS）</div>
+    <div class="info-row positive">历史交锋 7胜2平1负占优</div>
+    <div class="info-row">客场 1W 3D 4L 胜率12.5%</div>
+    <div class="info-row">阵容齐整度相对更好</div>
+  </div>
+</div>
+
+<!-- ===== KEY FACTORS ===== -->
+<div class="section-title">比赛关键因子 <small>芬超特殊因子</small></div>
+<div class="prob-section" style="font-size:13px;color:#bcc;">
+  <ul style="padding-left:18px;">
+    <li><strong>人造草皮</strong>：双方均习惯人造草，无额外惩罚。</li>
+    <li><strong>北欧夏季效应 (+0.03 xG)</strong>：7月芬兰白昼极长，进球略偏高。</li>
+    <li><strong>无欧战消耗</strong>：两队均无双线作战压力。</li>
+    <li><strong>德比战加成</strong>：Pohjanmaa 地区德比，主场氛围强烈，Jaro 可能获得额外动力。</li>
+  </ul>
+</div>
+
+<!-- ===== ODDS PERSPECTIVE ===== -->
+<div class="section-title">赔率视角 <small>市场 vs 模型</small></div>
+<div class="prob-section" style="overflow-x:auto;">
+  <table class="odds-table">
+    <tr>
+      <th>结果</th>
+      <th>平均赔率</th>
+      <th>市场隐含概率</th>
+      <th>去抽水真实概率</th>
+      <th>模型概率</th>
+      <th>偏差</th>
+    </tr>
+    <tr>
+      <td>雅罗胜</td>
+      <td>2.90</td>
+      <td>34.5%</td>
+      <td>30.7%</td>
+      <td>34.4%</td>
+      <td class="value-pos">+3.7%</td>
+    </tr>
+    <tr>
+      <td>平局</td>
+      <td>3.45</td>
+      <td>29.0%</td>
+      <td>25.8%</td>
+      <td>24.2%</td>
+      <td class="value-neg">-1.6%</td>
+    </tr>
+    <tr>
+      <td>塞伊奈胜</td>
+      <td>2.05</td>
+      <td>48.8%</td>
+      <td>43.5%</td>
+      <td>41.3%</td>
+      <td class="value-neg">-2.2%</td>
+    </tr>
+    <tr style="color:#889;font-size:11px;">
+      <td colspan="6">庄家抽水(overround): 12.2% · 数据来源: 多家博彩公司综合</td>
+    </tr>
+  </table>
+  <div style="font-size:12px;color:#889;margin-top:8px;">
+    <strong>解读</strong>：市场略微看好 SJK 客胜（43.5% vs 模型 41.3%），但模型对 Jaro 主胜的评估更高（34.4% vs 市场 30.7%）。市场与模型对平局的看法基本一致。三种结果均无明显价值偏差（均 &lt;4%），属于赔率与模型较为吻合的比赛。
+  </div>
+  <div style="font-size:11px;color:#a98;margin-top:6px;">
+    * 赔率数据仅供概率比较参考，不构成投注建议。
+  </div>
+</div>
+
+<!-- ===== SCENARIOS ===== -->
+<div class="section-title">场景推演</div>
+<div class="scenario-list">
+  <div class="scenario-item">
+    <div class="sc-title">场景一：SJK 实力取胜（~41%）</div>
+    <div class="sc-desc">SJK 凭借历史交锋心理优势和相对完整的阵容掌控比赛，通过中场控制力取得领先并维持到终场，典型比分 1-2 或 0-1。</div>
+  </div>
+  <div class="scenario-item">
+    <div class="sc-title">场景二：Jaro 主场抢分（~34%）</div>
+    <div class="sc-desc">Jaro 利用主场优势和德比氛围，5-4-1 防反战术奏效。若 Sjögrell 把握机会，可能 1-0 或 2-1 爆冷取胜。Jaro 主场曾逼平 KUP 和 INT 说明其具备爆冷能力。</div>
+  </div>
+  <div class="scenario-item">
+    <div class="sc-title">场景三：低比分胶着战平（~24%）</div>
+    <div class="sc-desc">双方进攻端均有关键球员缺阵（JAR 缺双前锋、SJK 缺边锋），导致进攻效率下降，比赛陷入中场拉锯，最终 1-1 或 0-0 闷平收场。</div>
+  </div>
+</div>
+
+<!-- ===== UNCERTAINTY ===== -->
+<div class="section-title">不确定性说明</div>
+<div class="prob-section" style="font-size:12px;color:#889;">
+  <ul style="padding-left:18px;">
+    <li>足球单场随机性很高，模型显示 SJK 虽占优但也有 58.7% 的概率不胜。</li>
+    <li>JAR 伤员情况信息有出入：部分来源称无人伤停，部分列出 4 人伤缺，Elo 修正按最大影响计算。</li>
+    <li>夏窗新援 Hellemaa 和 Lawson 的状态和融入程度存在不确定性。</li>
+    <li>德比战的不可预测性——保级德比常出现反常结果。</li>
+    <li>数据快照时间：2026-07-24，赛前情报可能随官方公布变化。</li>
+  </ul>
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="section-title">数据来源</div>
+<div class="source-list">
+  <div>数据快照：2026-07-24 · 积分榜、赛程来自已保存的 Veikkausliiga 快照</div>
+  <div>球队评级：references/veikkausliiga/teams.json</div>
+  <div>联赛配置：references/league_config.json</div>
+  <div>外部参考：</div>
+  <div>• <a href="https://www.sportsmole.co.uk/football/Veikkausliiga/jaro-vs-sjk_game_251605.html" target="_blank">Sports Mole - Jaro vs SJK Match Guide</a></div>
+  <div>• <a href="https://news.7m.com.cn/mobi/news/20260724/732790.shtml" target="_blank">7M体育 - 芬兰超赛事前瞻</a></div>
+  <div>• <a href="https://www.racingpost.com/sport/football-tips/football-bet-of-the-day-henry-hardwicke-has-an-even-money-finnish-veikkausliiga-selection-aIfwe2I9W07k/" target="_blank">Racing Post - Match Preview</a></div>
+  <div>• <a href="https://www.bongda24h.vn/nhan-dinh-bong-da/du-doan-jaro-vs-sjk-hom-nay-344-455617.html" target="_blank">Bongda24h - 比赛分析</a></div>
+  <div>• <a href="https://www.stats24.com/football/jaro-vs-sjk-seinajoki/3199966" target="_blank">Stats24 - Odds & Stats</a></div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <strong>免责声明</strong>：本预测基于 Elo 评分、泊松模型和蒙特卡洛模拟，结合赛前情报修正，仅呈现概率分布而非确定性结论。<br>
+  足球比赛单场随机性极高，任何结果都有可能发生。本分析纯属娱乐参考，不构成任何投注建议。
+</div>
+
+</div>
+</body>
+</html>

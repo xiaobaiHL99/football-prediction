@@ -1,0 +1,181 @@
+{
+  "_meta": {
+    "league": "Bundesliga",
+    "season": "2026-27",
+    "updated_at": "2026-08-29T00:00:00Z",
+    "note": "Elo ratings initial calibration aligned with champions_league/europa_league snapshots for shared clubs (BAY/BVB/B04/RBL/STU/FRG/WOL). Promoted sides (HAM/KOE/DUS) at bottom tier. Adjustable via elo_updater."
+  },
+  "teams": {
+    "BAY": {
+      "name": "Bayern Munich",
+      "name_cn": "拜仁慕尼黑",
+      "elo": 1930,
+      "city": "Munich",
+      "stadium": "Allianz Arena",
+      "color": "red",
+      "notes": "南部之星，德甲霸主，连续多年争冠，安联球场魔鬼主场"
+    },
+    "BVB": {
+      "name": "Borussia Dortmund",
+      "name_cn": "多特蒙德",
+      "elo": 1810,
+      "city": "Dortmund",
+      "stadium": "Signal Iduna Park",
+      "color": "yellow",
+      "notes": "大黄蜂，南看台黄色墙壁氛围爆棚，快速反击风格"
+    },
+    "B04": {
+      "name": "Bayer 04 Leverkusen",
+      "name_cn": "勒沃库森",
+      "elo": 1800,
+      "city": "Leverkusen",
+      "stadium": "BayArena",
+      "color": "red",
+      "notes": "药厂，上赛季不败夺冠卫冕冠军，技术流高位逼抢"
+    },
+    "RBL": {
+      "name": "RB Leipzig",
+      "name_cn": "莱比锡红牛",
+      "elo": 1780,
+      "city": "Leipzig",
+      "stadium": "Red Bull Arena",
+      "color": "red",
+      "notes": "红牛军团，高位逼抢+快速转换，欧冠常客"
+    },
+    "FRG": {
+      "name": "Eintracht Frankfurt",
+      "name_cn": "法兰克福",
+      "elo": 1720,
+      "city": "Frankfurt",
+      "stadium": "Deutsche Bank Park",
+      "color": "red",
+      "notes": "雄鹰，欧联杯冠军底蕴，主场氛围火爆"
+    },
+    "STU": {
+      "name": "VfB Stuttgart",
+      "name_cn": "斯图加特",
+      "elo": 1670,
+      "city": "Stuttgart",
+      "stadium": "MHPArena",
+      "color": "red",
+      "notes": "斯图加特近年崛起，进攻火力强劲"
+    },
+    "WOL": {
+      "name": "VfL Wolfsburg",
+      "name_cn": "沃尔夫斯堡",
+      "elo": 1640,
+      "city": "Wolfsburg",
+      "stadium": "Volkswagen Arena",
+      "color": "green",
+      "notes": "大众汽车城球队，中游偏上"
+    },
+    "SCF": {
+      "name": "SC Freiburg",
+      "name_cn": "弗赖堡",
+      "elo": 1630,
+      "city": "Freiburg",
+      "stadium": "Europa-Park Stadion",
+      "color": "black",
+      "notes": "黑森林球队，施特赖希执教多年，战术纪律严明"
+    },
+    "BMG": {
+      "name": "Borussia Monchengladbach",
+      "name_cn": "门兴格拉德巴赫",
+      "elo": 1620,
+      "city": "Monchengladbach",
+      "stadium": "Borussia-Park",
+      "color": "black",
+      "notes": "小马驹，德国传统劲旅，攻势足球传统"
+    },
+    "UNI": {
+      "name": "1. FC Union Berlin",
+      "name_cn": "柏林联合",
+      "elo": 1610,
+      "city": "Berlin",
+      "stadium": "Stadion An der Alten Forsterei",
+      "color": "red",
+      "notes": "铁人，柏林东区球队，硬朗防守反击"
+    },
+    "HOF": {
+      "name": "TSG 1899 Hoffenheim",
+      "name_cn": "霍芬海姆",
+      "elo": 1600,
+      "city": "Sinsheim",
+      "stadium": "PreZero Arena",
+      "color": "blue",
+      "notes": "村庄球队，数据化运营典范"
+    },
+    "MAI": {
+      "name": "1. FSV Mainz 05",
+      "name_cn": "美因茨",
+      "elo": 1590,
+      "city": "Mainz",
+      "stadium": "MEWA Arena",
+      "color": "red",
+      "notes": "卡尔斯鲁厄风格，高位逼抢积极"
+    },
+    "AUG": {
+      "name": "FC Augsburg",
+      "name_cn": "奥格斯堡",
+      "elo": 1580,
+      "city": "Augsburg",
+      "stadium": "WWK Arena",
+      "color": "red",
+      "notes": "巴伐利亚球队，防守硬朗保级为主"
+    },
+    "BRE": {
+      "name": "SV Werder Bremen",
+      "name_cn": "不莱梅",
+      "elo": 1570,
+      "city": "Bremen",
+      "stadium": "Weserstadion",
+      "color": "green",
+      "notes": "绿白军团，德国传统球队，技术流中场"
+    },
+    "HEI": {
+      "name": "1. FC Heidenheim",
+      "name_cn": "海登海姆",
+      "elo": 1560,
+      "city": "Heidenheim",
+      "stadium": "Voith-Arena",
+      "color": "blue",
+      "notes": "小城球队，连续两季德甲保级成功，主场难攻"
+    },
+    "HAM": {
+      "name": "Hamburger SV",
+      "name_cn": "汉堡",
+      "elo": 1530,
+      "city": "Hamburg",
+      "stadium": "Volksparkstadion",
+      "color": "red",
+      "notes": "德甲恐龙时隔多年回归，升班马，北方大球会底蕴"
+    },
+    "KOE": {
+      "name": "1. FC Koln",
+      "name_cn": "科隆",
+      "elo": 1520,
+      "city": "Koln",
+      "stadium": "RheinEnergieStadion",
+      "color": "white",
+      "notes": "山羊军团回归德甲，莱茵德比传统，升班马"
+    },
+    "DUS": {
+      "name": "Fortuna Dusseldorf",
+      "name_cn": "杜塞尔多夫",
+      "elo": 1500,
+      "city": "Dusseldorf",
+      "stadium": "Merkur Spiel-Arena",
+      "color": "red",
+      "notes": "莱茵兰球队，升班马，中下游保级档"
+    },
+    "PAD": {
+      "name": "SC Paderborn 07",
+      "name_cn": "帕德博恩",
+      "elo": 1490,
+      "city": "Paderborn",
+      "stadium": "Home Deluxe Arena",
+      "color": "blue",
+      "notes": "时隔六年重返德甲，升级附加赛凭客场进球淘汰狼堡，8场不败"
+    }
+  }
+}

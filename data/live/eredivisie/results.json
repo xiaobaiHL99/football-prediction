@@ -1,0 +1,28 @@
+{
+  "matches": [
+    {
+      "home": "ADO",
+      "away": "GRN",
+      "hg": 1,
+      "ag": 4
+    },
+    {
+      "home": "AJX",
+      "away": "HEE",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "GAE",
+      "away": "ADO",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "UTR",
+      "away": "PSV",
+      "hg": 1,
+      "ag": 6
+    }
+  ]
+}

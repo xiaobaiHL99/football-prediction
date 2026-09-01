@@ -1,0 +1,36 @@
+{
+ "_meta": {
+  "updated_at": "2026-08-16T14:44:38"
+ },
+ "entries": [
+  {
+   "time": "2026-08-16T14:44:38",
+   "kind": "manual_global",
+   "league": "*",
+   "before": {
+    "SPIRIT_XG_STEP": 0.15,
+    "FORM_XG_MAX": 0.1
+   },
+   "after": {
+    "SPIRIT_XG_STEP": 0.2,
+    "FORM_XG_MAX": 0.12
+   },
+   "before_val_ll": 1.174,
+   "after_val_ll": 1.165,
+   "n": 51,
+   "note": "手动应用（dry-run 建议改善 +0.009 略低于 0.01 门槛；方向与复盘痛点\"战意/状态 label 没转成方向概率\"一致）"
+  },
+  {
+   "date": "2026-08-18",
+   "kind": "rule_update",
+   "rule": "near_even_home_shift",
+   "change": "shift_to draw amount 0.05 -> 0.08",
+   "reason": "08-17 复盘：DEP-ELC 1-1、INT-REM 1-1 两场近均衡押主队全平局；bucket n=19->21, dir_hit_rate 36.8%->33.3% 持续偏误",
+   "evidence": {
+    "n": 21,
+    "dir_hit_rate": 0.333
+   },
+   "rollback": "rules.json near_even_home_shift amount 改回 0.05"
+  }
+ ]
+}

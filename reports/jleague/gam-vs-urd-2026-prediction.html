@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪钢巴 vs 浦和红钻 — 2026/27 J1 第1轮预测</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif; background:#0b0f14; color:#e8edf3; line-height:1.6; }
+  .wrap { max-width:960px; margin:0 auto; padding:20px; }
+  .pitch {
+    position:relative; width:100%; height:320px; border-radius:16px; overflow:hidden; margin-bottom:18px;
+    background:
+      radial-gradient(ellipse at 50% -20%, rgba(60,180,120,.35), transparent 55%),
+      repeating-linear-gradient(90deg, #1e7a4f 0 60px, #238a5b 60px 120px);
+    box-shadow:0 0 60px rgba(20,120,80,.35) inset;
+  }
+  .pitch::before { content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 2px, transparent 2px 40px); }
+  .pitch-line { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78%; height:64%; border:3px solid rgba(255,255,255,.65); border-radius:4px; }
+  .pitch-line::before, .pitch-line::after { content:""; position:absolute; top:0; bottom:0; width:3px; background:rgba(255,255,255,.65); }
+  .pitch-line::before { left:-3px; } .pitch-line::after { right:-3px; }
+  .mid-circle { position:absolute; top:50%; left:50%; width:120px; height:120px; transform:translate(-50%,-50%); border:3px solid rgba(255,255,255,.6); border-radius:50%; }
+  .mid-spot { position:absolute; top:50%; left:50%; width:10px; height:10px; transform:translate(-50%,-50%); background:#fff; border-radius:50%; }
+  .box-l, .box-r { position:absolute; top:50%; transform:translateY(-50%); width:18%; height:56%; border:3px solid rgba(255,255,255,.6); }
+  .box-l { left:0; border-left:none; } .box-r { right:0; border-right:none; }
+  .goal-l, .goal-r { position:absolute; top:50%; transform:translateY(-50%); width:4%; height:22%; border:3px solid rgba(255,255,255,.7); }
+  .goal-l { left:0; } .goal-r { right:0; }
+  .floodlight { position:absolute; top:-6px; width:10px; height:56px; background:linear-gradient(180deg,#fff,#8fb9ff); opacity:.85; border-radius:4px; box-shadow:0 0 24px 8px rgba(120,180,255,.5); }
+  .floodlight.l1 { left:12%; } .floodlight.l2 { left:36%; } .floodlight.l3 { right:36%; } .floodlight.l4 { right:12%; }
+  .stand { position:absolute; left:0; right:0; height:34px; opacity:.8; background:repeating-linear-gradient(0deg, #2a3540 0 7px, #39485a 7px 14px, #202932 14px 21px); }
+  .stand.top { top:0; border-radius:14px 14px 0 0; } .stand.bottom { bottom:0; border-radius:0 0 14px 14px; }
+  .pitch-tag { position:absolute; top:44px; left:50%; transform:translateX(-50%); font-size:12px; letter-spacing:4px; color:rgba(255,255,255,.75); text-shadow:0 1px 3px #000; }
+  .scoreboard {
+    position:relative; z-index:2; margin:-40px 16px 22px; padding:18px 20px;
+    background:linear-gradient(180deg,#10151d,#0a0e14); border:1px solid #2b3644; border-radius:14px;
+    box-shadow:0 12px 40px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04) inset;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px;
+  }
+  .sb-team { text-align:center; }
+  .sb-team .cn { font-size:20px; font-weight:700; }
+  .sb-team .en { font-size:11px; color:#8fa3b8; letter-spacing:1px; }
+  .sb-team.bad .cn { color:#7fffb2; }
+  .sb-score { display:flex; align-items:center; gap:8px; font-family:Consolas,monospace; font-size:52px; font-weight:800; color:#ffd27d; text-shadow:0 0 18px rgba(255,176,59,.45); }
+  .sb-score .dash { color:#5a6a7c; }
+  .sb-label { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:#ff3b5c; color:#fff; font-size:11px; font-weight:700; padding:2px 10px; border-radius:20px; letter-spacing:2px; }
+  .sb-meta { text-align:center; font-size:11px; color:#7d8da0; margin:-10px 0 20px; }
+  .sb-meta b { color:#c8d6e6; }
+  .prob-row { display:flex; align-items:center; gap:10px; margin:8px 0; font-size:13px; }
+  .prob-row .lbl { width:110px; text-align:right; color:#c8d6e6; flex-shrink:0; }
+  .prob-row .bar { flex:1; height:18px; background:#141b24; border-radius:9px; overflow:hidden; }
+  .prob-row .bar i { display:block; height:100%; border-radius:9px; }
+  .prob-row .pct { width:52px; font-family:Consolas,monospace; font-weight:700; }
+  .bar .w { background:linear-gradient(90deg,#3a82e8,#5ea2ff); }
+  .bar .d { background:linear-gradient(90deg,#9aa7b5,#b9c4d0); }
+  .bar .l { background:linear-gradient(90deg,#e83a5a,#ff5c7a); }
+  .prob-row.win .lbl { color:#5ea2ff; } .prob-row.win .pct { color:#7db4ff; }
+  .prob-row.draw .pct { color:#c8d6e6; }
+  .prob-row.lose .lbl { color:#ff5c7a; } .prob-row.lose .pct { color:#ff7d96; }
+  .card { background:#10161e; border:1px solid #232e3b; border-radius:14px; padding:20px 22px; margin-bottom:18px; }
+  .card h2 { font-size:16px; color:#7dffc2; margin-bottom:12px; letter-spacing:1px; border-left:3px solid #7dffc2; padding-left:10px; }
+  .card h3 { font-size:14px; color:#c8d6e6; margin:12px 0 6px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:640px){ .grid2{grid-template-columns:1fr;} .sb-score{font-size:40px;} }
+  .kpi { display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; border-bottom:1px dashed #232e3b; }
+  .kpi:last-child{ border-bottom:none; }
+  .kpi b { font-family:Consolas,monospace; font-size:18px; }
+  .score-cards { display:flex; flex-wrap:wrap; gap:8px; }
+  .sc { flex:1; min-width:110px; background:#141c26; border:1px solid #2a3745; border-radius:10px; padding:10px; text-align:center; }
+  .sc .s { font-size:24px; font-weight:800; color:#7dffc2; font-family:Consolas,monospace; }
+  .sc .p { font-size:12px; color:#8fa3b8; margin-top:2px; }
+  .sc.main { border-color:#ffb03b; box-shadow:0 0 0 1px rgba(255,176,59,.35); }
+  .sc.main .s { color:#ffcf7d; }
+  .sc.modal { border-color:#7dffc2; box-shadow:0 0 0 1px rgba(125,255,194,.3); }
+  .sc.modal .s { color:#7dffc2; }
+  .tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:12px; margin:2px 4px 2px 0; }
+  .tag.red { background:rgba(255,59,92,.15); color:#ff7d96; border:1px solid rgba(255,59,92,.4); }
+  .tag.blue { background:rgba(63,130,232,.15); color:#7db4ff; border:1px solid rgba(63,130,232,.4); }
+  .tag.green { background:rgba(63,232,160,.12); color:#7dffc2; border:1px solid rgba(63,232,160,.35); }
+  .tag.grey { background:rgba(160,175,190,.12); color:#b9c4d0; border:1px solid rgba(160,175,190,.3); }
+  ul.tight { margin:6px 0 0 18px; } ul.tight li { margin:5px 0; }
+  .src { font-size:12px; color:#8fa3b8; } .src a { color:#7db4ff; text-decoration:none; } .src a:hover{ text-decoration:underline; }
+  .warn { background:rgba(255,176,59,.08); border:1px solid rgba(255,176,59,.3); border-radius:10px; padding:10px 14px; font-size:12px; color:#ffd9a8; }
+  .alert { background:rgba(125,255,194,.06); border:1px solid rgba(125,255,194,.28); border-radius:10px; padding:10px 14px; font-size:12px; color:#b7ffd9; }
+  footer { text-align:center; font-size:11px; color:#5a6a7c; padding:20px 0 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pitch">
+    <div class="stand top"></div><div class="stand bottom"></div>
+    <div class="floodlight l1"></div><div class="floodlight l2"></div><div class="floodlight l3"></div><div class="floodlight l4"></div>
+    <div class="pitch-line"></div>
+    <div class="mid-circle"></div><div class="mid-spot"></div>
+    <div class="box-l"></div><div class="box-r"></div>
+    <div class="goal-l"></div><div class="goal-r"></div>
+    <div class="pitch-tag">2026/27 J1 LEAGUE · ROUND 1 · 国家德比</div>
+  </div>
+
+  <div class="scoreboard">
+    <span class="sb-label">🔮 预 测 比 分</span>
+    <div class="sb-team"><div class="cn">大阪钢巴</div><div class="en">GAMBA OSAKA</div></div>
+    <div class="sb-score">0 <span class="dash">:</span> 1</div>
+    <div class="sb-team bad"><div class="cn">浦和红钻</div><div class="en">URAWA RED DIAMONDS</div></div>
+  </div>
+  <div class="sb-meta">最高概率赛果：<b>浦和红钻胜（微弱领先）</b> · 主预测比分 0-1 · 单一最高概率比分 <b>1-1（比分分布参考）</b> · 预期进球 1.30 — 1.44 · 钢巴主场</div>
+
+  <div class="card">
+    <h2>胜平负概率（近均衡对话）</h2>
+    <div class="prob-row win"><span class="lbl">大阪钢巴胜</span><div class="bar"><i class="w" style="width:34.4%"></i></div><span class="pct">34.4%</span></div>
+    <div class="prob-row draw"><span class="lbl">平局</span><div class="bar"><i class="d" style="width:25.4%"></i></div><span class="pct">25.4%</span></div>
+    <div class="prob-row lose"><span class="lbl">浦和红钻胜</span><div class="bar"><i class="l" style="width:40.2%"></i></div><span class="pct">40.2%</span></div>
+    <div class="alert" style="margin-top:10px;">⚠️ 三向概率差距很小（40.2 / 25.4 / 34.4），这是典型的<b>近均衡对话</b>：方向标签（浦和）与单一最高比分（1-1 平局）并不一致。建议同时参考"方向"与"比分分布"，本场任何结果都不意外。</div>
+  </div>
+
+  <div class="card">
+    <h2>比分分布 Top 5</h2>
+    <div class="score-cards">
+      <div class="sc modal"><div class="s">1 : 1</div><div class="p">12.0% · 最高概率（参考）</div></div>
+      <div class="sc main"><div class="s">0 : 1</div><div class="p">9.3% · 主预测</div></div>
+      <div class="sc"><div class="s">1 : 2</div><div class="p">8.6%</div></div>
+      <div class="sc"><div class="s">1 : 0</div><div class="p">8.4%</div></div>
+      <div class="sc"><div class="s">2 : 1</div><div class="p">7.8%</div></div>
+    </div>
+    <p style="font-size:12px;color:#8fa3b8;margin-top:10px;">主预测比分 0-1 与最高概率赛果方向一致（浦和客胜）；单一最高比分 1-1 因方向不同，仅标为"比分分布参考"。近5个比分合计约46%，胶着低比分是主旋律。</p>
+  </div>
+
+  <div class="card">
+    <h2>核心结论</h2>
+    <p><b>主预测：浦和红钻客场微弱占优（40.2%）</b>，主预测比分 <b>0-1</b>；但本场三向概率咬得很紧（34.4 / 25.4 / 40.2），<b>平局 25.4% 同样重要</b>，单一最高比分即 1-1。</p>
+    <div class="grid2">
+      <div>
+        <h3>支持浦和客胜</h3>
+        <ul class="tight">
+          <li>钢巴防线伤病潮：主力门将一森纯 + 4名后卫伤缺，替补拼凑后防</li>
+          <li>钢巴攻击核心宇佐美贵史缺阵 + 帕特里克停赛，中路攻坚削弱</li>
+          <li>浦和阵容厚度更足，古斯塔夫伤愈回归；防守反击克制高压</li>
+          <li>钢巴残阵防线难支撑高位逼抢，后场空当可被反击利用</li>
+        </ul>
+      </div>
+      <div>
+        <h3>支持钢巴主场 / 平局</h3>
+        <ul class="tight">
+          <li>钢巴主场优势 + 新帅主场首秀战意高涨（+0.15 xG）</li>
+          <li>近2次主场对浦和未输球，2025两回合均1-0取胜</li>
+          <li>浦和客场不稳：近5个客场2平3负、近4个客场不胜</li>
+          <li>港媒看小球：近6次交锋4次总进球<2球，历史胶着</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>模型输入与关键情报修正</h2>
+    <div class="grid2">
+      <div>
+        <h3>球员可用性（Elo 修正）</h3>
+        <div class="kpi"><span>大阪钢巴</span><b>-27 Elo</b></div>
+        <div class="kpi"><span>浦和红钻</span><b>-8 Elo</b></div>
+        <p class="src" style="margin-top:6px;">钢巴：宇佐美贵史(核心/伤)、一森纯(主力门将/伤)、佐佐木翔悟/福冈将太/半田陆/横井裕也(后卫/全伤)、帕特里克(前锋/红牌停赛)。浦和：卢卡·迪杜利察(停赛)、福井光辉(替补门将)、小森飞绚(伤)。</p>
+      </div>
+      <div>
+        <h3>战术对位</h3>
+        <p><span class="tag red">高位逼抢</span> vs <span class="tag blue">防守反击</span></p>
+        <p style="font-size:13px;color:#b9c4d0;">反击克制高位逼抢：钢巴替补防线扛不住浦和断球后的快速转换。但钢巴因伤病不会无限制压上，实际压制强度打折。</p>
+        <p style="font-size:13px;margin-top:8px;"><span class="tag green">战意</span>钢巴<code>高</code>(+0.15)：新帅首秀+国家德比+主场 · 浦和<code>正常</code></p>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:12px;">
+      <div>
+        <h3>近期状态（form → xG）</h3>
+        <div class="kpi"><span>大阪钢巴 胜-平-胜-胜-胜</span><b>+0.08</b></div>
+        <div class="kpi"><span>浦和红钻 胜-胜-平-胜-胜</span><b>+0.08</b></div>
+        <p class="src">钢巴近4场不败、上仗大胜、季前6-0金泽；浦和近5场正赛赢4场但客场疲软。</p>
+      </div>
+      <div>
+        <h3>联赛特殊因子</h3>
+        <div class="kpi"><span>夏季高温高湿</span><b>-0.04 双方</b></div>
+        <div class="kpi"><span>周中欧战消耗</span><b>-0.08 双方</b></div>
+        <p class="src">两队同列欧战名单，消耗对等；高温拖慢节奏，加重小球倾向。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>场景推演</h2>
+    <h3>① 浦和反击得手（微弱领先）</h3>
+    <p>钢巴替补后防开场被冲、浦和断球反击由马修斯·萨维奥/古斯塔夫打穿，0-1 / 1-2。浦和近5场正赛4胜的状态兑现。</p>
+    <h3>② 低比分胶着（平局路径）</h3>
+    <p>新帅双方谨慎、高温节奏慢，钢巴残阵死守 + 浦和客场求稳，0-0 / 1-1。近6次交锋4次总进球<2球的历史延续，这是单一最高概率比分。</p>
+    <h3>③ 钢巴主场爆冷开门红</h3>
+    <p>新帅首秀破釜沉舟、浦和客场延续不胜魔咒，钢巴凭定位球/反击偷 1-0 / 2-1——历史上钢巴主场对浦和并不吃亏。</p>
+  </div>
+
+  <div class="card">
+    <h2>不确定性说明</h2>
+    <div class="warn">足球单场随机性极高，本场尤其接近均衡（40.2% vs 34.4%）。本预测为娱乐分析，不构成投注建议。钢巴防线伤病人数可能随赛前确认变化；浦和客场状态、双方新帅临场调整都可能大幅改变走势。</div>
+  </div>
+
+  <div class="card">
+    <h2>情报来源</h2>
+    <p class="src">采集时间：2026-08-07（北京时间）</p>
+    <ul class="tight src">
+      <li><a href="https://www.qiumiwu.com/news/1984077815934">球迷屋：日职联第1轮 大阪钢巴vs浦和红钻 伤病名单(2026-08-07)</a></li>
+      <li><a href="https://www.163.com/dy/article/L3LVIO6P0556OXN8.html">网易：日职前瞻 五后卫伤了四个 钢巴防线是纸糊的吗</a></li>
+      <li><a href="https://www.163.com/dy/article/L3MTI5IP0556OEKQ.html">网易：钢巴后防快拼不出一套首发 浦和客场还是那股子怪味</a></li>
+      <li><a href="https://ba2.titan007.com/30213/33615341.html">球探网：防线遭遇伤病潮 钢巴主场迎来严峻考验</a></li>
+      <li><a href="https://www.stheadline.com/football-betting/3601737/">星岛头条：日职 防线有结"介" 大阪飞脚入球必少（小球分析）</a></li>
+      <li><a href="https://news.7m.com.cn/prediction/data/5078314.shtml">7M：大阪钢巴 vs 浦和红钻 赛事推介</a></li>
+      <li><a href="https://www.bongdaplusvn.com/j-league/nhan-dinh-bong-da-gamba-osaka-vs-urawa-red-diamonds-17h30-ngay-7-8-kim-cuong-vo-vun-5117572608.html">Bongdaplus：钢巴 vs 浦和 预测（含概率/首发/状态）</a></li>
+      <li><a href="https://www.gamba-osaka.net/english/gameinfo/news/no/20671/">钢巴官网：明神智和首秀前瞻</a></li>
+      <li><a href="https://www.gamba-osaka.net/english/gameinfo/news/no/20668/">钢巴官网：赛前新闻发布会（明神/中谷/山下）</a></li>
+      <li><a href="https://www.fussballdaten.de/japan/2027/1/gambaosaka-urawareds/">Fussballdaten：J1 2026/27 第1轮数据</a></li>
+    </ul>
+    <p class="src" style="margin-top:8px;">缺失/冲突说明：各源对胜负预测分歧大（钢巴胜率41%~62%），本模型落于"浦和微弱领先"区间；浦和打法"客场防反 vs 新帅高压"口径不一，按客场求稳建模；历史交锋"近6次浦和赢5场 vs 双方各赢3场"统计口径不同，已备注。</p>
+  </div>
+
+  <footer>本报告由 football-prediction skill 理性模型（Elo → 泊松 → 蒙特卡洛）生成 · 娱乐分析，非投注建议 · 生成于 2026-08-07</footer>
+</div>
+</body>
+</html>

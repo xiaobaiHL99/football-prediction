@@ -1,0 +1,316 @@
+{
+  "matches": [
+    {
+      "home": "CAP",
+      "away": "INT",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "SAN",
+      "away": "CHA",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "BAH",
+      "away": "COR",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "CRU",
+      "away": "BOT",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "FLA",
+      "away": "SAO",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "GRE",
+      "away": "FLU",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "PAL",
+      "away": "CAM",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "REM",
+      "away": "VIT",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "FLA",
+      "away": "SAN",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "BAH",
+      "away": "PAL",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "COR",
+      "away": "INT",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "CHA",
+      "away": "VIT",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "CAM",
+      "away": "CAP",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "GRE",
+      "away": "REM",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "VAS",
+      "away": "CHA",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "VAS",
+      "away": "BAH",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "VAS",
+      "away": "PAL",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "VAS",
+      "away": "CRU",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "home": "VAS",
+      "away": "FLU",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "VAS",
+      "away": "GRE",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "VAS",
+      "away": "BOT",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "VAS",
+      "away": "COR",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "VAS",
+      "away": "CAM",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "CAP",
+      "away": "SAN",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "CAP",
+      "away": "COR",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "CAP",
+      "away": "CRU",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "CAP",
+      "away": "BOT",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "CAP",
+      "away": "BAH",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "home": "CAP",
+      "away": "CAM",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "CAP",
+      "away": "PAL",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "FLU",
+      "away": "CAM",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "COR",
+      "away": "FLA",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "CAP",
+      "away": "FLA",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "VIT",
+      "away": "INT",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "INT",
+      "away": "VAS",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "FLA",
+      "away": "PAL",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "home": "FLA",
+      "away": "CUI",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "RBK",
+      "away": "INT",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "INT",
+      "away": "CRU",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "CHA",
+      "away": "FLA",
+      "hg": 0,
+      "ag": 4
+    },
+    {
+      "home": "VIT",
+      "away": "SAO",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "VIT",
+      "away": "COR",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "CAP",
+      "away": "VIT",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "FLU",
+      "away": "VIT",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "RBK",
+      "away": "VIT",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "SAN",
+      "away": "VIT",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "VIT",
+      "away": "VAS",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "REM",
+      "away": "SAN",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "FLU",
+      "away": "VAS",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "SAN",
+      "away": "CAP",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "INT",
+      "away": "REM",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "BOT",
+      "away": "CAP",
+      "hg": 2,
+      "ag": 3
+    }
+  ]
+}

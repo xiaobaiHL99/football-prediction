@@ -1,0 +1,326 @@
+[
+  {
+    "home": "SEO",
+    "away": "ULS"
+  },
+  {
+    "home": "GWJ",
+    "away": "JEU"
+  },
+  {
+    "home": "ANY",
+    "away": "GWN"
+  },
+  {
+    "home": "ICU",
+    "away": "BUC"
+  },
+  {
+    "home": "GWN",
+    "away": "BUC"
+  },
+  {
+    "home": "JEO",
+    "away": "SEO"
+  },
+  {
+    "home": "POH",
+    "away": "GIM"
+  },
+  {
+    "home": "ULS",
+    "away": "ANY"
+  },
+  {
+    "home": "DJN",
+    "away": "GWJ"
+  },
+  {
+    "home": "JEU",
+    "away": "ICU"
+  },
+  {
+    "home": "POH",
+    "away": "ULS"
+  },
+  {
+    "home": "ANY",
+    "away": "DJN"
+  },
+  {
+    "home": "BUC",
+    "away": "GWJ"
+  },
+  {
+    "home": "GWN",
+    "away": "ICU"
+  },
+  {
+    "home": "JEO",
+    "away": "JEU"
+  },
+  {
+    "home": "GIM",
+    "away": "SEO"
+  },
+  {
+    "home": "JEU",
+    "away": "ANY"
+  },
+  {
+    "home": "SEO",
+    "away": "DJN"
+  },
+  {
+    "home": "GWJ",
+    "away": "POH"
+  },
+  {
+    "home": "ULS",
+    "away": "GWN"
+  },
+  {
+    "home": "ICU",
+    "away": "GIM"
+  },
+  {
+    "home": "BUC",
+    "away": "JEO"
+  },
+  {
+    "home": "ANY",
+    "away": "SEO"
+  },
+  {
+    "home": "JEO",
+    "away": "ULS"
+  },
+  {
+    "home": "JEU",
+    "away": "GIM"
+  },
+  {
+    "home": "POH",
+    "away": "BUC"
+  },
+  {
+    "home": "DJN",
+    "away": "GWN"
+  },
+  {
+    "home": "GWJ",
+    "away": "ICU"
+  },
+  {
+    "home": "JEU",
+    "away": "POH"
+  },
+  {
+    "home": "GIM",
+    "away": "JEO"
+  },
+  {
+    "home": "SEO",
+    "away": "BUC"
+  },
+  {
+    "home": "GWN",
+    "away": "GWJ"
+  },
+  {
+    "home": "DJN",
+    "away": "ULS"
+  },
+  {
+    "home": "ANY",
+    "away": "ICU"
+  },
+  {
+    "home": "BUC",
+    "away": "ANY"
+  },
+  {
+    "home": "ULS",
+    "away": "GIM"
+  },
+  {
+    "home": "ICU",
+    "away": "JEO"
+  },
+  {
+    "home": "GWJ",
+    "away": "SEO"
+  },
+  {
+    "home": "POH",
+    "away": "GWN"
+  },
+  {
+    "home": "JEU",
+    "away": "DJN"
+  },
+  {
+    "home": "ICU",
+    "away": "BUC"
+  },
+  {
+    "home": "ULS",
+    "away": "SEO"
+  },
+  {
+    "home": "GWJ",
+    "away": "JEU"
+  },
+  {
+    "home": "POH",
+    "away": "GIM"
+  },
+  {
+    "home": "ANY",
+    "away": "GWN"
+  },
+  {
+    "home": "GWN",
+    "away": "JEO"
+  },
+  {
+    "home": "POH",
+    "away": "ANY"
+  },
+  {
+    "home": "GIM",
+    "away": "BUC"
+  },
+  {
+    "home": "SEO",
+    "away": "ICU"
+  },
+  {
+    "home": "ULS",
+    "away": "JEU"
+  },
+  {
+    "home": "DJN",
+    "away": "GWJ"
+  },
+  {
+    "home": "DJN",
+    "away": "JEO"
+  },
+  {
+    "home": "GIM",
+    "away": "GWJ"
+  },
+  {
+    "home": "ICU",
+    "away": "POH"
+  },
+  {
+    "home": "BUC",
+    "away": "ULS"
+  },
+  {
+    "home": "GWN",
+    "away": "SEO"
+  },
+  {
+    "home": "ANY",
+    "away": "JEU"
+  },
+  {
+    "home": "JEU",
+    "away": "SEO"
+  },
+  {
+    "home": "GWN",
+    "away": "GIM"
+  },
+  {
+    "home": "BUC",
+    "away": "DJN"
+  },
+  {
+    "home": "JEO",
+    "away": "ICU"
+  },
+  {
+    "home": "GWJ",
+    "away": "ANY"
+  },
+  {
+    "home": "ULS",
+    "away": "POH"
+  },
+  {
+    "home": "GWJ",
+    "away": "ULS"
+  },
+  {
+    "home": "DJN",
+    "away": "JEO"
+  },
+  {
+    "home": "ICU",
+    "away": "JEU"
+  },
+  {
+    "home": "GIM",
+    "away": "SEO"
+  },
+  {
+    "home": "ANY",
+    "away": "BUC"
+  },
+  {
+    "home": "POH",
+    "away": "GWN"
+  },
+  {
+    "home": "GWN",
+    "away": "ANY"
+  },
+  {
+    "home": "JEO",
+    "away": "POH"
+  },
+  {
+    "home": "BUC",
+    "away": "GIM"
+  },
+  {
+    "home": "SEO",
+    "away": "GWJ"
+  },
+  {
+    "home": "JEU",
+    "away": "ULS"
+  },
+  {
+    "home": "DJN",
+    "away": "ICU"
+  },
+  {
+    "home": "BUC",
+    "away": "GWN"
+  },
+  {
+    "home": "GIM",
+    "away": "POH"
+  },
+  {
+    "home": "SEO",
+    "away": "JEO"
+  },
+  {
+    "home": "ANY",
+    "away": "ULS"
+  },
+  {
+    "home": "GWJ",
+    "away": "DJN"
+  },
+  {
+    "home": "ICU",
+    "away": "JEU"
+  }
+]

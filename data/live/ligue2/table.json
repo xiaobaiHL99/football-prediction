@@ -1,0 +1,142 @@
+{
+  "NAN": {
+    "points": 0,
+    "gd": -1,
+    "gf": 0,
+    "ga": 1,
+    "played": 1
+  },
+  "MET": {
+    "points": 3,
+    "gd": 1,
+    "gf": 2,
+    "ga": 1,
+    "played": 1
+  },
+  "MTP": {
+    "points": 1,
+    "gd": 0,
+    "gf": 1,
+    "ga": 1,
+    "played": 1
+  },
+  "STE": {
+    "points": 3,
+    "gd": 3,
+    "gf": 3,
+    "ga": 0,
+    "played": 1
+  },
+  "RED": {
+    "points": 3,
+    "gd": 1,
+    "gf": 1,
+    "ga": 0,
+    "played": 1
+  },
+  "REI": {
+    "points": 1,
+    "gd": 0,
+    "gf": 0,
+    "ga": 0,
+    "played": 1
+  },
+  "ROD": {
+    "points": 3,
+    "gd": 2,
+    "gf": 3,
+    "ga": 1,
+    "played": 1
+  },
+  "ANN": {
+    "points": 3,
+    "gd": 1,
+    "gf": 1,
+    "ga": 0,
+    "played": 1
+  },
+  "GUI": {
+    "points": 0,
+    "gd": -1,
+    "gf": 1,
+    "ga": 2,
+    "played": 1
+  },
+  "DNK": {
+    "points": 3,
+    "gd": 2,
+    "gf": 4,
+    "ga": 2,
+    "played": 1
+  },
+  "GRE": {
+    "points": 0,
+    "gd": -2,
+    "gf": 2,
+    "ga": 4,
+    "played": 1
+  },
+  "CLE": {
+    "points": 1,
+    "gd": 0,
+    "gf": 0,
+    "ga": 0,
+    "played": 1
+  },
+  "PAU": {
+    "points": 0,
+    "gd": -1,
+    "gf": 0,
+    "ga": 1,
+    "played": 1
+  },
+  "SOC": {
+    "points": 0,
+    "gd": -3,
+    "gf": 0,
+    "ga": 3,
+    "played": 1
+  },
+  "LAV": {
+    "points": 0,
+    "gd": -2,
+    "gf": 1,
+    "ga": 3,
+    "played": 1
+  },
+  "DIJ": {
+    "points": 1,
+    "gd": 0,
+    "gf": 1,
+    "ga": 1,
+    "played": 1
+  },
+  "ETG": {
+    "points": 0,
+    "gd": 0,
+    "gf": 0,
+    "ga": 0,
+    "played": 0
+  },
+  "MRT": {
+    "points": 0,
+    "gd": 0,
+    "gf": 0,
+    "ga": 0,
+    "played": 0
+  },
+  "NCL": {
+    "points": 1,
+    "gd": 0,
+    "gf": 0,
+    "ga": 0,
+    "played": 1
+  },
+  "BOU": {
+    "points": 1,
+    "gd": 0,
+    "gf": 0,
+    "ga": 0,
+    "played": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "special_factors": {
+    "travel_distance": {
+      "description": "南美跨国旅行消耗，跨国家比赛对双方体能影响",
+      "value": -0.08,
+      "apply_when": "home_region != away_region"
+    },
+    "thursday_schedule_compact": {
+      "description": "解放者杯周中(周二/周三/周四南美晚间)与周末联赛双线紧凑赛程",
+      "value": -0.06,
+      "apply_when": "team_in_competition"
+    }
+  },
+  "europe_teams": ["FLA", "PAL", "CRU", "COR", "FLU", "MIR", "EST", "ROS", "PLA", "IRV", "IDV", "LDU", "UCA", "COQ", "TOL", "CPO"],
+  "turf_map": {
+    "artificial": [],
+    "natural": ["FLA", "PAL", "CRU", "COR", "FLU", "MIR", "EST", "ROS", "PLA", "IRV", "IDV", "LDU", "UCA", "COQ", "TOL", "CPO"]
+  },
+  "notes": "高原主场(基多LDU/托利马)、亚松森湿热等逐场用驱动模式 intelligence 手动体现，避免 region 语义混淆"
+}

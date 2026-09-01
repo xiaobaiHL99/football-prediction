@@ -1,0 +1,700 @@
+{
+  "matches": [
+    {
+      "home": "HAM",
+      "away": "VIK",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "MOL",
+      "away": "RBS",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "KBK",
+      "away": "BGN",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "KFUM",
+      "away": "IKT",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "AALES",
+      "away": "LIL",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "VIF",
+      "away": "SAND",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "TRO",
+      "away": "FKB",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "SARP",
+      "away": "BOD",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "IKT",
+      "away": "AALES",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "VIK",
+      "away": "MOL",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "RBS",
+      "away": "VIF",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "SAND",
+      "away": "SARP",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "FKB",
+      "away": "KFUM",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "BGN",
+      "away": "TRO",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "LIL",
+      "away": "KBK",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "BOD",
+      "away": "HAM",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "VIF",
+      "away": "VIK",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "MOL",
+      "away": "LIL",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "KBK",
+      "away": "BOD",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "home": "HAM",
+      "away": "BGN",
+      "hg": 1,
+      "ag": 5
+    },
+    {
+      "home": "SARP",
+      "away": "IKT",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "TRO",
+      "away": "RBS",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "KFUM",
+      "away": "SAND",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "AALES",
+      "away": "FKB",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "home": "LIL",
+      "away": "IKT",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "TRO",
+      "away": "KBK",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "VIK",
+      "away": "BOD",
+      "hg": 5,
+      "ag": 0
+    },
+    {
+      "home": "RBS",
+      "away": "SARP",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "FKB",
+      "away": "VIF",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "MOL",
+      "away": "HAM",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "AALES",
+      "away": "KFUM",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "BGN",
+      "away": "SAND",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "BOD",
+      "away": "AALES",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "SAND",
+      "away": "RBS",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "VIK",
+      "away": "BGN",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "VIF",
+      "away": "LIL",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "HAM",
+      "away": "KFUM",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "KBK",
+      "away": "FKB",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "SARP",
+      "away": "TRO",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "IKT",
+      "away": "MOL",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "FKB",
+      "away": "VIK",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "RBS",
+      "away": "BGN",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "MOL",
+      "away": "VIF",
+      "hg": 5,
+      "ag": 1
+    },
+    {
+      "home": "KFUM",
+      "away": "SARP",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "HAM",
+      "away": "IKT",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "TRO",
+      "away": "SAND",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "AALES",
+      "away": "KBK",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "LIL",
+      "away": "BOD",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "VIK",
+      "away": "RBS",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "BGN",
+      "away": "FKB",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "LIL",
+      "away": "SARP",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "KBK",
+      "away": "HAM",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "IKT",
+      "away": "TRO",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "SAND",
+      "away": "AALES",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "VIF",
+      "away": "KFUM",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "BOD",
+      "away": "MOL",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "HAM",
+      "away": "VIF",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "SARP",
+      "away": "FKB",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "RBS",
+      "away": "LIL",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "KFUM",
+      "away": "VIK",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "TRO",
+      "away": "MOL",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "SAND",
+      "away": "KBK",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "IKT",
+      "away": "BOD",
+      "hg": 1,
+      "ag": 4
+    },
+    {
+      "home": "AALES",
+      "away": "BGN",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "BGN",
+      "away": "KFUM",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "LIL",
+      "away": "SAND",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "MOL",
+      "away": "KBK",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "VIK",
+      "away": "IKT",
+      "hg": 6,
+      "ag": 3
+    },
+    {
+      "home": "RBS",
+      "away": "AALES",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "home": "FKB",
+      "away": "HAM",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "BOD",
+      "away": "TRO",
+      "hg": 5,
+      "ag": 0
+    },
+    {
+      "home": "VIF",
+      "away": "SARP",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "BOD",
+      "away": "BGN",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "KBK",
+      "away": "VIK",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "IKT",
+      "away": "VIF",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "SARP",
+      "away": "MOL",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "HAM",
+      "away": "LIL",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "TRO",
+      "away": "AALES",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "KFUM",
+      "away": "RBS",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "SAND",
+      "away": "FKB",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "RBS",
+      "away": "BOD",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "AALES",
+      "away": "HAM",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "VIF",
+      "away": "KBK",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "BGN",
+      "away": "SARP",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "FKB",
+      "away": "IKT",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "KFUM",
+      "away": "TRO",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "MOL",
+      "away": "SAND",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "LIL",
+      "away": "VIK",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "FKB",
+      "away": "LIL",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "AALES",
+      "away": "MOL",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "TRO",
+      "away": "VIF",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "home": "KFUM",
+      "away": "BOD",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "SAND",
+      "away": "HAM",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "RBS",
+      "away": "KBK",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "BGN",
+      "away": "IKT",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "SARP",
+      "away": "VIK",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "VIF",
+      "away": "AALES",
+      "hg": 6,
+      "ag": 1
+    },
+    {
+      "home": "BOD",
+      "away": "FKB",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "HAM",
+      "away": "TRO",
+      "hg": 1,
+      "ag": 4
+    },
+    {
+      "home": "KBK",
+      "away": "SARP",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "LIL",
+      "away": "KFUM",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "IKT",
+      "away": "RBS",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "home": "VIK",
+      "away": "SAND",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "MOL",
+      "away": "BGN",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "KBK",
+      "away": "IKT",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "BGN",
+      "away": "VIF",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "home": "SARP",
+      "away": "HAM",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "SAND",
+      "away": "BOD",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "KFUM",
+      "away": "MOL",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "AALES",
+      "away": "VIK",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "TRO",
+      "away": "BGN",
+      "hg": 0,
+      "ag": 5
+    },
+    {
+      "home": "BOD",
+      "away": "IKT",
+      "hg": 5,
+      "ag": 0
+    },
+    {
+      "home": "SAND",
+      "away": "KFUM",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "RBS",
+      "away": "VIK",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "KFUM",
+      "away": "LIL",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "BOD",
+      "away": "RBS",
+      "hg": 4,
+      "ag": 2
+    }
+  ]
+}

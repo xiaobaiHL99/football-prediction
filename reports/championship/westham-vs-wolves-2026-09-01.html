@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西汉姆联 vs 狼队 — 英冠预测</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+
+.stadium{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#0d1117 0%,#1a2332 30%,#1a2332 100%);overflow:hidden}
+.pitch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:90%;max-width:900px;height:220px;background:linear-gradient(180deg,#2d7a3a,#1e5c2a);border-radius:4px 4px 0 0;border:2px solid rgba(255,255,255,0.3)}
+.pitch::before{content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,0.3)}
+.pitch::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:2px solid rgba(255,255,255,0.3);border-radius:50%}
+.penalty-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:44%;height:60px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.penalty-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.goal-area{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18%;height:24px;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.goal-area.top{top:0;bottom:auto;border-bottom:2px solid rgba(255,255,255,0.3);border-top:none}
+.lights{position:absolute;top:20px;left:10%;right:10%;display:flex;justify-content:space-between}
+.light{width:6px;height:6px;background:#ffd700;border-radius:50%;box-shadow:0 0 12px 4px rgba(255,215,0,0.4)}
+.stands{position:absolute;bottom:220px;left:0;right:0;height:60px;background:linear-gradient(180deg,#1a1a2e,#16213e)}
+
+.scoreboard{position:absolute;top:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);border:1px solid #2a5298;border-radius:12px;padding:20px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.1);min-width:520px;text-align:center}
+.scoreboard .league-tag{font-size:11px;color:#64b5f6;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.scoreboard .match-tag{font-size:10px;color:#ff9800;background:rgba(255,152,0,0.15);display:inline-block;padding:2px 10px;border-radius:10px;margin-bottom:12px}
+.scoreboard .teams{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:10px}
+.scoreboard .team-name{font-size:20px;font-weight:700;color:#fff;min-width:120px}
+.scoreboard .team-name.home{text-align:right}
+.scoreboard .team-name.away{text-align:left}
+.scoreboard .score{font-size:42px;font-weight:900;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.5)}
+.scoreboard .score-label{font-size:10px;color:#aaa;margin-top:4px}
+.scoreboard .probs{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.scoreboard .prob-item{text-align:center}
+.scoreboard .prob-val{font-size:18px;font-weight:700}
+.scoreboard .prob-label{font-size:10px;color:#888;margin-top:2px}
+.prob-home{color:#4caf50}.prob-draw{color:#ff9800}.prob-away{color:#f44336}
+
+.container{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:28px;text-align:center;margin:30px 0 6px;background:linear-gradient(90deg,#7a263a,#fdb913);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#888;font-size:13px;margin-bottom:30px}
+
+.card{background:#141926;border:1px solid #1e2a3a;border-radius:12px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:#64b5f6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2::before{content:'';width:4px;height:18px;background:#2196f3;border-radius:2px}
+
+.prob-bar-wrap{margin:8px 0}
+.prob-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.prob-bar{height:28px;background:#1a2332;border-radius:6px;overflow:hidden;display:flex}
+.prob-bar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.seg-home{background:linear-gradient(90deg,#2e7d32,#4caf50)}.seg-draw{background:linear-gradient(90deg,#e65100,#ff9800)}.seg-away{background:linear-gradient(90deg,#b71c1c,#f44336)}
+
+.scores-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.score-card{background:#1a2332;border:1px solid #253347;border-radius:8px;padding:12px 8px;text-align:center}
+.score-card .sc{font-size:22px;font-weight:800;color:#ffd700}
+.score-card .sp{font-size:12px;color:#aaa;margin-top:4px}
+.score-card.top{border-color:#2a5298;background:linear-gradient(135deg,#1a2332,#0f3460)}
+
+.xg-row{display:flex;align-items:center;justify-content:center;gap:30px;margin:16px 0}
+.xg-item{text-align:center}
+.xg-val{font-size:32px;font-weight:800;color:#4caf50}
+.xg-val.away{color:#f44336}
+.xg-label{font-size:12px;color:#888;margin-top:4px}
+.xg-vs{font-size:18px;color:#555}
+
+.intel-item{display:flex;gap:10px;margin:10px 0;font-size:14px;line-height:1.6}
+.intel-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px}
+.intel-icon.positive{background:#1b5e20;color:#4caf50}
+.intel-icon.neutral{background:#1a2332;color:#64b5f6}
+.intel-icon.negative{background:#4a1414;color:#f44336}
+.intel-icon.warning{background:#3e2723;color:#ff9800}
+
+.scenario{background:#1a2332;border-left:3px solid #2196f3;padding:14px 18px;border-radius:0 8px 8px 0;margin:10px 0}
+.scenario .sc-title{font-weight:700;color:#64b5f6;font-size:14px;margin-bottom:6px}
+.scenario .sc-desc{font-size:13px;color:#bbb;line-height:1.6}
+.scenario.green{border-left-color:#4caf50}.scenario.green .sc-title{color:#4caf50}
+.scenario.red{border-left-color:#f44336}.scenario.red .sc-title{color:#f44336}
+.scenario.orange{border-left-color:#ff9800}.scenario.orange .sc-title{color:#ff9800}
+.scenario.gold{border-left-color:#ffd700}.scenario.gold .sc-title{color:#ffd700}
+
+.disclaimer{background:#1a1a0a;border:1px solid #3e3e1a;border-radius:8px;padding:16px;margin-top:20px;font-size:12px;color:#aaa;line-height:1.7}
+
+.factor-tag{display:inline-block;background:rgba(33,150,243,0.15);color:#64b5f6;padding:3px 10px;border-radius:12px;font-size:11px;margin:3px 2px}
+.factor-tag.positive{background:rgba(76,175,80,0.15);color:#4caf50}
+.factor-tag.negative{background:rgba(244,67,54,0.15);color:#f44336}
+.factor-tag.warning{background:rgba(255,152,0,0.15);color:#ff9800}
+
+.stat-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:12px 0}
+.stat-row{display:contents}
+.stat-cell{padding:8px 12px;font-size:14px;border-bottom:1px solid #0d1117}
+.stat-cell.left{text-align:right}
+.stat-cell.center{text-align:center;color:#555;font-size:12px}
+.stat-cell.right{text-align:left}
+.stat-cell .val{font-size:18px;font-weight:700}
+.stat-cell .val.bad{color:#f44336}
+.stat-cell .val.good{color:#4caf50}
+
+.banner{background:linear-gradient(135deg,#3e2723,#4a2c0a);border:1px solid #ff9800;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.7;color:#ffcc80}
+
+@media(max-width:640px){
+  .scoreboard{min-width:auto;padding:14px 18px}
+  .scoreboard .team-name{font-size:15px;min-width:80px}
+  .scoreboard .score{font-size:32px}
+  .scores-grid{grid-template-columns:repeat(3,1fr)}
+  .stadium{height:340px}
+  .pitch{height:160px}
+  .stands{bottom:160px;height:40px}
+  .scoreboard{top:50px}
+}
+</style>
+</head>
+<body>
+
+<div class="stadium">
+  <div class="stands"></div>
+  <div class="pitch">
+    <div class="penalty-area top"></div>
+    <div class="goal-area top"></div>
+    <div class="penalty-area"></div>
+    <div class="goal-area"></div>
+  </div>
+  <div class="lights"><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div></div>
+  <div class="scoreboard">
+    <div class="league-tag">EFL Championship · 英格兰足球冠军联赛</div>
+    <div class="match-tag">📅 2026-09-01 · 第4轮 · 降班马对决 · 主预测比分</div>
+    <div class="teams">
+      <div class="team-name home">西汉姆联<br><span style="font-size:11px;color:#888">West Ham · 第19名</span></div>
+      <div class="score">2 - 1</div>
+      <div class="team-name away">狼队<br><span style="font-size:11px;color:#888">Wolves · 第2名</span></div>
+    </div>
+    <div class="score-label">主预测比分 (8.5%) · 单一最高概率比分 1-1 (10.2%) · 三方向差距仅3.5pp</div>
+    <div class="probs">
+      <div class="prob-item"><div class="prob-val prob-home">35.5%</div><div class="prob-label">西汉姆联胜</div></div>
+      <div class="prob-item"><div class="prob-val prob-draw">32.0%</div><div class="prob-label">平局</div></div>
+      <div class="prob-item"><div class="prob-val prob-away">32.6%</div><div class="prob-label">狼队胜</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>西汉姆联 vs 狼队</h1>
+  <div class="subtitle">英冠 2026-27 第4轮 · 伦敦碗 · 2026年9月1日(周二) 18:45 UTC · "求首胜的伦敦碗" vs "全联赛最火的狼"</div>
+
+  <!-- 校准横幅 -->
+  <div class="banner">
+    ⚠️ <strong>近均衡场次校准提示</strong>（Elo差仅10）：三方向概率差距仅3.5pp（35.5/32.0/32.6），方向置信度为全台账最宽区间。
+    近均衡样本累计29场方向命中率仅41.4% → <strong>本场不具备强方向价值，平局价值上调</strong>，任何结果都不意外。
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="card">
+    <h2>核心结论</h2>
+    <div style="text-align:center;margin:16px 0">
+      <div style="font-size:20px;font-weight:700;color:#4caf50">主预测：西汉姆联 2-1 狼队 (8.5%)</div>
+      <div style="font-size:14px;color:#aaa;margin-top:8px">主队仅靠主场优势微弱倾斜 · <strong>狼队的状态优势(+0.14)被伦敦碗的场地优势对冲</strong></div>
+    </div>
+    <div class="xg-row">
+      <div class="xg-item"><div class="xg-val">1.66</div><div class="xg-label">西汉姆联预期进球</div></div>
+      <div class="xg-vs">vs</div>
+      <div class="xg-item"><div class="xg-val away">1.56</div><div class="xg-label">狼队预期进球</div></div>
+    </div>
+    <div style="text-align:center;font-size:12px;color:#888">xG差仅0.10 —— 模型口径下双方实力几乎完全对等</div>
+    <div style="text-align:center;margin-top:12px">
+      <span class="factor-tag positive">WHU英超级纸面阵容(Elo全联赛最高)</span>
+      <span class="factor-tag positive">WHU主场6万人+急需首胜战意</span>
+      <span class="factor-tag positive">WOL全联赛最火火力(3轮9球)</span>
+      <span class="factor-tag positive">WOL拉森火热脚感</span>
+      <span class="factor-tag negative">WHU开局3轮不胜+防线失5球</span>
+      <span class="factor-tag warning">近均衡Elo差10</span>
+    </div>
+  </div>
+
+  <!-- 赛事情报 -->
+  <div class="card">
+    <h2>赛事情报</h2>
+
+    <div class="intel-item">
+      <div class="intel-icon negative">✗</div>
+      <div><strong style="color:#f44336">西汉姆开局噩梦：</strong>英超降级后3轮不胜（2平1负）仅积2分排第19，远低于阵容预期。防线3轮失5球是最大病灶，进攻端鲍恩、帕奎塔领衔场均1.33球尚可但缺乏决定性。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon warning">⚠</div>
+      <div><strong>伦敦碗的双刃剑：</strong>6万人的主场规模英冠顶级，但降级后首个赛季球迷情绪复杂——期待与焦躁并存。急需首胜的战意是助力，但一旦落后，主场情绪可能反噬球员。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon positive">✓</div>
+      <div><strong style="color:#fdb913">狼队降级后反弹标杆：</strong>2胜1平不败积7分高居第2，3轮9球是全联赛最强火力（场均3球）。斯特兰德·拉森火热脚感，若昂·戈麦斯的中场控制力碾压英冠多数球队。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon neutral">ℹ</div>
+      <div><strong>狼队的软肋：</strong>防线3轮也丢4球不算稳固；客场对阵同为降班马级别的对手是本赛季首次——之前两胜来自普雷斯顿等中下游球队，含金量待考。</div>
+    </div>
+
+    <div class="intel-item">
+      <div class="intel-icon neutral">ℹ</div>
+      <div><strong>历史交锋：</strong>英超时代多次交手互有胜负，狼队近年客场对西汉姆战绩不俗。本场是两队降级后首次英冠交锋。</div>
+    </div>
+  </div>
+
+  <!-- 概率分布 -->
+  <div class="card">
+    <h2>概率分布</h2>
+    <div class="prob-bar-wrap">
+      <div class="prob-bar-label">
+        <span style="color:#4caf50">西汉姆联胜 35.5%</span>
+        <span style="color:#ff9800">平局 32.0%</span>
+        <span style="color:#f44336">狼队胜 32.6%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="seg seg-home" style="width:35.5%">35.5</div>
+        <div class="seg seg-draw" style="width:32.0%">32.0</div>
+        <div class="seg seg-away" style="width:32.6%">32.6</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:12px;color:#ff9800;text-align:center">
+      ⚠️ 三方向差距仅3.5pp —— 93场台账样本中最接近的均势局之一 · 主队"占优"仅为微弱倾向
+    </div>
+
+    <h2 style="margin-top:20px">比分分布 Top5</h2>
+    <div class="scores-grid">
+      <div class="score-card top">
+        <div class="sc">1-1</div>
+        <div class="sp">10.2%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">2-1</div>
+        <div class="sp">8.5%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">1-2</div>
+        <div class="sp">8.0%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">1-0</div>
+        <div class="sp">6.7%</div>
+      </div>
+      <div class="score-card">
+        <div class="sc">2-2</div>
+        <div class="sp">6.5%</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#888">
+      前5比分合计39.9% · 平局比分(1-1/2-2)合计16.7% · 分布高度平坦=极端均势的典型特征
+    </div>
+  </div>
+
+  <!-- 场景演绎 -->
+  <div class="card">
+    <h2>场景演绎</h2>
+
+    <div class="scenario green">
+      <div class="sc-title">🟢 主场反弹：西汉姆首胜时刻 (35.5%)</div>
+      <div class="sc-desc">
+        伦敦碗6万人助推+降级后首胜的强烈动机，鲍恩/帕奎塔这个级别的球员在英冠的个人能力终于兑现。主场声势+背水一战的 desperation 转化为前20分钟的强攻开局。<br>
+        <strong>主预测比分：2-1 (8.5%)</strong> · 备选：1-0 (6.7%)
+      </div>
+    </div>
+
+    <div class="scenario red">
+      <div class="sc-title">🔴 狼队反客为主 (32.6%)</div>
+      <div class="sc-desc">
+        全联赛最火火力在伦敦碗延续——拉森冲击西汉姆不稳防线（3轮失5球），戈麦斯让出球权后掌控转换节奏。西汉姆急躁压上留下的空当正是狼队反击最爱的剧本。<br>
+        <strong>最可能比分：1-2 (8.0%)</strong>
+      </div>
+    </div>
+
+    <div class="scenario orange">
+      <div class="sc-title">🤝 单一最高概率比分：1-1 (32.0% / 10.2%)</div>
+      <div class="sc-desc">
+        双方防线均有漏洞但进攻端互相抵消——这是模型口径下"实力完全对等"的自然结局。两队都没输得起，比赛后段趋于保守。<br>
+        <strong>1-1 (10.2%) 是本场单一最高概率比分</strong> · 备选：2-2 (6.5%)
+      </div>
+    </div>
+
+    <div class="scenario gold">
+      <div class="sc-title">⚡ 对攻大战（低概率彩蛋）</div>
+      <div class="sc-desc">
+        两队防线都漏（合计9失球）+ 双方都需要胜利 → 完全开放的对攻。若前15分钟有进球，比分可能向大分方向漂移。<br>
+        <strong>可能比分：</strong>3-2 / 2-3 / 3-3
+      </div>
+    </div>
+  </div>
+
+  <!-- 战术对比 -->
+  <div class="card">
+    <h2>战术对比</h2>
+    <div class="stat-grid">
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val">4-2-3-1</div></div>
+        <div class="stat-cell center">阵型</div>
+        <div class="stat-cell right"><div class="val">4-2-3-1</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">控球压上</div>
+        <div class="stat-cell center">风格</div>
+        <div class="stat-cell right">让出球权打反击</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val bad">3轮失5球</div></div>
+        <div class="stat-cell center">防线</div>
+        <div class="stat-cell right"><div class="val bad">3轮失4球</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val bad">2平1负不胜</div></div>
+        <div class="stat-cell center">近况</div>
+        <div class="stat-cell right"><div class="val good">2胜1平轰9球</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">鲍恩 / 帕奎塔</div>
+        <div class="stat-cell center">关键人</div>
+        <div class="stat-cell right">拉森(火热) / 戈麦斯(中场)</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left">急躁风险 vs 首胜渴望</div>
+        <div class="stat-cell center">心理</div>
+        <div class="stat-cell right">客场无包袱</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell left"><div class="val">Elo 1545</div></div>
+        <div class="stat-cell center">Elo评级</div>
+        <div class="stat-cell right"><div class="val">Elo 1535</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模型解读 -->
+  <div class="card">
+    <h2>模型解读</h2>
+    <div style="font-size:14px;line-height:1.8;color:#bbb">
+      <p><strong>Elo差距：</strong>仅10点（WHU 1545 vs WOL 1535）——模型口径下两队纸面实力几乎完全对等，本场是全台账最典型的近均衡局。</p>
+      <p style="margin-top:8px"><strong>状态与场地的对冲：</strong>狼队状态+0.14（火热9球 vs 西汉姆低迷-0.10）本应让客队占优，但主场优势把天平掰回主队——最终xG仅差0.10。这就是三方向35.5/32.0/32.6的来源。</p>
+      <p style="margin-top:8px"><strong>均势局的比分特征：</strong>分布高度平坦（前5比分仅39.9%），1-1以10.2%领跑单一比分榜——"双方都没输得起"的开放均势局，1-1是自然均衡点。</p>
+      <p style="margin-top:8px"><strong>校准提示：</strong>近均衡桶累计29场方向命中率仅41.4%，近均衡×预测中球仅33.3%——模型对这种类型比赛的"占优"判断历史上并不可靠，本场主队微弱倾向应作降权处理。</p>
+      <p style="margin-top:8px"><strong>综合：</strong>主预测2-1，但真实含义是<strong>"主队小胜/平局/客胜三选一的抛硬币"</strong>。方向价值趋近于零，比分价值集中在1-1与2-1双主线。若必须选边，主场 desperate 战意是唯一的差异化因子。</p>
+    </div>
+  </div>
+
+  <!-- 预测摘要 -->
+  <div class="disclaimer">
+    <strong>📋 预测摘要</strong><br>
+    · 联赛：英冠 EFL Championship 2026-27 第4轮<br>
+    · 对阵：西汉姆联(主) vs 狼队(客) · 伦敦碗<br>
+    · 时间：2026-09-01(周二) 18:45 UTC · 北京时间09-02 02:45<br>
+    · 方向：<strong>西汉姆联微弱占优</strong> (35.5%) — ⚠️ 三方向差距仅3.5pp，方向价值趋近于零<br>
+    · 主预测比分：2-1 (8.5%) · 单一最高概率比分：1-1 (10.2%)<br>
+    · 模型 xG：西汉姆联 1.66 - 1.56 狼队 · xG差仅0.10<br>
+    · 狼队状态优势(+0.14)被主场优势对冲——实力口径完全对等<br>
+    · 西汉姆开局3轮不胜但阵容英冠顶级，主场急需首胜<br>
+    · 狼队全联赛最强火力(3轮9球)但防线也丢4球<br>
+    · 无盘口数据，纯模型预测<br>
+    · 已记录到台账: data/reviews/predictions.json
+  </div>
+
+</div>
+</body>
+</html>

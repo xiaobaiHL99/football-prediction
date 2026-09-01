@@ -1,0 +1,14 @@
+{
+  "KUP": {"points": 30, "gd": 12, "gf": 27, "ga": 15, "played": 15, "wins": 8, "draws": 6, "losses": 1},
+  "INT": {"points": 30, "gd": 11, "gf": 23, "ga": 12, "played": 15, "wins": 8, "draws": 6, "losses": 1},
+  "VPS": {"points": 27, "gd": 11, "gf": 22, "ga": 11, "played": 15, "wins": 7, "draws": 6, "losses": 2},
+  "OUL": {"points": 26, "gd": 2, "gf": 20, "ga": 18, "played": 15, "wins": 8, "draws": 2, "losses": 5},
+  "HJK": {"points": 22, "gd": 6, "gf": 25, "ga": 19, "played": 15, "wins": 6, "draws": 4, "losses": 5},
+  "GNI": {"points": 22, "gd": 3, "gf": 23, "ga": 20, "played": 15, "wins": 6, "draws": 4, "losses": 5},
+  "TPS": {"points": 22, "gd": 3, "gf": 19, "ga": 16, "played": 15, "wins": 6, "draws": 4, "losses": 5},
+  "LAH": {"points": 19, "gd": 3, "gf": 18, "ga": 15, "played": 15, "wins": 5, "draws": 4, "losses": 6},
+  "ILV": {"points": 16, "gd": -4, "gf": 25, "ga": 29, "played": 15, "wins": 4, "draws": 4, "losses": 7},
+  "SJK": {"points": 14, "gd": -5, "gf": 18, "ga": 23, "played": 15, "wins": 3, "draws": 5, "losses": 7},
+  "JAR": {"points": 11, "gd": -17, "gf": 15, "ga": 32, "played": 15, "wins": 2, "draws": 5, "losses": 8},
+  "MAR": {"points": 4, "gd": -25, "gf": 8, "ga": 33, "played": 15, "wins": 0, "draws": 4, "losses": 11}
+}

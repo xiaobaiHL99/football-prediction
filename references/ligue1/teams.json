@@ -1,0 +1,172 @@
+{
+  "_meta": {
+    "league": "Ligue 1 McDonald's",
+    "season": "2026-27",
+    "updated_at": "2026-08-21T00:00:00Z",
+    "note": "Elo ratings initial calibration aligned with champions_league/europa_league snapshots for shared clubs (PSG/MAR/LYO/NCE); promoted sides (TRO/LMA) at bottom tier. Relegated 2025-26: Nantes/Metz; Saint-Étienne lost play-off (to ligue2 module). Adjustable via elo_updater."
+  },
+  "teams": {
+    "PSG": {
+      "name": "Paris Saint-Germain",
+      "name_cn": "巴黎圣日耳曼",
+      "elo": 1900,
+      "city": "Paris",
+      "stadium": "Parc des Princes",
+      "color": "blue",
+      "notes": "卫冕冠军，法甲统治者，争冠最大热门"
+    },
+    "MON": {
+      "name": "AS Monaco",
+      "name_cn": "摩纳哥",
+      "elo": 1740,
+      "city": "Monaco",
+      "stadium": "Stade Louis II",
+      "color": "red",
+      "notes": "摩纳哥红白军团，青训妖人+欧战常客"
+    },
+    "LIL": {
+      "name": "Lille OSC",
+      "name_cn": "里尔",
+      "elo": 1700,
+      "city": "Lille",
+      "stadium": "Stade Pierre-Mauroy",
+      "color": "red",
+      "notes": "里尔北方劲旅，欧冠常客，攻守均衡"
+    },
+    "MAR": {
+      "name": "Olympique de Marseille",
+      "name_cn": "马赛",
+      "elo": 1700,
+      "city": "Marseille",
+      "stadium": "Orange Vélodrome",
+      "color": "blue",
+      "notes": "马赛韦洛德罗姆魔鬼主场，法甲传统豪门"
+    },
+    "LYO": {
+      "name": "Olympique Lyonnais",
+      "name_cn": "里昂",
+      "elo": 1660,
+      "city": "Lyon",
+      "stadium": "Groupama Stadium",
+      "color": "red",
+      "notes": "里昂七冠王底蕴，主场火力开放"
+    },
+    "LEN": {
+      "name": "RC Lens",
+      "name_cn": "朗斯",
+      "elo": 1650,
+      "city": "Lens",
+      "stadium": "Stade Bollaert-Delelis",
+      "color": "red",
+      "notes": "朗斯博拉尔特魔鬼主场，高位逼抢，欧冠资格"
+    },
+    "REN": {
+      "name": "Stade Rennais",
+      "name_cn": "雷恩",
+      "elo": 1620,
+      "city": "Rennes",
+      "stadium": "Roazhon Park",
+      "color": "red",
+      "notes": "雷恩布列塔尼劲旅，欧战常客"
+    },
+    "NCE": {
+      "name": "OGC Nice",
+      "name_cn": "尼斯",
+      "elo": 1600,
+      "city": "Nice",
+      "stadium": "Allianz Riviera",
+      "color": "red",
+      "notes": "尼斯法国东南部球队，附加赛保级后继续征战"
+    },
+    "STR": {
+      "name": "RC Strasbourg",
+      "name_cn": "斯特拉斯堡",
+      "elo": 1590,
+      "city": "Strasbourg",
+      "stadium": "Stade de la Meinau",
+      "color": "blue",
+      "notes": "斯特拉斯堡阿尔萨斯球队，中场硬朗"
+    },
+    "LOR": {
+      "name": "FC Lorient",
+      "name_cn": "洛里昂",
+      "elo": 1570,
+      "city": "Lorient",
+      "stadium": "Stade du Moustoir",
+      "color": "orange",
+      "notes": "洛里昂布列塔尼海港球队，主场紧凑"
+    },
+    "TLS": {
+      "name": "Toulouse FC",
+      "name_cn": "图卢兹",
+      "elo": 1560,
+      "city": "Toulouse",
+      "stadium": "Stadium de Toulouse",
+      "color": "blue",
+      "notes": "图卢兹南部球队，控球踢法，中游定位"
+    },
+    "AUX": {
+      "name": "AJ Auxerre",
+      "name_cn": "欧塞尔",
+      "elo": 1550,
+      "city": "Auxerre",
+      "stadium": "Stade de l'Abbé-Deschamps",
+      "color": "blue",
+      "notes": "欧塞尔老牌球队，主场氛围好"
+    },
+    "BRE": {
+      "name": "Stade Brestois 29",
+      "name_cn": "布雷斯特",
+      "elo": 1550,
+      "city": "Brest",
+      "stadium": "Stade Francis-Le Blé",
+      "color": "red",
+      "notes": "布雷斯特黑马成色，欧战新军经验积累"
+    },
+    "PFC": {
+      "name": "Paris FC",
+      "name_cn": "巴黎FC",
+      "elo": 1540,
+      "city": "Paris",
+      "stadium": "Stade Charléty",
+      "color": "blue",
+      "notes": "巴黎FC大巴黎二队，阿诺特家族控股，稳步崛起"
+    },
+    "ANG": {
+      "name": "Angers SCO",
+      "name_cn": "昂热",
+      "elo": 1530,
+      "city": "Angers",
+      "stadium": "Stade Raymond Kopa",
+      "color": "blue",
+      "notes": "昂热卢瓦尔球队，务实防反，保级档"
+    },
+    "HAV": {
+      "name": "Le Havre AC",
+      "name_cn": "勒阿弗尔",
+      "elo": 1520,
+      "city": "Le Havre",
+      "stadium": "Stade Océane",
+      "color": "skyblue",
+      "notes": "勒阿弗尔诺曼底海港球队，青训出名"
+    },
+    "TRO": {
+      "name": "ESTAC Troyes",
+      "name_cn": "特鲁瓦",
+      "elo": 1500,
+      "city": "Troyes",
+      "stadium": "Stade de l'Aube",
+      "color": "blue",
+      "notes": "法乙冠军升班马，三年后回归法甲，中下游"
+    },
+    "LMA": {
+      "name": "Le Mans FC",
+      "name_cn": "勒芒",
+      "elo": 1485,
+      "city": "Le Mans",
+      "stadium": "Stade Marie-Marvingt",
+      "color": "red",
+      "notes": "法乙亚军升班马，连跳两级16年后回归，保级档"
+    }
+  }
+}

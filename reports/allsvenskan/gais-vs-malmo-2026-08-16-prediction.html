@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>盖斯(加尔斯) vs 马尔默 | 赛前预测 | 瑞超第17轮</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0e17; color: #e8edf5; min-height: 100vh; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+  /* === PITCH === */
+  .pitch-wrapper { position: relative; width: 100%; aspect-ratio: 2/1; max-height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+  .pitch { width: 100%; height: 100%; background: linear-gradient(135deg, #1a4a2e 0%, #2d6b3e 40%, #1e5631 100%); position: relative; }
+  .pitch::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 6%, rgba(255,255,255,0.03) 6%, rgba(255,255,255,0.03) 6.2%); }
+  .pitch-lines { position: absolute; inset: 6% 3%; border: 2px solid rgba(255,255,255,0.35); }
+  .pitch-lines::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35); transform: translateY(-50%); }
+  .center-circle { position: absolute; top: 50%; left: 50%; width: 22%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .penalty-a, .penalty-b { position: absolute; top: 50%; width: 30%; height: 55%; border: 2px solid rgba(255,255,255,0.3); transform: translateY(-50%); }
+  .penalty-a { left: -1px; border-left: none; border-radius: 0 6px 6px 0; }
+  .penalty-b { right: -1px; border-right: none; border-radius: 6px 0 0 6px; }
+  .goal-a, .goal-b { position: absolute; top: 50%; width: 16%; height: 22%; border: 2px solid rgba(255,255,255,0.25); transform: translateY(-50%); }
+  .goal-a { left: -1px; border-left: none; border-radius: 0 4px 4px 0; }
+  .goal-b { right: -1px; border-right: none; border-radius: 4px 0 0 4px; }
+  .spot-a, .spot-b { position: absolute; top: 50%; width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%; transform: translate(-50%, -50%); }
+  .spot-a { left: 11%; } .spot-b { right: 11%; }
+  .arc-a, .arc-b { position: absolute; top: 50%; width: 12%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; transform: translate(-50%, -50%); }
+  .arc-a { left: 19%; } .arc-b { right: 19%; }
+  .corner { position: absolute; width: 6%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; }
+  .corner-tl { top: 4%; left: 1%; } .corner-tr { top: 4%; right: 1%; }
+  .corner-bl { bottom: 4%; left: 1%; } .corner-br { bottom: 4%; right: 1%; }
+
+  /* Scoreboard overlay */
+  .scoreboard { position: absolute; top: 7%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.88); border: 2px solid rgba(255,200,50,0.5); border-radius: 12px; padding: 10px 26px; display: flex; align-items: center; gap: 16px; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(255,200,50,0.18); z-index: 10; }
+  .scoreboard .team { display: flex; flex-direction: column; align-items: center; min-width: 76px; }
+  .scoreboard .team .name { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px; }
+  .scoreboard .team .badge { width: 34px; height: 34px; border-radius: 50%; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+  .scoreboard .team .badge.gais { background: #27ae60; color: #0c1f13; }
+  .scoreboard .team .badge.mal { background: #3498db; color: #fff; }
+  .scoreboard .vs-score { display: flex; flex-direction: column; align-items: center; }
+  .scoreboard .vs-score .pred-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #f1c40f; margin-bottom: 2px; }
+  .scoreboard .vs-score .score { font-size: 2.1rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px rgba(255,200,50,0.3); letter-spacing: 4px; }
+  .scoreboard .vs-score .sub { font-size: 0.55rem; color: #95a5a6; letter-spacing: 1px; }
+  .scoreboard .probs-row { display: flex; gap: 8px; margin-top: 4px; }
+  .scoreboard .probs-row .prob { font-size: 0.6rem; padding: 1px 6px; border-radius: 4px; }
+
+  .stadium-info { position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 8px; font-size: 0.65rem; color: #bdc3c7; z-index: 10; text-align: center; backdrop-filter: blur(4px); }
+
+  .stands { position: absolute; bottom: 0; left: 0; right: 0; height: 14%; display: flex; gap: 2px; padding: 0 4%; align-items: flex-end; z-index: 5; }
+  .stand-row { display: flex; gap: 1px; align-items: flex-end; flex: 1; }
+  .stand-seat { width: 4px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 1px; }
+  .floodlight { position: absolute; top: -10%; width: 3px; height: 20%; background: linear-gradient(to bottom, rgba(255,255,200,0.6), transparent); z-index: 2; }
+  .floodlight.l { left: 15%; } .floodlight.r { right: 15%; }
+
+  /* === SECTIONS === */
+  .section { background: #111827; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border: 1px solid #1f2937; }
+  .section-title { font-size: 1rem; font-weight: 700; color: #f1c40f; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 1.1rem; }
+
+  .prob-bar { display: flex; height: 32px; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+  .prob-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; min-width: fit-content; padding: 0 6px; }
+  .prob-bar .seg.h { background: #27ae60; color: #fff; }
+  .prob-bar .seg.d { background: #7f8c8d; color: #fff; }
+  .prob-bar .seg.a { background: #3498db; color: #fff; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { background: #0f1729; border-radius: 10px; padding: 14px; border: 1px solid #1e2a45; }
+  .card .label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .card .value { font-size: 1.4rem; font-weight: 800; }
+  .card .value.xg { color: #60a5fa; }
+  .card .value.h-v { color: #2ecc71; }
+  .card .value.a-v { color: #3498db; }
+  .card .sub { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .score-card { background: #0f1729; border-radius: 8px; padding: 10px 6px; text-align: center; border: 1px solid #1e2a45; }
+  .score-card .s { font-size: 1rem; font-weight: 700; }
+  .score-card .pct { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+  .score-card.top { border-color: #f1c40f; background: rgba(241,196,15,0.08); }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+  .badge.green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+  .badge.yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+  .badge.red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+  .badge.blue { background: rgba(52,152,219,0.2); color: #3498db; }
+  .badge.gray { background: rgba(149,165,166,0.2); color: #95a5a6; }
+
+  .intel-item { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid #1a1f2e; font-size: 0.85rem; }
+  .intel-item:last-child { border: none; }
+  .intel-item .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .intel-item .dot.green { background: #2ecc71; }
+  .intel-item .dot.yellow { background: #f1c40f; }
+  .intel-item .dot.red { background: #e74c3c; }
+  .intel-item .dot.gray { background: #64748b; }
+
+  .form-dots { display: flex; gap: 4px; margin: 6px 0; }
+  .form-dot { width: 20px; height: 20px; border-radius: 50%; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .form-dot.w { background: #2ecc71; color: #fff; }
+  .form-dot.d { background: #95a5a6; color: #fff; }
+  .form-dot.l { background: #e74c3c; color: #fff; }
+
+  .scenario { background: #0f1729; border-left: 3px solid; padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; }
+  .scenario.primary { border-color: #f1c40f; }
+  .scenario.secondary { border-color: #3498db; }
+  .scenario.cold { border-color: #e74c3c; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #1a1f2e; }
+  th { color: #94a3b8; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+  .footer-note { text-align: center; padding: 24px 0; color: #64748b; font-size: 0.75rem; border-top: 1px solid #1f2937; margin-top: 16px; }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    .scoreboard { padding: 8px 12px; gap: 8px; }
+    .scoreboard .team .badge { width: 28px; height: 28px; font-size: 11px; }
+    .scoreboard .vs-score .score { font-size: 1.5rem; }
+    .scoreboard .team .name { font-size: 0.75rem; }
+    .section { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- PITCH -->
+  <div class="pitch-wrapper">
+    <div class="pitch">
+      <div class="pitch-lines">
+        <div class="penalty-a"></div>
+        <div class="penalty-b"></div>
+        <div class="goal-a"></div>
+        <div class="goal-b"></div>
+        <div class="spot-a"></div>
+        <div class="spot-b"></div>
+        <div class="arc-a"></div>
+        <div class="arc-b"></div>
+      </div>
+      <div class="center-circle"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="floodlight l"></div>
+      <div class="floodlight r"></div>
+
+      <!-- Scoreboard: PREDICTION -->
+      <div class="scoreboard">
+        <div class="team">
+          <div class="badge gais">G</div>
+          <div class="name">盖斯</div>
+        </div>
+        <div class="vs-score">
+          <div class="pred-label">预测比分 · Prediction</div>
+          <div class="score">1 - 0</div>
+          <div class="sub">主预测赛果：盖斯占优</div>
+          <div class="probs-row">
+            <span class="prob" style="background:rgba(46,204,113,.25);color:#2ecc71;">主胜 48.5%</span>
+            <span class="prob" style="background:rgba(127,140,141,.25);color:#bdc3c7;">平 24.8%</span>
+            <span class="prob" style="background:rgba(52,152,219,.25);color:#3498db;">客胜 26.7%</span>
+          </div>
+        </div>
+        <div class="team">
+          <div class="badge mal">M</div>
+          <div class="name">马尔默</div>
+        </div>
+      </div>
+
+      <div class="stadium-info">瑞典超级联赛 第17轮 · Gamla Ullevi (哥德堡) · 2026-08-16 赛前预测</div>
+
+      <div class="stands">
+        <div class="stand-row">
+          <div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div><div class="stand-seat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORE CONCLUSION -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎯</span> 核心结论</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">主预测赛果</div>
+          <div class="value h-v">盖斯主场占优</div>
+          <div class="sub">概率最高的赛果方向，非确定性结论</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">主预测比分</div>
+          <div class="value" style="color:#f1c40f;">1 - 0</div>
+          <div class="sub">该比分方向概率 12.2%（盖斯 1-0 马尔默）</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <div class="prob-bar">
+        <div class="seg h" style="width:48.5%">盖斯胜 48.5%</div>
+        <div class="seg d" style="width:24.8%">平 24.8%</div>
+        <div class="seg a" style="width:26.7%">马尔默胜 26.7%</div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:14px;">
+      <div class="card">
+        <div class="label">预期进球</div>
+        <div class="value xg">1.62 - 0.97</div>
+        <div class="sub">盖斯 vs 马尔默</div>
+      </div>
+      <div class="card">
+        <div class="label">冷门概率空间</div>
+        <div class="value a-v">26.7%</div>
+        <div class="sub">马尔默取胜可能性（含客场爆冷）</div>
+      </div>
+      <div class="card">
+        <div class="label">Elo 基准评级</div>
+        <div class="value" style="color:#60a5fa;">1632 - 1599</div>
+        <div class="sub">盖斯略高 + 主场优势</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREDICTION REASONS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🧠</span> 预测原因</div>
+    <ul style="list-style:none;">
+      <li class="intel-item"><div class="dot green"></div> <span><b>评级 + 主场：</b>参考 Elo 盖斯 1632 略高于马尔默 1599，叠加瑞超主场优势约 +0.34 xG，盖斯 xG 更高（1.62 vs 0.97）。</span></li>
+      <li class="intel-item"><div class="dot green"></div> <span><b>主场强势：</b>盖斯主场 7 场不败、防守联赛上游，近 2 次主场对马尔默均 0-0 平局，阵地战极难被攻破。</span></li>
+      <li class="intel-item"><div class="dot yellow"></div> <span><b>马尔默重建不稳：</b>新帅 Helstrup 上任处于重建期，近 4 场联赛仅 1 胜；核心中卫 Pontus Jansson（ACL）长期缺阵削弱防线。</span></li>
+      <li class="intel-item"><div class="dot yellow"></div> <span><b>防守伤情对冲：</b>盖斯主力门将 Lind + 主力右后卫 Lindberg 缺阵，防线被迫轮换，双方 xG 均被压缩，比赛预计偏谨慎低比分。</span></li>
+      <li class="intel-item"><div class="dot gray"></div> <span><b>随机性：</b>两队实力接近（同约 20 分、净胜球 +4），单场偶然性高，任何方向都可能被个别事件改写。</span></li>
+    </ul>
+  </div>
+
+  <!-- DETAILED -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📊</span> 详细预测</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">比分分布 Top 5</div>
+          <div class="score-grid" style="margin-top:10px;">
+            <div class="score-card top"><div class="s">1-0</div><div class="pct">12.2%</div></div>
+            <div class="score-card"><div class="s">1-1</div><div class="pct">11.6%</div></div>
+            <div class="score-card"><div class="s">2-0</div><div class="pct">10.0%</div></div>
+            <div class="score-card"><div class="s">2-1</div><div class="pct">9.3%</div></div>
+            <div class="score-card"><div class="s">0-0</div><div class="pct">7.5%</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">模型关键输入</div>
+          <table style="margin-top:8px;">
+            <tr><td>盖斯 Elo 修正（伤停）</td><td>-16</td></tr>
+            <tr><td>马尔默 Elo 修正（伤停）</td><td>-15</td></tr>
+            <tr><td>近期状态修正</td><td>盖斯 胜-平-胜-负-平 ／ 马尔默 胜-胜-胜-平-负</td></tr>
+            <tr><td>马尔默欧战双线</td><td>-0.04 xG</td></tr>
+            <tr><td>战术对位</td><td>盖斯混合(收缩) vs 马尔默传控 · 谨慎节奏</td></tr>
+            <tr><td>战意</td><td>两队均正常（中游对话，无保级/争冠殊死压力）</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <span class="badge gray">模型说明</span>
+      <span style="font-size:0.8rem;color:#94a3b8;margin-left:8px;">模型已默认纳入单场随机性（泊松比分抽样 + 单场状态冲击 + 概率收缩），强队高概率不等于稳胜。</span>
+    </div>
+  </div>
+
+  <!-- INTELLIGENCE -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 赛前情报摘要</div>
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <div class="label">盖斯 GAIS · 主队</div>
+          <div class="form-dots">
+            <span class="form-dot w">胜</span><span class="form-dot d">平</span><span class="form-dot w">胜</span><span class="form-dot l">负</span><span class="form-dot d">平</span>
+          </div>
+          <div class="intel-item"><div class="dot red"></div> <span>缺主力门将 Lind、主力右后卫 Lindberg（3球4助）；Dankwa/Bawa/Petrovic 存疑；Lundgren(跟腱)/Holm(膝)/Hermansson 伤缺。</span></div>
+          <div class="intel-item"><div class="dot green"></div> <span>4-3-3，防守稳固、开赛阶段得分能力强；主场 7 场不败。</span></div>
+          <div class="intel-item"><div class="dot yellow"></div> <span>首回合客场 1-3 负马尔默，但近 3 次主场对马尔默不败、近 2 次 0-0。</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="label">马尔默 Malmö FF · 客队</div>
+          <div class="form-dots">
+            <span class="form-dot w">胜</span><span class="form-dot w">胜</span><span class="form-dot w">胜</span><span class="form-dot d">平</span><span class="form-dot l">负</span>
+          </div>
+          <div class="intel-item"><div class="dot red"></div> <span>核心中卫 Pontus Jansson（ACL）长期缺阵；Roar John(大腿)存疑；Christiansen(腿筋)接近复出但非首发。</span></div>
+          <div class="intel-item"><div class="dot yellow"></div> <span>新帅 Gaute Helstrup 上任重建期，近 4 场联赛仅 1 胜，状态起伏。</span></div>
+          <div class="intel-item"><div class="dot green"></div> <span>本赛季客场场场进球，4-3-3 传控；欧战双线有消耗（-0.04 xG）。</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <span class="badge gray">战术对位</span>
+      <span style="font-size:0.82rem;color:#cbd5e1;margin-left:8px;">盖斯主场收缩防守 + 快速转换（混合型） vs 马尔默控球压制 —— 参考 Elo 与主场优势让盖斯略占先手，但马尔默控球下机会仍不可低估。近期 Gamla Ullevi 交锋两连 0-0，本场预期节奏偏谨慎。</span>
+    </div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔀</span> 场景推演</div>
+    <div class="scenario primary"><b>① 主预测路径（盖斯 1-0 / 2-1）：</b>盖斯延续主场防守稳固 + 定位球或开局快攻先下一城，马尔默攻坚受阻、新帅体系磨合不足，盖斯守住胜果。</div>
+    <div class="scenario secondary"><b>② 低比分胶着（0-0 / 1-1）：</b>两队双双收缩、门将缺阵反而促使保守，延续近 2 次 Gamla Ullevi 交锋 0-0 的剧本；平局概率约 24.8%。</div>
+    <div class="scenario cold"><b>③ 马尔默客场爆冷（约 26.7%）：</b>马尔默控球压制成型、盖斯防线因门将/右后卫缺阵出现个体失误，客队凭一次高效反击或定位球带走三分。</div>
+  </div>
+
+  <!-- UNCERTAINTY -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚠️</span> 不确定性与模型边界</div>
+    <p style="font-size:0.85rem;color:#cbd5e1;">足球单场随机性极高。盖斯胜率 48.5% 只是略占上风，接近抛硬币级别的差距；马尔默仍有约四分之一概率赢球。单一事件（早进球、红牌、点球、关键球员轮换）都可能明显改变走向。本预测为概率分析，不构成投注建议或确定性判断。</p>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📎</span> 数据与情报来源</div>
+    <ul style="list-style:none;font-size:0.82rem;color:#cbd5e1;">
+      <li class="intel-item"><div class="dot gray"></div> <span>Aftonbladet 赛前首发/伤病报道（Malmö FF vs GAIS, “AC kan göra comeback mot Gais”）</span></li>
+      <li class="intel-item"><div class="dot gray"></div> <span>Scoresway / WorldSoccerData 对阵预览与球队数据（GAIS vs Malmö FF, 2026-08-16）</span></li>
+      <li class="intel-item"><div class="dot gray"></div> <span>Scoutingstats GAIS 战术风格与阵型统计（4-3-3）</span></li>
+      <li class="intel-item"><div class="dot gray"></div> <span>香港赛马会/7M 中文赛前分析（盖斯 vs 马尔默）</span></li>
+      <li class="intel-item"><div class="dot gray"></div> <span>本地快照：<code style="background:#0f1729;padding:1px 6px;border-radius:4px;">data/live/allsvenskan/results.json</code>（2026-08-16 更新）实时重算积分榜；Elo 来自 <code style="background:#0f1729;padding:1px 6px;border-radius:4px;">references/allsvenskan/teams.json</code></span></li>
+    </ul>
+    <p style="font-size:0.78rem;color:#64748b;margin-top:8px;">说明：本地过期 table.json（马尔默居首）与最新 results.json（两队均约20分、中游）存在数据冲突，本报告以最新 results.json 重算积分榜为准。伤停/首发信息以赛前报道为准，可能临场变动。</p>
+  </div>
+
+  <div class="footer-note">
+    理性模型预测（Elo → 泊松比分 → 概率收缩）· 娱乐分析用途 · 不构成投注建议<br>
+    报告生成时间：2026-08-16
+  </div>
+</div>
+</body>
+</html>
