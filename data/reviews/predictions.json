@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated_at": "2026-09-01T08:41:51"
+    "updated_at": "2026-09-01T12:41:55"
   },
   "predictions": [
     {
@@ -26604,6 +26604,227 @@
         "赛前情报：降级后快速反弹的标杆，2胜1平不败积7分排第2；攻击力全联赛最强（3轮9球，场均3球），斯特兰德·拉森状态火热；若昂·戈麦斯坐镇中场控制力碾压英冠多数球队；隐患是防线也丢4球，客场作战但从无包袱"
       ],
       "_id": "championship|WHU|WOL|2026-09-01"
+    },
+    {
+      "date": "2026-09-01",
+      "created_at": "2026-09-01T12:41:55",
+      "league": "championship",
+      "league_name_cn": "英格兰足球冠军联赛",
+      "home": "POR",
+      "away": "DER",
+      "home_cn": "朴茨茅斯",
+      "away_cn": "德比郡",
+      "prediction": {
+        "la": 1.319,
+        "lb": 1.426,
+        "pw": 0.3373,
+        "pd": 0.2922,
+        "pl": 0.3704,
+        "direction": "away",
+        "direction_text": "德比郡占优",
+        "main_score": [
+          0,
+          1
+        ],
+        "main_prob": 0.0916,
+        "modal_score": [
+          1,
+          1
+        ],
+        "modal_prob": 0.1166,
+        "score_top5": [
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.1166
+          },
+          {
+            "score": [
+              0,
+              1
+            ],
+            "prob": 0.0916
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.0847
+          },
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0829
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0772
+          }
+        ],
+        "labels": [
+          "副班长殊死战(客队死守反击)",
+          "朴茨茅斯状态低迷(-0.04)",
+          "德比郡状态低迷(-0.08)",
+          "小球进球低估上调",
+          "押客队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "POR": 1410,
+          "DER": 1400
+        },
+        "elo_delta": {
+          "POR": 0.0,
+          "DER": 0.0
+        },
+        "form_delta": {
+          "POR": -0.040699708454810496,
+          "DER": -0.08034985422740525
+        },
+        "confidence": 1.0,
+        "goal_delta": {
+          "POR": -0.03333333333333334,
+          "DER": -0.1
+        },
+        "goal_boost": {
+          "POR": 0.0,
+          "DER": 0.0
+        },
+        "context_openness": {
+          "POR": 0.0,
+          "DER": 0.0
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "hybrid",
+          "style_b": "hybrid",
+          "matchup": "",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {}
+        },
+        "shock_mult": 1.4,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "match": {
+          "home": "POR",
+          "away": "DER",
+          "date": "2026-09-01",
+          "venue": "Fratton Park, Portsmouth",
+          "turf": "natural",
+          "time": "18:45 UTC (02:45 北京时间)"
+        },
+        "context": "英冠第4轮，朴茨茅斯主场迎战德比郡。两队均开局不顺（POR 17th 3分，DER 21st 1分），保级区提前对话。德比郡防线崩溃（3轮失7球联赛最差），但交锋心理绝对占优（近4战2胜2平不失）。朴茨茅斯主场首轮遭QPR 3-1痛击，主场优势存疑。",
+        "teams": {
+          "POR": {
+            "code": "POR",
+            "name_cn": "朴茨茅斯",
+            "form": "负-胜-负",
+            "position": 17,
+            "points": 3,
+            "played": 3,
+            "goals_for": 5,
+            "goals_against": 6,
+            "elo_delta": 0,
+            "confidence": 0.7,
+            "notes": "庞贝军团开局3轮3分(1胜2负)，客场3-1胜林肯但主场0-1负QPR暴露防守问题；交锋心理处下风(近4战0胜2平2负)",
+            "key_players": [],
+            "injuries": []
+          },
+          "DER": {
+            "code": "DER",
+            "name_cn": "德比郡",
+            "form": "负-平-负",
+            "position": 21,
+            "points": 1,
+            "played": 3,
+            "goals_for": 3,
+            "goals_against": 7,
+            "elo_delta": 0,
+            "confidence": 0.65,
+            "notes": "公羊开局惨淡仅1分(0胜1平2负)，防线失7球联赛最差；但交锋心理绝对占优(近4战2胜2平不失，上赛季客场1-0赢本场对手)",
+            "key_players": [],
+            "injuries": []
+          }
+        },
+        "h2h": {
+          "total_matches": "近4战 POR 0胜2平2负，进球3失8",
+          "this_season_note": "本赛季首回合尚未交手",
+          "before_that": "上赛季（2026年3月）朴茨茅斯主场0-1负于德比郡",
+          "notes": "德比郡对朴茨茅斯完全克制，上赛季两次交手1胜1平不败且仅失1球"
+        },
+        "factors": [],
+        "matches": [
+          {
+            "teams": [
+              "POR",
+              "DER"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "POR": -0.03333333333333334,
+              "DER": -0.1
+            },
+            "elo_delta": {
+              "POR": 0.0,
+              "DER": 0.0
+            },
+            "form_delta": {
+              "POR": -0.03333333333333334,
+              "DER": -0.1
+            },
+            "factors": [
+              "POR 近期状态: 负-胜-负",
+              "DER 近期状态: 负-平-负",
+              "历史交锋: 胜平负明细缺失，使用保守估计"
+            ],
+            "notes": [
+              "POR 状态修正: -0.03",
+              "DER 状态修正: -0.10",
+              "历史交锋: 明细缺失，影响减小",
+              "综合影响: POR -0.033, DER -0.100",
+              "进球修正: POR -0.033, DER -0.100",
+              "庞贝军团开局3轮3分(1胜2负)，客场3-1胜林肯但主场0-1负QPR暴露防守问题；交锋心理处下风(近4战0胜2平2负)",
+              "公羊开局惨淡仅1分(0胜1平2负)，防线失7球联赛最差；但交锋心理绝对占优(近4战2胜2平不失，上赛季客场1-0赢本场对手)"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        "POR 近期状态: 负-胜-负",
+        "DER 近期状态: 负-平-负",
+        "历史交锋: 胜平负明细缺失，使用保守估计"
+      ],
+      "notes": [
+        "POR 状态修正: -0.03",
+        "DER 状态修正: -0.10",
+        "历史交锋: 明细缺失，影响减小",
+        "综合影响: POR -0.033, DER -0.100",
+        "进球修正: POR -0.033, DER -0.100",
+        "庞贝军团开局3轮3分(1胜2负)，客场3-1胜林肯但主场0-1负QPR暴露防守问题；交锋心理处下风(近4战0胜2平2负)",
+        "公羊开局惨淡仅1分(0胜1平2负)，防线失7球联赛最差；但交锋心理绝对占优(近4战2胜2平不失，上赛季客场1-0赢本场对手)"
+      ],
+      "_id": "championship|POR|DER|2026-09-01"
     }
   ],
   "entries": []
