@@ -123,7 +123,8 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 |------|------|
 | `style_a` / `style_b` | 主 / 客队风格枚举：`high_press` / `possession` / `counter_attack` / `direct` / `defensive_deep` / `physical` / `hybrid` |
 | `matchup` | 克制关系简述 |
-| `expected_pattern` | `open`(+0.20 双方) / `cautious`(-0.15 双方) / `balanced` |
+| `expected_pattern` | `open` / `cautious` / `balanced`；`open` 还必须通过下方准入门槛 |
+| `open_eligibility` | 仅 `open` 必填：双方 `attack_ready`、双方 `transition_threat`、双方 `no_key_attacking_absences` 均为 `true`，且 `first_leg_or_opener_cautious` 为 `false`；任一缺失即自动降为 `balanced` |
 | `ineffective_possession` | 传控队面对大巴/反击的无效控球惩罚 |
 | `physical_mismatch` | -2~2 身体对抗差异 |
 | `derby_boost` | 德比/特殊战意 |
@@ -138,6 +139,118 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `factors[]` / `notes[]` | 展示用情报（仅影响输出文案，不影响模型） |
 
 完整战术字段 Schema 与量化规则见 `references/intelligence.md`。
+
+---
+
+## ⚠️ 2026-09-02 复盘教训（三项改进，已固化）
+
+### 教训1：伤停权重大幅上调
+
+**案例**：米尔沃尔7人伤停（3前锋+后卫+中场+2停赛），模型仅扣-14 Elo，实际0-3惨败。
+
+**改进规则**（写入 `model_overrides.json` → `INJURY_ELO_SCALING`）：
+
+| 伤停人数 | Elo扣分 | 说明 |
+|---------|---------|------|
+| **≥7人** | **-40** | 防线崩盘+替补真空，灾难级 |
+| 5-6人 | -30 | 严重影响轮换深度 |
+| 3-4人 | -20 | 中等影响 |
+| 核心伤缺 | 额外-15 | 叠加在角色扣分之上 |
+
+**驱动模式操作**：`compute_elo_delta` 现在的 `scale_multiplier=2.0`，`cap=-60`。7人伤停应传：
+```python
+compute_elo_delta([
+    {"role": "star", "count": 1},      # 核心 -25×2=-50
+    {"role": "starter", "count": 2},   # 首发 -10×2=-20
+    {"role": "rotation", "count": 2},  # 轮换 -5×2=-10
+])
+# 实际返回约-38~-40（递减后）
+```
+
+### 教训2：升班马/弱队客场韧性加成
+
+**案例**：雷克瑟姆（升班马，第22名）客场3-0大胜米尔沃尔，3-4-2-1大巴阵型成功防守反击。
+
+**改进规则**（写入 `model_overrides.json` → `PROMOTED_AWAY_RESILIENCE`）：
+
+- **触发条件**：升班马 AND 客场
+- **防守加成**：+0.08 xG（防守端）
+- **反击加成**：+0.05 xG（进攻端）
+- **低 block 阵型额外加成**：+0.06 xG（若阵型为3-4-2-1/5-4-1/5-3-2/4-5-1）
+
+**驱动模式操作**：
+```python
+"tactical": {
+    "style_b": "defensive_deep",  # 升班马客场大概率摆大巴
+    "matchup": "XX vs 大巴 — 升班马3中卫低 block 防守",
+    "expected_pattern": "cautious",  # 客场保守
+}
+# 模型会自动应用大巴克制矩阵 + 防守加成
+```
+
+### 教训3：盘口降盘信号必须重视
+
+**案例**：米尔沃尔盘口从-0.5降至-0.25，市场早就看到米尔沃尔的问题（7人伤停+上轮1-5惨败），模型未充分采信。
+
+**改进规则**（写入 `model_overrides.json` → `MARKET_LINE_SIGNAL`）：
+
+- **触发条件**：盘口降≥0.25球
+- **平局概率**：+5%
+- **热门方向概率**：-5%
+
+**驱动模式操作**：
+```python
+# 当发现盘口从初盘到即时降了≥0.25球时：
+# 1. 在factors[]中标注："⚠️ 盘口降盘预警：从X降至Y"
+# 2. 在intelligence中手动调整：
+intelligence["matches"][0]["context_openness"] = {"MIL": 0.10, "WRE": 0.05}
+# 增加不确定性/平局倾向
+```
+
+**盘口信号判断标准**：
+| 降盘幅度 | 信号强度 | 操作 |
+|---------|---------|------|
+| 降0.25球 | 🟡 轻微 | 平局+3% |
+| 降0.5球 | 🟠 中等 | 平局+5%，热门-5% |
+| 降0.75球+ | 🔴 强烈 | 平局+8%，热门-8%，考虑反向 |
+
+### 教训4：开放局的大比分尾部偏轻
+
+**案例**：`expected_pattern = open` 的比赛里，模型对 3球以上和双方进球的尾部分布偏保守，容易低估 2-2、3-2、2-3、3-3、4-2、2-4 这类高比分。
+
+**改进规则**（写入 `model_overrides.json` → `OPEN_MATCH_TAIL_BOOST`）：
+
+- **触发条件**：`expected_pattern == open`
+- **尾部进球加成**：+0.06 xG
+- **高比分乘数**：`1.15`
+- **很高比分乘数**：`1.25`
+- **优先抬升比分**：`2-2/3-2/2-3/3-3/4-2/2-4`
+
+**驱动模式操作**：
+```python
+# open型比赛里：
+intelligence["matches"][0]["tactical"]["expected_pattern"] = "open"
+# 若双方都能进球且强弱差明显，需额外抬升高比分尾部
+# factors[]里明确写："开放局，高比分尾部上修"
+```
+
+### 教训5：客强队平局保护要加重
+
+**案例**：客队Elo更高，但若同时存在伤停多、连续客场、盘口降盘、对手主场战意强，平局往往被低估。
+
+**改进规则**（写入 `model_overrides.json` → `AWAY_FAVORITE_DRAW_PROTECTION`）：
+
+- **触发条件**：客队为热门且同时满足多重风险
+- **平局概率**：+5%
+- **热门方向概率**：-4%
+- **触发参考**：伤停≥4、连续客场≥2、盘口降≥0.25、对手主场战意高涨
+
+**驱动模式操作**：
+```python
+# 客强队但风险叠加时：
+intelligence["matches"][0]["context_openness"] = {"HOME": 0.05, "AWAY": 0.05}
+# 并在factors[]标注："客强队平局保护上调"
+```
 
 ---
 

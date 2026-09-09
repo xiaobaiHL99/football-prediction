@@ -136,8 +136,29 @@ def _score_probs_to_outcomes(score_probs: list) -> tuple:
     return pw, pd, pl
 
 
+def qualify_open_match(tactical: dict) -> tuple:
+    """Require explicit pre-match evidence before treating a fixture as open."""
+    if tactical.get("expected_pattern") != "open":
+        return tactical, []
+
+    evidence = tactical.get("open_eligibility", {}) or {}
+    checks = (
+        ("双方攻击完整", evidence.get("attack_ready", {}).get("a") is True and evidence.get("attack_ready", {}).get("b") is True),
+        ("双方转换威胁有效", evidence.get("transition_threat", {}).get("a") is True and evidence.get("transition_threat", {}).get("b") is True),
+        ("无关键攻击伤停", evidence.get("no_key_attacking_absences", {}).get("a") is True and evidence.get("no_key_attacking_absences", {}).get("b") is True),
+        ("无首轮或首回合试探", evidence.get("first_leg_or_opener_cautious") is False),
+    )
+    failed = [label for label, passed in checks if not passed]
+    if not failed:
+        return tactical, ["开放局准入通过"]
+
+    downgraded = dict(tactical)
+    downgraded["expected_pattern"] = "balanced"
+    return downgraded, [f"开放局降级为均衡局({ '、'.join(failed) })"]
+
+
 def apply_open_match_tail(score_probs: list, tactical: dict) -> tuple:
-    """Lift high-scoring scorelines only for explicitly open matchups."""
+    """Lift high-scoring scorelines only for an evidence-qualified open matchup."""
     rule = _global_rule("OPEN_MATCH_TAIL_BOOST")
     if not rule.get("enabled") or tactical.get("expected_pattern") != "open":
         return score_probs, []
@@ -701,6 +722,7 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
                 pass
     extra_labels.extend(familiarity_labels)
     extra_labels.extend(tactical_labels)
+    extra_labels.extend(intel.get("pattern_labels", []))
 
     # 检查是否有锁定结果
     locked_key = frozenset((a, b))
@@ -1058,7 +1080,9 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
             "physical_mismatch": tactical_raw.get("physical_mismatch", 0),
             "derby_boost": tactical_raw.get("derby_boost", False),
             "fighting_spirit": tactical_raw.get("fighting_spirit", {}) or {},
+            "open_eligibility": tactical_raw.get("open_eligibility", {}) or {},
         }
+        tactical_matchup, pattern_labels = qualify_open_match(tactical_matchup)
 
         # 解析 context_openness
         raw_openness = item.get("context_openness", {})
@@ -1078,6 +1102,7 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
             "form_delta": form_delta,
             "tactical_adjust": tactical_adjust,
             "tactical_matchup": tactical_matchup,
+            "pattern_labels": pattern_labels,
             # 轮换风险：从顶层next_match字段读取（2026-09-09新增）
             "next_match": intelligence.get("next_match", {})
         }
