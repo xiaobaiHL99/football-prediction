@@ -182,6 +182,41 @@ def apply_open_match_tail(score_probs: list, tactical: dict) -> tuple:
     return normalized, [f"开放局高比分尾部({high_mult:.2f}x/双方进球{btts_high_mult:.2f}x)"]
 
 
+def apply_defensive_absence_scoring_floor(la: float, lb: float, teams: dict,
+                                         a: str, b: str, tactical: dict) -> tuple:
+    """Keep a viable underdog attack above a conservative xG floor.
+
+    The rule only operates on explicit pre-match defensive-absence counts; it
+    never infers availability from narrative notes.
+    """
+    rule = _global_rule("DEFENSIVE_ABSENCE_SCORING_FLOOR")
+    if not rule.get("enabled"):
+        return la, lb, []
+
+    elo_a = teams[a].get("elo", 1500)
+    elo_b = teams[b].get("elo", 1500)
+    if elo_a == elo_b:
+        return la, lb, []
+    favorite, underdog = (a, b) if elo_a > elo_b else (b, a)
+    favorite_side = "a" if favorite == a else "b"
+    underdog_side = "a" if underdog == a else "b"
+    defensive_absences = tactical.get("defensive_absences", {}) or {}
+    absence_count = as_float(defensive_absences.get(favorite_side), 0)
+    underdog_style = tactical.get(f"style_{underdog_side}", "hybrid")
+    eligible_styles = set(rule.get("eligible_styles", []))
+    if absence_count < as_float(rule.get("min_defensive_absences"), float("inf")):
+        return la, lb, []
+    if underdog_style not in eligible_styles:
+        return la, lb, []
+
+    floor = as_float(rule.get("underdog_xg_floor"), 0.0)
+    if underdog == a and la < floor:
+        return floor, lb, [f"{cn(teams, a)}对手防线缺{absence_count:.0f}人，进球底线{floor:.2f}"]
+    if underdog == b and lb < floor:
+        return la, floor, [f"{cn(teams, b)}对手防线缺{absence_count:.0f}人，进球底线{floor:.2f}"]
+    return la, lb, []
+
+
 def apply_away_favorite_draw_protection(pw: float, pd: float, pl: float,
                                          teams: dict, a: str, b: str,
                                          intel: dict, tactical: dict) -> tuple:
@@ -769,6 +804,10 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             "pred_goals": la + lb,
             "elo_gap": abs(teams[a].get("elo", 1500) - teams[b].get("elo", 1500)),
         })
+        la, lb, defensive_floor_labels = apply_defensive_absence_scoring_floor(
+            la, lb, teams, a, b, tactical_matchup
+        )
+        xg_labels.extend(defensive_floor_labels)
         open_rule = _global_rule("OPEN_MATCH_TAIL_BOOST")
         if open_rule.get("enabled") and tactical_matchup.get("expected_pattern") == "open":
             tail_goal_boost = as_float(open_rule.get("tail_goal_boost"), 0.0)
@@ -1080,6 +1119,7 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
             "physical_mismatch": tactical_raw.get("physical_mismatch", 0),
             "derby_boost": tactical_raw.get("derby_boost", False),
             "fighting_spirit": tactical_raw.get("fighting_spirit", {}) or {},
+            "defensive_absences": tactical_raw.get("defensive_absences", {}) or {},
             "open_eligibility": tactical_raw.get("open_eligibility", {}) or {},
         }
         tactical_matchup, pattern_labels = qualify_open_match(tactical_matchup)

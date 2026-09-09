@@ -80,6 +80,14 @@
       "favorite_penalty": -0.04,
       "apply_when": "away_favorite_and_multi_risk",
       "note": "客队即使Elo占优，只要伤停多/连续客场/降盘/对手主场战意强同时存在，就提高平局保护"
+    },
+    "DEFENSIVE_ABSENCE_SCORING_FLOOR": {
+      "description": "强队防线多人缺阵时，具备传控或反击出口的弱势方不应被近期低迷压到不合理低xG。",
+      "enabled": true,
+      "min_defensive_absences": 3,
+      "underdog_xg_floor": 0.85,
+      "eligible_styles": ["counter_attack", "possession", "direct"],
+      "note": "仅在赛前情报显式标注热门方defensive_absences且弱势方战术风格符合时触发；不是胜率加成。"
     }
   }
 }
