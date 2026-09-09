@@ -51,6 +51,7 @@ from league_data import (
     MEETING_FAMILIARITY_THRESHOLD,
     FAMILIARITY_UNDERDOG_BOOST,
     FAMILIARITY_FAVORITE_PENALTY,
+    load_global_rules,
 )
 
 # 导入增强版情报处理模块
@@ -115,6 +116,85 @@ def _sample(lam):
         p *= random.random()
         if p <= L:
             return k - 1
+
+
+def _global_rule(name: str) -> dict:
+    """Return one optional global rule without breaking older snapshots."""
+    return load_global_rules().get(name, {})
+
+
+def _score_probs_to_outcomes(score_probs: list) -> tuple:
+    """Rebuild 1X2 probabilities after scoreline-level calibration."""
+    pw = pd = pl = 0.0
+    for (home_goals, away_goals), prob in score_probs:
+        if home_goals > away_goals:
+            pw += prob
+        elif home_goals == away_goals:
+            pd += prob
+        else:
+            pl += prob
+    return pw, pd, pl
+
+
+def apply_open_match_tail(score_probs: list, tactical: dict) -> tuple:
+    """Lift high-scoring scorelines only for explicitly open matchups."""
+    rule = _global_rule("OPEN_MATCH_TAIL_BOOST")
+    if not rule.get("enabled") or tactical.get("expected_pattern") != "open":
+        return score_probs, []
+
+    high_mult = as_float(rule.get("high_score_multiplier"), 1.0)
+    btts_high_mult = as_float(rule.get("very_high_score_multiplier"), high_mult)
+    adjusted = []
+    for (home_goals, away_goals), prob in score_probs:
+        multiplier = 1.0
+        if home_goals + away_goals >= 3:
+            multiplier *= high_mult
+        if home_goals >= 2 and away_goals >= 2:
+            multiplier *= btts_high_mult
+        adjusted.append(((home_goals, away_goals), prob * multiplier))
+
+    total = sum(prob for _, prob in adjusted)
+    if total <= 0:
+        return score_probs, []
+    normalized = [(score, prob / total) for score, prob in adjusted]
+    normalized.sort(key=lambda item: -item[1])
+    return normalized, [f"开放局高比分尾部({high_mult:.2f}x/双方进球{btts_high_mult:.2f}x)"]
+
+
+def apply_away_favorite_draw_protection(pw: float, pd: float, pl: float,
+                                         teams: dict, a: str, b: str,
+                                         intel: dict, tactical: dict) -> tuple:
+    """Protect the draw when an away favorite carries at least two risks."""
+    rule = _global_rule("AWAY_FAVORITE_DRAW_PROTECTION")
+    if not rule.get("enabled") or teams[b].get("elo", 1500) <= teams[a].get("elo", 1500):
+        return pw, pd, pl, []
+
+    away_intel = (intel.get("teams", {}) or {}).get(b, {})
+    away_intel = away_intel if isinstance(away_intel, dict) else {}
+    match_risks = intel.get("away_favorite_risks", {}) or {}
+    injuries = away_intel.get("injury_count", match_risks.get("injuries", 0))
+    away_streak = away_intel.get("away_streak", match_risks.get("away_streak", 0))
+    line_drop = match_risks.get("line_drop", 0.0)
+    home_spirit = (tactical.get("fighting_spirit", {}) or {}).get("a", {})
+    home_level = home_spirit.get("level", "normal") if isinstance(home_spirit, dict) else home_spirit
+    triggers = rule.get("triggers", {})
+    risks = sum((
+        as_float(injuries) >= as_float(triggers.get("injuries"), float("inf")),
+        as_float(away_streak) >= as_float(triggers.get("away_streak"), float("inf")),
+        as_float(line_drop) >= as_float(triggers.get("line_drop"), float("inf")),
+        bool(triggers.get("opponent_high_spirit")) and home_level in ("high", "desperate"),
+    ))
+    if risks < 2:
+        return pw, pd, pl, []
+
+    draw_boost = as_float(rule.get("draw_boost"), 0.0)
+    favorite_penalty = abs(as_float(rule.get("favorite_penalty"), 0.0))
+    transfer = min(draw_boost, favorite_penalty, pl)
+    if transfer <= 0:
+        return pw, pd, pl, []
+    pl -= transfer
+    pd += transfer
+    return pw, pd, pl, [f"客强队多重风险防平({risks}项)"]
 
 
 # ================================================================
@@ -211,8 +291,11 @@ def apply_special_factors(teams: dict, a: str, b: str, league: str, league_conte
             delta_a += factors["artificial_turf_penalty"]["value"]
 
     # ---- 欧战消耗 ----
+    # 当比赛本身就是欧战时跳过（欧战分心只适用于国内联赛）
+    EURO_COMPETITIONS = {"champions_league", "europa_league"}
+    is_euro_match = league in EURO_COMPETITIONS if league else False
     euro_key = next((k for k in factors if "europe" in k.lower() and "distraction" in k.lower()), None)
-    if euro_key:
+    if euro_key and not is_euro_match:
         europe_teams = set(league_context.get("europe_teams", []))
         euro_val = as_float(factors[euro_key].get("value", -0.08))
         if a in europe_teams:
@@ -564,7 +647,9 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
         elo_delta_a=elo_delta.get(a, 0.0),
         elo_delta_b=elo_delta.get(b, 0.0),
         table=normalized_table,
-        league_context=league_context
+        league_context=league_context,
+        intel=intel,
+        league=league
     )
     # 中立场：取消主场优势（修复 --neutral 原为无效参数的问题）
     if neutral:
@@ -662,12 +747,62 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             "pred_goals": la + lb,
             "elo_gap": abs(teams[a].get("elo", 1500) - teams[b].get("elo", 1500)),
         })
+        open_rule = _global_rule("OPEN_MATCH_TAIL_BOOST")
+        if open_rule.get("enabled") and tactical_matchup.get("expected_pattern") == "open":
+            tail_goal_boost = as_float(open_rule.get("tail_goal_boost"), 0.0)
+            la += tail_goal_boost
+            lb += tail_goal_boost
+            xg_labels.append(f"开放局总xG+{tail_goal_boost * 2:.2f}")
         pw, pd, pl, all_scores = outcome_probs(
             la, lb, config.get("shock_sd", 0.28),
             avg_elo=(teams[a].get("elo", 1500) + teams[b].get("elo", 1500)) / 2,
             shock_mult=match_ctx["shock_multiplier"],
             weak_threshold=config.get("weak_elo_threshold")
         )
+        all_scores, tail_labels = apply_open_match_tail(all_scores, tactical_matchup)
+        pw, pd, pl = _score_probs_to_outcomes(all_scores)
+        xg_labels.extend(tail_labels)
+
+        # 欧战分心平局概率上调（2026-09-03复盘改进）
+        # 当双方都有欧战分心时，平局概率上调5-8%
+        draw_boost = match_ctx.get("draw_boost", 0.0)
+        if draw_boost > 0:
+            # 从胜/负方向各扣一部分给平局
+            reduction = draw_boost / 2
+            if pw > reduction and pl > reduction:
+                pw -= reduction
+                pl -= reduction
+                pd += draw_boost
+                # 重新归一化（虽然概率总和应该仍是1，但浮点误差可能导致微小偏差）
+                total = pw + pd + pl
+                if abs(total - 1.0) > 0.001:
+                    pw /= total
+                    pd /= total
+                    pl /= total
+
+        # 冷门预警处理（2026-09-04复盘改进）
+        # 当往绩+状态+伤停三重因素叠加时，热门胜率下调
+        upset_warning = match_ctx.get("upset_warning", False)
+        upset_penalty = match_ctx.get("upset_penalty", 0.0)
+        if upset_warning and upset_penalty != 0:
+            # 从胜率最高的一方扣减，分配给平局和另一方
+            if pw > pl:  # 主队是热门
+                pw += upset_penalty  # upset_penalty是负值
+                distribution = -upset_penalty / 2
+                pd += distribution * 0.6
+                pl += distribution * 0.4
+            elif pl > pw:  # 客队是热门
+                pl += upset_penalty
+                distribution = -upset_penalty / 2
+                pd += distribution * 0.6
+                pw += distribution * 0.4
+            # 归一化
+            total = pw + pd + pl
+            if abs(total - 1.0) > 0.001:
+                pw /= total
+                pd /= total
+                pl /= total
+
         pw, pd, pl = apply_probability_shrink(pw, pd, pl, league, shrink_override)
         # 校准规则（概率层：方向偏误收缩）
         pw, pd, pl, prob_labels = apply_rule_prob(pw, pd, pl, {
@@ -675,6 +810,10 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             "pred_goals": la + lb,
             "elo_gap": abs(teams[a].get("elo", 1500) - teams[b].get("elo", 1500)),
         })
+        pw, pd, pl, away_draw_labels = apply_away_favorite_draw_protection(
+            pw, pd, pl, teams, a, b, intel, tactical_matchup
+        )
+        prob_labels.extend(away_draw_labels)
 
     direction = outcome_direction(pw, pd, pl)
     main_score, main_prob = directional_score(all_scores, direction)
@@ -938,7 +1077,9 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
             "elo_delta": {a: 0.0, b: 0.0},
             "form_delta": form_delta,
             "tactical_adjust": tactical_adjust,
-            "tactical_matchup": tactical_matchup
+            "tactical_matchup": tactical_matchup,
+            # 轮换风险：从顶层next_match字段读取（2026-09-09新增）
+            "next_match": intelligence.get("next_match", {})
         }
         break
 
@@ -1309,7 +1450,7 @@ def main():
     p.add_argument("cmd", choices=["match", "table", "title", "relegation", "europe", "simulate"])
     p.add_argument("target", nargs="?", help="球队名/联赛名")
     p.add_argument("opponent", nargs="?", help="对手名 (仅match)")
-    p.add_argument("--league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "championship", "ligue1", "seriea", "bundesliga"],
+    p.add_argument("--league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "championship", "ligue1", "seriea", "bundesliga", "saudi_pro_league"],
                    required=True, help="联赛")
     p.add_argument("--sims", type=int, default=10000, help="模拟次数")
     p.add_argument("--seed", type=int, default=None, help="随机种子")

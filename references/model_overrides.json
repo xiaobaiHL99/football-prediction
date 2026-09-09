@@ -2,5 +2,84 @@
   "overrides": {
     "SPIRIT_XG_STEP": 0.2,
     "FORM_XG_MAX": 0.12
+  },
+  "global_rules": {
+    "INEFFECTIVE_POSSESSION_THRESHOLD": {
+      "possession_pct": 55,
+      "shots_on_target_avg": 4,
+      "xg_penalty_range": [-0.15, -0.35],
+      "description": "控球率>55%且场均射正<4次时触发无效控球惩罚（所有联赛适用）"
+    },
+    "INEFFECTIVE_POSSESSION_HIGH_SEVERITY": {
+      "possession_pct": 60,
+      "shots_on_target_avg": 3,
+      "xg_penalty_range": [-0.25, -0.35],
+      "description": "控球率>60%且场均射正<3次时触发高强度无效控球惩罚（所有联赛适用）"
+    },
+    "RELEGATED_DERBY_BOOST": {
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决进球加成（所有有降级制度的联赛适用）"
+    },
+    "CLOSE_MATCH_DRAW_BOOST": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)平局加成（所有联赛适用）"
+    },
+    "INJURY_ELO_SCALING": {
+      "description": "2026-09-02复盘教训：米尔沃尔7人伤停仅扣-14 Elo，实际0-3惨败。大幅上调伤停权重。",
+      "scale_multiplier": 2.0,
+      "cap_multiplier": 1.5,
+      "new_cap": -60,
+      "rules": {
+        "7_plus_injuries": {"elo_delta": -40, "note": "7人及以上伤停：防线崩盘+替补真空，直接扣-40"},
+        "5_to_6_injuries": {"elo_delta": -30, "note": "5-6人伤停：严重影响轮换深度"},
+        "3_to_4_injuries": {"elo_delta": -20, "note": "3-4人伤停：中等影响"},
+        "star_injury_boost": {"elo_delta": -15, "note": "核心球员伤缺额外-15（叠加在角色扣分之上）"}
+      }
+    },
+    "PROMOTED_AWAY_RESILIENCE": {
+      "description": "2026-09-02复盘教训：升班马雷克瑟姆客场3-0大胜，3-4-2-1大巴阵型有效。升班马客场韧性被系统性低估。",
+      "enabled": true,
+      "trigger": "promoted_team AND away_match",
+      "defensive_bonus": 0.08,
+      "counter_attack_bonus": 0.05,
+      "low_block_formation": ["3-4-2-1", "5-4-1", "5-3-2", "4-5-1"],
+      "formation_bonus": 0.06,
+      "note": "升班马客场摆大巴时，防守加成+反击加成；若阵型为低-block(3中卫/5后卫)，额外加成"
+    },
+    "MARKET_LINE_SIGNAL": {
+      "description": "2026-09-02复盘教训：米尔沃尔盘口从-0.5降至-0.25，市场早就看到问题。降盘是重要预警信号。",
+      "enabled": true,
+      "downgrade_threshold": 0.25,
+      "downgrade_action": "increase_draw_boost",
+      "downgrade_draw_boost": 0.05,
+      "downgrade_favorite_penalty": -0.05,
+      "note": "当盘口降≥0.25球时：平局概率+5%，热门方向概率-5%。市场降盘=预警信号"
+    },
+    "OPEN_MATCH_TAIL_BOOST": {
+      "description": "2026-09-07复盘教训：open型比赛的大比分尾部偏轻，强弱差且双方都能进球时应上修高比分尾部。",
+      "enabled": true,
+      "trigger_pattern": "expected_pattern == open",
+      "tail_goal_boost": 0.06,
+      "high_score_multiplier": 1.15,
+      "very_high_score_multiplier": 1.25,
+      "score_focus": "2-2/3-2/2-3/3-3/4-2/2-4",
+      "note": "开放局在强弱差明显且双方都具备破门能力时，提升3球以上和双方进球比分权重"
+    },
+    "AWAY_FAVORITE_DRAW_PROTECTION": {
+      "description": "2026-09-07复盘教训：客强队在伤停多、连续客场、盘口降盘、对手主场战意强时，平局概率应再抬升。",
+      "enabled": true,
+      "triggers": {
+        "injuries": 4,
+        "away_streak": 2,
+        "line_drop": 0.25,
+        "opponent_high_spirit": true
+      },
+      "draw_boost": 0.05,
+      "favorite_penalty": -0.04,
+      "apply_when": "away_favorite_and_multi_risk",
+      "note": "客队即使Elo占优，只要伤停多/连续客场/降盘/对手主场战意强同时存在，就提高平局保护"
+    }
   }
 }

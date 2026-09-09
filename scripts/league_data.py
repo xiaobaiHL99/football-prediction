@@ -98,8 +98,8 @@ def load_results_data(league: str) -> dict:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 
-def load_model_overrides() -> dict:
-    """加载全局模型因子覆盖（自动调参写回）。返回 {"常量名": 数值}，无则空 dict。"""
+def _load_model_override_data() -> dict:
+    """Load the shared overrides document without forcing callers to parse JSON."""
     path = os.path.join(BASE, "references", "model_overrides.json")
     if not os.path.exists(path):
         return {}
@@ -108,7 +108,17 @@ def load_model_overrides() -> dict:
             data = json.load(f)
     except (json.JSONDecodeError, OSError):
         return {}
-    return data.get("overrides", {}) if isinstance(data, dict) else {}
+    return data if isinstance(data, dict) else {}
+
+
+def load_model_overrides() -> dict:
+    """Load numeric constant overrides used by this module."""
+    return _load_model_override_data().get("overrides", {})
+
+
+def load_global_rules() -> dict:
+    """Load structured, optional global calibration rules."""
+    return _load_model_override_data().get("global_rules", {})
 
 def resolve_team(teams: dict, key: str) -> str:
     """解析球队名称 → 代码"""
@@ -130,14 +140,16 @@ def cn(teams: dict, code: str) -> str:
 # 球员缺席 → Elo 修正的冲击系数
 # 采用递减原则：多人缺席时边际影响递减
 # v2: 系数下调，避免一两个伤员拉平整队实力差距
+# v3: 添加主帅停赛角色（2026-09-03复盘改进）
 ABSENT_IMPACT = {
     "star": 18.0,
     "goalkeeper_star": 15.0,
     "starter": 7.0,
     "rotation": 2.0,
+    "manager": 12.0,  # 主帅停赛：临场指挥受限，战术调整能力下降
 }
 ABSENT_DIMINISHING = 0.85  # 每多一种类别乘一次
-ABSENT_MAX_TOTAL = 40.0   # 单队伤病总扣分上限（避免极端情况）
+ABSENT_MAX_TOTAL = 45.0   # 单队伤病总扣分上限（避免极端情况，含主帅停赛）
 
 
 def compute_elo_delta(absent_players: list, full_squad: bool = True) -> float:
@@ -148,7 +160,7 @@ def compute_elo_delta(absent_players: list, full_squad: bool = True) -> float:
     ----------
     absent_players : list of dict
         每项描述一类缺席球员：
-        {"role": "star"|"starter"|"rotation"|"goalkeeper_star", "count": int}
+        {"role": "star"|"starter"|"rotation"|"goalkeeper_star"|"manager", "count": int}
     full_squad : bool
         若 True 且 absent_players 为空 → 0.0（无调整）。
         若 False 且 absent_players 为空 → +5（对手有缺阵，本队受益）。
@@ -165,6 +177,8 @@ def compute_elo_delta(absent_players: list, full_squad: bool = True) -> float:
     ...     {"role": "starter", "count": 2}
     ... ])
     -38.25
+    >>> compute_elo_delta([{"role": "manager", "count": 1}])
+    -12.0
     """
     if not absent_players:
         return 5.0 if not full_squad else 0.0
@@ -201,6 +215,47 @@ FORM_DECAY_FACTOR = 0.85         # 位置衰减（最新比赛权重最高）
 MEETING_FAMILIARITY_THRESHOLD = 3   # ≥3次交手触发熟悉度修正
 FAMILIARITY_UNDERDOG_BOOST = 0.04   # 弱队因熟悉度获xG加成
 FAMILIARITY_FAVORITE_PENALTY = -0.03  # 强队因套路被摸透受xG罚
+
+# ---- 往绩魔咒因子（2026-09-04复盘改进）----
+# 当往绩出现连续3次以上同一方向时，自动调整概率
+H2H_CURSE_THRESHOLD = 3            # ≥3次连续同一方向触发魔咒修正
+H2H_CURSE_BOOST_HOME = 0.08        # 主队往绩占优时+8%胜率
+H2H_CURSE_BOOST_AWAY = 0.06        # 客队往绩占优时+6%胜率（客场衰减）
+H2H_CURSE_MAX_STREAK = 5           # 最大连续次数（超过按5次算）
+
+# ---- 进球荒因子（2026-09-04复盘改进）----
+# 连续3场以上没进球的球队，胜率下调
+GOAL_DROUGHT_THRESHOLD = 3         # ≥3场连续没进球触发修正
+GOAL_DROUGHT_PENALTY = -0.12       # 进球荒胜率下调12%
+
+# ---- 平局基础概率调整（2026-09-04复盘改进）----
+# 实力接近的比赛平局概率上调
+CLOSE_MATCH_DRAW_BOOST = 0.04      # 实力接近时平局+4%
+CLOSE_MATCH_ELO_THRESHOLD = 80     # Elo差<80视为实力接近
+
+# ---- 冷门预警因子（2026-09-04复盘改进）----
+# 当往绩+状态+伤停三重因素叠加时，自动触发冷门预警
+UPSET_WARNING_THRESHOLD = 3        # ≥3个因素叠加触发冷门预警
+UPSET_WARNING_PENALTY = -0.08      # 冷门预警时热门胜率-8%
+
+# ---- 9月6日复盘新增：强队低迷+防守韧性场景修正 ----
+
+# 场景1：强队2轮以上不胜/0球 → 胜率下调8-12%
+# form连续2+场无胜或进球荒触发
+FORM_DROUGHT_THRESHOLD = 2         # 连续≥2场无胜或0球触发
+FORM_DROUGHT_PENALTY = -0.10       # 强队状态低迷胜率-10%
+
+# 场景2：升班马+主场+防守型 → 平局概率上调4-6%
+# 需要在intelligence中显式标注 promoted_home_defensive
+PROMOTED_HOME_DRAW_BOOST = 0.05    # 升班马主场防守型平局+5%
+
+# 场景3：强队客场+对手魔鬼主场 → 客胜概率下调6-8%
+# 需要在intelligence中显式标注 fortress_venue
+FORTRESS_AWAY_PENALTY = -0.07      # 对手魔鬼主场客胜-7%
+
+# 场景4：强队近期被逆转 → 状态信心修正-10%
+# form最近一场为负且前一场为胜（逆转模式）触发
+REVERSAL_CONFIDENCE_PENALTY = -0.10  # 被逆转信心-10%
 
 
 # ================================================================
@@ -515,7 +570,8 @@ def compute_tactical_delta(tactical: dict) -> tuple:
 
 def classify_match(teams: dict, a: str, b: str, elo_delta_a: float = 0.0,
                    elo_delta_b: float = 0.0, table: dict = None,
-                   league_context: dict = None) -> dict:
+                   league_context: dict = None, intel: dict = None,
+                   league: str = None) -> dict:
     """
     对比赛进行分类，返回动态调整因子。
 
@@ -629,14 +685,161 @@ def classify_match(teams: dict, a: str, b: str, elo_delta_a: float = 0.0,
             result["labels"].append(f"副班长殊死战(客队死守{'被破' if is_top_home else '反击'})")
 
     # 5) 欧战双线消耗（需要league_context）
-    if league_context:
+    # 注意：当比赛本身就是欧战(champions_league/europa_league)时，跳过此逻辑
+    # 因为"欧战分心"是指国内联赛中因欧战任务分心，而非欧战本身
+    EURO_COMPETITIONS = {"champions_league", "europa_league"}
+    is_euro_match = league in EURO_COMPETITIONS if league else False
+    if league_context and not is_euro_match:
         euro_teams = set(league_context.get("europe_teams", []))
-        if a in euro_teams:
+        a_euro = a in euro_teams
+        b_euro = b in euro_teams
+        if a_euro:
             result["xG_adjust_a"] -= 0.04  # 额外体能惩罚
             result["labels"].append(f"{a}欧战双线(-)")
-        if b in euro_teams:
+        if b_euro:
             result["xG_adjust_b"] -= 0.04
             result["labels"].append(f"{b}欧战双线(-)")
+        # 双方都有欧战分心 → 平局概率上调5-8%（2026-09-03复盘改进）
+        if a_euro and b_euro:
+            result["draw_boost"] = 0.06  # 6%平局概率上调
+            result["labels"].append("双方欧战分心(平局+6%)")
+
+    # ---- 2026-09-04复盘新增因子 ----
+
+    # 7) 往绩魔咒因子：当往绩出现连续3次以上同一方向时
+    # 传递方式：intelligence.json 的 matches[].h2h_curse 字段
+    # 或在 teams 中标注 h2h_advantage
+    h2h_curse = intel.get("h2h_curse", {}) if intel else {}
+    curse_streak = h2h_curse.get("streak", 0)
+    curse_favor = h2h_curse.get("favor", "")  # "home" or "away"
+    if curse_streak >= H2H_CURSE_THRESHOLD:
+        capped_streak = min(curse_streak, H2H_CURSE_MAX_STREAK)
+        curse_boost = 0.02 * (capped_streak - H2H_CURSE_THRESHOLD + 1)  # 递增
+        if curse_favor == "home":
+            result["xG_adjust_a"] += min(curse_boost, H2H_CURSE_BOOST_HOME)
+            result["labels"].append(f"往绩魔咒({curse_streak}连胜主队)")
+        elif curse_favor == "away":
+            result["xG_adjust_b"] += min(curse_boost, H2H_CURSE_BOOST_AWAY)
+            result["labels"].append(f"往绩魔咒({curse_streak}连胜客队)")
+
+    # 8) 进球荒因子：连续3场以上没进球
+    # 传递方式：intelligence.json 的 teams.<code>.goal_drought 字段
+    for code in (a, b):
+        team_intel = intel.get("teams", {}).get(code, {}) if intel else {}
+        drought = team_intel.get("goal_drought", 0)
+        if drought >= GOAL_DROUGHT_THRESHOLD:
+            drought_penalty = GOAL_DROUGHT_PENALTY
+            if code == a:
+                result["xG_adjust_a"] += drought_penalty
+            else:
+                result["xG_adjust_b"] += drought_penalty
+            result["labels"].append(f"{code}进球荒({drought}场)")
+
+    # 9) 平局基础概率调整：实力接近时
+    if elo_gap < CLOSE_MATCH_ELO_THRESHOLD:
+        result["draw_boost"] = result.get("draw_boost", 0.0) + CLOSE_MATCH_DRAW_BOOST
+        result["labels"].append("实力接近(平局+4%)")
+
+    # 10) 冷门预警：当往绩+状态+伤停三重因素叠加时
+    upset_factors = 0
+    # 往绩因素
+    if curse_streak >= H2H_CURSE_THRESHOLD:
+        upset_factors += 1
+    # 状态因素：一方状态火热 vs 另一方状态低迷
+    # 这个需要从外部传入，暂时用 elo_delta 判断
+    if elo_delta_a < -10 or elo_delta_b < -10:
+        upset_factors += 1
+    # 伤停因素
+    if elo_delta_a < INJURY_CRISIS_THRESHOLD or elo_delta_b < INJURY_CRISIS_THRESHOLD:
+        upset_factors += 1
+    if upset_factors >= UPSET_WARNING_THRESHOLD:
+        result["upset_warning"] = True
+        result["upset_penalty"] = UPSET_WARNING_PENALTY
+        result["labels"].append("冷门预警(多因素叠加)")
+
+    # ---- 2026-09-06复盘新增：强队低迷+防守韧性场景修正 ----
+
+    # 场景1：强队2轮以上不胜/0球 → 胜率下调8-12%
+    # 传递方式：intelligence.json 的 teams.<code>.form_drought 字段
+    # form_drought: int = 连续无胜或0球的场次数
+    for code in (a, b):
+        team_intel = intel.get("teams", {}).get(code, {}) if intel else {}
+        drought_streak = team_intel.get("form_drought", 0)
+        if drought_streak >= FORM_DROUGHT_THRESHOLD:
+            drought_penalty = FORM_DROUGHT_PENALTY
+            if code == a:
+                result["xG_adjust_a"] += drought_penalty
+            else:
+                result["xG_adjust_b"] += drought_penalty
+            result["labels"].append(f"{code}状态低迷({drought_streak}轮不胜/0球)")
+
+    # 场景2：升班马+主场+防守型 → 平局概率上调4-6%
+    # 传递方式：intelligence.json 的 matches[].promoted_home_defensive 字段
+    promoted_home_def = intel.get("promoted_home_defensive", False) if intel else False
+    if promoted_home_def:
+        result["draw_boost"] = result.get("draw_boost", 0.0) + PROMOTED_HOME_DRAW_BOOST
+        result["labels"].append("升班马主场防守(平局+5%)")
+
+    # 场景3：强队客场+对手魔鬼主场 → 客胜概率下调6-8%
+    # 传递方式：intelligence.json 的 matches[].fortress_venue 字段
+    fortress_venue = intel.get("fortress_venue", False) if intel else False
+    if fortress_venue:
+        result["xG_adjust_b"] += FORTRESS_AWAY_PENALTY  # 客队xG下调
+        result["labels"].append("对手魔鬼主场(客胜-7%)")
+
+    # 场景4：强队近期被逆转 → 状态信心修正-10%
+    # 传递方式：intelligence.json 的 teams.<code>.recent_reversal 字段
+    for code in (a, b):
+        team_intel = intel.get("teams", {}).get(code, {}) if intel else {}
+        recent_reversal = team_intel.get("recent_reversal", False)
+        if recent_reversal:
+            reversal_penalty = REVERSAL_CONFIDENCE_PENALTY
+            if code == a:
+                result["xG_adjust_a"] += reversal_penalty
+            else:
+                result["xG_adjust_b"] += reversal_penalty
+            result["labels"].append(f"{code}近期被逆转(信心-10%)")
+
+    # ---- 11) 欧战客场保守系数（2026-09-09新增） ----
+    # 新赛制下强队客场打更强对手时可能保守战术（铁桶阵保平）
+    EURO_AWAY_CONSERVATIVE_ELO_THRESHOLD = 150  # Elo差阈值
+    EURO_AWAY_CONSERVATIVE_XG_PENALTY = -0.10   # 客场xG下调
+    EURO_AWAY_CONSERVATIVE_DRAW_BOOST = 0.03    # 平局概率上调
+    EURO_COMPETITIONS_SET = {"champions_league", "europa_league"}
+    if league in EURO_COMPETITIONS_SET and elo_gap > EURO_AWAY_CONSERVATIVE_ELO_THRESHOLD:
+        # b是客队，如果b的Elo显著低于a → b可能保守
+        if elo_b < elo_a:
+            result["xG_adjust_b"] += EURO_AWAY_CONSERVATIVE_XG_PENALTY
+            result["draw_boost"] = result.get("draw_boost", 0.0) + EURO_AWAY_CONSERVATIVE_DRAW_BOOST
+            result["labels"].append("客队保守战术(铁桶阵+反击)")
+        # a是主队，如果a的Elo显著低于b → a可能保守
+        elif elo_a < elo_b:
+            result["xG_adjust_a"] += EURO_AWAY_CONSERVATIVE_XG_PENALTY
+            result["draw_boost"] = result.get("draw_boost", 0.0) + EURO_AWAY_CONSERVATIVE_DRAW_BOOST
+            result["labels"].append("主队保守战术(铁桶阵+反击)")
+
+    # ---- 12) 轮换风险标签（2026-09-09新增） ----
+    # 读取intelligence_snapshot中的next_match字段，判断轮换风险
+    ROTATION_RISK_PENALTY = -0.08  # 轮换时xG下调
+    ROTATION_RISK_LABELS = {"high": "轮换风险高", "medium": "轮换风险中", "low": "轮换风险低"}
+    if intel:
+        next_match = intel.get("next_match", {})
+        rotation_risk = next_match.get("rotation_risk", "")
+        if rotation_risk in ROTATION_RISK_LABELS:
+            risk_label = ROTATION_RISK_LABELS[rotation_risk]
+            next_desc = next_match.get("description", "")
+            # 判断哪支队伍有轮换风险（通过next_match.affected_team）
+            affected = next_match.get("affected_team", "")
+            if affected == a:
+                result["xG_adjust_a"] += ROTATION_RISK_PENALTY
+                result["labels"].append(f"{a}{risk_label}({next_desc})")
+            elif affected == b:
+                result["xG_adjust_b"] += ROTATION_RISK_PENALTY
+                result["labels"].append(f"{b}{risk_label}({next_desc})")
+            elif not affected:
+                # 未指定受影响队伍时，对客队默认生效（客队更可能轮换）
+                result["xG_adjust_b"] += ROTATION_RISK_PENALTY
+                result["labels"].append(f"{b}{risk_label}({next_desc})")
 
     return result
 

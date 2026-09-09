@@ -42,12 +42,25 @@ def load_ledger(path: str = None) -> dict:
 
 
 def append_entry(entry: dict, path: str = None) -> dict:
-    """追加一条预测记录到台账。返回该条目（含 _id）。"""
+    """Write one prediction per fixture date, replacing an older same-fixture version."""
     path = path or LEDGER_PATH
     ensure_dir()
     ledger = load_ledger(path)
     entry["_id"] = entry.get("_id") or make_id(entry)
-    ledger["predictions"].append(entry)
+    existing = ledger["predictions"]
+    replacement_index = next((
+        index for index, item in enumerate(existing)
+        if item.get("_id") == entry["_id"]
+    ), None)
+    if replacement_index is None:
+        existing.append(entry)
+    else:
+        existing[replacement_index] = entry
+        # Remove legacy duplicates while preserving the replacement position.
+        ledger["predictions"] = [
+            item for index, item in enumerate(existing)
+            if item.get("_id") != entry["_id"] or index == replacement_index
+        ]
     ledger["_meta"] = ledger.get("_meta", {}) or {}
     from datetime import datetime
     ledger["_meta"]["updated_at"] = datetime.now().isoformat(timespec="seconds")
