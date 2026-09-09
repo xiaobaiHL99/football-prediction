@@ -126,6 +126,7 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `expected_pattern` | `open` / `cautious` / `balanced`；`open` 还必须通过下方准入门槛 |
 | `open_eligibility` | 仅 `open` 必填：双方 `attack_ready`、双方 `transition_threat`、双方 `no_key_attacking_absences` 均为 `true`，且 `first_leg_or_opener_cautious` 为 `false`；任一缺失即自动降为 `balanced` |
 | `defensive_absences` | 强队防线多人缺阵时显式传入，例如 `{"a": 4, "b": 0}`；若弱势方风格为 `counter_attack` / `possession` / `direct` 且强队至少缺3名防线球员，弱势方 xG 最低保留为0.85 |
+| `home_slump_away_surge` | 主队主场低迷、客队客场强势的三证据门控，例如 `{"home_slump_matches": 2, "away_surge_matches": 2, "home_defensive_absences": 4}`；满足后主胜-8个百分点，平局和客胜各得4个百分点 |
 | `ineffective_possession` | 传控队面对大巴/反击的无效控球惩罚 |
 | `physical_mismatch` | -2~2 身体对抗差异 |
 | `derby_boost` | 德比/特殊战意 |

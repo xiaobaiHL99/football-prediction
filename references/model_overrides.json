@@ -88,6 +88,16 @@
       "underdog_xg_floor": 0.85,
       "eligible_styles": ["counter_attack", "possession", "direct"],
       "note": "仅在赛前情报显式标注热门方defensive_absences且弱势方战术风格符合时触发；不是胜率加成。"
+    },
+    "HOME_SLUMP_AWAY_SURGE_PROTECTION": {
+      "description": "主队近期主场连续低迷、客队近期客场连续强势且主队防线多人缺阵时，主胜需要向平局和客胜收缩。",
+      "enabled": true,
+      "min_home_slump_matches": 2,
+      "min_away_surge_matches": 2,
+      "min_home_defensive_absences": 3,
+      "home_win_penalty": 0.08,
+      "draw_share": 0.5,
+      "note": "三项证据均须由赛前情报结构化提供；主胜扣减的一半给平局、一半给客胜。"
     }
   }
 }

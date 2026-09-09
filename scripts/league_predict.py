@@ -217,6 +217,34 @@ def apply_defensive_absence_scoring_floor(la: float, lb: float, teams: dict,
     return la, lb, []
 
 
+def apply_home_slump_away_surge_protection(pw: float, pd: float, pl: float,
+                                           tactical: dict) -> tuple:
+    """Move home-win probability to draw and away win on explicit risk evidence."""
+    rule = _global_rule("HOME_SLUMP_AWAY_SURGE_PROTECTION")
+    if not rule.get("enabled"):
+        return pw, pd, pl, []
+
+    evidence = tactical.get("home_slump_away_surge", {}) or {}
+    home_slump = as_float(evidence.get("home_slump_matches"), 0)
+    away_surge = as_float(evidence.get("away_surge_matches"), 0)
+    home_def_absences = as_float(evidence.get("home_defensive_absences"), 0)
+    if home_slump < as_float(rule.get("min_home_slump_matches"), float("inf")):
+        return pw, pd, pl, []
+    if away_surge < as_float(rule.get("min_away_surge_matches"), float("inf")):
+        return pw, pd, pl, []
+    if home_def_absences < as_float(rule.get("min_home_defensive_absences"), float("inf")):
+        return pw, pd, pl, []
+
+    penalty = min(as_float(rule.get("home_win_penalty"), 0.0), pw)
+    draw_share = clamp(as_float(rule.get("draw_share"), 0.5), 0.0, 1.0)
+    pw -= penalty
+    pd += penalty * draw_share
+    pl += penalty * (1.0 - draw_share)
+    return pw, pd, pl, [
+        f"主场低迷+客场强势+防线缺{home_def_absences:.0f}人(主胜-{penalty * 100:.0f}pp)"
+    ]
+
+
 def apply_away_favorite_draw_protection(pw: float, pd: float, pl: float,
                                          teams: dict, a: str, b: str,
                                          intel: dict, tactical: dict) -> tuple:
@@ -871,6 +899,10 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             "pred_goals": la + lb,
             "elo_gap": abs(teams[a].get("elo", 1500) - teams[b].get("elo", 1500)),
         })
+        pw, pd, pl, home_surge_labels = apply_home_slump_away_surge_protection(
+            pw, pd, pl, tactical_matchup
+        )
+        prob_labels.extend(home_surge_labels)
         pw, pd, pl, away_draw_labels = apply_away_favorite_draw_protection(
             pw, pd, pl, teams, a, b, intel, tactical_matchup
         )
@@ -1120,6 +1152,7 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
             "derby_boost": tactical_raw.get("derby_boost", False),
             "fighting_spirit": tactical_raw.get("fighting_spirit", {}) or {},
             "defensive_absences": tactical_raw.get("defensive_absences", {}) or {},
+            "home_slump_away_surge": tactical_raw.get("home_slump_away_surge", {}) or {},
             "open_eligibility": tactical_raw.get("open_eligibility", {}) or {},
         }
         tactical_matchup, pattern_labels = qualify_open_match(tactical_matchup)
