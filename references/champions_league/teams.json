@@ -1,152 +1,213 @@
 {
   "_meta": {
-    "updated": "2026-08-29",
-    "format": "champions_league_2026-27"
+    "updated": "2026-09-08",
+    "format": "champions_league_2026-27",
+    "team_count": 36
   },
   "teams": {
     "RMA": {
+      "name": "Real Madrid",
       "name_cn": "皇家马德里",
       "elo": 1950
     },
     "BAY": {
+      "name": "Bayern Munich",
       "name_cn": "拜仁慕尼黑",
       "elo": 1930
     },
     "MCI": {
+      "name": "Manchester City",
       "name_cn": "曼城",
       "elo": 1930
     },
     "PSG": {
+      "name": "Paris Saint-Germain",
       "name_cn": "巴黎圣日耳曼",
-      "elo": 1900
+      "elo": 1885,
+      "notes": "巴尔科拉已官宣转会利物浦，前场边路深度和一对一爆点略有下降"
     },
     "LIV": {
+      "name": "Liverpool",
       "name_cn": "利物浦",
-      "elo": 1890
+      "elo": 1900,
+      "notes": "官宣引进巴尔科拉，前场左路深度和转换爆点获得补强"
     },
     "INT": {
+      "name": "Inter Milan",
       "name_cn": "国际米兰",
       "elo": 1890
     },
     "ARS": {
+      "name": "Arsenal",
       "name_cn": "阿森纳",
       "elo": 1870
     },
     "BAR": {
+      "name": "Barcelona",
       "name_cn": "巴塞罗那",
       "elo": 1860
     },
     "ATM": {
+      "name": "Atletico Madrid",
       "name_cn": "马德里竞技",
       "elo": 1850
     },
     "MUN": {
+      "name": "Manchester United",
       "name_cn": "曼联",
       "elo": 1830
     },
     "BVB": {
+      "name": "Borussia Dortmund",
       "name_cn": "多特蒙德",
       "elo": 1820
     },
     "NAP": {
+      "name": "Napoli",
       "name_cn": "那不勒斯",
       "elo": 1710
     },
     "ROM": {
+      "name": "Roma",
       "name_cn": "罗马",
       "elo": 1780
     },
     "POR": {
+      "name": "FC Porto",
       "name_cn": "波尔图",
       "elo": 1770
     },
     "SPO": {
+      "name": "Sporting CP",
       "name_cn": "葡萄牙体育",
       "elo": 1760
     },
     "PSV": {
+      "name": "PSV Eindhoven",
       "name_cn": "PSV埃因霍温",
       "elo": 1750
     },
     "AVL": {
+      "name": "Aston Villa",
       "name_cn": "阿斯顿维拉",
       "elo": 1740
     },
     "BET": {
+      "name": "Real Betis",
       "name_cn": "皇家贝蒂斯",
       "elo": 1720
     },
     "RBL": {
+      "name": "RB Leipzig",
       "name_cn": "RB莱比锡",
-      "elo": 1700
+      "elo": 1675,
+      "notes": "2026-09-10客场1-4负科莫；赛后暂调-25，待后续3-5场验证是否为短期状态冲击"
     },
     "LIL": {
+      "name": "Lille",
       "name_cn": "里尔",
       "elo": 1700
     },
     "VIL": {
+      "name": "Villarreal",
       "name_cn": "比利亚雷亚尔",
       "elo": 1690
     },
     "FEY": {
+      "name": "Feyenoord",
       "name_cn": "费耶诺德",
       "elo": 1680
     },
     "BOD": {
+      "name": "Bodo/Glimt",
       "name_cn": "博德闪耀",
       "elo": 1670
     },
     "GAL": {
+      "name": "Galatasaray",
       "name_cn": "加拉塔萨雷",
       "elo": 1660
     },
     "LEN": {
+      "name": "Lens",
       "name_cn": "朗斯",
       "elo": 1550
     },
     "SHA": {
+      "name": "Shakhtar Donetsk",
       "name_cn": "顿涅茨克矿工",
       "elo": 1640
     },
     "FEN": {
+      "name": "Fenerbahce",
       "name_cn": "费内巴切",
       "elo": 1630
     },
     "CLB": {
+      "name": "Club Brugge",
       "name_cn": "布鲁日",
       "elo": 1720
     },
     "STU": {
+      "name": "Stuttgart",
       "name_cn": "斯图加特",
       "elo": 1580
     },
     "SLP": {
+      "name": "Slavia Prague",
       "name_cn": "布拉格斯拉维亚",
       "elo": 1560
     },
     "COM": {
+      "name": "Como",
       "name_cn": "科莫",
-      "elo": 1540
+      "elo": 1565,
+      "notes": "2026-09-10主场4-1击败莱比锡；赛后暂调+25，待后续3-5场验证是否为长期实力信息"
     },
     "VIK": {
+      "name": "Viking FK",
       "name_cn": "维京",
       "elo": 1520
     },
     "LIN": {
+      "name": "LASK Linz",
       "name_cn": "林茨",
       "elo": 1510
     },
     "SABH": {
+      "name": "Sabah FK",
       "name_cn": "沙巴巴库",
       "elo": 1500
     },
     "AEK": {
+      "name": "AEK Athens",
       "name_cn": "雅典AEK",
       "elo": 1490
     },
     "SLO": {
+      "name": "Slovan Bratislava",
       "name_cn": "布拉迪斯拉发",
       "elo": 1480
+    },
+    "BEN": {
+      "name": "Benfica",
+      "name_cn": "本菲卡",
+      "elo": 1790
+    },
+    "JUV": {
+      "name": "Juventus",
+      "name_cn": "尤文图斯",
+      "elo": 1810
+    },
+    "MIL": {
+      "name": "AC Milan",
+      "name_cn": "AC米兰",
+      "elo": 1800
+    },
+    "B04": {
+      "name": "Bayer Leverkusen",
+      "name_cn": "勒沃库森",
+      "elo": 1840
     }
   }
 }
