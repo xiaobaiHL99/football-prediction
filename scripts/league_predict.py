@@ -52,6 +52,13 @@ from league_data import (
     FAMILIARITY_UNDERDOG_BOOST,
     FAMILIARITY_FAVORITE_PENALTY,
     load_global_rules,
+    load_league_meta,
+)
+
+# 优先校准联赛（2026-09-11）：五大联赛 + 欧冠 + 英冠
+PRIORITY_CALIBRATION_LEAGUES = (
+    "epl", "laliga", "bundesliga", "seriea", "ligue1",
+    "champions_league", "championship",
 )
 
 # 导入增强版情报处理模块
@@ -243,6 +250,289 @@ def apply_home_slump_away_surge_protection(pw: float, pd: float, pl: float,
     return pw, pd, pl, [
         f"主场低迷+客场强势+防线缺{home_def_absences:.0f}人(主胜-{penalty * 100:.0f}pp)"
     ]
+
+
+def _rule_applies(rule: dict, league: str) -> bool:
+    """Restrict a rule to its declared leagues; no declared list means all."""
+    leagues = rule.get("leagues")
+    if not leagues:
+        return True
+    return league in leagues
+
+
+def _absence_counts(intel: dict, a: str, b: str) -> dict:
+    """Read explicit absence counts per side; never inferred from notes."""
+    counts = {}
+    for side, code in (("a", a), ("b", b)):
+        entry = (intel.get("teams", {}) or {}).get(code, {})
+        entry = entry if isinstance(entry, dict) else {}
+        injuries = as_float(entry.get("injury_count", entry.get("absence_count", 0)))
+        suspensions = as_float(entry.get("suspension_count", 0))
+        counts[side] = injuries + suspensions
+    return counts
+
+
+def _recent_conceded(intel: dict, code: str, side: str) -> float:
+    """Read recent goals-conceded-per-game for one side, or None when absent."""
+    values = []
+    entry = (intel.get("teams", {}) or {}).get(code, {})
+    if isinstance(entry, dict):
+        for key in ("conceded_per_game", "goals_conceded_per_game", "recent_conceded"):
+            if entry.get(key) is not None:
+                values.append(as_float(entry.get(key), None))
+                break
+    block = intel.get("recent_defense", {}) or {}
+    if isinstance(block, dict):
+        side_entry = block.get(side, {})
+        if isinstance(side_entry, dict) and side_entry.get("conceded_per_game") is not None:
+            values.append(as_float(side_entry.get("conceded_per_game"), None))
+        elif isinstance(side_entry, (int, float)):
+            values.append(float(side_entry))
+    for value in values:
+        if value is not None:
+            return value
+    return None
+
+
+def apply_snapshot_freshness(teams: dict, league: str, intel: dict, date: str) -> tuple:
+    """Apply explicit, capped form-based Elo corrections only when the snapshot lags.
+
+    The correction stays in memory for this prediction; snapshot files are never
+    rewritten, so a stale rating cannot silently persist into stored data.
+    """
+    rule = _global_rule("SNAPSHOT_FRESHNESS_CHECK")
+    if not rule.get("enabled") or not _rule_applies(rule, league):
+        return {}, []
+
+    cap = as_float(rule.get("form_elo_max_adjust"), 25.0)
+    adjustments = {}
+    for code, entry in (intel.get("teams", {}) or {}).items():
+        if not isinstance(entry, dict):
+            continue
+        raw = as_float(entry.get("form_elo_adjust"), 0.0)
+        if raw != 0.0:
+            adjustments[code] = clamp(raw, -cap, cap)
+
+    labels = []
+    meta = load_league_meta(league)
+    updated = str(meta.get("updated_at") or meta.get("updated") or "")[:10]
+    age_days = None
+    if updated and date:
+        try:
+            age_days = (datetime.strptime(date, "%Y-%m-%d") -
+                        datetime.strptime(updated, "%Y-%m-%d")).days
+        except ValueError:
+            age_days = None
+    stale = age_days is not None and age_days > int(as_float(rule.get("max_age_days"), 21))
+
+    if adjustments:
+        applied = "、".join(f"{code}{delta:+.0f}" for code, delta in sorted(adjustments.items()))
+        suffix = f"，快照已落后{age_days}天" if stale else ""
+        labels.append(f"快照时效修正({applied}){suffix}")
+    elif stale:
+        labels.append(f"⚠️快照落后{age_days}天，建议补 teams.<code>.form_elo_adjust")
+    return adjustments, labels
+
+
+def apply_total_goals_variance(la: float, lb: float, teams: dict, a: str, b: str,
+                               intel: dict, league: str) -> tuple:
+    """Widen or tighten the goal distribution from explicit defensive form."""
+    rule = _global_rule("TOTAL_GOALS_VARIANCE")
+    if not rule.get("enabled") or not _rule_applies(rule, league):
+        return la, lb, [], None
+
+    threshold = as_float(rule.get("leaky_defense_threshold"), 1.5)
+    conceded_a = _recent_conceded(intel, a, "a")
+    conceded_b = _recent_conceded(intel, b, "b")
+
+    if (conceded_a is not None and conceded_b is not None
+            and conceded_a >= threshold and conceded_b >= threshold):
+        step = as_float(rule.get("leaky_total_boost_per_side"), 0.30)
+        step_max = as_float(rule.get("leaky_total_boost_per_side_max"), 0.50)
+        severity = clamp(((conceded_a + conceded_b) / (2 * threshold)) - 1.0, 0.0, 1.0)
+        per_side = step + (step_max - step) * severity
+        labels = [f"双方防线均漏(场均失{conceded_a:.1f}/{conceded_b:.1f})，总xG+{per_side * 2:.2f}"]
+        return la + per_side, lb + per_side, labels, "leaky"
+
+    elo_gap = abs(teams[a].get("elo", 1500) - teams[b].get("elo", 1500))
+    if elo_gap < as_float(rule.get("tight_match_elo_threshold"), 50) and \
+            conceded_a is not None and conceded_b is not None and \
+            conceded_a < threshold and conceded_b < threshold:
+        goal_cap = as_float(rule.get("tight_match_goal_cap"), 2.6)
+        if la + lb > goal_cap:
+            scale = goal_cap / (la + lb)
+            labels = [f"近均衡且防线稳健(场均失{conceded_a:.1f}/{conceded_b:.1f})，总xG压缩至{goal_cap:.2f}"]
+            return la * scale, lb * scale, labels, "tight"
+        return la, lb, [], "tight"
+
+    return la, lb, [], None
+
+
+def apply_total_goals_scoreline_shift(score_probs: list, mode: str) -> tuple:
+    """Rebalance scoreline weights for leaky or tight match profiles."""
+    if not mode:
+        return score_probs, []
+    rule = _global_rule("TOTAL_GOALS_VARIANCE")
+    if not rule.get("enabled"):
+        return score_probs, []
+
+    if mode == "leaky":
+        multiplier = as_float(rule.get("leaky_high_tail_multiplier"), 1.15)
+        min_goals = int(as_float(rule.get("leaky_high_tail_min_goals"), 4))
+        label = f"漏勺局高比分尾部({multiplier:.2f}x,{min_goals}球以上)"
+        adjusted = [
+            (score, prob * (multiplier if score[0] + score[1] >= min_goals else 1.0))
+            for score, prob in score_probs
+        ]
+    else:
+        multiplier = as_float(rule.get("tight_low_score_multiplier"), 1.15)
+        label = f"稳健局低比分权重({multiplier:.2f}x)"
+        adjusted = [
+            (score, prob * (multiplier if score[0] + score[1] <= 2 else 1.0))
+            for score, prob in score_probs
+        ]
+
+    total = sum(prob for _, prob in adjusted)
+    if total <= 0:
+        return score_probs, []
+    normalized = [(score, prob / total) for score, prob in adjusted]
+    normalized.sort(key=lambda item: -item[1])
+    return normalized, [label]
+
+
+def detect_unilateral_absence_crisis(a: str, b: str, intel: dict, league: str) -> dict:
+    """Identify a one-sided availability crisis, or return None."""
+    rule = _global_rule("UNILATERAL_ABSENCE_CRISIS")
+    if not rule.get("enabled") or not _rule_applies(rule, league):
+        return None
+
+    counts = _absence_counts(intel, a, b)
+    crisis_threshold = as_float(rule.get("crisis_threshold"), 6)
+    healthy_threshold = as_float(rule.get("healthy_threshold"), 2)
+    if counts["a"] >= crisis_threshold and counts["b"] <= healthy_threshold:
+        crisis_side, healthy_side = "a", "b"
+    elif counts["b"] >= crisis_threshold and counts["a"] <= healthy_threshold:
+        crisis_side, healthy_side = "b", "a"
+    else:
+        return None
+
+    return {
+        "crisis_side": crisis_side,
+        "healthy_side": healthy_side,
+        "crisis_code": a if crisis_side == "a" else b,
+        "healthy_code": a if healthy_side == "a" else b,
+        "crisis_absences": counts[crisis_side],
+        "healthy_absences": counts[healthy_side],
+    }
+
+
+def apply_absence_crisis_xg(la: float, lb: float, crisis: dict) -> tuple:
+    """Lift the healthy side's attacking expectation during a crisis match."""
+    if not crisis:
+        return la, lb, []
+    rule = _global_rule("UNILATERAL_ABSENCE_CRISIS")
+    boost = as_float(rule.get("healthy_goal_boost"), 0.0)
+    if boost <= 0:
+        return la, lb, []
+    if crisis["healthy_side"] == "a":
+        return la + boost, lb, [
+            f"单边缺员危机({crisis['crisis_code']}缺{crisis['crisis_absences']:.0f}人)，健康方xG+{boost:.2f}"
+        ]
+    return la, lb + boost, [
+        f"单边缺员危机({crisis['crisis_code']}缺{crisis['crisis_absences']:.0f}人)，健康方xG+{boost:.2f}"
+    ]
+
+
+def apply_absence_crisis_scoreline(score_probs: list, crisis: dict) -> tuple:
+    """Raise the healthy side's blowout ceiling (3-0/4-0 style scorelines)."""
+    if not crisis:
+        return score_probs, []
+    rule = _global_rule("UNILATERAL_ABSENCE_CRISIS")
+    multiplier = as_float(rule.get("ceiling_multiplier"), 1.0)
+    goal_diff = int(as_float(rule.get("ceiling_goal_diff"), 3))
+    conceded_max = int(as_float(rule.get("ceiling_conceded_max"), 1))
+
+    def is_ceiling(score):
+        healthy_goals = score[0] if crisis["healthy_side"] == "a" else score[1]
+        crisis_goals = score[1] if crisis["healthy_side"] == "a" else score[0]
+        return healthy_goals >= goal_diff and crisis_goals <= conceded_max
+
+    adjusted = [(score, prob * (multiplier if is_ceiling(score) else 1.0))
+                for score, prob in score_probs]
+    total = sum(prob for _, prob in adjusted)
+    if total <= 0:
+        return score_probs, []
+    normalized = [(score, prob / total) for score, prob in adjusted]
+    normalized.sort(key=lambda item: -item[1])
+    return normalized, [f"单边危机高比分上限({multiplier:.2f}x)"]
+
+
+def apply_absence_crisis_probability(pw: float, pd: float, pl: float, crisis: dict) -> tuple:
+    """Move win probability away from the depleted side, never toward the draw."""
+    if not crisis:
+        return pw, pd, pl, []
+    rule = _global_rule("UNILATERAL_ABSENCE_CRISIS")
+    penalty = as_float(rule.get("crisis_win_penalty"), 0.0)
+    if crisis["crisis_side"] == "a":
+        transfer = min(penalty, pw)
+        pw -= transfer
+        pl += transfer
+    else:
+        transfer = min(penalty, pl)
+        pl -= transfer
+        pw += transfer
+    if transfer <= 0:
+        return pw, pd, pl, []
+    return pw, pd, pl, [
+        f"{crisis['crisis_code']}单边缺员{crisis['crisis_absences']:.0f}人(胜率-{transfer * 100:.0f}pp，不加平局)"
+    ]
+
+
+def apply_conditional_draw_protection(pw: float, pd: float, pl: float,
+                                      tactical: dict, intel: dict, a: str, b: str,
+                                      league: str, veto: bool = False) -> tuple:
+    """Boost the draw only when home-slump or away-unbeaten evidence exists."""
+    rule = _global_rule("CONDITIONAL_DRAW_PROTECTION")
+    if not rule.get("enabled") or not _rule_applies(rule, league):
+        return pw, pd, pl, []
+
+    gate = tactical.get("draw_gate") or intel.get("draw_gate") or {}
+    if not isinstance(gate, dict) or not gate:
+        return pw, pd, pl, []
+
+    triggers = []
+    home_wins = gate.get("home_last5_home_wins")
+    home_window = int(as_float(rule.get("home_window"), 5))
+    if home_wins is not None and as_float(home_wins, None) is not None and \
+            as_float(home_wins) <= as_float(rule.get("home_max_wins"), 1):
+        triggers.append(f"主队近{home_window}个主场仅{int(as_float(home_wins))}胜")
+
+    away_unbeaten = gate.get("away_last6_away_unbeaten")
+    away_window = int(as_float(rule.get("away_window"), 6))
+    if away_unbeaten is not None and as_float(away_unbeaten, None) is not None and \
+            as_float(away_unbeaten) >= as_float(rule.get("away_min_unbeaten"), 6):
+        triggers.append(f"客队近{away_window}个客场不败")
+
+    if not triggers:
+        return pw, pd, pl, []
+
+    counts = _absence_counts(intel, a, b)
+    veto_threshold = as_float(rule.get("absence_veto_threshold"), 6)
+    if veto or max(counts.values(), default=0.0) >= veto_threshold:
+        return pw, pd, pl, [f"平局门控已触发但被缺员危机否决({'、'.join(triggers)})"]
+
+    boost = as_float(rule.get("draw_boost"), 0.0)
+    favorite_penalty = abs(as_float(rule.get("favorite_penalty"), boost))
+    if pw >= pl:
+        transfer = min(favorite_penalty, pw)
+        pw -= transfer
+    else:
+        transfer = min(favorite_penalty, pl)
+        pl -= transfer
+    pd += transfer
+    if transfer <= 0:
+        return pw, pd, pl, []
+    return pw, pd, pl, [f"条件平局保护({'、'.join(triggers)}，平局+{transfer * 100:.0f}pp)"]
 
 
 def apply_away_favorite_draw_protection(pw: float, pd: float, pl: float,
@@ -690,6 +980,24 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
     tactical_adjust = intel.get("tactical_adjust", {"underdog_boost": 0.0, "favorite_penalty": 0.0})
     tactical_matchup = intel.get("tactical_matchup", {})
 
+    # 队级赛前证据（伤停人数 / 近期失球 / 临时Elo修正）只存在于原始情报中
+    rule_intel = {
+        "teams": intelligence.get("teams", {}) if isinstance(intelligence, dict) else {},
+        "recent_defense": intelligence.get("recent_defense", {}) if isinstance(intelligence, dict) else {},
+    }
+
+    # 快照时效检查（2026-09-11复盘改进）
+    # 快照落后时按 intel.teams.<code>.form_elo_adjust 做内存级临时修正，不写回快照
+    freshness_adj, freshness_labels = apply_snapshot_freshness(teams, league, rule_intel, date)
+    if freshness_adj:
+        teams = {code: dict(info) for code, info in teams.items()}
+        for code, delta in freshness_adj.items():
+            if code in teams:
+                teams[code]["elo"] = teams[code].get("elo", 1500) + delta
+
+    # 单边缺员危机（2026-09-11复盘改进）：一方≥6人、另一方≤2人
+    crisis = detect_unilateral_absence_crisis(a, b, rule_intel, league)
+
     # 交手次数 + 熟悉度修正
     meeting_count = count_meetings(results_data, a, b)
     familiarity_adj_a = 0.0
@@ -786,6 +1094,7 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
     extra_labels.extend(familiarity_labels)
     extra_labels.extend(tactical_labels)
     extra_labels.extend(intel.get("pattern_labels", []))
+    extra_labels.extend(freshness_labels)
 
     # 检查是否有锁定结果
     locked_key = frozenset((a, b))
@@ -836,6 +1145,14 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             la, lb, teams, a, b, tactical_matchup
         )
         xg_labels.extend(defensive_floor_labels)
+        # 总进球方差修正（2026-09-11复盘改进）：漏勺局放宽、稳健局压紧
+        la, lb, variance_labels, variance_mode = apply_total_goals_variance(
+            la, lb, teams, a, b, rule_intel, league
+        )
+        xg_labels.extend(variance_labels)
+        # 单边缺员危机：健康方进攻上限上修
+        la, lb, crisis_xg_labels = apply_absence_crisis_xg(la, lb, crisis)
+        xg_labels.extend(crisis_xg_labels)
         open_rule = _global_rule("OPEN_MATCH_TAIL_BOOST")
         if open_rule.get("enabled") and tactical_matchup.get("expected_pattern") == "open":
             tail_goal_boost = as_float(open_rule.get("tail_goal_boost"), 0.0)
@@ -849,8 +1166,12 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             weak_threshold=config.get("weak_elo_threshold")
         )
         all_scores, tail_labels = apply_open_match_tail(all_scores, tactical_matchup)
+        all_scores, variance_tail_labels = apply_total_goals_scoreline_shift(all_scores, variance_mode)
+        all_scores, crisis_tail_labels = apply_absence_crisis_scoreline(all_scores, crisis)
         pw, pd, pl = _score_probs_to_outcomes(all_scores)
         xg_labels.extend(tail_labels)
+        xg_labels.extend(variance_tail_labels)
+        xg_labels.extend(crisis_tail_labels)
 
         # 欧战分心平局概率上调（2026-09-03复盘改进）
         # 当双方都有欧战分心时，平局概率上调5-8%
@@ -907,6 +1228,14 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
             pw, pd, pl, teams, a, b, intel, tactical_matchup
         )
         prob_labels.extend(away_draw_labels)
+        # 单边缺员危机（2026-09-11复盘改进）：向健康方倾斜，且不再增平
+        pw, pd, pl, crisis_prob_labels = apply_absence_crisis_probability(pw, pd, pl, crisis)
+        prob_labels.extend(crisis_prob_labels)
+        # 条件平局保护（2026-09-11复盘改进）：需主场低迷或客场不败证据
+        pw, pd, pl, conditional_draw_labels = apply_conditional_draw_protection(
+            pw, pd, pl, tactical_matchup, rule_intel, a, b, league, veto=bool(crisis)
+        )
+        prob_labels.extend(conditional_draw_labels)
 
     direction = outcome_direction(pw, pd, pl)
     main_score, main_prob = directional_score(all_scores, direction)
@@ -1153,6 +1482,7 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
             "fighting_spirit": tactical_raw.get("fighting_spirit", {}) or {},
             "defensive_absences": tactical_raw.get("defensive_absences", {}) or {},
             "home_slump_away_surge": tactical_raw.get("home_slump_away_surge", {}) or {},
+            "draw_gate": tactical_raw.get("draw_gate", {}) or {},
             "open_eligibility": tactical_raw.get("open_eligibility", {}) or {},
         }
         tactical_matchup, pattern_labels = qualify_open_match(tactical_matchup)

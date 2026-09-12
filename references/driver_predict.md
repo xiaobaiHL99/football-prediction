@@ -116,6 +116,9 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `elo_delta` | 用 `compute_elo_delta()` 计算（负值=实力下降），会按 `confidence` 缩放并 clamp ±30 |
 | `confidence` | 0~1，情报可信度 |
 | `form` | `"胜-胜-平-负-胜"`，最新一场在最后，自动量化为 ±0.10 xG；格式错误（无分隔符/未知 token/放错键位）会输出 ⚠️ 警告并按中性处理 |
+| `injury_count` / `absence_count` | 伤停总人数（`suspension_count` 可另计并相加）。用于 `UNILATERAL_ABSENCE_CRISIS` 与平局门控否决，**必须显式给数**，不从 notes 猜测 |
+| `form_elo_adjust` | 快照过期时的临时 Elo 修正（±25 内裁剪）。仅在 `teams.json` 的 `_meta.updated_at` 落后比赛日期超过21天时使用，只影响本次预测、不写回快照 |
+| `conceded_per_game` | 近期场均失球。双方均 ≥1.5 触发漏勺局放宽；近均衡且双方均 <1.5 触发总xG压缩 |
 | `notes` | 伤停 / 状态 / 特殊背景摘要 |
 
 ### `matches[].tactical`（战术对位，必填）
@@ -127,6 +130,7 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `open_eligibility` | 仅 `open` 必填：双方 `attack_ready`、双方 `transition_threat`、双方 `no_key_attacking_absences` 均为 `true`，且 `first_leg_or_opener_cautious` 为 `false`；任一缺失即自动降为 `balanced` |
 | `defensive_absences` | 强队防线多人缺阵时显式传入，例如 `{"a": 4, "b": 0}`；若弱势方风格为 `counter_attack` / `possession` / `direct` 且强队至少缺3名防线球员，弱势方 xG 最低保留为0.85 |
 | `home_slump_away_surge` | 主队主场低迷、客队客场强势的三证据门控，例如 `{"home_slump_matches": 2, "away_surge_matches": 2, "home_defensive_absences": 4}`；满足后主胜-8个百分点，平局和客胜各得4个百分点 |
+| `draw_gate` | 条件平局保护证据，例如 `{"home_last5_home_wins": 1, "away_last6_away_unbeaten": 6}`。主队近5个主场≤1胜、**或**客队近6个客场不败时平局+5pp；任一方伤停+停赛≥6人时该加成被否决 |
 | `ineffective_possession` | 传控队面对大巴/反击的无效控球惩罚 |
 | `physical_mismatch` | -2~2 身体对抗差异 |
 | `derby_boost` | 德比/特殊战意 |
@@ -139,6 +143,8 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `competition_context.type` | `decider`（生死战）等，`goal_boost` ±0.20 战意加成 |
 | `context_openness` | ±0.30，取两队较大值叠加双方 |
 | `factors[]` / `notes[]` | 展示用情报（仅影响输出文案，不影响模型） |
+
+> **优先校准联赛（2026-09-11 起）**：`CONDITIONAL_DRAW_PROTECTION`、`UNILATERAL_ABSENCE_CRISIS`、`TOTAL_GOALS_VARIANCE`、`SNAPSHOT_FRESHNESS_CHECK` 四条规则只对**英超/西甲/德甲/意甲/法甲、欧冠、英冠**生效（`model_overrides.json` 中各规则的 `leagues` 字段）。其他联赛给出上述字段也不会触发。
 
 完整战术字段 Schema 与量化规则见 `references/intelligence.md`。
 

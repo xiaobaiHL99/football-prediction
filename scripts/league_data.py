@@ -120,6 +120,20 @@ def load_global_rules() -> dict:
     """Load structured, optional global calibration rules."""
     return _load_model_override_data().get("global_rules", {})
 
+
+def load_league_meta(league: str) -> dict:
+    """Load the `_meta` block of a league snapshot (used for freshness checks)."""
+    path = os.path.join(BASE, "references", league, "teams.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+    meta = data.get("_meta", {}) if isinstance(data, dict) else {}
+    return meta if isinstance(meta, dict) else {}
+
 def resolve_team(teams: dict, key: str) -> str:
     """解析球队名称 → 代码"""
     k = str(key).strip()

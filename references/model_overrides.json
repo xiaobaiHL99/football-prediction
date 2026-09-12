@@ -98,6 +98,55 @@
       "home_win_penalty": 0.08,
       "draw_share": 0.5,
       "note": "三项证据均须由赛前情报结构化提供；主胜扣减的一半给平局、一半给客胜。"
+    },
+    "CONDITIONAL_DRAW_PROTECTION": {
+      "description": "2026-09-11复盘教训：赫根(近5主场1胜)1-1、阿尔克马(对手近6客场不败)1-1，两场都该增平局却给了主胜；而塞维利亚对8人缺阵的瓦伦西亚却过度押平。平局保护必须有条件。",
+      "enabled": true,
+      "home_window": 5,
+      "home_max_wins": 1,
+      "away_window": 6,
+      "away_min_unbeaten": 6,
+      "absence_veto_threshold": 6,
+      "draw_boost": 0.05,
+      "favorite_penalty": 0.05,
+      "leagues": ["epl", "laliga", "bundesliga", "seriea", "ligue1", "champions_league", "championship"],
+      "note": "触发：主队近5个主场≤1胜，或客队近6个客场保持不败。否决：任一方伤停+停赛≥6人时不再加平局。证据须写入 tactical.draw_gate：{home_last5_home_wins, away_last6_away_unbeaten}。"
+    },
+    "UNILATERAL_ABSENCE_CRISIS": {
+      "description": "2026-09-11复盘教训：瓦伦西亚8人缺阵，塞维利亚1-0胜出，平局保护用错了方向。单边人员危机应向健康方倾斜，而不是增平。",
+      "enabled": true,
+      "crisis_threshold": 6,
+      "healthy_threshold": 2,
+      "crisis_win_penalty": 0.06,
+      "disable_draw_boost": true,
+      "healthy_goal_boost": 0.25,
+      "ceiling_goal_diff": 3,
+      "ceiling_conceded_max": 1,
+      "ceiling_multiplier": 1.25,
+      "leagues": ["epl", "laliga", "bundesliga", "seriea", "ligue1", "champions_league", "championship"],
+      "note": "一方缺员≥6人且另一方≤2人时：缺员方胜率-5~8pp并转给健康方，平局不再上调，健康方xG上调，3-0/4-0档比分权重上修。证据：teams.<code>.injury_count / absence_count。"
+    },
+    "TOTAL_GOALS_VARIANCE": {
+      "description": "2026-09-11复盘教训：西汉姆6-0、威尼斯2-4被严重低估，雷恩1-0、塞维利亚1-0又被高估，说明总进球分布过窄(欠离散)。",
+      "enabled": true,
+      "leaky_defense_threshold": 1.5,
+      "leaky_total_boost_per_side": 0.30,
+      "leaky_total_boost_per_side_max": 0.50,
+      "leaky_high_tail_multiplier": 1.15,
+      "leaky_high_tail_min_goals": 4,
+      "tight_match_elo_threshold": 50,
+      "tight_match_goal_cap": 2.6,
+      "tight_low_score_multiplier": 1.15,
+      "leagues": ["epl", "laliga", "bundesliga", "seriea", "ligue1", "champions_league", "championship"],
+      "note": "A) 双方近期场均失球均≥1.5 → 总xG额外+0.6~1.0，4球以上比分权重上修。B) Elo差<50且双方防守数据均达标 → 总xG压缩至约2.6，1-0/0-1/1-1权重上修，不默认2-1。证据：intel.recent_defense 或 teams.<code>.conceded_per_game。"
+    },
+    "SNAPSHOT_FRESHNESS_CHECK": {
+      "description": "2026-09-11复盘教训：英冠快照西汉姆1504/雷克瑟姆1372已过期，导致6-0被压成2-1。快照落后时须先用MCP近期状态做临时Elo修正。",
+      "enabled": true,
+      "max_age_days": 21,
+      "form_elo_max_adjust": 25,
+      "leagues": ["epl", "laliga", "bundesliga", "seriea", "ligue1", "champions_league", "championship"],
+      "note": "读取 references/<league>/teams.json 的 _meta.updated_at / updated；若落后比赛日期超过 max_age_days，用 intel.teams.<code>.form_elo_adjust 做临时修正(上限±25)，只影响本次预测、不写入快照。"
     }
   }
 }
