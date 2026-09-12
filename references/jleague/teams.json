@@ -1,9 +1,10 @@
 {
   "_meta": {
     "league": "J1 League",
-    "season": "2026",
+    "season": "2026-27",
     "updated_at": "2026-08-07T00:00:00Z",
-    "note": "Elo ratings based on historical performance and 2026 season form (initial calibration, adjustable)"
+    "verified_at": "2026-09-12",
+    "note": "Elo 为 2026-27 开季前标定（基于历史战绩与上一赛季状态），刻意保留未重算：本季截至 2026-09-12 仅进行 6-7 轮，用早期积分榜重算的噪声大于收益（与既定的\"不为刚开季联赛重算 Elo\"一致）。updated_at 保持标定日不变，以便快照体检如实报告评级时效。table.json 已按官方第 6-7 轮积分榜补全。"
   },
   "teams": {
     "KSA": {

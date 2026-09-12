@@ -11,7 +11,8 @@
       "apply_when": "team_in_acl and match_within_3_days_of_acl_match"
     }
   },
-  "europe_teams": ["KSA", "SAN", "YFM", "URD", "GAM", "KWF", "VIS", "MAC"],
+  "europe_teams": ["KSA", "KAS", "KYO", "VIS", "GAM", "MAC"],
+  "europe_teams_note": "2026-27 赛季日本参赛队（JFA/J联赛公布：鹿岛KSA、柏KAS、京都KYO、神户VIS、大阪钢巴GAM 打亚冠精英；町田MAC 打亚冠2）。原名单为上一赛季，误列了广岛SAN/横滨YFM/浦和URD/川崎KWF，漏了柏KAS与京都KYO；广岛本季无亚冠任务，已按2026-09-12信源修正。",
   "turf_map": {
     "artificial": [],
     "natural": ["KSA", "SAN", "YFM", "URD", "GAM", "KWF", "VIS", "MAC", "FCT", "CER", "NAG", "KAS", "KYO", "VVN", "FAG", "TOV", "SHP", "JEF", "AVF", "MIT"]

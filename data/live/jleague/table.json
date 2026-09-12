@@ -1,1 +1,22 @@
-{}
+{
+  "MAC": {"points": 16, "gd": 13, "gf": 18, "ga": 5, "played": 6, "wins": 5, "draws": 1, "losses": 0},
+  "VIS": {"points": 16, "gd": 6, "gf": 11, "ga": 5, "played": 7, "wins": 5, "draws": 1, "losses": 1},
+  "KAS": {"points": 15, "gd": 3, "gf": 13, "ga": 10, "played": 7, "wins": 5, "draws": 0, "losses": 2},
+  "KSA": {"points": 12, "gd": 1, "gf": 14, "ga": 13, "played": 7, "wins": 4, "draws": 0, "losses": 3},
+  "SAN": {"points": 11, "gd": 8, "gf": 13, "ga": 5, "played": 6, "wins": 3, "draws": 2, "losses": 1},
+  "FCT": {"points": 11, "gd": 3, "gf": 11, "ga": 8, "played": 6, "wins": 3, "draws": 2, "losses": 1},
+  "YFM": {"points": 10, "gd": 2, "gf": 10, "ga": 8, "played": 6, "wins": 3, "draws": 1, "losses": 2},
+  "FAG": {"points": 10, "gd": 1, "gf": 8, "ga": 7, "played": 6, "wins": 3, "draws": 1, "losses": 2},
+  "CER": {"points": 10, "gd": 0, "gf": 5, "ga": 5, "played": 6, "wins": 3, "draws": 1, "losses": 2},
+  "KWF": {"points": 9, "gd": 3, "gf": 12, "ga": 9, "played": 6, "wins": 2, "draws": 3, "losses": 1},
+  "MIT": {"points": 9, "gd": 3, "gf": 11, "ga": 8, "played": 6, "wins": 2, "draws": 3, "losses": 1},
+  "URD": {"points": 9, "gd": -3, "gf": 12, "ga": 15, "played": 6, "wins": 3, "draws": 0, "losses": 3},
+  "GAM": {"points": 6, "gd": -3, "gf": 8, "ga": 11, "played": 6, "wins": 1, "draws": 3, "losses": 2},
+  "NAG": {"points": 6, "gd": -4, "gf": 7, "ga": 11, "played": 6, "wins": 2, "draws": 0, "losses": 4},
+  "KYO": {"points": 5, "gd": -5, "gf": 9, "ga": 14, "played": 7, "wins": 1, "draws": 2, "losses": 4},
+  "AVF": {"points": 4, "gd": -1, "gf": 9, "ga": 10, "played": 6, "wins": 1, "draws": 1, "losses": 4},
+  "SHP": {"points": 4, "gd": -4, "gf": 3, "ga": 7, "played": 6, "wins": 1, "draws": 1, "losses": 4},
+  "VVN": {"points": 4, "gd": -7, "gf": 7, "ga": 14, "played": 6, "wins": 1, "draws": 1, "losses": 4},
+  "TOV": {"points": 3, "gd": -6, "gf": 2, "ga": 8, "played": 6, "wins": 0, "draws": 3, "losses": 3},
+  "JEF": {"points": 3, "gd": -10, "gf": 5, "ga": 15, "played": 6, "wins": 1, "draws": 0, "losses": 5}
+}
