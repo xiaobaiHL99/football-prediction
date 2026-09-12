@@ -2,27 +2,29 @@
   "_meta": {
     "league": "K League 1",
     "season": "2026",
-    "updated_at": "2026-07-24T00:00:00Z",
-    "note": "Elo ratings based on historical performance and 2026 season form"
+    "updated_at": "2026-09-12T00:00:00Z",
+    "recalibrated_round": 28,
+    "recalibration_note": "2026-09-12 快照级重校：原评级(2026-07-24)出现倒挂——仁川1594高于蔚山1556，与28轮后排名(蔚山第2/仁川第7)相反。本次按28轮真实积分榜重算：Elo = 1500 + 170×(场均积分 − 联赛均值1.339) + 60×(场均净胜球，截断±1.2)。同时按2026-27亚冠名单修正 europe 标记(亚冠精英：全北/大田/浦项/江原；亚冠2：首尔)。",
+    "note": "Elo ratings recalibrated from the official 28-round K League 1 2026 table"
   },
   "teams": {
-    "ULS": {
-      "name": "Ulsan HD",
-      "name_cn": "蔚山现代",
-      "elo": 1556,
-      "city": "Ulsan",
-      "stadium": "Ulsan Munsu Football Stadium",
-      "capacity": 44102,
+    "SEO": {
+      "name": "FC Seoul",
+      "name_cn": "FC首尔",
+      "elo": 1697,
+      "city": "Seoul",
+      "stadium": "Seoul World Cup Stadium",
+      "capacity": 66704,
       "turf": "natural",
       "color": "red",
-      "region": "southeast",
+      "region": "northwest",
       "europe": true,
-      "notes": "K联赛霸主，近年连续夺冠，进攻火力最强"
+      "notes": "第1名 59分(18胜5平5负) 进53失22 净+31；领先次席15分，10年来首冠在望；参加亚冠2，联赛5连胜刚被蔚山终结"
     },
     "JEO": {
       "name": "Jeonbuk Hyundai Motors",
       "name_cn": "全北现代",
-      "elo": 1676,
+      "elo": 1557,
       "city": "Jeonju",
       "stadium": "Jeonju World Cup Stadium",
       "capacity": 42377,
@@ -30,90 +32,38 @@
       "color": "green",
       "region": "southwest",
       "europe": true,
-      "notes": "传统豪门，亚冠经验丰富，近年竞争力有所下滑"
-    },
-    "POH": {
-      "name": "Pohang Steelers",
-      "name_cn": "浦项铁人",
-      "elo": 1578,
-      "city": "Pohang",
-      "stadium": "Pohang Steel Yard",
-      "capacity": 17037,
-      "turf": "natural",
-      "color": "red",
-      "region": "southeast",
-      "europe": true,
-      "notes": "传统强队，青训体系出色，战术执行力强"
-    },
-    "SEO": {
-      "name": "FC Seoul",
-      "name_cn": "FC首尔",
-      "elo": 1776,
-      "city": "Seoul",
-      "stadium": "Seoul World Cup Stadium",
-      "capacity": 66704,
-      "turf": "natural",
-      "color": "red",
-      "region": "northwest",
-      "europe": false,
-      "notes": "首都豪门，本赛季表现强势，攻防俱佳"
+      "notes": "第3名 43分(11胜10平7负) 进35失24 净+11；亚冠精英参赛；近5场不败(2胜3平)且仅失2球，但锋线效率偏低"
     },
     "GWN": {
       "name": "Gangwon FC",
       "name_cn": "江原FC",
-      "elo": 1727,
+      "elo": 1551,
       "city": "Gangneung",
       "stadium": "Gangneung Sports Complex",
       "capacity": 22333,
       "turf": "natural",
       "color": "orange",
       "region": "east",
-      "europe": false,
-      "notes": "中上游球队，打法激进，主场有一定战斗力"
+      "europe": true,
+      "notes": "第5名 41分(27场 10胜11平6负) 进34失25 净+9；亚冠精英参赛；少赛一场，仍有冲击前四空间"
     },
-    "ANY": {
-      "name": "FC Anyang",
-      "name_cn": "安养FC",
-      "elo": 1601,
-      "city": "Anyang",
-      "stadium": "Anyang Stadium",
-      "capacity": 17443,
+    "ULS": {
+      "name": "Ulsan HD",
+      "name_cn": "蔚山现代",
+      "elo": 1550,
+      "city": "Ulsan",
+      "stadium": "Ulsan Munsu Football Stadium",
+      "capacity": 44102,
       "turf": "natural",
       "color": "red",
-      "region": "northwest",
+      "region": "southeast",
       "europe": false,
-      "notes": "升班马，表现超出预期，防守组织出色"
-    },
-    "GWJ": {
-      "name": "Gwangju FC",
-      "name_cn": "光州FC",
-      "elo": 1338,
-      "city": "Gwangju",
-      "stadium": "Gwangju World Cup Stadium",
-      "capacity": 40311,
-      "turf": "natural",
-      "color": "yellow",
-      "region": "southwest",
-      "europe": false,
-      "notes": "本赛季表现极差，攻防两端全面崩溃"
-    },
-    "DJN": {
-      "name": "Daejeon Hana Citizen",
-      "name_cn": "大田韩亚市民",
-      "elo": 1533,
-      "city": "Daejeon",
-      "stadium": "Daejeon World Cup Stadium",
-      "capacity": 40400,
-      "turf": "natural",
-      "color": "blue",
-      "region": "central",
-      "europe": false,
-      "notes": "上升期球队，投资加大，阵容逐年补强"
+      "notes": "第2名 44分(13胜5平10负) 进42失37 净+5；不参加本赛季亚冠；近3场2胜1平，刚1-0击败榜首首尔；亚戈13球(领跑射手榜)、李东炅9球9助"
     },
     "JEU": {
-      "name": "Jeju United",
-      "name_cn": "济州联",
-      "elo": 1548,
+      "name": "Jeju SK",
+      "name_cn": "济州SK",
+      "elo": 1538,
       "city": "Jeju",
       "stadium": "Jeju World Cup Stadium",
       "capacity": 29600,
@@ -121,12 +71,25 @@
       "color": "red",
       "region": "south",
       "europe": false,
-      "notes": "海岛球队，客场旅途消耗大，主场依赖"
+      "notes": "第4名 42分(11胜9平8负) 进32失27 净+5；世界杯休赛后13战仅1负(6胜6平)，状态回升明显；海岛客场旅途消耗大"
+    },
+    "DJN": {
+      "name": "Daejeon Hana Citizen",
+      "name_cn": "大田韩亚市民",
+      "elo": 1522,
+      "city": "Daejeon",
+      "stadium": "Daejeon World Cup Stadium",
+      "capacity": 40400,
+      "turf": "natural",
+      "color": "blue",
+      "region": "central",
+      "europe": true,
+      "notes": "第6名 38分(10胜8平10负) 进43失34 净+9；亚冠精英参赛；8月以来8战6胜2负，冲击赛季首次三连胜"
     },
     "ICU": {
       "name": "Incheon United",
       "name_cn": "仁川联",
-      "elo": 1594,
+      "elo": 1514,
       "city": "Incheon",
       "stadium": "Sungui Arena Park",
       "capacity": 20700,
@@ -134,12 +97,38 @@
       "color": "black",
       "region": "northwest",
       "europe": false,
-      "notes": "保级常客，防守坚韧，平局大师"
+      "notes": "第7名 37分(27场 10胜7平10负) 进34失30 净+4；防守体系扎实、客场拿分能力优于主场；穆戈沙11球为队内头号射手，专打反击；少赛一场"
+    },
+    "POH": {
+      "name": "Pohang Steelers",
+      "name_cn": "浦项铁人",
+      "elo": 1476,
+      "city": "Pohang",
+      "stadium": "Pohang Steel Yard",
+      "capacity": 17037,
+      "turf": "natural",
+      "color": "red",
+      "region": "southeast",
+      "europe": true,
+      "notes": "第8名 36分(10胜6平12负) 进24失31 净-7；亚冠精英参赛；进攻火力联赛偏弱，近2平1负走低"
+    },
+    "ANY": {
+      "name": "FC Anyang",
+      "name_cn": "安养FC",
+      "elo": 1457,
+      "city": "Anyang",
+      "stadium": "Anyang Stadium",
+      "capacity": 17443,
+      "turf": "natural",
+      "color": "red",
+      "region": "northwest",
+      "europe": false,
+      "notes": "第9名 34分(8胜10平10负) 进35失45 净-10；升班马，进攻端有产出但失球偏多"
     },
     "BUC": {
       "name": "Bucheon FC 1995",
       "name_cn": "富川FC",
-      "elo": 1491,
+      "elo": 1446,
       "city": "Bucheon",
       "stadium": "Bucheon Stadium",
       "capacity": 35000,
@@ -147,12 +136,12 @@
       "color": "blue",
       "region": "northwest",
       "europe": false,
-      "notes": "升班马，阵容实力有限，保级压力大"
+      "notes": "第10名 31分(7胜10平11负) 进29失36 净-7；升班马，阵容厚度有限，保级压力中等"
     },
     "GIM": {
       "name": "Gimcheon Sangmu",
       "name_cn": "金泉尚武",
-      "elo": 1482,
+      "elo": 1431,
       "city": "Gimcheon",
       "stadium": "Gimcheon Stadium",
       "capacity": 25000,
@@ -160,7 +149,20 @@
       "color": "red",
       "region": "central",
       "europe": false,
-      "notes": "军旅球队，球员轮换频繁，阵容受兵役制度影响大"
+      "notes": "第11名 29分(4胜17平7负) 进26失34 净-8；极端平局属性(17平)，军旅轮换导致进攻乏力但不轻易输球"
+    },
+    "GWJ": {
+      "name": "Gwangju FC",
+      "name_cn": "光州FC",
+      "elo": 1279,
+      "city": "Gwangju",
+      "stadium": "Gwangju World Cup Stadium",
+      "capacity": 40311,
+      "turf": "natural",
+      "color": "yellow",
+      "region": "southwest",
+      "europe": false,
+      "notes": "第12名 13分(1胜10平17负) 进18失60 净-42；26场连续不胜创K联赛历史纪录，攻防全面崩盘，已锁定保级组"
     }
   }
 }

@@ -6,9 +6,10 @@
       "apply_when": "month in ['July', 'August']"
     },
     "european_qualification_distraction": {
-      "description": "亚冠联赛双线作战消耗",
+      "description": "亚冠(精英/2)双线作战消耗",
       "value": -0.08,
-      "apply_when": "team_in_acl and match_within_3_days_of_acl_match"
+      "apply_when": "team_in_acl",
+      "note": "2026-09-12 修正参赛名单：2026-27亚冠精英为全北/大田/浦项/江原，亚冠2为首尔；蔚山本赛季不参加亚冠，不再计入本因子"
     },
     "military_team": {
       "description": "金泉尚武军旅球队，球员因兵役制度频繁轮换，阵容稳定性差",
@@ -16,7 +17,8 @@
       "apply_when": "team == 'GIM'"
     }
   },
-  "europe_teams": ["ULS", "JEO", "POH"],
+  "europe_teams": ["JEO", "DJN", "POH", "GWN", "SEO"],
+  "europe_teams_note": "2026-27 赛季亚冠参赛队：精英联赛=全北JEO/大田DJN/浦项POH/江原GWN，亚冠2=首尔SEO；蔚山ULS本赛季无亚冠任务",
   "turf_map": {
     "artificial": [],
     "natural": ["ULS", "JEO", "POH", "SEO", "GWN", "ANY", "GWJ", "DJN", "JEU", "ICU", "BUC", "GIM"]
