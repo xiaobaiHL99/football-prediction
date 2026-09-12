@@ -266,14 +266,28 @@ def _rule_strength(name: str, rule: dict, league: str, evidence: dict) -> float:
 
 
 def _absence_counts(intel: dict, a: str, b: str) -> dict:
-    """Read explicit absence counts per side; never inferred from notes."""
+    """
+    Read explicit absence counts per side; never inferred from notes.
+
+    口径（2026-09-12 修正，避免重复计数）：
+      · injury_count   = 受伤人数，**不含停赛**；总人数 = injury_count + suspension_count
+      · absence_count  = 已含停赛的**总人数**；给出它时不再叠加 suspension_count
+    两者都给时以 absence_count 为准（其语义就是"总数"）。
+
+    修正原因：原实现恒为 injury_count + suspension_count，而 driver_predict.md 把
+    injury_count 描述为"伤停总人数"，调用方按文档填总数再补 suspension_count 就会
+    重复计数——2026-09-12 大阪钢巴实际 5 人缺阵被算成 8 人，越过 UNILATERAL_
+    ABSENCE_CRISIS 的 6 人门槛，误扣胜率并关掉了平局加成。
+    """
     counts = {}
     for side, code in (("a", a), ("b", b)):
         entry = (intel.get("teams", {}) or {}).get(code, {})
         entry = entry if isinstance(entry, dict) else {}
-        injuries = as_float(entry.get("injury_count", entry.get("absence_count", 0)))
-        suspensions = as_float(entry.get("suspension_count", 0))
-        counts[side] = injuries + suspensions
+        if entry.get("absence_count") is not None:
+            counts[side] = as_float(entry.get("absence_count"), 0)
+        else:
+            counts[side] = (as_float(entry.get("injury_count"), 0)
+                            + as_float(entry.get("suspension_count"), 0))
     return counts
 
 

@@ -116,8 +116,10 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `elo_delta` | 用 `compute_elo_delta()` 计算（负值=实力下降），会按 `confidence` 缩放并 clamp ±30 |
 | `confidence` | 0~1，情报可信度 |
 | `form` | `"胜-胜-平-负-胜"`，最新一场在最后，自动量化为 ±0.10 xG；格式错误（无分隔符/未知 token/放错键位）会输出 ⚠️ 警告并按中性处理 |
-| `injury_count` / `absence_count` | 伤停总人数（`suspension_count` 可另计并相加）。用于 `UNILATERAL_ABSENCE_CRISIS` 与平局门控否决，**必须显式给数**，不从 notes 猜测 |
-| `form_elo_adjust` | 快照过期时的临时 Elo 修正（±25 内裁剪）。仅在 `teams.json` 的 `_meta.updated_at` 落后比赛日期超过21天时使用，只影响本次预测、不写回快照 |
+| `injury_count` | **受伤**人数，**不含停赛**。总缺阵 = `injury_count` + `suspension_count`。用于 `UNILATERAL_ABSENCE_CRISIS` 与平局门控否决，**必须显式给数**，不从 notes 猜测 |
+| `suspension_count` | **停赛**人数，与 `injury_count` 相加得到总缺阵 |
+| `absence_count` | **已含停赛的总缺阵人数**。给出它时**不再叠加** `suspension_count`（用于只掌握总数、不掌握明细的情况） |
+| `form_elo_adjust` | 快照过期时的临时 Elo 修正（**±25 内裁剪**）。仅在 `teams.json` 的 `_meta.updated_at` 落后比赛日期超过21天时使用，只影响本次预测、不写回快照。⚠️ 该上限**不足以修正真正的评级倒挂**（例如快照给主队 +20、实际客队强 90+）；这种情况需另行走快照级重校 |
 | `conceded_per_game` | 近期场均失球。双方均 ≥1.5 触发漏勺局放宽；近均衡且双方均 <1.5 触发总xG压缩 |
 | `notes` | 伤停 / 状态 / 特殊背景摘要 |
 
