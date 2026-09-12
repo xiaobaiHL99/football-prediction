@@ -144,7 +144,13 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `context_openness` | ±0.30，取两队较大值叠加双方 |
 | `factors[]` / `notes[]` | 展示用情报（仅影响输出文案，不影响模型） |
 
-> **优先校准联赛（2026-09-11 起）**：`CONDITIONAL_DRAW_PROTECTION`、`UNILATERAL_ABSENCE_CRISIS`、`TOTAL_GOALS_VARIANCE`、`SNAPSHOT_FRESHNESS_CHECK` 四条规则只对**英超/西甲/德甲/意甲/法甲、欧冠、英冠**生效（`model_overrides.json` 中各规则的 `leagues` 字段）。其他联赛给出上述字段也不会触发。
+> **通用规则引擎（2026-09-11 起）**：`CONDITIONAL_DRAW_PROTECTION`、`UNILATERAL_ABSENCE_CRISIS`、`TOTAL_GOALS_VARIANCE`、`SNAPSHOT_FRESHNESS_CHECK` 等规则**默认对所有联赛生效**，不再依赖联赛白名单。是否触发由三件事共同决定：
+>
+> 1. **证据门槛**：规则通过 `requires` 声明必须存在的结构化字段（`draw_gate` / `absence_counts` / `conceded` / `form_elo_adjust`）。证据缺失时该规则不触发，绝不从文字描述猜测。
+> 2. **强度缩放**：实际效果 = 规则基础强度 × 联赛成熟度 × 证据完整度。联赛已匹配赛果样本 ≥15 时为满强度，不足则按 `thin_sample_league_strength`（默认0.7）运行，样本累积后自动提升。需要手动提权/降权时写 `rule_engine.league_strength_overrides`。
+> 3. **硬上限守卫**：所有规则叠加后的总位移受限——总 xG 位移 ≤0.60、单边概率转移 ≤0.10、平局锁定在 [0.08, 0.45]，最后重新归一化。
+>
+> 预测输出中的 `model_inputs.rule_engine` 会记录本次的联赛强度、xG 基线/终值、概率层位移和缺员方，便于复盘审计。参数集中在 `references/model_overrides.json` 的 `rule_engine` 块。
 
 完整战术字段 Schema 与量化规则见 `references/intelligence.md`。
 

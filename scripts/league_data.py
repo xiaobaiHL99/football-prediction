@@ -121,6 +121,12 @@ def load_global_rules() -> dict:
     return _load_model_override_data().get("global_rules", {})
 
 
+def load_rule_engine_config() -> dict:
+    """Load the rule-engine guard block (strength scaling and hard caps)."""
+    config = _load_model_override_data().get("rule_engine", {})
+    return config if isinstance(config, dict) else {}
+
+
 def load_league_meta(league: str) -> dict:
     """Load the `_meta` block of a league snapshot (used for freshness checks)."""
     path = os.path.join(BASE, "references", league, "teams.json")
