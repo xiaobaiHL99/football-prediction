@@ -2,8 +2,9 @@
   "_meta": {
     "league": "Serie A",
     "season": "2026-27",
-    "updated_at": "2026-08-22T00:00:00Z",
-    "note": "Elo ratings initial calibration aligned with champions_league/europa_league snapshots for shared clubs; promoted sides (SAS/PIS/CRE) at bottom tier. Adjustable via elo_updater."
+    "updated_at": "2026-09-12T00:00:00Z",
+    "roster_verified_round": 4,
+    "note": "2026-09-12 阵容修正：按意甲官方20队核实，移除已不在意甲的克雷莫纳CRE/比萨PIS/斯佩齐亚SPE/维罗纳VER，补入弗洛西诺内FRO。评级沿用赛季初基准(仅新队按升班马档位赋值)，未按积分榜整体重算——当前仅赛3-4轮，样本不足以重算Elo。"
   },
   "teams": {
     "JUV": {
@@ -13,7 +14,7 @@
       "city": "Turin",
       "stadium": "Allianz Stadium",
       "color": "white",
-      "notes": "意甲传统豪门，防守稳固底蕴深厚，争冠热门"
+      "notes": "意甲传统豪门，防守稳固底蕴深厚，争冠热门。前3轮2胜1平零封2场"
     },
     "INTER": {
       "name": "Inter Milan",
@@ -22,7 +23,7 @@
       "city": "Milan",
       "stadium": "San Siro",
       "color": "blue",
-      "notes": "近年强势复兴，攻守均衡，争冠最大热门"
+      "notes": "攻守均衡，争冠最大热门。前3轮全胜进8失3"
     },
     "MIL": {
       "name": "AC Milan",
@@ -31,7 +32,7 @@
       "city": "Milan",
       "stadium": "San Siro",
       "color": "red",
-      "notes": "传统豪门复兴中，年轻阵容冲击力强"
+      "notes": "传统豪门，年轻阵容冲击力强。前3轮2胜1平"
     },
     "NAP": {
       "name": "Napoli",
@@ -40,7 +41,7 @@
       "city": "Naples",
       "stadium": "Diego Armando Maradona",
       "color": "blue",
-      "notes": "南部劲旅，进攻火力强劲"
+      "notes": "南部劲旅，进攻火力强劲。前3轮1胜2负，中场因McTominay与Anguissa缺阵而削弱"
     },
     "ATA": {
       "name": "Atalanta",
@@ -49,7 +50,7 @@
       "city": "Bergamo",
       "stadium": "Gewiss Stadium",
       "color": "blue",
-      "notes": "加斯佩里尼体系成熟，高位逼抢进攻华丽"
+      "notes": "体系成熟，高位逼抢进攻华丽。前3轮2胜1负"
     },
     "ROM": {
       "name": "AS Roma",
@@ -58,7 +59,7 @@
       "city": "Rome",
       "stadium": "Stadio Olimpico",
       "color": "red",
-      "notes": "首都球队，阵容深度中上"
+      "notes": "首都球队。加斯佩里尼执教，前3轮全胜进10失1，暂列榜首"
     },
     "LAZ": {
       "name": "Lazio",
@@ -67,16 +68,16 @@
       "city": "Rome",
       "stadium": "Stadio Olimpico",
       "color": "skyblue",
-      "notes": "罗马同城对手，反击犀利"
+      "notes": "罗马同城对手，反击犀利。前3轮全胜进4失1"
     },
     "FIO": {
       "name": "Fiorentina",
       "name_cn": "佛罗伦萨",
-      "elo": 1700,
+      "elo": 1660,
       "city": "Florence",
       "stadium": "Stadio Artemio Franchi",
       "color": "purple",
-      "notes": "紫色军团，技术流打法"
+      "notes": "紫色军团，技术流打法。前4轮1胜3负进5失11，Vanoli接手后仍在调整四后卫体系"
     },
     "BOL": {
       "name": "Bologna",
@@ -85,7 +86,7 @@
       "city": "Bologna",
       "stadium": "Stadio Renato Dall'Ara",
       "color": "red",
-      "notes": "近年进步明显，战术纪律性强"
+      "notes": "战术纪律性强。前3轮1平2负进2失4，开局低迷"
     },
     "TOR": {
       "name": "Torino",
@@ -94,7 +95,7 @@
       "city": "Turin",
       "stadium": "Stadio Olimpico Grande Torino",
       "color": "red",
-      "notes": "都灵同城球队，中游稳定"
+      "notes": "都灵同城球队，中游稳定。前3轮1胜2负"
     },
     "UDI": {
       "name": "Udinese",
@@ -103,16 +104,7 @@
       "city": "Udine",
       "stadium": "Stadio Friuli",
       "color": "black",
-      "notes": "北部球队，青训出色"
-    },
-    "GEN": {
-      "name": "Genoa",
-      "name_cn": "热那亚",
-      "elo": 1610,
-      "city": "Genoa",
-      "stadium": "Stadio Luigi Ferraris",
-      "color": "red",
-      "notes": "历史悠久的港口城市球队"
+      "notes": "北部球队，青训出色。前3轮1胜1平1负"
     },
     "CAG": {
       "name": "Cagliari",
@@ -121,7 +113,7 @@
       "city": "Cagliari",
       "stadium": "Unipol Domus",
       "color": "red",
-      "notes": "撒丁岛代表，主场氛围热烈"
+      "notes": "撒丁岛代表，主场氛围热烈。前3轮2胜1负"
     },
     "SAS": {
       "name": "Sassuolo",
@@ -130,7 +122,16 @@
       "city": "Sassuolo",
       "stadium": "Mapei Stadium",
       "color": "green",
-      "notes": "回归意甲，技术流打法"
+      "notes": "技术流打法。前3轮1胜1平1负"
+    },
+    "GEN": {
+      "name": "Genoa",
+      "name_cn": "热那亚",
+      "elo": 1580,
+      "city": "Genoa",
+      "stadium": "Stadio Luigi Ferraris",
+      "color": "red",
+      "notes": "历史悠久的港口城市球队。前3轮全败进1失7，垫底"
     },
     "PAR": {
       "name": "Parma",
@@ -139,7 +140,16 @@
       "city": "Parma",
       "stadium": "Stadio Ennio Tardini",
       "color": "yellow",
-      "notes": "传统球队回归后稳扎稳打"
+      "notes": "传统球队，稳扎稳打。前3轮1平2负进1失4，进攻乏力"
+    },
+    "COM": {
+      "name": "Como 1907",
+      "name_cn": "科莫",
+      "elo": 1580,
+      "city": "Como",
+      "stadium": "Stadio Giuseppe Sinigaglia",
+      "color": "blue",
+      "notes": "法布雷加斯执教，战术纪律严明。前3轮2胜1平保持不败，暂列第4"
     },
     "LEC": {
       "name": "Lecce",
@@ -148,53 +158,25 @@
       "city": "Lecce",
       "stadium": "Stadio Via del Mare",
       "color": "red",
-      "notes": "南部球队，保级为主"
-    },
-    "VER": {
-      "name": "Hellas Verona",
-      "name_cn": "维罗纳",
-      "elo": 1560,
-      "city": "Verona",
-      "stadium": "Stadio Marcantonio Bentegodi",
-      "color": "yellow",
-      "notes": "中北部球队，防守反击为主"
-    },
-    "PIS": {
-      "name": "Pisa",
-      "name_cn": "比萨",
-      "elo": 1520,
-      "city": "Pisa",
-      "stadium": "Arena Garibaldi - Stadio Romeo Anconetani",
-      "color": "black",
-      "notes": "升班马，时隔多年重返意甲"
-    },
-    "CRE": {
-      "name": "Cremonese",
-      "name_cn": "克雷莫纳",
-      "elo": 1510,
-      "city": "Cremona",
-      "stadium": "Stadio Giovanni Zini",
-      "color": "red",
-      "notes": "升班马，防守韧性强"
-    },
-    "SPE": {
-      "name": "Spezia",
-      "name_cn": "斯佩齐亚",
-      "elo": 1500,
-      "city": "La Spezia",
-      "stadium": "Stadio Alberto Picco",
-      "color": "white",
-      "notes": "升班马，利古里亚海岸球队"
-    },
-    "COM": {
-      "name": "Como 1907",
-      "name_cn": "科莫",
-      "elo": 1540
+      "notes": "南部球队，保级为主。前3轮1胜2负"
     },
     "MON": {
       "name": "AC Monza",
       "name_cn": "蒙扎",
-      "elo": 1530
+      "elo": 1530,
+      "city": "Monza",
+      "stadium": "U-Power Stadium",
+      "color": "red",
+      "notes": "升班马，前3轮1平2负进4失8，防守承压"
+    },
+    "FRO": {
+      "name": "Frosinone",
+      "name_cn": "弗洛西诺内",
+      "elo": 1530,
+      "city": "Frosinone",
+      "stadium": "Stadio Benito Stirpe",
+      "color": "yellow",
+      "notes": "升班马。前3轮2胜1负进6失3，暂列第7；客场3-1胜都灵、主场3-0胜佛罗伦萨，开局远好于预期"
     },
     "VEN": {
       "name": "Venezia FC",
@@ -203,7 +185,7 @@
       "city": "Venice",
       "stadium": "Stadio Pier Luigi Penzo",
       "color": "orange",
-      "notes": "上赛季意乙冠军升级，夏窗大换血(14人离队21人加盟)，阵容磨合中"
+      "notes": "夏窗大换血(14人离队21人加盟)，阵容磨合中。前4轮全败进4失11，垫底"
     }
   }
 }
