@@ -14,6 +14,6 @@
   "europe_teams": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO"],
   "turf_map": {
     "artificial": [],
-    "natural": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO", "BOL", "TOR", "UDI", "GEN", "CAG", "SAS", "PAR", "LEC", "VER", "PIS", "CRE", "SPE", "VEN"]
+    "natural": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO", "BOL", "TOR", "UDI", "GEN", "CAG", "SAS", "PAR", "LEC", "VEN", "COM", "MON", "FRO"]
   }
 }

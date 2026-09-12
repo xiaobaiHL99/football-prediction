@@ -36,13 +36,70 @@ def load_league_context(league: str) -> dict:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 
+def _normalize_table_row(row: dict) -> dict:
+    """
+    把积分榜行统一为规范 schema：points/gd/gf/ga/played/wins/draws/losses。
+
+    背景（2026-09-12 审计发现）：data/live/*/table.json 历史上有两套字段命名，
+    规范版来自 mcp_snapshot.py（points/wins/draws/losses），旧版手写文件用
+    pts/won/drawn/lost 且没有 gd。若直接按规范字段读取，旧版联赛所有球队的
+    points 都会取到默认值 0，排名退化为字典插入顺序，导致"争冠队主场(+)"
+    "保级关键战"这类 ±0.05~0.15 的修正被加在完全无关的球队上——静默算错，
+    且不会报错。此处统一口径，使新旧两种文件都能正确读取。
+    """
+    if not isinstance(row, dict):
+        return {}
+    out = dict(row)
+
+    def pick(*keys):
+        for k in keys:
+            v = row.get(k)
+            if isinstance(v, (int, float)):
+                return v
+        return None
+
+    wins = pick("wins", "won")
+    draws = pick("draws", "drawn")
+    losses = pick("losses", "lost")
+    points = pick("points", "pts")
+    gf = pick("gf", "goals_for")
+    ga = pick("ga", "goals_against")
+
+    # 缺积分时用 3/1/0 计分规则回推，避免下游拿到 0 造成错误排名
+    if points is None and None not in (wins, draws):
+        points = 3 * wins + draws
+    if wins is not None:
+        out["wins"] = wins
+    if draws is not None:
+        out["draws"] = draws
+    if losses is not None:
+        out["losses"] = losses
+    if points is not None:
+        out["points"] = points
+    if gf is not None:
+        out["gf"] = gf
+    if ga is not None:
+        out["ga"] = ga
+    if "gd" not in out and None not in (gf, ga):
+        out["gd"] = gf - ga
+    if "played" not in out and None not in (wins, draws, losses):
+        out["played"] = wins + draws + losses
+    return out
+
+
 def load_current_table(league: str) -> dict:
-    """加载当前积分榜"""
+    """加载当前积分榜（字段已统一为规范 schema，兼容旧版 pts/won/drawn/lost）。"""
     path = os.path.join(BASE, "data", "live", league, "table.json")
     if not os.path.exists(path):
         return {}
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        raw = json.load(f)
+    if not isinstance(raw, dict):
+        return {}
+    rows = raw.get("table", raw)
+    if not isinstance(rows, dict):
+        return {}
+    return {code: _normalize_table_row(row) for code, row in rows.items()}
 
 def load_fixtures(league: str) -> list:
     """加载剩余赛程"""
@@ -226,6 +283,10 @@ HUGE_GAP_SHOCK_FLOOR = 1.0       # 实力悬殊不再压缩方差(<1 会让大�
 INJURY_CRISIS_THRESHOLD = -15.0  # 伤病危机：elo_delta低于此值
 RELEGATION_ZONE = 4              # 倒数N名为保级区
 DEBATED_ZONE = 6                 # 德比/保级判定用后半段排名
+# 排名类修正（争冠/保级/副班长殊死战）生效所需的最少已赛场次。
+# 赛季初积分榜排名近似噪声，而这些修正幅度很大（副班长殊死战达 ±0.4 xG），
+# 因此在样本不足时必须整体跳过，而不是按噪声排名加成。
+TABLE_POSITION_MIN_PLAYED = 8
 
 # ---- 近期状态因子 ----
 FORM_XG_MAX = 0.10               # 5连胜 = +0.10 xG, 5连败 = -0.10 xG
@@ -660,49 +721,71 @@ def classify_match(teams: dict, a: str, b: str, elo_delta_a: float = 0.0,
         result["labels"].append("实力悬殊(方差中性)")
 
     # 4) 保级关键战（需要积分榜数据）
+    #
+    # ⚠️ 2026-09-12 审计：这一段此前没有任何样本门槛，会以两种方式静默算错：
+    #   (a) 赛季初（2-3 轮）的积分榜排名近乎噪声，却照样给出 +0.15 主场优势、
+    #       +0.08 xG，甚至"副班长殊死战"的 -0.40/+0.32 xG 与 ×1.40 方差；
+    #   (b) 两队都不在积分榜里时 rank 均取哨兵值 99，"99 > n_teams-3" 恒成立，
+    #       于是两个快照缺失的球队会被当成"保级关键战"错误加成。
+    # 因此增加门槛：两队都必须在榜且已赛场次达到 TABLE_POSITION_MIN_PLAYED。
+    # 门槛不足时不动任何排名类修正（符合"证据不到就不动"的原则）。
     if table:
         n_teams = len(table)
-        # 获取两队排名
-        sorted_teams = sorted(table.keys(), key=lambda c: table[c].get("points", 0), reverse=True)
-        rank_a = sorted_teams.index(a) + 1 if a in sorted_teams else 99
-        rank_b = sorted_teams.index(b) + 1 if b in sorted_teams else 99
-        # 两队都在保级区附近（倒数DEBATED_ZONE名）
-        if rank_a > n_teams - RELEGATION_ZONE and rank_b > n_teams - RELEGATION_ZONE:
-            # 保级战主队战意加成
-            result["home_adv_multiplier"] += 0.15
-            result["xG_adjust_a"] += 0.08
-            result["labels"].append("保级关键战(主队战意+)")
-        # 其中一队在争冠区（前三）
-        elif rank_a <= 3:
-            result["xG_adjust_a"] += 0.05
-            result["labels"].append("争冠队主场(+)")
-        elif rank_b <= 3:
-            result["xG_adjust_b"] += 0.05
-            result["labels"].append("争冠队客场(+)")
+        played_a = table.get(a, {}).get("played")
+        played_b = table.get(b, {}).get("played")
+        ranks_usable = (
+            a in table and b in table
+            and isinstance(played_a, (int, float))
+            and isinstance(played_b, (int, float))
+            and played_a >= TABLE_POSITION_MIN_PLAYED
+            and played_b >= TABLE_POSITION_MIN_PLAYED
+        )
+        if not ranks_usable:
+            result["labels"].append(
+                f"积分榜样本不足(跳过排名修正,需≥{TABLE_POSITION_MIN_PLAYED}轮)"
+            )
+        else:
+            # 获取两队排名
+            sorted_teams = sorted(table.keys(), key=lambda c: table[c].get("points", 0), reverse=True)
+            rank_a = sorted_teams.index(a) + 1 if a in sorted_teams else 99
+            rank_b = sorted_teams.index(b) + 1 if b in sorted_teams else 99
+            # 两队都在保级区附近（倒数DEBATED_ZONE名）
+            if rank_a > n_teams - RELEGATION_ZONE and rank_b > n_teams - RELEGATION_ZONE:
+                # 保级战主队战意加成
+                result["home_adv_multiplier"] += 0.15
+                result["xG_adjust_a"] += 0.08
+                result["labels"].append("保级关键战(主队战意+)")
+            # 其中一队在争冠区（前三）
+            elif rank_a <= 3:
+                result["xG_adjust_a"] += 0.05
+                result["labels"].append("争冠队主场(+)")
+            elif rank_b <= 3:
+                result["xG_adjust_b"] += 0.05
+                result["labels"].append("争冠队客场(+)")
 
-        # 6) 副班长殊死战（通用）：主/客队倒数后2名 vs 非同样处境对手
-        # 垫底球队拼死一搏时不可用常规Elo衡量
-        bottom_n = max(2, round(n_teams * 0.15))  # 至少后2名，或后15%
-        # 6a) 主队副班长殊死战：主队倒数 vs 客队不在倒数区
-        if rank_a > n_teams - bottom_n and rank_b <= n_teams - bottom_n:
-            # 大幅压低对手xG（铁桶阵+拼抢强度翻倍+球迷第12人）
-            result["xG_adjust_b"] -= 0.40
-            # 主队进攻大幅加成（冒险压上+定位球+尊严之战）
-            result["xG_adjust_a"] += 0.32
-            # 方差大幅升高（拼死局不可预测）
-            result["shock_multiplier"] = max(result["shock_multiplier"] * 1.40, result["shock_multiplier"] + 0.20)
-            result["labels"].append("副班长殊死战(主队拼死一搏)")
-        # 6b) 客队副班长殊死战：客队倒数 vs 主队不在倒数区
-        # 主队越强越能破解大巴，所以死守效果递减
-        elif rank_b > n_teams - bottom_n and rank_a <= n_teams - bottom_n:
-            is_top_home = rank_a <= 3  # 强队更擅破大巴
-            home_xg_penalty = -0.25 if is_top_home else -0.45
-            away_xg_boost = 0.10 if is_top_home else 0.20
-            shock_boost = 1.20 if is_top_home else 1.40
-            result["xG_adjust_a"] += home_xg_penalty
-            result["xG_adjust_b"] += away_xg_boost
-            result["shock_multiplier"] = max(result["shock_multiplier"] * shock_boost, result["shock_multiplier"] + (0.10 if is_top_home else 0.20))
-            result["labels"].append(f"副班长殊死战(客队死守{'被破' if is_top_home else '反击'})")
+            # 6) 副班长殊死战（通用）：主/客队倒数后2名 vs 非同样处境对手
+            # 垫底球队拼死一搏时不可用常规Elo衡量
+            bottom_n = max(2, round(n_teams * 0.15))  # 至少后2名，或后15%
+            # 6a) 主队副班长殊死战：主队倒数 vs 客队不在倒数区
+            if rank_a > n_teams - bottom_n and rank_b <= n_teams - bottom_n:
+                # 大幅压低对手xG（铁桶阵+拼抢强度翻倍+球迷第12人）
+                result["xG_adjust_b"] -= 0.40
+                # 主队进攻大幅加成（冒险压上+定位球+尊严之战）
+                result["xG_adjust_a"] += 0.32
+                # 方差大幅升高（拼死局不可预测）
+                result["shock_multiplier"] = max(result["shock_multiplier"] * 1.40, result["shock_multiplier"] + 0.20)
+                result["labels"].append("副班长殊死战(主队拼死一搏)")
+            # 6b) 客队副班长殊死战：客队倒数 vs 主队不在倒数区
+            # 主队越强越能破解大巴，所以死守效果递减
+            elif rank_b > n_teams - bottom_n and rank_a <= n_teams - bottom_n:
+                is_top_home = rank_a <= 3  # 强队更擅破大巴
+                home_xg_penalty = -0.25 if is_top_home else -0.45
+                away_xg_boost = 0.10 if is_top_home else 0.20
+                shock_boost = 1.20 if is_top_home else 1.40
+                result["xG_adjust_a"] += home_xg_penalty
+                result["xG_adjust_b"] += away_xg_boost
+                result["shock_multiplier"] = max(result["shock_multiplier"] * shock_boost, result["shock_multiplier"] + (0.10 if is_top_home else 0.20))
+                result["labels"].append(f"副班长殊死战(客队死守{'被破' if is_top_home else '反击'})")
 
     # 5) 欧战双线消耗（需要league_context）
     # 注意：当比赛本身就是欧战(champions_league/europa_league)时，跳过此逻辑

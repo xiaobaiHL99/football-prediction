@@ -112,15 +112,139 @@
 
 ---
 
-## 四、结论与后续
+## 四、第一阶段续：修复 5 个会静默算错的代码缺陷
 
-**本次已消除的风险**：3 个联赛共 7 支球队的建模缺口 + 1 处脏数据 + 1 处代码不一致。这些都是**会导致实际预测错误**的问题。
+人工排查结束后，我把检查固化成脚本并顺手验证，结果脚本又抓出**5 个我人工排查漏掉的缺陷**。它们都不会报错，只会悄悄算错。
 
-**仍然存在的风险**：13 个联赛评级时效性不足，靠规则4兜底；3 个联赛名单可能有冗余但无缺失。
+### 缺陷 1（严重）：积分榜 schema 不兼容 → 排名类修正加在无关球队上
 
-**建议的自动化**：把本次的审计脚本固化为 `scripts/audit_snapshots.py`，纳入日常流程，这样每轮预测前都能机械发现"缺队/倒挂/过期"，不必依赖人工排查。这是比逐次修补更根本的解法。
+`data/live/*/table.json` 存在两套字段命名：
+
+| 来源 | 字段 |
+|---|---|
+| `mcp_snapshot.py`（规范） | `points / wins / draws / losses` |
+| 旧版手写文件 | `pts / won / drawn / lost`，且无 `gd` |
+
+而 `league_data.py` 按规范字段读取（`table[c].get("points", 0)`）。旧版联赛**所有球队积分都会读到默认值 0**，排名退化为字典插入顺序，于是「争冠队主场(+)」「保级关键战」这类 ±0.05~0.15 的修正被加在完全无关的球队上。
+
+**修复**：`load_current_table()` 统一规范化新旧两种 schema（缺积分时按 3/1/0 规则回推，缺 `gd` 时用 `gf-ga`）。
+
+**诚实说明**：修完后验证「受影响联赛 = 无」——因为唯一的旧版文件（德甲）恰好是全 0 的赛季前表，两种读法排名相同。所以这是**排除了一颗定时炸弹，而不是纠正了一个已发生的错误**。
+
+### 缺陷 2（严重）：排名类修正没有样本门槛，且哨兵值会误触发
+
+原代码 `if table:` 之后直接用排名，存在两个问题：
+
+1. **赛季初排名是噪声**：德甲第 3 轮时前 3 名只是"踢了 2 场赢了 2 场"，却照样拿到 +0.05 xG；更严重的是「副班长殊死战」会给 **−0.40/+0.32 xG 和 ×1.40 方差**。
+2. **两队都不在榜时必然误判**：`rank` 取哨兵值 99，而 `99 > n_teams - 3` 恒成立 → 两支快照缺失的球队被当成「保级关键战」，白拿 +0.15 主场优势和 +0.08 xG。
+
+**修复**：新增 `TABLE_POSITION_MIN_PLAYED = 8`，要求两队都在榜且已赛场次达标，否则整体跳过并标注「积分榜样本不足(跳过排名修正)」。符合既定的"证据不到就不动"原则。
+
+**验证**（三种情形均实测）：
+
+| 情形 | 结果 |
+|---|---|
+| 德甲真实表（2-3 轮）AUG vs HAM | 跳过，xG 修正 0.000 ✅（修复前会拿到「争冠队主场(+)」） |
+| 部分表，两队均不在榜 | 跳过 ✅（修复前会误判「保级关键战」） |
+| K 联赛真实表（19-20 轮）榜首 vs 榜尾 | 仍正常生效「争冠队主场(+)」「副班长殊死战」✅ 功能没被改死 |
+
+### 缺陷 3：`mcp_snapshot.resolve()` 的 `isalpha()` 守卫排除掉所有含数字队名
+
+模糊匹配要求"查找键去空格后全是字母"，而德甲/意甲大量队名自带数字（`1. FC Koln`、`TSG 1899 Hoffenheim`、`Bayer 04 Leverkusen`、`SC Paderborn 07`、`FC Schalke 04`）。这些队被整体排除在模糊匹配外，导致 ESPN 的短名（`Leverkusen`、`Hoffenheim`、`FC Koln`）**全部无法映射**，快照同步直接中止。
+
+纯代码键本就因不含空格被 `" " in key` 排除，该守卫是冗余的。
+
+### 缺陷 4：积分榜重复行静默覆盖 → 球队积分偏少
+
+ESPN 偶尔把一支球队拆成两行（德甲同时出现 `Union Berlin` 和 `1. FC Union Berlin`，各带一部分场次），而 `convert_standings` 是按代码**直接赋值** → 后一行覆盖前一行，柏林联合的积分和场次凭空少一半。
+
+**修复**：合并同一代码的多行（两行覆盖互不重叠的比赛，累加即可）并打印提示。
+
+### 缺陷 5：无法结算的台账条目会永久阻塞体检
+
+旧德甲阵容下做出的 `HEI vs B04` 预测永远不会匹配到赛果，既在复盘中永远显示"待结果"，也让快照体检持续报 CRITICAL。
+
+**修复**：`ledger.py` 新增作废机制（`is_void` / `void_entry` / `load_ledger(include_void=False)`）。作废条目保留原始内容，只在默认视图中被过滤。
+
+⚠️ 关键实现细节：**任何"读改写"台账的调用必须传 `include_void=True`**，否则写回时会把作废条目永久删除。`append_entry` 已相应调整，并加了回归测试（作废后追加新预测，确认 HEI 条目仍在）。
+
+### 附带：刷新两张过期派生表（用 MCP）
+
+| 文件 | 修复前 | 修复后 |
+|---|---|---|
+| `data/live/bundesliga/table.json` | 全 0 的赛季前表，且残留 WOL/HEI/DUS 三支非德甲球队 | 18 队真实榜（MCP D1），无残留 |
+| `data/live/seriea/table.json` | 残留 CRE/PIS/SPE/VER 四支降级队 | 20 队真实榜（MCP I1），无残留 |
+
+两张表独立验证了我第一阶段的阵容重建：MCP 给出的德甲 18 队与意甲 20 队**恰好等于**我修正后的名单，无沃尔夫斯堡/海登海姆/杜塞尔多夫，也无克雷莫纳/比萨/斯佩齐亚/维罗纳；弗洛西诺内第 7 位 6 分，与我给的 1530 评级相符。
+
+### 附带：清理 `seriea/context.json`
+
+`turf_map.natural` 仍列着已降级的 VER/PIS/CRE/SPE（永远匹配不上，无害），已按新名单替换为 COM/MON/FRO。
+
+---
+
+## 五、把检查固化为 `scripts/audit_snapshots.py`
+
+一次性人工排查没有价值——一个月后还要重来。已固化为脚本，**不依赖任何外部数据源**，只比对本地各文件之间的代码集一致性（因此永远可运行，不受反爬和时效影响）。
+
+### 严重度阶梯（关键设计）
+
+| 级别 | 判据 | 含义 |
+|---|---|---|
+| **CRITICAL** | 真实比赛来源（results / fixtures / 台账）引用了快照里没有的代码 | 该场比赛无法建模，必须立刻修 |
+| **WARN** | `table.json`（派生数据）含快照没有的代码 | 派生数据未刷新，需人工确认 |
+| **WARN** | 快照里的队从未出现在任何比赛来源 | 可能是已降级队残留 |
+| **WARN** | 快照超过 21 天未更新 | 时效不足 |
+| **WARN** | 同一球队在不同快照用了不同代码 | 跨联赛代码不统一 |
+| **INFO** | 队数统计、候选池超集、已退役赛事 | 记录备查 |
+
+退出码在存在 CRITICAL 时为 1，可直接用于日常流程或 CI。
+
+```bash
+python scripts/audit_snapshots.py                 # 完整报告
+python scripts/audit_snapshots.py --quiet          # 只看问题
+python scripts/audit_snapshots.py --json data/reviews/snapshot_audit.json
+```
+
+### 一次重要的自我纠正：删掉会喊 40 次的检查
+
+我最初还加了"同一代码在不同快照代表不同球队"的检查，结果一次报出**40 条**——因为 3 字母代码（HAM=Hammarby/Hamburg/HamKam、MIL=AC米兰/Millwall…）在联赛间本来就会重复，这是既定设计。**会喊 40 次的检查没人会看**，只会淹没真正的问题。该检查已删除，并在代码注释里写明原因，避免以后有人再加回来。
+
+### 最终体检结果
+
+```
+CRITICAL 0   WARN 20   INFO 3
+```
+
+20 条 WARN 全部是已知且已分类的：13 个联赛评级时效不足（靠规则4兜底）、3 个联赛可能有冗余名单（无权威名单，不猜测）、1 个缺 `_meta.updated_at`、2 个跨联赛代码不统一、若干派生数据待刷新。
+
+---
+
+## 六、结论与后续
+
+**已消除的风险**：3 个联赛共 7 支球队的建模缺口、1 处脏数据、5 个会静默算错的代码缺陷、2 张含已降级队的过期派生表。
+
+**关键教训**：人工排查找到了 7 支缺失球队，但**漏掉了全部 5 个代码缺陷**——因为缺陷不表现为"数据不对"，而表现为"逻辑读不到数据后静默用了默认值"。这类问题只有机械化的一致性检查才能发现，靠看数据看不出来。
+
+**仍然存在的风险**：
+- 13 个联赛评级时效性不足，靠规则4兜底（已决策：不为刚开季的欧洲联赛重算 Elo）
+- 3 个联赛名单可能有冗余但无缺失，缺权威名单，不猜测删除
+
+**建议的下一步（本次未做，均不影响预测输出，属命名/数据卫生）**：
+
+1. **统一跨快照球队代码**：目前 `(跨联赛)` 两条——
+   - 国际米兰：`seriea=INTER`、`champions_league=INT`（且 `INT` 在 veikkausliiga 指图尔库国际）
+   - 法兰克福：`bundesliga=FRG`、`europa_league=FRA`
+   
+   代码在联赛内隔离，**当前不影响任何预测**；但任何跨联赛功能都会踩坑。改名需同步 `teams.json`/`context.json`/`data/live/*`/台账，涉及 3 个联赛，应作为独立一次改动并逐项验证。
+2. **为 `championship/teams.json` 补 `_meta.updated_at`**（可取该文件的最近 git 提交时间，不要凭印象填）。
+3. **刷新其余过期派生表**：`allsvenskan`/`brasileirao`/`eliteserien`/`mls`/`jleague`/`libertadores` 等不在 MCP 覆盖内，需外部数据源。
+
+**日常用法**：每轮预测前跑一次 `python scripts/audit_snapshots.py --quiet`，有 CRITICAL 就先修再预测。
 
 ## 修改文件
+
+### 第一阶段（已提交 `8dc28ec`）
 
 | 文件 | 说明 |
 |---|---|
@@ -128,4 +252,18 @@
 | `references/seriea/teams.json` | 20队重建（移4补1）+ 各队当前战绩备注 |
 | `references/saudi_pro_league/teams.json` | 补录 GUL / DRI 两队 |
 | `data/live/champions_league/results.json` | 清空误写的 AFC 数据 |
-| `data/reviews/predictions.json` | 沙尔克代码 SCH→S04 规范化 |
+| `data/reviews/predictions.json` | 沙尔克代码 SCH→S04 规范化（已提交 `c1a7109`） |
+
+### 第二阶段
+
+| 文件 | 说明 |
+|---|---|
+| `scripts/audit_snapshots.py` | **新增**：全联赛快照体检，严重度分级 + 退出码 |
+| `scripts/ledger.py` | 新增作废机制 `is_void`/`void_entry`，`load_ledger(include_void=)` |
+| `scripts/league_data.py` | `_normalize_table_row` 统一积分榜 schema；`TABLE_POSITION_MIN_PLAYED` 样本门槛 |
+| `scripts/mcp_snapshot.py` | 合并重复行；修 `resolve()` 的 `isalpha()` 守卫；补 19 条队名别名 |
+| `data/live/bundesliga/table.json` | 用 MCP D1 刷新为 18 队真实榜 |
+| `data/live/seriea/table.json` | 用 MCP I1 刷新为 20 队真实榜 |
+| `references/seriea/context.json` | `turf_map` 清理降级队代码 |
+| `data/reviews/predictions.json` | 作废无法结算的 `HEI vs B04` 条目 |
+

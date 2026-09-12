@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated_at": "2026-09-12T11:23:40"
+    "updated_at": "2026-09-12T11:31:56"
   },
   "predictions": [
     {
@@ -17572,7 +17572,9 @@
         "HEI home 5 wins in last 6",
         "HEI 5-4-1 low block, B04 missing finishers"
       ],
-      "_id": "bundesliga|HEI|B04|2026-08-29"
+      "_id": "bundesliga|HEI|B04|2026-08-29",
+      "void_reason": "该场基于错误的德甲阵容（海登海姆 2026-27 不在德甲），比赛不存在，无法结算",
+      "voided_at": "2026-09-12T11:31:56"
     },
     {
       "date": "2026-08-29",

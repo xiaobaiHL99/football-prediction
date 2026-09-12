@@ -22,8 +22,25 @@ def ensure_dir():
     os.makedirs(DATA_DIR, exist_ok=True)
 
 
-def load_ledger(path: str = None) -> dict:
-    """加载台账。文件不存在或损坏时返回空台账。"""
+def is_void(entry: dict) -> bool:
+    """
+    是否为作废条目。
+
+    作废用于"永远无法结算"的记录：快照阵容有误导致预测了不存在的比赛、
+    赛事取消等。这类条目不是待办，而是已知无效的历史痕迹，若留在统计里会
+    永久显示为"待结果"，并让快照体检持续报错，因此显式作废而非删除。
+    """
+    return bool(entry.get("void_reason"))
+
+
+def load_ledger(path: str = None, include_void: bool = False) -> dict:
+    """
+    加载台账。文件不存在或损坏时返回空台账。
+
+    include_void=False（默认）会过滤掉作废条目，复盘统计因此天然忽略它们。
+    ⚠️ 任何"读改写"台账的调用（如 append_entry / void_entry）都必须传
+    include_void=True，否则写回时会把作废条目永久删除。
+    """
     path = path or LEDGER_PATH
     ensure_dir()
     if not os.path.exists(path):
@@ -38,14 +55,45 @@ def load_ledger(path: str = None) -> dict:
     if isinstance(data["predictions"], dict):
         # 兼容旧版 dict 形态：摊平为列表
         data["predictions"] = list(data["predictions"].values())
+    if not include_void:
+        data["predictions"] = [e for e in data["predictions"] if not is_void(e)]
     return data
+
+
+def _write_ledger(ledger: dict, path: str) -> None:
+    from datetime import datetime
+    ledger["_meta"] = ledger.get("_meta", {}) or {}
+    ledger["_meta"]["updated_at"] = datetime.now().isoformat(timespec="seconds")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(ledger, f, ensure_ascii=False, indent=2)
+
+
+def void_entry(entry_id: str, reason: str, path: str = None) -> int:
+    """
+    把指定 _id 的台账条目标记为作废（保留原始内容，仅加 void_reason）。
+
+    Returns 被作废的条目数；0 表示未找到。
+    """
+    path = path or LEDGER_PATH
+    ledger = load_ledger(path, include_void=True)
+    from datetime import datetime
+    hit = 0
+    for entry in ledger["predictions"]:
+        if entry.get("_id") == entry_id:
+            entry["void_reason"] = reason
+            entry["voided_at"] = datetime.now().isoformat(timespec="seconds")
+            hit += 1
+    if hit:
+        _write_ledger(ledger, path)
+    return hit
 
 
 def append_entry(entry: dict, path: str = None) -> dict:
     """Write one prediction per fixture date, replacing an older same-fixture version."""
     path = path or LEDGER_PATH
     ensure_dir()
-    ledger = load_ledger(path)
+    # include_void=True：写回时必须保留作废条目，否则它们会被静默删除。
+    ledger = load_ledger(path, include_void=True)
     entry["_id"] = entry.get("_id") or make_id(entry)
     existing = ledger["predictions"]
     replacement_index = next((
@@ -61,11 +109,7 @@ def append_entry(entry: dict, path: str = None) -> dict:
             item for index, item in enumerate(existing)
             if item.get("_id") != entry["_id"] or index == replacement_index
         ]
-    ledger["_meta"] = ledger.get("_meta", {}) or {}
-    from datetime import datetime
-    ledger["_meta"]["updated_at"] = datetime.now().isoformat(timespec="seconds")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(ledger, f, ensure_ascii=False, indent=2)
+    _write_ledger(ledger, path)
     return entry
 
 
