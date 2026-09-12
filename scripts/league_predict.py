@@ -36,6 +36,7 @@ from league_data import (
     load_league_teams,
     load_league_context,
     load_current_table,
+    filter_factors_by_month,
     load_fixtures,
     load_intelligence,
     load_intelligence_for_match,
@@ -699,7 +700,9 @@ def apply_special_factors(teams: dict, a: str, b: str, league: str, league_conte
     delta_a = 0.0
     delta_b = 0.0
 
-    factors = league_context.get("special_factors", {})
+    # 按比赛日期落实 apply_when 里的月份条件（否则"夏季高温(7-8月)"会在全年生效）。
+    # 下游全是 `if key in factors` 判断，故此处在入口过滤一次即可全部生效。
+    factors = filter_factors_by_month(league_context.get("special_factors", {}), date)
 
     # ---- 开幕轮主场加成 ----
     if config and date:
@@ -1429,7 +1432,7 @@ def cmd_match(teams: dict, a: str, b: str, league: str,
 
     # 特殊因子说明
     league_context = load_league_context(league)
-    render_special_factors(teams, a, b, league, league_context)
+    render_special_factors(teams, a, b, league, league_context, date=entry.get("date") or date)
 
     # 情报说明
     render_intelligence_notes(teams, a, b, {"notes": entry["notes"], "factors": entry["factors"]})
@@ -1634,9 +1637,10 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
     return result
 
 
-def render_special_factors(teams: dict, a: str, b: str, league: str, league_context: dict):
-    """渲染特殊因子影响"""
-    factors = league_context.get("special_factors", {})
+def render_special_factors(teams: dict, a: str, b: str, league: str, league_context: dict,
+                           date: str = None):
+    """渲染特殊因子影响（与 apply_special_factors 用同一套月份过滤，避免显示与实际不符）"""
+    factors = filter_factors_by_month(league_context.get("special_factors", {}), date)
     applied = []
 
     turf_map = league_context.get("turf_map", {})

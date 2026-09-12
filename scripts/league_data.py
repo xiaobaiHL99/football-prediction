@@ -7,8 +7,10 @@
 import json
 import math
 import os
+import re
 import sys
 from collections import defaultdict
+from datetime import datetime
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -85,6 +87,70 @@ def _normalize_table_row(row: dict) -> dict:
     if "played" not in out and None not in (wins, draws, losses):
         out["played"] = wins + draws + losses
     return out
+
+
+# 月份条件解析：apply_when 里的 month 约束
+_MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"]
+
+
+def month_condition_ok(apply_when: str, date: str):
+    """
+    求值 apply_when 中的月份条件。返回 True 表示"可以应用"。
+
+    背景（2026-09-12 审计）：context.json 的 apply_when 是**说明性文字**，全脚本
+    从未把它当作表达式求值。凡是靠 `if "因子名" in factors` 触发的因子都会无条件
+    生效——韩职/日职的"夏季高温(7-8月)"因此在 9 月、乃至全年都在扣 -0.04 xG。
+    本函数把月份条件真正落实。
+
+    支持形式：
+        "month in ['July', 'August']"   → 月份属于列表
+        "month >= 'August'" / "after_august" → 月份不早于 8 月
+    不含月份条件的（如 team_in_acl、home_turf == 'artificial'）返回 True——
+    它们由各自的专项代码分支处理，不在此处拦截。
+
+    date 为空或不可解析时返回 True（宁可保留原行为，也不因缺日期而静默关闭因子）。
+    """
+    if not apply_when or not isinstance(apply_when, str):
+        return True
+    if not date:
+        return True
+    try:
+        month = datetime.strptime(str(date)[:10], "%Y-%m-%d").month
+    except (ValueError, TypeError):
+        return True
+
+    m = re.search(r"month\s+in\s*\[([^\]]*)\]", apply_when)
+    if m:
+        names = re.findall(r"[A-Za-z]+", m.group(1))
+        allowed = {_MONTH_NAMES.index(n) + 1 for n in names if n in _MONTH_NAMES}
+        if allowed:
+            return month in allowed
+
+    m = re.search(r"month\s*>=\s*'([A-Za-z]+)'", apply_when)
+    if m and m.group(1) in _MONTH_NAMES:
+        return month >= _MONTH_NAMES.index(m.group(1)) + 1
+
+    if "after_august" in apply_when:
+        return month >= 8
+
+    return True
+
+
+def filter_factors_by_month(factors: dict, date: str) -> dict:
+    """
+    按比赛日期过滤 special_factors，剔除月份条件不满足的因子。
+
+    在 apply_special_factors / render_special_factors 的入口调用一次即可：
+    下游全部是 `if key in factors` 判断，因此过滤后自动全部生效，无需逐处改动。
+    """
+    if not isinstance(factors, dict):
+        return {}
+    return {
+        key: spec for key, spec in factors.items()
+        if not isinstance(spec, dict)
+        or month_condition_ok(spec.get("apply_when", ""), date)
+    }
 
 
 def load_current_table(league: str) -> dict:

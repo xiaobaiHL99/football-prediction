@@ -32,6 +32,7 @@ from league_data import (
     load_league_context,
     load_current_table,
     load_fixtures,
+    filter_factors_by_month,
     load_locked_results,
     load_intelligence,
     load_results_data,
@@ -132,11 +133,18 @@ def expected_goals(teams, a, b, config, league_context,
     return la, lb
 
 
-def apply_special_factors(teams, a, b, league_context):
-    """应用联赛特殊因子，返回 (delta_a, delta_b)"""
+def apply_special_factors(teams, a, b, league_context, date=None):
+    """
+    应用联赛特殊因子，返回 (delta_a, delta_b)
+
+    date: 比赛日期 YYYY-MM-DD。用于落实 apply_when 里的月份条件（如"夏季高温
+    仅 7-8 月"）。⚠️ 全季模拟的 fixtures 不携带日期，调用方通常传 None，
+    此时月份条件无法求值，月份类因子会按"保留"处理（与原行为一致）。
+    单场预测请走 league_predict.apply_special_factors，那里有真实日期。
+    """
     delta_a = 0.0
     delta_b = 0.0
-    factors = league_context.get("special_factors", {})
+    factors = filter_factors_by_month(league_context.get("special_factors", {}), date)
 
     # 人工草皮惩罚
     if "artificial_turf_penalty" in factors:
@@ -521,7 +529,7 @@ def print_results(stats, teams, config):
 
 def main():
     p = argparse.ArgumentParser(description="联赛完整赛季模拟器")
-    p.add_argument("league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "championship", "ligue1", "seriea", "bundesliga"],
+    p.add_argument("league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "championship", "ligue1", "seriea", "bundesliga", "saudi_pro_league"],
                    help="联赛名称")
     p.add_argument("--sims", type=int, default=10000, help="模拟次数 (默认 10000)")
     p.add_argument("--seed", type=int, default=None, help="随机种子")
