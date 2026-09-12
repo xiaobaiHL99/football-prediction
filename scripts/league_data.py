@@ -153,6 +153,90 @@ def filter_factors_by_month(factors: dict, date: str) -> dict:
     }
 
 
+def rounds_played(table: dict):
+    """
+    从积分榜推断"已赛轮次"，用于自适应放宽快照时效修正上限。
+
+    取各队 `played` 的**中位数**而非最大值：有球队少赛（补赛/延期）时最大值会
+    高估联赛进度，中位数对少数异常值稳健。无积分榜或字段缺失时返回 None，
+    调用方应退回基础上限。
+    """
+    if not isinstance(table, dict) or not table:
+        return None
+    values = []
+    for row in table.values():
+        played = row.get("played") if isinstance(row, dict) else None
+        if isinstance(played, (int, float)):
+            values.append(float(played))
+    if not values:
+        return None
+    values.sort()
+    mid = len(values) // 2
+    if len(values) % 2:
+        return values[mid]
+    return (values[mid - 1] + values[mid]) / 2
+
+
+def _ladder_cap(ladder, base: float, rounds) -> tuple:
+    """在阶梯中取"已满足的最高 min_rounds"对应的 cap。返回 (cap, source)。"""
+    if not isinstance(ladder, list) or rounds is None:
+        return base, "base"
+    best_cap, best_min = base, None
+    for step in ladder:
+        if not isinstance(step, dict):
+            continue
+        min_rounds = step.get("min_rounds")
+        cap = step.get("cap")
+        if not isinstance(min_rounds, (int, float)) or not isinstance(cap, (int, float)):
+            continue
+        if rounds >= min_rounds and (best_min is None or min_rounds > best_min):
+            best_cap, best_min = float(cap), float(min_rounds)
+    return best_cap, ("ladder" if best_min is not None else "base")
+
+
+def _num(value, default=0.0):
+    """宽容的数值转换（league_data 内部使用；league_predict 自有的 as_float 不跨模块复用）。"""
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def form_elo_cap(rule: dict, league: str, rounds) -> tuple:
+    """
+    解析 `form_elo_adjust` 的**有效上限**（按已赛轮次自适应）。
+
+    背景（2026-09-12）：原上限是全局硬编码 ±25。这对 21 天时效漂移够用，但
+    面对真正的**评级倒挂**完全失效——大阪钢巴快照 1550 > FC东京 1530，而实际
+    东京强约 90 点，±25 只实现 50 点摆动，模型因此把客胜压到 37.1%（市场 48.8%）。
+    已赛轮次越多，"用本赛季战绩推翻季前评级"就越可信，故上限应随轮次放宽。
+
+    优先级（高 → 低）：
+      1. `<league>.form_elo_max_adjust`            联赛级固定上限（硬覆盖）
+      2. `<league>.form_elo_max_adjust_ladder`     联赛级阶梯
+      3. rule.form_elo_max_adjust_ladder           全局阶梯（对所有联赛生效）
+      4. rule.form_elo_max_adjust                  基础上限（轮次未知时的兜底）
+
+    返回 (cap, source)；source ∈ {"league_fixed","league_ladder","ladder","base"}，
+    用于日志与标签，便于事后核对本次到底用了哪一档。
+    """
+    base = _num((rule or {}).get("form_elo_max_adjust"), 25.0)
+    cfg = load_league_config(league) or {}
+
+    fixed = cfg.get("form_elo_max_adjust")
+    if isinstance(fixed, (int, float)):
+        return float(fixed), "league_fixed"
+
+    league_ladder = cfg.get("form_elo_max_adjust_ladder")
+    if isinstance(league_ladder, list):
+        cap, source = _ladder_cap(league_ladder, base, rounds)
+        if source == "ladder":
+            return cap, "league_ladder"
+
+    cap, source = _ladder_cap((rule or {}).get("form_elo_max_adjust_ladder"), base, rounds)
+    return cap, source
+
+
 def load_current_table(league: str) -> dict:
     """加载当前积分榜（字段已统一为规范 schema，兼容旧版 pts/won/drawn/lost）。"""
     path = os.path.join(BASE, "data", "live", league, "table.json")

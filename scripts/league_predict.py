@@ -54,6 +54,8 @@ from league_data import (
     FAMILIARITY_FAVORITE_PENALTY,
     load_global_rules,
     load_league_meta,
+    rounds_played,
+    form_elo_cap,
 )
 
 import rule_engine as rules
@@ -343,32 +345,24 @@ def _derive_evidence(intel: dict, tactical: dict, a: str, b: str) -> dict:
 
 
 def apply_snapshot_freshness(teams: dict, league: str, intel: dict, date: str,
-                             evidence: dict = None, a: str = None, b: str = None) -> tuple:
+                             evidence: dict = None, a: str = None, b: str = None,
+                             current_table: dict = None) -> tuple:
     """Apply explicit, capped form-based Elo corrections only when the snapshot lags.
 
     The correction stays in memory for this prediction; snapshot files are never
     rewritten, so a stale rating cannot silently persist into stored data.
+
+    The cap is adaptive (league_data.form_elo_cap): it widens with the number of
+    rounds played, because the more of the season is on record, the more a
+    current-season record can legitimately overrule a pre-season rating.
     """
     rule = _global_rule("SNAPSHOT_FRESHNESS_CHECK")
     if not rule.get("enabled") or not _rule_applies(rule, league):
         return {}, []
 
-    if evidence is None:
-        evidence = _derive_evidence(intel, {}, a or "", b or "")
-    strength = _rule_strength("SNAPSHOT_FRESHNESS_CHECK", rule, league, evidence)
-    if strength <= 0:
-        return {}, []
-
-    cap = as_float(rule.get("form_elo_max_adjust"), 25.0)
-    adjustments = {}
-    for code, entry in (intel.get("teams", {}) or {}).items():
-        if not isinstance(entry, dict):
-            continue
-        raw = as_float(entry.get("form_elo_adjust"), 0.0)
-        if raw != 0.0:
-            adjustments[code] = clamp(raw, -cap, cap) * strength
-
-    labels = []
+    # 时效与档位先算好：这条建议必须能在"本次没给 form_elo_adjust"时也打出来。
+    # 原先先算 strength、strength<=0 就提前 return，导致证据缺失(即最需要提醒的情况)
+    # 反而永远看不到 ⚠️ 提示——该分支曾是死代码。
     meta = load_league_meta(league)
     updated = str(meta.get("updated_at") or meta.get("updated") or "")[:10]
     age_days = None
@@ -380,12 +374,43 @@ def apply_snapshot_freshness(teams: dict, league: str, intel: dict, date: str,
             age_days = None
     stale = age_days is not None and age_days > int(as_float(rule.get("max_age_days"), 21))
 
+    # 已赛轮次优先取积分榜；杯赛等无积分榜时退回 _meta.rounds_played，再退回未知。
+    rounds = rounds_played(current_table)
+    rounds_source = "table"
+    if rounds is None:
+        meta_rounds = meta.get("rounds_played")
+        if isinstance(meta_rounds, (int, float)):
+            rounds, rounds_source = float(meta_rounds), "_meta"
+        else:
+            rounds_source = "unknown"
+
+    cap, cap_source = form_elo_cap(rule, league, rounds)
+
+    if evidence is None:
+        evidence = _derive_evidence(intel, {}, a or "", b or "")
+    strength = _rule_strength("SNAPSHOT_FRESHNESS_CHECK", rule, league, evidence)
+
+    adjustments = {}
+    if strength > 0:
+        for code, entry in (intel.get("teams", {}) or {}).items():
+            if not isinstance(entry, dict):
+                continue
+            raw = as_float(entry.get("form_elo_adjust"), 0.0)
+            if raw != 0.0:
+                adjustments[code] = clamp(raw, -cap, cap) * strength
+
+    labels = []
     if adjustments:
-        applied = "、".join(f"{code}{delta:+.0f}" for code, delta in sorted(adjustments.items()))
+        applied = "、".join(f"{code}{delta:+.0f}" for delta, code in
+                            sorted((d, c) for c, d in adjustments.items()))
         suffix = f"，快照已落后{age_days}天" if stale else ""
-        labels.append(f"快照时效修正({applied}){suffix}")
+        rounds_txt = (f"{rounds:.0f}轮" if rounds is not None else "轮次未知")
+        labels.append(f"快照时效修正({applied}，上限±{cap:.0f}/档位{cap_source}/{rounds_txt}"
+                      f"来自{rounds_source}){suffix}")
     elif stale:
-        labels.append(f"⚠️快照落后{age_days}天，建议补 teams.<code>.form_elo_adjust")
+        rounds_txt = (f"{rounds:.0f}轮" if rounds is not None else "轮次未知")
+        labels.append(f"⚠️快照落后{age_days}天，当前档位上限±{cap:.0f}({cap_source}/{rounds_txt})，"
+                      f"建议补 teams.<code>.form_elo_adjust")
     return adjustments, labels
 
 
@@ -1069,7 +1094,8 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
     # 快照时效检查（2026-09-11复盘改进）
     # 快照落后时按 intel.teams.<code>.form_elo_adjust 做内存级临时修正，不写回快照
     freshness_adj, freshness_labels = apply_snapshot_freshness(
-        teams, league, rule_intel, date, evidence=evidence, a=a, b=b
+        teams, league, rule_intel, date, evidence=evidence, a=a, b=b,
+        current_table=current_table
     )
     if freshness_adj:
         teams = {code: dict(info) for code, info in teams.items()}

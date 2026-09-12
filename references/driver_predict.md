@@ -119,7 +119,7 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 | `injury_count` | **受伤**人数，**不含停赛**。总缺阵 = `injury_count` + `suspension_count`。用于 `UNILATERAL_ABSENCE_CRISIS` 与平局门控否决，**必须显式给数**，不从 notes 猜测 |
 | `suspension_count` | **停赛**人数，与 `injury_count` 相加得到总缺阵 |
 | `absence_count` | **已含停赛的总缺阵人数**。给出它时**不再叠加** `suspension_count`（用于只掌握总数、不掌握明细的情况） |
-| `form_elo_adjust` | 快照过期时的临时 Elo 修正（**±25 内裁剪**）。仅在 `teams.json` 的 `_meta.updated_at` 落后比赛日期超过21天时使用，只影响本次预测、不写回快照。⚠️ 该上限**不足以修正真正的评级倒挂**（例如快照给主队 +20、实际客队强 90+）；这种情况需另行走快照级重校 |
+| `form_elo_adjust` | 快照过期时的临时 Elo 修正，**上限按已赛轮次自适应**（开季 ±25 → 6轮 ±60 → 12轮 ±80 → 20轮 ±100）。仅在 `teams.json` 的 `_meta.updated_at` 落后比赛日期超过21天时使用，只影响本次预测、不写回快照。轮次取 `data/live/<league>/table.json` 各队 `played` 的中位数（稳健处理少赛）；杯赛等无积分榜时退回 `_meta.rounds_played`，再退回 ±25 |
 | `conceded_per_game` | 近期场均失球。双方均 ≥1.5 触发漏勺局放宽；近均衡且双方均 <1.5 触发总xG压缩 |
 | `notes` | 伤停 / 状态 / 特殊背景摘要 |
 
@@ -153,6 +153,27 @@ intelligence 字典只存在于脚本内存，预测结束后无任何持久化�
 > 3. **硬上限守卫**：所有规则叠加后的总位移受限——总 xG 位移 ≤0.60、单边概率转移 ≤0.10、平局锁定在 [0.08, 0.45]，最后重新归一化。
 >
 > 预测输出中的 `model_inputs.rule_engine` 会记录本次的联赛强度、xG 基线/终值、概率层位移和缺员方，便于复盘审计。参数集中在 `references/model_overrides.json` 的 `rule_engine` 块。
+
+### 快照时效修正上限（自适应，2026-09-12 起）
+
+`SNAPSHOT_FRESHNESS_CHECK` 的上限**不再固定为 ±25**，而是按已赛轮次放宽——赛季内样本越多，"用本赛季战绩推翻季前评级"越可信：
+
+| 已赛轮次 | 允许上限 |
+|---:|---:|
+| 0–3 | ±25 |
+| 4–5 | ±40 |
+| 6–11 | ±60 |
+| 12–19 | ±80 |
+| ≥20 | ±100 |
+
+- **轮次来源**：`data/live/<league>/table.json` 各队 `played` 的**中位数**（少赛/补赛不会虚高）；无积分榜（杯赛）时退回 `teams.json` 的 `_meta.rounds_played`，再无则退回 ±25。
+- **对所有联赛生效**，也可联赛级覆盖（优先级更高）：在 `references/league_config.json` 的对应联赛下写
+  - `"form_elo_max_adjust": 70` —— 固定上限（硬覆盖）
+  - `"form_elo_max_adjust_ladder": [{"min_rounds":0,"cap":15},{"min_rounds":6,"cap":30}]` —— 该联赛专属阶梯
+- 生效档位会写进预测标签，例如 `快照时效修正(GAM-42、FCT+42，上限±60/档位ladder/6轮来自table)`，便于复盘核对。
+- 实际数值还会乘 `strength`（联赛成熟度 × 证据完整度），因此 6 轮档位下的 ±60 在薄样本联赛实际约为 ±42。
+
+> 立此规则的由来：2026-09-12 大阪钢巴 vs FC东京，快照给主队 +20 Elo，而实际客队强约 90 点。旧的 ±25 上限只实现 50 点摆动，模型把客胜压到 37.1%（市场 48.8%），让球差分歧 +0.45。改为 6 轮 ±60 后，让球差 −0.48 对市场 −0.50，分歧降到 +0.02。
 
 完整战术字段 Schema 与量化规则见 `references/intelligence.md`。
 

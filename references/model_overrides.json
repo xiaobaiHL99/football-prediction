@@ -7,13 +7,19 @@
     "INEFFECTIVE_POSSESSION_THRESHOLD": {
       "possession_pct": 55,
       "shots_on_target_avg": 4,
-      "xg_penalty_range": [-0.15, -0.35],
+      "xg_penalty_range": [
+        -0.15,
+        -0.35
+      ],
       "description": "控球率>55%且场均射正<4次时触发无效控球惩罚（所有联赛适用）"
     },
     "INEFFECTIVE_POSSESSION_HIGH_SEVERITY": {
       "possession_pct": 60,
       "shots_on_target_avg": 3,
-      "xg_penalty_range": [-0.25, -0.35],
+      "xg_penalty_range": [
+        -0.25,
+        -0.35
+      ],
       "description": "控球率>60%且场均射正<3次时触发高强度无效控球惩罚（所有联赛适用）"
     },
     "RELEGATED_DERBY_BOOST": {
@@ -32,10 +38,22 @@
       "cap_multiplier": 1.5,
       "new_cap": -60,
       "rules": {
-        "7_plus_injuries": {"elo_delta": -40, "note": "7人及以上伤停：防线崩盘+替补真空，直接扣-40"},
-        "5_to_6_injuries": {"elo_delta": -30, "note": "5-6人伤停：严重影响轮换深度"},
-        "3_to_4_injuries": {"elo_delta": -20, "note": "3-4人伤停：中等影响"},
-        "star_injury_boost": {"elo_delta": -15, "note": "核心球员伤缺额外-15（叠加在角色扣分之上）"}
+        "7_plus_injuries": {
+          "elo_delta": -40,
+          "note": "7人及以上伤停：防线崩盘+替补真空，直接扣-40"
+        },
+        "5_to_6_injuries": {
+          "elo_delta": -30,
+          "note": "5-6人伤停：严重影响轮换深度"
+        },
+        "3_to_4_injuries": {
+          "elo_delta": -20,
+          "note": "3-4人伤停：中等影响"
+        },
+        "star_injury_boost": {
+          "elo_delta": -15,
+          "note": "核心球员伤缺额外-15（叠加在角色扣分之上）"
+        }
       }
     },
     "PROMOTED_AWAY_RESILIENCE": {
@@ -44,7 +62,12 @@
       "trigger": "promoted_team AND away_match",
       "defensive_bonus": 0.08,
       "counter_attack_bonus": 0.05,
-      "low_block_formation": ["3-4-2-1", "5-4-1", "5-3-2", "4-5-1"],
+      "low_block_formation": [
+        "3-4-2-1",
+        "5-4-1",
+        "5-3-2",
+        "4-5-1"
+      ],
       "formation_bonus": 0.06,
       "note": "升班马客场摆大巴时，防守加成+反击加成；若阵型为低-block(3中卫/5后卫)，额外加成"
     },
@@ -86,7 +109,11 @@
       "enabled": true,
       "min_defensive_absences": 3,
       "underdog_xg_floor": 0.85,
-      "eligible_styles": ["counter_attack", "possession", "direct"],
+      "eligible_styles": [
+        "counter_attack",
+        "possession",
+        "direct"
+      ],
       "note": "仅在赛前情报显式标注热门方defensive_absences且弱势方战术风格符合时触发；不是胜率加成。"
     },
     "HOME_SLUMP_AWAY_SURGE_PROTECTION": {
@@ -103,7 +130,9 @@
       "description": "2026-09-11复盘教训：赫根(近5主场1胜)1-1、阿尔克马(对手近6客场不败)1-1，两场都该增平局却给了主胜；而塞维利亚对8人缺阵的瓦伦西亚却过度押平。平局保护必须有条件。",
       "enabled": true,
       "leagues": "all",
-      "requires": ["draw_gate"],
+      "requires": [
+        "draw_gate"
+      ],
       "strength": 1.0,
       "home_window": 5,
       "home_max_wins": 1,
@@ -118,7 +147,9 @@
       "description": "2026-09-11复盘教训：瓦伦西亚8人缺阵，塞维利亚1-0胜出，平局保护用错了方向。单边人员危机应向健康方倾斜，而不是增平。",
       "enabled": true,
       "leagues": "all",
-      "requires": ["absence_counts"],
+      "requires": [
+        "absence_counts"
+      ],
       "strength": 1.0,
       "crisis_threshold": 6,
       "healthy_threshold": 2,
@@ -134,11 +165,13 @@
       "description": "2026-09-11复盘教训：西汉姆6-0、威尼斯2-4被严重低估，雷恩1-0、塞维利亚1-0又被高估，说明总进球分布过窄(欠离散)。",
       "enabled": true,
       "leagues": "all",
-      "requires": ["conceded"],
+      "requires": [
+        "conceded"
+      ],
       "strength": 1.0,
       "leaky_defense_threshold": 1.5,
-      "leaky_total_boost_per_side": 0.30,
-      "leaky_total_boost_per_side_max": 0.50,
+      "leaky_total_boost_per_side": 0.3,
+      "leaky_total_boost_per_side_max": 0.5,
       "leaky_high_tail_multiplier": 1.15,
       "leaky_high_tail_min_goals": 4,
       "tight_match_elo_threshold": 50,
@@ -150,11 +183,41 @@
       "description": "2026-09-11复盘教训：英冠快照西汉姆1504/雷克瑟姆1372已过期，导致6-0被压成2-1。快照落后时须先用MCP近期状态做临时Elo修正。",
       "enabled": true,
       "leagues": "all",
-      "requires": ["form_elo_adjust"],
+      "requires": [
+        "form_elo_adjust"
+      ],
       "strength": 1.0,
       "max_age_days": 21,
       "form_elo_max_adjust": 25,
-      "note": "读取 references/<league>/teams.json 的 _meta.updated_at / updated；若落后比赛日期超过 max_age_days，用 intel.teams.<code>.form_elo_adjust 做临时修正(上限±25)，只影响本次预测、不写入快照。"
+      "note": "读取 references/<league>/teams.json 的 _meta.updated_at / updated；若落后比赛日期超过 max_age_days，用 intel.teams.<code>.form_elo_adjust 做临时修正，只影响本次预测、不写入快照。上限由 form_elo_max_adjust_ladder 按已赛轮次决定(±25 → ±100)，详见 form_elo_cap_note。",
+      "form_elo_max_adjust_ladder": [
+        {
+          "min_rounds": 0,
+          "cap": 25,
+          "note": "开季样本不足，只允许小幅时效漂移修正"
+        },
+        {
+          "min_rounds": 4,
+          "cap": 40,
+          "note": "4-5轮：开始有参考价值，但仍受赛程与运气主导"
+        },
+        {
+          "min_rounds": 6,
+          "cap": 60,
+          "note": "6轮起：可覆盖季前评级的明显倒挂(约0.7个PPG标准误)"
+        },
+        {
+          "min_rounds": 12,
+          "cap": 80,
+          "note": "12轮起：赛季过半前，战绩已是主要依据"
+        },
+        {
+          "min_rounds": 20,
+          "cap": 100,
+          "note": "20轮起：样本充分，允许整体重估"
+        }
+      ],
+      "form_elo_cap_note": "上限按已赛轮次自适应：轮次越多，用本赛季战绩推翻季前评级就越可信。轮次取 data/live/<league>/table.json 各队 played 的中位数(稳健处理少赛)；杯赛等无积分榜时退回 _meta.rounds_played，再退回 form_elo_max_adjust(±25)。联赛级覆盖(优先级更高)：league_config.json 中 <league>.form_elo_max_adjust(固定值) 或 <league>.form_elo_max_adjust_ladder(阶梯)。"
     }
   },
   "rule_engine": {
@@ -168,7 +231,10 @@
     "min_evidence_ratio": 0.5,
     "max_total_xg_shift": 0.6,
     "max_prob_transfer_per_side": 0.1,
-    "draw_bounds": [0.08, 0.45],
+    "draw_bounds": [
+      0.08,
+      0.45
+    ],
     "min_side_prob": 0.02,
     "note": "联赛已匹配赛果样本≥thin_sample_threshold 时按 default_league_strength 满强度；不足则先按 thin_sample_league_strength 缩放，样本累积后自动提升。若要为某联赛手动提权/降权，写 league_strength_overrides。"
   }
