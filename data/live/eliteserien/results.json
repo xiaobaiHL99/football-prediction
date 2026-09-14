@@ -671,30 +671,6 @@
       "away": "IKT",
       "hg": 5,
       "ag": 0
-    },
-    {
-      "home": "SAND",
-      "away": "KFUM",
-      "hg": 0,
-      "ag": 1
-    },
-    {
-      "home": "RBS",
-      "away": "VIK",
-      "hg": 2,
-      "ag": 1
-    },
-    {
-      "home": "KFUM",
-      "away": "LIL",
-      "hg": 1,
-      "ag": 1
-    },
-    {
-      "home": "BOD",
-      "away": "RBS",
-      "hg": 4,
-      "ag": 2
     }
   ]
 }

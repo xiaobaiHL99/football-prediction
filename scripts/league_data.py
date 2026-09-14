@@ -368,15 +368,16 @@ def cn(teams: dict, code: str) -> str:
 # 采用递减原则：多人缺席时边际影响递减
 # v2: 系数下调，避免一两个伤员拉平整队实力差距
 # v3: 添加主帅停赛角色（2026-09-03复盘改进）
+# v4: 伤停权重提高1倍（2026-09-13调整）
 ABSENT_IMPACT = {
-    "star": 18.0,
-    "goalkeeper_star": 15.0,
-    "starter": 7.0,
-    "rotation": 2.0,
-    "manager": 12.0,  # 主帅停赛：临场指挥受限，战术调整能力下降
+    "star": 36.0,           # 核心球员缺阵：2 × 18.0
+    "goalkeeper_star": 30.0, # 门将缺阵：2 × 15.0
+    "starter": 14.0,        # 首发球员缺阵：2 × 7.0
+    "rotation": 4.0,        # 轮换球员缺阵：2 × 2.0
+    "manager": 24.0,        # 主帅停赛：2 × 12.0
 }
 ABSENT_DIMINISHING = 0.85  # 每多一种类别乘一次
-ABSENT_MAX_TOTAL = 45.0   # 单队伤病总扣分上限（避免极端情况，含主帅停赛）
+ABSENT_MAX_TOTAL = 90.0   # 单队伤病总扣分上限（提高1倍）
 
 
 def compute_elo_delta(absent_players: list, full_squad: bool = True) -> float:

@@ -6,7 +6,8 @@
       "apply_when": "team_in_europe and match_within_3_days_of_european_match"
     }
   },
-  "europe_teams": ["PSV", "AJX", "FEY", "NEC", "AZ", "UTR", "TWE"],
+  "europe_teams": ["PSV", "AJX", "FEY", "NEC", "AZ", "TWE"],
+  "europe_teams_note": "2026-27 核实（2026-09-12）：UCL：PSV、FEY；UEL：NEC(欧冠资格赛胜奥林匹亚科斯 → 附加赛负博多闪耀，转入欧联正赛)、AZ(荷兰杯冠军)；UECL：TWE(欧联次轮资格赛负费伦茨瓦罗斯 → 欧协联附加赛加时 4-1 胜卡拉巴赫)、AJX(国内欧战附加赛夺冠获资格，从欧协联次轮资格赛打起)。原名单误列 UTR(乌得勒支：欧战附加赛决赛 1-1 后点球负阿贾克斯，无缘欧战) —— 属典型过时名单。6 队全部进入联赛阶段。⚠️ 另有下季规则变更：因荷兰被葡萄牙在系数榜反超，2026-27 赛季荷甲只分配 5 张欧战票（对应 2027-28）：第1→欧冠正赛、第2→欧冠资格赛、杯赛冠军→欧联正赛、第3→欧联资格赛、第4-7名→附加赛争欧协联资格赛门票；模拟下季名额时不可沿用 6 票模型。来源：VI.nl 全名单 + uefa.com 官方名单（Netherlands: AZ Alkmaar, N.E.C.）+ FC Utrecht 官网。",
   "turf_map": {
     "artificial": [],
     "natural": ["PSV", "AJX", "FEY", "AZ", "NEC", "UTR", "TWE", "GRN", "HEE", "GAE", "SPA", "FUT", "PEC", "WIL", "EXC", "TEL", "ADO", "CAM"]

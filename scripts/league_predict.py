@@ -81,6 +81,21 @@ from odds_analyzer import (
     get_dynamic_shrink,
 )
 
+# 盘口反推Elo模块（新增）
+try:
+    from odds_to_elo import (
+        OddsParser,
+        OddsToEloConverter,
+        MarketBasedEloGenerator,
+        parse_odds,
+        odds_to_elo,
+        handicap_to_elo,
+    )
+    ODDS_TO_ELO_AVAILABLE = True
+except ImportError:
+    ODDS_TO_ELO_AVAILABLE = False
+    print("⚠️ 盘口反推Elo模块不可用", file=sys.stderr)
+
 # ================================================================
 # 常量
 # ================================================================
@@ -537,29 +552,98 @@ def apply_absence_crisis_xg(la: float, lb: float, crisis: dict) -> tuple:
     return la, lb + boost, [label]
 
 
-def apply_absence_crisis_scoreline(score_probs: list, crisis: dict) -> tuple:
-    """Raise the healthy side's blowout ceiling (3-0/4-0 style scorelines)."""
+def apply_absence_crisis_scoreline(score_probs: list, crisis: dict, elo_diff: float = 0.0) -> tuple:
+    """
+    根据伤停和实力差距调整比分权重。
+
+    两种情况：
+    1. 实力较弱方因对手缺员而受益：提高受益方大胜比分权重（4-1, 5-0等）
+    2. 强势方自身伤停严重：增加弱势方进球数（2-3, 2-4, 2-2等）
+
+    [FIX-2026-09-14]
+      · is_ceiling 在"情况2"下方向反了：原先恒按 crisis["healthy_side"] 判大胜，
+        但情况2 里受益方其实是弱队，导致 multiplier 加权给错方向。
+        现在按 is_strong_side_depleted 分支决定受益方。
+      · label 改为 any(is_ceiling) 判定：multiplier 只要在分布里生效过就打标，
+        不再只看入参第一名（入参排序 ≠ 调整后排序，会漏报）。
+    """
     if not crisis:
         return score_probs, []
+
     rule = _global_rule("UNILATERAL_ABSENCE_CRISIS")
     strength = as_float(crisis.get("strength"), 1.0)
     multiplier = rules.scale_multiplier(as_float(rule.get("ceiling_multiplier"), 1.0), strength)
     goal_diff = int(as_float(rule.get("ceiling_goal_diff"), 3))
     conceded_max = int(as_float(rule.get("ceiling_conceded_max"), 1))
 
-    def is_ceiling(score):
-        healthy_goals = score[0] if crisis["healthy_side"] == "a" else score[1]
-        crisis_goals = score[1] if crisis["healthy_side"] == "a" else score[0]
-        return healthy_goals >= goal_diff and crisis_goals <= conceded_max
+    labels = []
 
-    adjusted = [(score, prob * (multiplier if is_ceiling(score) else 1.0))
-                for score, prob in score_probs]
+    # 情况2：强势方自身伤停严重 → 弱势方进球权重提升
+    is_strong_side_depleted = False
+    weak_side = strong_side = None
+    if abs(elo_diff) > 80:  # 阈值降低到80，更敏感
+        if elo_diff > 0:
+            strong_side, weak_side = "a", "b"
+        else:
+            strong_side, weak_side = "b", "a"
+        # 强势方伤停>弱势方伤停+1人，且强势方伤停>=5人
+        if (crisis["crisis_side"] == strong_side and 
+            crisis["crisis_absences"] >= 5 and
+            crisis["crisis_absences"] > crisis["healthy_absences"] + 1):
+            is_strong_side_depleted = True
+            labels.append(
+                f"强势方({crisis['crisis_code']})伤停{crisis['crisis_absences']:.0f}人(>{crisis['healthy_absences']:.0f}人)，弱势方进球权重提升"
+            )
+
+    # 高比分上限：'受益方'（缺员方的对手）大胜
+    def is_ceiling(score):
+        if is_strong_side_depleted:
+            # 情况2：强势方缺员，受益方是弱队
+            beneficiary_goals = score[1] if weak_side == "b" else score[0]
+            depleted_goals = score[0] if weak_side == "b" else score[1]
+        else:
+            # 情况1：健康方（即危机方的对手）大胜
+            beneficiary_goals = score[0] if crisis["healthy_side"] == "a" else score[1]
+            depleted_goals = score[1] if crisis["healthy_side"] == "a" else score[0]
+        return beneficiary_goals >= goal_diff and depleted_goals <= conceded_max
+
+    adjusted = []
+    for score, prob in score_probs:
+        new_prob = prob
+
+        if is_strong_side_depleted:
+            # 情况2：强势方伤停严重，增加弱势方进球权重
+            weak_goals = score[1] if weak_side == "b" else score[0]
+            strong_goals = score[0] if weak_side == "b" else score[1]
+            
+            # 弱势方进球2+且强势方进球≤2：权重×1.6
+            if weak_goals >= 2 and strong_goals <= 2:
+                new_prob *= 1.6
+            # 弱势方进球1+且强势方进球≤1：权重×1.3
+            elif weak_goals >= 1 and strong_goals <= 1:
+                new_prob *= 1.3
+            # 强势方大胜比分：权重×0.7（降低）
+            elif strong_goals >= 3 and weak_goals <= 1:
+                new_prob *= 0.7
+        else:
+            # 情况1：原有逻辑 - 健康方大胜比分
+            if is_ceiling(score):
+                new_prob *= multiplier
+
+        adjusted.append((score, new_prob))
+
     total = sum(prob for _, prob in adjusted)
     if total <= 0:
         return score_probs, []
+
     normalized = [(score, prob / total) for score, prob in adjusted]
     normalized.sort(key=lambda item: -item[1])
-    return normalized, [f"单边危机高比分上限({multiplier:.2f}x)"]
+
+    # 只要分布里存在满足条件的大胜比分，multiplier 就实际生效过 → 打 label
+    if any(is_ceiling(score) for score, _ in score_probs):
+        labels.append(f"单边危机高比分上限({multiplier:.2f}x)")
+
+    return normalized, labels
 
 
 def apply_absence_crisis_probability(pw: float, pd: float, pl: float, crisis: dict) -> tuple:
@@ -983,7 +1067,10 @@ def _shift_probability(pw, pd, pl, target, amount):
 
 
 def apply_rule_xg(la, lb, ctx):
-    """xG 层校准规则（进球低估上调 la/lb）。返回 (la, lb, 命中的规则 label 列表)。"""
+    """xG 层校准规则（进球低估上调 la/lb）。返回 (la, lb, 命中的规则 label 列表)。
+
+    [FIX-2026-09-14] label 加 [xG] 前缀，与概率层规则区分（同一规则可能两层都命中）。
+    """
     labels = []
     for rule in _load_calibration_rules():
         do = rule.get("do", {})
@@ -994,11 +1081,14 @@ def apply_rule_xg(la, lb, ctx):
         la += do.get("la_up", 0.0)
         lb += do.get("lb_up", 0.0)
         labels.append(rule.get("label", rule["id"]))
-    return la, lb, labels
+    return la, lb, [f"[xG]{lbl}" for lbl in labels]
 
 
 def apply_rule_prob(pw, pd, pl, ctx):
-    """概率层校准规则（方向偏误收缩）。返回 (pw, pd, pl, 命中的规则 label 列表)。"""
+    """概率层校准规则（方向偏误收缩）。返回 (pw, pd, pl, 命中的规则 label 列表)。
+
+    [FIX-2026-09-14] label 加 [概率] 前缀，与 xG 层规则区分。
+    """
     labels = []
     for rule in _load_calibration_rules():
         do = rule.get("do", {})
@@ -1008,7 +1098,7 @@ def apply_rule_prob(pw, pd, pl, ctx):
             continue
         pw, pd, pl = _shift_probability(pw, pd, pl, do["shift_to"], do.get("amount", 0.03))
         labels.append(rule.get("label", rule["id"]))
-    return pw, pd, pl, labels
+    return pw, pd, pl, [f"[概率]{lbl}" for lbl in labels]
 
 
 # ================================================================
@@ -1037,39 +1127,50 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
     if results_data is None:
         results_data = {"matches": []}
 
+    # [FIX-2026-09-14] date 兜底为今天：apply_snapshot_freshness 的时效判断依赖它，
+    # 不兜底时 age_days 恒为 None，快照落后提示永远不会出现。
+    if not date:
+        date = datetime.now().strftime("%Y-%m-%d")
+
     league_context = load_league_context(league)
     config = load_league_config(league)
 
     # 使用增强版情报处理（如果可用）
+    #
+    # [FIX-2026-09-14] 原实现把 enhanced_intel["goal_delta"] 整块塞进 match_data，
+    # 而该 goal_delta 在 enhanced_intelligence._calculate_combined_impact 里已经折入了
+    # elo_delta/100 与 form_delta。match_intelligence 随后又从 intelligence.teams.<code>.form
+    # 重算一次 form_delta、从 teams.<code>.elo_delta 重读一次 elo_delta，于是同一份状态/
+    # 伤停被计入两次（5 连胜时 form 贡献 0.15 + 0.10 = 0.25 xG，设计意图仅 0.10）。
+    # 现在只透传 enhanced 独有的三项影响（关键球员 / 历史交锋 / 特殊因素），
+    # form 与 elo 交由 match_intelligence 统一处理，避免重复。
     enhanced_intel = {}
     if ENHANCED_INTELLIGENCE_AVAILABLE:
         try:
             enhanced_intel = process_enhanced_intelligence(league, a, b)
-            
-            # 将增强版情报转换为 match_intelligence 期望的格式
+
             if enhanced_intel:
-                # 创建 matches 数组格式
                 match_data = {
+                    # teams 保持 list 形式（match_intelligence 兼容 list 与 dict）
                     "teams": [a, b],
                     "confidence": 1.0,
-                    "goal_delta": enhanced_intel.get("goal_delta", {}),
-                    "elo_delta": enhanced_intel.get("elo_delta", {}),
-                    "form_delta": enhanced_intel.get("form_delta", {}),
+                    # 仅透传 enhanced 独有影响；不再传 goal_delta / elo_delta / form_delta
+                    "key_player_impact": enhanced_intel.get("key_player_impact", {}),
+                    "h2h_impact": enhanced_intel.get("h2h_impact", {}),
+                    "special_factors_impact": enhanced_intel.get("special_factors_impact", {}),
                     "factors": enhanced_intel.get("factors", []),
-                    "notes": enhanced_intel.get("notes", [])
+                    "notes": enhanced_intel.get("notes", []),
                 }
-                
-                # 合并到 intelligence
+
                 intelligence.setdefault("matches", []).append(match_data)
-                
+
                 # 调试信息（默认关闭避免刷屏；设 FB_INTEL_DEBUG=1 开启）
                 if os.environ.get("FB_INTEL_DEBUG") == "1":
                     print(f"  🔍 增强版情报处理结果:", file=sys.stderr)
-                    print(f"    目标修正: {enhanced_intel.get('goal_delta', {})}", file=sys.stderr)
-                    print(f"    状态修正: {enhanced_intel.get('form_delta', {})}", file=sys.stderr)
                     print(f"    关键球员影响: {enhanced_intel.get('key_player_impact', {})}", file=sys.stderr)
                     print(f"    历史交锋影响: {enhanced_intel.get('h2h_impact', {})}", file=sys.stderr)
                     print(f"    特殊因素影响: {enhanced_intel.get('special_factors_impact', {})}", file=sys.stderr)
+                    print(f"    （form/elo 由 match_intelligence 统一处理，不在此重复透传）", file=sys.stderr)
         except Exception as e:
             print(f"⚠️ 增强版情报处理失败: {e}", file=sys.stderr)
 
@@ -1283,7 +1384,9 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
         all_scores, variance_tail_labels = apply_total_goals_scoreline_shift(
             all_scores, variance_mode, variance_tail_strength
         )
-        all_scores, crisis_tail_labels = apply_absence_crisis_scoreline(all_scores, crisis)
+        # 计算实力差（用于伤停对比分的调整）
+        elo_diff = teams[a].get("elo", 1500) - teams[b].get("elo", 1500)
+        all_scores, crisis_tail_labels = apply_absence_crisis_scoreline(all_scores, crisis, elo_diff)
         pw, pd, pl = _score_probs_to_outcomes(all_scores)
         xg_labels.extend(tail_labels)
         xg_labels.extend(variance_tail_labels)
@@ -1382,7 +1485,7 @@ def build_match_entry(teams: dict, a: str, b: str, league: str,
     all_labels.extend(prob_labels)
 
     return {
-        "date": date or datetime.now().strftime("%Y-%m-%d"),
+        "date": date,
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "league": league,
         "league_name_cn": config.get("name_cn", league),
@@ -1519,21 +1622,29 @@ def cmd_match(teams: dict, a: str, b: str, league: str,
         print("  ✅ 已记录预测到台账: data/reviews/predictions.json")
 
 
+# [FIX-2026-09-14] 警告去重：同一 (code, 原因) 只打一次，避免批量模拟时 stderr 被刷爆
+_WARNED_FORM_CODES = set()
+
+
 def _warn_form_missed(intelligence: dict, code: str) -> None:
     """form 信息存在于非标准位置时提醒，避免状态修正静默失效。"""
     if not isinstance(intelligence, dict):
         return
     v = intelligence.get("teams", {}).get(code)
     if isinstance(v, str) and v:
-        print(f"  ⚠️ {code} 的近期状态应放 intelligence.teams.{code}.form "
-              f"（当前误放成字符串 \"{v}\"），状态修正未生效", file=sys.stderr)
+        if ("str", code) not in _WARNED_FORM_CODES:
+            _WARNED_FORM_CODES.add(("str", code))
+            print(f"  ⚠️ {code} 的近期状态应放 intelligence.teams.{code}.form "
+                  f"（当前误放成字符串 \"{v}\"），状态修正未生效", file=sys.stderr)
         return
     if isinstance(v, dict):
         for k in ("recent_form", "form_string", "recent", "form5", "status"):
             val = v.get(k)
             if isinstance(val, str) and val:
-                print(f"  ⚠️ {code} 的近期状态用了非标准键 \"{k}\"，应改为 "
-                      f"intelligence.teams.{code}.form（值: \"{val}\"），状态修正未生效", file=sys.stderr)
+                if (k, code) not in _WARNED_FORM_CODES:
+                    _WARNED_FORM_CODES.add((k, code))
+                    print(f"  ⚠️ {code} 的近期状态用了非标准键 \"{k}\"，应改为 "
+                          f"intelligence.teams.{code}.form（值: \"{val}\"），状态修正未生效", file=sys.stderr)
                 return
 
 
@@ -1564,9 +1675,20 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
 
         confidence = clamp(as_float(item.get("confidence"), 1.0), 0.0, 1.0)
 
+        # [FIX-2026-09-14] goal_delta：显式 goal_delta + enhanced 独有三项影响
+        # （关键球员/历史交锋/特殊因素）。form 与 elo 不在此处折入，它们分别由下面的
+        # form_delta 与末尾的 elo_delta 处理，避免与 enhanced_intelligence 的综合影响重复计数。
+        enhanced_extra = {}
+        for code in (a, b):
+            enhanced_extra[code] = (
+                as_float(item.get("key_player_impact", {}).get(code, 0.0))
+                + as_float(item.get("h2h_impact", {}).get(code, 0.0))
+                + as_float(item.get("special_factors_impact", {}).get(code, 0.0))
+            )
+
         goal_delta = {}
         for code in (a, b):
-            raw = as_float(item.get("goal_delta", {}).get(code, 0.0))
+            raw = as_float(item.get("goal_delta", {}).get(code, 0.0)) + enhanced_extra[code]
             goal_delta[code] = clamp(raw, -MAX_GOAL_INTEL_DELTA, MAX_GOAL_INTEL_DELTA) * confidence
 
         # 从 context 中提取 goal_boost
@@ -1576,8 +1698,10 @@ def match_intelligence(intelligence: dict, a: str, b: str) -> dict:
         for code in (a, b):
             goal_boost[code] = clamp(as_float(raw_boost.get(code, 0.0)), -0.20, 0.20)
 
-        # 解析近期状态（从 match-level teams 中提取）
+        # [FIX-2026-09-14] 解析近期状态：兼容 match-level teams 为 dict（{code: {form:...}}）或 list（[a, b]）
         match_teams = item.get("teams", {})
+        if isinstance(match_teams, list):
+            match_teams = {str(c).upper(): {} for c in match_teams if c}
         form_delta = {}
         for code in (a, b):
             form_str = ""
@@ -2009,7 +2133,7 @@ def cmd_table(teams: dict, league: str, current_table: dict, fixtures: list,
 
 def main():
     p = argparse.ArgumentParser(description="联赛预测引擎 — 挪超/瑞超/MLS")
-    p.add_argument("cmd", choices=["match", "table", "title", "relegation", "europe", "simulate"])
+    p.add_argument("cmd", choices=["match", "table", "title", "relegation", "europe", "simulate", "odds"])
     p.add_argument("target", nargs="?", help="球队名/联赛名")
     p.add_argument("opponent", nargs="?", help="对手名 (仅match)")
     p.add_argument("--league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "championship", "ligue1", "seriea", "bundesliga", "saudi_pro_league"],
@@ -2024,6 +2148,10 @@ def main():
     p.add_argument("--odds", default=None,
                    help="盘口数据 JSON 文件路径（{'matches':[{home,away,handicap_line/handicap,water_home,water_away}]}），"
                         "用于盘口分析 + 诱盘检测（可选）")
+    p.add_argument("--odds-text", default=None,
+                   help="盘口文本（仅odds命令），格式：'盘口：主让0.5球 水位：0.95/0.90'")
+    p.add_argument("--team-a", default=None, help="主队名或代码（仅odds命令）")
+    p.add_argument("--team-b", default=None, help="客队名或代码（仅odds命令）")
 
     args = p.parse_args()
 
@@ -2054,11 +2182,11 @@ def main():
         if args.odds:
             with open(args.odds, encoding="utf-8") as f:
                 odds_data = json.load(f)
-        
-        # 加载特定比赛的情报
-        match_intelligence = load_intelligence_for_match(args.league, a, b)
-        
-        cmd_match(teams, a, b, args.league, match_intelligence, {}, args.neutral, current_table,
+
+        # [FIX-2026-09-14] 变量改名，避免与同名函数 match_intelligence 混淆
+        match_intel = load_intelligence_for_match(args.league, a, b)
+
+        cmd_match(teams, a, b, args.league, match_intel, {}, args.neutral, current_table,
                   results_data, date=args.date, record=not args.no_record, odds_data=odds_data)
 
     elif args.cmd == "table":
@@ -2095,6 +2223,145 @@ def main():
             print("⚠️ 需要积分榜和赛程数据")
             return
         cmd_table(teams, args.league, current_table, fixtures, locked, args.sims, args.seed, intelligence)
+
+    elif args.cmd == "odds":
+        # 盘口反推Elo预测
+        if not ODDS_TO_ELO_AVAILABLE:
+            print("❌ 盘口反推Elo模块不可用，请检查 odds_to_elo.py")
+            return
+
+        if not args.odds_text:
+            print("❌ 请提供盘口数据，格式：--odds-text '盘口：主让0.5球 水位：0.95/0.90'")
+            return
+
+        if not args.team_a or not args.team_b:
+            print("❌ 请提供球队名称，格式：--team-a '主队' --team-b '客队'")
+            return
+
+        # 获取球队代码
+        try:
+            a = resolve_team(teams, args.team_a)
+            b = resolve_team(teams, args.team_b)
+        except SystemExit as e:
+            print(f"❌ {e}")
+            return
+
+        # 生成市场Elo
+        generator = MarketBasedEloGenerator()
+        market_elo = generator.generate_elo_from_user_input(args.odds_text, args.league)
+
+        if not market_elo['success']:
+            print(f"❌ 盘口解析失败: {market_elo['error']}")
+            print("使用默认Elo进行预测...")
+            market_elo = {'home_elo': 1500, 'away_elo': 1500, 'confidence': 0.5}
+
+        # 显示盘口解读
+        print(f"\n📊 盘口反推Elo结果")
+        print("=" * 50)
+        print(f"比赛: {cn(teams, a)} vs {cn(teams, b)}")
+        print(f"联赛: {args.league}")
+        print(f"原始盘口: {args.odds_text}")
+        print(f"\n📊 反推Elo:")
+        print(f"  • {cn(teams, a)}: {market_elo['home_elo']}")
+        print(f"  • {cn(teams, b)}: {market_elo['away_elo']}")
+        print(f"  • 实力差: {market_elo.get('elo_diff', 0)} Elo点")
+        print(f"  • 置信度: {market_elo.get('confidence', 0.5):.0%}")
+
+        if market_elo.get('interpretation'):
+            interp = market_elo['interpretation']
+            print(f"\n📈 盘口解读:")
+            print(f"  • {interp.get('summary', '')}")
+            print(f"  • 水位分析: {interp.get('water_analysis', '')}")
+            print(f"  • 盘口表述: {interp.get('handicap_cn', '')}")
+
+        if market_elo.get('trap_info', {}).get('is_trap'):
+            trap = market_elo['trap_info']
+            print(f"\n⚠️ 诱盘警告:")
+            print(f"  • 诱盘评分: {trap['score']}")
+            print(f"  • 原因: {', '.join(trap['reasons'])}")
+
+        print("=" * 50)
+
+        # 临时修改teams数据中的Elo
+        teams[a]['elo'] = market_elo['home_elo']
+        teams[b]['elo'] = market_elo['away_elo']
+
+        # [FIX-2026-09-14] 变量改名
+        match_intel = load_intelligence_for_match(args.league, a, b)
+
+        # 调用预测流程
+        cmd_match(teams, a, b, args.league, match_intel, {}, args.neutral, current_table,
+                  results_data, date=args.date, record=not args.no_record)
+
+
+def cmd_match_with_odds(teams: dict, a: str, b: str, league: str,
+                       odds_text: str, intelligence: dict = None,
+                       neutral: bool = False, current_table: dict = None,
+                       results_data: dict = None, date: str = None,
+                       record: bool = True) -> dict:
+    """
+    使用盘口反推Elo进行预测的便捷函数
+
+    参数：
+    teams: 球队数据
+    a: 主队代码
+    b: 客队代码
+    league: 联赛代码
+    odds_text: 用户提供的盘口文本
+    intelligence: 情报数据
+    neutral: 是否中立场
+    current_table: 当前积分榜
+    results_data: 历史交锋数据
+    date: 比赛日期
+    record: 是否记录到台账
+
+    返回：
+    预测结果字典
+    """
+    if not ODDS_TO_ELO_AVAILABLE:
+        print("❌ 盘口反推Elo模块不可用，使用原始Elo")
+        return cmd_match(teams, a, b, league, intelligence, {}, neutral,
+                        current_table, results_data, date=date, record=record)
+
+    # 生成市场Elo
+    generator = MarketBasedEloGenerator()
+    market_elo = generator.generate_elo_from_user_input(odds_text, league)
+
+    if not market_elo['success']:
+        print(f"⚠️ 盘口解析失败: {market_elo['error']}")
+        print("使用原始Elo进行预测...")
+        return cmd_match(teams, a, b, league, intelligence, {}, neutral,
+                        current_table, results_data, date=date, record=record)
+
+    # 显示盘口解读
+    print(f"\n📊 盘口反推Elo:")
+    print(f"  • {cn(teams, a)}: {market_elo['home_elo']} (原始: {teams[a]['elo']})")
+    print(f"  • {cn(teams, b)}: {market_elo['away_elo']} (原始: {teams[b]['elo']})")
+    print(f"  • 实力差: {market_elo.get('elo_diff', 0)} Elo点")
+
+    if market_elo.get('interpretation'):
+        print(f"  • 解读: {market_elo['interpretation'].get('summary', '')}")
+
+    # 临时修改teams数据中的Elo
+    original_home_elo = teams[a]['elo']
+    original_away_elo = teams[b]['elo']
+    teams[a]['elo'] = market_elo['home_elo']
+    teams[b]['elo'] = market_elo['away_elo']
+
+    # 调用预测流程
+    prediction = cmd_match(teams, a, b, league, intelligence, {}, neutral,
+                          current_table, results_data, date=date, record=record)
+
+    # 恢复原始Elo（避免影响后续预测）
+    teams[a]['elo'] = original_home_elo
+    teams[b]['elo'] = original_away_elo
+
+    # 添加市场信息到预测结果
+    if isinstance(prediction, dict):
+        prediction['market_elo'] = market_elo
+        prediction['odds_used'] = odds_text
+
+    return prediction
 
 
 if __name__ == "__main__":

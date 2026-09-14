@@ -14,11 +14,24 @@
     "draw_base": 0.22,
     "shock_sd": 0.4,
     "probability_shrink": 0.26,
+    "relegation_spots": 2,
     "special_factors": [
       "artificial_turf_penalty",
       "european_qualification_distraction",
-      "nordic_summer_effect"
+      "nordic_summer_effect",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "BOD": "red",
       "MOL": "blue",
@@ -53,10 +66,23 @@
     "draw_base": 0.26,
     "shock_sd": 0.38,
     "probability_shrink": 0.26,
+    "relegation_spots": 2,
     "special_factors": [
       "winter_spring_conditions",
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "MAL": "blue",
       "AIK": "red",
@@ -100,8 +126,20 @@
       "heat_humidity_penalty",
       "altitude_advantage",
       "libertadores_distraction",
-      "artificial_turf_penalty"
+      "artificial_turf_penalty",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "FLA": "red",
       "PAL": "green",
@@ -146,6 +184,11 @@
       "thursday_schedule_compact",
       "weather_difference"
     ],
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "TOT": "blue",
       "MUN": "red",
@@ -191,7 +234,7 @@
     "name_cn": "欧洲冠军联赛",
     "country": "Europe",
     "season": "2026-27",
-    "teams_count": 32,
+    "teams_count": 36,
     "rounds": 8,
     "season_start": "2026-09-15",
     "season_end": "2027-06-01",
@@ -208,6 +251,11 @@
       "midweek_schedule_compact",
       "weather_difference"
     ],
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "RMA": "white",
       "MCI": "skyblue",
@@ -265,6 +313,11 @@
       "midweek_schedule_compact",
       "weather_difference"
     ],
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "OLY": "red",
       "USG": "yellow",
@@ -318,8 +371,20 @@
     "special_factors": [
       "summer_heat_penalty",
       "european_qualification_distraction",
-      "military_team"
+      "military_team",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "ULS": "red",
       "JEO": "green",
@@ -357,6 +422,11 @@
       "artificial_turf_penalty",
       "international_break_distraction"
     ],
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "ATL": "red",
       "AUS": "green",
@@ -407,8 +477,20 @@
     "special_factors": [
       "artificial_turf_penalty",
       "nordic_summer_effect",
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "KUP": "yellow",
       "INT": "blue",
@@ -443,8 +525,20 @@
     "relegation_spots": 3,
     "special_factors": [
       "summer_heat_penalty",
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "KSA": "red",
       "SAN": "purple",
@@ -489,6 +583,11 @@
       "travel_distance",
       "thursday_schedule_compact"
     ],
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "FLA": "red",
       "PAL": "green",
@@ -525,7 +624,20 @@
     "probability_shrink": 0.26,
     "relegation_spots": 3,
     "europa_spots": 0,
-    "special_factors": [],
+    "special_factors": [
+      "relegated_derby_boost"
+    ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "NAN": "yellow",
       "MET": "red",
@@ -568,8 +680,20 @@
     "relegation_spots": 3,
     "special_factors": [
       "summer_heat_penalty",
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "RMA": "white",
       "BAR": "blue",
@@ -612,8 +736,20 @@
     "europa_spots": 4,
     "relegation_spots": 2,
     "special_factors": [
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "PSV": "red",
       "AJX": "red",
@@ -654,8 +790,20 @@
     "europa_spots": 7,
     "relegation_spots": 3,
     "special_factors": [
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "MCI": "skyblue",
       "LIV": "red",
@@ -698,8 +846,20 @@
     "europa_spots": 6,
     "relegation_spots": 2,
     "special_factors": [
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "PSG": "blue",
       "MON": "red",
@@ -741,8 +901,20 @@
     "relegation_spots": 3,
     "special_factors": [
       "summer_heat_penalty",
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "JUV": "white",
       "INTER": "blue",
@@ -776,19 +948,31 @@
     "rounds": 46,
     "season_start": "2026-08-08",
     "season_end": "2027-05-02",
-    "avg_goals": 2.6,
+    "avg_goals": 2.8,
     "home_adv": 0.35,
     "elo_scale": 115,
-    "draw_base": 0.27,
-    "shock_sd": 0.38,
-    "probability_shrink": 0.26,
+    "draw_base": 0.30,
+    "shock_sd": 0.40,
+    "probability_shrink": 0.28,
     "weak_elo_threshold": 1400,
     "europa_spots": 0,
     "relegation_spots": 3,
     "special_factors": [
       "european_qualification_distraction",
-      "promoted_side_boost"
+      "promoted_side_boost",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "WHU": "claret",
       "WOL": "gold",
@@ -834,8 +1018,20 @@
     "europa_spots": 7,
     "relegation_spots": 2,
     "special_factors": [
-      "european_qualification_distraction"
+      "european_qualification_distraction",
+      "relegated_derby_boost"
     ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
     "color_map": {
       "BAY": "red",
       "BVB": "yellow",
@@ -857,5 +1053,62 @@
       "DUS": "red"
     },
     "opening_round_bonus": 0.12
+  },
+  "saudi_pro_league": {
+    "name": "Saudi Pro League",
+    "name_cn": "沙特职业联赛",
+    "country": "Saudi Arabia",
+    "season": "2026-27",
+    "teams_count": 18,
+    "rounds": 34,
+    "season_start": "2026-08-20",
+    "season_end": "2027-05-22",
+    "avg_goals": 2.95,
+    "home_adv": 0.36,
+    "elo_scale": 130,
+    "draw_base": 0.26,
+    "shock_sd": 0.40,
+    "probability_shrink": 0.25,
+    "europa_spots": 4,
+    "relegation_spots": 3,
+    "special_factors": [
+      "summer_heat_penalty",
+      "travel_distance",
+      "afc_distraction",
+      "foreign_star_impact",
+      "relegated_derby_boost"
+    ],
+    "relegated_derby_config": {
+      "trigger": "both_teams_relegated_from_top5",
+      "goal_boost": 0.12,
+      "openness": 0.08,
+      "description": "降班马对决：双方防线都不稳+进攻欲望强+互相熟悉"
+    },
+    "close_match_config": {
+      "elo_diff_threshold": 50,
+      "draw_boost": 0.03,
+      "description": "近均衡场次(Elo差<50)：方向命中率低，平局价值上调"
+    },
+    "color_map": {
+      "HIL": "blue",
+      "NAS": "yellow",
+      "AHL": "green",
+      "ITT": "yellow",
+      "QAD": "red",
+      "TAW": "yellow",
+      "SHA": "white",
+      "ETT": "green",
+      "FAT": "blue",
+      "FAY": "orange",
+      "KHL": "red",
+      "RAE": "red",
+      "RIY": "red",
+      "DHA": "red",
+      "HAZ": "yellow",
+      "OKH": "blue",
+      "NAJ": "green",
+      "NEO": "blue"
+    },
+    "opening_round_bonus": 0.10
   }
 }

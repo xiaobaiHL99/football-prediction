@@ -12,6 +12,7 @@
     }
   },
   "europe_teams": ["FLA", "PAL", "CRU", "COR", "FLU", "MIR", "EST", "ROS", "PLA", "IRV", "IDV", "LDU", "UCA", "COQ", "TOL", "CPO"],
+  "europe_teams_note": "⚠️ 2026-09-12 审计发现（未改行为，待决策）：本名单=解放者杯自身16支参赛队，与 special_factors.thursday_schedule_compact(apply_when: team_in_competition) 配合时语义正确（所有参赛队都吃周中双线 -0.06）。但 league_data.py:945-964 的欧战逻辑只对 champions_league/europa_league 跳过，**不包括 libertadores**，因此每场解放者杯预测里双方都在名单 → 触发 -0.04 xG(各队) 且额外 draw_boost +6%，并在标签打印'XX欧战双线(-)'(南美球队措辞也不对)。可能非本意。若确认要移除，把本键改为 [] 即可（simulator 的 thu_key 分支随之不再命中；若仍想保留周中消耗，应改用专用因子而非复用 europe_teams）。修正教训见 league_data.py:940-957 与 bundesliga/context.json 的 _note。",
   "turf_map": {
     "artificial": [],
     "natural": ["FLA", "PAL", "CRU", "COR", "FLU", "MIR", "EST", "ROS", "PLA", "IRV", "IDV", "LDU", "UCA", "COQ", "TOL", "CPO"]

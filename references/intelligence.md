@@ -118,7 +118,8 @@ Agent 采集战术情报时**必须**在 `factors[]` 或 `notes[]` 中注明来�
         "expected_pattern": "open",
         "ineffective_possession": {
           "team": "B",
-          "possession_pct": 78
+          "possession_pct": 78,
+          "shots_on_target_avg": 2.5
         },
         "physical_mismatch": 1,
         "derby_boost": false,
@@ -142,6 +143,37 @@ Agent 采集战术情报时**必须**在 `factors[]` 或 `notes[]` 中注明来�
     }
   ]
 }
+```
+
+### 英冠特殊检测规则（2026-09-01 新增）
+
+**控球陷阱检测（Ineffective Possession Detection）**
+
+英冠近均衡场次中，"控球多≠赢球"现象频发。Agent 赛前采集时必须检查：
+
+| 检测条件 | 触发标记 | xG惩罚 |
+|----------|---------|--------|
+| 控球率 > 55% **且** 场均射正 < 4次 | `ineffective_possession: true` | -0.15~-0.35 |
+| 控球率 > 60% **且** 场均射正 < 3次 | `ineffective_possession: true` + `severity: "high"` | -0.25~-0.35 |
+| 控球率 > 50% **且** 射正率 < 30% | `ineffective_possession: true` | -0.15~-0.25 |
+
+**数据来源：** 搜索 `"<球队> 2026-27 stats possession shots on target"` 或 `"<球队> 控球率 射正 数据"`
+
+**典型反面案例（9月1日）：**
+- 林肯城：控球40%但18射门仅1射正 → 进攻效率极低
+- 伯明翰：控球37%但16射门4射正 → 效率尚可但控球低
+- 朴茨茅斯：控球65%但21射门仅3射正 → 典型控球陷阱
+
+**降班马对决检测（Relegated Derby Detection）**
+
+当两队均为本赛季从英超/英冠降级时触发：
+
+| 检测条件 | 触发标记 | 效果 |
+|----------|---------|------|
+| 两队均从英超降级 | `competition_context.type: "relegated_derby"` | goal_boost +0.12, openness +0.08 |
+| 一队从英超降级，一队从英冠降级 | `competition_context.type: "relegated_derby"` | goal_boost +0.08, openness +0.05 |
+
+**数据来源：** 查看联赛积分榜中"降班马"标签，或搜索 `"<球队> relegated 2025-26"`
 ```
 
 ### 字段说明

@@ -11,6 +11,258 @@
       "away": "STK",
       "hg": 4,
       "ag": 1
+    },
+    {
+      "home": "DER",
+      "away": "SWA",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "home": "MID",
+      "away": "WBA",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "BLB",
+      "away": "QPR",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "BOL",
+      "away": "LIN",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "home": "BRC",
+      "away": "POR",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "CDI",
+      "away": "SHU",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "CHA",
+      "away": "PRE",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "NOR",
+      "away": "BUR",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "home": "SOU",
+      "away": "MIL",
+      "hg": 5,
+      "ag": 1
+    },
+    {
+      "home": "WAT",
+      "away": "WHU",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "WBA",
+      "away": "BUR",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "BIR",
+      "away": "BRC",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "LIN",
+      "away": "POR",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "MIL",
+      "away": "NOR",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "BLB",
+      "away": "MID",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "DER",
+      "away": "CDI",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "PRE",
+      "away": "WOL",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "QPR",
+      "away": "BOL",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "SOU",
+      "away": "STK",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "home": "SWA",
+      "away": "SHU",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "WHU",
+      "away": "CHA",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "WRE",
+      "away": "WAT",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "CDI",
+      "away": "WRE",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "WAT",
+      "away": "SOU",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "BUR",
+      "away": "WHU",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "BOL",
+      "away": "PRE",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "BRC",
+      "away": "MIL",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "CHA",
+      "away": "DER",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "MID",
+      "away": "LIN",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "NOR",
+      "away": "WBA",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "POR",
+      "away": "QPR",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "STK",
+      "away": "SWA",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "SHU",
+      "away": "BIR",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "WOL",
+      "away": "BLB",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "home": "LIN",
+      "away": "BLB",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "POR",
+      "away": "DER",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "home": "PRE",
+      "away": "BRC",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "home": "SHU",
+      "away": "BOL",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "SWA",
+      "away": "WAT",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "home": "WHU",
+      "away": "WOL",
+      "hg": 4,
+      "ag": 2
+    },
+    {
+      "home": "BIR",
+      "away": "SOU",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "STK",
+      "away": "NOR",
+      "hg": 1,
+      "ag": 0
     }
   ]
 }

@@ -1,122 +1,122 @@
 {
   "_meta": {
-    "updated_at": "2026-09-01T08:21:15",
+    "updated_at": "2026-09-13T10:45:49",
     "n_matched": 93
   },
   "buckets": {
     "Elo差桶": {
       "中等(50-150)": {
-        "n": 36,
-        "dir_hit": 22,
-        "dir_hit_rate": 0.611,
-        "avg_log_loss": 0.953,
-        "pred_avg_goals": 3.15,
-        "actual_avg_goals": 3.11,
-        "goal_diff": -0.04,
-        "flag": "✅强项"
-      },
-      "近均衡(<50)": {
-        "n": 29,
-        "dir_hit": 12,
-        "dir_hit_rate": 0.414,
-        "avg_log_loss": 1.111,
-        "pred_avg_goals": 3.09,
-        "actual_avg_goals": 2.52,
-        "goal_diff": -0.57,
+        "n": 35,
+        "dir_hit": 20,
+        "dir_hit_rate": 0.571,
+        "avg_log_loss": 0.986,
+        "pred_avg_goals": 3.02,
+        "actual_avg_goals": 3.17,
+        "goal_diff": 0.15,
         "flag": ""
       },
       "悬殊(>150)": {
-        "n": 28,
-        "dir_hit": 20,
-        "dir_hit_rate": 0.714,
-        "avg_log_loss": 0.761,
-        "pred_avg_goals": 3.22,
-        "actual_avg_goals": 3.71,
+        "n": 30,
+        "dir_hit": 21,
+        "dir_hit_rate": 0.7,
+        "avg_log_loss": 0.796,
+        "pred_avg_goals": 3.21,
+        "actual_avg_goals": 3.7,
         "goal_diff": 0.49,
         "flag": "✅强项"
+      },
+      "近均衡(<50)": {
+        "n": 28,
+        "dir_hit": 11,
+        "dir_hit_rate": 0.393,
+        "avg_log_loss": 1.1,
+        "pred_avg_goals": 2.98,
+        "actual_avg_goals": 2.18,
+        "goal_diff": -0.8,
+        "flag": "⚠️偏误"
       }
     },
     "方向桶": {
       "押主队": {
-        "n": 65,
-        "dir_hit": 41,
-        "dir_hit_rate": 0.631,
-        "avg_log_loss": 0.905,
-        "pred_avg_goals": 3.18,
-        "actual_avg_goals": 3.08,
-        "goal_diff": -0.11,
+        "n": 57,
+        "dir_hit": 38,
+        "dir_hit_rate": 0.667,
+        "avg_log_loss": 0.875,
+        "pred_avg_goals": 3.05,
+        "actual_avg_goals": 3.0,
+        "goal_diff": -0.05,
         "flag": "✅强项"
       },
       "押客队": {
-        "n": 27,
-        "dir_hit": 13,
-        "dir_hit_rate": 0.481,
-        "avg_log_loss": 1.035,
-        "pred_avg_goals": 3.09,
-        "actual_avg_goals": 3.22,
-        "goal_diff": 0.13,
+        "n": 34,
+        "dir_hit": 14,
+        "dir_hit_rate": 0.412,
+        "avg_log_loss": 1.093,
+        "pred_avg_goals": 3.12,
+        "actual_avg_goals": 3.21,
+        "goal_diff": 0.08,
         "flag": ""
       },
       "押平局": {
-        "n": 1,
+        "n": 2,
         "dir_hit": 0,
         "dir_hit_rate": 0.0,
-        "avg_log_loss": 1.076,
-        "pred_avg_goals": 2.52,
-        "actual_avg_goals": 2.0,
-        "goal_diff": -0.52,
+        "avg_log_loss": 1.08,
+        "pred_avg_goals": 2.89,
+        "actual_avg_goals": 1.5,
+        "goal_diff": -1.39,
         "flag": "样本不足(需≥15)"
       }
     },
     "钻取·近均衡": {
       "近均衡×押主队": {
-        "n": 24,
+        "n": 22,
         "dir_hit": 11,
-        "dir_hit_rate": 0.458,
-        "avg_log_loss": 1.108,
-        "pred_avg_goals": 3.16,
-        "actual_avg_goals": 2.62,
-        "goal_diff": -0.53,
+        "dir_hit_rate": 0.5,
+        "avg_log_loss": 1.083,
+        "pred_avg_goals": 3.02,
+        "actual_avg_goals": 2.32,
+        "goal_diff": -0.7,
         "flag": ""
       },
       "近均衡×预测中球": {
-        "n": 21,
+        "n": 22,
         "dir_hit": 7,
-        "dir_hit_rate": 0.333,
-        "avg_log_loss": 1.145,
-        "pred_avg_goals": 2.96,
-        "actual_avg_goals": 2.52,
-        "goal_diff": -0.44,
+        "dir_hit_rate": 0.318,
+        "avg_log_loss": 1.129,
+        "pred_avg_goals": 2.95,
+        "actual_avg_goals": 2.18,
+        "goal_diff": -0.77,
         "flag": "⚠️偏误"
-      },
-      "近均衡×预测大球": {
-        "n": 6,
-        "dir_hit": 3,
-        "dir_hit_rate": 0.5,
-        "avg_log_loss": 1.047,
-        "pred_avg_goals": 3.99,
-        "actual_avg_goals": 2.5,
-        "goal_diff": -1.49,
-        "flag": "样本不足(需≥15)"
       },
       "近均衡×押客队": {
         "n": 4,
-        "dir_hit": 1,
-        "dir_hit_rate": 0.25,
-        "avg_log_loss": 1.139,
+        "dir_hit": 0,
+        "dir_hit_rate": 0.0,
+        "avg_log_loss": 1.205,
         "pred_avg_goals": 2.82,
+        "actual_avg_goals": 1.75,
+        "goal_diff": -1.07,
+        "flag": "样本不足(需≥15)"
+      },
+      "近均衡×预测大球": {
+        "n": 4,
+        "dir_hit": 2,
+        "dir_hit_rate": 0.5,
+        "avg_log_loss": 1.021,
+        "pred_avg_goals": 3.8,
         "actual_avg_goals": 2.0,
-        "goal_diff": -0.82,
+        "goal_diff": -1.8,
         "flag": "样本不足(需≥15)"
       },
       "近均衡×押平局": {
-        "n": 1,
+        "n": 2,
         "dir_hit": 0,
         "dir_hit_rate": 0.0,
-        "avg_log_loss": 1.076,
-        "pred_avg_goals": 2.52,
-        "actual_avg_goals": 2.0,
-        "goal_diff": -0.52,
+        "avg_log_loss": 1.08,
+        "pred_avg_goals": 2.89,
+        "actual_avg_goals": 1.5,
+        "goal_diff": -1.39,
         "flag": "样本不足(需≥15)"
       },
       "近均衡×预测小球": {
@@ -132,23 +132,13 @@
     },
     "预测总进球桶": {
       "中(2.5-3.4)": {
-        "n": 66,
-        "dir_hit": 39,
-        "dir_hit_rate": 0.591,
-        "avg_log_loss": 0.918,
-        "pred_avg_goals": 2.96,
-        "actual_avg_goals": 3.03,
-        "goal_diff": 0.07,
-        "flag": ""
-      },
-      "大(≥3.5)": {
-        "n": 24,
-        "dir_hit": 13,
-        "dir_hit_rate": 0.542,
-        "avg_log_loss": 0.986,
-        "pred_avg_goals": 3.84,
-        "actual_avg_goals": 3.38,
-        "goal_diff": -0.46,
+        "n": 71,
+        "dir_hit": 41,
+        "dir_hit_rate": 0.577,
+        "avg_log_loss": 0.932,
+        "pred_avg_goals": 2.92,
+        "actual_avg_goals": 2.99,
+        "goal_diff": 0.06,
         "flag": ""
       },
       "小(<2.5)": {
@@ -160,6 +150,16 @@
         "actual_avg_goals": 2.67,
         "goal_diff": 0.85,
         "flag": "样本不足(需≥15)"
+      },
+      "大(≥3.5)": {
+        "n": 19,
+        "dir_hit": 9,
+        "dir_hit_rate": 0.474,
+        "avg_log_loss": 1.023,
+        "pred_avg_goals": 3.82,
+        "actual_avg_goals": 3.32,
+        "goal_diff": -0.51,
+        "flag": ""
       }
     }
   }

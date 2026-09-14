@@ -41,6 +41,7 @@ DEFAULT_K = {
     "ligue1": 28,
     "seriea": 28,
     "bundesliga": 28,
+    "saudi_pro_league": 30,
 }
 
 # 净胜球 → K值乘数

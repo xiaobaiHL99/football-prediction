@@ -8,7 +8,7 @@
     "MAL": {
       "name": "Malmö FF",
       "name_cn": "马尔默",
-      "elo": 1620,
+      "elo": 1586,
       "city": "Malmö",
       "stadium": "Eleda Stadion",
       "capacity": 22500,
@@ -21,7 +21,7 @@
     "AIK": {
       "name": "AIK Solna",
       "name_cn": "索尔纳",
-      "elo": 1673,
+      "elo": 1661,
       "city": "Stockholm",
       "stadium": "Friends Arena",
       "capacity": 50000,
@@ -34,7 +34,7 @@
     "HAC": {
       "name": "Häcken",
       "name_cn": "赫根",
-      "elo": 1680,
+      "elo": 1671,
       "city": "Gothenburg",
       "stadium": "Bravida Arena",
       "capacity": 6300,
@@ -47,7 +47,7 @@
     "DJU": {
       "name": "Djurgårdens IF",
       "name_cn": "尤尔加登",
-      "elo": 1726,
+      "elo": 1760,
       "city": "Stockholm",
       "stadium": "Tele2 Arena",
       "capacity": 30000,
@@ -60,7 +60,7 @@
     "ELF": {
       "name": "IF Elfsborg",
       "name_cn": "埃尔夫斯堡",
-      "elo": 1614,
+      "elo": 1598,
       "city": "Borås",
       "stadium": "Borås Arena",
       "capacity": 16200,
@@ -73,7 +73,7 @@
     "KAL": {
       "name": "Kalmar FF",
       "name_cn": "卡尔马",
-      "elo": 1512,
+      "elo": 1493,
       "city": "Kalmar",
       "stadium": "Guldfågeln Arena",
       "capacity": 12000,
@@ -99,7 +99,7 @@
     "HBK": {
       "name": "Halmstads BK",
       "name_cn": "哈尔姆斯塔德",
-      "elo": 1229,
+      "elo": 1204,
       "city": "Halmstad",
       "stadium": "Örjans Vall",
       "capacity": 15500,
@@ -112,7 +112,7 @@
     "GAIS": {
       "name": "GAIS Gothenburg",
       "name_cn": "加尔斯",
-      "elo": 1632,
+      "elo": 1618,
       "city": "Gothenburg",
       "stadium": "Gamla Ullevi",
       "capacity": 18600,
@@ -138,7 +138,7 @@
     "SIR": {
       "name": "Sirius IF",
       "name_cn": "天狼星",
-      "elo": 1720,
+      "elo": 1980,
       "city": "Uppsala",
       "stadium": "Studenternas IP",
       "capacity": 10000,
@@ -151,7 +151,7 @@
     "BRO": {
       "name": "Brommapojkarna",
       "name_cn": "布洛马波卡纳",
-      "elo": 1493,
+      "elo": 1475,
       "city": "Stockholm",
       "stadium": "Grimsta IP",
       "capacity": 8000,
@@ -164,7 +164,7 @@
     "DEG": {
       "name": "Degerfors IF",
       "name_cn": "代格福什",
-      "elo": 1351,
+      "elo": 1329,
       "city": "Degerfors",
       "stadium": "Stora Valla",
       "capacity": 7500,
@@ -177,7 +177,7 @@
     "SOF": {
       "name": "IFK Göteborg",
       "name_cn": "哥德堡",
-      "elo": 1418,
+      "elo": 1405,
       "city": "Gothenburg",
       "stadium": "Gamla Ullevi",
       "capacity": 18600,
@@ -216,7 +216,7 @@
     "VSK": {
       "name": "Västerås SK",
       "name_cn": "韦斯特罗斯",
-      "elo": 1598,
+      "elo": 1539,
       "city": "Västerås",
       "stadium": "Hitachi Energy Arena",
       "capacity": 9000,
@@ -229,7 +229,7 @@
     "ORG": {
       "name": "Örgryte IS",
       "name_cn": "厄尔格里特",
-      "elo": 1292,
+      "elo": 1275,
       "city": "Gothenburg",
       "stadium": "Gamla Ullevi",
       "capacity": 18600,
@@ -242,7 +242,7 @@
     "MJA": {
       "name": "Mjällby AIF",
       "name_cn": "米亚尔比",
-      "elo": 1535,
+      "elo": 1516,
       "city": "Mjällby",
       "stadium": "Strandvallen",
       "capacity": 7500,
@@ -255,7 +255,7 @@
     "HAM": {
       "name": "Hammarby IF",
       "name_cn": "哈马比",
-      "elo": 1733,
+      "elo": 1716,
       "city": "Stockholm",
       "stadium": "Tele2 Arena",
       "capacity": 33000,

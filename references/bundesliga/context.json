@@ -6,9 +6,10 @@
       "apply_when": "team_in_europe and match_within_3_days_of_european_match"
     }
   },
-  "europe_teams": ["BAY", "BVB", "B04", "RBL", "FRG", "STU", "WOL"],
+  "europe_teams": ["BAY", "BVB", "RBL", "STU", "HOF", "B04", "SCF"],
+  "europe_teams_note": "2026-27 核实（2026-09-12）：德甲 7 队全部进入联赛阶段 — UCL：BAY(第1，兼德国杯冠军)、BVB(第2)、RBL(第3)、STU(第4)；UEL：HOF(第5)、B04(第6，德国杯名额下移)；UECL：SCF(第7，8月附加赛两回合 7-2 淘汰马瑟韦尔)。原名单误列 FRG(法兰克福，用户确认无欧战，终榜第8)与 WOL(已不在德甲)，并漏了 HOF 与 SCF；AUG 经四条独立证据确证无欧战(终榜第9、德媒'Augsburg verpasst Europapokal'、SZ'Sieben Bundesligisten für Europa'逐队点名不含AUG、德国杯冠军为拜仁致杯赛通道关闭)。⚠️ 机制限制：本表仅按名单触发，league_data.py:945-951 不校验周中是否真有欧战，欧战球队每场联赛固定扣 0.04 xG（标签显示'双线'）；需按比赛周微调时，Agent 应在 intelligence 的 goal_delta 显式抵消并在 factors 说明（示例见 2026-09-12 弗赖堡场次）。",
   "turf_map": {
     "artificial": [],
-    "natural": ["BAY", "BVB", "B04", "RBL", "FRG", "STU", "WOL", "SCF", "BMG", "UNI", "HOF", "MAI", "AUG", "BRE", "HEI", "HAM", "KOE", "DUS"]
+    "natural": ["BAY", "BVB", "B04", "RBL", "FRG", "STU", "SCF", "BMG", "UNI", "HOF", "MAI", "AUG", "BRE", "KOE", "ELV", "S04", "PAD", "HAM"]
   }
 }

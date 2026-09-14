@@ -278,13 +278,13 @@ def main():
     p = argparse.ArgumentParser(description="联赛玄学预测 🔮 — 挪超/瑞超/MLS")
     p.add_argument("team_a")
     p.add_argument("team_b")
-    p.add_argument("--league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "ligue1", "seriea", "bundesliga"],
+    p.add_argument("--league", choices=["eliteserien", "allsvenskan", "mls", "brasileirao", "eredivisie", "europa_league", "champions_league", "ucl_qualifying", "kleague", "veikkausliiga", "jleague", "libertadores", "ligue2", "laliga", "epl", "ligue1", "seriea", "bundesliga", "saudi_pro_league"],
                    default="eliteserien", help="联赛 (默认 eliteserien)")
     p.add_argument("--date", default=None, help="MMDD，影响起卦；未传时优先使用 Agent 起卦背景快照，否则默认当前参考日")
     p.add_argument("--factor", action="store_true", help="只打印气运修正因子")
     args = p.parse_args()
 
-    league_labels = {"eliteserien": "挪超", "allsvenskan": "瑞超", "mls": "MLS", "brasileirao": "巴甲", "eredivisie": "荷甲", "europa_league": "欧联", "champions_league": "欧冠", "ucl_qualifying": "欧冠资格赛", "kleague": "韩职", "veikkausliiga": "芬超", "jleague": "日职", "libertadores": "解放者杯", "ligue2": "法乙", "laliga": "西甲", "epl": "英超", "ligue1": "法甲", "seriea": "意甲", "bundesliga": "德甲"}
+    league_labels = {"eliteserien": "挪超", "allsvenskan": "瑞超", "mls": "MLS", "brasileirao": "巴甲", "eredivisie": "荷甲", "europa_league": "欧联", "champions_league": "欧冠", "ucl_qualifying": "欧冠资格赛", "kleague": "韩职", "veikkausliiga": "芬超", "jleague": "日职", "libertadores": "解放者杯", "ligue2": "法乙", "laliga": "西甲", "epl": "英超", "ligue1": "法甲", "seriea": "意甲", "bundesliga": "德甲", "saudi_pro_league": "沙职"}
     league_label = league_labels.get(args.league, args.league)
 
     teams = load_teams(args.league)

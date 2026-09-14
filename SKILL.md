@@ -124,6 +124,22 @@ python3 "$SKILL_DIR/scripts/daily_review.py" tune --league kleague
 ## 工作流程
 1. 判定用户要单场预测还是联赛模拟，以及是否明确要求玄学。
 2. 理性预测前由 Agent 主动收集当前积分榜、剩余赛程、球队评级、伤停情报等数据。
+
+   **🔒 数据分工铁律（用户确认，不可违反）**：
+   | 数据类型 | 数据源 | 说明 |
+   |---------|--------|------|
+   | **硬数据**：积分榜/赛果/赛程/近N场状态/历史交锋 | **football MCP 工具** | 只用 `mcp__football__*`，禁 web 搜索硬数据 |
+   | **软情报**：伤停名单/战术风格/阵型/战意/盘口 | **联网搜索** | web_search + web_fetch，按 `references/intelligence.md` 采集 |
+   | MCP 未覆盖联赛（日职/韩职/挪超/瑞超/美职/巴甲等） | 联网搜索 + 用户提供 | 硬数据也走 web |
+
+   即：**"联网搜索伤停，MCP 拿硬数据"**。MCP 覆盖的 18 个联赛（英超/英冠/德甲/意甲/西甲/法甲/法乙/荷甲等）+ 8 项杯赛的硬数据一律走 MCP，存 `data/live/<league>/mcp_raw/` 原样存档；伤停、战术、亚盘这类软情报始终走联网搜索。两源冲突以 MCP 为准并提示。
+
+   具体流程：
+   - `mcp__football__get_standings` — 真实积分榜；`mcp__football__get_matches` — 赛程/赛果（`only=played|upcoming`）
+   - `mcp__football__get_team_form` — 球队近 N 场状态；`mcp__football__get_head_to_head` — 历史交锋（`seasons_back` 跨赛季）
+   - 覆盖：英超/英冠/德甲/意甲/西甲/法甲/法乙/荷甲等 18 个联赛 + 欧冠/欧联等 8 项杯赛；挪超/瑞超/MLS/韩职/日职/巴甲等未覆盖，仍走 web 搜索
+   - 拿到数据后原样存 `data/live/<league>/mcp_raw/`，再用 `python3 scripts/mcp_snapshot.py <league> --matches raw.json --standings raw.json --elo` 写入快照（table/results/fixtures + Elo 刷新）；联赛代码映射与流程详见 `references/mcp_data.md`
+   - MCP 只提供硬数据（榜/程/果/状态/交锋）；**伤停、战术、战意、亚盘一律联网搜索采集，绝不从 MCP 编造**
 3. 将基础数据保存为本地快照：`data/live/<league>/table.json`、`data/live/<league>/fixtures.json`、`data/live/<league>/teams.json`（可选）。
 4. **单场预测前必须完成两队战术风格研究**。搜索赛前分析、球队本赛季战术特点、主帅风格，判断两队主要战术风格。将战术信息填入 `intelligence.json` 的 `matches[].tactical` 字段（见下方完整格式）。这是必做步骤，非可选。
 
@@ -351,6 +367,7 @@ python3 "$SKILL_DIR/scripts/daily_review.py" tune --league kleague
 
 ## 参考文档（按需阅读）
 - `references/model.md` — 理性模型数学原理与联赛适配
+- `references/mcp_data.md` — 内置 football MCP 数据源：工具清单、联赛代码映射、采集与快照同步流程
 - `references/html_report.md` — HTML 报告内容结构与视觉要求
 - `references/driver_predict.md` — 单场预测驱动模式（In-Memory Driver）模板与字段速查
 - `references/daily_review.md` — 每日复盘 + 自动调参（预测台账、指标、门槛与回滚）

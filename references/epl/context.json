@@ -6,7 +6,8 @@
       "apply_when": "team_in_europe and match_within_3_days_of_european_match"
     }
   },
-  "europe_teams": ["MCI", "LIV", "ARS", "TOT", "MUN", "CHE"],
+  "europe_teams": ["ARS", "MCI", "MUN", "AVL", "LIV", "BOU", "SUN", "CRY", "BHA"],
+  "europe_teams_note": "2026-27 核实（2026-09-12）：英超官方 9 队分配 — UCL：ARS(联赛第1)、MCI(第2，兼足总杯+联赛杯，名额未占用)、MUN(第3)、AVL(第4，兼 25-26 欧联杯冠军，英超已满5席故不额外增额)、LIV(第5，EPS 欧洲表现席位)；UEL：BOU(第6)、SUN(第7，足总杯名额下移)、CRY(25-26 欧协联冠军，联赛仅第15)；UECL：BHA(第8，联赛杯名额下移；8月附加赛 4-0 淘汰特罗姆瑟晋级联赛阶段)。原名单误列 TOT(联赛第17)与 CHE(联赛第10)——均无欧战；漏了 AVL/BOU/SUN/CRY/BHA。9 队全部进入联赛阶段，无球队止步资格赛。来源：premierleague.com 官方分配表 + uefa.com 欧联/欧协联联赛阶段名单。",
   "turf_map": {
     "artificial": [],
     "natural": ["MCI", "LIV", "ARS", "TOT", "MUN", "CHE", "NEW", "AVL", "BHA", "NFO", "LEE", "BOU", "FUL", "SUN", "CRY", "BRE", "EVE", "COV", "IPS", "HUL"]

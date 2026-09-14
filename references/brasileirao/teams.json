@@ -9,7 +9,7 @@
     "FLA": {
       "name": "Flamengo",
       "name_cn": "弗拉门戈",
-      "elo": 1805,
+      "elo": 1807,
       "city": "Rio de Janeiro",
       "stadium": "Maracanã",
       "capacity": 78838,
@@ -22,7 +22,7 @@
     "PAL": {
       "name": "Palmeiras",
       "name_cn": "帕尔梅拉斯",
-      "elo": 1817,
+      "elo": 1760,
       "city": "São Paulo",
       "stadium": "Allianz Parque",
       "capacity": 43713,
@@ -35,7 +35,7 @@
     "CAM": {
       "name": "Atlético Mineiro",
       "name_cn": "米内罗竞技",
-      "elo": 1808,
+      "elo": 1847,
       "city": "Belo Horizonte",
       "stadium": "Arena MRV",
       "capacity": 46158,
@@ -48,7 +48,7 @@
     "COR": {
       "name": "Corinthians",
       "name_cn": "科林蒂安",
-      "elo": 1722,
+      "elo": 1734,
       "city": "São Paulo",
       "stadium": "Neo Química Arena",
       "capacity": 49205,
@@ -61,7 +61,7 @@
     "SAO": {
       "name": "São Paulo FC",
       "name_cn": "圣保罗",
-      "elo": 1675,
+      "elo": 1687,
       "city": "São Paulo",
       "stadium": "Morumbi",
       "capacity": 72039,
@@ -74,7 +74,7 @@
     "INT": {
       "name": "Internacional",
       "name_cn": "巴西国际",
-      "elo": 1564,
+      "elo": 1577,
       "city": "Porto Alegre",
       "stadium": "Beira-Rio",
       "capacity": 50128,
@@ -87,7 +87,7 @@
     "GRE": {
       "name": "Grêmio",
       "name_cn": "格雷米奥",
-      "elo": 1601,
+      "elo": 1550,
       "city": "Porto Alegre",
       "stadium": "Arena do Grêmio",
       "capacity": 55662,
@@ -100,7 +100,7 @@
     "FLU": {
       "name": "Fluminense",
       "name_cn": "弗鲁米嫩塞",
-      "elo": 1652,
+      "elo": 1662,
       "city": "Rio de Janeiro",
       "stadium": "Maracanã",
       "capacity": 78838,
@@ -113,7 +113,7 @@
     "BOT": {
       "name": "Botafogo",
       "name_cn": "博塔弗戈",
-      "elo": 1623,
+      "elo": 1609,
       "city": "Rio de Janeiro",
       "stadium": "Nilton Santos",
       "capacity": 46831,
@@ -126,7 +126,7 @@
     "CRU": {
       "name": "Cruzeiro",
       "name_cn": "克鲁塞罗",
-      "elo": 1574,
+      "elo": 1493,
       "city": "Belo Horizonte",
       "stadium": "Mineirão",
       "capacity": 61846,
@@ -139,7 +139,7 @@
     "CAP": {
       "name": "Athletico Paranaense",
       "name_cn": "巴拉纳竞技",
-      "elo": 1645,
+      "elo": 1641,
       "city": "Curitiba",
       "stadium": "Ligga Arena",
       "capacity": 42372,
@@ -165,7 +165,7 @@
     "BAH": {
       "name": "Bahia",
       "name_cn": "巴伊亚",
-      "elo": 1678,
+      "elo": 1767,
       "city": "Salvador",
       "stadium": "Arena Fonte Nova",
       "capacity": 47907,
@@ -191,7 +191,7 @@
     "SAN": {
       "name": "Santos FC",
       "name_cn": "桑托斯",
-      "elo": 1505,
+      "elo": 1445,
       "city": "Santos",
       "stadium": "Vila Belmiro",
       "capacity": 16068,
@@ -204,7 +204,7 @@
     "VAS": {
       "name": "Vasco da Gama",
       "name_cn": "瓦斯科达伽马",
-      "elo": 1512,
+      "elo": 1581,
       "city": "Rio de Janeiro",
       "stadium": "São Januário",
       "capacity": 25000,
@@ -230,7 +230,7 @@
     "REM": {
       "name": "Remo",
       "name_cn": "雷莫",
-      "elo": 1543,
+      "elo": 1600,
       "city": "Belém",
       "stadium": "Estádio Baenão",
       "capacity": 17518,
@@ -269,7 +269,7 @@
     "VIT": {
       "name": "Vitória",
       "name_cn": "维多利亚",
-      "elo": 1478,
+      "elo": 1417,
       "city": "Salvador",
       "stadium": "Barradão",
       "capacity": 34950,
@@ -282,7 +282,7 @@
     "CHA": {
       "name": "Chapecoense",
       "name_cn": "沙佩科恩斯",
-      "elo": 1390,
+      "elo": 1415,
       "city": "Chapecó",
       "stadium": "Arena Condá",
       "capacity": 20089,

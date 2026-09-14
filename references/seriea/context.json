@@ -11,7 +11,8 @@
       "apply_when": "team_in_europe and match_within_3_days_of_european_match"
     }
   },
-  "europe_teams": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO"],
+  "europe_teams": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "COM"],
+  "europe_teams_note": "2026-27 核实（2026-09-12）：UEFA官方三项赛事联赛阶段名单 — UCL 4席=INTER/NAP/ROM/COM(1-4名，意甲本季无额外欧冠席位)；UEL 2席=MIL(第5)+JUV(第6，因意大利杯冠军国米已入UCL而名额下延)；UECL 1席=ATA(第7，附加赛淘汰特拉维夫夏普尔晋级)。原名单误列 LAZ(拉齐奥，25-26第9，无欧战)与 FIO(佛罗伦萨，第15，无欧战)，漏了 COM(科莫，第4，队史首次欧战)；名额下延止于第7，故第8博洛尼亚BOL亦无欧战。意甲共7队，全部进入联赛阶段。",
   "turf_map": {
     "artificial": [],
     "natural": ["JUV", "INTER", "MIL", "NAP", "ATA", "ROM", "LAZ", "FIO", "BOL", "TOR", "UDI", "GEN", "CAG", "SAS", "PAR", "LEC", "VEN", "COM", "MON", "FRO"]

@@ -11,7 +11,8 @@
       "apply_when": "team_in_europe and match_within_3_days_of_european_match"
     }
   },
-  "europe_teams": ["RMA", "BAR", "ATM", "ATH", "RSO", "VIL", "BET", "SEV"],
+  "europe_teams": ["RMA", "BAR", "ATM", "VIL", "BET", "CEL", "RSO", "GET"],
+  "europe_teams_note": "2026-27 核实（2026-09-12）：UEFA官方三项赛事联赛阶段名单 — UCL 5席=RMA/BAR/VIL/ATM/BET(1-5名)；UEL 2席=CEL(第6)+RSO(国王杯冠军，联赛第10)；UECL 1席=GET(第7，附加赛淘汰贝尔格莱德游击晋级)。原名单误列 ATH(毕尔巴鄂，25-26第12，无欧战)与 SEV(塞维利亚，第15，无欧战)，漏了 CEL 与 GET；巴列卡诺RAY因RSO占掉杯赛名额而无欧战(其25-26欧协联决赛0-1负水晶宫)。西甲共8队，全部进入联赛阶段。",
   "turf_map": {
     "artificial": [],
     "natural": ["RMA", "BAR", "ATM", "RSO", "ATH", "VIL", "BET", "SEV", "VAL", "CEL", "RAY", "GET", "OSA", "ESP", "ALA", "ELC", "LEV", "DEP", "MGA", "RAC"]

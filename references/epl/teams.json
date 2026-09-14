@@ -36,11 +36,11 @@
     "TOT": {
       "name": "Tottenham Hotspur",
       "name_cn": "托特纳姆热刺",
-      "elo": 1850,
+      "elo": 1820,
       "city": "London",
       "stadium": "Tottenham Hotspur Stadium",
       "color": "blue",
-      "notes": "热刺白百合，攻势足球，欧战常客"
+      "notes": "热刺白百合，攻势足球，欧战常客。夏窗流失严重，两轮0球垫底"
     },
     "MUN": {
       "name": "Manchester United",
@@ -72,11 +72,11 @@
     "AVL": {
       "name": "Aston Villa",
       "name_cn": "阿斯顿维拉",
-      "elo": 1700,
+      "elo": 1680,
       "city": "Birmingham",
       "stadium": "Villa Park",
       "color": "blue",
-      "notes": "维拉埃梅里时代进步明显，欧战经验丰富"
+      "notes": "维拉埃梅里时代进步明显，欧战经验丰富。两轮0球，开局糟糕"
     },
     "BHA": {
       "name": "Brighton & Hove Albion",
@@ -162,11 +162,11 @@
     "COV": {
       "name": "Coventry City",
       "name_cn": "考文垂",
-      "elo": 1530,
+      "elo": 1515,
       "city": "Coventry",
       "stadium": "Coventry Building Society Arena",
       "color": "skyblue",
-      "notes": "英冠冠军升班马，兰帕德执教，25年后回归英超"
+      "notes": "英冠冠军升班马，兰帕德执教。两轮0球，升班马适应期"
     },
     "IPS": {
       "name": "Ipswich Town",
@@ -180,11 +180,11 @@
     "HUL": {
       "name": "Hull City",
       "name_cn": "赫尔城",
-      "elo": 1505,
+      "elo": 1540,
       "city": "Kingston upon Hull",
       "stadium": "MKM Stadium",
       "color": "orange",
-      "notes": "英冠附加赛冠军升班马，时隔多年回归，中下游保级档"
+      "notes": "英冠附加赛冠军升班马，时隔多年回归。两连胜领跑，状态超预期"
     }
   }
 }

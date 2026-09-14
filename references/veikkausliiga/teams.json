@@ -9,7 +9,7 @@
     "KUP": {
       "name": "KuPS",
       "name_cn": "库奥皮奥",
-      "elo": 1780,
+      "elo": 1815,
       "city": "Kuopio",
       "stadium": "Kuopio Football Stadium",
       "capacity": 5000,
@@ -22,7 +22,7 @@
     "INT": {
       "name": "FC Inter Turku",
       "name_cn": "国际图尔库",
-      "elo": 1720,
+      "elo": 1669,
       "city": "Turku",
       "stadium": "Veritas Stadion",
       "capacity": 9372,
@@ -35,7 +35,7 @@
     "VPS": {
       "name": "VPS",
       "name_cn": "VPS瓦萨",
-      "elo": 1488,
+      "elo": 1453,
       "city": "Vaasa",
       "stadium": "Elisa Stadion",
       "capacity": 6000,
@@ -48,7 +48,7 @@
     "OUL": {
       "name": "AC Oulu",
       "name_cn": "AC奥卢",
-      "elo": 1574,
+      "elo": 1562,
       "city": "Oulu",
       "stadium": "Raatti Stadium",
       "capacity": 5000,
@@ -61,7 +61,7 @@
     "HJK": {
       "name": "HJK Helsinki",
       "name_cn": "HJK赫尔辛基",
-      "elo": 1718,
+      "elo": 1739,
       "city": "Helsinki",
       "stadium": "Bolt Arena",
       "capacity": 10770,
@@ -74,7 +74,7 @@
     "GNI": {
       "name": "IF Gnistan",
       "name_cn": "格尼斯坦",
-      "elo": 1680,
+      "elo": 1731,
       "city": "Helsinki",
       "stadium": "Mustapekka Areena",
       "capacity": 4100,
@@ -87,7 +87,7 @@
     "TPS": {
       "name": "TPS",
       "name_cn": "TPS土尔库",
-      "elo": 1492,
+      "elo": 1471,
       "city": "Turku",
       "stadium": "Veritas Stadion",
       "capacity": 9372,
@@ -100,7 +100,7 @@
     "LAH": {
       "name": "FC Lahti",
       "name_cn": "拉赫蒂",
-      "elo": 1446,
+      "elo": 1420,
       "city": "Lahti",
       "stadium": "Toolpoint Areena",
       "capacity": 5000,
@@ -113,7 +113,7 @@
     "ILV": {
       "name": "Ilves",
       "name_cn": "伊尔维斯",
-      "elo": 1614,
+      "elo": 1640,
       "city": "Tampere",
       "stadium": "Tampere Stadium",
       "capacity": 16000,
@@ -126,7 +126,7 @@
     "SJK": {
       "name": "SJK Seinäjoki",
       "name_cn": "塞伊奈约基",
-      "elo": 1399,
+      "elo": 1371,
       "city": "Seinäjoki",
       "stadium": "OmaSP Stadion",
       "capacity": 6000,
@@ -139,7 +139,7 @@
     "JAR": {
       "name": "FF Jaro",
       "name_cn": "雅罗",
-      "elo": 1551,
+      "elo": 1579,
       "city": "Pietarsaari",
       "stadium": "Project Liv Arena",
       "capacity": 5000,
@@ -152,7 +152,7 @@
     "MAR": {
       "name": "IFK Mariehamn",
       "name_cn": "玛丽港",
-      "elo": 1416,
+      "elo": 1428,
       "city": "Mariehamn",
       "stadium": "Wiklöf Holding Arena",
       "capacity": 5070,

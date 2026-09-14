@@ -1,4 +1,25 @@
 {
+  "format": {
+    "name": "UEFA Champions League 2026-27",
+    "name_cn": "欧洲冠军联赛2026-27赛季",
+    "phase": "league_phase",
+    "total_teams": 36,
+    "matchdays": 8,
+    "matches_per_team": 8,
+    "home_away": "每队4主4客，随机抽签",
+    "advancement": {
+      "direct_to_r16": { "rank": "1-8", "description": "前8直接晋级16强" },
+      "playoff": { "rank": "9-24", "description": "第9-24名打附加赛(主客场两回合)，争夺剩余8个16强席位" },
+      "eliminated": { "rank": "25-36", "description": "第25-36名直接淘汰，欧冠赛季结束（新赛制下不再掉入欧联杯）" }
+    },
+    "seed_allocation": {
+      "top_leagues": "英超/西甲各5席，意甲/德甲各4席，法甲3席，荷甲/葡超/土超/挪威各2席",
+      "lower_leagues": "比甲/捷甲/希超/斯洛伐克/乌克兰/奥地利/阿塞拜疆各1席",
+      "performance_bonus": "欧战积分高联赛可获额外奖励名额（英超/西甲本季各获1个奖励名额）",
+      "champion_defender": "卫冕冠军+欧联杯冠军直通正赛"
+    },
+    "note": "2024-25赛季起由旧制(8组×4队)改为36队瑞士轮联赛阶段。前8直进16强，9-24打附加赛，25-36直接淘汰。2026-27为新赛制第3季。"
+  },
   "special_factors": {
     "travel_distance": {
       "description": "长途客场旅行对客队体能和状态的影响",
@@ -52,7 +73,11 @@
     "COM",
     "LEN",
     "VIK",
-    "SABH"
+    "SABH",
+    "BEN",
+    "JUV",
+    "MIL",
+    "B04"
   ],
   "turf_map": {
     "artificial": [
@@ -93,7 +118,11 @@
       "COM",
       "LEN",
       "VIK",
-      "SABH"
+      "SABH",
+      "BEN",
+      "JUV",
+      "MIL",
+      "B04"
     ]
   },
   "region_index": {

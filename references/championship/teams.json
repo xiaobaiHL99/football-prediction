@@ -3,7 +3,7 @@
     "WHU": {
       "name": "West Ham United",
       "name_cn": "西汉姆联",
-      "elo": 1545,
+      "elo": 1504,
       "city": "London",
       "stadium": "London Stadium",
       "color": "claret",
@@ -12,7 +12,7 @@
     "WOL": {
       "name": "Wolverhampton Wanderers",
       "name_cn": "狼队",
-      "elo": 1535,
+      "elo": 1585,
       "city": "Wolverhampton",
       "stadium": "Molineux Stadium",
       "color": "gold",
@@ -21,7 +21,7 @@
     "SOU": {
       "name": "Southampton",
       "name_cn": "南安普顿",
-      "elo": 1520,
+      "elo": 1565,
       "city": "Southampton",
       "stadium": "St Mary's Stadium",
       "color": "red",
@@ -30,7 +30,7 @@
     "MID": {
       "name": "Middlesbrough",
       "name_cn": "米德尔斯堡",
-      "elo": 1505,
+      "elo": 1524,
       "city": "Middlesbrough",
       "stadium": "Riverside Stadium",
       "color": "red",
@@ -39,7 +39,7 @@
     "SHU": {
       "name": "Sheffield United",
       "name_cn": "谢菲尔德联",
-      "elo": 1495,
+      "elo": 1491,
       "city": "Sheffield",
       "stadium": "Bramall Lane",
       "color": "red",
@@ -48,7 +48,7 @@
     "CHA": {
       "name": "Charlton Athletic",
       "name_cn": "查尔顿竞技",
-      "elo": 1490,
+      "elo": 1556,
       "city": "London",
       "stadium": "The Valley",
       "color": "red",
@@ -57,7 +57,7 @@
     "NOR": {
       "name": "Norwich City",
       "name_cn": "诺维奇",
-      "elo": 1480,
+      "elo": 1441,
       "city": "Norwich",
       "stadium": "Carrow Road",
       "color": "yellow",
@@ -66,7 +66,7 @@
     "WBA": {
       "name": "West Bromwich Albion",
       "name_cn": "西布罗姆维奇",
-      "elo": 1475,
+      "elo": 1503,
       "city": "West Bromwich",
       "stadium": "The Hawthorns",
       "color": "blue",
@@ -75,7 +75,7 @@
     "SWA": {
       "name": "Swansea City",
       "name_cn": "斯旺西",
-      "elo": 1470,
+      "elo": 1530,
       "city": "Swansea",
       "stadium": "Swansea.com Stadium",
       "color": "white",
@@ -84,7 +84,7 @@
     "MIL": {
       "name": "Millwall",
       "name_cn": "米尔沃尔",
-      "elo": 1460,
+      "elo": 1509,
       "city": "London",
       "stadium": "The Den",
       "color": "blue",
@@ -93,7 +93,7 @@
     "QPR": {
       "name": "Queens Park Rangers",
       "name_cn": "女王公园巡游者",
-      "elo": 1455,
+      "elo": 1514,
       "city": "London",
       "stadium": "Loftus Road",
       "color": "blue",
@@ -102,7 +102,7 @@
     "BIR": {
       "name": "Birmingham City",
       "name_cn": "伯明翰",
-      "elo": 1450,
+      "elo": 1474,
       "city": "Birmingham",
       "stadium": "St Andrew's",
       "color": "blue",
@@ -111,7 +111,7 @@
     "WAT": {
       "name": "Watford",
       "name_cn": "沃特福德",
-      "elo": 1440,
+      "elo": 1481,
       "city": "Watford",
       "stadium": "Vicarage Road",
       "color": "yellow",
@@ -120,7 +120,7 @@
     "BRC": {
       "name": "Bristol City",
       "name_cn": "布里斯托尔城",
-      "elo": 1435,
+      "elo": 1423,
       "city": "Bristol",
       "stadium": "Ashton Gate",
       "color": "red",
@@ -129,7 +129,7 @@
     "BLB": {
       "name": "Blackburn Rovers",
       "name_cn": "布莱克本",
-      "elo": 1425,
+      "elo": 1445,
       "city": "Blackburn",
       "stadium": "Ewood Park",
       "color": "blue",
@@ -138,7 +138,7 @@
     "BOL": {
       "name": "Bolton Wanderers",
       "name_cn": "博尔顿",
-      "elo": 1420,
+      "elo": 1415,
       "city": "Bolton",
       "stadium": "Toughsheet Community Stadium",
       "color": "white",
@@ -147,7 +147,7 @@
     "STK": {
       "name": "Stoke City",
       "name_cn": "斯托克城",
-      "elo": 1415,
+      "elo": 1339,
       "city": "Stoke-on-Trent",
       "stadium": "bet365 Stadium",
       "color": "red",
@@ -156,7 +156,7 @@
     "POR": {
       "name": "Portsmouth",
       "name_cn": "朴茨茅斯",
-      "elo": 1410,
+      "elo": 1389,
       "city": "Portsmouth",
       "stadium": "Fratton Park",
       "color": "blue",
@@ -174,7 +174,7 @@
     "DER": {
       "name": "Derby County",
       "name_cn": "德比郡",
-      "elo": 1400,
+      "elo": 1343,
       "city": "Derby",
       "stadium": "Pride Park",
       "color": "white",
@@ -183,7 +183,7 @@
     "PRE": {
       "name": "Preston North End",
       "name_cn": "普雷斯顿",
-      "elo": 1395,
+      "elo": 1328,
       "city": "Preston",
       "stadium": "Deepdale",
       "color": "white",
@@ -192,7 +192,7 @@
     "WRE": {
       "name": "Wrexham",
       "name_cn": "雷克斯汉姆",
-      "elo": 1390,
+      "elo": 1372,
       "city": "Wrexham",
       "stadium": "Racecourse Ground",
       "color": "red",
@@ -201,7 +201,7 @@
     "LIN": {
       "name": "Lincoln City",
       "name_cn": "林肯城",
-      "elo": 1365,
+      "elo": 1340,
       "city": "Lincoln",
       "stadium": "Sincil Bank",
       "color": "red",
@@ -210,7 +210,7 @@
     "BUR": {
       "name": "Burnley",
       "name_cn": "伯恩利",
-      "elo": 1490,
+      "elo": 1394,
       "city": "Burnley",
       "stadium": "Turf Moor",
       "color": "claret",

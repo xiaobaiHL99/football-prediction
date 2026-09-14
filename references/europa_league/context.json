@@ -1,4 +1,19 @@
 {
+  "format": {
+    "name": "UEFA Europa League 2026-27",
+    "name_cn": "欧洲联赛2026-27赛季",
+    "phase": "league_phase",
+    "total_teams": 36,
+    "matchdays": 8,
+    "matches_per_team": 8,
+    "home_away": "每队4主4客",
+    "advancement": {
+      "direct_to_r16": { "rank": "1-8", "description": "前8直接晋级16强" },
+      "playoff": { "rank": "9-24", "description": "第9-24名打附加赛(主客场两回合)，争夺剩余8个16强席位" },
+      "eliminated": { "rank": "25-36", "description": "第25-36名直接淘汰，欧战赛季结束（新赛制下不再掉入欧协联）" }
+    },
+    "note": "2024-25赛季起改为36队瑞士轮联赛阶段。前8直进16强，9-24打附加赛，25-36直接淘汰。"
+  },
   "special_factors": {
     "travel_distance": {
       "description": "跨国旅行消耗，跨区域比赛体能影响",
@@ -16,16 +31,29 @@
       "apply_when": "abs(home_region_index - away_region_index) >= 2"
     }
   },
-  "europe_teams": ["TOT", "MUN", "CHE", "RSO", "BET", "VIL", "FRA", "ROM", "LAZ", "FIO", "MAR", "LYO", "POR", "BRA", "AJX", "FEY", "AZ", "GAL", "FEN", "RAN", "OLY", "SLP", "YB", "STU", "FCK", "BOD", "MAL", "LEG", "DZG", "HAM", "BEN", "BJK", "MID", "TWE", "FTC", "HAJ", "PAF", "KUP", "SAB", "HAR", "SGZ"],
+  "europe_teams": [
+    "MIL", "JUV", "LEV", "BEN", "OLY", "LYO", "MAR", "RSO", "AZ",
+    "FTC", "PLZ", "USG", "DZG", "SAL", "CEL", "SPA", "REN", "AND",
+    "SGZ", "LPZ", "CRY", "BOU", "SUN", "CLJ", "JAG", "OMO", "CLT",
+    "HOF", "BJK", "TOR", "HBS", "NEC", "OFI", "LSK", "LEV",
+    "ARA", "KUP", "SAB", "PAF", "MID", "FCK", "MAL", "KRT", "CRAI",
+    "THN", "VKR", "BOD"
+  ],
   "turf_map": {
-    "artificial": ["BOD", "HAM", "KUP"],
-    "natural": ["TOT", "MUN", "CHE", "RSO", "BET", "VIL", "FRA", "HOF", "S04", "ROM", "LAZ", "FIO", "MAR", "LYO", "NCE", "POR", "BRA", "GUI", "AJX", "AZ", "FEY", "AND", "USG", "GAL", "FEN", "RAN", "OLY", "PAO", "SLP", "YB", "STU", "FCK", "MAL", "LEG", "DZG", "STG", "BEN", "BJK", "MID", "TWE", "FTC", "HAJ", "PAF", "SAB", "HAR", "SGZ"]
+    "artificial": ["BOD", "KUP", "KRT"],
+    "natural": [
+      "MIL", "JUV", "LEV", "BEN", "OLY", "LYO", "MAR", "RSO", "AZ",
+      "FTC", "PLZ", "USG", "DZG", "SAL", "CEL", "SPA", "REN", "AND",
+      "SGZ", "LPZ", "CRY", "BOU", "SUN", "CLJ", "JAG", "OMO", "CLT",
+      "HOF", "BJK", "TOR", "HBS", "NEC", "OFI", "LSK", "LEV",
+      "ARA", "SAB", "PAF", "MID", "FCK", "MAL", "CRAI", "THN", "VKR"
+    ]
   },
   "region_index": {
     "north": 0,
     "central": 1,
     "northwest": 1,
     "southwest": 2,
-    "centralwest": 2
+    "south": 2
   }
 }

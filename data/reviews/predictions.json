@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated_at": "2026-09-12T12:10:16"
+    "updated_at": "2026-09-12T20:54:05"
   },
   "predictions": [
     {
@@ -55207,6 +55207,4009 @@
         "第6名11分(3胜2平1负，进11失8)，距前五1分，上轮2-0胜京都。本季每场正式比赛都先进球；场均冲刺次数J1最多，打法快速纵向，由中卫Scholz+稻村组织出球。客场3战1胜2平(6-3)不败。威胁：长仓4球、MARCELO RYAN 3球、边锋安西/本间、旧将Taka。"
       ],
       "_id": "jleague|GAM|FCT|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T15:44:59",
+      "league": "laliga",
+      "league_name_cn": "西班牙足球甲级联赛",
+      "home": "RAC",
+      "away": "ALA",
+      "home_cn": "桑坦德竞技",
+      "away_cn": "阿拉维斯",
+      "prediction": {
+        "la": 0.84,
+        "lb": 2.185,
+        "pw": 0.187,
+        "pd": 0.245,
+        "pl": 0.568,
+        "direction": "away",
+        "direction_text": "阿拉维斯占优",
+        "main_score": [
+          0,
+          2
+        ],
+        "main_prob": 0.1167,
+        "modal_score": [
+          0,
+          2
+        ],
+        "modal_prob": 0.1167,
+        "score_top5": [
+          {
+            "score": [
+              0,
+              2
+            ],
+            "prob": 0.1167
+          },
+          {
+            "score": [
+              0,
+              1
+            ],
+            "prob": 0.1061
+          },
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0945
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.0875
+          },
+          {
+            "score": [
+              0,
+              3
+            ],
+            "prob": 0.0862
+          }
+        ],
+        "labels": [
+          "RAC伤病保守(-18Elo)",
+          "桑坦德竞技状态低迷(-0.03)",
+          "阿拉维斯状态火热(+0.09)",
+          "阿拉维斯战意高涨(本轮最先开球，取胜可暂时登顶(马卡: de vuelta al liderato)，延续队史最佳开局)",
+          "⚠️快照落后28天，当前档位上限±25(base/轮次未知)，建议补 teams.<code>.form_elo_adjust",
+          "押客队向平局收缩"
+        ],
+        "odds": {
+          "handicap_line": 0.0,
+          "handicap_cn": "平手",
+          "model_margin": -1.554,
+          "market_margin": -0.0,
+          "divergence": -1.554,
+          "trap_score": 3.7,
+          "trap_decision": "suspect",
+          "trap_decision_cn": "疑似分歧",
+          "market_weight": 0.15,
+          "market_confidence": "medium",
+          "market_confidence_cn": "部分采信",
+          "market_factor": 0.105,
+          "original_xg": {
+            "la": 0.735,
+            "lb": 2.29
+          },
+          "final_xg": {
+            "la": 0.84,
+            "lb": 2.185
+          }
+        }
+      },
+      "model_inputs": {
+        "elo": {
+          "RAC": 1500,
+          "ALA": 1628
+        },
+        "elo_delta": {
+          "RAC": -18.0625,
+          "ALA": -11.9
+        },
+        "form_delta": {
+          "RAC": -0.03285607813909701,
+          "ALA": 0.09279253128309733
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "RAC": 0.0,
+          "ALA": 0.0
+        },
+        "goal_boost": {
+          "RAC": 0.0,
+          "ALA": 0.0
+        },
+        "context_openness": {
+          "RAC": 0.05,
+          "ALA": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "possession",
+          "style_b": "counter_attack",
+          "matchup": "关系主义传控(主, José Alberto) vs QSF务实防守组织+快速反击(客) — 反击克制传控；主队大量持球但面对中低位块转换效率存疑",
+          "expected_pattern": "balanced",
+          "ineffective_possession": true,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "normal",
+              "note": "升班马主场抢分意愿存在，无额外战意来源(非保级六分战)"
+            },
+            "b": {
+              "level": "high",
+              "note": "本轮最先开球，取胜可暂时登顶(马卡: de vuelta al liderato)，延续队史最佳开局"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 1.0,
+          "prob_base": [
+            0.187,
+            0.245,
+            0.568
+          ],
+          "prob_final": [
+            0.187,
+            0.245,
+            0.568
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            0.735,
+            2.29
+          ],
+          "xg_final": [
+            0.84,
+            2.185
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": {
+          "home": "RAC",
+          "away": "ALA",
+          "handicap": "平手",
+          "handicap_line": 0.0,
+          "water_home": 0.94,
+          "water_away": 0.95
+        }
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "RAC": {
+            "elo_delta": -21.25,
+            "confidence": 0.85,
+            "form": "平-负-胜-负",
+            "injury_count": 2,
+            "suspension_count": 0,
+            "conceded_per_game": 2.0,
+            "notes": "升班马(西乙冠军,14年后回归)。主场不败(2-2比利亚雷亚尔/3-2埃尔切)，近6个主场3胜2平1负进14球；但4轮丢8球(场均2.0)防线偏漏。缺主力攻击手Andrés Martín(右膝扭伤,对埃尔切受伤)和门将Eriksson(右肩腱病,毕尔巴鄂租借门将Agirrezabala顶替)。主帅José Alberto，Sky Sports专题报道的关系主义传控(短传+频繁换位)。主场埃尔萨迪内罗氛围热烈。"
+          },
+          "ALA": {
+            "elo_delta": -14.0,
+            "confidence": 0.85,
+            "form": "胜-平-胜-胜",
+            "injury_count": 2,
+            "suspension_count": 0,
+            "conceded_per_game": 0.75,
+            "notes": "队史最佳西甲开局(3胜1平积10分列第2)，上轮5-2奥萨苏纳多点开花。一周内连折两名十字韧带：主力中卫Garcés(8-9个月,且原FIFA禁令11月初才到期)和中场Mikel Rodríguez(8-9个月)，后防被抽大梁；主帅基克·桑切斯·弗洛雷斯(QSF)表态冬窗前不引援。客场成色未验满：本季唯一客场1-1平巴列卡诺，近6个客场仅1负但有3平，客场偏平局。"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "RAC",
+              "ALA"
+            ],
+            "confidence": 0.85,
+            "tactical": {
+              "style_a": "possession",
+              "style_b": "counter_attack",
+              "matchup": "关系主义传控(主, José Alberto) vs QSF务实防守组织+快速反击(客) — 反击克制传控；主队大量持球但面对中低位块转换效率存疑",
+              "expected_pattern": "balanced",
+              "ineffective_possession": true,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "normal",
+                  "note": "升班马主场抢分意愿存在，无额外战意来源(非保级六分战)"
+                },
+                "b": {
+                  "level": "high",
+                  "note": "本轮最先开球，取胜可暂时登顶(马卡: de vuelta al liderato)，延续队史最佳开局"
+                }
+              }
+            },
+            "context_openness": {
+              "RAC": 0.05,
+              "ALA": 0.05
+            },
+            "factors": [
+              "盘口信号：初盘主让平半(高水1.09)→9/11退至平手，今日主水0.94/客水0.95；欧赔主胜2.36→2.61上抬、客胜3.05→2.68收紧 — 市场连续降盘看衰主队(降0.25球级信号)",
+              "大小球从2.5升至2.5/3 — 市场预期总进球约2.7-2.9，与主队主场大比分(2-2/3-2)+场均失2.0球一致",
+              "桑坦德主场不败且火力足(近6主场进14球)，但4轮丢8球防线偏漏；阿拉维斯4轮仅失3球",
+              "桑坦德缺主力攻击手Andrés Martín+门将Eriksson(阿吉拉扎巴拉顶替)；阿拉维斯缺中卫Garcés+中场Mikel Rodríguez(双十字韧带，冬窗前不买人) — 双方各缺2人，阿拉维斯中卫位更吃紧",
+              "阿拉维斯客场偏平局：近6个客场3平1负；两队8月初友谊赛1-1；中文媒体(低置信)称正式比赛阿拉维斯对桑坦德不败",
+              "战意差：阿拉维斯取胜即暂时登顶(本轮首场)；天气微雨28-29°C(球探网)，北西班牙9月体感尚可，高温因子不适用",
+              "教练对位：José Alberto关系主义传控(Sky Sports专题) vs QSF务实稳定体系(续约求稳路线)"
+            ],
+            "notes": [
+              "情报来源: EFE/infobae(9/9桑坦德训练伤情), 163(9/12伤停+客场数据+友谊赛1-1), Sky Sports(关系主义战术专题), 马卡赛前(登顶叙事), 皇冠/titan007盘口(平手0.94/0.95, 欧赔2.61/3.50/2.68)",
+              "H2H说明: MCP get_head_to_head 因两队上赛季不同级别报错(数据源仅收录同级交锋)，按mcp_data.md降级方案走web补采 — 仅获友谊赛1-1与中文媒体口径，历史交锋因子不启用",
+              "升班马(西乙冠军,14年后回归)。主场不败(2-2比利亚雷亚尔/3-2埃尔切)，近6个主场3胜2平1负进14球；但4轮丢8球(场均2.0)防线偏漏。缺主力攻击手Andrés Martín(右膝扭伤,对埃尔切受伤)和门将Eriksson(右肩腱病,毕尔巴鄂租借门将Agirrezabala顶替)。主帅José Alberto，Sky Sports专题报道的关系主义传控(短传+频繁换位)。主场埃尔萨迪内罗氛围热烈。",
+              "队史最佳西甲开局(3胜1平积10分列第2)，上轮5-2奥萨苏纳多点开花。一周内连折两名十字韧带：主力中卫Garcés(8-9个月,且原FIFA禁令11月初才到期)和中场Mikel Rodríguez(8-9个月)，后防被抽大梁；主帅基克·桑切斯·弗洛雷斯(QSF)表态冬窗前不引援。客场成色未验满：本季唯一客场1-1平巴列卡诺，近6个客场仅1负但有3平，客场偏平局。"
+            ]
+          },
+          {
+            "teams": [
+              "RAC",
+              "ALA"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "RAC": 0.0,
+              "ALA": 0.0
+            },
+            "elo_delta": {
+              "RAC": 0.0,
+              "ALA": 0.0
+            },
+            "form_delta": {
+              "RAC": 0.0,
+              "ALA": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: RAC +0.000, ALA +0.000",
+              "进球修正: RAC +0.000, ALA +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        "盘口信号：初盘主让平半(高水1.09)→9/11退至平手，今日主水0.94/客水0.95；欧赔主胜2.36→2.61上抬、客胜3.05→2.68收紧 — 市场连续降盘看衰主队(降0.25球级信号)",
+        "大小球从2.5升至2.5/3 — 市场预期总进球约2.7-2.9，与主队主场大比分(2-2/3-2)+场均失2.0球一致",
+        "桑坦德主场不败且火力足(近6主场进14球)，但4轮丢8球防线偏漏；阿拉维斯4轮仅失3球",
+        "桑坦德缺主力攻击手Andrés Martín+门将Eriksson(阿吉拉扎巴拉顶替)；阿拉维斯缺中卫Garcés+中场Mikel Rodríguez(双十字韧带，冬窗前不买人) — 双方各缺2人，阿拉维斯中卫位更吃紧",
+        "阿拉维斯客场偏平局：近6个客场3平1负；两队8月初友谊赛1-1；中文媒体(低置信)称正式比赛阿拉维斯对桑坦德不败",
+        "战意差：阿拉维斯取胜即暂时登顶(本轮首场)；天气微雨28-29°C(球探网)，北西班牙9月体感尚可，高温因子不适用"
+      ],
+      "notes": [
+        "情报来源: EFE/infobae(9/9桑坦德训练伤情), 163(9/12伤停+客场数据+友谊赛1-1), Sky Sports(关系主义战术专题), 马卡赛前(登顶叙事), 皇冠/titan007盘口(平手0.94/0.95, 欧赔2.61/3.50/2.68)",
+        "H2H说明: MCP get_head_to_head 因两队上赛季不同级别报错(数据源仅收录同级交锋)，按mcp_data.md降级方案走web补采 — 仅获友谊赛1-1与中文媒体口径，历史交锋因子不启用",
+        "升班马(西乙冠军,14年后回归)。主场不败(2-2比利亚雷亚尔/3-2埃尔切)，近6个主场3胜2平1负进14球；但4轮丢8球(场均2.0)防线偏漏。缺主力攻击手Andrés Martín(右膝扭伤,对埃尔切受伤)和门将Eriksson(右肩腱病,毕尔巴鄂租借门将Agirrezabala顶替)。主帅José Alberto，Sky Sports专题报道的关系主义传控(短传+频繁换位)。主场埃尔萨迪内罗氛围热烈。",
+        "队史最佳西甲开局(3胜1平积10分列第2)，上轮5-2奥萨苏纳多点开花。一周内连折两名十字韧带：主力中卫Garcés(8-9个月,且原FIFA禁令11月初才到期)和中场Mikel Rodríguez(8-9个月)，后防被抽大梁；主帅基克·桑切斯·弗洛雷斯(QSF)表态冬窗前不引援。客场成色未验满：本季唯一客场1-1平巴列卡诺，近6个客场仅1负但有3平，客场偏平局。"
+      ],
+      "_id": "laliga|RAC|ALA|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:09:56",
+      "league": "seriea",
+      "league_name_cn": "意大利足球甲级联赛",
+      "home": "GEN",
+      "away": "FRO",
+      "home_cn": "热那亚",
+      "away_cn": "弗洛西诺内",
+      "prediction": {
+        "la": 1.733,
+        "lb": 1.155,
+        "pw": 0.4569,
+        "pd": 0.2722,
+        "pl": 0.271,
+        "direction": "home",
+        "direction_text": "热那亚占优",
+        "main_score": [
+          1,
+          0
+        ],
+        "main_prob": 0.0965,
+        "modal_score": [
+          1,
+          1
+        ],
+        "modal_prob": 0.1096,
+        "score_top5": [
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.1096
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.0965
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0944
+          },
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.0846
+          },
+          {
+            "score": [
+              0,
+              1
+            ],
+            "prob": 0.0643
+          }
+        ],
+        "labels": [
+          "实力接近(平局+4%)",
+          "热那亚状态低迷(-0.12)",
+          "弗洛西诺内状态火热(+0.05)",
+          "热那亚战意高涨(0分垫底、德罗西首胜压力、意媒称为保级附加赛)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "GEN": 1580,
+          "FRO": 1530
+        },
+        "elo_delta": {
+          "GEN": -5.7375,
+          "FRO": 0.0
+        },
+        "form_delta": {
+          "GEN": -0.12,
+          "FRO": 0.05259475218658893
+        },
+        "confidence": 0.78,
+        "goal_delta": {
+          "GEN": 0.0,
+          "FRO": 0.0
+        },
+        "goal_boost": {
+          "GEN": 0.0,
+          "FRO": 0.0
+        },
+        "context_openness": {
+          "GEN": 0.0,
+          "FRO": 0.0
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "hybrid",
+          "style_b": "counter_attack",
+          "matchup": "热那亚3-5-2(德罗西, 主场必须进攻) vs 弗洛西诺内4-2-3-1客场防反(阿尔维尼) — 未获战术专题报道，主队按hybrid处理以免夸大克制矩阵；若热那亚高位压上，弗洛西诺内的转换是最大威胁",
+          "expected_pattern": "balanced",
+          "ineffective_possession": true,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "0分垫底、德罗西首胜压力、意媒称为保级附加赛"
+            },
+            "b": {
+              "level": "normal",
+              "note": "开局良好，无额外战意来源"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.4569,
+            0.2722,
+            0.271
+          ],
+          "prob_final": [
+            0.4569,
+            0.2722,
+            0.271
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            1.733,
+            1.155
+          ],
+          "xg_final": [
+            1.733,
+            1.155
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "GEN": {
+            "elo_delta": -7.6499999999999995,
+            "confidence": 0.75,
+            "form": "负-负-负",
+            "injury_count": 2,
+            "suspension_count": 0,
+            "conceded_per_game": 2.33,
+            "notes": "3连败0分列第19(进1失7)：0-2那不勒斯(主)、0-1拉齐奥(客)、1-4科莫(主)。主帅德罗西求联赛首胜，意媒(104news标题)称本场\"已是保级附加赛\"。缺阵：Havel确定缺席(德罗西称要歇一阵)，El Shaarawy情况未明。预计3-5-2：Bijlow; Marcandalli/Ostigard/Vasquez; Sabelli/Baldanzi/Frendrup/Sow/Ellertsson; Colombo/Osmajic。主场两战全败且共失6球。"
+          },
+          "FRO": {
+            "confidence": 0.8,
+            "form": "负-胜-胜",
+            "injury_count": 0,
+            "suspension_count": 0,
+            "conceded_per_game": 1.0,
+            "notes": "升班马，2胜1负积6分列第7：0-1尤文(主)、客场0-3佛罗伦萨、3-2威尼斯(主)。前锋Raimondo近两轮各梅开二度(共4球)。主帅阿尔维尼，预计4-2-3-1：Palmisani; Oyono/Calvani/Cittadini/Bracaglia; Calò/Masini; Fini/Schmid/Kvernadze; Raimondo。无公开伤停，唯一悬念是Fini与Ghedjemis之争。"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "GEN",
+              "FRO"
+            ],
+            "confidence": 0.78,
+            "tactical": {
+              "style_a": "hybrid",
+              "style_b": "counter_attack",
+              "matchup": "热那亚3-5-2(德罗西, 主场必须进攻) vs 弗洛西诺内4-2-3-1客场防反(阿尔维尼) — 未获战术专题报道，主队按hybrid处理以免夸大克制矩阵；若热那亚高位压上，弗洛西诺内的转换是最大威胁",
+              "expected_pattern": "balanced",
+              "ineffective_possession": true,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "0分垫底、德罗西首胜压力、意媒称为保级附加赛"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "开局良好，无额外战意来源"
+                }
+              }
+            },
+            "factors": [
+              "热那亚3连败0分(进1失7)，主场两战全败共失6球；弗洛西诺内2胜1负、客场曾0-3血洗佛罗伦萨",
+              "⚠️评级与现实的矛盾：基准Elo热那亚1580 vs 弗洛西诺内1530(+50，含主场后约+115)，但该评级为季前基准、本轮前未按战绩重算(见teams.json _meta) → 模型对热那亚的实力底子偏乐观，需靠状态/伤停/战意因子修正，结果应视为热那亚的乐观上界",
+              "弗洛西诺内前锋Raimondo近两轮各梅开二度(4球)，是升班马火力的核心",
+              "热那亚缺Havel(确定)+El Shaarawy情况未明；弗洛西诺内无公开伤停",
+              "战意反差：热那亚背水一战(high +0.15)；弗洛西诺内normal",
+              "战术：热那亚3-5-2必须主动进攻，弗洛西诺内客场防反 → 主队若久攻不下，转换与定位球是客队主要得分路径"
+            ],
+            "notes": [
+              "情报来源: pazzidifanta(9/12 probable formazioni+伤情, 意媒), onefootball(德罗西用人), 104news标题(保级附加赛叙事), MCP(积分榜/近况/赛程)",
+              "H2H: MCP跨级别报错(弗洛西诺内上赛季意乙)，本次未做web补采，历史交锋因子不启用",
+              "3连败0分列第19(进1失7)：0-2那不勒斯(主)、0-1拉齐奥(客)、1-4科莫(主)。主帅德罗西求联赛首胜，意媒(104news标题)称本场\"已是保级附加赛\"。缺阵：Havel确定缺席(德罗西称要歇一阵)，El Shaarawy情况未明。预计3-5-2：Bijlow; Marcandalli/Ostigard/Vasquez; Sabelli/Baldanzi/Frendrup/Sow/Ellertsson; Colombo/Osmajic。主场两战全败且共失6球。",
+              "升班马，2胜1负积6分列第7：0-1尤文(主)、客场0-3佛罗伦萨、3-2威尼斯(主)。前锋Raimondo近两轮各梅开二度(共4球)。主帅阿尔维尼，预计4-2-3-1：Palmisani; Oyono/Calvani/Cittadini/Bracaglia; Calò/Masini; Fini/Schmid/Kvernadze; Raimondo。无公开伤停，唯一悬念是Fini与Ghedjemis之争。"
+            ]
+          },
+          {
+            "teams": [
+              "GEN",
+              "FRO"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "GEN": 0.0,
+              "FRO": 0.0
+            },
+            "elo_delta": {
+              "GEN": 0.0,
+              "FRO": 0.0
+            },
+            "form_delta": {
+              "GEN": 0.0,
+              "FRO": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: GEN +0.000, FRO +0.000",
+              "进球修正: GEN +0.000, FRO +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        "热那亚3连败0分(进1失7)，主场两战全败共失6球；弗洛西诺内2胜1负、客场曾0-3血洗佛罗伦萨",
+        "⚠️评级与现实的矛盾：基准Elo热那亚1580 vs 弗洛西诺内1530(+50，含主场后约+115)，但该评级为季前基准、本轮前未按战绩重算(见teams.json _meta) → 模型对热那亚的实力底子偏乐观，需靠状态/伤停/战意因子修正，结果应视为热那亚的乐观上界",
+        "弗洛西诺内前锋Raimondo近两轮各梅开二度(4球)，是升班马火力的核心",
+        "热那亚缺Havel(确定)+El Shaarawy情况未明；弗洛西诺内无公开伤停",
+        "战意反差：热那亚背水一战(high +0.15)；弗洛西诺内normal",
+        "战术：热那亚3-5-2必须主动进攻，弗洛西诺内客场防反 → 主队若久攻不下，转换与定位球是客队主要得分路径"
+      ],
+      "notes": [
+        "情报来源: pazzidifanta(9/12 probable formazioni+伤情, 意媒), onefootball(德罗西用人), 104news标题(保级附加赛叙事), MCP(积分榜/近况/赛程)",
+        "H2H: MCP跨级别报错(弗洛西诺内上赛季意乙)，本次未做web补采，历史交锋因子不启用",
+        "3连败0分列第19(进1失7)：0-2那不勒斯(主)、0-1拉齐奥(客)、1-4科莫(主)。主帅德罗西求联赛首胜，意媒(104news标题)称本场\"已是保级附加赛\"。缺阵：Havel确定缺席(德罗西称要歇一阵)，El Shaarawy情况未明。预计3-5-2：Bijlow; Marcandalli/Ostigard/Vasquez; Sabelli/Baldanzi/Frendrup/Sow/Ellertsson; Colombo/Osmajic。主场两战全败且共失6球。",
+        "升班马，2胜1负积6分列第7：0-1尤文(主)、客场0-3佛罗伦萨、3-2威尼斯(主)。前锋Raimondo近两轮各梅开二度(共4球)。主帅阿尔维尼，预计4-2-3-1：Palmisani; Oyono/Calvani/Cittadini/Bracaglia; Calò/Masini; Fini/Schmid/Kvernadze; Raimondo。无公开伤停，唯一悬念是Fini与Ghedjemis之争。"
+      ],
+      "_id": "seriea|GEN|FRO|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:18:37",
+      "league": "bundesliga",
+      "league_name_cn": "德国足球甲级联赛",
+      "home": "MAI",
+      "away": "FRG",
+      "home_cn": "美因茨",
+      "away_cn": "法兰克福",
+      "prediction": {
+        "la": 1.421,
+        "lb": 2.039,
+        "pw": 0.2838,
+        "pd": 0.2584,
+        "pl": 0.4578,
+        "direction": "away",
+        "direction_text": "法兰克福占优",
+        "main_score": [
+          1,
+          2
+        ],
+        "main_prob": 0.0914,
+        "modal_score": [
+          1,
+          2
+        ],
+        "modal_prob": 0.0914,
+        "score_top5": [
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0914
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.09
+          },
+          {
+            "score": [
+              0,
+              2
+            ],
+            "prob": 0.0659
+          },
+          {
+            "score": [
+              2,
+              2
+            ],
+            "prob": 0.0646
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0643
+          }
+        ],
+        "labels": [
+          "美因茨状态火热(+0.05)",
+          "法兰克福状态低迷(-0.05)",
+          "押客队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "MAI": 1590,
+          "FRG": 1720
+        },
+        "elo_delta": {
+          "MAI": -10.88,
+          "FRG": -6.12
+        },
+        "form_delta": {
+          "MAI": 0.04540540540540541,
+          "FRG": -0.04540540540540541
+        },
+        "confidence": 0.8,
+        "goal_delta": {
+          "MAI": 0.0,
+          "FRG": 0.0
+        },
+        "goal_boost": {
+          "MAI": 0.0,
+          "FRG": 0.0
+        },
+        "context_openness": {
+          "MAI": 0.0,
+          "FRG": 0.0
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "high_press",
+          "style_b": "high_press",
+          "matchup": "两队同为亨里克森/许特式高位逼抢 — 同风格克制矩阵返回±0.00，按skill规则改由状态、伤停、主客场与防线质量决定",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "normal",
+              "note": "开局良好，无额外战意来源"
+            },
+            "b": {
+              "level": "normal",
+              "note": "尚未取胜但属常规压力，不作额外加成"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.2838,
+            0.2584,
+            0.4578
+          ],
+          "prob_final": [
+            0.2838,
+            0.2584,
+            0.4578
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            1.421,
+            2.039
+          ],
+          "xg_final": [
+            1.421,
+            2.039
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "MAI": {
+            "elo_delta": -13.6,
+            "confidence": 0.8,
+            "form": "平-胜",
+            "injury_count": 4,
+            "suspension_count": 0,
+            "conceded_per_game": 0.0,
+            "notes": "2场4分列第5，进5失0：主场0-0帕德博恩、客场5-0汉堡。亨里克森高位逼抢体系，防线两场零封。缺阵4人：Martel(膝内侧副韧带撕裂)、Kohr(耻骨联合伤)、Nebel(内收肌)、Silas(胫腓骨骨折康复)；主力门将Zentner大腿存疑(Schwolow替补)、Widmer膝部反应。预计首发(3-4-1-2)：Zentner/Schwolow - Posch/Gruber/Potulski - Caci/Sano/Mwene - Lee/Amiri - Becker/Tietz。"
+          },
+          "FRG": {
+            "elo_delta": -7.6499999999999995,
+            "confidence": 0.8,
+            "form": "平-负",
+            "injury_count": 2,
+            "suspension_count": 0,
+            "conceded_per_game": 3.5,
+            "notes": "2场1分列第14，进4失7：客场3-3柏林联合、主场1-4奥格斯堡，仍未取胜。许特回归后重建，防线漏洞明显(场均失3.5)。缺阵：Knauff(大腿)、Ngankam(肌肉)；Chaibi与Pimpong因病请假、Collins(背)待定。无欧战任务(本季未获欧战资格)，不存在双线消耗。预计首发(三中卫)：Atubolu - Baum/Maluze, R.Koch, Brassier - Doan/Götze/Onyedika/Uzun/Koisugi - Ebnoutalib/Burkardt；Onyedika可能首秀打6号位。"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "MAI",
+              "FRG"
+            ],
+            "confidence": 0.8,
+            "tactical": {
+              "style_a": "high_press",
+              "style_b": "high_press",
+              "matchup": "两队同为亨里克森/许特式高位逼抢 — 同风格克制矩阵返回±0.00，按skill规则改由状态、伤停、主客场与防线质量决定",
+              "expected_pattern": "balanced",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "normal",
+                  "note": "开局良好，无额外战意来源"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "尚未取胜但属常规压力，不作额外加成"
+                }
+              }
+            },
+            "factors": [
+              "状态反差：美因茨2场4分、进5失0(客场5-0汉堡)；法兰克福2场1分、进4失7(主场1-4奥格斯堡)，仍未取胜",
+              "⚠️评级与现实矛盾：基准Elo美因茨1590 vs 法兰克福1720(客队+130；计入主场优势后仍约+65偏向法兰克福)，但该评级为季前基准、本轮前未按战绩重算(teams.json _meta) → 模型对法兰克福底子偏乐观，结果应视为法兰克福的乐观上界",
+              "防线对话是主轴：美因茨两场0失球 vs 法兰克福场均失3.5球",
+              "伤停：美因茨4人缺阵(Martel/Kohr为中场主力，Nebel/Silas攻击端)，主力门将Zentner大腿存疑；法兰克福缺Knauff(首发边锋)、Ngankam，Chaibi/Pimpong病假、Collins背伤待定",
+              "双方同为高位逼抢 → 无战术克制修正；法兰克福若改三中卫、Onyedika首秀打后腰，磨合存在风险",
+              "H2H(MCP硬数据)：近3季6次联赛交锋2胜2平2负(美因茨7球/法兰克福6球)，美因茨主场近3次不败(2026-03 2-1胜、2025-05 1-1平、2023-08 1-1平)；6场共13球(场均2.17) → 典型低比分、平局倾向的对阵，本场不易出现大比分",
+              "本场总进球倾向偏低：低比分交锋史 + 美因茨本季2场0失球 vs 法兰克福进攻端缺Knauff",
+              "已修正：原输出中的「法兰克福欧战双线(-0.04 xG)」为配置表误配(FRG 被错列在 europe_teams)，法兰克福本季无欧战，该修正已删除并重算"
+            ],
+            "notes": [
+              "情报来源: Comunio Magazin(9/10 voraussichtliche Aufstellungen, 伤停/存疑名单), onefootball(许特/法兰克福前瞻标题), eintracht.de官方Adlercheck, MCP(积分榜/近况/赛程/交锋)",
+              "配置修正: references/bundesliga/context.json 的 europe_teams 已移除 FRG(用户确认无欧战)与 WOL(已不在德甲)",
+              "2场4分列第5，进5失0：主场0-0帕德博恩、客场5-0汉堡。亨里克森高位逼抢体系，防线两场零封。缺阵4人：Martel(膝内侧副韧带撕裂)、Kohr(耻骨联合伤)、Nebel(内收肌)、Silas(胫腓骨骨折康复)；主力门将Zentner大腿存疑(Schwolow替补)、Widmer膝部反应。预计首发(3-4-1-2)：Zentner/Schwolow - Posch/Gruber/Potulski - Caci/Sano/Mwene - Lee/Amiri - Becker/Tietz。",
+              "2场1分列第14，进4失7：客场3-3柏林联合、主场1-4奥格斯堡，仍未取胜。许特回归后重建，防线漏洞明显(场均失3.5)。缺阵：Knauff(大腿)、Ngankam(肌肉)；Chaibi与Pimpong因病请假、Collins(背)待定。无欧战任务(本季未获欧战资格)，不存在双线消耗。预计首发(三中卫)：Atubolu - Baum/Maluze, R.Koch, Brassier - Doan/Götze/Onyedika/Uzun/Koisugi - Ebnoutalib/Burkardt；Onyedika可能首秀打6号位。"
+            ]
+          },
+          {
+            "teams": [
+              "MAI",
+              "FRG"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "MAI": 0.0,
+              "FRG": 0.0
+            },
+            "elo_delta": {
+              "MAI": 0.0,
+              "FRG": 0.0
+            },
+            "form_delta": {
+              "MAI": 0.0,
+              "FRG": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: MAI +0.000, FRG +0.000",
+              "进球修正: MAI +0.000, FRG +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        "状态反差：美因茨2场4分、进5失0(客场5-0汉堡)；法兰克福2场1分、进4失7(主场1-4奥格斯堡)，仍未取胜",
+        "⚠️评级与现实矛盾：基准Elo美因茨1590 vs 法兰克福1720(客队+130；计入主场优势后仍约+65偏向法兰克福)，但该评级为季前基准、本轮前未按战绩重算(teams.json _meta) → 模型对法兰克福底子偏乐观，结果应视为法兰克福的乐观上界",
+        "防线对话是主轴：美因茨两场0失球 vs 法兰克福场均失3.5球",
+        "伤停：美因茨4人缺阵(Martel/Kohr为中场主力，Nebel/Silas攻击端)，主力门将Zentner大腿存疑；法兰克福缺Knauff(首发边锋)、Ngankam，Chaibi/Pimpong病假、Collins背伤待定",
+        "双方同为高位逼抢 → 无战术克制修正；法兰克福若改三中卫、Onyedika首秀打后腰，磨合存在风险",
+        "H2H(MCP硬数据)：近3季6次联赛交锋2胜2平2负(美因茨7球/法兰克福6球)，美因茨主场近3次不败(2026-03 2-1胜、2025-05 1-1平、2023-08 1-1平)；6场共13球(场均2.17) → 典型低比分、平局倾向的对阵，本场不易出现大比分"
+      ],
+      "notes": [
+        "情报来源: Comunio Magazin(9/10 voraussichtliche Aufstellungen, 伤停/存疑名单), onefootball(许特/法兰克福前瞻标题), eintracht.de官方Adlercheck, MCP(积分榜/近况/赛程/交锋)",
+        "配置修正: references/bundesliga/context.json 的 europe_teams 已移除 FRG(用户确认无欧战)与 WOL(已不在德甲)",
+        "2场4分列第5，进5失0：主场0-0帕德博恩、客场5-0汉堡。亨里克森高位逼抢体系，防线两场零封。缺阵4人：Martel(膝内侧副韧带撕裂)、Kohr(耻骨联合伤)、Nebel(内收肌)、Silas(胫腓骨骨折康复)；主力门将Zentner大腿存疑(Schwolow替补)、Widmer膝部反应。预计首发(3-4-1-2)：Zentner/Schwolow - Posch/Gruber/Potulski - Caci/Sano/Mwene - Lee/Amiri - Becker/Tietz。",
+        "2场1分列第14，进4失7：客场3-3柏林联合、主场1-4奥格斯堡，仍未取胜。许特回归后重建，防线漏洞明显(场均失3.5)。缺阵：Knauff(大腿)、Ngankam(肌肉)；Chaibi与Pimpong因病请假、Collins(背)待定。无欧战任务(本季未获欧战资格)，不存在双线消耗。预计首发(三中卫)：Atubolu - Baum/Maluze, R.Koch, Brassier - Doan/Götze/Onyedika/Uzun/Koisugi - Ebnoutalib/Burkardt；Onyedika可能首秀打6号位。"
+      ],
+      "_id": "bundesliga|MAI|FRG|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:23:22",
+      "league": "bundesliga",
+      "league_name_cn": "德国足球甲级联赛",
+      "home": "SCF",
+      "away": "BMG",
+      "home_cn": "弗赖堡",
+      "away_cn": "门兴格拉德巴赫",
+      "prediction": {
+        "la": 2.103,
+        "lb": 1.278,
+        "pw": 0.4473,
+        "pd": 0.3242,
+        "pl": 0.2286,
+        "direction": "home",
+        "direction_text": "弗赖堡占优",
+        "main_score": [
+          2,
+          1
+        ],
+        "main_prob": 0.0945,
+        "modal_score": [
+          2,
+          1
+        ],
+        "modal_prob": 0.0945,
+        "score_top5": [
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0945
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.0903
+          },
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.0757
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.0715
+          },
+          {
+            "score": [
+              3,
+              1
+            ],
+            "prob": 0.0664
+          }
+        ],
+        "labels": [
+          "SCF欧战双线(-)",
+          "实力接近(平局+4%)",
+          "弗赖堡状态火热(+0.08)",
+          "门兴格拉德巴赫状态低迷(-0.08)",
+          "近均衡押主队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "SCF": 1630,
+          "BMG": 1590
+        },
+        "elo_delta": {
+          "SCF": -1.7,
+          "BMG": -10.88
+        },
+        "form_delta": {
+          "SCF": 0.08399999999999999,
+          "BMG": -0.08399999999999999
+        },
+        "confidence": 0.82,
+        "goal_delta": {
+          "SCF": 0.041,
+          "BMG": 0.0
+        },
+        "goal_boost": {
+          "SCF": 0.0,
+          "BMG": 0.0
+        },
+        "context_openness": {
+          "SCF": 0.0,
+          "BMG": 0.0
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "hybrid",
+          "style_b": "hybrid",
+          "matchup": "两队预计均为4-2-3-1，未见战术专题报道 → 按skill规则用 hybrid + balanced(克制矩阵±0.00)，胜负由状态、防线质量、伤停与主场决定",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "normal",
+              "note": "开局5连胜势头正盛，无额外战意来源"
+            },
+            "b": {
+              "level": "normal",
+              "note": "垫底区压力由积分榜情境自动处理，不重复加成"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.4473,
+            0.3242,
+            0.2286
+          ],
+          "prob_final": [
+            0.4473,
+            0.3242,
+            0.2286
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            2.103,
+            1.278
+          ],
+          "xg_final": [
+            2.103,
+            1.278
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "SCF": {
+            "elo_delta": -2.0,
+            "confidence": 0.85,
+            "form": "胜-胜",
+            "injury_count": 1,
+            "suspension_count": 0,
+            "conceded_per_game": 0.5,
+            "goal_delta": 0.05,
+            "notes": "开局5场全胜(含欧协联附加赛两回合与德国杯)：联赛2战2胜进5失1列第2(主场4-1不莱梅、客场1-0帕德博恩)。主帅舒斯特，预计4-2-3-1：Backhaus - Treu/Kübler, Ginter, Lienhart, Makengo - M.Eggestein, Engelhardt - Beste, Suzuki, Scherhant - Matanovic。缺阵仅Muslija(十字韧带康复)，Osterhage(肌肉)存疑。注：本周中无欧战(欧协联联赛阶段未开始)，故抵消'双线'扣分。"
+          },
+          "BMG": {
+            "elo_delta": -13.6,
+            "confidence": 0.8,
+            "form": "负-负",
+            "injury_count": 4,
+            "suspension_count": 0,
+            "conceded_per_game": 3.5,
+            "notes": "2战全败0分列第18(垫底区)：客场0-3莱比锡、主场3-4负升班马埃尔沃斯堡，失7球。主帅波兰斯基。缺阵4人：Konoplya(膝内侧副韧带撕裂)、Leopold(十字韧带)、Castrop(肩部手术)、Kühn(肌肉束撕裂)；Hashioka(颈部)单独训练。预计4-2-3-1：Nicolas - Scally/Leszczynski, Itakura, Diks, Ullrich - Nguefack/Stöger, Sander - Honorat, Bolin, Mohya/Hack - Kleindienst。"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "SCF",
+              "BMG"
+            ],
+            "confidence": 0.82,
+            "goal_delta": {
+              "SCF": 0.05,
+              "BMG": 0.0
+            },
+            "tactical": {
+              "style_a": "hybrid",
+              "style_b": "hybrid",
+              "matchup": "两队预计均为4-2-3-1，未见战术专题报道 → 按skill规则用 hybrid + balanced(克制矩阵±0.00)，胜负由状态、防线质量、伤停与主场决定",
+              "expected_pattern": "balanced",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "normal",
+                  "note": "开局5连胜势头正盛，无额外战意来源"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "垫底区压力由积分榜情境自动处理，不重复加成"
+                }
+              }
+            },
+            "factors": [
+              "状态与防线反差：弗赖堡联赛2战全胜(进5失1)、各项赛事5连胜；门兴2战全败(进3失7)、0分",
+              "⚠️评级偏保守：基准Elo弗赖堡1630 vs 门兴1590(仅差40)，为季前基准未按战绩重算(teams.json _meta) → 模型对两队的实力差估计**小于**现实差距，弗赖堡方向的真实优势可能被低估",
+              "H2H(MCP硬数据)：近3季6次联赛交锋弗赖堡4胜2平0负(13球/6球)，门兴一场未胜；弗赖堡主场近3次对门兴2胜1平(2-1、3-1、3-3)",
+              "伤停：门兴缺Konoplya、Leopold、Castrop、Kühn四人(Hashioka存疑)，防线与中场深度受损；弗赖堡仅Muslija长期缺阵、Osterhage存疑 → 阵容完整度差距明显",
+              "欧战说明：弗赖堡本季踢欧协联(8月附加赛淘汰马瑟韦尔晋级)，但本周中无欧战(联赛阶段未开始)，故已用goal_delta抵消配置表按名单固定施加的-0.04 xG，避免误算作'双线消耗'",
+              "门兴客场两季来防守持续吃紧(联赛场均失3.5)，面对弗赖堡的定位球与边路传中风险高"
+            ],
+            "notes": [
+              "情报来源: scfreiburg.com(欧协联附加赛/赛程, 19.08+10.09官稿), Comunio Magazin(9/10 voraussichtliche Aufstellungen, 双方伤停), onefootball.de(门兴波兰斯基用人), MCP(积分榜/近况/交锋)",
+              "配置修正: references/bundesliga/context.json europe_teams 补入 SCF，并在 _note 中记录'名单型因子按名单触发、不校验周中赛程'的已知限制与抵消方法",
+              "开局5场全胜(含欧协联附加赛两回合与德国杯)：联赛2战2胜进5失1列第2(主场4-1不莱梅、客场1-0帕德博恩)。主帅舒斯特，预计4-2-3-1：Backhaus - Treu/Kübler, Ginter, Lienhart, Makengo - M.Eggestein, Engelhardt - Beste, Suzuki, Scherhant - Matanovic。缺阵仅Muslija(十字韧带康复)，Osterhage(肌肉)存疑。注：本周中无欧战(欧协联联赛阶段未开始)，故抵消'双线'扣分。",
+              "2战全败0分列第18(垫底区)：客场0-3莱比锡、主场3-4负升班马埃尔沃斯堡，失7球。主帅波兰斯基。缺阵4人：Konoplya(膝内侧副韧带撕裂)、Leopold(十字韧带)、Castrop(肩部手术)、Kühn(肌肉束撕裂)；Hashioka(颈部)单独训练。预计4-2-3-1：Nicolas - Scally/Leszczynski, Itakura, Diks, Ullrich - Nguefack/Stöger, Sander - Honorat, Bolin, Mohya/Hack - Kleindienst。"
+            ]
+          },
+          {
+            "teams": [
+              "SCF",
+              "BMG"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "SCF": 0.0,
+              "BMG": 0.0
+            },
+            "elo_delta": {
+              "SCF": 0.0,
+              "BMG": 0.0
+            },
+            "form_delta": {
+              "SCF": 0.0,
+              "BMG": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: SCF +0.000, BMG +0.000",
+              "进球修正: SCF +0.000, BMG +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        "状态与防线反差：弗赖堡联赛2战全胜(进5失1)、各项赛事5连胜；门兴2战全败(进3失7)、0分",
+        "⚠️评级偏保守：基准Elo弗赖堡1630 vs 门兴1590(仅差40)，为季前基准未按战绩重算(teams.json _meta) → 模型对两队的实力差估计**小于**现实差距，弗赖堡方向的真实优势可能被低估",
+        "H2H(MCP硬数据)：近3季6次联赛交锋弗赖堡4胜2平0负(13球/6球)，门兴一场未胜；弗赖堡主场近3次对门兴2胜1平(2-1、3-1、3-3)",
+        "伤停：门兴缺Konoplya、Leopold、Castrop、Kühn四人(Hashioka存疑)，防线与中场深度受损；弗赖堡仅Muslija长期缺阵、Osterhage存疑 → 阵容完整度差距明显",
+        "欧战说明：弗赖堡本季踢欧协联(8月附加赛淘汰马瑟韦尔晋级)，但本周中无欧战(联赛阶段未开始)，故已用goal_delta抵消配置表按名单固定施加的-0.04 xG，避免误算作'双线消耗'",
+        "门兴客场两季来防守持续吃紧(联赛场均失3.5)，面对弗赖堡的定位球与边路传中风险高"
+      ],
+      "notes": [
+        "情报来源: scfreiburg.com(欧协联附加赛/赛程, 19.08+10.09官稿), Comunio Magazin(9/10 voraussichtliche Aufstellungen, 双方伤停), onefootball.de(门兴波兰斯基用人), MCP(积分榜/近况/交锋)",
+        "配置修正: references/bundesliga/context.json europe_teams 补入 SCF，并在 _note 中记录'名单型因子按名单触发、不校验周中赛程'的已知限制与抵消方法",
+        "开局5场全胜(含欧协联附加赛两回合与德国杯)：联赛2战2胜进5失1列第2(主场4-1不莱梅、客场1-0帕德博恩)。主帅舒斯特，预计4-2-3-1：Backhaus - Treu/Kübler, Ginter, Lienhart, Makengo - M.Eggestein, Engelhardt - Beste, Suzuki, Scherhant - Matanovic。缺阵仅Muslija(十字韧带康复)，Osterhage(肌肉)存疑。注：本周中无欧战(欧协联联赛阶段未开始)，故抵消'双线'扣分。",
+        "2战全败0分列第18(垫底区)：客场0-3莱比锡、主场3-4负升班马埃尔沃斯堡，失7球。主帅波兰斯基。缺阵4人：Konoplya(膝内侧副韧带撕裂)、Leopold(十字韧带)、Castrop(肩部手术)、Kühn(肌肉束撕裂)；Hashioka(颈部)单独训练。预计4-2-3-1：Nicolas - Scally/Leszczynski, Itakura, Diks, Ullrich - Nguefack/Stöger, Sander - Honorat, Bolin, Mohya/Hack - Kleindienst。"
+      ],
+      "_id": "bundesliga|SCF|BMG|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:28:42",
+      "league": "bundesliga",
+      "league_name_cn": "德国足球甲级联赛",
+      "home": "BVB",
+      "away": "PAD",
+      "home_cn": "多特蒙德",
+      "away_cn": "帕德博恩",
+      "prediction": {
+        "la": 2.81,
+        "lb": 0.2,
+        "pw": 0.7587,
+        "pd": 0.127,
+        "pl": 0.1143,
+        "direction": "home",
+        "direction_text": "多特蒙德占优",
+        "main_score": [
+          2,
+          0
+        ],
+        "main_prob": 0.1845,
+        "modal_score": [
+          2,
+          0
+        ],
+        "modal_prob": 0.1845,
+        "score_top5": [
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.1845
+          },
+          {
+            "score": [
+              3,
+              0
+            ],
+            "prob": 0.1734
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.1314
+          },
+          {
+            "score": [
+              4,
+              0
+            ],
+            "prob": 0.1227
+          },
+          {
+            "score": [
+              5,
+              0
+            ],
+            "prob": 0.0697
+          }
+        ],
+        "labels": [
+          "实力悬殊(方差中性)",
+          "BVB欧战双线(-)",
+          "多特蒙德状态火热(+0.08)",
+          "帕德博恩状态低迷(-0.05)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "BVB": 1810,
+          "PAD": 1490
+        },
+        "elo_delta": {
+          "BVB": -11.475,
+          "PAD": -5.3549999999999995
+        },
+        "form_delta": {
+          "BVB": 0.08399999999999999,
+          "PAD": -0.04540540540540541
+        },
+        "confidence": 0.78,
+        "goal_delta": {
+          "BVB": 0.0,
+          "PAD": 0.0
+        },
+        "goal_boost": {
+          "BVB": 0.0,
+          "PAD": 0.0
+        },
+        "context_openness": {
+          "BVB": 0.0,
+          "PAD": 0.0
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "hybrid",
+          "style_b": "defensive_deep",
+          "matchup": "多特(三中卫+翼卫，主场压制) vs 帕德博恩3-4-2-1低 block 防反 — 升班马客场摆大巴，触发PROMOTED_AWAY_RESILIENCE(防守+0.08/反击+0.05/低block额外+0.06)",
+          "expected_pattern": "cautious",
+          "ineffective_possession": true,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "normal",
+              "note": "实力与状态均占优，无额外战意来源"
+            },
+            "b": {
+              "level": "normal",
+              "note": "垫底区压力由积分榜情境自动处理，不重复加成"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.7586,
+            0.127,
+            0.1143
+          ],
+          "prob_final": [
+            0.7587,
+            0.127,
+            0.1143
+          ],
+          "prob_transfer": [
+            0.0001,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            2.81,
+            0.2
+          ],
+          "xg_final": [
+            2.81,
+            0.2
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "BVB": {
+            "elo_delta": -15.299999999999999,
+            "confidence": 0.75,
+            "form": "胜-胜",
+            "injury_count": 7,
+            "suspension_count": 1,
+            "conceded_per_game": 1.0,
+            "notes": "2战全胜积6分列第3(主场2-0汉堡、客场3-2霍芬海姆)，周中刚踢完欧冠且表现出色(法比奥·席尔瓦获好评)。主帅预计3-4-2-1：Kobel - Gadou, Anton, Bensebaini/Svensson - Ryerson, Veerman, Bellingham/Nmecha, Svensson/Beier - Nwaneri, Silva/Sabitzer - Guirassy。缺阵严重：Inacio(红牌停赛，首发中卫)、Can(十字韧带)、Konstantelias(十字韧带)、Lerma(肌肉)、Mane(肌肉)、Kaba(康复)、Ostrzinski(门将)、Karetsas(循环系统复查)；Schlotterbeck(膝内侧副韧带)刚回队训练但出战存疑。\n注：本表按名单触发 -0.04 xG 的'欧战双线'扣分，本场为真实双线(周中欧冠)，予以保留。"
+          },
+          "PAD": {
+            "elo_delta": -7.6499999999999995,
+            "confidence": 0.7,
+            "form": "平-负",
+            "injury_count": 4,
+            "suspension_count": 0,
+            "conceded_per_game": 0.5,
+            "notes": "升班马(附加赛淘汰沃尔夫斯堡，时隔6年重返德甲)，2战1平1负积1分列第13，**两场0进球仅失1球**(客场0-0美因茨、主场0-1弗赖堡)。3-4-2-1低 block：Noll - ter Horst, Scheller, Hansen - Curda, Ulrich, Castaneda, Vidovic, Obermair - Philippe/Marino - Pieringer。缺阵4人：Awortwie-Grant(膝)、Gayret(十字韧带)、Michel(内收肌)、Eickel(康复)；无伤疑球员。锋线备选Marino/Tigges。"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "BVB",
+              "PAD"
+            ],
+            "confidence": 0.78,
+            "tactical": {
+              "style_a": "hybrid",
+              "style_b": "defensive_deep",
+              "matchup": "多特(三中卫+翼卫，主场压制) vs 帕德博恩3-4-2-1低 block 防反 — 升班马客场摆大巴，触发PROMOTED_AWAY_RESILIENCE(防守+0.08/反击+0.05/低block额外+0.06)",
+              "expected_pattern": "cautious",
+              "ineffective_possession": true,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "normal",
+                  "note": "实力与状态均占优，无额外战意来源"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "垫底区压力由积分榜情境自动处理，不重复加成"
+                }
+              }
+            },
+            "factors": [
+              "实力差悬殊：基准Elo多特1810 vs 帕德博恩1490(差320)，是德甲本季最大级差之一；主队2战全胜，客队2战0进球仅1平",
+              "⚠️模型已知偏差：Elo差>150的'悬殊场次'累计28场，方向命中率71.4%(方向可靠)，但实际总进球比预测高约0.5 → 本场总进球与让球幅度应视为下限，不宜按'小球'理解",
+              "帕德博恩摆大巴已成事实：2场仅失1球(0-0美因茨、0-1弗赖堡)，3-4-2-1低 block，但**进攻端0进球**，主要靠Pieringer支点与定位球",
+              "多特伤停严重：Inacio红牌停赛(首发中卫)+Schlotterbeck存疑，Can/Konstantelias(十字韧带)、Lerma/Mane(肌肉)、Kaba、Ostrzinski、Karetsas共8人不可用 → 三中卫由Gadou/Anton/Bensebaini临时组成",
+              "多特周中踢了欧冠(且表现出色)，本场是真实双线作战 → 模型按europe_teams扣的-0.04 xG予以保留(不抵消)",
+              "H2H(MCP硬数据, 2019-20赛季2次)：多特1胜1平，但其中主场3-3被逼平、客场6-1大胜 → 低 block 坐镇过多特主场的历史案例存在，提醒不可轻视平局尾部",
+              "定位球与二次进攻是多特破低 block 的主要手段；若60分钟仍未破门，多特后场压上会给出反击空间(Pieringer/Marino的速度)"
+            ],
+            "notes": [
+              "情报来源: Comunio Magazin(9/10 BVB-PAD voraussichtliche Aufstellungen, 双方伤停与首发), khelnow/Sports Mole预览标题, MCP(积分榜/近况/交锋)",
+              "配置同步: 依同日完成的名单审计，bundesliga europe_teams 已补入 HOF(霍芬海姆)并确证 AUG 无欧战",
+              "2战全胜积6分列第3(主场2-0汉堡、客场3-2霍芬海姆)，周中刚踢完欧冠且表现出色(法比奥·席尔瓦获好评)。主帅预计3-4-2-1：Kobel - Gadou, Anton, Bensebaini/Svensson - Ryerson, Veerman, Bellingham/Nmecha, Svensson/Beier - Nwaneri, Silva/Sabitzer - Guirassy。缺阵严重：Inacio(红牌停赛，首发中卫)、Can(十字韧带)、Konstantelias(十字韧带)、Lerma(肌肉)、Mane(肌肉)、Kaba(康复)、Ostrzinski(门将)、Karetsas(循环系统复查)；Schlotterbeck(膝内侧副韧带)刚回队训练但出战存疑。\n注：本表按名单触发 -0.04 xG 的'欧战双线'扣分，本场为真实双线(周中欧冠)，予以保留。",
+              "升班马(附加赛淘汰沃尔夫斯堡，时隔6年重返德甲)，2战1平1负积1分列第13，**两场0进球仅失1球**(客场0-0美因茨、主场0-1弗赖堡)。3-4-2-1低 block：Noll - ter Horst, Scheller, Hansen - Curda, Ulrich, Castaneda, Vidovic, Obermair - Philippe/Marino - Pieringer。缺阵4人：Awortwie-Grant(膝)、Gayret(十字韧带)、Michel(内收肌)、Eickel(康复)；无伤疑球员。锋线备选Marino/Tigges。"
+            ]
+          },
+          {
+            "teams": [
+              "BVB",
+              "PAD"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "BVB": 0.0,
+              "PAD": 0.0
+            },
+            "elo_delta": {
+              "BVB": 0.0,
+              "PAD": 0.0
+            },
+            "form_delta": {
+              "BVB": 0.0,
+              "PAD": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: BVB +0.000, PAD +0.000",
+              "进球修正: BVB +0.000, PAD +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        "实力差悬殊：基准Elo多特1810 vs 帕德博恩1490(差320)，是德甲本季最大级差之一；主队2战全胜，客队2战0进球仅1平",
+        "⚠️模型已知偏差：Elo差>150的'悬殊场次'累计28场，方向命中率71.4%(方向可靠)，但实际总进球比预测高约0.5 → 本场总进球与让球幅度应视为下限，不宜按'小球'理解",
+        "帕德博恩摆大巴已成事实：2场仅失1球(0-0美因茨、0-1弗赖堡)，3-4-2-1低 block，但**进攻端0进球**，主要靠Pieringer支点与定位球",
+        "多特伤停严重：Inacio红牌停赛(首发中卫)+Schlotterbeck存疑，Can/Konstantelias(十字韧带)、Lerma/Mane(肌肉)、Kaba、Ostrzinski、Karetsas共8人不可用 → 三中卫由Gadou/Anton/Bensebaini临时组成",
+        "多特周中踢了欧冠(且表现出色)，本场是真实双线作战 → 模型按europe_teams扣的-0.04 xG予以保留(不抵消)",
+        "H2H(MCP硬数据, 2019-20赛季2次)：多特1胜1平，但其中主场3-3被逼平、客场6-1大胜 → 低 block 坐镇过多特主场的历史案例存在，提醒不可轻视平局尾部"
+      ],
+      "notes": [
+        "情报来源: Comunio Magazin(9/10 BVB-PAD voraussichtliche Aufstellungen, 双方伤停与首发), khelnow/Sports Mole预览标题, MCP(积分榜/近况/交锋)",
+        "配置同步: 依同日完成的名单审计，bundesliga europe_teams 已补入 HOF(霍芬海姆)并确证 AUG 无欧战",
+        "2战全胜积6分列第3(主场2-0汉堡、客场3-2霍芬海姆)，周中刚踢完欧冠且表现出色(法比奥·席尔瓦获好评)。主帅预计3-4-2-1：Kobel - Gadou, Anton, Bensebaini/Svensson - Ryerson, Veerman, Bellingham/Nmecha, Svensson/Beier - Nwaneri, Silva/Sabitzer - Guirassy。缺阵严重：Inacio(红牌停赛，首发中卫)、Can(十字韧带)、Konstantelias(十字韧带)、Lerma(肌肉)、Mane(肌肉)、Kaba(康复)、Ostrzinski(门将)、Karetsas(循环系统复查)；Schlotterbeck(膝内侧副韧带)刚回队训练但出战存疑。\n注：本表按名单触发 -0.04 xG 的'欧战双线'扣分，本场为真实双线(周中欧冠)，予以保留。",
+        "升班马(附加赛淘汰沃尔夫斯堡，时隔6年重返德甲)，2战1平1负积1分列第13，**两场0进球仅失1球**(客场0-0美因茨、主场0-1弗赖堡)。3-4-2-1低 block：Noll - ter Horst, Scheller, Hansen - Curda, Ulrich, Castaneda, Vidovic, Obermair - Philippe/Marino - Pieringer。缺阵4人：Awortwie-Grant(膝)、Gayret(十字韧带)、Michel(内收肌)、Eickel(康复)；无伤疑球员。锋线备选Marino/Tigges。"
+      ],
+      "_id": "bundesliga|BVB|PAD|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:38:49",
+      "league": "epl",
+      "league_name_cn": "英格兰足球超级联赛",
+      "home": "CRY",
+      "away": "IPS",
+      "home_cn": "水晶宫",
+      "away_cn": "伊普斯维奇",
+      "prediction": {
+        "la": 2.043,
+        "lb": 1.258,
+        "pw": 0.4919,
+        "pd": 0.2523,
+        "pl": 0.2558,
+        "direction": "home",
+        "direction_text": "水晶宫占优",
+        "main_score": [
+          2,
+          1
+        ],
+        "main_prob": 0.095,
+        "modal_score": [
+          2,
+          1
+        ],
+        "modal_prob": 0.095,
+        "score_top5": [
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.095
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.0935
+          },
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.0775
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.0753
+          },
+          {
+            "score": [
+              3,
+              1
+            ],
+            "prob": 0.0649
+          }
+        ],
+        "labels": [
+          "CRY欧战双线(-)",
+          "实力接近(平局+4%)",
+          "水晶宫状态火热(+0.04)",
+          "伊普斯维奇状态低迷(-0.09)",
+          "伊普斯维奇战意高涨(依普斯深陷降级区，保级战意强烈)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "CRY": 1590,
+          "IPS": 1515
+        },
+        "elo_delta": {
+          "CRY": 0.0,
+          "IPS": 0.0
+        },
+        "form_delta": {
+          "CRY": 0.043249109762530304,
+          "IPS": -0.09249659156595846
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "CRY": 0.0,
+          "IPS": 0.0
+        },
+        "goal_boost": {
+          "CRY": 0.0,
+          "IPS": 0.0
+        },
+        "context_openness": {
+          "CRY": 0.05,
+          "IPS": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "high_press",
+          "style_b": "hybrid",
+          "matchup": "高位逼抢 vs 混合战术 — 水晶宫的高压可能迫使依普斯后场出球失误",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "normal",
+              "note": "水晶宫保级无忧，但主场希望提升排名"
+            },
+            "b": {
+              "level": "high",
+              "note": "依普斯深陷降级区，保级战意强烈"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.4919,
+            0.2523,
+            0.2558
+          ],
+          "prob_final": [
+            0.4919,
+            0.2523,
+            0.2558
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            2.043,
+            1.258
+          ],
+          "xg_final": [
+            2.043,
+            1.258
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "CRY": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "平-胜-胜-平-平",
+            "notes": "水晶宫近5场不败，状态稳定；主场强势，采用3-4-2-1阵型，边锋内切，高位逼抢"
+          },
+          "IPS": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-负-负-平-负",
+            "notes": "依普斯近5场仅1平4负，状态低迷；升班马，4-2-3-1阵型，从后场组织进攻，但防守脆弱"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "CRY",
+              "IPS"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "CRY": 0.0,
+              "IPS": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "CRY": 0.0,
+                "IPS": 0.0
+              },
+              "note": "英超联赛常规轮次"
+            },
+            "context_openness": {
+              "CRY": 0.05,
+              "IPS": 0.05
+            },
+            "tactical": {
+              "style_a": "high_press",
+              "style_b": "hybrid",
+              "matchup": "高位逼抢 vs 混合战术 — 水晶宫的高压可能迫使依普斯后场出球失误",
+              "expected_pattern": "balanced",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "normal",
+                  "note": "水晶宫保级无忧，但主场希望提升排名"
+                },
+                "b": {
+                  "level": "high",
+                  "note": "依普斯深陷降级区，保级战意强烈"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "水晶宫近5场不败（2胜3平），状态稳定"
+              },
+              {
+                "summary": "依普斯近5场仅1平4负，状态低迷，防守问题严重"
+              },
+              {
+                "summary": "历史交锋：水晶宫本赛季两回合双杀依普斯，且未失球"
+              },
+              {
+                "summary": "战术对位：水晶宫高位逼抢 vs 依普斯混合战术，水晶宫可能占据主动"
+              },
+              {
+                "summary": "战意对比：依普斯保级压力大，战意更高；水晶宫相对轻松"
+              }
+            ],
+            "notes": [
+              "水晶宫主场塞尔赫斯特公园氛围火爆",
+              "依普斯作为升班马客场战绩糟糕",
+              "水晶宫近5场不败，状态稳定；主场强势，采用3-4-2-1阵型，边锋内切，高位逼抢",
+              "依普斯近5场仅1平4负，状态低迷；升班马，4-2-3-1阵型，从后场组织进攻，但防守脆弱"
+            ]
+          },
+          {
+            "teams": [
+              "CRY",
+              "IPS"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "CRY": 0.0,
+              "IPS": 0.0
+            },
+            "elo_delta": {
+              "CRY": 0.0,
+              "IPS": 0.0
+            },
+            "form_delta": {
+              "CRY": 0.0,
+              "IPS": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: CRY +0.000, IPS +0.000",
+              "进球修正: CRY +0.000, IPS +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "水晶宫近5场不败（2胜3平），状态稳定"
+        },
+        {
+          "summary": "依普斯近5场仅1平4负，状态低迷，防守问题严重"
+        },
+        {
+          "summary": "历史交锋：水晶宫本赛季两回合双杀依普斯，且未失球"
+        },
+        {
+          "summary": "战术对位：水晶宫高位逼抢 vs 依普斯混合战术，水晶宫可能占据主动"
+        },
+        {
+          "summary": "战意对比：依普斯保级压力大，战意更高；水晶宫相对轻松"
+        }
+      ],
+      "notes": [
+        "水晶宫主场塞尔赫斯特公园氛围火爆",
+        "依普斯作为升班马客场战绩糟糕",
+        "水晶宫近5场不败，状态稳定；主场强势，采用3-4-2-1阵型，边锋内切，高位逼抢",
+        "依普斯近5场仅1平4负，状态低迷；升班马，4-2-3-1阵型，从后场组织进攻，但防守脆弱"
+      ],
+      "_id": "epl|CRY|IPS|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:43:31",
+      "league": "ligue1",
+      "league_name_cn": "法国足球甲级联赛",
+      "home": "STR",
+      "away": "MON",
+      "home_cn": "斯特拉斯堡",
+      "away_cn": "摩纳哥",
+      "prediction": {
+        "la": 1.279,
+        "lb": 1.881,
+        "pw": 0.2748,
+        "pd": 0.274,
+        "pl": 0.4512,
+        "direction": "away",
+        "direction_text": "摩纳哥占优",
+        "main_score": [
+          1,
+          2
+        ],
+        "main_prob": 0.0942,
+        "modal_score": [
+          1,
+          1
+        ],
+        "modal_prob": 0.1006,
+        "score_top5": [
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.1006
+          },
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0942
+          },
+          {
+            "score": [
+              0,
+              1
+            ],
+            "prob": 0.0798
+          },
+          {
+            "score": [
+              0,
+              2
+            ],
+            "prob": 0.0758
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0648
+          }
+        ],
+        "labels": [
+          "MON欧战双线(-)",
+          "斯特拉斯堡战意高涨(斯特拉斯堡主场，争夺欧战资格，战意高涨)",
+          "开放局降级为均衡局(双方攻击完整、双方转换威胁有效、无关键攻击伤停、无首轮或首回合试探)",
+          "押客队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "STR": 1590,
+          "MON": 1740
+        },
+        "elo_delta": {
+          "STR": 0.0,
+          "MON": 0.0
+        },
+        "form_delta": {
+          "STR": 0.014119562304826071,
+          "MON": 0.02635857905797457
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "STR": 0.0,
+          "MON": 0.0
+        },
+        "goal_boost": {
+          "STR": 0.0,
+          "MON": 0.0
+        },
+        "context_openness": {
+          "STR": 0.05,
+          "MON": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "high_press",
+          "style_b": "hybrid",
+          "matchup": "高位逼抢 vs 混合战术 — 斯特拉斯堡的高压可能迫使摩纳哥后场出球失误",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "斯特拉斯堡主场，争夺欧战资格，战意高涨"
+            },
+            "b": {
+              "level": "normal",
+              "note": "摩纳哥争夺欧冠资格，战意正常"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.2748,
+            0.274,
+            0.4512
+          ],
+          "prob_final": [
+            0.2748,
+            0.274,
+            0.4512
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            1.279,
+            1.881
+          ],
+          "xg_final": [
+            1.279,
+            1.881
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "STR": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-负-胜-胜-平",
+            "notes": "斯特拉斯堡近5场2胜1平2负，状态起伏；主场强势，采用高位逼抢战术"
+          },
+          "MON": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-胜-胜-平-平",
+            "notes": "摩纳哥近5场2胜2平1负，状态稳定；客场战绩一般，采用混合战术"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "STR",
+              "MON"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "STR": 0.0,
+              "MON": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "STR": 0.0,
+                "MON": 0.0
+              },
+              "note": "法甲联赛常规轮次"
+            },
+            "context_openness": {
+              "STR": 0.05,
+              "MON": 0.05
+            },
+            "tactical": {
+              "style_a": "high_press",
+              "style_b": "hybrid",
+              "matchup": "高位逼抢 vs 混合战术 — 斯特拉斯堡的高压可能迫使摩纳哥后场出球失误",
+              "expected_pattern": "open",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "斯特拉斯堡主场，争夺欧战资格，战意高涨"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "摩纳哥争夺欧冠资格，战意正常"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "斯特拉斯堡近5场2胜1平2负，状态起伏但主场强势"
+              },
+              {
+                "summary": "摩纳哥近5场2胜2平1负，状态稳定但客场战绩一般"
+              },
+              {
+                "summary": "历史交锋：摩纳哥占据绝对优势（近6场5胜1平），心理优势明显"
+              },
+              {
+                "summary": "战术对位：斯特拉斯堡高位逼抢 vs 摩纳哥混合战术，比赛可能较为开放"
+              },
+              {
+                "summary": "战意对比：斯特拉斯堡主场战意高涨，摩纳哥战意正常"
+              }
+            ],
+            "notes": [
+              "斯特拉斯堡主场氛围火爆",
+              "摩纳哥周中可能有欧战消耗（但本赛季无欧战）",
+              "斯特拉斯堡近5场2胜1平2负，状态起伏；主场强势，采用高位逼抢战术",
+              "摩纳哥近5场2胜2平1负，状态稳定；客场战绩一般，采用混合战术"
+            ]
+          },
+          {
+            "teams": [
+              "STR",
+              "MON"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "STR": 0.0,
+              "MON": 0.0
+            },
+            "elo_delta": {
+              "STR": 0.0,
+              "MON": 0.0
+            },
+            "form_delta": {
+              "STR": 0.0,
+              "MON": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: STR +0.000, MON +0.000",
+              "进球修正: STR +0.000, MON +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "斯特拉斯堡近5场2胜1平2负，状态起伏但主场强势"
+        },
+        {
+          "summary": "摩纳哥近5场2胜2平1负，状态稳定但客场战绩一般"
+        },
+        {
+          "summary": "历史交锋：摩纳哥占据绝对优势（近6场5胜1平），心理优势明显"
+        },
+        {
+          "summary": "战术对位：斯特拉斯堡高位逼抢 vs 摩纳哥混合战术，比赛可能较为开放"
+        },
+        {
+          "summary": "战意对比：斯特拉斯堡主场战意高涨，摩纳哥战意正常"
+        }
+      ],
+      "notes": [
+        "斯特拉斯堡主场氛围火爆",
+        "摩纳哥周中可能有欧战消耗（但本赛季无欧战）",
+        "斯特拉斯堡近5场2胜1平2负，状态起伏；主场强势，采用高位逼抢战术",
+        "摩纳哥近5场2胜2平1负，状态稳定；客场战绩一般，采用混合战术"
+      ],
+      "_id": "ligue1|STR|MON|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:48:58",
+      "league": "bundesliga",
+      "league_name_cn": "德国足球甲级联赛",
+      "home": "KOE",
+      "away": "BRE",
+      "home_cn": "科隆",
+      "away_cn": "不莱梅",
+      "prediction": {
+        "la": 2.278,
+        "lb": 1.569,
+        "pw": 0.4306,
+        "pd": 0.3179,
+        "pl": 0.2515,
+        "direction": "home",
+        "direction_text": "科隆占优",
+        "main_score": [
+          2,
+          1
+        ],
+        "main_prob": 0.0858,
+        "modal_score": [
+          2,
+          1
+        ],
+        "modal_prob": 0.0858,
+        "score_top5": [
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0858
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.0756
+          },
+          {
+            "score": [
+              2,
+              2
+            ],
+            "prob": 0.067
+          },
+          {
+            "score": [
+              3,
+              1
+            ],
+            "prob": 0.0654
+          },
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0595
+          }
+        ],
+        "labels": [
+          "实力接近(平局+4%)",
+          "科隆状态火热(+0.04)",
+          "不莱梅状态火热(+0.05)",
+          "科隆战意高涨(科隆德乙领头羊，争夺冠军，战意高涨)",
+          "开放局降级为均衡局(双方攻击完整、双方转换威胁有效、无关键攻击伤停、无首轮或首回合试探)",
+          "近均衡押主队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "KOE": 1540,
+          "BRE": 1570
+        },
+        "elo_delta": {
+          "KOE": 0.0,
+          "BRE": 0.0
+        },
+        "form_delta": {
+          "KOE": 0.041615285962981634,
+          "BRE": 0.049247481803428146
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "KOE": 0.0,
+          "BRE": 0.0
+        },
+        "goal_boost": {
+          "KOE": 0.0,
+          "BRE": 0.0
+        },
+        "context_openness": {
+          "KOE": 0.05,
+          "BRE": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "high_press",
+          "style_b": "possession",
+          "matchup": "高位逼抢 vs 传控 — 经典互克，科隆的高压可能迫使不莱梅后场出球失误",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "科隆德乙领头羊，争夺冠军，战意高涨"
+            },
+            "b": {
+              "level": "normal",
+              "note": "不莱梅争夺欧战资格，战意正常"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.4306,
+            0.3179,
+            0.2515
+          ],
+          "prob_final": [
+            0.4306,
+            0.3179,
+            0.2515
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            2.278,
+            1.569
+          ],
+          "xg_final": [
+            2.278,
+            1.569
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "KOE": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-胜-平-负-胜",
+            "notes": "科隆近5场3胜1平1负，状态出色；德乙领头羊，主场强势，采用高位逼抢战术"
+          },
+          "BRE": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-平-平-平-胜",
+            "notes": "不莱梅近5场2胜3平0负，状态稳定；德甲中游，采用控球型战术"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "KOE",
+              "BRE"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "KOE": 0.0,
+              "BRE": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "KOE": 0.0,
+                "BRE": 0.0
+              },
+              "note": "德甲联赛常规轮次"
+            },
+            "context_openness": {
+              "KOE": 0.05,
+              "BRE": 0.05
+            },
+            "tactical": {
+              "style_a": "high_press",
+              "style_b": "possession",
+              "matchup": "高位逼抢 vs 传控 — 经典互克，科隆的高压可能迫使不莱梅后场出球失误",
+              "expected_pattern": "open",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "科隆德乙领头羊，争夺冠军，战意高涨"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "不莱梅争夺欧战资格，战意正常"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "科隆近5场3胜1平1负，状态出色；德乙领头羊，主场强势"
+              },
+              {
+                "summary": "不莱梅近5场2胜3平0负，状态稳定；德甲中游，客场战绩一般"
+              },
+              {
+                "summary": "历史交锋：不莱梅略占优势（近4场2胜1平1负），但科隆曾7-1大胜"
+              },
+              {
+                "summary": "战术对位：科隆高位逼抢 vs 不莱梅传控，经典互克，比赛可能较为开放"
+              },
+              {
+                "summary": "战意对比：科隆争夺德乙冠军，战意高涨；不莱梅争夺欧战资格，战意正常"
+              }
+            ],
+            "notes": [
+              "科隆主场氛围火爆",
+              "不莱梅周中可能有欧战消耗（但本赛季无欧战）",
+              "科隆近5场3胜1平1负，状态出色；德乙领头羊，主场强势，采用高位逼抢战术",
+              "不莱梅近5场2胜3平0负，状态稳定；德甲中游，采用控球型战术"
+            ]
+          },
+          {
+            "teams": [
+              "KOE",
+              "BRE"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "KOE": 0.0,
+              "BRE": 0.0
+            },
+            "elo_delta": {
+              "KOE": 0.0,
+              "BRE": 0.0
+            },
+            "form_delta": {
+              "KOE": 0.0,
+              "BRE": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: KOE +0.000, BRE +0.000",
+              "进球修正: KOE +0.000, BRE +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "科隆近5场3胜1平1负，状态出色；德乙领头羊，主场强势"
+        },
+        {
+          "summary": "不莱梅近5场2胜3平0负，状态稳定；德甲中游，客场战绩一般"
+        },
+        {
+          "summary": "历史交锋：不莱梅略占优势（近4场2胜1平1负），但科隆曾7-1大胜"
+        },
+        {
+          "summary": "战术对位：科隆高位逼抢 vs 不莱梅传控，经典互克，比赛可能较为开放"
+        },
+        {
+          "summary": "战意对比：科隆争夺德乙冠军，战意高涨；不莱梅争夺欧战资格，战意正常"
+        }
+      ],
+      "notes": [
+        "科隆主场氛围火爆",
+        "不莱梅周中可能有欧战消耗（但本赛季无欧战）",
+        "科隆近5场3胜1平1负，状态出色；德乙领头羊，主场强势，采用高位逼抢战术",
+        "不莱梅近5场2胜3平0负，状态稳定；德甲中游，采用控球型战术"
+      ],
+      "_id": "bundesliga|KOE|BRE|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:54:20",
+      "league": "ligue1",
+      "league_name_cn": "法国足球甲级联赛",
+      "home": "PFC",
+      "away": "LYO",
+      "home_cn": "巴黎FC",
+      "away_cn": "里昂",
+      "prediction": {
+        "la": 1.663,
+        "lb": 1.499,
+        "pw": 0.4052,
+        "pd": 0.2412,
+        "pl": 0.3537,
+        "direction": "home",
+        "direction_text": "巴黎FC占优",
+        "main_score": [
+          2,
+          1
+        ],
+        "main_prob": 0.0865,
+        "modal_score": [
+          1,
+          1
+        ],
+        "modal_prob": 0.1041,
+        "score_top5": [
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.1041
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0865
+          },
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0781
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.0704
+          },
+          {
+            "score": [
+              2,
+              2
+            ],
+            "prob": 0.0641
+          }
+        ],
+        "labels": [
+          "LYO欧战双线(-)",
+          "巴黎FC状态火热(+0.08)",
+          "里昂状态低迷(-0.03)",
+          "巴黎FC战意高涨(巴黎FC法乙第2，争夺升级资格，战意高涨)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "PFC": 1540,
+          "LYO": 1660
+        },
+        "elo_delta": {
+          "PFC": 0.0,
+          "LYO": 0.0
+        },
+        "form_delta": {
+          "PFC": 0.0767508902374697,
+          "LYO": -0.031212121722805422
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "PFC": 0.0,
+          "LYO": 0.0
+        },
+        "goal_boost": {
+          "PFC": 0.0,
+          "LYO": 0.0
+        },
+        "context_openness": {
+          "PFC": 0.05,
+          "LYO": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "counter_attack",
+          "style_b": "possession",
+          "matchup": "防守反击 vs 传控进攻 — 巴黎FC的反击可能对里昂的传控构成威胁",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "巴黎FC法乙第2，争夺升级资格，战意高涨"
+            },
+            "b": {
+              "level": "normal",
+              "note": "里昂争夺欧战资格，战意正常"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.4052,
+            0.2412,
+            0.3537
+          ],
+          "prob_final": [
+            0.4052,
+            0.2412,
+            0.3537
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            1.663,
+            1.499
+          ],
+          "xg_final": [
+            1.663,
+            1.499
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "PFC": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-平-平-胜-胜",
+            "notes": "巴黎FC近5场3胜2平0负，状态出色；法乙第2，主场强势，采用防守反击战术"
+          },
+          "LYO": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-负-负-胜-负",
+            "notes": "里昂近5场2胜0平3负，状态起伏；法甲第6，采用控球进攻战术"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "PFC",
+              "LYO"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "PFC": 0.0,
+              "LYO": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "PFC": 0.0,
+                "LYO": 0.0
+              },
+              "note": "法甲联赛常规轮次"
+            },
+            "context_openness": {
+              "PFC": 0.05,
+              "LYO": 0.05
+            },
+            "tactical": {
+              "style_a": "counter_attack",
+              "style_b": "possession",
+              "matchup": "防守反击 vs 传控进攻 — 巴黎FC的反击可能对里昂的传控构成威胁",
+              "expected_pattern": "balanced",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "巴黎FC法乙第2，争夺升级资格，战意高涨"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "里昂争夺欧战资格，战意正常"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "巴黎FC近5场3胜2平0负，状态出色；法乙第2，主场强势"
+              },
+              {
+                "summary": "里昂近5场2胜0平3负，状态起伏；法甲第6，实力更强但状态不稳"
+              },
+              {
+                "summary": "历史交锋：最近一次交手3-3平局，双方攻强守弱"
+              },
+              {
+                "summary": "战术对位：巴黎FC防守反击 vs 里昂传控进攻，反击克制传控"
+              },
+              {
+                "summary": "战意对比：巴黎FC争夺升级资格，战意高涨；里昂争夺欧战资格，战意正常"
+              }
+            ],
+            "notes": [
+              "巴黎FC主场氛围火爆",
+              "里昂周中可能有欧战消耗（但本赛季无欧战）",
+              "巴黎FC近5场3胜2平0负，状态出色；法乙第2，主场强势，采用防守反击战术",
+              "里昂近5场2胜0平3负，状态起伏；法甲第6，采用控球进攻战术"
+            ]
+          },
+          {
+            "teams": [
+              "PFC",
+              "LYO"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "PFC": 0.0,
+              "LYO": 0.0
+            },
+            "elo_delta": {
+              "PFC": 0.0,
+              "LYO": 0.0
+            },
+            "form_delta": {
+              "PFC": 0.0,
+              "LYO": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: PFC +0.000, LYO +0.000",
+              "进球修正: PFC +0.000, LYO +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "巴黎FC近5场3胜2平0负，状态出色；法乙第2，主场强势"
+        },
+        {
+          "summary": "里昂近5场2胜0平3负，状态起伏；法甲第6，实力更强但状态不稳"
+        },
+        {
+          "summary": "历史交锋：最近一次交手3-3平局，双方攻强守弱"
+        },
+        {
+          "summary": "战术对位：巴黎FC防守反击 vs 里昂传控进攻，反击克制传控"
+        },
+        {
+          "summary": "战意对比：巴黎FC争夺升级资格，战意高涨；里昂争夺欧战资格，战意正常"
+        }
+      ],
+      "notes": [
+        "巴黎FC主场氛围火爆",
+        "里昂周中可能有欧战消耗（但本赛季无欧战）",
+        "巴黎FC近5场3胜2平0负，状态出色；法乙第2，主场强势，采用防守反击战术",
+        "里昂近5场2胜0平3负，状态起伏；法甲第6，采用控球进攻战术"
+      ],
+      "_id": "ligue1|PFC|LYO|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T16:58:40",
+      "league": "epl",
+      "league_name_cn": "英格兰足球超级联赛",
+      "home": "LIV",
+      "away": "FUL",
+      "home_cn": "利物浦",
+      "away_cn": "富勒姆",
+      "prediction": {
+        "la": 2.645,
+        "lb": 0.474,
+        "pw": 0.71,
+        "pd": 0.1563,
+        "pl": 0.1337,
+        "direction": "home",
+        "direction_text": "利物浦占优",
+        "main_score": [
+          2,
+          0
+        ],
+        "main_prob": 0.1547,
+        "modal_score": [
+          2,
+          0
+        ],
+        "modal_prob": 0.1547,
+        "score_top5": [
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.1547
+          },
+          {
+            "score": [
+              3,
+              0
+            ],
+            "prob": 0.1376
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.1165
+          },
+          {
+            "score": [
+              4,
+              0
+            ],
+            "prob": 0.0922
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0703
+          }
+        ],
+        "labels": [
+          "实力悬殊(方差中性)",
+          "LIV欧战双线(-)",
+          "利物浦战意偏低(利物浦已经夺冠，战意可能不高)",
+          "富勒姆战意高涨(富勒姆争夺欧战资格，战意高涨)",
+          "开放局降级为均衡局(双方攻击完整、双方转换威胁有效、无关键攻击伤停、无首轮或首回合试探)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "LIV": 1890,
+          "FUL": 1600
+        },
+        "elo_delta": {
+          "LIV": 0.0,
+          "FUL": 0.0
+        },
+        "form_delta": {
+          "LIV": -0.015017669928764134,
+          "FUL": -0.015543672615065191
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "LIV": 0.0,
+          "FUL": 0.0
+        },
+        "goal_boost": {
+          "LIV": 0.0,
+          "FUL": 0.0
+        },
+        "context_openness": {
+          "LIV": 0.05,
+          "FUL": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "high_press",
+          "style_b": "hybrid",
+          "matchup": "高位逼抢 vs 混合战术 — 利物浦的高压可能迫使富勒姆后场出球失误",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "low",
+              "note": "利物浦已经夺冠，战意可能不高"
+            },
+            "b": {
+              "level": "high",
+              "note": "富勒姆争夺欧战资格，战意高涨"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.7099,
+            0.1563,
+            0.1337
+          ],
+          "prob_final": [
+            0.71,
+            0.1563,
+            0.1337
+          ],
+          "prob_transfer": [
+            0.0001,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            2.645,
+            0.474
+          ],
+          "xg_final": [
+            2.645,
+            0.474
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "LIV": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "平-负-平-负-胜",
+            "notes": "利物浦近5场1胜2平2负，状态低迷；已经夺冠，战意可能不高"
+          },
+          "FUL": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-胜-负-负-胜",
+            "notes": "富勒姆近5场2胜0平3负，状态一般；争夺欧战资格，战意较高"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "LIV",
+              "FUL"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "LIV": 0.0,
+              "FUL": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "LIV": 0.0,
+                "FUL": 0.0
+              },
+              "note": "英超联赛常规轮次"
+            },
+            "context_openness": {
+              "LIV": 0.05,
+              "FUL": 0.05
+            },
+            "tactical": {
+              "style_a": "high_press",
+              "style_b": "hybrid",
+              "matchup": "高位逼抢 vs 混合战术 — 利物浦的高压可能迫使富勒姆后场出球失误",
+              "expected_pattern": "open",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "low",
+                  "note": "利物浦已经夺冠，战意可能不高"
+                },
+                "b": {
+                  "level": "high",
+                  "note": "富勒姆争夺欧战资格，战意高涨"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "利物浦近5场1胜2平2负，状态低迷；已经夺冠，战意可能不高"
+              },
+              {
+                "summary": "富勒姆近5场2胜0平3负，状态一般；争夺欧战资格，战意高涨"
+              },
+              {
+                "summary": "历史交锋：近6场利物浦3胜2平1负，但本赛季富勒姆3-2战胜利物浦"
+              },
+              {
+                "summary": "战术对位：利物浦高位逼抢 vs 富勒姆混合战术，利物浦可能占据主动"
+              },
+              {
+                "summary": "战意对比：利物浦战意偏低，富勒姆战意高涨，比赛可能较为开放"
+              }
+            ],
+            "notes": [
+              "利物浦主场安菲尔德氛围火爆",
+              "富勒姆客场战绩一般",
+              "利物浦近5场1胜2平2负，状态低迷；已经夺冠，战意可能不高",
+              "富勒姆近5场2胜0平3负，状态一般；争夺欧战资格，战意较高"
+            ]
+          },
+          {
+            "teams": [
+              "LIV",
+              "FUL"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "LIV": 0.0,
+              "FUL": 0.0
+            },
+            "elo_delta": {
+              "LIV": 0.0,
+              "FUL": 0.0
+            },
+            "form_delta": {
+              "LIV": 0.0,
+              "FUL": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: LIV +0.000, FUL +0.000",
+              "进球修正: LIV +0.000, FUL +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "利物浦近5场1胜2平2负，状态低迷；已经夺冠，战意可能不高"
+        },
+        {
+          "summary": "富勒姆近5场2胜0平3负，状态一般；争夺欧战资格，战意高涨"
+        },
+        {
+          "summary": "历史交锋：近6场利物浦3胜2平1负，但本赛季富勒姆3-2战胜利物浦"
+        },
+        {
+          "summary": "战术对位：利物浦高位逼抢 vs 富勒姆混合战术，利物浦可能占据主动"
+        },
+        {
+          "summary": "战意对比：利物浦战意偏低，富勒姆战意高涨，比赛可能较为开放"
+        }
+      ],
+      "notes": [
+        "利物浦主场安菲尔德氛围火爆",
+        "富勒姆客场战绩一般",
+        "利物浦近5场1胜2平2负，状态低迷；已经夺冠，战意可能不高",
+        "富勒姆近5场2胜0平3负，状态一般；争夺欧战资格，战意较高"
+      ],
+      "_id": "epl|LIV|FUL|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T20:33:54",
+      "league": "laliga",
+      "league_name_cn": "西班牙足球甲级联赛",
+      "home": "RMA",
+      "away": "RAY",
+      "home_cn": "皇家马德里",
+      "away_cn": "巴列卡诺",
+      "prediction": {
+        "la": 3.049,
+        "lb": 0.276,
+        "pw": 0.7633,
+        "pd": 0.1245,
+        "pl": 0.1122,
+        "direction": "home",
+        "direction_text": "皇家马德里占优",
+        "main_score": [
+          3,
+          0
+        ],
+        "main_prob": 0.1658,
+        "modal_score": [
+          3,
+          0
+        ],
+        "modal_prob": 0.1658,
+        "score_top5": [
+          {
+            "score": [
+              3,
+              0
+            ],
+            "prob": 0.1658
+          },
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.1624
+          },
+          {
+            "score": [
+              4,
+              0
+            ],
+            "prob": 0.1273
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.1064
+          },
+          {
+            "score": [
+              5,
+              0
+            ],
+            "prob": 0.0785
+          }
+        ],
+        "labels": [
+          "实力悬殊(方差中性)",
+          "RMA欧战双线(-)",
+          "皇家马德里状态火热(+0.06)",
+          "巴列卡诺状态火热(+0.08)",
+          "皇家马德里战意高涨(皇马争夺联赛冠军，战意高涨)",
+          "开放局降级为均衡局(双方攻击完整、双方转换威胁有效、无关键攻击伤停、无首轮或首回合试探)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "RMA": 1927,
+          "RAY": 1586
+        },
+        "elo_delta": {
+          "RMA": 0.0,
+          "RAY": 0.0
+        },
+        "form_delta": {
+          "RMA": 0.06499318313191693,
+          "RAY": 0.07973157212650894
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "RMA": 0.0,
+          "RAY": 0.0
+        },
+        "goal_boost": {
+          "RMA": 0.0,
+          "RAY": 0.0
+        },
+        "context_openness": {
+          "RMA": 0.05,
+          "RAY": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "possession",
+          "style_b": "counter_attack",
+          "matchup": "传控 vs 防守反击 — 皇马的控球可能被巴列卡诺的反击威胁",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "皇马争夺联赛冠军，战意高涨"
+            },
+            "b": {
+              "level": "normal",
+              "note": "巴列卡诺无欲无求，战意一般"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 1.0,
+          "prob_base": [
+            0.7631,
+            0.1245,
+            0.1122
+          ],
+          "prob_final": [
+            0.7633,
+            0.1245,
+            0.1122
+          ],
+          "prob_transfer": [
+            0.0002,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            3.049,
+            0.276
+          ],
+          "xg_final": [
+            3.049,
+            0.276
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "RMA": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-胜-胜-负-胜",
+            "notes": "皇马近5场4胜0平1负，状态出色；争夺联赛冠军，战意高涨"
+          },
+          "RAY": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "平-胜-平-胜-胜",
+            "notes": "巴列卡诺近5场3胜2平0负，状态出色；无欲无求，战意一般"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "RMA",
+              "RAY"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "RMA": 0.0,
+              "RAY": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "RMA": 0.0,
+                "RAY": 0.0
+              },
+              "note": "西甲联赛常规轮次"
+            },
+            "context_openness": {
+              "RMA": 0.05,
+              "RAY": 0.05
+            },
+            "tactical": {
+              "style_a": "possession",
+              "style_b": "counter_attack",
+              "matchup": "传控 vs 防守反击 — 皇马的控球可能被巴列卡诺的反击威胁",
+              "expected_pattern": "open",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "皇马争夺联赛冠军，战意高涨"
+                },
+                "b": {
+                  "level": "normal",
+                  "note": "巴列卡诺无欲无求，战意一般"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "皇马近5场4胜0平1负，状态出色；争夺联赛冠军，战意高涨"
+              },
+              {
+                "summary": "巴列卡诺近5场3胜2平0负，状态出色；无欲无求，战意一般"
+              },
+              {
+                "summary": "历史交锋：近6场皇马2胜3平1负，但本赛季皇马2-1获胜，巴列卡诺3-3战平"
+              },
+              {
+                "summary": "战术对位：皇马传控 vs 巴列卡诺防守反击，反击克制传控"
+              },
+              {
+                "summary": "实力对比：皇马Elo评级1927，巴列卡诺1586，皇马高出341点，实力优势巨大"
+              }
+            ],
+            "notes": [
+              "皇马主场伯纳乌氛围火爆",
+              "巴列卡诺客场战绩一般",
+              "皇马近5场4胜0平1负，状态出色；争夺联赛冠军，战意高涨",
+              "巴列卡诺近5场3胜2平0负，状态出色；无欲无求，战意一般"
+            ]
+          },
+          {
+            "teams": [
+              "RMA",
+              "RAY"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "RMA": 0.0,
+              "RAY": 0.0
+            },
+            "elo_delta": {
+              "RMA": 0.0,
+              "RAY": 0.0
+            },
+            "form_delta": {
+              "RMA": 0.0,
+              "RAY": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: RMA +0.000, RAY +0.000",
+              "进球修正: RMA +0.000, RAY +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "皇马近5场4胜0平1负，状态出色；争夺联赛冠军，战意高涨"
+        },
+        {
+          "summary": "巴列卡诺近5场3胜2平0负，状态出色；无欲无求，战意一般"
+        },
+        {
+          "summary": "历史交锋：近6场皇马2胜3平1负，但本赛季皇马2-1获胜，巴列卡诺3-3战平"
+        },
+        {
+          "summary": "战术对位：皇马传控 vs 巴列卡诺防守反击，反击克制传控"
+        },
+        {
+          "summary": "实力对比：皇马Elo评级1927，巴列卡诺1586，皇马高出341点，实力优势巨大"
+        }
+      ],
+      "notes": [
+        "皇马主场伯纳乌氛围火爆",
+        "巴列卡诺客场战绩一般",
+        "皇马近5场4胜0平1负，状态出色；争夺联赛冠军，战意高涨",
+        "巴列卡诺近5场3胜2平0负，状态出色；无欲无求，战意一般"
+      ],
+      "_id": "laliga|RMA|RAY|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T20:40:36",
+      "league": "epl",
+      "league_name_cn": "英格兰足球超级联赛",
+      "home": "SUN",
+      "away": "ARS",
+      "home_cn": "桑德兰",
+      "away_cn": "阿森纳",
+      "prediction": {
+        "la": 0.877,
+        "lb": 2.439,
+        "pw": 0.1546,
+        "pd": 0.2742,
+        "pl": 0.5712,
+        "direction": "away",
+        "direction_text": "阿森纳占优",
+        "main_score": [
+          0,
+          2
+        ],
+        "main_prob": 0.1086,
+        "modal_score": [
+          0,
+          2
+        ],
+        "modal_prob": 0.1086,
+        "score_top5": [
+          {
+            "score": [
+              0,
+              2
+            ],
+            "prob": 0.1086
+          },
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0922
+          },
+          {
+            "score": [
+              0,
+              3
+            ],
+            "prob": 0.0893
+          },
+          {
+            "score": [
+              0,
+              1
+            ],
+            "prob": 0.0885
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.0764
+          }
+        ],
+        "labels": [
+          "实力悬殊(方差中性)",
+          "SUN欧战双线(-)",
+          "ARS欧战双线(-)",
+          "双方欧战分心(平局+6%)",
+          "桑德兰状态低迷(-0.12)",
+          "桑德兰战意高涨(桑德兰保级压力大，战意高涨)",
+          "阿森纳战意高涨(阿森纳争夺联赛冠军，战意高涨)",
+          "开放局降级为均衡局(双方攻击完整、双方转换威胁有效、无关键攻击伤停、无首轮或首回合试探)",
+          "押客队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "SUN": 1595,
+          "ARS": 1870
+        },
+        "elo_delta": {
+          "SUN": 0.0,
+          "ARS": 0.0
+        },
+        "form_delta": {
+          "SUN": -0.12,
+          "ARS": 0.00925833486410922
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "SUN": 0.0,
+          "ARS": 0.0
+        },
+        "goal_boost": {
+          "SUN": 0.0,
+          "ARS": 0.0
+        },
+        "context_openness": {
+          "SUN": 0.05,
+          "ARS": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "counter_attack",
+          "style_b": "possession",
+          "matchup": "防守反击 vs 传控进攻 — 桑德兰的反击可能对阿森纳的传控构成威胁",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "桑德兰保级压力大，战意高涨"
+            },
+            "b": {
+              "level": "high",
+              "note": "阿森纳争夺联赛冠军，战意高涨"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.1546,
+            0.2742,
+            0.5712
+          ],
+          "prob_final": [
+            0.1546,
+            0.2742,
+            0.5712
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            0.877,
+            2.439
+          ],
+          "xg_final": [
+            0.877,
+            2.439
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "SUN": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-负-负-负-负",
+            "notes": "桑德兰近5场全败，状态糟糕；升班马，保级压力大"
+          },
+          "ARS": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-胜-平-负-平",
+            "notes": "阿森纳近5场2胜2平1负，状态一般；争夺联赛冠军，战意高涨"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "SUN",
+              "ARS"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "SUN": 0.0,
+              "ARS": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "SUN": 0.0,
+                "ARS": 0.0
+              },
+              "note": "英超联赛常规轮次"
+            },
+            "context_openness": {
+              "SUN": 0.05,
+              "ARS": 0.05
+            },
+            "tactical": {
+              "style_a": "counter_attack",
+              "style_b": "possession",
+              "matchup": "防守反击 vs 传控进攻 — 桑德兰的反击可能对阿森纳的传控构成威胁",
+              "expected_pattern": "open",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "桑德兰保级压力大，战意高涨"
+                },
+                "b": {
+                  "level": "high",
+                  "note": "阿森纳争夺联赛冠军，战意高涨"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "桑德兰近5场全败，状态糟糕；升班马，保级压力大"
+              },
+              {
+                "summary": "阿森纳近5场2胜2平1负，状态一般；争夺联赛冠军，战意高涨"
+              },
+              {
+                "summary": "历史交锋：阿森纳占据绝对优势，心理优势明显"
+              },
+              {
+                "summary": "战术对位：桑德兰防守反击 vs 阿森纳传控进攻，反击克制传控"
+              },
+              {
+                "summary": "实力对比：阿森纳Elo评级1870，桑德兰1595，阿森纳高出275点，实力优势巨大"
+              }
+            ],
+            "notes": [
+              "桑德兰主场光明球场氛围火爆",
+              "阿森纳客场战绩出色",
+              "桑德兰近5场全败，状态糟糕；升班马，保级压力大",
+              "阿森纳近5场2胜2平1负，状态一般；争夺联赛冠军，战意高涨"
+            ]
+          },
+          {
+            "teams": [
+              "SUN",
+              "ARS"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "SUN": 0.0,
+              "ARS": 0.0
+            },
+            "elo_delta": {
+              "SUN": 0.0,
+              "ARS": 0.0
+            },
+            "form_delta": {
+              "SUN": 0.0,
+              "ARS": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: SUN +0.000, ARS +0.000",
+              "进球修正: SUN +0.000, ARS +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "桑德兰近5场全败，状态糟糕；升班马，保级压力大"
+        },
+        {
+          "summary": "阿森纳近5场2胜2平1负，状态一般；争夺联赛冠军，战意高涨"
+        },
+        {
+          "summary": "历史交锋：阿森纳占据绝对优势，心理优势明显"
+        },
+        {
+          "summary": "战术对位：桑德兰防守反击 vs 阿森纳传控进攻，反击克制传控"
+        },
+        {
+          "summary": "实力对比：阿森纳Elo评级1870，桑德兰1595，阿森纳高出275点，实力优势巨大"
+        }
+      ],
+      "notes": [
+        "桑德兰主场光明球场氛围火爆",
+        "阿森纳客场战绩出色",
+        "桑德兰近5场全败，状态糟糕；升班马，保级压力大",
+        "阿森纳近5场2胜2平1负，状态一般；争夺联赛冠军，战意高涨"
+      ],
+      "_id": "epl|SUN|ARS|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T20:48:15",
+      "league": "seriea",
+      "league_name_cn": "意大利足球甲级联赛",
+      "home": "LAZ",
+      "away": "MIL",
+      "home_cn": "拉齐奥",
+      "away_cn": "AC米兰",
+      "prediction": {
+        "la": 1.346,
+        "lb": 2.052,
+        "pw": 0.2675,
+        "pd": 0.2654,
+        "pl": 0.4671,
+        "direction": "away",
+        "direction_text": "AC米兰占优",
+        "main_score": [
+          1,
+          2
+        ],
+        "main_prob": 0.0932,
+        "modal_score": [
+          1,
+          2
+        ],
+        "modal_prob": 0.0932,
+        "score_top5": [
+          {
+            "score": [
+              1,
+              2
+            ],
+            "prob": 0.0932
+          },
+          {
+            "score": [
+              1,
+              1
+            ],
+            "prob": 0.0913
+          },
+          {
+            "score": [
+              0,
+              2
+            ],
+            "prob": 0.071
+          },
+          {
+            "score": [
+              0,
+              1
+            ],
+            "prob": 0.0686
+          },
+          {
+            "score": [
+              1,
+              3
+            ],
+            "prob": 0.064
+          }
+        ],
+        "labels": [
+          "MIL欧战双线(-)",
+          "AC米兰状态火热(+0.08)",
+          "拉齐奥战意高涨(拉齐奥争夺欧战资格，战意高涨)",
+          "AC米兰战意高涨(AC米兰争夺欧战资格，战意高涨)",
+          "押客队向平局收缩"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "LAZ": 1720,
+          "MIL": 1810
+        },
+        "elo_delta": {
+          "LAZ": 0.0,
+          "MIL": 0.0
+        },
+        "form_delta": {
+          "LAZ": 0.01061287772948579,
+          "MIL": 0.08025757481280997
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "LAZ": 0.0,
+          "MIL": 0.0
+        },
+        "goal_boost": {
+          "LAZ": 0.0,
+          "MIL": 0.0
+        },
+        "context_openness": {
+          "LAZ": 0.05,
+          "MIL": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "possession",
+          "style_b": "high_press",
+          "matchup": "传控 vs 高位逼抢 — AC米兰的高位逼抢可能迫使拉齐奥后场出球失误",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "拉齐奥争夺欧战资格，战意高涨"
+            },
+            "b": {
+              "level": "high",
+              "note": "AC米兰争夺欧战资格，战意高涨"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 0.7,
+          "prob_base": [
+            0.2675,
+            0.2654,
+            0.4671
+          ],
+          "prob_final": [
+            0.2675,
+            0.2654,
+            0.4671
+          ],
+          "prob_transfer": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            1.346,
+            2.052
+          ],
+          "xg_final": [
+            1.346,
+            2.052
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "LAZ": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-平-平-胜-平",
+            "notes": "拉齐奥近5场1胜3平1负，状态一般；争夺欧战资格，战意高涨"
+          },
+          "MIL": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-负-胜-胜-胜",
+            "notes": "AC米兰近5场4胜0平1负，状态出色；争夺欧战资格，战意高涨"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "LAZ",
+              "MIL"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "LAZ": 0.0,
+              "MIL": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "LAZ": 0.0,
+                "MIL": 0.0
+              },
+              "note": "意甲联赛常规轮次"
+            },
+            "context_openness": {
+              "LAZ": 0.05,
+              "MIL": 0.05
+            },
+            "tactical": {
+              "style_a": "possession",
+              "style_b": "high_press",
+              "matchup": "传控 vs 高位逼抢 — AC米兰的高位逼抢可能迫使拉齐奥后场出球失误",
+              "expected_pattern": "balanced",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "拉齐奥争夺欧战资格，战意高涨"
+                },
+                "b": {
+                  "level": "high",
+                  "note": "AC米兰争夺欧战资格，战意高涨"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "拉齐奥近5场1胜3平1负，状态一般；争夺欧战资格，战意高涨"
+              },
+              {
+                "summary": "AC米兰近5场4胜0平1负，状态出色；争夺欧战资格，战意高涨"
+              },
+              {
+                "summary": "历史交锋：近6场拉齐奥2胜1平3负，但本赛季拉齐奥2-2战平米兰，米兰1-2负于拉齐奥"
+              },
+              {
+                "summary": "战术对位：拉齐奥传控 vs AC米兰高位逼抢，高位逼抢克制传控"
+              },
+              {
+                "summary": "实力对比：AC米兰Elo评级1810，拉齐奥1720，AC米兰高出90点，实力略占优势"
+              }
+            ],
+            "notes": [
+              "拉齐奥主场罗马奥林匹克球场氛围火爆",
+              "AC米兰客场战绩出色",
+              "拉齐奥近5场1胜3平1负，状态一般；争夺欧战资格，战意高涨",
+              "AC米兰近5场4胜0平1负，状态出色；争夺欧战资格，战意高涨"
+            ]
+          },
+          {
+            "teams": [
+              "LAZ",
+              "MIL"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "LAZ": 0.0,
+              "MIL": 0.0
+            },
+            "elo_delta": {
+              "LAZ": 0.0,
+              "MIL": 0.0
+            },
+            "form_delta": {
+              "LAZ": 0.0,
+              "MIL": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: LAZ +0.000, MIL +0.000",
+              "进球修正: LAZ +0.000, MIL +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "拉齐奥近5场1胜3平1负，状态一般；争夺欧战资格，战意高涨"
+        },
+        {
+          "summary": "AC米兰近5场4胜0平1负，状态出色；争夺欧战资格，战意高涨"
+        },
+        {
+          "summary": "历史交锋：近6场拉齐奥2胜1平3负，但本赛季拉齐奥2-2战平米兰，米兰1-2负于拉齐奥"
+        },
+        {
+          "summary": "战术对位：拉齐奥传控 vs AC米兰高位逼抢，高位逼抢克制传控"
+        },
+        {
+          "summary": "实力对比：AC米兰Elo评级1810，拉齐奥1720，AC米兰高出90点，实力略占优势"
+        }
+      ],
+      "notes": [
+        "拉齐奥主场罗马奥林匹克球场氛围火爆",
+        "AC米兰客场战绩出色",
+        "拉齐奥近5场1胜3平1负，状态一般；争夺欧战资格，战意高涨",
+        "AC米兰近5场4胜0平1负，状态出色；争夺欧战资格，战意高涨"
+      ],
+      "_id": "seriea|LAZ|MIL|2026-09-12"
+    },
+    {
+      "date": "2026-09-12",
+      "created_at": "2026-09-12T20:54:05",
+      "league": "laliga",
+      "league_name_cn": "西班牙足球甲级联赛",
+      "home": "ATH",
+      "away": "ELC",
+      "home_cn": "毕尔巴鄂竞技",
+      "away_cn": "埃尔切",
+      "prediction": {
+        "la": 2.624,
+        "lb": 0.94,
+        "pw": 0.6367,
+        "pd": 0.1814,
+        "pl": 0.1819,
+        "direction": "home",
+        "direction_text": "毕尔巴鄂竞技占优",
+        "main_score": [
+          2,
+          0
+        ],
+        "main_prob": 0.098,
+        "modal_score": [
+          2,
+          0
+        ],
+        "modal_prob": 0.098,
+        "score_top5": [
+          {
+            "score": [
+              2,
+              0
+            ],
+            "prob": 0.098
+          },
+          {
+            "score": [
+              2,
+              1
+            ],
+            "prob": 0.0896
+          },
+          {
+            "score": [
+              3,
+              0
+            ],
+            "prob": 0.0866
+          },
+          {
+            "score": [
+              3,
+              1
+            ],
+            "prob": 0.0781
+          },
+          {
+            "score": [
+              1,
+              0
+            ],
+            "prob": 0.0744
+          }
+        ],
+        "labels": [
+          "实力悬殊(方差中性)",
+          "毕尔巴鄂竞技状态火热(+0.05)",
+          "毕尔巴鄂竞技战意高涨(毕尔巴鄂竞技争夺欧战资格，战意高涨)",
+          "埃尔切战意高涨(埃尔切保级压力大，战意高涨)",
+          "开放局降级为均衡局(双方攻击完整、双方转换威胁有效、无关键攻击伤停、无首轮或首回合试探)"
+        ],
+        "odds": null
+      },
+      "model_inputs": {
+        "elo": {
+          "ATH": 1729,
+          "ELC": 1509
+        },
+        "elo_delta": {
+          "ATH": 0.0,
+          "ELC": 0.0
+        },
+        "form_delta": {
+          "ATH": 0.053861987492016095,
+          "ELC": 0.01823738879404634
+        },
+        "confidence": 0.85,
+        "goal_delta": {
+          "ATH": 0.0,
+          "ELC": 0.0
+        },
+        "goal_boost": {
+          "ATH": 0.0,
+          "ELC": 0.0
+        },
+        "context_openness": {
+          "ATH": 0.05,
+          "ELC": 0.05
+        },
+        "tactical_adjust": {
+          "underdog_boost": 0.0,
+          "favorite_penalty": 0.0,
+          "description": ""
+        },
+        "tactical_matchup": {
+          "style_a": "high_press",
+          "style_b": "counter_attack",
+          "matchup": "高压逼抢 vs 防守反击 — 毕尔巴鄂竞技的高压可能迫使埃尔切后场出球失误",
+          "expected_pattern": "balanced",
+          "ineffective_possession": false,
+          "physical_mismatch": 0,
+          "derby_boost": false,
+          "fighting_spirit": {
+            "a": {
+              "level": "high",
+              "note": "毕尔巴鄂竞技争夺欧战资格，战意高涨"
+            },
+            "b": {
+              "level": "high",
+              "note": "埃尔切保级压力大，战意高涨"
+            }
+          },
+          "defensive_absences": {},
+          "home_slump_away_surge": {},
+          "draw_gate": {},
+          "open_eligibility": {}
+        },
+        "rule_engine": {
+          "league_strength": 1.0,
+          "prob_base": [
+            0.6366,
+            0.1814,
+            0.1819
+          ],
+          "prob_final": [
+            0.6367,
+            0.1814,
+            0.1819
+          ],
+          "prob_transfer": [
+            0.0001,
+            0.0,
+            0.0
+          ],
+          "xg_base": [
+            2.624,
+            0.94
+          ],
+          "xg_final": [
+            2.624,
+            0.94
+          ],
+          "xg_shift_total": 0.0,
+          "crisis": null
+        },
+        "shock_mult": 1.0,
+        "home_adv_mult": 1.0,
+        "shock_sd": 0.38,
+        "meeting_count": 0,
+        "odds_match": null
+      },
+      "intelligence_snapshot": {
+        "teams": {
+          "ATH": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "负-胜-胜-胜-平",
+            "notes": "毕尔巴鄂竞技近5场3胜1平1负，状态不错；争夺欧战资格，战意高涨"
+          },
+          "ELC": {
+            "elo_delta": 0,
+            "confidence": 0.85,
+            "form": "胜-胜-负-负-胜",
+            "notes": "埃尔切近5场3胜0平2负，状态一般；升班马，保级压力大"
+          }
+        },
+        "matches": [
+          {
+            "teams": [
+              "ATH",
+              "ELC"
+            ],
+            "confidence": 0.85,
+            "goal_delta": {
+              "ATH": 0.0,
+              "ELC": 0.0
+            },
+            "competition_context": {
+              "type": "league",
+              "goal_boost": {
+                "ATH": 0.0,
+                "ELC": 0.0
+              },
+              "note": "西甲联赛常规轮次"
+            },
+            "context_openness": {
+              "ATH": 0.05,
+              "ELC": 0.05
+            },
+            "tactical": {
+              "style_a": "high_press",
+              "style_b": "counter_attack",
+              "matchup": "高压逼抢 vs 防守反击 — 毕尔巴鄂竞技的高压可能迫使埃尔切后场出球失误",
+              "expected_pattern": "open",
+              "ineffective_possession": false,
+              "physical_mismatch": 0,
+              "derby_boost": false,
+              "fighting_spirit": {
+                "a": {
+                  "level": "high",
+                  "note": "毕尔巴鄂竞技争夺欧战资格，战意高涨"
+                },
+                "b": {
+                  "level": "high",
+                  "note": "埃尔切保级压力大，战意高涨"
+                }
+              }
+            },
+            "factors": [
+              {
+                "summary": "毕尔巴鄂竞技近5场3胜1平1负，状态不错；争夺欧战资格，战意高涨"
+              },
+              {
+                "summary": "埃尔切近5场3胜0平2负，状态一般；升班马，保级压力大"
+              },
+              {
+                "summary": "历史交锋：近2场毕尔巴鄂竞技1胜1负，但2022-23赛季毕尔巴鄂竞技主场0-1负，客场4-1胜"
+              },
+              {
+                "summary": "战术对位：毕尔巴鄂竞技高压逼抢 vs 埃尔切防守反击，高压逼抢克制防守反击"
+              },
+              {
+                "summary": "实力对比：毕尔巴鄂竞技Elo评级1729，埃尔切1509，毕尔巴鄂竞技高出220点，实力优势明显"
+              }
+            ],
+            "notes": [
+              "毕尔巴鄂竞技主场圣马梅斯氛围火爆",
+              "埃尔切客场战绩一般",
+              "毕尔巴鄂竞技近5场3胜1平1负，状态不错；争夺欧战资格，战意高涨",
+              "埃尔切近5场3胜0平2负，状态一般；升班马，保级压力大"
+            ]
+          },
+          {
+            "teams": [
+              "ATH",
+              "ELC"
+            ],
+            "confidence": 1.0,
+            "goal_delta": {
+              "ATH": 0.0,
+              "ELC": 0.0
+            },
+            "elo_delta": {
+              "ATH": 0.0,
+              "ELC": 0.0
+            },
+            "form_delta": {
+              "ATH": 0.0,
+              "ELC": 0.0
+            },
+            "factors": [],
+            "notes": [
+              "综合影响: ATH +0.000, ELC +0.000",
+              "进球修正: ATH +0.000, ELC +0.000"
+            ]
+          }
+        ]
+      },
+      "factors": [
+        {
+          "summary": "毕尔巴鄂竞技近5场3胜1平1负，状态不错；争夺欧战资格，战意高涨"
+        },
+        {
+          "summary": "埃尔切近5场3胜0平2负，状态一般；升班马，保级压力大"
+        },
+        {
+          "summary": "历史交锋：近2场毕尔巴鄂竞技1胜1负，但2022-23赛季毕尔巴鄂竞技主场0-1负，客场4-1胜"
+        },
+        {
+          "summary": "战术对位：毕尔巴鄂竞技高压逼抢 vs 埃尔切防守反击，高压逼抢克制防守反击"
+        },
+        {
+          "summary": "实力对比：毕尔巴鄂竞技Elo评级1729，埃尔切1509，毕尔巴鄂竞技高出220点，实力优势明显"
+        }
+      ],
+      "notes": [
+        "毕尔巴鄂竞技主场圣马梅斯氛围火爆",
+        "埃尔切客场战绩一般",
+        "毕尔巴鄂竞技近5场3胜1平1负，状态不错；争夺欧战资格，战意高涨",
+        "埃尔切近5场3胜0平2负，状态一般；升班马，保级压力大"
+      ],
+      "_id": "laliga|ATH|ELC|2026-09-12"
     }
   ],
   "entries": []

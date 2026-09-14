@@ -119,6 +119,138 @@
       "away": "VAL",
       "hg": 3,
       "ag": 1
+    },
+    {
+      "home": "ALA",
+      "away": "GET",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "SEV",
+      "away": "RAY",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "home": "RAY",
+      "away": "ALA",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "VAL",
+      "away": "CEL",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "GET",
+      "away": "RAC",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "ELC",
+      "away": "BAR",
+      "hg": 0,
+      "ag": 5
+    },
+    {
+      "home": "CEL",
+      "away": "OSA",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "home": "ALA",
+      "away": "VIL",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "OSA",
+      "away": "GET",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "BAR",
+      "away": "RAY",
+      "hg": 5,
+      "ag": 2
+    },
+    {
+      "home": "RSO",
+      "away": "CEL",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "BET",
+      "away": "RMA",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "home": "ATH",
+      "away": "ATM",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "home": "RAY",
+      "away": "RAC",
+      "hg": 3,
+      "ag": 2
+    },
+    {
+      "home": "VIL",
+      "away": "DEP",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "home": "VAL",
+      "away": "BAR",
+      "hg": 0,
+      "ag": 5
+    },
+    {
+      "home": "ALA",
+      "away": "OSA",
+      "hg": 5,
+      "ag": 2
+    },
+    {
+      "home": "MGA",
+      "away": "LEV",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "home": "ESP",
+      "away": "SEV",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "GET",
+      "away": "CEL",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "home": "ELC",
+      "away": "RSO",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "home": "SEV",
+      "away": "VAL",
+      "hg": 1,
+      "ag": 0
     }
   ]
 }

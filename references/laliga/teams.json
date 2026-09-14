@@ -9,7 +9,7 @@
     "RMA": {
       "name": "Real Madrid",
       "name_cn": "皇家马德里",
-      "elo": 1930,
+      "elo": 1927,
       "city": "Madrid",
       "stadium": "Santiago Bernabéu",
       "color": "white",
@@ -18,7 +18,7 @@
     "BAR": {
       "name": "Barcelona",
       "name_cn": "巴塞罗那",
-      "elo": 1840,
+      "elo": 1882,
       "city": "Barcelona",
       "stadium": "Camp Nou",
       "color": "blue",
@@ -27,7 +27,7 @@
     "ATM": {
       "name": "Atlético Madrid",
       "name_cn": "马德里竞技",
-      "elo": 1820,
+      "elo": 1797,
       "city": "Madrid",
       "stadium": "Metropolitano",
       "color": "red",
@@ -36,7 +36,7 @@
     "RSO": {
       "name": "Real Sociedad",
       "name_cn": "皇家社会",
-      "elo": 1720,
+      "elo": 1706,
       "city": "San Sebastián",
       "stadium": "Reale Arena",
       "color": "blue",
@@ -45,7 +45,7 @@
     "ATH": {
       "name": "Athletic Bilbao",
       "name_cn": "毕尔巴鄂竞技",
-      "elo": 1710,
+      "elo": 1729,
       "city": "Bilbao",
       "stadium": "San Mamés",
       "color": "red",
@@ -54,7 +54,7 @@
     "VIL": {
       "name": "Villarreal CF",
       "name_cn": "比利亚雷亚尔",
-      "elo": 1700,
+      "elo": 1661,
       "city": "Villarreal",
       "stadium": "Estadio de la Cerámica",
       "color": "yellow",
@@ -63,7 +63,7 @@
     "BET": {
       "name": "Real Betis",
       "name_cn": "皇家贝蒂斯",
-      "elo": 1680,
+      "elo": 1690,
       "city": "Seville",
       "stadium": "Benito Villamarín",
       "color": "green",
@@ -72,7 +72,7 @@
     "SEV": {
       "name": "Sevilla FC",
       "name_cn": "塞维利亚",
-      "elo": 1650,
+      "elo": 1681,
       "city": "Seville",
       "stadium": "Ramón Sánchez-Pizjuán",
       "color": "red",
@@ -81,7 +81,7 @@
     "VAL": {
       "name": "Valencia CF",
       "name_cn": "瓦伦西亚",
-      "elo": 1630,
+      "elo": 1570,
       "city": "Valencia",
       "stadium": "Mestalla",
       "color": "black",
@@ -90,7 +90,7 @@
     "CEL": {
       "name": "Celta Vigo",
       "name_cn": "塞尔塔",
-      "elo": 1610,
+      "elo": 1580,
       "city": "Vigo",
       "stadium": "Balaídos",
       "color": "blue",
@@ -99,7 +99,7 @@
     "RAY": {
       "name": "Rayo Vallecano",
       "name_cn": "巴列卡诺",
-      "elo": 1595,
+      "elo": 1586,
       "city": "Madrid",
       "stadium": "Vallecas",
       "color": "red",
@@ -108,7 +108,7 @@
     "GET": {
       "name": "Getafe CF",
       "name_cn": "赫塔菲",
-      "elo": 1585,
+      "elo": 1555,
       "city": "Getafe",
       "stadium": "Coliseum",
       "color": "blue",
@@ -117,7 +117,7 @@
     "OSA": {
       "name": "CA Osasuna",
       "name_cn": "奥萨苏纳",
-      "elo": 1578,
+      "elo": 1576,
       "city": "Pamplona",
       "stadium": "El Sadar",
       "color": "red",
@@ -126,7 +126,7 @@
     "ESP": {
       "name": "RCD Espanyol",
       "name_cn": "西班牙人",
-      "elo": 1560,
+      "elo": 1575,
       "city": "Barcelona",
       "stadium": "RCDE Stadium",
       "color": "blue",
@@ -135,7 +135,7 @@
     "ALA": {
       "name": "Deportivo Alavés",
       "name_cn": "阿拉维斯",
-      "elo": 1550,
+      "elo": 1628,
       "city": "Vitoria-Gasteiz",
       "stadium": "Mendizorrotza",
       "color": "blue",
@@ -144,7 +144,7 @@
     "ELC": {
       "name": "Elche CF",
       "name_cn": "埃尔切",
-      "elo": 1540,
+      "elo": 1509,
       "city": "Elche",
       "stadium": "Estadio Martínez Valero",
       "color": "green",
@@ -153,7 +153,7 @@
     "LEV": {
       "name": "Levante UD",
       "name_cn": "莱万特",
-      "elo": 1530,
+      "elo": 1545,
       "city": "Valencia",
       "stadium": "Ciutat de València",
       "color": "blue",
@@ -162,7 +162,7 @@
     "DEP": {
       "name": "RC Deportivo de La Coruña",
       "name_cn": "拉科鲁尼亚",
-      "elo": 1520,
+      "elo": 1566,
       "city": "A Coruña",
       "stadium": "Riazor",
       "color": "blue",
@@ -171,7 +171,7 @@
     "MGA": {
       "name": "Málaga CF",
       "name_cn": "马拉加",
-      "elo": 1512,
+      "elo": 1502,
       "city": "Málaga",
       "stadium": "La Rosaleda",
       "color": "blue",
@@ -180,7 +180,7 @@
     "RAC": {
       "name": "Racing de Santander",
       "name_cn": "桑坦德竞技",
-      "elo": 1505,
+      "elo": 1500,
       "city": "Santander",
       "stadium": "El Sardinero",
       "color": "green",

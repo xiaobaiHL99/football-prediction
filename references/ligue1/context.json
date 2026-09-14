@@ -6,7 +6,8 @@
       "apply_when": "team_in_europe and match_within_3_days_of_european_match"
     }
   },
-  "europe_teams": ["PSG", "LEN", "LIL", "MON", "MAR", "LYO", "NCE"],
+  "europe_teams": ["PSG", "LEN", "LIL", "MAR", "LYO", "REN", "MON"],
+  "europe_teams_note": "2026-27 核实（2026-09-12）：UCL：PSG、LEN(联赛第2，兼法国杯冠军)、LIL；UEL：LYO(欧冠附加赛 1-2 负费内巴切、总比分 2-3 转入欧联)、MAR(联赛第5)、REN(联赛第6——因朗斯夺法国杯，杯赛冠军的欧联名额顺延给第6)；UECL：MON(第7递补，附加赛胜戈尔尼克·扎布热晋级)。原名单误列 NCE(尼斯，法国杯决赛负朗斯，联赛仅第16、靠附加赛胜圣埃蒂安保级)，漏了 REN。7 队全部进入联赛阶段（里昂经降级通道转入，未出局）。来源：uefa.com 官方欧联名单（France: Lyon, Marseille, Rennes）+ 法甲官方名额规则 + RMC Sport + franceinfo。",
   "turf_map": {
     "artificial": [],
     "natural": ["PSG", "MON", "LIL", "MAR", "LYO", "LEN", "REN", "NCE", "STR", "LOR", "TLS", "AUX", "BRE", "PFC", "ANG", "HAV", "TRO", "LMA"]
